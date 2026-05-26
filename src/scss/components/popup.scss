@@ -1,0 +1,484 @@
+// Модальные окна (Fancybox inline)
+
+$popup-gradient: linear-gradient(61deg, $color-primary 0%, $color-accent 99.68%);
+
+.popup-modal {
+	width: 100%;
+	max-width: rem(873);
+	border-radius: $radius-btn;
+	background: $popup-gradient;
+	color: #fff;
+	overflow: hidden;
+
+	&__inner {
+		position: relative;
+		padding: rem(40) rem(20) rem(32);
+
+		@media (min-width: $bp-mobile-lg) {
+			padding: rem(40);
+		}
+	}
+
+	&__close {
+		position: absolute;
+		top: rem(20);
+		right: rem(20);
+		z-index: 3;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: rem(32);
+		height: rem(32);
+		padding: 0;
+		border: 0;
+		background: transparent;
+		color: #fff;
+		cursor: pointer;
+		transition: opacity 0.2s ease;
+
+		@media (min-width: $bp-desktop) {
+			&:hover {
+				opacity: 0.75;
+			}
+		}
+	}
+
+	&__decor {
+		position: absolute;
+		inset: 0;
+		pointer-events: none;
+		overflow: hidden;
+
+		&--union {
+			background: url("@img/catalog/decor-union.png") center / cover no-repeat;
+			opacity: 0.35;
+			mix-blend-mode: luminosity;
+		}
+
+		&--molecules {
+			img {
+				position: absolute;
+				max-width: none;
+				height: auto;
+				opacity: 0.55;
+				mix-blend-mode: luminosity;
+				filter: blur(5px);
+
+				&:first-child {
+					left: rem(-37);
+					top: rem(88);
+					width: rem(226);
+					transform: rotate(-90deg);
+				}
+
+				&:last-child {
+					right: rem(-20);
+					top: rem(70);
+					width: rem(284);
+					transform: scaleY(-1) rotate(-103deg);
+				}
+			}
+		}
+	}
+
+	&__content {
+		position: relative;
+		z-index: 1;
+
+		&--center {
+			max-width: rem(426);
+			margin: 0 auto;
+			text-align: center;
+		}
+	}
+
+	&__layout {
+		position: relative;
+		z-index: 1;
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: rem(24);
+		align-items: start;
+
+		@media (min-width: $bp-tablet) {
+			grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+			gap: rem(32);
+		}
+
+		&--reverse {
+			@media (min-width: $bp-tablet) {
+				grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+			}
+		}
+	}
+
+	&__title {
+		margin: 0 0 rem(10);
+		font-weight: 500;
+		line-height: 1.2;
+		letter-spacing: -0.04em;
+		@include adaptive-font(24, 32);
+	}
+
+	&__lead {
+		margin: 0 0 rem(20);
+		font-family: "Manrope", $font-family;
+		font-weight: 400;
+		line-height: 1.3;
+		@include adaptive-font(14, 18);
+
+		.popup-modal__content--center & {
+			max-width: rem(466);
+			margin-left: auto;
+			margin-right: auto;
+		}
+	}
+
+	&__fields {
+		display: flex;
+		flex-direction: column;
+		gap: rem(10);
+	}
+
+	&__field {
+		display: block;
+	}
+
+	&__input {
+		width: 100%;
+		min-height: rem(52);
+		padding: rem(10) rem(20);
+		border: rem(0.5) solid #fff;
+		border-radius: $radius-btn;
+		background: transparent;
+		color: #fff;
+		font-family: $font-family;
+		font-weight: 400;
+		line-height: 1.2;
+		letter-spacing: -0.02em;
+		transition: border-color 0.25s ease;
+		@include adaptive-font(16, 18);
+
+		&::placeholder {
+			color: rgba(255, 255, 255, 0.85);
+		}
+
+		&:focus {
+			outline: none;
+			border-width: rem(1);
+		}
+	}
+
+	&__agree {
+		align-items: flex-start;
+
+		.checkbox__text a {
+			color: inherit;
+			text-decoration: underline;
+			text-underline-offset: rem(2);
+		}
+	}
+
+	&__submit {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 100%;
+		min-height: rem(60);
+		margin-top: rem(10);
+		padding: rem(10) rem(20);
+		border: 0;
+		border-radius: $radius-btn;
+		background: $color-surface-mint;
+		color: $color-primary;
+		font-family: $font-family;
+		font-weight: 500;
+		line-height: 1.2;
+		letter-spacing: $btn-letter-spacing;
+		text-transform: uppercase;
+		cursor: pointer;
+		transition:
+			background 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+			transform 0.2s cubic-bezier(0.22, 1, 0.36, 1);
+		@include adaptive-font(16, 20);
+
+		@media (min-width: $bp-desktop) {
+			&:hover {
+				background: #fff;
+				transform: translateY(-2px);
+			}
+		}
+
+		&:active {
+			transform: translateY(1px) scale(0.98);
+		}
+	}
+
+	&__form {
+		display: flex;
+		flex-direction: column;
+		gap: rem(10);
+	}
+
+	&__visual {
+		display: none;
+		position: relative;
+		min-height: rem(200);
+
+		@media (min-width: $bp-tablet) {
+			display: block;
+		}
+	}
+
+	&__photo {
+		position: absolute;
+		width: rem(182);
+		height: rem(169);
+		border-radius: $radius-btn;
+		background: $color-accent;
+		overflow: hidden;
+
+		&:first-child {
+			right: 0;
+			bottom: 0;
+		}
+
+		&:last-child {
+			right: rem(182);
+			top: 0;
+		}
+
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
+
+	&__media {
+		display: flex;
+		justify-content: center;
+		margin-bottom: rem(16);
+
+		@media (min-width: $bp-tablet) {
+			margin-bottom: 0;
+			align-items: center;
+		}
+
+		img {
+			max-width: rem(280);
+			width: 100%;
+			height: auto;
+			filter: drop-shadow(rem(2) rem(2) rem(8) $color-primary);
+
+			@media (min-width: $bp-tablet) {
+				max-width: rem(327);
+			}
+		}
+	}
+
+	&__partners {
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: rem(10);
+		width: 100%;
+
+		@media (min-width: $bp-mobile-lg) {
+			grid-template-columns: repeat(3, minmax(0, 1fr));
+		}
+
+		@media (min-width: $bp-tablet) {
+			grid-template-columns: repeat(5, minmax(0, 1fr));
+		}
+	}
+
+	&__partner {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		gap: rem(10);
+		min-height: rem(115);
+		padding: rem(12) rem(10);
+		border: rem(0.5) solid #fff;
+		border-radius: $radius-btn;
+		background: $color-surface-tab;
+		backdrop-filter: blur(10px);
+		text-decoration: none;
+		transition: box-shadow 0.25s ease;
+
+		@media (min-width: $bp-desktop) {
+			&:hover {
+				box-shadow: 0 rem(8) rem(24) rgba($color-primary, 0.15);
+			}
+		}
+	}
+
+	&__partner-logo {
+		display: block;
+		max-width: rem(120);
+		max-height: rem(53);
+		width: auto;
+		height: auto;
+		object-fit: contain;
+	}
+
+	&__partner-action {
+		display: inline-flex;
+		align-items: center;
+		gap: rem(10);
+		color: $color-primary;
+		font-weight: 500;
+		font-size: rem(14);
+		line-height: 1.2;
+		letter-spacing: -0.02em;
+		text-transform: uppercase;
+	}
+
+	&__partner-icon {
+		width: rem(24);
+		height: rem(24);
+	}
+
+	// Консультация — центрированная форма
+	&--consult {
+		.popup-modal__inner {
+			padding-top: rem(32);
+
+			@media (min-width: $bp-mobile-lg) {
+				padding-top: rem(40);
+			}
+		}
+
+		.popup-modal__title {
+			text-align: center;
+		}
+
+		.popup-modal__decor--molecules {
+			display: none;
+
+			@media (min-width: $bp-tablet) {
+				display: block;
+			}
+		}
+	}
+
+	// Заказ — форма слева
+	&--order {
+		.popup-modal__decor--union {
+			left: auto;
+			right: 0;
+			width: 65%;
+			opacity: 0.25;
+		}
+
+		@media (max-width: ($bp-tablet - 1px)) {
+			.popup-modal__visual {
+				display: grid;
+				grid-template-columns: 1fr 1fr;
+				gap: rem(10);
+				position: static;
+				min-height: 0;
+
+				.popup-modal__photo {
+					position: static;
+					width: 100%;
+					height: rem(140);
+				}
+			}
+		}
+	}
+
+	// Презентация
+	&--presentation {
+		.popup-modal__title {
+			@include adaptive-font(22, 28);
+		}
+
+		.popup-modal__decor--union {
+			opacity: 0.2;
+		}
+	}
+
+	// Партнёры
+	&--partners {
+		max-width: rem(873);
+
+		.popup-modal__lead br {
+			@media (max-width: ($bp-mobile - 1px)) {
+				display: none;
+			}
+		}
+	}
+
+	// Статус: успех / ошибка
+	&--status {
+		max-width: rem(550);
+
+		.popup-modal__inner {
+			min-height: rem(160);
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			padding: rem(48) rem(24);
+		}
+
+		.popup-modal__decor--union {
+			opacity: 0.3;
+		}
+	}
+
+	&__status {
+		position: relative;
+		z-index: 1;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: rem(10);
+		text-align: center;
+	}
+
+	&__status-icon {
+		width: rem(28);
+		height: rem(28);
+		color: #fff;
+
+		&--error {
+			color: #fff;
+		}
+	}
+
+	&__status-title {
+		margin: 0;
+		font-weight: 500;
+		line-height: 1.2;
+		letter-spacing: -0.04em;
+		@include adaptive-font(22, 28);
+	}
+}
+
+// Fancybox: кастомизация контейнера
+.fancybox-popup {
+	--fancybox-bg: rgba(34, 34, 34, 0.55);
+
+	.fancybox__backdrop {
+		background: var(--fancybox-bg);
+	}
+
+	.fancybox__content {
+		padding: 0;
+		background: transparent;
+	}
+
+	.fancybox__slide {
+		padding: rem(16);
+	}
+
+	.f-button.is-close-btn {
+		display: none;
+	}
+}
+
+.popups {
+	display: none;
+}

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ru">
+    @@include('html/_head.html', { "title": "Контакты" })
+    <body>
+        <div class="wrapper">
+            @@include('html/_header.html', {})
+            <main class="page page--contacts">
+                <section class="contacts-intro">
+                    <div class="contacts-intro__container _container">
+                        <div class="contacts-intro__head">
+                            <div class="contacts-intro__content">
+                                <h1 class="contacts-intro__title">Закажите&nbsp;оборудование для диагностики аллергии</h1>
+                                <p class="contacts-intro__text">Закажите современное оборудование для аллергодиагностики быстро и без лишних хлопот. Заполните форму, и наш менеджер подберет оптимальное решение под ваши задачи и пришлет полный прайс‑лист.</p>
+                            </div>
+                            <div class="contacts-intro__products">
+                                <div class="contacts-intro__product">
+                                    <img class="contacts-intro__img" src="@img/contacts/product-02.png" alt="Анализатор для аллергодиагностики" title="Анализатор для аллергодиагностики" width="119" height="100">
+                                </div>
+                                <div class="contacts-intro__product">
+                                    <img class="contacts-intro__img" src="@img/contacts/product-01.png" alt="Диагностическое оборудование PROTIA" title="Диагностическое оборудование PROTIA" width="119" height="100">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="contacts-order">
+                    <div class="contacts-order__container _container">
+                        <div class="contacts-order__grid">
+                            <form class="contacts-form" action="#" method="post">
+                                <div class="contacts-form__row">
+                                    <input class="form-field" type="text" name="name" placeholder="Имя" autocomplete="name" required>
+                                    <input class="form-field" type="text" name="company" placeholder="Компания" autocomplete="organization">
+                                </div>
+                                <div class="contacts-form__row">
+                                    <input class="form-field" type="tel" name="phone" placeholder="+7 (" autocomplete="tel" required>
+                                    <input class="form-field" type="email" name="email" placeholder="E-mail" autocomplete="email" required>
+                                </div>
+                                <textarea class="form-field contacts-form__textarea" name="comment" placeholder="Комментарий" rows="4"></textarea>
+                                <label class="checkbox contacts-form__agree">
+                                    <input class="checkbox__input" type="checkbox" name="agree" required>
+                                    <span class="checkbox__box">
+                                        <svg class="icon" width="20" height="20" aria-hidden="true">
+                                            <use href="@img/icons.svg#icon-check"></use>
+                                        </svg>
+                                    </span>
+                                    <span class="checkbox__text">Я даю согласие на <a href="politika-konfidentsialnosti.html">обработку персональных данных</a> и соглашаюсь с <a href="politika-konfidentsialnosti.html">политикой конфиденциальности</a></span>
+                                </label>
+                                <button class="contacts-form__submit" type="submit">Отправить заявку</button>
+                            </form>
+
+                            <a
+                                class="contacts-order__map"
+                                href="https://yandex.ru/maps/?text=Москва%2C%20ул.%20Тихая%2C%2028"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                title="Открыть адрес на карте — ул. Тихая, 28, Москва"
+                            >
+                                <img
+                                    class="contacts-order__map-img"
+                                    src="@img/contacts/map.png"
+                                    alt="Офис на карте — ул. Тихая, 28, Москва"
+                                    title="Офис на карте — ул. Тихая, 28, Москва"
+                                    width="650"
+                                    height="431"
+                                    loading="lazy"
+                                >
+                            </a>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="contacts-info">
+                    <div class="contacts-info__decor" aria-hidden="true"></div>
+                    <div class="contacts-info__container _container">
+                        <div class="contacts-info__head">
+                            <h2 class="contacts-info__title">Контакты для связи</h2>
+                            <p class="contacts-info__text">Мы всегда открыты для сотрудничества и рады новым интересным проектам!</p>
+                        </div>
+
+                        <div class="contacts-info__grid">
+                            <article class="contacts-card contacts-card--phone">
+                                <div class="contacts-card__icon" aria-hidden="true">
+                                    <svg class="icon" width="22" height="22">
+                                        <use href="@img/icons.svg#icon-phone"></use>
+                                    </svg>
+                                </div>
+                                <div class="contacts-card__body">
+                                    <a class="contacts-card__link" href="tel:+74953528777">+7 (495) 352-87-77</a>
+                                    <a class="contacts-card__link" href="tel:+74953504740">+7 (495) 350-47-40</a>
+                                    <a class="contacts-card__link" href="tel:+79169006584">+7 (916) 900-65-84</a>
+                                </div>
+                            </article>
+
+                            <article class="contacts-card contacts-card--address">
+                                <div class="contacts-card__icon" aria-hidden="true">
+                                    <svg class="icon" width="22" height="22">
+                                        <use href="@img/icons.svg#icon-pin"></use>
+                                    </svg>
+                                </div>
+                                <p class="contacts-card__body">109387, Москва, ул. Тихая, д. 28, оф. 216</p>
+                            </article>
+
+                            <article class="contacts-card contacts-card--legal">
+                                <div class="contacts-card__icon" aria-hidden="true">
+                                    <svg class="icon" width="22" height="22">
+                                        <use href="@img/icons.svg#icon-doc"></use>
+                                    </svg>
+                                </div>
+                                <p class="contacts-card__body">
+                                    ООО «Био Фокус»,<br>
+                                    ИНН: 7707384354<br>
+                                    КПП: 772301001<br>
+                                    ОГРН: 1177746459142
+                                </p>
+                            </article>
+
+                            <article class="contacts-card contacts-card--email">
+                                <div class="contacts-card__icon" aria-hidden="true">
+                                    <svg class="icon" width="22" height="22">
+                                        <use href="@img/icons.svg#icon-email"></use>
+                                    </svg>
+                                </div>
+                                <p class="contacts-card__body">
+                                    <a class="contacts-card__link" href="mailto:info@biofocus.ru">info@biofocus.ru</a>
+                                </p>
+                            </article>
+                        </div>
+                    </div>
+                </section>
+            </main>
+            @@include('html/_footer.html', {})
+        </div>
+        @@include('html/_popups.html', {})
+        @@include('html/_js.html', {})
+    </body>
+</html>

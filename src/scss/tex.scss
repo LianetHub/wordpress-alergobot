@@ -1,0 +1,93 @@
+@use "sass:math";
+
+@import "global/tokens";
+
+// Брейкпоинты (регламент DS-ART)
+$bp-desktop: 1200px;
+$bp-tablet: 991px;
+$bp-mobile-lg: 768px;
+$bp-mobile: 650px;
+
+// Шрифт по умолчанию
+$font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+// Миксин адаптивного шрифта
+@mixin adaptive-font($minSize, $maxSize, $minWidth: 360, $maxWidth: 1440) {
+	$slope: math.div($maxSize - $minSize, $maxWidth - $minWidth);
+	$intersect: $minSize - $slope * $minWidth;
+	font-size: clamp(
+		#{$minSize}px,
+		calc(#{$slope * 100}vw + #{$intersect}px),
+		#{$maxSize}px
+	);
+}
+
+@function rem($px) {
+	@return math.div($px, 16) + rem;
+}
+
+// Контейнер
+._container {
+	max-width: 1440px;
+	padding: 0 60px;
+	margin: 0 auto;
+
+	@media (max-width: 1400px) {
+		padding: 0 20px;
+	}
+
+	@media (max-width: $bp-mobile) {
+		padding: 0 16px;
+	}
+}
+
+// Базовая типографика (UI Kit — Desktop / Mobile)
+body {
+	font-family: $font-family;
+	color: $color-text-body;
+	background-color: $color-bg;
+	line-height: 1.3;
+	@include adaptive-font(14, 18);
+}
+
+.lock {
+	overflow: hidden;
+}
+
+h1 {
+	margin: 0;
+	font-weight: 400;
+	line-height: 1.1;
+	letter-spacing: -0.04em;
+	color: $color-primary;
+	@include adaptive-font(26, 56);
+}
+
+h2 {
+	margin: 0;
+	font-weight: 500;
+	line-height: 1.2;
+	letter-spacing: -0.04em;
+	color: $color-primary;
+	@include adaptive-font(24, 48);
+}
+
+h3 {
+	margin: 0;
+	font-weight: 500;
+	font-style: italic;
+	line-height: 1.2;
+	letter-spacing: -0.02em;
+	color: $color-primary;
+	@include adaptive-font(18, 24);
+}
+
+.wrapper {
+	display: flex;
+	flex-direction: column;
+	min-height: 100%;
+}
+
+.page {
+	flex: 1 1 auto;
+}

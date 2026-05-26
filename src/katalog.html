@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="ru">
+    @@include('html/_head.html', { "title": "Каталог" })
+    <body>
+        <div class="wrapper">
+            @@include('html/_header.html', {})
+            <main class="page page--catalog">
+                <section class="catalog-hero">
+                    <div class="catalog-hero__container _container">
+                        <span class="catalog-hero__decor catalog-hero__decor--tl" aria-hidden="true"></span>
+                        <span class="catalog-hero__decor catalog-hero__decor--tr" aria-hidden="true"></span>
+                        <div class="catalog-hero__grid">
+                            <div class="catalog-hero__main">
+                                <h1 class="catalog-hero__title">
+                                    <span class="catalog-hero__title-line">Каталог оборудования и реагентов</span>
+                                    <span class="catalog-hero__title-line">для диагностики аллергий</span>
+                                </h1>
+                                <a class="btn btn--primary catalog-hero__cta" href="#catalog-request">
+                                    Задать вопрос
+                                    <svg class="btn__icon" width="28" height="28" aria-hidden="true">
+                                        <use href="@img/icons.svg#icon-arrow-up-right"></use>
+                                    </svg>
+                                </a>
+                                <ul class="catalog-hero__tags">
+                                    <li class="catalog-hero__tags-item"><a class="catalog-hero__tag" href="#catalog-devices">Оборудование</a></li>
+                                    <li class="catalog-hero__tags-item"><a class="catalog-hero__tag" href="analizatory.html">Анализаторы</a></li>
+                                    <li class="catalog-hero__tags-item"><a class="catalog-hero__tag" href="#catalog-reagents">Реагенты</a></li>
+                                    <li class="catalog-hero__tags-item"><a class="catalog-hero__tag" href="#catalog-reagents">Панели</a></li>
+                                </ul>
+                                <span class="catalog-hero__decor catalog-hero__decor--bl" aria-hidden="true"></span>
+                                <span class="catalog-hero__decor catalog-hero__decor--br" aria-hidden="true"></span>
+                            </div>
+                            <p class="catalog-hero__text">В каталоге собраны решения для лабораторного анализа аллергии: диагностическое оборудование, анализаторы, панели и реагенты для исследований. Он поможет быстро подобрать подходящие диагностические наборы для клиники, лаборатории или диагностического центра, чтобы заказать или купить.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="catalog-section catalog-section--devices" id="catalog-devices">
+                    <div class="catalog-section__container _container">
+                        <div class="catalog-section__decor catalog-section__decor--devices" aria-hidden="true"></div>
+                        <div class="catalog-section__layout">
+                            <span class="catalog-section__badge catalog-section__badge--devices">Устройства и анализаторы</span>
+                            <div class="catalog-section__card">
+                                <div class="catalog-section__info">
+                                    <h2 class="catalog-section__title">Каталог устройств и анализаторов</h2>
+                                    <p class="catalog-section__text">Раздел представляет диагностическое оборудование для исследований в области аллергии. Перейдите в подкатегорию, чтобы посмотреть описание и характеристики, заказать (купить) нужные диагностические наборы.</p>
+                                    <a class="btn btn--primary catalog-section__btn" href="analizatory.html">
+                                        Перейти в каталог
+                                        <svg class="btn__icon" width="28" height="28" aria-hidden="true">
+                                            <use href="@img/icons.svg#icon-arrow-up-right"></use>
+                                        </svg>
+                                    </a>
+                                </div>
+                                <div class="catalog-section__products catalog-section__products--mobile">
+                                    <div class="catalog-section__product">
+                                        <img class="catalog-section__img" src="@img/catalog/device-q-smart.png" alt="Иммунохимический анализатор Q-Smart" title="Иммунохимический анализатор Q-Smart" width="239" height="164" loading="lazy">
+                                    </div>
+                                    <div class="catalog-section__product">
+                                        <img class="catalog-section__img" src="@img/catalog/device-elite-2.png" alt="Иммунохимический анализатор Q-Smart Elite" title="Иммунохимический анализатор Q-Smart Elite" width="200" height="167" loading="lazy">
+                                    </div>
+                                </div>
+                                <div class="catalog-section__product catalog-section__product--embed">
+                                    <img class="catalog-section__img" src="@img/catalog/device-q-smart.png" alt="Иммунохимический анализатор Q-Smart" title="Иммунохимический анализатор Q-Smart" width="239" height="164" loading="lazy">
+                                </div>
+                            </div>
+                            <div class="catalog-section__gallery">
+                                <div class="catalog-section__product catalog-section__product--fill">
+                                    <img class="catalog-section__img" src="@img/catalog/device-elite.png" alt="Иммунохимический анализатор Q-Smart Elite" title="Иммунохимический анализатор Q-Smart Elite" width="200" height="167" loading="lazy">
+                                </div>
+                                <div class="catalog-section__product">
+                                    <img class="catalog-section__img" src="@img/catalog/device-elite-2.png" alt="Лабораторный анализатор для аллергодиагностики" title="Лабораторный анализатор для аллергодиагностики" width="200" height="167" loading="lazy">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="catalog-section catalog-section--reagents" id="catalog-reagents">
+                    <div class="catalog-section__container _container">
+                        <div class="catalog-section__decor catalog-section__decor--reagents" aria-hidden="true"></div>
+                        <div class="catalog-section__layout catalog-section__layout--reverse">
+                            <span class="catalog-section__badge catalog-section__badge--reagents">Панели и реагенты</span>
+                            <div class="catalog-section__gallery catalog-section__gallery--reagents">
+                                <div class="catalog-section__product">
+                                    <img class="catalog-section__img" src="@img/catalog/reagent-protia.png" alt="Панель PROTIA Allergy-Q 96 Multipanel" title="Панель PROTIA Allergy-Q 96 Multipanel" width="250" height="134" loading="lazy">
+                                </div>
+                                <div class="catalog-section__product">
+                                    <img class="catalog-section__img" src="@img/catalog/reagent-nabory.png" alt="Наборы реагентов для аллергодиагностики" title="Наборы реагентов для аллергодиагностики" width="225" height="161" loading="lazy">
+                                </div>
+                            </div>
+                            <div class="catalog-section__card">
+                                <div class="catalog-section__info">
+                                    <h2 class="catalog-section__title">Каталог панелей и реагентов</h2>
+                                    <p class="catalog-section__text">В каталоге собраны панели, тест-системы и реагенты для диагностических наборов, исследующих аллергию. Перейдите в подкатегорию, чтобы подобрать, заказать или купить нужный состав оборудования и реагентов под задачи вашего мед учреждения.</p>
+                                    <a class="btn btn--primary catalog-section__btn" href="#">
+                                        Перейти в каталог
+                                        <svg class="btn__icon" width="28" height="28" aria-hidden="true">
+                                            <use href="@img/icons.svg#icon-arrow-up-right"></use>
+                                        </svg>
+                                    </a>
+                                </div>
+                                <div class="catalog-section__products catalog-section__products--mobile">
+                                    <div class="catalog-section__product">
+                                        <img class="catalog-section__img" src="@img/catalog/reagent-nabory.png" alt="Наборы реагентов для аллергодиагностики" title="Наборы реагентов для аллергодиагностики" width="225" height="161" loading="lazy">
+                                    </div>
+                                    <div class="catalog-section__product">
+                                        <img class="catalog-section__img" src="@img/catalog/reagent-protia.png" alt="Панель PROTIA Allergy-Q 96 Multipanel" title="Панель PROTIA Allergy-Q 96 Multipanel" width="250" height="134" loading="lazy">
+                                    </div>
+                                </div>
+                                <div class="catalog-section__product catalog-section__product--embed">
+                                    <img class="catalog-section__img" src="@img/catalog/reagent-nabory.png" alt="Наборы реагентов для аллергодиагностики" title="Наборы реагентов для аллергодиагностики" width="225" height="161" loading="lazy">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="catalog-request" id="catalog-request">
+                    <div class="catalog-request__container _container">
+                        <div class="catalog-request__box">
+                            <div class="catalog-request__grid">
+                                <div class="catalog-request__promo">
+                                    <h2 class="catalog-request__title">
+                                        <span>Получите презентацию, прайс и консультацию</span>
+                                        <span>по подбору решения</span>
+                                    </h2>
+                                    <p class="catalog-request__lead catalog-request__lead--desktop">Мы подберём диагностическое оборудование, аллергопробы и реагенты под формат вашей работы. Расскажем о вариантах поставки, поможем с выбором. По запросу направим презентацию, актуальный прайс и консультацию по ассортименту, чтобы заказать или купить.</p>
+                                    <div class="catalog-request__note">
+                                        <span class="catalog-request__note-icon" aria-hidden="true">
+                                            <svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M21 28.5a10.5 10.5 0 01-.9 4.75 10.5 10.5 0 01-9.6 5.75 10.5 10.5 0 01-4.75-.9L3 36l2.35-7.1a10.5 10.5 0 01-.9-4.75 10.5 10.5 0 015.75-9.6 10.5 10.5 0 014.75-.9h.5a10.48 10.48 0 0110 10v.5z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
+                                        </span>
+                                        <p class="catalog-request__note-text">По запросу направим презентацию, актуальный прайс и консультацию по ассортименту.</p>
+                                    </div>
+                                </div>
+                                <form class="catalog-request__form" action="#" method="post">
+                                    <p class="catalog-request__form-lead">Мы подберём диагностическое оборудование, аллергопробы и реагенты под формат вашей работы. Расскажем о вариантах поставки, поможем с выбором. По запросу направим презентацию, актуальный прайс и консультацию по ассортименту, чтобы заказать или купить.</p>
+                                    <div class="catalog-request__row">
+                                        <label class="catalog-request__field">
+                                            <span class="visually-hidden">Имя</span>
+                                            <input class="catalog-request__input" type="text" name="name" placeholder="Имя" autocomplete="name" required>
+                                        </label>
+                                        <label class="catalog-request__field">
+                                            <span class="visually-hidden">Компания</span>
+                                            <input class="catalog-request__input" type="text" name="company" placeholder="Компания" autocomplete="organization">
+                                        </label>
+                                    </div>
+                                    <div class="catalog-request__row">
+                                        <label class="catalog-request__field">
+                                            <span class="visually-hidden">Телефон</span>
+                                            <input class="catalog-request__input" type="tel" name="phone" placeholder="+7 (" autocomplete="tel" required>
+                                        </label>
+                                        <label class="catalog-request__field">
+                                            <span class="visually-hidden">E-mail</span>
+                                            <input class="catalog-request__input" type="email" name="email" placeholder="E-mail" autocomplete="email" required>
+                                        </label>
+                                    </div>
+                                    <label class="catalog-request__field catalog-request__field--full">
+                                        <span class="visually-hidden">Комментарий</span>
+                                        <textarea class="catalog-request__input catalog-request__textarea" name="comment" placeholder="Комментарий" rows="4"></textarea>
+                                    </label>
+                                    <label class="catalog-request__agree">
+                                        <input class="catalog-request__checkbox" type="checkbox" name="agree" required>
+                                        <span class="catalog-request__agree-text">Я даю согласие на <a href="politika-konfidentsialnosti.html">обработку персональных данных</a> и соглашаюсь с <a href="politika-konfidentsialnosti.html">политикой конфиденциальности</a></span>
+                                    </label>
+                                    <button class="catalog-request__submit" type="submit">Отправить заявку</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="catalog-faq">
+                    <div class="catalog-faq__container _container">
+                        <div class="catalog-faq__head">
+                            <span class="catalog-faq__badge">FAQ</span>
+                            <h2 class="catalog-faq__title">Информация по часто задаваемым вопросам</h2>
+                        </div>
+
+                        <div class="catalog-faq__list catalog-faq__list--mobile">
+                            <div class="accordion catalog-faq__accordion" data-accordion>
+                                @@include('html/_accordion-item.html', {
+                                    "activeClass": " _active",
+                                    "expanded": "true",
+                                    "question": "Что есть в каталоге?",
+                                    "answer": "В перечне описаны устройства, анализаторы, панели и компоненты, для диагностических наборов по диагностике заболеваний от аллергии. Переходите к подкатегориям, чтобы изучить и заказать решения для конкретных задач."
+                                })
+                                @@include('html/_accordion-item.html', {
+                                    "activeClass": "",
+                                    "expanded": "false",
+                                    "question": "Кому подойдет перечень из каталога?",
+                                    "answer": "Решения подходят для лабораторий, медицинских центров, стоматологий и диагностических клиник, которые проводят или планируют внедрить аллергологические исследования."
+                                })
+                                @@include('html/_accordion-item.html', {
+                                    "activeClass": "",
+                                    "expanded": "false",
+                                    "question": "Можно ли подобрать решение под задачи конкретной лаборатории?",
+                                    "answer": "Да. Мы консультируем по подбору оборудования и реагентов с учётом объёма исследований, имеющейся инфраструктуры и бюджета."
+                                })
+                                @@include('html/_accordion-item.html', {
+                                    "activeClass": "",
+                                    "expanded": "false",
+                                    "question": "Можно ли запросить прайс и презентацию по продукции?",
+                                    "answer": "Оставьте заявку в форме на этой странице — мы направим актуальные материалы и свяжемся для уточнения деталей."
+                                })
+                                @@include('html/_accordion-item.html', {
+                                    "activeClass": "",
+                                    "expanded": "false",
+                                    "question": "Чем отличаются устройства и анализаторы от панелей и реагентов?",
+                                    "answer": "Устройства и анализаторы — это оборудование для проведения исследований. Панели и реагенты — расходные материалы и тест-системы для диагностических наборов."
+                                })
+                                @@include('html/_accordion-item.html', {
+                                    "activeClass": "",
+                                    "expanded": "false",
+                                    "question": "Как разобраться, какой раздел каталога нужен?",
+                                    "answer": "Если вам нужно оборудование — откройте раздел устройств и анализаторов. Для тест-систем и реагентов — раздел панелей и реагентов. Менеджер поможет уточнить выбор."
+                                })
+                            </div>
+                        </div>
+
+                        <div class="catalog-faq__columns">
+                            <div class="accordion catalog-faq__accordion" data-accordion>
+                                @@include('html/_accordion-item.html', {
+                                    "activeClass": " _active",
+                                    "expanded": "true",
+                                    "question": "Что есть в каталоге?",
+                                    "answer": "В перечне описаны устройства, анализаторы, панели и компоненты, для диагностических наборов по диагностике заболеваний от аллергии. Переходите к подкатегориям, чтобы изучить и заказать решения для конкретных задач."
+                                })
+                                @@include('html/_accordion-item.html', {
+                                    "activeClass": "",
+                                    "expanded": "false",
+                                    "question": "Можно ли подобрать решение под задачи конкретной лаборатории?",
+                                    "answer": "Да. Мы консультируем по подбору оборудования и реагентов с учётом объёма исследований, имеющейся инфраструктуры и бюджета."
+                                })
+                                @@include('html/_accordion-item.html', {
+                                    "activeClass": "",
+                                    "expanded": "false",
+                                    "question": "Чем отличаются устройства и анализаторы от панелей и реагентов?",
+                                    "answer": "Устройства и анализаторы — это оборудование для проведения исследований. Панели и реагенты — расходные материалы и тест-системы для диагностических наборов."
+                                })
+                            </div>
+                            <div class="accordion catalog-faq__accordion" data-accordion>
+                                @@include('html/_accordion-item.html', {
+                                    "activeClass": "",
+                                    "expanded": "false",
+                                    "question": "Кому подойдет перечень из каталога?",
+                                    "answer": "Решения подходят для лабораторий, медицинских центров, стоматологий и диагностических клиник, которые проводят или планируют внедрить аллергологические исследования."
+                                })
+                                @@include('html/_accordion-item.html', {
+                                    "activeClass": "",
+                                    "expanded": "false",
+                                    "question": "Можно ли запросить прайс и презентацию по продукции?",
+                                    "answer": "Оставьте заявку в форме на этой странице — мы направим актуальные материалы и свяжемся для уточнения деталей."
+                                })
+                                @@include('html/_accordion-item.html', {
+                                    "activeClass": "",
+                                    "expanded": "false",
+                                    "question": "Как разобраться, какой раздел каталога нужен?",
+                                    "answer": "Если вам нужно оборудование — откройте раздел устройств и анализаторов. Для тест-систем и реагентов — раздел панелей и реагентов. Менеджер поможет уточнить выбор."
+                                })
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </main>
+            @@include('html/_footer.html', {})
+        </div>
+        @@include('html/_popups.html', {})
+        @@include('html/_js.html', {})
+    </body>
+</html>

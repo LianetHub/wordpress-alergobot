@@ -1,0 +1,41 @@
+@import "tex";
+@import "fonts";
+
+@import "components/typography";
+@import "components/btn";
+@import "components/tab";
+@import "components/form";
+@import "components/checkbox";
+@import "components/popup";
+
+@import "global/header";
+@import "global/footer";
+
+@import "section/home/home";
+@import "section/not-found/not-found";
+@import "section/policy/policy";
+@import "section/contacts/contacts";
+@import "section/blog/blog";
+@import "section/article/article";
+@import "section/catalog/catalog";
+@import "section/analyzers/analyzers";
+@import "section/product/product";
+@import "section/uikit/uikit";
+
+.policy__decor {
+	background: url("@img/policy-pattern.svg") no-repeat center top / contain;
+}
+
+.article__decor {
+	background: url("@img/policy-pattern.svg") no-repeat center top / contain;
+}
+
+.home-pick__decor,
+.home-equipment__decor,
+.home-news__decor {
+	background: url("@img/policy-pattern.svg") no-repeat right top / contain;
+}
+
+.contacts-info__decor {
+	background: url("@img/contacts/decor-molecules.png") no-repeat center / cover;
+}

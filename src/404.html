@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ru">
+    @@include('html/_head.html', { "title": "404" })
+    <body>
+        <div class="wrapper">
+            @@include('html/_header.html', {})
+            <main class="page page--not-found">
+                <section class="not-found">
+                    <div class="not-found__container _container">
+                        <div class="not-found__head">
+                            <h1 class="not-found__title">
+                                <span class="not-found__title-full">Такой страницы не существует</span>
+                                <span class="not-found__title-split">
+                                    <span>Такой страницы</span>
+                                    <span>не существует</span>
+                                </span>
+                            </h1>
+                            <p class="not-found__text">
+                                <span class="not-found__text-full">Воспользуйтесь меню, чтобы перейти на другие страницы</span>
+                                <span class="not-found__text-split">
+                                    <span>Воспользуйтесь меню, чтобы перейти</span>
+                                    <span>на другие страницы</span>
+                                </span>
+                            </p>
+                        </div>
+
+                        <div class="not-found__visual" aria-hidden="true">
+                            <img
+                                class="not-found__digit not-found__digit--left"
+                                src="@img/not-found/digit-4-left.svg"
+                                alt=""
+                                title=""
+                                width="236"
+                                height="286"
+                            >
+                            <div class="not-found__sphere">
+                                <img
+                                    class="not-found__sphere-img"
+                                    src="@img/not-found/molecules.png"
+                                    alt=""
+                                    title=""
+                                    width="286"
+                                    height="286"
+                                >
+                                <img
+                                    class="not-found__sphere-deco not-found__sphere-deco--top"
+                                    src="@img/not-found/bubble-deco-top.png"
+                                    alt=""
+                                    title=""
+                                    width="104"
+                                    height="104"
+                                >
+                                <span class="not-found__sphere-deco not-found__sphere-deco--small"></span>
+                            </div>
+                            <img
+                                class="not-found__digit not-found__digit--right"
+                                src="@img/not-found/digit-4-right.svg"
+                                alt=""
+                                title=""
+                                width="236"
+                                height="286"
+                            >
+                        </div>
+
+                        <div class="not-found__actions">
+                            <a class="btn btn--primary not-found__btn" href="index.html">
+                                Вернуться на главную
+                                <svg class="btn__icon" width="28" height="28" aria-hidden="true">
+                                    <use href="@img/icons.svg#icon-arrow-up-right"></use>
+                                </svg>
+                            </a>
+                            <a class="btn btn--secondary not-found__btn" href="katalog.html">
+                                Смотреть каталог
+                                <svg class="btn__icon" width="28" height="28" aria-hidden="true">
+                                    <use href="@img/icons.svg#icon-arrow-up-right"></use>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </section>
+            </main>
+            @@include('html/_footer.html', {})
+        </div>
+        @@include('html/_popups.html', {})
+        @@include('html/_js.html', {})
+    </body>
+</html>

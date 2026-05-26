@@ -1,0 +1,116 @@
+// Общие элементы главной
+$home-muted: #5c6f7a;
+$home-card: #e8f4f8;
+$home-teal: $color-accent;
+
+.home-tag {
+	display: inline-block;
+	padding: rem(8) rem(16);
+	border-radius: $radius-tab;
+	background: $color-accent;
+	color: #fff;
+	font-family: $font-family;
+	font-size: rem(20);
+	font-weight: 500;
+	line-height: 1.2;
+	letter-spacing: -0.02em;
+	text-transform: uppercase;
+
+	@media (max-width: $bp-mobile) {
+		font-size: rem(14);
+		padding: rem(6) rem(12);
+	}
+}
+
+.home-arrow {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+}
+
+// Алиасы UI Kit на главной (постепенная миграция разметки на .btn)
+.home-btn {
+	@extend .btn;
+
+	&--fill {
+		@extend .btn--primary;
+	}
+
+	&--outline {
+		@extend .btn--secondary;
+	}
+
+	&--white {
+		@extend .btn--white;
+	}
+
+	&--white-outline {
+		@extend .btn--white-outline;
+	}
+}
+
+.home-head {
+	margin-bottom: rem(28);
+
+	&--row {
+		display: flex;
+		flex-direction: column;
+		gap: rem(16);
+
+		@media (min-width: $bp-tablet) {
+			flex-direction: row;
+			align-items: flex-start;
+			justify-content: space-between;
+			gap: rem(32);
+		}
+	}
+
+	&__main {
+		max-width: rem(720);
+	}
+
+	&__title {
+		margin: 0;
+		color: $color-primary;
+		font-weight: 500;
+		line-height: 1.2;
+		letter-spacing: -0.04em;
+		@include adaptive-font(26, 48);
+	}
+
+	&__text {
+		margin: rem(10) 0 0;
+		color: $color-text-body;
+		line-height: 1.3;
+		@include adaptive-font(14, 18);
+	}
+
+	&__aside {
+		max-width: rem(420);
+
+		@media (min-width: $bp-tablet) {
+			padding-top: rem(8);
+		}
+	}
+
+	&__note {
+		margin: 0;
+		color: $color-brand-2;
+		font-style: italic;
+		line-height: 1.55;
+	}
+}
+
+.page--home {
+	.visually-hidden {
+		position: absolute;
+		width: 1px;
+		height: 1px;
+		padding: 0;
+		margin: -1px;
+		overflow: hidden;
+		clip: rect(0, 0, 0, 0);
+		white-space: nowrap;
+		border: 0;
+	}
+}

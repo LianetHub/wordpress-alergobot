@@ -1,0 +1,140 @@
+.home-immuno {
+	padding: rem(48) 0;
+	background: $color-surface;
+
+	&__grid {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: rem(28);
+
+		@media (min-width: $bp-tablet) {
+			grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+			gap: rem(40);
+			align-items: start;
+		}
+	}
+
+	&__subtitle {
+		margin: 0 0 rem(16);
+		color: $color-brand;
+		font-weight: 500;
+		font-style: italic;
+		font-size: rem(24);
+		line-height: 1.2;
+		letter-spacing: -0.02em;
+	}
+
+	&__list {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+
+		li {
+			position: relative;
+			padding-left: rem(28);
+			margin-bottom: rem(12);
+			color: $color-text-body;
+			font-size: rem(16);
+			line-height: 1.3;
+
+			&::before {
+				content: "";
+				position: absolute;
+				left: 0;
+				top: rem(4);
+				width: rem(12);
+				height: rem(12);
+				border-radius: 50%;
+				background: $color-accent;
+			}
+		}
+	}
+
+	&__badges {
+		display: flex;
+		flex-wrap: wrap;
+		gap: rem(10);
+		margin-bottom: rem(20);
+	}
+
+	&__badge {
+		padding: rem(8) rem(16);
+		border-radius: $radius-tab;
+		background: $color-accent;
+		color: #fff;
+		font-size: rem(20);
+		font-weight: 500;
+		line-height: 1.2;
+		letter-spacing: -0.02em;
+		text-transform: uppercase;
+
+		@media (max-width: $bp-mobile) {
+			font-size: rem(14);
+		}
+	}
+
+	&__videos {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: rem(20);
+		margin-top: rem(32);
+
+		@media (min-width: $bp-tablet) {
+			grid-template-columns: 1fr 1fr;
+		}
+	}
+
+	&__video {
+		display: flex;
+		flex-direction: column;
+		gap: rem(10);
+	}
+
+	&__video-media {
+		position: relative;
+		border-radius: rem(10);
+		overflow: hidden;
+		aspect-ratio: 650 / 382;
+		background: $color-accent;
+
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
+
+	&__play {
+		position: absolute;
+		inset: 0;
+		margin: auto;
+		width: rem(101);
+		height: rem(101);
+		border: rem(0.5) solid rgba(255, 255, 255, 0.8);
+		border-radius: rem(10);
+		background: rgba(255, 255, 255, 0.1);
+		backdrop-filter: blur(10px);
+		cursor: pointer;
+
+		&::after {
+			content: "";
+			position: absolute;
+			left: 54%;
+			top: 50%;
+			transform: translate(-50%, -50%);
+			border: rem(12) solid transparent;
+			border-left-color: #fff;
+		}
+	}
+
+	&__video-caption {
+		margin: 0;
+		padding: rem(10);
+		border: 1px solid $color-accent;
+		border-radius: rem(10);
+		background: $color-surface-mint;
+		color: $color-brand;
+		font-size: rem(18);
+		line-height: 1.3;
+	}
+}

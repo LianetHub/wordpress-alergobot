@@ -1,0 +1,109 @@
+// Кнопки UI Kit: Кнопка 1, 2, 3
+
+.btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: $btn-gap;
+	min-height: $btn-height;
+	padding: rem(10) rem(20);
+	border: 1px solid transparent;
+	border-radius: $radius-btn;
+	font-family: $font-family;
+	font-weight: 500;
+	line-height: 1.2;
+	letter-spacing: $btn-letter-spacing;
+	text-transform: uppercase;
+	text-decoration: none;
+	white-space: nowrap;
+	cursor: pointer;
+	transition:
+		background 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+		border-color 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+		transform 0.2s cubic-bezier(0.22, 1, 0.36, 1),
+		opacity 0.2s ease;
+	@include adaptive-font(16, 20);
+
+	&:disabled,
+	&[aria-disabled="true"],
+	&--disabled {
+		opacity: $state-disabled-opacity;
+		pointer-events: none;
+		cursor: not-allowed;
+	}
+
+	@media (min-width: $bp-desktop) {
+		&:hover:not(:disabled):not([aria-disabled="true"]):not(.btn--disabled) {
+			transform: translateY(-2px);
+		}
+	}
+
+	&:active:not(:disabled):not([aria-disabled="true"]):not(.btn--disabled) {
+		transform: translateY(1px) scale(0.98);
+	}
+
+	&__icon {
+		flex-shrink: 0;
+		width: rem(28);
+		height: rem(28);
+	}
+
+	// Кнопка 1 — градиент + стрелка
+	&--primary {
+		background: $gradient-btn-primary;
+		color: #fff;
+
+		@media (min-width: $bp-desktop) {
+			&:hover:not(:disabled):not([aria-disabled="true"]) {
+				background: $gradient-btn-primary-hover;
+			}
+		}
+
+		&:active:not(:disabled):not([aria-disabled="true"]) {
+			background: $gradient-btn-primary-hover;
+		}
+	}
+
+	// Кнопка 2 — светлый фон, обводка brand
+	&--secondary {
+		background: $color-surface-mint;
+		border-color: $color-primary;
+		color: $color-primary;
+
+		@media (min-width: $bp-desktop) {
+			&:hover:not(:disabled):not([aria-disabled="true"]) {
+				border-color: $color-accent;
+			}
+		}
+
+		&:active:not(:disabled):not([aria-disabled="true"]) {
+			border-color: $color-accent;
+		}
+	}
+
+	// Кнопка 3 — на тёмном/brand фоне (outline white)
+	&--ghost-light {
+		min-height: $btn-height;
+		background: $color-white-muted;
+		border-color: #fff;
+		color: #fff;
+
+		@media (min-width: $bp-desktop) {
+			&:hover:not(:disabled):not([aria-disabled="true"]) {
+				background: rgba(255, 255, 255, 0.1);
+			}
+		}
+	}
+
+	// Hero / светлые CTA на градиентном фоне
+	&--white {
+		background: $color-surface-mint;
+		color: $color-primary;
+	}
+
+	&--white-outline {
+		background: transparent;
+		border: 0.5px solid #fff;
+		color: #fff;
+	}
+}

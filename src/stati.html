@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ru">
+    @@include('html/_head.html', { "title": "Статьи и новости" })
+    <body>
+        <div class="wrapper">
+            @@include('html/_header.html', {})
+            <main class="page page--blog">
+                <section class="blog-hero">
+                    <div class="blog-hero__container _container">
+                        <div class="blog-hero__top">
+                            <h1 class="blog-hero__title">Статьи и новости</h1>
+                            <p class="blog-hero__intro">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+                        </div>
+
+                        <div class="blog-hero__layout">
+                            <article class="blog-featured">
+                                <a class="blog-featured__link" href="statya.html">
+                                    <div class="blog-featured__media">
+                                        <img class="blog-featured__img" src="@img/blog/featured.png" alt="Учёные в лаборатории" title="Учёные в лаборатории" width="873" height="577">
+                                        <time class="blog-featured__date" datetime="2026-04-11">11.04.2026</time>
+                                        <div class="blog-featured__caption">
+                                            <h2 class="blog-featured__title">Аллергический кашель: симптомы у детей и взрослых, методы диагностики и лечения</h2>
+                                        </div>
+                                    </div>
+                                </a>
+                            </article>
+
+                            <aside class="blog-recent" aria-labelledby="blog-recent-title">
+                                <h2 class="blog-recent__heading" id="blog-recent-title">Последние публикации</h2>
+                                <ul class="blog-recent__list">
+                                    @@include('html/_blog-recent.html', {
+                                        "href": "statya.html",
+                                        "img": "img/blog/recent-01.png",
+                                        "title": "Основные отличия аллергического насморка от простудного",
+                                        "date": "11 апреля 2026",
+                                        "datetime": "2026-04-11"
+                                    })
+                                    @@include('html/_blog-recent.html', {
+                                        "href": "#",
+                                        "img": "img/blog/recent-02.png",
+                                        "title": "Как добиться длительной ремиссии при аллергии...",
+                                        "date": "8 апреля 2026",
+                                        "datetime": "2026-04-08"
+                                    })
+                                    @@include('html/_blog-recent.html', {
+                                        "href": "#",
+                                        "img": "img/blog/recent-01.png",
+                                        "title": "Причины и симптомы аллергического ринита...",
+                                        "date": "14 апреля 2026",
+                                        "datetime": "2026-04-14"
+                                    })
+                                    @@include('html/_blog-recent.html', {
+                                        "href": "#",
+                                        "img": "img/blog/recent-02.png",
+                                        "title": "Все, что нужно знать про бронхиальную астму: опасность недуга, причины...",
+                                        "date": "16 апреля 2026",
+                                        "datetime": "2026-04-16"
+                                    })
+                                </ul>
+                            </aside>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="blog-feed">
+                    <div class="blog-feed__container _container">
+                        <div class="blog-tabs" role="tablist" aria-label="Тип публикаций">
+                            <button class="blog-tabs__btn _active" type="button" role="tab" aria-selected="true" aria-controls="blog-panel-articles" id="blog-tab-articles" data-blog-tab="articles">
+                                <span class="blog-tabs__text">Статьи</span>
+                                <span class="blog-tabs__icon" aria-hidden="true">
+                                    <svg class="icon" width="36" height="36" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
+                                        <use href="@img/icons.svg#icon-tab-plus"></use>
+                                    </svg>
+                                </span>
+                            </button>
+                            <button class="blog-tabs__btn" type="button" role="tab" aria-selected="false" aria-controls="blog-panel-news" id="blog-tab-news" data-blog-tab="news">
+                                <span class="blog-tabs__text">Новости</span>
+                                <span class="blog-tabs__icon" aria-hidden="true">
+                                    <svg class="icon" width="36" height="36" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
+                                        <use href="@img/icons.svg#icon-tab-plus"></use>
+                                    </svg>
+                                </span>
+                            </button>
+                        </div>
+
+                        <div class="blog-panel _active" id="blog-panel-articles" role="tabpanel" aria-labelledby="blog-tab-articles" data-blog-panel="articles">
+                            <div class="blog-grid">
+                                @@include('html/_blog-card.html', { "href": "statya.html", "img": "img/blog/card.png", "tag": "Статья", "date": "09.04.2026", "datetime": "2026-04-09", "title": "Lorem ipsum dolor sit amet consectetur adipiscing elit", "excerpt": "Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat." })
+                                @@include('html/_blog-card.html', { "href": "#", "img": "img/blog/card.png", "tag": "Статья", "date": "09.04.2026", "datetime": "2026-04-09", "title": "Lorem ipsum dolor sit amet consectetur adipiscing elit", "excerpt": "Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat." })
+                                @@include('html/_blog-card.html', { "href": "#", "img": "img/blog/card.png", "tag": "Статья", "date": "09.04.2026", "datetime": "2026-04-09", "title": "Lorem ipsum dolor sit amet consectetur adipiscing elit", "excerpt": "Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat." })
+                                @@include('html/_blog-card.html', { "href": "#", "img": "img/blog/card.png", "tag": "Статья", "date": "09.04.2026", "datetime": "2026-04-09", "title": "Lorem ipsum dolor sit amet consectetur adipiscing elit", "excerpt": "Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat." })
+                                @@include('html/_blog-card.html', { "href": "#", "img": "img/blog/card.png", "tag": "Статья", "date": "09.04.2026", "datetime": "2026-04-09", "title": "Lorem ipsum dolor sit amet consectetur adipiscing elit", "excerpt": "Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat." })
+                                @@include('html/_blog-card.html', { "href": "#", "img": "img/blog/card.png", "tag": "Статья", "date": "09.04.2026", "datetime": "2026-04-09", "title": "Lorem ipsum dolor sit amet consectetur adipiscing elit", "excerpt": "Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat." })
+                                @@include('html/_blog-card.html', { "href": "#", "img": "img/blog/card.png", "tag": "Статья", "date": "09.04.2026", "datetime": "2026-04-09", "title": "Lorem ipsum dolor sit amet consectetur adipiscing elit", "excerpt": "Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat." })
+                                @@include('html/_blog-card.html', { "href": "#", "img": "img/blog/card.png", "tag": "Статья", "date": "09.04.2026", "datetime": "2026-04-09", "title": "Lorem ipsum dolor sit amet consectetur adipiscing elit", "excerpt": "Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat." })
+                                @@include('html/_blog-card.html', { "href": "#", "img": "img/blog/card.png", "tag": "Статья", "date": "09.04.2026", "datetime": "2026-04-09", "title": "Lorem ipsum dolor sit amet consectetur adipiscing elit", "excerpt": "Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat." })
+                                @@include('html/_blog-card.html', { "href": "#", "img": "img/blog/card.png", "tag": "Статья", "date": "09.04.2026", "datetime": "2026-04-09", "title": "Lorem ipsum dolor sit amet consectetur adipiscing elit", "excerpt": "Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat." })
+                            </div>
+                        </div>
+
+                        <div class="blog-panel" id="blog-panel-news" role="tabpanel" aria-labelledby="blog-tab-news" data-blog-panel="news" hidden>
+                            <div class="blog-grid">
+                                @@include('html/_blog-card.html', { "href": "#", "img": "img/blog/card.png", "tag": "Новость", "date": "10.04.2026", "datetime": "2026-04-10", "title": "Lorem ipsum dolor sit amet consectetur adipiscing elit", "excerpt": "Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat." })
+                                @@include('html/_blog-card.html', { "href": "#", "img": "img/blog/card.png", "tag": "Новость", "date": "09.04.2026", "datetime": "2026-04-09", "title": "Lorem ipsum dolor sit amet consectetur adipiscing elit", "excerpt": "Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat." })
+                                @@include('html/_blog-card.html', { "href": "#", "img": "img/blog/card.png", "tag": "Новость", "date": "08.04.2026", "datetime": "2026-04-08", "title": "Lorem ipsum dolor sit amet consectetur adipiscing elit", "excerpt": "Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat." })
+                                @@include('html/_blog-card.html', { "href": "#", "img": "img/blog/card.png", "tag": "Новость", "date": "07.04.2026", "datetime": "2026-04-07", "title": "Lorem ipsum dolor sit amet consectetur adipiscing elit", "excerpt": "Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat." })
+                                @@include('html/_blog-card.html', { "href": "#", "img": "img/blog/card.png", "tag": "Новость", "date": "06.04.2026", "datetime": "2026-04-06", "title": "Lorem ipsum dolor sit amet consectetur adipiscing elit", "excerpt": "Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat." })
+                                @@include('html/_blog-card.html', { "href": "#", "img": "img/blog/card.png", "tag": "Новость", "date": "05.04.2026", "datetime": "2026-04-05", "title": "Lorem ipsum dolor sit amet consectetur adipiscing elit", "excerpt": "Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat." })
+                            </div>
+                        </div>
+
+                        <nav class="blog-pagination" aria-label="Навигация по страницам">
+                            <a class="blog-pagination__arrow blog-pagination__arrow--prev" href="#" aria-label="Предыдущая страница">
+                                <svg width="22" height="22" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                    <path d="M15 6l-6 6 6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </a>
+                            <ol class="blog-pagination__list">
+                                <li><a class="blog-pagination__num _active" href="#" aria-current="page">1</a></li>
+                                <li><a class="blog-pagination__num" href="#">2</a></li>
+                                <li><a class="blog-pagination__num" href="#">3</a></li>
+                                <li><a class="blog-pagination__num" href="#">4</a></li>
+                                <li><a class="blog-pagination__num" href="#">5</a></li>
+                                <li><span class="blog-pagination__num blog-pagination__num--dots" aria-hidden="true">…</span></li>
+                            </ol>
+                            <a class="blog-pagination__arrow blog-pagination__arrow--next" href="#" aria-label="Следующая страница">
+                                <svg width="22" height="22" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                    <path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </a>
+                        </nav>
+                    </div>
+                </section>
+            </main>
+            @@include('html/_footer.html', {})
+        </div>
+        @@include('html/_popups.html', {})
+        @@include('html/_js.html', {})
+    </body>
+</html>

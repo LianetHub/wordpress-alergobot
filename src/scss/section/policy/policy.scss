@@ -1,0 +1,184 @@
+// Страница «Политика конфиденциальности» — Figma: 1:2491 (desktop), 1:3976 (mobile)
+
+.policy {
+	position: relative;
+	background: $color-surface-mint;
+	padding: rem(40) 0 rem(80);
+	overflow: hidden;
+
+	@media (max-width: $bp-mobile-lg) {
+		padding: rem(16) 0 rem(48);
+	}
+
+	@media (min-width: $bp-desktop) {
+		padding: rem(40) 0 rem(100);
+	}
+
+	&__decor {
+		position: absolute;
+		pointer-events: none;
+		opacity: 0.55;
+
+		&--left {
+			left: rem(-274);
+			top: rem(303);
+			width: rem(562);
+			height: rem(694);
+			transform: rotate(120deg);
+
+			@media (max-width: $bp-tablet) {
+				display: none;
+			}
+		}
+
+		&--right {
+			right: rem(-90);
+			top: rem(120);
+			width: rem(562);
+			height: rem(694);
+			transform: scaleX(-1) rotate(60deg);
+
+			@media (max-width: $bp-tablet) {
+				right: rem(-40);
+				top: rem(615);
+				width: rem(357);
+				height: rem(440);
+				opacity: 0.45;
+				transform: scaleX(-1) rotate(60deg);
+			}
+
+			@media (max-width: $bp-mobile-lg) {
+				top: auto;
+				bottom: rem(120);
+				right: rem(-20);
+			}
+		}
+	}
+
+	&__container {
+		position: relative;
+		z-index: 1;
+	}
+
+	&__inner {
+		display: flex;
+		flex-direction: column;
+		gap: rem(20);
+		max-width: rem(876);
+		margin: 0 auto;
+
+		@media (min-width: $bp-desktop) {
+			gap: rem(40);
+		}
+	}
+
+	&__title {
+		margin: 0;
+		color: $color-primary;
+		font-weight: 500;
+		line-height: 1.2;
+		letter-spacing: -0.04em;
+		@include adaptive-font(26, 56);
+	}
+
+	&__body {
+		display: flex;
+		flex-direction: column;
+		gap: rem(20);
+		width: 100%;
+	}
+
+	&__block {
+		display: flex;
+		flex-direction: column;
+
+		.policy__text {
+			margin-bottom: 0;
+		}
+	}
+
+	&__section {
+		display: flex;
+		flex-direction: column;
+		gap: rem(10);
+		width: 100%;
+	}
+
+	&__subtitle {
+		margin: 0;
+		color: $color-primary;
+		font-weight: 500;
+		line-height: 1.2;
+		letter-spacing: -0.04em;
+		@include adaptive-font(24, 48);
+	}
+
+	&__text {
+		margin: 0;
+		color: $color-text-body;
+		line-height: 1.3;
+		@include adaptive-font(14, 18);
+	}
+
+	&__list {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		display: flex;
+		flex-direction: column;
+		gap: rem(10);
+		width: 100%;
+
+		&--plus .policy__item {
+			display: flex;
+			align-items: center;
+			gap: rem(10);
+		}
+
+		&--num {
+			counter-reset: policy-counter;
+
+			.policy__item {
+				display: flex;
+				align-items: flex-start;
+				gap: rem(10);
+				counter-increment: policy-counter;
+
+				&::before {
+					content: counter(policy-counter);
+					flex-shrink: 0;
+					min-width: rem(22);
+					padding: 0 rem(2);
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					background: $color-accent;
+					color: #fff;
+					font-family: $font-family;
+					font-weight: 500;
+					font-style: italic;
+					font-size: rem(18);
+					line-height: 1.2;
+					letter-spacing: -0.02em;
+					border-radius: rem(4);
+					text-align: center;
+				}
+			}
+		}
+	}
+
+	&__item-icon {
+		flex-shrink: 0;
+		width: rem(23);
+		height: rem(23);
+		display: block;
+	}
+
+	&__item-text {
+		flex: 1 1 auto;
+		min-width: 0;
+		color: $color-text-body;
+		line-height: 1.3;
+		@include adaptive-font(14, 18);
+	}
+}
