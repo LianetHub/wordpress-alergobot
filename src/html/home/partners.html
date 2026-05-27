@@ -1,37 +1,58 @@
 <section class="home-partners">
     <div class="_container">
         <div class="home-partners__head">
-            <div class="home-partners__head-main">
-                <h2 class="home-head__title">Решения PROTIA применяются в профессиональной лабораторной практике</h2>
-                <p class="home-head__text">Работа оборудования для лабораторной диагностики аллергии, использующая принцип ИФА и технологию иммуноблоттинга, ускоряет и расширяет анализ тестов. Оборудование и решения для диагностики аллергии из каталога предназначены профессиональным медицинским и лабораторным организациям. Купить их стремятся системно работающие компании, с повышенными запросами на качественную диагностику и надёжные поставки оборудования для тестов. Среди постоянных ведущих клиентов:</p>
+            <div class="home-partners__intro">
+                <button class="home-partners__tag" type="button" data-fancybox data-src="#popup-partners">лаборатории партнеры</button>
+                <h2 class="home-partners__title">Решения PROTIA применяются в профессиональной лабораторной практике</h2>
+                <p class="home-partners__text">Работа оборудования для лабораторной диагностики аллергии, использующая принцип ИФА и технологию иммуноблоттинга, ускоряет и расширяет анализ тестов. Оборудование и решения для диагностики аллергии из каталога предназначены профессиональным медицинским и лабораторным организациям. Купить их стремятся системно работающие компании, с повышенными запросами на качественную диагностику и надёжные поставки оборудования для тестов. Среди постоянных ведущих клиентов:</p>
             </div>
-            <p class="home-head__note home-partners__note">Наше оборудование используется лабораториями, диагностическими центрами, клиниками с инновационным подходом к тестам в диагностике аллергии.</p>
-            <button class="home-tag" type="button" data-fancybox data-src="#popup-partners">лаборатории партнеры</button>
+            <p class="home-partners__note">Наше оборудование используется лабораториями, диагностическими центрами, клиниками с инновационным подходом к тестам в диагностике аллергии.</p>
         </div>
-        <div class="home-partners__grid">
-            <a class="home-partners__card" href="#" aria-label="ИНВИТРО">
-                <img class="home-partners__logo" src="@img/home/partner-invito.png" alt="ИНВИТРО" title="ИНВИТРО" width="151" height="43" loading="lazy">
-                <span class="home-partners__arrow" aria-hidden="true">↗</span>
-            </a>
-            <a class="home-partners__card" href="#" aria-label="ГЕМОТЕСТ">
-                <img class="home-partners__logo" src="@img/home/partner-gemotest.png" alt="ГЕМОТЕСТ" title="ГЕМОТЕСТ" width="151" height="67" loading="lazy">
-                <span class="home-partners__arrow" aria-hidden="true">↗</span>
-            </a>
-            <a class="home-partners__card" href="#" aria-label="HELIX">
-                <img class="home-partners__logo" src="@img/home/partner-helix.png" alt="HELIX" title="HELIX" width="126" height="52" loading="lazy">
-                <span class="home-partners__arrow" aria-hidden="true">↗</span>
-            </a>
-            <a class="home-partners__card" href="#" aria-label="KDL">
-                <img class="home-partners__logo" src="@img/home/partner-kdl.png" alt="KDL" title="KDL" width="118" height="67" loading="lazy">
-                <span class="home-partners__arrow" aria-hidden="true">↗</span>
-            </a>
-            <a class="home-partners__card" href="#" aria-label="ABC медицина">
-                <img class="home-partners__logo" src="@img/home/partner-abc.png" alt="ABC медицина" title="ABC медицина" width="152" height="67" loading="lazy">
-                <span class="home-partners__arrow" aria-hidden="true">↗</span>
-            </a>
-        </div>
-        <div class="home-partners__cta">
-            <button class="home-btn home-btn--fill" type="button" data-fancybox data-src="#popup-partners">Записаться на диагностику</button>
+        <div class="swiper home-partners__slider">
+            <div class="swiper-wrapper home-partners__grid">
+                @@loop('../templates/home-partners-card.html', [
+                {
+                "href": "#",
+                "label": "ИНВИТРО",
+                "wrapClass": "home-partners__logo-wrap home-partners__logo-wrap--invitro",
+                "img": "@img/home/partner-invito.png",
+                "width": "151",
+                "height": "43"
+                },
+                {
+                "href": "#",
+                "label": "ГЕМОТЕСТ",
+                "wrapClass": "home-partners__logo-wrap",
+                "img": "@img/home/partner-gemotest.png",
+                "width": "151",
+                "height": "67"
+                },
+                {
+                "href": "#",
+                "label": "HELIX",
+                "wrapClass": "home-partners__logo-wrap home-partners__logo-wrap--helix",
+                "img": "@img/home/partner-helix.png",
+                "width": "126",
+                "height": "52"
+                },
+                {
+                "href": "#",
+                "label": "KDL",
+                "wrapClass": "home-partners__logo-wrap home-partners__logo-wrap--kdl",
+                "img": "@img/home/partner-kdl.png",
+                "width": "118",
+                "height": "67"
+                },
+                {
+                "href": "#",
+                "label": "ABC медицина",
+                "wrapClass": "home-partners__logo-wrap",
+                "img": "@img/home/partner-abc.png",
+                "width": "152",
+                "height": "67"
+                }
+                ])
+            </div>
         </div>
     </div>
 </section>

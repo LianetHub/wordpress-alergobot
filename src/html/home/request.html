@@ -1,44 +1,51 @@
 <section class="home-request" id="home-request">
-    <div class="_container">
-        <div class="home-request__box">
-            <div class="home-request__decor" aria-hidden="true"></div>
+    <div class="home-request__box">
+        <div class="home-request__decor" aria-hidden="true"></div>
+        <div class="_container home-request__container">
             <div class="home-request__grid">
                 <div class="home-request__info">
                     <h2 class="home-request__title">Получите презентацию, прайс и консультацию по подбору решения</h2>
                     <p class="home-request__note">Чтобы&nbsp; купить, получить презентацию лабораторного оборудования для диагностики и тестов на аллергию, заполните форму на сайте. Прайс с текущими ценами вы получите на момент обращения.</p>
                 </div>
-                <form class="home-request__form" action="#" method="post">
-                    <p class="home-request__form-lead">Оставьте заявку, чтобы подобрать, купить панели диагностики на аллергию и лабораторное оборудование, или изучить линейку PROTIA Allergy-Q для тестов. Мы направим материалы с оптимальным решением для вас.</p>
-                    <div class="home-request__row">
-                        <label class="home-request__field">
-                            <span class="visually-hidden">Имя</span>
-                            <input class="home-request__input" type="text" name="name" placeholder="Имя" required>
+                <div class="home-request__form-col">
+                    <p class="home-request__lead">Оставьте заявку, чтобы подобрать, купить панели диагностики на аллергию и лабораторное оборудование, или изучить линейку PROTIA Allergy-Q для тестов. Мы направим материалы с оптимальным решением для вас.</p>
+                    <form class="form form--on-brand home-request__form" action="#" method="post">
+                        <div class="form__row">
+                            <label class="form__field">
+                                <span class="visually-hidden">Имя</span>
+                                <input class="form__control" type="text" name="name" placeholder="Имя" autocomplete="name" required>
+                            </label>
+                            <label class="form__field">
+                                <span class="visually-hidden">Компания</span>
+                                <input class="form__control" type="text" name="company" placeholder="Компания" autocomplete="organization">
+                            </label>
+                        </div>
+                        <div class="form__row">
+                            <label class="form__field">
+                                <span class="visually-hidden">Телефон</span>
+                                <input class="form__control" type="tel" name="phone" placeholder="+7 (" autocomplete="tel" required>
+                            </label>
+                            <label class="form__field">
+                                <span class="visually-hidden">E-mail</span>
+                                <input class="form__control" type="email" name="email" placeholder="E-mail" autocomplete="email" required>
+                            </label>
+                        </div>
+                        <label class="form__field">
+                            <span class="visually-hidden">Комментарий</span>
+                            <textarea class="form__control form__control--textarea" name="comment" placeholder="Комментарий" rows="4"></textarea>
                         </label>
-                        <label class="home-request__field">
-                            <span class="visually-hidden">Компания</span>
-                            <input class="home-request__input" type="text" name="company" placeholder="Компания">
+                        <label class="checkbox form__agree home-request__agree">
+                            <input class="checkbox__input" type="checkbox" name="agree" required>
+                            <span class="checkbox__box">
+                                <svg class="icon" width="20" height="20" aria-hidden="true">
+                                    <use href="@img/icons.svg#icon-check"></use>
+                                </svg>
+                            </span>
+                            <span class="checkbox__text">Я даю согласие на <a href="politika-konfidentsialnosti.html">обработку персональных данных</a> и соглашаюсь с <a href="politika-konfidentsialnosti.html">политикой конфиденциальности</a></span>
                         </label>
-                    </div>
-                    <div class="home-request__row">
-                        <label class="home-request__field">
-                            <span class="visually-hidden">Телефон</span>
-                            <input class="home-request__input" type="tel" name="phone" placeholder="+7 (" required>
-                        </label>
-                        <label class="home-request__field">
-                            <span class="visually-hidden">E-mail</span>
-                            <input class="home-request__input" type="email" name="email" placeholder="E-mail" required>
-                        </label>
-                    </div>
-                    <label class="home-request__field home-request__field--full">
-                        <span class="visually-hidden">Комментарий</span>
-                        <textarea class="home-request__input home-request__textarea" name="comment" placeholder="Комментарий" rows="4"></textarea>
-                    </label>
-                    <label class="home-request__agree">
-                        <input type="checkbox" name="agree" required>
-                        <span>Я даю согласие на <a href="politika-konfidentsialnosti.html">обработку персональных данных</a> и соглашаюсь с <a href="politika-konfidentsialnosti.html">политикой конфиденциальности</a></span>
-                    </label>
-                    <button class="home-request__submit" type="submit">Отправить заявку</button>
-                </form>
+                        <button class="form__submit" type="submit">Отправить заявку</button>
+                    </form>
+                </div>
             </div>
         </div>
     </div>

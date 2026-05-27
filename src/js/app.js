@@ -1,5 +1,7 @@
 "use strict";
 
+import { initYandexMaps } from "./map.js";
+
 document.addEventListener("DOMContentLoaded", () => {
     initBurger();
     initFancybox();
@@ -8,6 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
     initAccordion();
     initHome();
     initDevicesPage();
+    initYandexMaps();
 });
 
 function initBurger() {
@@ -199,7 +202,13 @@ function initHomeSwipers() {
     if (chooseEl) {
         new Swiper(chooseEl, {
             slidesPerView: 1,
-            spaceBetween: 20,
+            spaceBetween: 10,
+            breakpoints: {
+                991: {
+                    slidesPerView: 2,
+                    spaceBetween: 20,
+                },
+            },
             navigation: {
                 nextEl: ".home-choose__arrow--next",
                 prevEl: ".home-choose__arrow--prev",
@@ -207,14 +216,41 @@ function initHomeSwipers() {
         });
     }
 
+    const processEl = document.querySelector(".home-process__slider");
+    if (processEl) {
+        new Swiper(processEl, {
+            slidesPerView: "auto",
+            spaceBetween: 10,
+            breakpoints: {
+                991: {
+                    enabled: false,
+                },
+            },
+        });
+    }
+
+    const partnersEl = document.querySelector(".home-partners__slider");
+    if (partnersEl) {
+        new Swiper(partnersEl, {
+            slidesPerView: "auto",
+            spaceBetween: 10,
+            breakpoints: {
+                991: {
+                    enabled: false,
+                },
+            },
+        });
+    }
+
     const docsEl = document.querySelector(".home-docs__slider");
     if (docsEl) {
         new Swiper(docsEl, {
-            slidesPerView: 1.15,
-            spaceBetween: 16,
+            slidesPerView: "auto",
+            spaceBetween: 10,
             breakpoints: {
-                768: { slidesPerView: 2.2 },
-                1200: { slidesPerView: 4 },
+                991: {
+                    spaceBetween: 20,
+                },
             },
             navigation: {
                 nextEl: ".home-docs__arrow--next",

@@ -1,54 +1,158 @@
 .home-process {
-	padding: rem(48) 0;
+	padding: rem(40) 0;
 	background: $color-surface;
 
-	&__grid {
-		display: grid;
-		grid-template-columns: 1fr;
-		gap: rem(16);
-		margin-top: rem(28);
+	@media (min-width: $bp-tablet) {
+		padding: rem(48) 0;
+	}
+
+	&__head {
+		display: flex;
+		flex-direction: column;
+		gap: rem(10);
+		margin-bottom: rem(20);
 
 		@media (min-width: $bp-tablet) {
-			grid-template-columns: repeat(2, 1fr);
+			display: grid;
+			grid-template-columns: minmax(0, 1fr) auto;
+			grid-template-rows: auto;
+			align-items: start;
+			column-gap: rem(32);
+			row-gap: rem(16);
+			margin-bottom: rem(28);
+		}
+	}
+
+	&__tag {
+		align-self: flex-start;
+		padding: rem(6) rem(10);
+		font-size: rem(14);
+		letter-spacing: -0.02em;
+
+		@media (min-width: $bp-tablet) {
+			grid-column: 2;
+			grid-row: 1;
+			justify-self: end;
+			min-height: rem(40);
+			padding: rem(10) rem(16);
+			font-size: rem(20);
+		}
+	}
+
+	&__intro {
+		@media (min-width: $bp-tablet) {
+			grid-column: 1;
+			grid-row: 1;
+			max-width: rem(985);
+		}
+	}
+
+	&__title {
+		margin: 0;
+		color: $color-primary;
+		font-weight: 500;
+		line-height: 1.2;
+		letter-spacing: -0.04em;
+		@include adaptive-font(24, 48);
+	}
+
+	&__slider {
+		overflow: visible;
+
+		@media (min-width: $bp-tablet) {
+			margin: 0;
+		}
+	}
+
+	&__grid.swiper-wrapper {
+		@media (min-width: $bp-tablet) {
+			display: grid;
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+			gap: rem(20);
+			transform: none !important;
+		}
+	}
+
+	&__slide.swiper-slide {
+		width: rem(257);
+		height: auto;
+
+		@media (min-width: $bp-tablet) {
+			width: auto !important;
+			margin: 0 !important;
 		}
 	}
 
 	&__card {
-		display: grid;
-		grid-template-columns: 1fr;
-		gap: rem(16);
-		padding: rem(20);
+		display: flex;
+		flex-direction: column;
+		gap: rem(10);
+		height: 100%;
+		padding: rem(16);
 		border: 1px solid $color-accent;
 		border-radius: rem(10);
 		background: $color-surface-mint;
 
-		@media (min-width: $bp-mobile-lg) {
-			grid-template-columns: minmax(0, 1fr) rem(275);
-			align-items: stretch;
+		@media (min-width: $bp-tablet) {
+			flex-direction: row;
+			align-items: flex-start;
+			gap: rem(20);
+			padding: rem(20);
+		}
+
+		&--step-2 {
+			@media (min-width: $bp-tablet) {
+				min-height: rem(366);
+			}
+		}
+
+		&--step-4 {
+			@media (min-width: $bp-tablet) {
+				min-height: rem(343);
+			}
 		}
 	}
 
-	&__content {
+	&__body {
 		display: flex;
+		flex: 1 1 auto;
 		flex-direction: column;
 		gap: rem(10);
+		min-width: 0;
+
+		@media (min-width: $bp-tablet) {
+			flex: 0 0 rem(315);
+			gap: rem(20);
+		}
 	}
 
 	&__step {
 		display: inline-flex;
+		align-items: center;
+		justify-content: center;
 		align-self: flex-start;
+		min-height: rem(33);
 		padding: rem(8) rem(20);
 		border-radius: rem(10);
 		background: $color-surface-tab;
 		color: $color-brand;
-		font-size: rem(32);
+		font-family: $font-family;
+		font-size: rem(18);
 		font-weight: 400;
 		line-height: 1.2;
 		letter-spacing: -0.02em;
+		white-space: nowrap;
 
-		@media (max-width: $bp-mobile-lg) {
-			font-size: rem(24);
+		@media (min-width: $bp-tablet) {
+			min-height: 0;
+			font-size: rem(32);
 		}
+	}
+
+	&__text {
+		display: flex;
+		flex-direction: column;
+		gap: rem(10);
 	}
 
 	&__card-title {
@@ -56,23 +160,86 @@
 		color: $color-brand;
 		font-weight: 500;
 		font-style: italic;
-		font-size: rem(24);
+		font-size: rem(18);
 		line-height: 1.2;
 		letter-spacing: -0.02em;
+
+		@media (min-width: $bp-tablet) {
+			font-size: rem(24);
+		}
+
+		&--split {
+			display: flex;
+			flex-direction: column;
+
+			@media (min-width: $bp-tablet) {
+				display: block;
+			}
+
+			span {
+				display: block;
+
+				@media (min-width: $bp-tablet) {
+					display: inline;
+				}
+
+				&:not(:last-child)::after {
+					content: " ";
+
+					@media (min-width: $bp-tablet) {
+						content: none;
+					}
+				}
+			}
+		}
 	}
 
-	&__card-text {
+	&__card-desc {
 		margin: 0;
 		color: $color-text-body;
-		font-size: rem(18);
+		font-family: "Manrope", $font-family;
+		font-size: rem(14);
+		font-weight: 400;
 		line-height: 1.3;
+
+		@media (min-width: $bp-tablet) {
+			font-size: rem(18);
+		}
+	}
+
+	&__media {
+		flex-shrink: 0;
+		width: 100%;
+		height: rem(176);
+		border-radius: rem(10);
+		overflow: hidden;
+
+		@media (min-width: $bp-tablet) {
+			width: rem(275);
+		}
+
+		&--tall {
+			@media (min-width: $bp-tablet) {
+				height: rem(326);
+			}
+		}
+
+		&--short {
+			@media (min-width: $bp-tablet) {
+				height: rem(303);
+			}
+		}
 	}
 
 	&__card-img {
+		display: block;
 		width: 100%;
 		height: 100%;
-		min-height: rem(200);
-		border-radius: rem(10);
 		object-fit: cover;
+		object-position: center bottom;
+
+		.home-process__media--cover & {
+			object-position: center center;
+		}
 	}
 }

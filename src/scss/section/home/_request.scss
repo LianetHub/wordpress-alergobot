@@ -1,17 +1,30 @@
 .home-request {
-	padding: rem(48) 0;
+	padding: rem(40) 0;
 	background: $color-surface;
+
+	@media (min-width: $bp-tablet) {
+		padding: rem(48) 0;
+	}
 
 	&__box {
 		position: relative;
-		padding: rem(32) rem(24);
-		border-radius: rem(20);
+		width: 100%;
 		background: $color-accent;
 		color: #fff;
 		overflow: hidden;
+	}
 
-		@media (min-width: $bp-desktop) {
-			padding: rem(40) rem(36);
+	&__container {
+		position: relative;
+		z-index: 1;
+		padding-top: rem(24);
+		padding-bottom: rem(24);
+
+		@media (min-width: $bp-tablet) {
+			padding-top: rem(40);
+			padding-bottom: rem(40);
+			min-height: rem(610);
+			box-sizing: border-box;
 		}
 	}
 
@@ -19,8 +32,7 @@
 		position: absolute;
 		left: 0;
 		bottom: 0;
-		width: 45%;
-		max-width: rem(645);
+		width: min(45%, rem(645));
 		height: rem(353);
 		background: url("@img/home/request-decor.png") left bottom / contain no-repeat;
 		opacity: 0.5;
@@ -30,21 +42,34 @@
 	}
 
 	&__grid {
-		position: relative;
-		z-index: 1;
 		display: grid;
 		grid-template-columns: 1fr;
-		gap: rem(28);
+		gap: rem(24);
 
 		@media (min-width: $bp-tablet) {
-			grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+			grid-template-columns: minmax(0, 1fr) minmax(0, rem(650));
+			column-gap: rem(21);
+			align-items: stretch;
+			min-height: rem(530);
+		}
+	}
+
+	&__info {
+		display: flex;
+		flex-direction: column;
+		gap: rem(20);
+
+		@media (min-width: $bp-tablet) {
+			justify-content: space-between;
 			gap: rem(40);
-			align-items: start;
+			min-height: 100%;
 		}
 	}
 
 	&__title {
 		margin: 0;
+		max-width: rem(651);
+		color: #fff;
 		font-weight: 500;
 		line-height: 1.2;
 		letter-spacing: -0.04em;
@@ -52,106 +77,47 @@
 	}
 
 	&__note {
-		margin: rem(24) 0 0;
+		margin: 0;
 		max-width: rem(568);
+		color: #fff;
 		font-style: italic;
-		font-size: rem(24);
+		font-weight: 500;
+		font-size: rem(18);
 		line-height: 1.2;
 		letter-spacing: -0.02em;
 
-		@media (max-width: $bp-mobile-lg) {
+		@media (min-width: $bp-tablet) {
+			font-size: rem(24);
+		}
+	}
+
+	&__form-col {
+		display: flex;
+		flex-direction: column;
+		gap: rem(20);
+		max-width: rem(650);
+
+		@media (min-width: $bp-tablet) {
+			gap: rem(34);
+		}
+	}
+
+	&__lead {
+		margin: 0;
+		color: #fff;
+		font-size: rem(16);
+		line-height: 1.3;
+
+		@media (min-width: $bp-tablet) {
 			font-size: rem(18);
 		}
 	}
 
-	&__form-lead {
-		margin: 0 0 rem(16);
-		font-size: rem(18);
-		line-height: 1.3;
-	}
-
-	&__row {
-		display: grid;
-		grid-template-columns: 1fr;
-		gap: rem(10);
-
-		@media (min-width: $bp-mobile-lg) {
-			grid-template-columns: 1fr 1fr;
-		}
-	}
-
-	&__field {
-		display: block;
-
-		&--full {
-			grid-column: 1 / -1;
-		}
-	}
-
-	&__input {
-		width: 100%;
-		padding: rem(18) rem(20);
-		border: rem(0.5) solid rgba(255, 255, 255, 0.8);
-		border-radius: rem(10);
-		background: transparent;
-		color: #fff;
-		font-family: inherit;
-		font-size: rem(18);
-		line-height: 1.2;
-
-		&::placeholder {
-			color: rgba(255, 255, 255, 0.9);
-		}
-
-		&:focus {
-			outline: none;
-			border-color: #fff;
-		}
-	}
-
-	&__textarea {
-		min-height: rem(137);
-		resize: vertical;
-	}
-
 	&__agree {
-		display: flex;
-		gap: rem(10);
-		align-items: flex-start;
-		margin: rem(10) 0;
-		font-size: rem(12);
-		line-height: 1.3;
-		cursor: pointer;
-
-		a {
+		.checkbox__text a {
 			color: #fff;
 			text-decoration: underline;
-		}
-	}
-
-	&__submit {
-		width: 100%;
-		padding: rem(16);
-		border: 0;
-		border-radius: rem(10);
-		background: $color-surface-mint;
-		color: $color-brand;
-		font-weight: 500;
-		font-size: rem(20);
-		line-height: 1.2;
-		letter-spacing: -0.02em;
-		text-transform: uppercase;
-		cursor: pointer;
-		transition: background 0.2s ease, transform 0.2s ease;
-
-		@media (min-width: $bp-desktop) {
-			&:hover {
-				background: #fff;
-			}
-		}
-
-		&:active {
-			transform: translateY(1px);
+			text-underline-offset: 2px;
 		}
 	}
 }

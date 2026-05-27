@@ -7,6 +7,7 @@
 @import "components/form";
 @import "components/checkbox";
 @import "components/popup";
+@import "components/news-card";
 
 @import "global/header";
 @import "global/footer";
@@ -28,12 +29,6 @@
 
 .article__decor {
 	background: url("@img/policy-pattern.svg") no-repeat center top / contain;
-}
-
-.home-pick__decor,
-.home-equipment__decor,
-.home-news__decor {
-	background: url("@img/policy-pattern.svg") no-repeat right top / contain;
 }
 
 .contacts-info__decor {

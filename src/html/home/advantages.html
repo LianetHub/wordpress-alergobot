@@ -1,89 +1,116 @@
 <section class="home-advantages">
-    <div class="_container">
-        <div class="home-head home-head--row">
-            <div class="home-head__main">
-                <h2 class="home-head__title">Ответы на популярные вопросы</h2>
-            </div>
-            <span class="home-tag">FAQ</span>
+    <div class="_container home-advantages__container">
+        <div class="home-advantages__head">
+            <span class="home-advantages__badge">FAQ</span>
+            <h2 class="home-advantages__title home-advantages__title--mobile">Ответы на часто задаваемые вопросы</h2>
+            <h2 class="home-advantages__title home-advantages__title--desktop">Ответы на популярные вопросы</h2>
         </div>
-        <div class="home-advantages__grid">
+
+        <div class="home-advantages__list home-advantages__list--mobile">
             <div class="accordion home-advantages__accordion" data-accordion>
-                <div class="accordion__item _active">
-                    <button class="accordion__header" type="button" aria-expanded="true">
-                        <span class="accordion__question">PROTIA Allergy-Q – что это?</span>
-                        <span class="accordion__icon" aria-hidden="true"></span>
-                    </button>
-                    <div class="accordion__body">
-                        <div class="accordion__inner">
-                            <p class="accordion__answer">Это набор панелей и оборудования, выполняющий диагностику аллергии по большинству аллергенов за один тест, для профильных медицинских организаций.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="accordion__item">
-                    <button class="accordion__header" type="button" aria-expanded="false">
-                        <span class="accordion__question">Что можно выбрать?</span>
-                        <span class="accordion__icon" aria-hidden="true"></span>
-                    </button>
-                    <div class="accordion__body">
-                        <div class="accordion__inner"></div>
-                    </div>
-                </div>
-                <div class="accordion__item">
-                    <button class="accordion__header" type="button" aria-expanded="false">
-                        <span class="accordion__question">Какие есть документы?</span>
-                        <span class="accordion__icon" aria-hidden="true"></span>
-                    </button>
-                    <div class="accordion__body">
-                        <div class="accordion__inner"></div>
-                    </div>
-                </div>
-                <div class="accordion__item">
-                    <button class="accordion__header" type="button" aria-expanded="false">
-                        <span class="accordion__question">Есть ли тест-системы?</span>
-                        <span class="accordion__icon" aria-hidden="true"></span>
-                    </button>
-                    <div class="accordion__body">
-                        <div class="accordion__inner"></div>
-                    </div>
-                </div>
+                @@include('../templates/accordion-item.html', {
+                "activeClass": " _active",
+                "expanded": "true",
+                "question": "PROTIA Allergy-Q – что это?",
+                "answer": "Это набор панелей и оборудования, выполняющий диагностику аллергии по большинству аллергенов за один тест, для профильных медицинских организаций."
+                })
+                @@include('../templates/accordion-item.html', {
+                "activeClass": "",
+                "expanded": "false",
+                "question": "Что можно выбрать?",
+                "answer": "В линейке — анализаторы PROTIA Allergy-Q, панели аллергенов под разные профили исследований, расходные материалы и комплектующие. Состав подбирается под объём работы лаборатории и перечень нужных аллергенов."
+                })
+                @@include('../templates/accordion-item.html', {
+                "activeClass": "",
+                "expanded": "false",
+                "question": "Какие есть документы?",
+                "answer": "Предоставляем регистрационные удостоверения Росздравнадзора, инструкции по применению, паспорта оборудования и сертификаты соответствия. Актуальные файлы в формате PDF доступны в разделе «Документы» на сайте."
+                })
+                @@include('../templates/accordion-item.html', {
+                "activeClass": "",
+                "expanded": "false",
+                "question": "Есть ли тест-системы?",
+                "answer": "Да. Это диагностические панели и реагенты для количественного ИФА: готовые наборы под пищевые, респираторные и другие группы аллергенов, совместимые с оборудованием PROTIA Allergy-Q."
+                })
+                @@include('../templates/accordion-item.html', {
+                "activeClass": "",
+                "expanded": "false",
+                "question": "Кому подойдут продукты?",
+                "answer": "Решения ориентированы на клиники, частные и государственные лаборатории, медицинские и диагностические центры, которые проводят или внедряют аллергологические исследования."
+                })
+                @@include('../templates/accordion-item.html', {
+                "activeClass": "",
+                "expanded": "false",
+                "question": "Как подобрать состав для конкретной задачи?",
+                "answer": "Расскажите о типе учреждения, планируемом объёме тестов и перечне аллергенов — менеджер предложит оптимальный набор оборудования и панелей с учётом инфраструктуры и бюджета."
+                })
+                @@include('../templates/accordion-item.html', {
+                "activeClass": "",
+                "expanded": "false",
+                "question": "Как ознакомиться с прайсом и презентацией?",
+                "answer": "Заполните форму заявки на главной странице — мы направим актуальный прайс и презентацию по интересующим позициям и свяжемся для уточнения деталей."
+                })
+                @@include('../templates/accordion-item.html', {
+                "activeClass": "",
+                "expanded": "false",
+                "question": "Как получить консультацию для выбора?",
+                "answer": "Оставьте заявку через форму на сайте, позвоните или напишите нам — специалист уточнит задачи учреждения и поможет с подбором оборудования и тест-систем."
+                })
             </div>
-            <div class="accordion home-advantages__accordion" data-accordion>
-                <div class="accordion__item">
-                    <button class="accordion__header" type="button" aria-expanded="false">
-                        <span class="accordion__question">Кому подойдут продукты?</span>
-                        <span class="accordion__icon" aria-hidden="true"></span>
-                    </button>
-                    <div class="accordion__body">
-                        <div class="accordion__inner"></div>
-                    </div>
-                </div>
-                <div class="accordion__item">
-                    <button class="accordion__header" type="button" aria-expanded="false">
-                        <span class="accordion__question">Как подобрать состав для конкретной задачи?</span>
-                        <span class="accordion__icon" aria-hidden="true"></span>
-                    </button>
-                    <div class="accordion__body">
-                        <div class="accordion__inner"></div>
-                    </div>
-                </div>
-                <div class="accordion__item">
-                    <button class="accordion__header" type="button" aria-expanded="false">
-                        <span class="accordion__question">Как ознакомиться с прайсом и презентацией?</span>
-                        <span class="accordion__icon" aria-hidden="true"></span>
-                    </button>
-                    <div class="accordion__body">
-                        <div class="accordion__inner"></div>
-                    </div>
-                </div>
-                <div class="accordion__item">
-                    <button class="accordion__header" type="button" aria-expanded="false">
-                        <span class="accordion__question">Как получить консультацию для выбора?</span>
-                        <span class="accordion__icon" aria-hidden="true"></span>
-                    </button>
-                    <div class="accordion__body">
-                        <div class="accordion__inner"></div>
-                    </div>
-                </div>
+        </div>
+
+        <div class="home-advantages__columns accordion" data-accordion>
+            <div class="home-advantages__col">
+                @@include('../templates/accordion-item.html', {
+                "activeClass": " _active",
+                "expanded": "true",
+                "question": "PROTIA Allergy-Q – что это?",
+                "answer": "Это набор панелей и оборудования, выполняющий диагностику аллергии по большинству аллергенов за один тест, для профильных медицинских организаций."
+                })
+                @@include('../templates/accordion-item.html', {
+                "activeClass": "",
+                "expanded": "false",
+                "question": "Что можно выбрать?",
+                "answer": "В линейке — анализаторы PROTIA Allergy-Q, панели аллергенов под разные профили исследований, расходные материалы и комплектующие. Состав подбирается под объём работы лаборатории и перечень нужных аллергенов."
+                })
+                @@include('../templates/accordion-item.html', {
+                "activeClass": "",
+                "expanded": "false",
+                "question": "Какие есть документы?",
+                "answer": "Предоставляем регистрационные удостоверения Росздравнадзора, инструкции по применению, паспорта оборудования и сертификаты соответствия. Актуальные файлы в формате PDF доступны в разделе «Документы» на сайте."
+                })
+                @@include('../templates/accordion-item.html', {
+                "activeClass": "",
+                "expanded": "false",
+                "question": "Есть ли тест-системы?",
+                "answer": "Да. Это диагностические панели и реагенты для количественного ИФА: готовые наборы под пищевые, респираторные и другие группы аллергенов, совместимые с оборудованием PROTIA Allergy-Q."
+                })
+            </div>
+            <div class="home-advantages__col">
+                @@include('../templates/accordion-item.html', {
+                "activeClass": "",
+                "expanded": "false",
+                "question": "Кому подойдут продукты?",
+                "answer": "Решения ориентированы на клиники, частные и государственные лаборатории, медицинские и диагностические центры, которые проводят или внедряют аллергологические исследования."
+                })
+                @@include('../templates/accordion-item.html', {
+                "activeClass": "",
+                "expanded": "false",
+                "question": "Как подобрать состав для конкретной задачи?",
+                "answer": "Расскажите о типе учреждения, планируемом объёме тестов и перечне аллергенов — менеджер предложит оптимальный набор оборудования и панелей с учётом инфраструктуры и бюджета."
+                })
+                @@include('../templates/accordion-item.html', {
+                "activeClass": "",
+                "expanded": "false",
+                "question": "Как ознакомиться с прайсом и презентацией?",
+                "answer": "Заполните форму заявки на главной странице — мы направим актуальный прайс и презентацию по интересующим позициям и свяжемся для уточнения деталей."
+                })
+                @@include('../templates/accordion-item.html', {
+                "activeClass": "",
+                "expanded": "false",
+                "question": "Как получить консультацию для выбора?",
+                "answer": "Оставьте заявку через форму на сайте, позвоните или напишите нам — специалист уточнит задачи учреждения и поможет с подбором оборудования и тест-систем."
+                })
             </div>
         </div>
     </div>

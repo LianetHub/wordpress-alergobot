@@ -1,0 +1,318 @@
+.home-contacts {
+	padding: rem(40) 0;
+	background: $color-surface;
+
+	@media (min-width: $bp-tablet) {
+		padding: rem(48) 0;
+	}
+
+	&__box {
+		position: relative;
+		padding: rem(14);
+		border-radius: rem(10);
+		background: $color-accent;
+		color: #fff;
+		overflow: hidden;
+
+		@media (min-width: $bp-tablet) {
+			padding: rem(40);
+			border-radius: rem(20);
+		}
+	}
+
+	&__decor {
+		position: absolute;
+		pointer-events: none;
+		z-index: 0;
+		left: rem(-33);
+		top: rem(9);
+		width: rem(457);
+		height: rem(457);
+		background: url("@img/home/contacts-decor.png") center / contain no-repeat;
+		opacity: 0.35;
+		transform: rotate(-45deg) scaleY(-1);
+
+		@media (min-width: $bp-tablet) {
+			left: auto;
+			right: rem(-120);
+			top: rem(-69);
+			width: rem(650);
+			height: rem(280);
+			opacity: 0.4;
+			transform: rotate(-135deg);
+		}
+	}
+
+	&__hero,
+	&__main {
+		position: relative;
+		z-index: 1;
+	}
+
+	&__hero {
+		display: flex;
+		flex-direction: column;
+		gap: rem(20);
+		margin-bottom: rem(20);
+
+		@media (min-width: $bp-tablet) {
+			display: grid;
+			grid-template-columns: minmax(0, rem(610)) minmax(0, rem(387));
+			justify-content: space-between;
+			align-items: start;
+			column-gap: rem(20);
+			margin-bottom: rem(33);
+		}
+	}
+
+	&__lead {
+		display: flex;
+		flex-direction: column;
+		gap: rem(10);
+		min-width: 0;
+	}
+
+	&__tag {
+		display: inline-flex;
+		align-self: flex-start;
+		align-items: center;
+		justify-content: center;
+		padding: rem(6) rem(10);
+		border-radius: $radius-tab;
+		background: #fff;
+		color: $color-primary;
+		font-family: $font-family;
+		font-weight: 500;
+		font-size: rem(14);
+		line-height: 1.2;
+		letter-spacing: -0.02em;
+		text-transform: uppercase;
+		white-space: nowrap;
+
+		@media (min-width: $bp-tablet) {
+			height: rem(40);
+			padding: rem(10) rem(16);
+			font-size: rem(20);
+		}
+	}
+
+	&__title {
+		margin: 0;
+		font-weight: 500;
+		line-height: 1.2;
+		letter-spacing: -0.04em;
+		@include adaptive-font(24, 48);
+	}
+
+	&__text {
+		margin: 0;
+		max-width: rem(610);
+		font-size: rem(14);
+		line-height: 1.3;
+
+		@media (min-width: $bp-tablet) {
+			font-size: rem(18);
+		}
+	}
+
+	&__figure {
+		margin: 0;
+		border-radius: $radius-btn;
+		background: $color-surface-mint;
+		overflow: hidden;
+	}
+
+	&__photo {
+		display: block;
+		width: 100%;
+		height: rem(217);
+		object-fit: cover;
+		object-position: center top;
+
+		@media (min-width: $bp-tablet) {
+			height: rem(261);
+		}
+	}
+
+	&__main {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: rem(10);
+
+		@media (min-width: $bp-tablet) {
+			grid-template-columns: minmax(0, rem(650)) minmax(0, 1fr);
+			column-gap: rem(20);
+			align-items: start;
+		}
+	}
+
+	&__cards {
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: rem(10);
+
+		@media (min-width: $bp-tablet) {
+			gap: rem(20);
+		}
+	}
+
+	&__card {
+		display: flex;
+		flex-direction: column;
+		gap: rem(10);
+		min-height: rem(119);
+		padding: rem(10);
+		border-radius: $radius-btn;
+		background: $color-surface-tab;
+		color: $color-text-body;
+
+		@media (min-width: $bp-tablet) {
+			gap: rem(20);
+			min-height: rem(192);
+			padding: rem(20);
+		}
+
+		&--phone {
+			grid-column: 1;
+			grid-row: 1;
+		}
+
+		&--address {
+			grid-column: 2;
+			grid-row: 1;
+		}
+
+		&--email {
+			grid-column: 1;
+			grid-row: 2;
+		}
+
+		&--legal {
+			grid-column: 2;
+			grid-row: 2;
+		}
+	}
+
+	&__card-icon {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-shrink: 0;
+		width: rem(24);
+		height: rem(24);
+		padding: rem(5);
+		border-radius: rem(4);
+		background: $color-primary;
+		color: #fff;
+		box-sizing: border-box;
+
+		.icon {
+			width: rem(12);
+			height: rem(12);
+		}
+
+		@media (min-width: $bp-tablet) {
+			width: rem(44);
+			height: rem(44);
+			padding: rem(10);
+			border-radius: $radius-btn;
+
+			.icon {
+				width: rem(22);
+				height: rem(22);
+			}
+		}
+	}
+
+	&__card-body {
+		margin: 0;
+		font-weight: 500;
+		font-size: rem(12);
+		line-height: 1.3;
+
+		@media (min-width: $bp-tablet) {
+			font-size: rem(16);
+		}
+	}
+
+	&__link {
+		display: block;
+		color: inherit;
+		text-decoration: none;
+
+		& + & {
+			margin-top: rem(2);
+
+			@media (min-width: $bp-tablet) {
+				margin-top: 0;
+			}
+		}
+
+		.home-contacts__card--phone & {
+			@media (min-width: $bp-tablet) {
+				font-size: rem(20);
+			}
+		}
+
+		.home-contacts__card--email & {
+			@media (min-width: $bp-tablet) {
+				font-size: rem(20);
+			}
+		}
+
+		@media (min-width: $bp-tablet) {
+			&:hover {
+				opacity: 0.85;
+			}
+		}
+	}
+
+	&__card--address &__card-body,
+	&__card--legal &__card-body {
+		@media (min-width: $bp-tablet) {
+			font-size: rem(20);
+		}
+	}
+
+	&__map {
+		position: relative;
+		overflow: hidden;
+		border-radius: $radius-btn;
+		height: rem(220);
+		background: linear-gradient(
+			90deg,
+			rgba($color-accent, 0.1) 25%,
+			rgba($color-accent, 0.2) 50%,
+			rgba($color-accent, 0.1) 75%
+		);
+		background-size: 200% 100%;
+		animation: home-contacts-map-shimmer 3s infinite linear;
+
+		@media (min-width: $bp-tablet) {
+			height: rem(404);
+		}
+
+		&._is-loaded {
+			animation: none;
+			background: $color-surface-mint;
+		}
+
+		iframe {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+		}
+	}
+}
+
+@keyframes home-contacts-map-shimmer {
+	0% {
+		background-position: -200% 0;
+	}
+
+	100% {
+		background-position: 200% 0;
+	}
+}

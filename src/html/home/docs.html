@@ -1,41 +1,83 @@
 <section class="home-docs">
     <div class="_container">
         <div class="home-docs__head">
-            <div class="home-head__main">
-                <h2 class="home-head__title">Документы, подтверждающие качество и правовой статус решений</h2>
-                <p class="home-head__text">Лабораторное оборудование PROTIA для использования в Российской Федерации подкрепляется официальными документами, регулирующими характеристики и статус бренда по международным стандартам лабораторной диагностики. Регистрационные удостоверения Росздравнадзора с приложением на каждый образец оборудования можно скачать в формате ПДФ на сайте.</p>
+            <div class="home-docs__intro">
+                <h2 class="home-docs__title">Документы, подтверждающие качество и правовой статус решений</h2>
+                <p class="home-docs__text">Лабораторное оборудование PROTIA для использования в Российской Федерации подкрепляется официальными документами, регулирующими характеристики и статус бренда по международным стандартам лабораторной диагностики. Регистрационные удостоверения Росздравнадзора с приложением на каждый образец оборудования можно скачать в формате ПДФ на сайте.</p>
             </div>
             <div class="home-docs__nav">
-                <button class="home-docs__arrow home-docs__arrow--prev" type="button" aria-label="Назад"></button>
-                <button class="home-docs__arrow home-docs__arrow--next" type="button" aria-label="Вперёд"></button>
+                <button class="home-docs__arrow home-docs__arrow--prev" type="button" aria-label="Назад">
+                    <svg class="home-docs__arrow-icon icon" width="32" height="32" aria-hidden="true">
+                        <use href="@img/icons.svg#icon-arrow-chevron"></use>
+                    </svg>
+                </button>
+                <button class="home-docs__arrow home-docs__arrow--next" type="button" aria-label="Вперёд">
+                    <svg class="home-docs__arrow-icon icon" width="32" height="32" aria-hidden="true">
+                        <use href="@img/icons.svg#icon-arrow-chevron"></use>
+                    </svg>
+                </button>
             </div>
         </div>
         <div class="swiper home-docs__slider">
             <div class="swiper-wrapper">
-                <div class="swiper-slide home-docs__slide">
-                    <article class="home-docs__card">
-                        <img class="home-docs__img" src="@img/home/doc-ru-3.png" alt="Регистрационное удостоверение" title="Регистрационное удостоверение" width="276" height="395" loading="lazy">
-                        <p class="home-docs__caption">Lorem ipsum dolor sit amet consectetur adipiscing elit</p>
-                    </article>
-                </div>
-                <div class="swiper-slide home-docs__slide">
-                    <article class="home-docs__card">
-                        <img class="home-docs__img" src="@img/home/doc-ru-1.png" alt="Регистрационное удостоверение" title="Регистрационное удостоверение" width="276" height="394" loading="lazy">
-                        <p class="home-docs__caption">Lorem ipsum dolor sit amet consectetur adipiscing elit</p>
-                    </article>
-                </div>
-                <div class="swiper-slide home-docs__slide">
-                    <article class="home-docs__card">
-                        <img class="home-docs__img" src="@img/home/doc-ru-3.png" alt="Регистрационное удостоверение" title="Регистрационное удостоверение" width="276" height="395" loading="lazy">
-                        <p class="home-docs__caption">Lorem ipsum dolor sit amet consectetur adipiscing elit</p>
-                    </article>
-                </div>
-                <div class="swiper-slide home-docs__slide">
-                    <article class="home-docs__card">
-                        <img class="home-docs__img" src="@img/home/doc-ru-3.png" alt="Регистрационное удостоверение" title="Регистрационное удостоверение" width="276" height="395" loading="lazy">
-                        <p class="home-docs__caption">Lorem ipsum dolor sit amet consectetur adipiscing elit</p>
-                    </article>
-                </div>
+                @@loop('../templates/home-docs-card.html', [
+                {
+                "img": "@img/home/doc-ru-3.png",
+                "alt": "Регистрационное удостоверение PROTIA Allergy-Q",
+                "width": "276",
+                "height": "395",
+                "caption": "Регистрационное удостоверение на анализатор PROTIA Allergy-Q"
+                },
+                {
+                "img": "@img/home/doc-ru-1.png",
+                "alt": "Регистрационное удостоверение на расходные материалы",
+                "width": "276",
+                "height": "394",
+                "caption": "Регистрационное удостоверение на расходные материалы для ИФА"
+                },
+                {
+                "img": "@img/home/doc-ru-3.png",
+                "alt": "Регистрационное удостоверение на панели аллергенов",
+                "width": "276",
+                "height": "395",
+                "caption": "Регистрационное удостоверение на панели для иммуноблоттинга"
+                },
+                {
+                "img": "@img/home/doc-ru-1.png",
+                "alt": "Регистрационное удостоверение на калибраторы",
+                "width": "276",
+                "height": "394",
+                "caption": "Регистрационное удостоверение на калибраторы и контрольные материалы"
+                },
+                {
+                "img": "@img/home/doc-ru-3.png",
+                "alt": "Регистрационное удостоверение на реагенты",
+                "width": "276",
+                "height": "395",
+                "caption": "Регистрационное удостоверение на реагенты для аллергодиагностики"
+                },
+                {
+                "img": "@img/home/doc-ru-1.png",
+                "alt": "Регистрационное удостоверение на программное обеспечение",
+                "width": "276",
+                "height": "394",
+                "caption": "Регистрационное удостоверение на программное обеспечение анализатора"
+                },
+                {
+                "img": "@img/home/doc-ru-3.png",
+                "alt": "Регистрационное удостоверение на комплект поставки",
+                "width": "276",
+                "height": "395",
+                "caption": "Регистрационное удостоверение на комплект поставки лаборатории"
+                },
+                {
+                "img": "@img/home/doc-ru-1.png",
+                "alt": "Регистрационное удостоверение на принадлежности",
+                "width": "276",
+                "height": "394",
+                "caption": "Регистрационное удостоверение на принадлежности к медицинскому изделию"
+                }
+                ])
             </div>
         </div>
     </div>

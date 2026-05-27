@@ -1,112 +1,281 @@
 .home-about {
-	padding: rem(48) 0;
+	padding: rem(40) 0;
 	background: $color-surface-mint;
 
-	.home-tag {
-		margin-bottom: rem(16);
+	@media (min-width: $bp-tablet) {
+		padding: rem(48) 0;
+	}
+
+	&__layout {
+		display: flex;
+		flex-direction: column;
+		gap: rem(20);
+
+		@media (min-width: $bp-tablet) {
+			display: grid;
+			grid-template-columns: minmax(0, rem(648)) minmax(0, 1fr);
+			column-gap: rem(26);
+			align-items: stretch;
+		}
+	}
+
+	&__main {
+		display: flex;
+		flex-direction: column;
+		gap: rem(20);
+		min-width: 0;
+
+		@media (min-width: $bp-tablet) {
+			gap: 0;
+		}
+	}
+
+	&__head {
+		display: flex;
+		flex-direction: column;
+		gap: rem(10);
+
+		@media (min-width: $bp-tablet) {
+			gap: rem(10);
+
+			.home-about__title {
+				margin-top: rem(19);
+			}
+
+			.home-about__logo-wrap {
+				margin-top: rem(10);
+			}
+		}
+	}
+
+	&__tag {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		align-self: flex-start;
+		padding: rem(6) rem(10);
+		border-radius: $radius-tab;
+		background: $color-accent;
+		color: #fff;
+		font-family: $font-family;
+		font-size: rem(14);
+		font-weight: 500;
+		line-height: 1.2;
+		letter-spacing: -0.02em;
+		text-transform: uppercase;
+		white-space: nowrap;
+
+		@media (min-width: $bp-tablet) {
+			height: rem(40);
+			padding: rem(10) rem(16);
+			font-size: rem(20);
+			letter-spacing: -0.02em;
+		}
 	}
 
 	&__title {
-		margin: 0 0 rem(12);
-		color: $color-brand;
+		margin: 0;
+		color: $color-primary;
 		font-weight: 500;
 		line-height: 1.2;
 		letter-spacing: -0.04em;
-		@include adaptive-font(32, 48);
+		@include adaptive-font(24, 48);
+	}
+
+	&__logo-wrap {
+		display: block;
+		width: rem(171);
+		max-width: 100%;
+		line-height: 0;
+
+		@media (min-width: $bp-tablet) {
+			width: rem(254);
+		}
 	}
 
 	&__logo {
 		display: block;
-		width: rem(254);
-		max-width: 100%;
+		width: 100%;
 		height: auto;
-		margin-bottom: rem(28);
-	}
-
-	&__grid {
-		display: grid;
-		grid-template-columns: 1fr;
-		gap: rem(32);
-
-		@media (min-width: $bp-tablet) {
-			grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-			gap: rem(40);
-		}
+		max-width: none;
 	}
 
 	&__photos {
-		display: grid;
-		grid-template-columns: 1fr 1fr;
-		gap: rem(12);
-		margin-bottom: rem(20);
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: rem(10);
+
+		@media (min-width: $bp-tablet) {
+			justify-content: flex-start;
+			gap: rem(20);
+			margin-top: rem(39);
+		}
+	}
+
+	&__photo {
+		flex: 0 0 rem(161);
+		width: rem(161);
+		height: rem(142);
+		border-radius: rem(10);
+		background: #fff;
+		overflow: hidden;
+
+		@media (min-width: $bp-tablet) {
+			flex: 0 0 rem(214);
+			width: rem(214);
+			height: rem(189);
+		}
 
 		img {
+			display: block;
 			width: 100%;
-			border-radius: rem(10);
+			height: 100%;
 			object-fit: cover;
-			aspect-ratio: 214 / 189;
+		}
+
+		&--crop img {
+			@media (max-width: ($bp-tablet - 1px)) {
+				object-position: 35% 20%;
+				transform: scale(1.2);
+				transform-origin: center;
+			}
+
+			@media (min-width: $bp-tablet) {
+				object-position: 35% 20%;
+				transform: scale(1.2);
+				transform-origin: center;
+			}
+		}
+	}
+
+	&__concept {
+		display: flex;
+		flex-direction: column;
+		gap: rem(12);
+		max-width: rem(332);
+
+		@media (min-width: $bp-tablet) {
+			max-width: rem(648);
+			margin-top: rem(40);
 		}
 	}
 
 	&__concept-title {
-		margin: 0 0 rem(8);
-		color: $color-brand;
+		margin: 0;
+		color: $color-primary;
 		font-weight: 500;
 		font-style: italic;
-		font-size: rem(24);
+		font-size: rem(18);
 		line-height: 1.2;
 		letter-spacing: -0.02em;
+
+		@media (min-width: $bp-tablet) {
+			font-size: rem(24);
+			letter-spacing: -0.02em;
+		}
 	}
 
 	&__concept-lead,
 	&__concept-footer {
-		margin: 0 0 rem(12);
+		margin: 0;
 		color: $color-text-body;
-		font-size: rem(16);
+		font-family: "Manrope", $font-family;
+		font-size: rem(14);
+		font-weight: 400;
 		line-height: 1.3;
+
+		@media (min-width: $bp-tablet) {
+			font-size: rem(16);
+		}
 	}
 
 	&__list {
-		margin: 0 0 rem(12);
+		margin: 0;
 		padding: 0;
 		list-style: none;
+		display: flex;
+		flex-direction: column;
+		gap: rem(12);
+
+		@media (min-width: $bp-tablet) {
+			gap: rem(12);
+		}
 
 		li {
-			position: relative;
-			padding-left: rem(28);
-			margin-bottom: rem(10);
+			display: flex;
+			align-items: center;
+			gap: rem(10);
 			color: $color-text-body;
-			font-size: rem(16);
+			font-family: "Manrope", $font-family;
+			font-size: rem(14);
 			font-weight: 500;
 			line-height: 1.3;
 
+			@media (min-width: $bp-tablet) {
+				font-size: rem(16);
+			}
+
 			&::before {
 				content: "";
-				position: absolute;
-				left: 0;
-				top: rem(4);
+				flex: 0 0 rem(12);
 				width: rem(12);
 				height: rem(12);
+				margin: rem(4.5) 0;
 				border-radius: 50%;
 				background: $color-accent;
 			}
 		}
 	}
 
-	&__lead {
-		margin: 0 0 rem(20);
-		color: $color-brand;
-		font-weight: 500;
-		font-style: italic;
-		font-size: rem(24);
-		line-height: 1.2;
-		letter-spacing: -0.02em;
+	&__aside {
+		display: flex;
+		flex-direction: column;
+		gap: rem(20);
+		min-width: 0;
+
+		@media (min-width: $bp-tablet) {
+			justify-content: space-between;
+			gap: 0;
+			max-width: rem(648);
+			justify-self: end;
+			width: 100%;
+		}
 	}
 
-	&__text {
-		margin: 0 0 rem(16);
-		color: $color-text-body;
+	&__lead {
+		margin: 0;
+		color: $color-primary;
+		font-weight: 500;
+		font-style: italic;
 		font-size: rem(18);
+		line-height: 1.2;
+		letter-spacing: -0.02em;
+
+		@media (min-width: $bp-tablet) {
+			font-size: rem(24);
+			letter-spacing: -0.02em;
+		}
+	}
+
+	&__body {
+		display: flex;
+		flex-direction: column;
+		gap: rem(10);
+		color: $color-text-body;
+		font-family: "Manrope", $font-family;
+		font-size: rem(14);
+		font-weight: 400;
 		line-height: 1.3;
+
+		@media (min-width: $bp-tablet) {
+			gap: rem(17);
+			font-size: rem(18);
+			max-width: rem(631);
+		}
+
+		p {
+			margin: 0;
+		}
 	}
 }

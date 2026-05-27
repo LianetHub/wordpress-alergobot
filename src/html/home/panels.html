@@ -1,11 +1,11 @@
 <section class="home-panels">
     <div class="_container">
-        <div class="home-head home-head--row">
-            <div class="home-head__main">
-                <h2 class="home-head__title">Панели PROTIA Allergy-Q для различных направлений аллергодиагностики</h2>
-                <p class="home-head__text">PROTIA Allergy-Q – набором оборудования, выявляющий IgE-тела против разных аллергенов. Основной метод лабораторной диагностики – иммуноблоттинг, за один тест анализирует десятки аллергенов.</p>
+        <div class="home-panels__head">
+            <span class="home-tag home-panels__tag">линейка панелей</span>
+            <div class="home-panels__intro">
+                <h2 class="home-panels__title">Панели PROTIA Allergy-Q для различных направлений аллергодиагностики</h2>
+                <p class="home-panels__lead">PROTIA Allergy-Q – набором оборудования, выявляющий IgE-тела против разных аллергенов. Основной метод лабораторной диагностики – иммуноблоттинг, за один тест анализирует десятки аллергенов.</p>
             </div>
-            <span class="home-tag">линейка панелей</span>
         </div>
         <div class="home-panels__list" data-home-panels>
             <div class="home-panels__item _active">
@@ -16,9 +16,27 @@
                 <div class="home-panels__body">
                     <div class="home-panels__inner">
                         <div class="home-panels__content">
-                            <p class="home-panels__text">Расширенная модель лабораторного оборудования. Комплексный анализ тестов с 90 аллергенами: респираторными, лекарственными, пищевыми, инсектными, эпидермиальными, грибковыми, бытовыми, рядом других. Показана диагностика на аллергию при астме, поллинозах, экземах. Формирует стартовую картину, сокращая время для отдельных тестов.</p>
-                            <img class="home-panels__img" src="@img/home/panels-multipanel.png" alt="Мультипанель PROTIA Allergy-Q" title="Мультипанель PROTIA Allergy-Q" width="267" height="144" loading="lazy">
-                            <a class="btn btn--secondary home-panels__more" href="katalog.html">Подробнее <span class="home-arrow" aria-hidden="true">↗</span></a>
+                            <div class="home-panels__main">
+                                <div class="home-panels__desc">
+                                    <p>Расширенная модель лабораторного оборудования. Комплексный анализ тестов с 90 аллергенами: респираторными, лекарственными, пищевыми, инсектными, эпидермиальными, грибковыми, бытовыми, рядом других. Показана диагностика на аллергию при астме, поллинозах, экземах.</p>
+                                    <p>Формирует стартовую картину, сокращая время для отдельных тестов.</p>
+                                </div>
+                                <img
+                                    class="home-panels__img"
+                                    src="@img/home/panels-multipanel.png"
+                                    alt="Мультипанель PROTIA Allergy-Q"
+                                    title="Мультипанель PROTIA Allergy-Q"
+                                    width="267"
+                                    height="144"
+                                    loading="lazy"
+                                >
+                            </div>
+                            <a class="btn btn--secondary home-panels__more" href="katalog.html">
+                                Подробнее
+                                <svg class="btn__icon icon" width="28" height="28" aria-hidden="true">
+                                    <use href="@img/icons.svg#icon-arrow-up-right"></use>
+                                </svg>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -52,7 +70,13 @@
             </div>
         </div>
         <div class="home-panels__footer">
-            <a class="home-btn home-btn--fill" href="katalog.html">Перейти в каталог</a>
+            <a class="btn btn--primary home-panels__footer-btn home-panels__footer-btn--desktop" href="katalog.html">Перейти в каталог</a>
+            <a class="btn btn--primary home-panels__footer-btn home-panels__footer-btn--mobile" href="analizatory.html">
+                Смотреть анализаторы
+                <svg class="btn__icon icon" width="28" height="28" aria-hidden="true">
+                    <use href="@img/icons.svg#icon-arrow-up-right"></use>
+                </svg>
+            </a>
         </div>
     </div>
 </section>

@@ -1,62 +1,70 @@
 <section class="home-pick" id="home-pick">
-    <div class="home-pick__decor" aria-hidden="true">
-        <img src="@img/home/pick-decor.png" alt="" width="629" height="276" loading="lazy">
-    </div>
-    <div class="home-pick__container _container">
-        <div class="home-head home-head--row">
-            <div class="home-head__main">
-                <h2 class="home-head__title">Подберите решение под задачи вашей лаборатории</h2>
-                <p class="home-head__text">Важно определиться со способом измерений иммунной защиты от аллергии, для максимальной эффективности результатов. Поможет наглядный каталог лабораторного оборудования с описанием аллергопанелей, их назначения и состава. Правильно подобрав, можно его купить, и организовать диагностику на высоком методологическом уровне.</p>
+    <div class="_container">
+        <div class="home-pick__top">
+            <div class="home-pick__badges">
+                <span class="home-pick__badge">удобный процесс</span>
+                <span class="home-pick__badge">широкий охват аллергенов</span>
             </div>
-            <span class="home-tag">каталог</span>
+            <div class="home-pick__intro">
+                <h2 class="home-pick__title">Иммуноблоттинг как надёжный инструмент аллергодиагностики</h2>
+                <p class="home-pick__text">Иммуноблот с высокой точностью замеряет любое количество антител к каждому конкретному белку-антигену за один тест. Подтвердит скрининг, диагностику состояний в тестах – по аллергиям, инфекционным и автоиммунным заболеваниям.</p>
+            </div>
+            <div class="home-pick__benefits">
+                <h3 class="home-pick__subtitle">Преимущества метода</h3>
+                <ul class="home-pick__list">
+                    <li>Подходит для широкого спектра задач диагностики</li>
+                    <li>Позволяет работать с разными группами аллергенов</li>
+                    <li>Самый чувствительный и специфический</li>
+                    <li>Удобный для лабораторной маршрутизации</li>
+                    <li>Может использоваться в комплексе с современным оборудованием и программным обеспечением</li>
+                </ul>
+            </div>
         </div>
-        <div class="home-pick__grid">
-            <div class="home-pick__actions">
-                <a class="btn btn--primary" href="analizatory.html">
-                    Смотреть анализаторы
-                    <svg class="btn__icon" width="28" height="28" aria-hidden="true">
-                        <use href="@img/icons.svg#icon-arrow-up-right"></use>
-                    </svg>
-                </a>
-                <a class="btn btn--secondary" href="katalog.html">
-                    смотреть панели
-                    <svg class="btn__icon" width="28" height="28" aria-hidden="true">
-                        <use href="@img/icons.svg#icon-arrow-up-right"></use>
-                    </svg>
-                </a>
-            </div>
-            <div class="home-pick__products">
-                <div class="home-pick__product">
+        <div class="home-pick__videos">
+            <article class="home-pick__video">
+                <div class="home-pick__video-media">
                     <img
-                        src="@img/home/pick-q-smart.png"
-                        alt="Анализатор Q-Smart"
-                        title="Анализатор Q-Smart"
-                        width="155"
-                        height="106"
+                        src="@img/home/pick-video-1.png"
+                        alt="Оборудование Q-Smart"
+                        title="Оборудование Q-Smart"
+                        width="650"
+                        height="382"
                         loading="lazy"
                     >
+                    <button class="home-pick__play" type="button" aria-label="Смотреть видео">
+                        <img src="@img/home/pick-play.png" alt="" width="38" height="61">
+                    </button>
                 </div>
-                <div class="home-pick__product">
+                <div class="home-pick__caption">
+                    <p>Lorem ipsum dolor sit amet consectetur adipiscing elit</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipiscing elit</p>
+                </div>
+            </article>
+            <article class="home-pick__video">
+                <div class="home-pick__video-media">
                     <img
-                        src="@img/home/pick-reagents.png"
-                        alt="Наборы реагентов"
-                        title="Наборы реагентов"
-                        width="159"
-                        height="114"
+                        src="@img/home/pick-video-2.png"
+                        alt="Презентация оборудования"
+                        title="Презентация оборудования"
+                        width="650"
+                        height="382"
                         loading="lazy"
                     >
-                </div>
-                <div class="home-pick__product">
-                    <img
-                        src="@img/home/pick-q-elite.png"
-                        alt="Анализатор Q-Station Elite"
-                        title="Анализатор Q-Station Elite"
-                        width="143"
-                        height="120"
-                        loading="lazy"
+                    <button
+                        class="home-pick__play"
+                        type="button"
+                        aria-label="Запросить презентацию"
+                        data-fancybox
+                        data-src="#popup-presentation"
                     >
+                        <img src="@img/home/pick-play.png" alt="" width="38" height="61">
+                    </button>
                 </div>
-            </div>
+                <div class="home-pick__caption">
+                    <p>Lorem ipsum dolor sit amet consectetur adipiscing elit</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipiscing elit</p>
+                </div>
+            </article>
         </div>
     </div>
 </section>
