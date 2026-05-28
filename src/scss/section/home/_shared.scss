@@ -3,7 +3,7 @@ $home-muted: #5c6f7a;
 $home-card: #e8f4f8;
 $home-teal: $color-accent;
 
-.home-tag {
+.tag {
 	display: inline-block;
 	padding: rem(8) rem(16);
 	border-radius: $radius-tab;
@@ -28,28 +28,7 @@ $home-teal: $color-accent;
 	justify-content: center;
 }
 
-// Алиасы UI Kit на главной (постепенная миграция разметки на .btn)
-.home-btn {
-	@extend .btn;
-
-	&--fill {
-		@extend .btn--primary;
-	}
-
-	&--outline {
-		@extend .btn--secondary;
-	}
-
-	&--white {
-		@extend .btn--white;
-	}
-
-	&--white-outline {
-		@extend .btn--white-outline;
-	}
-}
-
-.home-head {
+.section-head {
 	margin-bottom: rem(28);
 
 	&--row {

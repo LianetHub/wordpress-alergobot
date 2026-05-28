@@ -1,14 +1,14 @@
-<section class="home-news">
-    <div class="home-news__decor" aria-hidden="true"></div>
-    <div class="_container">
-        <div class="home-news__head">
-            <div class="home-news__intro">
-                <span class="home-news__tag">новости</span>
-                <h2 class="home-news__title">Новости и материалы</h2>
-                <p class="home-news__text">Персонал компании отслеживает новости в лабораторной диагностике аллергии. Отражает это в передовой политике и новостной рубрике с помощью виджетов-карточек на сайте. Заказывайте новостную рассылку на почту или в мессенджеры, чтобы быть в курсе самых свежих новостей, и купить нужное оборудование.</p>
+<section class="news">
+    <div class="news__decor" aria-hidden="true"></div>
+    <div class="news__container _container">
+        <div class="news__head">
+            <div class="news__intro">
+                <span class="news__tag">новости</span>
+                <h2 class="news__title">Новости и материалы</h2>
+                <p class="news__text">Персонал компании отслеживает новости в лабораторной диагностике аллергии. Отражает это в передовой политике и новостной рубрике с помощью виджетов-карточек на сайте. Заказывайте новостную рассылку на почту или в мессенджеры, чтобы быть в курсе самых свежих новостей, и купить нужное оборудование.</p>
             </div>
         </div>
-        <div class="home-news__grid">
+        <div class="news__grid">
             @@loop('../templates/news-card.html', [
             {
             "href": "statya.html",
@@ -30,8 +30,8 @@
             }
             ])
         </div>
-        <div class="home-news__footer">
-            <a class="home-btn home-btn--fill home-news__btn" href="stati.html">Смотреть все материалы</a>
+        <div class="news__footer">
+            <a class="btn btn--primary news__btn" href="stati.html">Смотреть все материалы</a>
         </div>
     </div>
 </section>

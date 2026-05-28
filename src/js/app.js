@@ -171,11 +171,11 @@ function initAudiencePills() {
 }
 
 function initHomePanels() {
-    document.querySelectorAll("[data-home-panels]").forEach((wrap) => {
-        const items = wrap.querySelectorAll(".home-panels__item");
+    document.querySelectorAll("[data-panels]").forEach((wrap) => {
+        const items = wrap.querySelectorAll(".panels__item");
 
         items.forEach((item) => {
-            const head = item.querySelector(".home-panels__head");
+            const head = item.querySelector(".panels__head");
             if (!head) return;
 
             head.addEventListener("click", () => {
@@ -183,7 +183,7 @@ function initHomePanels() {
 
                 items.forEach((other) => {
                     other.classList.remove("_active");
-                    other.querySelector(".home-panels__head")?.setAttribute("aria-expanded", "false");
+                    other.querySelector(".panels__head")?.setAttribute("aria-expanded", "false");
                 });
 
                 if (!isOpen) {
@@ -198,7 +198,7 @@ function initHomePanels() {
 function initHomeSwipers() {
     if (typeof Swiper === "undefined") return;
 
-    const chooseEl = document.querySelector(".home-choose__slider");
+    const chooseEl = document.querySelector(".choose__slider");
     if (chooseEl) {
         new Swiper(chooseEl, {
             slidesPerView: 1,
@@ -210,13 +210,13 @@ function initHomeSwipers() {
                 },
             },
             navigation: {
-                nextEl: ".home-choose__arrow--next",
-                prevEl: ".home-choose__arrow--prev",
+                nextEl: ".choose__arrow--next",
+                prevEl: ".choose__arrow--prev",
             },
         });
     }
 
-    const processEl = document.querySelector(".home-process__slider");
+    const processEl = document.querySelector(".process__slider");
     if (processEl) {
         new Swiper(processEl, {
             slidesPerView: "auto",
@@ -229,7 +229,7 @@ function initHomeSwipers() {
         });
     }
 
-    const partnersEl = document.querySelector(".home-partners__slider");
+    const partnersEl = document.querySelector(".partners__slider");
     if (partnersEl) {
         new Swiper(partnersEl, {
             slidesPerView: "auto",
@@ -242,7 +242,7 @@ function initHomeSwipers() {
         });
     }
 
-    const docsEl = document.querySelector(".home-docs__slider");
+    const docsEl = document.querySelector(".docs__slider");
     if (docsEl) {
         new Swiper(docsEl, {
             slidesPerView: "auto",
@@ -253,8 +253,8 @@ function initHomeSwipers() {
                 },
             },
             navigation: {
-                nextEl: ".home-docs__arrow--next",
-                prevEl: ".home-docs__arrow--prev",
+                nextEl: ".docs__arrow--next",
+                prevEl: ".docs__arrow--prev",
             },
         });
     }

@@ -1,66 +1,48 @@
-<section class="home-choose">
-    <div class="home-choose__bg" aria-hidden="true"></div>
-    <div class="home-choose__container _container">
-        <div class="home-choose__head">
-            <div class="home-choose__head-main">
-                <span class="home-choose__tag">выбор панели</span>
-                <h2 class="home-choose__title">Как выбрать подходящую панель для вашей лаборатории</h2>
-                <p class="home-choose__lead">Вид панели, которую нужно купить, выбирается с учётом клинических показаний и лабораторных тестов. Зависит от профиля учреждения, сценариев диагностики.</p>
+<section class="choose">
+    <div class="choose__bg" aria-hidden="true"></div>
+    <div class="choose__container _container">
+        <div class="choose__head">
+            <div class="choose__head-main">
+                <span class="choose__tag">выбор панели</span>
+                <h2 class="choose__title">Как выбрать подходящую панель для вашей лаборатории</h2>
+                <p class="choose__lead">Вид панели, которую нужно купить, выбирается с учётом клинических показаний и лабораторных тестов. Зависит от профиля учреждения, сценариев диагностики.</p>
             </div>
-            <p class="home-choose__note">Если вы не уверены, какое решение подойдёт именно вам, наши специалисты помогут подобрать панель под задачи вашей лаборатории.</p>
+            <p class="choose__note">Если вы не уверены, какое решение подойдёт именно вам, наши специалисты помогут подобрать панель под задачи вашей лаборатории.</p>
         </div>
-        <div class="swiper home-choose__slider">
+        <div class="swiper choose__slider">
             <div class="swiper-wrapper">
-                <div class="swiper-slide home-choose__slide">
-                    <article class="home-choose__card">
-                        <div class="home-choose__card-text">
-                            <h3 class="home-choose__card-title">Мультипанель</h3>
-                            <p class="home-choose__card-desc">Оно нужно при респираторной, пищевой, лекарственной аллергии. Для первичной диагностики, скрининга, тестов перед иммунотерапией АСИТ.</p>
-                        </div>
-                        <div class="home-choose__card-media">
-                            <img
-                                class="home-choose__card-img home-choose__card-img--lab"
-                                src="@img/home/choose-multipanel.png"
-                                alt="Лабораторные исследования"
-                                title="Лабораторные исследования"
-                                width="214"
-                                height="256"
-                                loading="lazy"
-                            >
-                        </div>
-                    </article>
-                </div>
-                <div class="swiper-slide home-choose__slide">
-                    <article class="home-choose__card">
-                        <div class="home-choose__card-text">
-                            <h3 class="home-choose__card-title">Респираторная панель</h3>
-                            <p class="home-choose__card-desc">Для тестов при дыхательных проблемах в диагностике с ингаляционной аллергией. Показано при насморках и кашлях, астме, поллинозах, удушьях, дерматитах и экземах.</p>
-                        </div>
-                        <div class="home-choose__card-media">
-                            <img
-                                class="home-choose__card-img home-choose__card-img--respiratory"
-                                src="@img/home/choose-respiratory.png"
-                                alt="Респираторная аллергия"
-                                title="Респираторная аллергия"
-                                width="214"
-                                height="256"
-                                loading="lazy"
-                            >
-                        </div>
-                    </article>
-                </div>
+                @@loop('../templates/choose-slide.html', [
+                {
+                "title": "Мультипанель",
+                "desc": "Оно нужно при респираторной, пищевой, лекарственной аллергии. Для первичной диагностики, скрининга, тестов перед иммунотерапией АСИТ.",
+                "img": "@img/home/choose-multipanel.png",
+                "alt": "Лабораторные исследования",
+                "imgClass": "choose__card-img--lab"
+                },
+                {
+                "title": "Респираторная панель",
+                "desc": "Для тестов при дыхательных проблемах в диагностике с ингаляционной аллергией. Показано при насморках и кашлях, астме, поллинозах, удушьях, дерматитах и экземах.",
+                "img": "@img/home/choose-respiratory.png",
+                "alt": "Респираторная аллергия",
+                "imgClass": "choose__card-img--respiratory"
+                }
+                ])
             </div>
         </div>
-        <div class="home-choose__footer">
-            <div class="home-choose__nav">
-                <button class="home-choose__arrow home-choose__arrow--prev" type="button" aria-label="Назад">
-                    <img src="@img/home/choose-arrow.svg" alt="" width="32" height="32" aria-hidden="true">
+        <div class="choose__footer">
+            <div class="choose__nav">
+                <button class="choose__arrow choose__arrow--prev" type="button" aria-label="Назад">
+                    <svg width="32" height="32" aria-hidden="true">
+                        <use href="@img/icons.svg#icon-arrow-chevron"></use>
+                    </svg>
                 </button>
-                <button class="home-choose__arrow home-choose__arrow--next" type="button" aria-label="Вперёд">
-                    <img src="@img/home/choose-arrow.svg" alt="" width="32" height="32" aria-hidden="true">
+                <button class="choose__arrow choose__arrow--next" type="button" aria-label="Вперёд">
+                    <svg width="32" height="32" aria-hidden="true">
+                        <use href="@img/icons.svg#icon-arrow-chevron"></use>
+                    </svg>
                 </button>
             </div>
-            <button class="home-choose__btn" type="button" data-fancybox data-src="#popup-consultation">Получить консультацию</button>
+            <button class="choose__btn" type="button" data-fancybox data-src="#popup-consultation">Получить консультацию</button>
         </div>
     </div>
 </section>

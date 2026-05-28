@@ -1,13 +1,13 @@
-<section class="home-advantages">
-    <div class="_container home-advantages__container">
-        <div class="home-advantages__head">
-            <span class="home-advantages__badge">FAQ</span>
-            <h2 class="home-advantages__title home-advantages__title--mobile">Ответы на часто задаваемые вопросы</h2>
-            <h2 class="home-advantages__title home-advantages__title--desktop">Ответы на популярные вопросы</h2>
+<section class="faq">
+    <div class="faq__container _container">
+        <div class="faq__head">
+            <span class="faq__badge">FAQ</span>
+            <h2 class="faq__title faq__title--mobile">Ответы на часто задаваемые вопросы</h2>
+            <h2 class="faq__title faq__title--desktop">Ответы на популярные вопросы</h2>
         </div>
 
-        <div class="home-advantages__list home-advantages__list--mobile">
-            <div class="accordion home-advantages__accordion" data-accordion>
+        <div class="faq__list faq__list--mobile">
+            <div class="accordion faq__accordion" data-accordion>
                 @@include('../templates/accordion-item.html', {
                 "activeClass": " _active",
                 "expanded": "true",
@@ -59,8 +59,8 @@
             </div>
         </div>
 
-        <div class="home-advantages__columns accordion" data-accordion>
-            <div class="home-advantages__col">
+        <div class="faq__columns accordion" data-accordion>
+            <div class="faq__col">
                 @@include('../templates/accordion-item.html', {
                 "activeClass": " _active",
                 "expanded": "true",
@@ -86,7 +86,7 @@
                 "answer": "Да. Это диагностические панели и реагенты для количественного ИФА: готовые наборы под пищевые, респираторные и другие группы аллергенов, совместимые с оборудованием PROTIA Allergy-Q."
                 })
             </div>
-            <div class="home-advantages__col">
+            <div class="faq__col">
                 @@include('../templates/accordion-item.html', {
                 "activeClass": "",
                 "expanded": "false",

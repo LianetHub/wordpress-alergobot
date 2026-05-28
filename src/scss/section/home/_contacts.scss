@@ -1,4 +1,4 @@
-.home-contacts {
+.contacts {
 	padding: rem(40) 0;
 	background: $color-surface;
 
@@ -248,13 +248,13 @@
 			}
 		}
 
-		.home-contacts__card--phone & {
+		.contacts__card--phone & {
 			@media (min-width: $bp-tablet) {
 				font-size: rem(20);
 			}
 		}
 
-		.home-contacts__card--email & {
+		.contacts__card--email & {
 			@media (min-width: $bp-tablet) {
 				font-size: rem(20);
 			}
@@ -286,7 +286,7 @@
 			rgba($color-accent, 0.1) 75%
 		);
 		background-size: 200% 100%;
-		animation: home-contacts-map-shimmer 3s infinite linear;
+		animation: contacts-map-shimmer 3s infinite linear;
 
 		@media (min-width: $bp-tablet) {
 			height: rem(404);
@@ -307,7 +307,7 @@
 	}
 }
 
-@keyframes home-contacts-map-shimmer {
+@keyframes contacts-map-shimmer {
 	0% {
 		background-position: -200% 0;
 	}

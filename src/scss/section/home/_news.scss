@@ -1,4 +1,4 @@
-.home-news {
+.news {
 	padding: rem(40) 0;
 	background: $color-surface;
 	position: relative;
@@ -26,7 +26,7 @@
 		}
 	}
 
-	._container {
+	&__container {
 		position: relative;
 		z-index: 1;
 	}

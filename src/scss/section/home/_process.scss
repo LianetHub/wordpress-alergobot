@@ -1,4 +1,4 @@
-.home-process {
+.process {
 	padding: rem(40) 0;
 	background: $color-surface;
 
@@ -238,7 +238,7 @@
 		object-fit: cover;
 		object-position: center bottom;
 
-		.home-process__media--cover & {
+		.process__media--cover & {
 			object-position: center center;
 		}
 	}

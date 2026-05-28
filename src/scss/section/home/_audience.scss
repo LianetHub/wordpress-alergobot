@@ -1,4 +1,4 @@
-.home-audience {
+.audience {
 	padding: rem(48) 0 rem(56);
 	background: $color-surface;
 
@@ -205,7 +205,7 @@
 			align-items: flex-start;
 			border-radius: $radius-btn;
 
-			.home-audience__card-text {
+			.audience__card-text {
 				display: block;
 			}
 		}

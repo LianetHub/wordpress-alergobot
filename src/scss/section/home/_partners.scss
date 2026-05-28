@@ -1,4 +1,4 @@
-.home-partners {
+.partners {
 	padding: rem(40) 0;
 	background: $color-surface;
 
@@ -211,7 +211,7 @@
 		object-fit: contain;
 		object-position: left center;
 
-		.home-partners__logo-wrap--invitro & {
+		.partners__logo-wrap--invitro & {
 			max-height: rem(32);
 
 			@media (min-width: $bp-tablet) {
@@ -219,7 +219,7 @@
 			}
 		}
 
-		.home-partners__logo-wrap--helix & {
+		.partners__logo-wrap--helix & {
 			max-width: rem(88);
 			max-height: rem(36);
 
@@ -229,7 +229,7 @@
 			}
 		}
 
-		.home-partners__logo-wrap--kdl & {
+		.partners__logo-wrap--kdl & {
 			max-width: rem(105);
 			max-height: rem(46);
 

@@ -1,4 +1,4 @@
-.home-about {
+.about {
 	padding: rem(40) 0;
 	background: $color-surface-mint;
 
@@ -38,11 +38,11 @@
 		@media (min-width: $bp-tablet) {
 			gap: rem(10);
 
-			.home-about__title {
+			.about__title {
 				margin-top: rem(19);
 			}
 
-			.home-about__logo-wrap {
+			.about__logo-wrap {
 				margin-top: rem(10);
 			}
 		}

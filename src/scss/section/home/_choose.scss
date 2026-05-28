@@ -1,4 +1,4 @@
-.home-choose {
+.choose {
 	position: relative;
 	margin: rem(24) 0;
 	border-radius: rem(10);
@@ -263,7 +263,7 @@
 			background: rgba(255, 255, 255, 0.08);
 		}
 
-		img {
+		svg {
 			display: block;
 			width: rem(23.467);
 			height: rem(23.467);
@@ -274,11 +274,11 @@
 			}
 		}
 
-		&--prev img {
+		&--prev svg {
 			transform: rotate(-90deg);
 		}
 
-		&--next img {
+		&--next svg {
 			transform: rotate(90deg);
 		}
 	}

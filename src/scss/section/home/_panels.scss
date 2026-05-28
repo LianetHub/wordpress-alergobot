@@ -1,4 +1,4 @@
-.home-panels {
+.panels {
 	padding: rem(48) 0;
 	background: $color-surface;
 
@@ -80,15 +80,15 @@
 				padding: rem(20);
 			}
 
-			.home-panels__chevron {
+			.panels__chevron {
 				transform: rotate(0deg);
 			}
 
-			.home-panels__body {
+			.panels__body {
 				grid-template-rows: 1fr;
 			}
 
-			.home-panels__head {
+			.panels__head {
 				padding: 0;
 			}
 		}
