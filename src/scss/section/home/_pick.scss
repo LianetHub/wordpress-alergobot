@@ -28,8 +28,8 @@
 			grid-area: badges;
 			flex-direction: row;
 			flex-wrap: wrap;
-			justify-content: flex-end;
-			justify-self: end;
+			justify-content: flex-start;
+			justify-self: start;
 		}
 	}
 
@@ -208,7 +208,8 @@
 			backdrop-filter: blur(10px);
 		}
 
-		img {
+		img,
+		svg {
 			display: block;
 			width: rem(17);
 			height: rem(28);

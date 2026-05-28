@@ -84,6 +84,7 @@
 
 	&__title {
 		margin: 0;
+		color: #fff;
 		font-weight: 500;
 		line-height: 1.2;
 		letter-spacing: -0.04em;
@@ -275,11 +276,11 @@
 		}
 
 		&--prev svg {
-			transform: rotate(-90deg);
+			transform: rotate(180deg);
 		}
 
 		&--next svg {
-			transform: rotate(90deg);
+			transform: rotate(0deg);
 		}
 	}
 

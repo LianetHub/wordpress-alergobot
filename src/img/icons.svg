@@ -69,6 +69,16 @@
         <circle cx="44" cy="44" r="42" fill="currentColor" opacity="0.9"/>
         <path d="M36 28l32 16-32 16V28z" fill="#fff"/>
     </symbol>
+    <symbol id="icon-pick-play" viewBox="0 0 38 61">
+        <g clip-path="url(#clip0_pick_play)">
+            <path d="M37.3788 31.6779L1.51244 59.7208C1.09832 60.0501 0.742715 60.0881 0.445629 59.8348C0.148543 59.5815 0 59.1255 0 58.4668V2.53315C0 1.87451 0.148543 1.41853 0.445629 1.16521C0.742715 0.911888 1.09832 0.949886 1.51244 1.27921L37.3788 29.322C37.7929 29.6514 38 30.044 38 30.5C38 30.956 37.7929 31.3486 37.3788 31.6779Z" fill="#55ACBF"/>
+        </g>
+        <defs>
+            <clipPath id="clip0_pick_play">
+                <rect width="38" height="61" fill="white"/>
+            </clipPath>
+        </defs>
+    </symbol>
     <symbol id="icon-check-circle" viewBox="0 0 28 28">
         <circle cx="14" cy="14" r="12" stroke="currentColor" fill="none" stroke-width="1.5"/>
         <path d="M9 14l3 3 7-7" stroke="currentColor" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
