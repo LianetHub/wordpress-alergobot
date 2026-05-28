@@ -8,7 +8,7 @@
 		gap: rem(10);
 		margin-bottom: rem(20);
 
-		@media (min-width: $bp-tablet) {
+		@media (min-width: $md3) {
 			grid-template-columns: minmax(0, 1fr) auto;
 			grid-template-rows: auto auto;
 			align-items: start;
@@ -19,7 +19,7 @@
 	}
 
 	&__intro {
-		@media (min-width: $bp-tablet) {
+		@media (min-width: $md3) {
 			grid-column: 1;
 			grid-row: 1 / 3;
 			max-width: rem(675);
@@ -29,7 +29,7 @@
 	&__tag {
 		justify-self: start;
 
-		@media (min-width: $bp-tablet) {
+		@media (min-width: $md3) {
 			grid-column: 2;
 			grid-row: 1;
 			justify-self: end;
@@ -41,7 +41,7 @@
 		overflow: hidden;
 		background: #fff;
 
-		@media (min-width: $bp-tablet) {
+		@media (min-width: $md3) {
 			grid-column: 2;
 			grid-row: 2;
 			max-width: rem(427);
@@ -59,7 +59,7 @@
 		position: relative;
 		min-height: rem(540);
 
-		@media (min-width: $bp-tablet) {
+		@media (min-width: $md3) {
 			min-height: rem(477);
 			margin-top: rem(8);
 		}
@@ -74,7 +74,7 @@
 		object-position: bottom center;
 		pointer-events: none;
 
-		@media (max-width: ($bp-tablet - 1px)) {
+		@media (max-width: ($md3 - 1px)) {
 			position: absolute;
 			left: 50%;
 			top: rem(110);
@@ -82,7 +82,7 @@
 			z-index: 0;
 		}
 
-		@media (min-width: $bp-tablet) {
+		@media (min-width: $md3) {
 			position: absolute;
 			left: 23.4%;
 			top: 0;
@@ -98,7 +98,7 @@
 		z-index: 1;
 		min-height: rem(500);
 
-		@media (min-width: $bp-tablet) {
+		@media (min-width: $md3) {
 			min-height: rem(477);
 		}
 	}
@@ -125,7 +125,7 @@
 			background 0.2s ease,
 			z-index 0s;
 
-		@media (min-width: $bp-tablet) {
+		@media (min-width: $md3) {
 			width: auto;
 			max-width: rem(392);
 			padding: rem(12) rem(20);
@@ -163,7 +163,7 @@
 			top: rem(461);
 		}
 
-		@media (min-width: $bp-tablet) {
+		@media (min-width: $md3) {
 			&:nth-child(1) {
 				left: 0;
 				top: rem(38);
@@ -220,7 +220,7 @@
 		line-height: 1.2;
 		letter-spacing: -0.02em;
 
-		@media (min-width: $bp-desktop) {
+		@media (min-width: $md2) {
 			font-size: rem(24);
 		}
 	}
@@ -269,11 +269,11 @@
 		line-height: 1.3;
 		color: $color-primary;
 
-		@media (min-width: $bp-tablet) {
+		@media (min-width: $md3) {
 			margin-top: rem(10);
 		}
 
-		@media (min-width: $bp-desktop) {
+		@media (min-width: $md2) {
 			font-size: rem(18);
 		}
 	}

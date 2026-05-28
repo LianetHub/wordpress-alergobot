@@ -7,7 +7,7 @@
 	overflow: hidden;
 	min-height: rem(143);
 
-	@media (min-width: $bp-tablet) {
+	@media (min-width: $md3) {
 		min-height: rem(277);
 	}
 }
@@ -28,7 +28,7 @@
 	overflow: hidden;
 	border-radius: rem(10) 0 0 rem(10);
 
-	@media (min-width: $bp-tablet) {
+	@media (min-width: $md3) {
 		width: rem(295);
 	}
 }
@@ -41,7 +41,7 @@
 	object-fit: cover;
 	object-position: center;
 
-	@media (min-width: $bp-tablet) {
+	@media (min-width: $md3) {
 		min-height: rem(277);
 	}
 }
@@ -55,7 +55,7 @@
 	padding: rem(10);
 	gap: rem(5);
 
-	@media (min-width: $bp-tablet) {
+	@media (min-width: $md3) {
 		padding: rem(20);
 		gap: rem(10);
 	}
@@ -77,7 +77,7 @@
 	white-space: nowrap;
 	backdrop-filter: blur(5px);
 
-	@media (min-width: $bp-tablet) {
+	@media (min-width: $md3) {
 		padding: rem(10);
 		border-radius: rem(10);
 		font-size: rem(18);
@@ -91,7 +91,7 @@
 	gap: rem(5);
 	min-width: 0;
 
-	@media (min-width: $bp-tablet) {
+	@media (min-width: $md3) {
 		gap: rem(10);
 	}
 }
@@ -105,7 +105,7 @@
 	letter-spacing: -0.02em;
 	font-size: rem(12);
 
-	@media (min-width: $bp-tablet) {
+	@media (min-width: $md3) {
 		font-size: rem(24);
 		letter-spacing: -0.02em;
 	}
@@ -122,7 +122,7 @@
 	-webkit-box-orient: vertical;
 	overflow: hidden;
 
-	@media (min-width: $bp-tablet) {
+	@media (min-width: $md3) {
 		font-size: rem(16);
 		-webkit-line-clamp: 3;
 	}
@@ -141,7 +141,7 @@
 	line-height: 1.2;
 	letter-spacing: -0.02em;
 
-	@media (min-width: $bp-tablet) {
+	@media (min-width: $md3) {
 		font-size: rem(24);
 		letter-spacing: -0.02em;
 	}
@@ -157,7 +157,7 @@
 	width: rem(16);
 	height: rem(16);
 
-	@media (min-width: $bp-tablet) {
+	@media (min-width: $md3) {
 		width: rem(28);
 		height: rem(28);
 	}
@@ -168,7 +168,7 @@
 	}
 }
 
-@media (min-width: $bp-desktop) {
+@media (min-width: $md2) {
 	.news-card-link:hover .news-card-title {
 		color: $color-accent;
 	}

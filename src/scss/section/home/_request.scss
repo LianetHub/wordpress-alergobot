@@ -2,7 +2,7 @@
 	padding: rem(40) 0;
 	background: $color-surface;
 
-	@media (min-width: $bp-tablet) {
+	@media (min-width: $md3) {
 		padding: rem(48) 0;
 	}
 
@@ -20,7 +20,7 @@
 		padding-top: rem(24);
 		padding-bottom: rem(24);
 
-		@media (min-width: $bp-tablet) {
+		@media (min-width: $md3) {
 			padding-top: rem(40);
 			padding-bottom: rem(40);
 			min-height: rem(610);
@@ -46,7 +46,7 @@
 		grid-template-columns: 1fr;
 		gap: rem(24);
 
-		@media (min-width: $bp-tablet) {
+		@media (min-width: $md3) {
 			grid-template-columns: minmax(0, 1fr) minmax(0, rem(650));
 			column-gap: rem(21);
 			align-items: stretch;
@@ -59,7 +59,7 @@
 		flex-direction: column;
 		gap: rem(20);
 
-		@media (min-width: $bp-tablet) {
+		@media (min-width: $md3) {
 			justify-content: space-between;
 			gap: rem(40);
 			min-height: 100%;
@@ -86,7 +86,7 @@
 		line-height: 1.2;
 		letter-spacing: -0.02em;
 
-		@media (min-width: $bp-tablet) {
+		@media (min-width: $md3) {
 			font-size: rem(24);
 		}
 	}
@@ -97,7 +97,7 @@
 		gap: rem(20);
 		max-width: rem(650);
 
-		@media (min-width: $bp-tablet) {
+		@media (min-width: $md3) {
 			gap: rem(34);
 		}
 	}
@@ -108,7 +108,7 @@
 		font-size: rem(16);
 		line-height: 1.3;
 
-		@media (min-width: $bp-tablet) {
+		@media (min-width: $md3) {
 			font-size: rem(18);
 		}
 	}

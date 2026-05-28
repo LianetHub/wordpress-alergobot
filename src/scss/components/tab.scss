@@ -32,7 +32,7 @@
 		height: rem(36);
 	}
 
-	@media (min-width: $bp-desktop) {
+	@media (min-width: $md2) {
 		&:hover:not(:disabled):not([aria-disabled="true"]):not(.tab--disabled) {
 			border-width: 1px;
 		}

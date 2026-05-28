@@ -7,11 +7,11 @@
 .contacts-intro {
 	padding: rem(16) 0 rem(20);
 
-	@media (min-width: $bp-tablet) {
+	@media (min-width: $md3) {
 		padding: rem(32) 0 rem(24);
 	}
 
-	@media (min-width: $bp-desktop) {
+	@media (min-width: $md2) {
 		padding: rem(40) 0 rem(33);
 	}
 
@@ -20,7 +20,7 @@
 		flex-direction: column;
 		gap: rem(20);
 
-		@media (min-width: $bp-desktop) {
+		@media (min-width: $md2) {
 			flex-direction: row;
 			align-items: flex-start;
 			justify-content: space-between;
@@ -59,7 +59,7 @@
 		gap: rem(10);
 		max-width: rem(332);
 
-		@media (min-width: $bp-desktop) {
+		@media (min-width: $md2) {
 			flex-shrink: 0;
 			grid-template-columns: repeat(2, rem(140));
 			gap: rem(20);
@@ -79,7 +79,7 @@
 		justify-content: center;
 		overflow: hidden;
 
-		@media (min-width: $bp-desktop) {
+		@media (min-width: $md2) {
 			width: rem(140);
 			height: rem(140);
 			padding: rem(16);
@@ -97,7 +97,7 @@
 .contacts-order {
 	padding: 0 0 rem(40);
 
-	@media (min-width: $bp-desktop) {
+	@media (min-width: $md2) {
 		padding-bottom: rem(48);
 	}
 
@@ -106,7 +106,7 @@
 		grid-template-columns: 1fr;
 		gap: rem(10);
 
-		@media (min-width: $bp-tablet) {
+		@media (min-width: $md3) {
 			grid-template-columns: repeat(2, minmax(0, 1fr));
 			gap: rem(20);
 			align-items: stretch;
@@ -121,7 +121,7 @@
 		overflow: hidden;
 		text-decoration: none;
 
-		@media (min-width: $bp-tablet) {
+		@media (min-width: $md3) {
 			min-height: 100%;
 		}
 	}
@@ -134,7 +134,7 @@
 		object-fit: cover;
 		object-position: center;
 
-		@media (min-width: $bp-tablet) {
+		@media (min-width: $md3) {
 			min-height: rem(431);
 		}
 	}
@@ -148,7 +148,7 @@
 	border-radius: $radius-btn;
 	background: $color-accent;
 
-	@media (min-width: $bp-desktop) {
+	@media (min-width: $md2) {
 		padding: rem(40) rem(41);
 		border-radius: rem(20);
 		gap: rem(10);
@@ -159,7 +159,7 @@
 		grid-template-columns: 1fr;
 		gap: rem(10);
 
-		@media (min-width: $bp-desktop) {
+		@media (min-width: $md2) {
 			grid-template-columns: repeat(2, minmax(0, 1fr));
 		}
 	}
@@ -168,7 +168,7 @@
 		min-height: rem(110);
 		resize: vertical;
 
-		@media (min-width: $bp-desktop) {
+		@media (min-width: $md2) {
 			min-height: rem(137);
 		}
 	}
@@ -181,7 +181,7 @@
 			line-height: 1.3;
 			letter-spacing: -0.02em;
 
-			@media (min-width: $bp-desktop) {
+			@media (min-width: $md2) {
 				font-size: rem(12);
 			}
 
@@ -190,7 +190,7 @@
 				text-decoration: underline;
 				text-underline-offset: 2px;
 
-				@media (min-width: $bp-desktop) {
+				@media (min-width: $md2) {
 					&:hover {
 						opacity: 0.9;
 					}
@@ -215,12 +215,12 @@
 		cursor: pointer;
 		transition: transform 0.2s cubic-bezier(0.22, 1, 0.36, 1);
 
-		@media (min-width: $bp-desktop) {
+		@media (min-width: $md2) {
 			height: rem(60);
 			font-size: rem(20);
 		}
 
-		@media (min-width: $bp-desktop) {
+		@media (min-width: $md2) {
 			&:hover {
 				transform: translateY(-2px);
 			}
@@ -237,7 +237,7 @@
 	padding: rem(40) 0 rem(48);
 	overflow: hidden;
 
-	@media (min-width: $bp-desktop) {
+	@media (min-width: $md2) {
 		padding: rem(56) 0 rem(80);
 	}
 
@@ -252,7 +252,7 @@
 		filter: blur(5px);
 		opacity: 0.85;
 
-		@media (min-width: $bp-tablet) {
+		@media (min-width: $md3) {
 			right: rem(-40);
 			bottom: rem(80);
 			width: rem(796);
@@ -272,7 +272,7 @@
 		max-width: rem(663);
 		margin-bottom: rem(20);
 
-		@media (min-width: $bp-desktop) {
+		@media (min-width: $md2) {
 			margin-bottom: rem(32);
 		}
 	}
@@ -299,7 +299,7 @@
 		grid-template-columns: repeat(2, minmax(0, 1fr));
 		gap: rem(10);
 
-		@media (min-width: $bp-desktop) {
+		@media (min-width: $md2) {
 			grid-template-columns: repeat(4, minmax(0, 1fr));
 			gap: rem(20);
 		}
@@ -315,7 +315,7 @@
 	background: rgba($color-surface-tab, 0.9);
 	min-height: rem(119);
 
-	@media (min-width: $bp-desktop) {
+	@media (min-width: $md2) {
 		gap: rem(20);
 		padding: rem(20);
 		min-height: rem(192);
@@ -337,7 +337,7 @@
 			height: rem(15);
 		}
 
-		@media (min-width: $bp-desktop) {
+		@media (min-width: $md2) {
 			width: rem(44);
 			height: rem(44);
 			border-radius: $radius-btn;
@@ -363,22 +363,22 @@
 		color: inherit;
 		text-decoration: none;
 
-		& + & {
+		&+& {
 			margin-top: rem(4);
 
-			@media (min-width: $bp-desktop) {
+			@media (min-width: $md2) {
 				margin-top: 0;
 			}
 		}
 
-		@media (min-width: $bp-desktop) {
+		@media (min-width: $md2) {
 			&:hover {
 				opacity: 0.85;
 			}
 		}
 	}
 
-	@media (max-width: $bp-mobile-lg) {
+	@media (max-width: $md4) {
 		&--phone {
 			grid-column: 1;
 			grid-row: 1;

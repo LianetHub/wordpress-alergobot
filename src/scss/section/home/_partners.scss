@@ -2,7 +2,7 @@
 	padding: rem(40) 0;
 	background: $color-surface;
 
-	@media (min-width: $bp-tablet) {
+	@media (min-width: $md3) {
 		padding: rem(48) 0;
 	}
 
@@ -12,7 +12,7 @@
 		gap: rem(20);
 		margin-bottom: rem(20);
 
-		@media (min-width: $bp-tablet) {
+		@media (min-width: $md3) {
 			display: grid;
 			grid-template-columns: minmax(0, 1fr) minmax(0, rem(650));
 			grid-template-areas:
@@ -29,7 +29,7 @@
 		flex-direction: column;
 		gap: rem(10);
 
-		@media (min-width: $bp-tablet) {
+		@media (min-width: $md3) {
 			display: contents;
 		}
 	}
@@ -55,7 +55,7 @@
 		cursor: pointer;
 		transition: opacity 0.2s ease;
 
-		@media (min-width: $bp-tablet) {
+		@media (min-width: $md3) {
 			grid-area: tag;
 			justify-self: end;
 			height: rem(40);
@@ -63,7 +63,7 @@
 			font-size: rem(20);
 		}
 
-		@media (min-width: $bp-desktop) {
+		@media (min-width: $md2) {
 			&:hover {
 				opacity: 0.85;
 			}
@@ -78,7 +78,7 @@
 		letter-spacing: -0.04em;
 		@include adaptive-font(24, 48);
 
-		@media (min-width: $bp-tablet) {
+		@media (min-width: $md3) {
 			grid-area: title;
 			max-width: rem(708);
 		}
@@ -92,7 +92,7 @@
 		line-height: 1.3;
 		@include adaptive-font(14, 18);
 
-		@media (min-width: $bp-tablet) {
+		@media (min-width: $md3) {
 			grid-area: text;
 			max-width: rem(630);
 		}
@@ -107,7 +107,7 @@
 		letter-spacing: -0.02em;
 		@include adaptive-font(18, 24);
 
-		@media (min-width: $bp-tablet) {
+		@media (min-width: $md3) {
 			grid-area: note;
 			margin: 0;
 			max-width: rem(650);
@@ -119,7 +119,7 @@
 	}
 
 	&__grid.swiper-wrapper {
-		@media (min-width: $bp-tablet) {
+		@media (min-width: $md3) {
 			display: grid;
 			grid-template-columns: repeat(5, minmax(0, 1fr));
 			gap: rem(20);
@@ -131,7 +131,7 @@
 		width: rem(196);
 		height: auto;
 
-		@media (min-width: $bp-tablet) {
+		@media (min-width: $md3) {
 			width: auto !important;
 			margin: 0 !important;
 		}
@@ -150,12 +150,12 @@
 		backdrop-filter: blur(10px);
 		text-decoration: none;
 
-		@media (min-width: $bp-tablet) {
+		@media (min-width: $md3) {
 			height: auto;
 			min-height: rem(91);
 		}
 
-		@media (min-width: $bp-desktop) {
+		@media (min-width: $md2) {
 			&:hover {
 				box-shadow: 0 rem(8) rem(24) rgba($color-brand, 0.12);
 			}
@@ -172,14 +172,14 @@
 		max-width: rem(108);
 		overflow: hidden;
 
-		@media (min-width: $bp-tablet) {
+		@media (min-width: $md3) {
 			flex: 0 0 rem(151);
 			height: rem(67);
 			max-width: rem(151);
 		}
 
 		&--invitro {
-			@media (min-width: $bp-tablet) {
+			@media (min-width: $md3) {
 				align-items: center;
 			}
 		}
@@ -187,7 +187,7 @@
 		&--helix {
 			justify-content: center;
 
-			@media (min-width: $bp-tablet) {
+			@media (min-width: $md3) {
 				justify-content: flex-start;
 			}
 		}
@@ -195,7 +195,7 @@
 		&--kdl {
 			justify-content: center;
 
-			@media (min-width: $bp-tablet) {
+			@media (min-width: $md3) {
 				justify-content: flex-start;
 				padding-left: rem(17);
 			}
@@ -214,7 +214,7 @@
 		.partners__logo-wrap--invitro & {
 			max-height: rem(32);
 
-			@media (min-width: $bp-tablet) {
+			@media (min-width: $md3) {
 				max-height: rem(43);
 			}
 		}
@@ -223,7 +223,7 @@
 			max-width: rem(88);
 			max-height: rem(36);
 
-			@media (min-width: $bp-tablet) {
+			@media (min-width: $md3) {
 				max-width: rem(126);
 				max-height: rem(52);
 			}
@@ -233,7 +233,7 @@
 			max-width: rem(105);
 			max-height: rem(46);
 
-			@media (min-width: $bp-tablet) {
+			@media (min-width: $md3) {
 				max-width: rem(118);
 				max-height: rem(67);
 			}

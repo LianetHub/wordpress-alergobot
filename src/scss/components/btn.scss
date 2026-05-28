@@ -9,7 +9,7 @@
 	padding: rem(10) rem(20);
 	border: 1px solid transparent;
 	border-radius: $radius-btn;
-	font-family: $font-family;
+	font-family: $font-inter;
 	font-weight: 500;
 	line-height: 1.2;
 	letter-spacing: $btn-letter-spacing;
@@ -18,7 +18,7 @@
 	white-space: nowrap;
 	cursor: pointer;
 	transition:
-		background 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+		background-color 0.25s cubic-bezier(0.22, 1, 0.36, 1),
 		border-color 0.25s cubic-bezier(0.22, 1, 0.36, 1),
 		transform 0.2s cubic-bezier(0.22, 1, 0.36, 1),
 		opacity 0.2s ease;
@@ -32,7 +32,7 @@
 		cursor: not-allowed;
 	}
 
-	@media (min-width: $bp-desktop) {
+	@media (min-width: $md2) {
 		&:hover:not(:disabled):not([aria-disabled="true"]):not(.btn--disabled) {
 			transform: translateY(-2px);
 		}
@@ -53,7 +53,7 @@
 		background: $gradient-btn-primary;
 		color: #fff;
 
-		@media (min-width: $bp-desktop) {
+		@media (min-width: $md2) {
 			&:hover:not(:disabled):not([aria-disabled="true"]) {
 				background: $gradient-btn-primary-hover;
 			}
@@ -70,7 +70,7 @@
 		border-color: $color-primary;
 		color: $color-primary;
 
-		@media (min-width: $bp-desktop) {
+		@media (min-width: $md2) {
 			&:hover:not(:disabled):not([aria-disabled="true"]) {
 				border-color: $color-accent;
 			}
@@ -88,7 +88,7 @@
 		border-color: #fff;
 		color: #fff;
 
-		@media (min-width: $bp-desktop) {
+		@media (min-width: $md2) {
 			&:hover:not(:disabled):not([aria-disabled="true"]) {
 				background: rgba(255, 255, 255, 0.1);
 			}

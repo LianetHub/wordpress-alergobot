@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+    <title>Контакты</title>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <meta name="apple-mobile-web-app-title" content="Protia">
+    <link rel="manifest" href="/site.webmanifest">
+
+    <link rel="preload" href="fonts/Inter-cyrillic-400.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="fonts/Inter-cyrillic-500.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="fonts/Inter-latin-400.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="fonts/Inter-latin-500.woff2" as="font" type="font/woff2" crossorigin>
+
+    <link rel="stylesheet" href="css/libs/swiper-bundle.min.css">
+    <link rel="stylesheet" href="css/libs/fancybox.min.css">
+
+    <link rel="stylesheet" href="css/reset.min.css">
+    <link rel="stylesheet" href="css/style.min.css">
+</head>
+    <body>
+        <div class="wrapper">
+            <header class="header">
+    <div class="header__container _container _container--small">
+        <div class="header__bar">
+            <a href="index.html" class="header__logo">
+                <img class="header__logo-img" src="img/logo.png" alt="PROTIA — главная" title="PROTIA" width="111" height="31">
+            </a>
+
+            <nav class="header__nav" id="header-nav" aria-label="Основная навигация">
+                <ul class="header__menu">
+                    <li class="header__item"><a class="header__link" href="katalog.html">Каталог</a></li>
+                    <li class="header__item"><a class="header__link" href="#popup-presentation" data-fancybox data-src="#popup-presentation">Презентация</a></li>
+                    <li class="header__item"><a class="header__link" href="stati.html">Статьи</a></li>
+                    <li class="header__item"><a class="header__link" href="kontakty.html">Контакты</a></li>
+                </ul>
+            </nav>
+
+
+
+            <div class="header__phones" aria-label="Телефоны">
+                <a class="header__phone" href="tel:+74953528777">+7 (495) 352-87-77</a>
+                <span class="header__sep" aria-hidden="true"></span>
+                <a class="header__phone" href="tel:+74953528777">+7 (495) 352-87-77</a>
+            </div>
+            <button class="icon-menu header__toggle" type="button" aria-label="Открыть меню" aria-expanded="false" aria-controls="header-nav">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </button>
+        </div>
+    </div>
+</header>
+            <main class="page page--contacts">
+                <section class="contacts-intro">
+                    <div class="contacts-intro__container _container">
+                        <div class="contacts-intro__head">
+                            <div class="contacts-intro__content">
+                                <h1 class="contacts-intro__title">Закажите&nbsp;оборудование для диагностики аллергии</h1>
+                                <p class="contacts-intro__text">Закажите современное оборудование для аллергодиагностики быстро и без лишних хлопот. Заполните форму, и наш менеджер подберет оптимальное решение под ваши задачи и пришлет полный прайс‑лист.</p>
+                            </div>
+                            <div class="contacts-intro__products">
+                                <div class="contacts-intro__product">
+                                    <img class="contacts-intro__img" src="img/contacts/product-02.png" alt="Анализатор для аллергодиагностики" title="Анализатор для аллергодиагностики" width="119" height="100">
+                                </div>
+                                <div class="contacts-intro__product">
+                                    <img class="contacts-intro__img" src="img/contacts/product-01.png" alt="Диагностическое оборудование PROTIA" title="Диагностическое оборудование PROTIA" width="119" height="100">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="contacts-order">
+                    <div class="contacts-order__container _container">
+                        <div class="contacts-order__grid">
+                            <form class="contacts-form" action="#" method="post">
+                                <div class="contacts-form__row">
+                                    <input class="form-field" type="text" name="name" placeholder="Имя" autocomplete="name" required>
+                                    <input class="form-field" type="text" name="company" placeholder="Компания" autocomplete="organization">
+                                </div>
+                                <div class="contacts-form__row">
+                                    <input class="form-field" type="tel" name="phone" placeholder="+7 (" autocomplete="tel" required>
+                                    <input class="form-field" type="email" name="email" placeholder="E-mail" autocomplete="email" required>
+                                </div>
+                                <textarea class="form-field contacts-form__textarea" name="comment" placeholder="Комментарий" rows="4"></textarea>
+                                <label class="checkbox contacts-form__agree">
+                                    <input class="checkbox__input" type="checkbox" name="agree" required>
+                                    <span class="checkbox__box">
+                                        <svg class="icon" width="20" height="20" aria-hidden="true">
+                                            <use href="img/icons.svg#icon-check"></use>
+                                        </svg>
+                                    </span>
+                                    <span class="checkbox__text">Я даю согласие на <a href="politika-konfidentsialnosti.html">обработку персональных данных</a> и соглашаюсь с <a href="politika-konfidentsialnosti.html">политикой конфиденциальности</a></span>
+                                </label>
+                                <button class="contacts-form__submit" type="submit">Отправить заявку</button>
+                            </form>
+
+                            <a
+                                class="contacts-order__map"
+                                href="https://yandex.ru/maps/?text=Москва%2C%20ул.%20Тихая%2C%2028"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                title="Открыть адрес на карте — ул. Тихая, 28, Москва"
+                            >
+                                <img
+                                    class="contacts-order__map-img"
+                                    src="img/contacts/map.png"
+                                    alt="Офис на карте — ул. Тихая, 28, Москва"
+                                    title="Офис на карте — ул. Тихая, 28, Москва"
+                                    width="650"
+                                    height="431"
+                                    loading="lazy"
+                                >
+                            </a>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="contacts-info">
+                    <div class="contacts-info__decor" aria-hidden="true"></div>
+                    <div class="contacts-info__container _container">
+                        <div class="contacts-info__head">
+                            <h2 class="contacts-info__title">Контакты для связи</h2>
+                            <p class="contacts-info__text">Мы всегда открыты для сотрудничества и рады новым интересным проектам!</p>
+                        </div>
+
+                        <div class="contacts-info__grid">
+                            <article class="contacts-card contacts-card--phone">
+                                <div class="contacts-card__icon" aria-hidden="true">
+                                    <svg class="icon" width="22" height="22">
+                                        <use href="img/icons.svg#icon-phone"></use>
+                                    </svg>
+                                </div>
+                                <div class="contacts-card__body">
+                                    <a class="contacts-card__link" href="tel:+74953528777">+7 (495) 352-87-77</a>
+                                    <a class="contacts-card__link" href="tel:+74953504740">+7 (495) 350-47-40</a>
+                                    <a class="contacts-card__link" href="tel:+79169006584">+7 (916) 900-65-84</a>
+                                </div>
+                            </article>
+
+                            <article class="contacts-card contacts-card--address">
+                                <div class="contacts-card__icon" aria-hidden="true">
+                                    <svg class="icon" width="22" height="22">
+                                        <use href="img/icons.svg#icon-pin"></use>
+                                    </svg>
+                                </div>
+                                <p class="contacts-card__body">109387, Москва, ул. Тихая, д. 28, оф. 216</p>
+                            </article>
+
+                            <article class="contacts-card contacts-card--legal">
+                                <div class="contacts-card__icon" aria-hidden="true">
+                                    <svg class="icon" width="22" height="22">
+                                        <use href="img/icons.svg#icon-doc"></use>
+                                    </svg>
+                                </div>
+                                <p class="contacts-card__body">
+                                    ООО «Био Фокус»,<br>
+                                    ИНН: 7707384354<br>
+                                    КПП: 772301001<br>
+                                    ОГРН: 1177746459142
+                                </p>
+                            </article>
+
+                            <article class="contacts-card contacts-card--email">
+                                <div class="contacts-card__icon" aria-hidden="true">
+                                    <svg class="icon" width="22" height="22">
+                                        <use href="img/icons.svg#icon-email"></use>
+                                    </svg>
+                                </div>
+                                <p class="contacts-card__body">
+                                    <a class="contacts-card__link" href="mailto:info@biofocus.ru">info@biofocus.ru</a>
+                                </p>
+                            </article>
+                        </div>
+                    </div>
+                </section>
+            </main>
+            <footer class="footer">
+    <div class="footer__container _container">
+        <div class="footer__brand-row">
+            <a href="index.html" class="footer__logo">
+                <img src="img/logo.png" alt="PROTIA логотип" width="141" height="39">
+            </a>
+            <a class="footer__phone" href="tel:+74953528777">+7 (495) 352-87-77</a>
+        </div>
+
+        <nav class="footer__nav" aria-label="Навигация в подвале">
+            <ul class="footer__menu">
+                <li class="footer__item"><a class="footer__link" href="katalog.html">Каталог</a></li>
+                <li class="footer__item"><a class="footer__link" href="#popup-presentation" data-fancybox data-src="#popup-presentation">Презентация</a></li>
+                <li class="footer__item"><a class="footer__link" href="stati.html">Статьи</a></li>
+                <li class="footer__item"><a class="footer__link" href="kontakty.html">Контакты</a></li>
+            </ul>
+        </nav>
+
+        <div class="footer__divider" aria-hidden="true"></div>
+
+        <div class="footer__docs">
+            <a class="footer__doc" href="politika-konfidentsialnosti.html">Политика конфиденциальности</a>
+            <a class="footer__doc" href="#">Согласие ОПД</a>
+            <a class="footer__doc" href="#">Согласие Cookies</a>
+        </div>
+
+        <div class="footer__meta">
+            <p class="footer__copy">&copy;2026 - Официальный сайт Аллергобот</p>
+            <div class="footer__dev">
+                <img class="footer__dev-logo" src="img/footer/ds-art-logo.png" alt="" width="26" height="22" aria-hidden="true">
+                <span class="footer__dev-text">Сайт разработан компанией DS-ART</span>
+            </div>
+        </div>
+    </div>
+</footer>
+        </div>
+        <div class="popups" hidden>
+    <!-- Консультация -->
+    <div id="popup-consultation" class="popup-modal popup-modal--consult">
+        <div class="popup-modal__inner">
+            <button type="button" class="popup-modal__close" data-fancybox-close aria-label="Закрыть">
+                <svg class="icon" width="16" height="16" aria-hidden="true">
+                    <use href="img/icons.svg#icon-close"></use>
+                </svg>
+            </button>
+            <div class="popup-modal__decor popup-modal__decor--molecules" aria-hidden="true">
+                <img src="img/popup/molecules.png" alt="" width="304" height="226" loading="lazy">
+                <img src="img/popup/molecules.png" alt="" width="284" height="226" loading="lazy">
+            </div>
+            <div class="popup-modal__content popup-modal__content--center">
+                <h2 class="popup-modal__title">Свяжитесь с нами для консультации</h2>
+                <p class="popup-modal__lead">Наш специалист ответит на любые ваши вопросы и поможет сделать выбор</p>
+                <form class="popup-modal__form" action="#" method="post" data-popup-form>
+                    <div class="popup-modal__fields">
+    <label class="popup-modal__field">
+        <span class="visually-hidden">Имя</span>
+        <input class="popup-modal__input" type="text" name="name" placeholder="Имя" autocomplete="name" required>
+    </label>
+    <label class="popup-modal__field">
+        <span class="visually-hidden">Телефон</span>
+        <input class="popup-modal__input" type="tel" name="phone" placeholder="+7 (" autocomplete="tel" required>
+    </label>
+    <label class="checkbox popup-modal__agree">
+        <input class="checkbox__input" type="checkbox" name="agree" required>
+        <span class="checkbox__box" aria-hidden="true">
+            <svg class="icon" width="20" height="20">
+                <use href="img/icons.svg#icon-check"></use>
+            </svg>
+        </span>
+        <span class="checkbox__text">
+            Я даю согласие на <a href="politika-konfidentsialnosti.html">обработку персональных данных</a>
+            и соглашаюсь с <a href="politika-konfidentsialnosti.html">политикой конфиденциальности</a>
+        </span>
+    </label>
+</div>
+
+                    <button class="popup-modal__submit" type="submit">Отправить заявку</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Заказ -->
+    <div id="popup-order" class="popup-modal popup-modal--order">
+        <div class="popup-modal__inner">
+            <button type="button" class="popup-modal__close" data-fancybox-close aria-label="Закрыть">
+                <svg class="icon" width="16" height="16" aria-hidden="true">
+                    <use href="img/icons.svg#icon-close"></use>
+                </svg>
+            </button>
+            <div class="popup-modal__decor popup-modal__decor--union" aria-hidden="true"></div>
+            <div class="popup-modal__layout">
+                <div class="popup-modal__content">
+                    <h2 class="popup-modal__title">Оформить заказ</h2>
+                    <p class="popup-modal__lead">Заполните форму заказа, чтобы получить предварительную консультацию и ответы на вопросы, которые вас интересует по оборудованию</p>
+                    <form class="popup-modal__form" action="#" method="post" data-popup-form>
+                        <div class="popup-modal__fields">
+    <label class="popup-modal__field">
+        <span class="visually-hidden">Имя</span>
+        <input class="popup-modal__input" type="text" name="name" placeholder="Имя" autocomplete="name" required>
+    </label>
+    <label class="popup-modal__field">
+        <span class="visually-hidden">Телефон</span>
+        <input class="popup-modal__input" type="tel" name="phone" placeholder="+7 (" autocomplete="tel" required>
+    </label>
+    <label class="checkbox popup-modal__agree">
+        <input class="checkbox__input" type="checkbox" name="agree" required>
+        <span class="checkbox__box" aria-hidden="true">
+            <svg class="icon" width="20" height="20">
+                <use href="img/icons.svg#icon-check"></use>
+            </svg>
+        </span>
+        <span class="checkbox__text">
+            Я даю согласие на <a href="politika-konfidentsialnosti.html">обработку персональных данных</a>
+            и соглашаюсь с <a href="politika-konfidentsialnosti.html">политикой конфиденциальности</a>
+        </span>
+    </label>
+</div>
+
+                        <button class="popup-modal__submit" type="submit">Отправить заявку</button>
+                    </form>
+                </div>
+                <div class="popup-modal__visual" aria-hidden="true">
+                    <div class="popup-modal__photo">
+                        <img src="img/popup/order-02.png" alt="" width="182" height="169" loading="lazy">
+                    </div>
+                    <div class="popup-modal__photo">
+                        <img src="img/popup/order-01.png" alt="" width="182" height="169" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Презентация -->
+    <div id="popup-presentation" class="popup-modal popup-modal--presentation">
+        <div class="popup-modal__inner">
+            <button type="button" class="popup-modal__close" data-fancybox-close aria-label="Закрыть">
+                <svg class="icon" width="16" height="16" aria-hidden="true">
+                    <use href="img/icons.svg#icon-close"></use>
+                </svg>
+            </button>
+            <div class="popup-modal__decor popup-modal__decor--union" aria-hidden="true"></div>
+            <div class="popup-modal__layout popup-modal__layout--reverse">
+                <div class="popup-modal__media">
+                    <img
+                        src="img/popup/presentation.png"
+                        alt="Презентация каталога BIO FOCUS"
+                        title="Презентация каталога BIO FOCUS"
+                        width="327"
+                        height="372"
+                        loading="lazy"
+                    >
+                </div>
+                <div class="popup-modal__content">
+                    <h2 class="popup-modal__title">
+                        Получите презентацию<br>
+                        и прайс прямо сейчас!
+                    </h2>
+                    <p class="popup-modal__lead">Оставляйте заявку и мы направим презентацию и прайс по всему каталогу. Наши менеджеры помогут подобрать оптимальное решение под задачи вашей организации.</p>
+                    <form class="popup-modal__form" action="#" method="post" data-popup-form>
+                        <div class="popup-modal__fields">
+    <label class="popup-modal__field">
+        <span class="visually-hidden">Имя</span>
+        <input class="popup-modal__input" type="text" name="name" placeholder="Имя" autocomplete="name" required>
+    </label>
+    <label class="popup-modal__field">
+        <span class="visually-hidden">Телефон</span>
+        <input class="popup-modal__input" type="tel" name="phone" placeholder="+7 (" autocomplete="tel" required>
+    </label>
+    <label class="checkbox popup-modal__agree">
+        <input class="checkbox__input" type="checkbox" name="agree" required>
+        <span class="checkbox__box" aria-hidden="true">
+            <svg class="icon" width="20" height="20">
+                <use href="img/icons.svg#icon-check"></use>
+            </svg>
+        </span>
+        <span class="checkbox__text">
+            Я даю согласие на <a href="politika-konfidentsialnosti.html">обработку персональных данных</a>
+            и соглашаюсь с <a href="politika-konfidentsialnosti.html">политикой конфиденциальности</a>
+        </span>
+    </label>
+</div>
+
+                        <button class="popup-modal__submit" type="submit">Отправить заявку</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Запись к партнёрам -->
+    <div id="popup-partners" class="popup-modal popup-modal--partners">
+        <div class="popup-modal__inner">
+            <button type="button" class="popup-modal__close" data-fancybox-close aria-label="Закрыть">
+                <svg class="icon" width="16" height="16" aria-hidden="true">
+                    <use href="img/icons.svg#icon-close"></use>
+                </svg>
+            </button>
+            <div class="popup-modal__content popup-modal__content--center">
+                <h2 class="popup-modal__title">Запишитесь на диагностику к партнерам</h2>
+                <p class="popup-modal__lead">
+                    Пройдите тестирование на нашем оборудовании<br>
+                    у партнеров в удобном для вас городе!
+                </p>
+                <div class="popup-modal__partners">
+                    <a class="popup-modal__partner" href="#" target="_blank" rel="noopener noreferrer">
+                        <img class="popup-modal__partner-logo" src="img/home/partner-invito.png" alt="ИНВИТРО" title="ИНВИТРО" width="127" height="43" loading="lazy">
+                        <span class="popup-modal__partner-action">
+                            записаться
+                            <svg class="icon popup-modal__partner-icon" width="24" height="24" aria-hidden="true">
+                                <use href="img/icons.svg#icon-arrow-up-right"></use>
+                            </svg>
+                        </span>
+                    </a>
+                    <a class="popup-modal__partner" href="#" target="_blank" rel="noopener noreferrer">
+                        <img class="popup-modal__partner-logo" src="img/home/partner-gemotest.png" alt="ГЕМОТЕСТ" title="ГЕМОТЕСТ" width="121" height="54" loading="lazy">
+                        <span class="popup-modal__partner-action">
+                            записаться
+                            <svg class="icon popup-modal__partner-icon" width="24" height="24" aria-hidden="true">
+                                <use href="img/icons.svg#icon-arrow-up-right"></use>
+                            </svg>
+                        </span>
+                    </a>
+                    <a class="popup-modal__partner" href="#" target="_blank" rel="noopener noreferrer">
+                        <img class="popup-modal__partner-logo" src="img/home/partner-helix.png" alt="HELIX" title="HELIX" width="99" height="41" loading="lazy">
+                        <span class="popup-modal__partner-action">
+                            записаться
+                            <svg class="icon popup-modal__partner-icon" width="24" height="24" aria-hidden="true">
+                                <use href="img/icons.svg#icon-arrow-up-right"></use>
+                            </svg>
+                        </span>
+                    </a>
+                    <a class="popup-modal__partner" href="#" target="_blank" rel="noopener noreferrer">
+                        <img class="popup-modal__partner-logo" src="img/home/partner-kdl.png" alt="KDL" title="KDL" width="106" height="60" loading="lazy">
+                        <span class="popup-modal__partner-action">
+                            записаться
+                            <svg class="icon popup-modal__partner-icon" width="24" height="24" aria-hidden="true">
+                                <use href="img/icons.svg#icon-arrow-up-right"></use>
+                            </svg>
+                        </span>
+                    </a>
+                    <a class="popup-modal__partner" href="#" target="_blank" rel="noopener noreferrer">
+                        <img class="popup-modal__partner-logo" src="img/home/partner-abc.png" alt="ABC медицина" title="ABC медицина" width="124" height="55" loading="lazy">
+                        <span class="popup-modal__partner-action">
+                            записаться
+                            <svg class="icon popup-modal__partner-icon" width="24" height="24" aria-hidden="true">
+                                <use href="img/icons.svg#icon-arrow-up-right"></use>
+                            </svg>
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Заявка отправлена -->
+    <div id="popup-success" class="popup-modal popup-modal--status">
+        <div class="popup-modal__inner">
+            <button type="button" class="popup-modal__close" data-fancybox-close aria-label="Закрыть">
+                <svg class="icon" width="16" height="16" aria-hidden="true">
+                    <use href="img/icons.svg#icon-close"></use>
+                </svg>
+            </button>
+            <div class="popup-modal__decor popup-modal__decor--union" aria-hidden="true"></div>
+            <div class="popup-modal__status">
+                <svg class="popup-modal__status-icon icon" width="28" height="28" aria-hidden="true">
+                    <use href="img/icons.svg#icon-check-circle"></use>
+                </svg>
+                <h2 class="popup-modal__status-title">
+                    Спасибо!<br>
+                    Ваша заявка отправлена
+                </h2>
+            </div>
+        </div>
+    </div>
+
+    <!-- Ошибка -->
+    <div id="popup-error" class="popup-modal popup-modal--status">
+        <div class="popup-modal__inner">
+            <button type="button" class="popup-modal__close" data-fancybox-close aria-label="Закрыть">
+                <svg class="icon" width="16" height="16" aria-hidden="true">
+                    <use href="img/icons.svg#icon-close"></use>
+                </svg>
+            </button>
+            <div class="popup-modal__decor popup-modal__decor--union" aria-hidden="true"></div>
+            <div class="popup-modal__status">
+                <svg class="popup-modal__status-icon popup-modal__status-icon--error icon" width="28" height="28" aria-hidden="true">
+                    <use href="img/icons.svg#icon-close-circle"></use>
+                </svg>
+                <h2 class="popup-modal__status-title">
+                    Не удалось отправить...<br>
+                    Попробуйте снова
+                </h2>
+            </div>
+        </div>
+    </div>
+</div>
+
+        <!-- plugins -->
+<script src="js/libs/fancybox.umd.js"></script>
+<script src="js/libs/swiper-bundle.min.js"></script>
+<!-- plugins -->
+
+<script src="js/app.min.js"></script>
+    </body>
+</html>

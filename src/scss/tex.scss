@@ -2,14 +2,16 @@
 
 @import "global/tokens";
 
-// Брейкпоинты (регламент DS-ART)
-$bp-desktop: 1200px;
-$bp-tablet: 991px;
-$bp-mobile-lg: 768px;
-$bp-mobile: 650px;
+// Брейкпоинты 
+$md1: 1399.98px;
+$md2: 1199.98px;
+$md3: 991.98px;
+$md4: 767.98px;
+$md5: 575.98px;
 
 // Шрифт по умолчанию
-$font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+$font-family: "Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;
+$font-inter: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
 
 // Миксин адаптивного шрифта
 @mixin adaptive-font($minSize, $maxSize, $minWidth: 360, $maxWidth: 1440) {
@@ -24,18 +26,43 @@ $font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
 	@return math.div($px, 16)+rem;
 }
 
+@function em($px, $value: 16) {
+	$result: math.div($px, $value);
+	@return #{$result}em;
+}
+
 // Контейнер
 ._container {
-	max-width: 1440px;
-	padding: 0 60px;
 	margin: 0 auto;
+	padding: 0 1rem;
+	max-width: 100%;
 
-	@media (max-width: 1400px) {
-		padding: 0 20px;
+	&._container--small {
+		@media (min-width: $md1) {
+			max-width: rem(1260);
+		}
 	}
 
-	@media (max-width: $bp-mobile) {
-		padding: 0 16px;
+
+	@media (min-width: $md5) {
+		box-sizing: content-box;
+		max-width: rem(540);
+	}
+
+	@media (min-width: $md4) {
+		max-width: rem(624);
+	}
+
+	@media (min-width: $md3) {
+		max-width: rem(960);
+	}
+
+	@media (min-width: $md2) {
+		max-width: rem(1140);
+	}
+
+	@media (min-width: $md1) {
+		max-width: rem(1320);
 	}
 }
 
@@ -53,30 +80,24 @@ body {
 }
 
 h1 {
-	margin: 0;
-	font-weight: 400;
-	line-height: 1.1;
-	letter-spacing: -0.04em;
-	color: $color-primary;
+	font-family: $font-inter;
+	font-weight: 500;
+	line-height: 1.2;
 	@include adaptive-font(26, 56);
 }
 
 h2 {
-	margin: 0;
+	font-family: $font-inter;
 	font-weight: 500;
 	line-height: 1.2;
-	letter-spacing: -0.04em;
-	color: $color-primary;
 	@include adaptive-font(24, 48);
 }
 
 h3 {
-	margin: 0;
+	font-family: $font-inter;
 	font-weight: 500;
 	font-style: italic;
 	line-height: 1.2;
-	letter-spacing: -0.02em;
-	color: $color-primary;
 	@include adaptive-font(18, 24);
 }
 
@@ -89,4 +110,5 @@ h3 {
 
 .page {
 	flex: 1 1 auto;
+	background: $color-surface-mint;
 }

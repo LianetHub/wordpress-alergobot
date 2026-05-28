@@ -11,7 +11,7 @@ $article-date-muted: rgba($color-text-body, 0.6);
 	padding: rem(16) 0 rem(32);
 	overflow: hidden;
 
-	@media (min-width: $bp-tablet) {
+	@media (min-width: $md3) {
 		padding: rem(40) 0 rem(48);
 	}
 
@@ -26,7 +26,7 @@ $article-date-muted: rgba($color-text-body, 0.6);
 			left: 0;
 			top: rem(120);
 
-			@media (max-width: $bp-tablet) {
+			@media (max-width: $md3) {
 				display: none;
 			}
 		}
@@ -36,7 +36,7 @@ $article-date-muted: rgba($color-text-body, 0.6);
 			top: rem(400);
 			transform: scaleX(-1);
 
-			@media (max-width: $bp-tablet) {
+			@media (max-width: $md3) {
 				display: none;
 			}
 		}
@@ -53,7 +53,7 @@ $article-date-muted: rgba($color-text-body, 0.6);
 		gap: rem(24);
 		align-items: start;
 
-		@media (min-width: $bp-tablet) {
+		@media (min-width: $md3) {
 			grid-template-columns: minmax(0, 1fr) rem(407);
 			grid-template-areas:
 				"header hero"
@@ -68,7 +68,7 @@ $article-date-muted: rgba($color-text-body, 0.6);
 		flex-direction: column;
 		gap: rem(10);
 
-		@media (min-width: $bp-tablet) {
+		@media (min-width: $md3) {
 			grid-area: header;
 			gap: rem(20);
 		}
@@ -95,7 +95,7 @@ $article-date-muted: rgba($color-text-body, 0.6);
 		line-height: 1.3;
 		font-size: rem(14);
 
-		@media (min-width: $bp-tablet) {
+		@media (min-width: $md3) {
 			font-size: rem(18);
 		}
 	}
@@ -105,7 +105,7 @@ $article-date-muted: rgba($color-text-body, 0.6);
 		border-radius: rem(10);
 		overflow: hidden;
 
-		@media (min-width: $bp-tablet) {
+		@media (min-width: $md3) {
 			grid-area: hero;
 			align-self: start;
 			height: rem(420);
@@ -119,7 +119,7 @@ $article-date-muted: rgba($color-text-body, 0.6);
 		aspect-ratio: 332 / 304;
 		object-fit: cover;
 
-		@media (min-width: $bp-tablet) {
+		@media (min-width: $md3) {
 			width: 100%;
 			height: 100%;
 			aspect-ratio: auto;
@@ -132,7 +132,7 @@ $article-date-muted: rgba($color-text-body, 0.6);
 		gap: rem(10);
 		min-width: 0;
 
-		@media (min-width: $bp-tablet) {
+		@media (min-width: $md3) {
 			grid-area: content;
 			gap: rem(40);
 		}
@@ -143,7 +143,7 @@ $article-date-muted: rgba($color-text-body, 0.6);
 		flex-direction: column;
 		gap: rem(10);
 
-		@media (min-width: $bp-tablet) {
+		@media (min-width: $md3) {
 			gap: rem(20);
 		}
 	}
@@ -175,7 +175,7 @@ $article-date-muted: rgba($color-text-body, 0.6);
 		flex-direction: column;
 		gap: rem(2);
 
-		@media (min-width: $bp-tablet) {
+		@media (min-width: $md3) {
 			gap: rem(6);
 		}
 
@@ -192,7 +192,7 @@ $article-date-muted: rgba($color-text-body, 0.6);
 		line-height: 1.3;
 		font-size: rem(14);
 
-		@media (min-width: $bp-tablet) {
+		@media (min-width: $md3) {
 			gap: rem(10);
 			font-size: rem(18);
 		}
@@ -221,7 +221,7 @@ $article-date-muted: rgba($color-text-body, 0.6);
 		line-height: 1.2;
 		letter-spacing: -0.02em;
 
-		@media (min-width: $bp-tablet) {
+		@media (min-width: $md3) {
 			width: rem(30);
 			height: rem(30);
 			font-size: rem(24);
@@ -243,7 +243,7 @@ $article-date-muted: rgba($color-text-body, 0.6);
 			width: 100%;
 			aspect-ratio: 332 / 166;
 
-			@media (min-width: $bp-tablet) {
+			@media (min-width: $md3) {
 				aspect-ratio: 876 / 436;
 			}
 		}
@@ -266,7 +266,7 @@ $article-date-muted: rgba($color-text-body, 0.6);
 			.article__figure {
 				aspect-ratio: 1;
 
-				@media (min-width: $bp-tablet) {
+				@media (min-width: $md3) {
 					aspect-ratio: auto;
 					min-height: rem(433);
 				}
@@ -277,7 +277,7 @@ $article-date-muted: rgba($color-text-body, 0.6);
 	&__aside {
 		display: none;
 
-		@media (min-width: $bp-tablet) {
+		@media (min-width: $md3) {
 			display: block;
 			grid-area: aside;
 			position: sticky;
@@ -303,7 +303,7 @@ $article-date-muted: rgba($color-text-body, 0.6);
 	padding: rem(24) 0 rem(48);
 	background: $color-surface-mint;
 
-	@media (min-width: $bp-tablet) {
+	@media (min-width: $md3) {
 		padding: rem(40) 0 rem(72);
 	}
 
@@ -315,7 +315,7 @@ $article-date-muted: rgba($color-text-body, 0.6);
 		letter-spacing: -0.04em;
 		@include adaptive-font(24, 48);
 
-		@media (min-width: $bp-tablet) {
+		@media (min-width: $md3) {
 			margin-bottom: rem(28);
 		}
 	}
@@ -325,7 +325,7 @@ $article-date-muted: rgba($color-text-body, 0.6);
 		flex-direction: column;
 		gap: rem(10);
 
-		@media (min-width: $bp-tablet) {
+		@media (min-width: $md3) {
 			display: grid;
 			grid-template-columns: repeat(2, 1fr);
 			gap: rem(20);
@@ -339,7 +339,7 @@ $article-date-muted: rgba($color-text-body, 0.6);
 	overflow: hidden;
 
 	&--extra {
-		@media (min-width: $bp-tablet) {
+		@media (min-width: $md3) {
 			display: none;
 		}
 	}
@@ -351,7 +351,7 @@ $article-date-muted: rgba($color-text-body, 0.6);
 		color: inherit;
 		text-decoration: none;
 
-		@media (min-width: $bp-tablet) {
+		@media (min-width: $md3) {
 			grid-template-columns: rem(295) 1fr;
 			min-height: rem(277);
 		}
@@ -370,7 +370,7 @@ $article-date-muted: rgba($color-text-body, 0.6);
 		min-height: rem(143);
 		object-fit: cover;
 
-		@media (min-width: $bp-tablet) {
+		@media (min-width: $md3) {
 			min-height: rem(277);
 		}
 	}
@@ -381,7 +381,7 @@ $article-date-muted: rgba($color-text-body, 0.6);
 		padding: rem(10) rem(10) rem(10) rem(10);
 		gap: rem(5);
 
-		@media (min-width: $bp-tablet) {
+		@media (min-width: $md3) {
 			padding: rem(20);
 			gap: rem(10);
 		}
@@ -397,7 +397,7 @@ $article-date-muted: rgba($color-text-body, 0.6);
 		font-weight: 500;
 		line-height: 1.3;
 
-		@media (min-width: $bp-tablet) {
+		@media (min-width: $md3) {
 			padding: rem(10);
 			border-radius: rem(10);
 			font-size: rem(18);
@@ -413,7 +413,7 @@ $article-date-muted: rgba($color-text-body, 0.6);
 		letter-spacing: -0.02em;
 		font-size: rem(12);
 
-		@media (min-width: $bp-tablet) {
+		@media (min-width: $md3) {
 			font-size: rem(24);
 		}
 	}
@@ -425,7 +425,7 @@ $article-date-muted: rgba($color-text-body, 0.6);
 		font-size: rem(8);
 		flex: 1 1 auto;
 
-		@media (min-width: $bp-tablet) {
+		@media (min-width: $md3) {
 			font-size: rem(16);
 		}
 	}
@@ -441,7 +441,7 @@ $article-date-muted: rgba($color-text-body, 0.6);
 		letter-spacing: -0.02em;
 		font-size: rem(14);
 
-		@media (min-width: $bp-tablet) {
+		@media (min-width: $md3) {
 			font-size: rem(24);
 		}
 	}
@@ -449,13 +449,13 @@ $article-date-muted: rgba($color-text-body, 0.6);
 	&__more-text--desktop {
 		display: none;
 
-		@media (min-width: $bp-tablet) {
+		@media (min-width: $md3) {
 			display: inline;
 		}
 	}
 
 	&__more-text--mobile {
-		@media (min-width: $bp-tablet) {
+		@media (min-width: $md3) {
 			display: none;
 		}
 	}
@@ -465,7 +465,7 @@ $article-date-muted: rgba($color-text-body, 0.6);
 		width: rem(16);
 		height: rem(16);
 
-		@media (min-width: $bp-tablet) {
+		@media (min-width: $md3) {
 			width: rem(28);
 			height: rem(28);
 		}
@@ -478,7 +478,7 @@ $article-date-muted: rgba($color-text-body, 0.6);
 		}
 	}
 
-	@media (min-width: $bp-desktop) {
+	@media (min-width: $md2) {
 		&__link:hover .article-related__title {
 			color: $color-brand-2;
 		}

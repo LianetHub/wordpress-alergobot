@@ -3,12 +3,11 @@
 .hero {
 	padding: rem(48) 0;
 
-	@media (min-width: $bp-desktop) {
+	@media (min-width: $md2) {
 		padding: rem(80) 0;
 	}
 
-	&__container {
-	}
+	&__container {}
 
 	&__title {
 		margin: 0;

@@ -8,7 +8,7 @@
 .devices-hero {
 	padding: rem(16) 0 rem(24);
 
-	@media (min-width: $bp-tablet) {
+	@media (min-width: $md3) {
 		padding: rem(40) 0 rem(32);
 	}
 
@@ -17,7 +17,7 @@
 		flex-direction: column;
 		gap: rem(20);
 
-		@media (min-width: $bp-tablet) {
+		@media (min-width: $md3) {
 			flex-direction: row;
 			align-items: flex-start;
 			justify-content: space-between;
@@ -26,7 +26,7 @@
 	}
 
 	&__main {
-		@media (min-width: $bp-tablet) {
+		@media (min-width: $md3) {
 			flex: 1 1 auto;
 			max-width: rem(873);
 		}
@@ -51,7 +51,7 @@
 		gap: rem(10);
 		margin-top: rem(20);
 
-		@media (min-width: $bp-tablet) {
+		@media (min-width: $md3) {
 			flex-direction: row;
 			flex-wrap: wrap;
 			gap: rem(10);
@@ -63,7 +63,7 @@
 	&__btn {
 		width: 100%;
 
-		@media (min-width: $bp-tablet) {
+		@media (min-width: $md3) {
 			flex: 1 1 rem(340);
 			max-width: rem(340);
 		}
@@ -74,7 +74,7 @@
 		flex-direction: column;
 		gap: rem(10);
 
-		@media (min-width: $bp-tablet) {
+		@media (min-width: $md3) {
 			flex: 0 0 rem(427);
 			align-items: flex-end;
 			text-align: left;
@@ -87,7 +87,7 @@
 		font-size: rem(18);
 		line-height: 1.3;
 
-		@media (max-width: ($bp-tablet - 1px)) {
+		@media (max-width: ($md3 - 1px)) {
 			font-size: rem(18);
 		}
 	}
@@ -116,7 +116,7 @@
 			opacity: 0.85;
 		}
 
-		@media (max-width: ($bp-tablet - 1px)) {
+		@media (max-width: ($md3 - 1px)) {
 			gap: 0;
 
 			&::before {
@@ -131,7 +131,7 @@
 .devices-products {
 	padding: rem(8) 0 rem(40);
 
-	@media (min-width: $bp-tablet) {
+	@media (min-width: $md3) {
 		padding: rem(16) 0 rem(64);
 	}
 
@@ -140,7 +140,7 @@
 		grid-template-columns: 1fr;
 		gap: rem(28);
 
-		@media (min-width: $bp-tablet) {
+		@media (min-width: $md3) {
 			grid-template-columns: repeat(2, minmax(0, 1fr));
 			gap: rem(20) rem(20);
 			align-items: start;
@@ -163,7 +163,7 @@
 		border-radius: rem(10);
 		background: $color-surface-tab;
 
-		@media (min-width: $bp-tablet) {
+		@media (min-width: $md3) {
 			min-height: rem(374);
 			padding: rem(20);
 		}
@@ -174,11 +174,11 @@
 		z-index: 1;
 		max-width: 100%;
 
-		@media (max-width: ($bp-tablet - 1px)) {
+		@media (max-width: ($md3 - 1px)) {
 			max-width: calc(100% - rem(150));
 		}
 
-		@media (min-width: $bp-tablet) {
+		@media (min-width: $md3) {
 			max-width: rem(474);
 		}
 	}
@@ -199,7 +199,7 @@
 		font-size: rem(14);
 		line-height: 1.3;
 
-		@media (min-width: $bp-tablet) {
+		@media (min-width: $md3) {
 			font-size: rem(18);
 			max-width: rem(610);
 		}
@@ -219,7 +219,7 @@
 		background: $color-surface-mint;
 		overflow: hidden;
 
-		@media (min-width: $bp-tablet) {
+		@media (min-width: $md3) {
 			right: rem(20);
 			bottom: rem(20);
 			width: rem(295);
@@ -239,7 +239,7 @@
 		gap: rem(10);
 		width: rem(161);
 
-		@media (min-width: $bp-tablet) {
+		@media (min-width: $md3) {
 			width: rem(315);
 		}
 	}
@@ -248,13 +248,13 @@
 		width: 100%;
 		min-height: rem(44);
 
-		@media (min-width: $bp-tablet) {
+		@media (min-width: $md3) {
 			min-height: $btn-height;
 		}
 	}
 
 	&--wide {
-		@media (min-width: $bp-tablet) {
+		@media (min-width: $md3) {
 			grid-column: 1;
 		}
 	}
@@ -264,7 +264,7 @@
 .devices-work {
 	padding: rem(40) 0;
 
-	@media (min-width: $bp-tablet) {
+	@media (min-width: $md3) {
 		padding: rem(64) 0 rem(80);
 	}
 
@@ -273,7 +273,7 @@
 		flex-direction: column;
 		gap: rem(20);
 
-		@media (min-width: $bp-tablet) {
+		@media (min-width: $md3) {
 			display: grid;
 			grid-template-columns: minmax(0, 1fr) minmax(0, rem(650));
 			gap: rem(40);
@@ -286,7 +286,7 @@
 		flex-direction: column;
 		gap: rem(10);
 
-		@media (min-width: $bp-tablet) {
+		@media (min-width: $md3) {
 			position: relative;
 			padding-top: rem(56);
 		}
@@ -305,7 +305,7 @@
 		letter-spacing: -0.02em;
 		text-transform: uppercase;
 
-		@media (min-width: $bp-tablet) {
+		@media (min-width: $md3) {
 			position: absolute;
 			top: 0;
 			right: 0;
@@ -335,7 +335,7 @@
 		font-size: rem(14);
 		line-height: 1.3;
 
-		@media (min-width: $bp-tablet) {
+		@media (min-width: $md3) {
 			font-size: rem(18);
 			max-width: rem(603);
 		}
@@ -344,7 +344,7 @@
 			margin: 0;
 		}
 
-		@media (max-width: ($bp-tablet - 1px)) {
+		@media (max-width: ($md3 - 1px)) {
 			p:nth-child(2) {
 				display: none;
 			}
@@ -375,7 +375,7 @@
 		text-decoration: underline;
 		cursor: pointer;
 
-		@media (min-width: $bp-tablet) {
+		@media (min-width: $md3) {
 			display: none;
 		}
 	}
@@ -385,7 +385,7 @@
 		grid-template-columns: repeat(2, minmax(0, 1fr));
 		gap: rem(10);
 
-		@media (min-width: $bp-tablet) {
+		@media (min-width: $md3) {
 			gap: rem(20);
 		}
 	}
@@ -396,7 +396,7 @@
 		overflow: hidden;
 		aspect-ratio: 161 / 150;
 
-		@media (min-width: $bp-tablet) {
+		@media (min-width: $md3) {
 			aspect-ratio: 315 / 293;
 		}
 
@@ -414,7 +414,7 @@
 	padding: rem(40) 0 rem(48);
 	overflow: hidden;
 
-	@media (min-width: $bp-tablet) {
+	@media (min-width: $md3) {
 		padding: rem(56) 0 rem(80);
 	}
 
@@ -430,7 +430,7 @@
 		filter: blur(5px);
 		pointer-events: none;
 
-		@media (min-width: $bp-tablet) {
+		@media (min-width: $md3) {
 			height: rem(515);
 			opacity: 0.4;
 		}
@@ -448,7 +448,7 @@
 		gap: rem(16);
 		margin-bottom: rem(20);
 
-		@media (min-width: $bp-tablet) {
+		@media (min-width: $md3) {
 			margin-bottom: rem(28);
 		}
 	}
@@ -467,7 +467,7 @@
 		flex-shrink: 0;
 		gap: rem(20);
 
-		@media (min-width: $bp-desktop) {
+		@media (min-width: $md2) {
 			display: flex;
 		}
 	}
@@ -501,7 +501,7 @@
 			transform: rotate(-45deg) translate(-2px, -2px);
 		}
 
-		@media (min-width: $bp-desktop) {
+		@media (min-width: $md2) {
 			&:hover {
 				background: $color-accent-hover;
 				transform: translateY(-2px);
@@ -526,7 +526,7 @@
 		width: rem(247);
 		height: auto;
 
-		@media (min-width: $bp-tablet) {
+		@media (min-width: $md3) {
 			width: auto;
 		}
 	}
@@ -541,7 +541,7 @@
 		border-radius: rem(10);
 		background: $color-surface-tab;
 
-		@media (min-width: $bp-tablet) {
+		@media (min-width: $md3) {
 			min-height: rem(200);
 			padding: rem(20);
 		}
@@ -563,7 +563,7 @@
 		font-size: rem(14);
 		line-height: 1.3;
 
-		@media (min-width: $bp-tablet) {
+		@media (min-width: $md3) {
 			font-size: rem(18);
 		}
 	}
@@ -573,7 +573,7 @@
 .devices-cta {
 	padding: rem(32) 0 rem(48);
 
-	@media (min-width: $bp-tablet) {
+	@media (min-width: $md3) {
 		padding: rem(48) 0 rem(72);
 	}
 
@@ -582,7 +582,7 @@
 		flex-direction: column;
 		gap: rem(10);
 
-		@media (min-width: $bp-tablet) {
+		@media (min-width: $md3) {
 			flex-direction: row;
 			gap: rem(20);
 		}
@@ -601,7 +601,7 @@
 			padding: rem(16);
 			min-height: rem(355);
 
-			@media (min-width: $bp-tablet) {
+			@media (min-width: $md3) {
 				flex: 1 1 50%;
 				justify-content: space-between;
 				min-height: rem(526);
@@ -616,7 +616,7 @@
 			min-height: rem(330);
 			padding: rem(16);
 
-			@media (min-width: $bp-tablet) {
+			@media (min-width: $md3) {
 				flex: 1 1 50%;
 				justify-content: space-between;
 				min-height: rem(526);
@@ -638,7 +638,7 @@
 		font-size: rem(14);
 		line-height: 1.3;
 
-		@media (min-width: $bp-tablet) {
+		@media (min-width: $md3) {
 			font-size: rem(18);
 			max-width: rem(570);
 		}
@@ -648,7 +648,7 @@
 		margin-top: auto;
 		width: 100%;
 
-		@media (min-width: $bp-tablet) {
+		@media (min-width: $md3) {
 			max-width: rem(426);
 		}
 	}
@@ -658,7 +658,7 @@
 		overflow: hidden;
 		aspect-ratio: 298 / 156;
 
-		@media (min-width: $bp-tablet) {
+		@media (min-width: $md3) {
 			flex: 1 1 auto;
 			max-height: rem(298);
 			aspect-ratio: auto;

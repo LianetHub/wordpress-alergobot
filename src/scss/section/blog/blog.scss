@@ -9,11 +9,11 @@ $blog-date-muted: rgba($color-text-body, 0.6);
 .blog-hero {
 	padding: rem(16) 0 rem(24);
 
-	@media (min-width: $bp-tablet) {
+	@media (min-width: $md3) {
 		padding: rem(40) 0 rem(36);
 	}
 
-	@media (min-width: $bp-desktop) {
+	@media (min-width: $md2) {
 		padding: rem(52) 0 rem(44);
 	}
 
@@ -23,7 +23,7 @@ $blog-date-muted: rgba($color-text-body, 0.6);
 		gap: rem(10);
 		margin-bottom: rem(24);
 
-		@media (min-width: $bp-tablet) {
+		@media (min-width: $md3) {
 			flex-direction: row;
 			align-items: flex-start;
 			justify-content: space-between;
@@ -47,7 +47,7 @@ $blog-date-muted: rgba($color-text-body, 0.6);
 		line-height: 1.3;
 		font-size: rem(14);
 
-		@media (min-width: $bp-tablet) {
+		@media (min-width: $md3) {
 			max-width: rem(630);
 			font-size: rem(18);
 			padding-top: rem(8);
@@ -59,7 +59,7 @@ $blog-date-muted: rgba($color-text-body, 0.6);
 		grid-template-columns: 1fr;
 		gap: rem(20);
 
-		@media (min-width: $bp-tablet) {
+		@media (min-width: $md3) {
 			grid-template-columns: minmax(0, 1.65fr) minmax(0, 1fr);
 			gap: rem(24);
 			align-items: start;
@@ -74,11 +74,11 @@ $blog-date-muted: rgba($color-text-body, 0.6);
 	background: $color-brand-2;
 	min-height: rem(284);
 
-	@media (min-width: $bp-tablet) {
+	@media (min-width: $md3) {
 		min-height: rem(400);
 	}
 
-	@media (min-width: $bp-desktop) {
+	@media (min-width: $md2) {
 		min-height: rem(577);
 	}
 
@@ -94,11 +94,11 @@ $blog-date-muted: rgba($color-text-body, 0.6);
 		min-height: rem(284);
 		height: 100%;
 
-		@media (min-width: $bp-tablet) {
+		@media (min-width: $md3) {
 			min-height: rem(400);
 		}
 
-		@media (min-width: $bp-desktop) {
+		@media (min-width: $md2) {
 			min-height: rem(577);
 		}
 	}
@@ -126,7 +126,7 @@ $blog-date-muted: rgba($color-text-body, 0.6);
 		line-height: 1.3;
 		backdrop-filter: blur(10px);
 
-		@media (min-width: $bp-tablet) {
+		@media (min-width: $md3) {
 			top: rem(16);
 			left: rem(16);
 			padding: rem(10);
@@ -146,7 +146,7 @@ $blog-date-muted: rgba($color-text-body, 0.6);
 		border-radius: rem(6);
 		background: rgba($color-surface-mint, 0.9);
 
-		@media (min-width: $bp-tablet) {
+		@media (min-width: $md3) {
 			right: rem(20);
 			bottom: rem(20);
 			left: rem(20);
@@ -166,7 +166,7 @@ $blog-date-muted: rgba($color-text-body, 0.6);
 		@include adaptive-font(14, 24);
 	}
 
-	@media (min-width: $bp-desktop) {
+	@media (min-width: $md2) {
 		&__link:hover .blog-featured__title {
 			opacity: 0.85;
 		}
@@ -200,11 +200,11 @@ $blog-date-muted: rgba($color-text-body, 0.6);
 		text-decoration: none;
 		color: inherit;
 
-		@media (min-width: $bp-tablet) {
+		@media (min-width: $md3) {
 			gap: rem(20);
 		}
 
-		@media (min-width: $bp-desktop) {
+		@media (min-width: $md2) {
 			&:hover .blog-recent__title {
 				color: $color-brand;
 			}
@@ -219,7 +219,7 @@ $blog-date-muted: rgba($color-text-body, 0.6);
 		object-fit: cover;
 		background: $color-brand-2;
 
-		@media (min-width: $bp-tablet) {
+		@media (min-width: $md3) {
 			width: rem(104);
 			height: rem(104);
 		}
@@ -233,7 +233,7 @@ $blog-date-muted: rgba($color-text-body, 0.6);
 		min-height: rem(86);
 		gap: rem(8);
 
-		@media (min-width: $bp-tablet) {
+		@media (min-width: $md3) {
 			min-height: rem(104);
 		}
 	}
@@ -245,7 +245,7 @@ $blog-date-muted: rgba($color-text-body, 0.6);
 		line-height: 1.3;
 		font-size: rem(14);
 
-		@media (min-width: $bp-tablet) {
+		@media (min-width: $md3) {
 			font-size: rem(18);
 		}
 	}
@@ -257,7 +257,7 @@ $blog-date-muted: rgba($color-text-body, 0.6);
 		font-weight: 500;
 		line-height: 1.3;
 
-		@media (min-width: $bp-tablet) {
+		@media (min-width: $md3) {
 			font-size: rem(12);
 		}
 	}
@@ -267,7 +267,7 @@ $blog-date-muted: rgba($color-text-body, 0.6);
 	padding: 0 0 rem(48);
 	background: $color-surface-mint;
 
-	@media (min-width: $bp-tablet) {
+	@media (min-width: $md3) {
 		padding-bottom: rem(72);
 	}
 
@@ -276,7 +276,7 @@ $blog-date-muted: rgba($color-text-body, 0.6);
 		flex-direction: column;
 		gap: rem(20);
 
-		@media (min-width: $bp-tablet) {
+		@media (min-width: $md3) {
 			gap: rem(28);
 		}
 	}
@@ -287,7 +287,7 @@ $blog-date-muted: rgba($color-text-body, 0.6);
 	gap: rem(10);
 	flex-wrap: wrap;
 
-	@media (min-width: $bp-tablet) {
+	@media (min-width: $md3) {
 		gap: rem(20);
 	}
 
@@ -312,7 +312,7 @@ $blog-date-muted: rgba($color-text-body, 0.6);
 		background: $color-surface-tab;
 		color: $color-brand;
 
-		@media (min-width: $bp-tablet) {
+		@media (min-width: $md3) {
 			flex: 0 0 auto;
 			max-width: rem(315);
 			padding: rem(12) rem(20);
@@ -330,7 +330,7 @@ $blog-date-muted: rgba($color-text-body, 0.6);
 			}
 		}
 
-		@media (min-width: $bp-desktop) {
+		@media (min-width: $md2) {
 			&:not(._active):hover {
 				background: darken($color-surface-tab, 3%);
 			}
@@ -344,7 +344,7 @@ $blog-date-muted: rgba($color-text-body, 0.6);
 		width: rem(28);
 		height: rem(28);
 
-		@media (min-width: $bp-tablet) {
+		@media (min-width: $md3) {
 			width: rem(36);
 			height: rem(36);
 		}
@@ -369,7 +369,7 @@ $blog-date-muted: rgba($color-text-body, 0.6);
 	grid-template-columns: 1fr;
 	gap: rem(20);
 
-	@media (min-width: $bp-tablet) {
+	@media (min-width: $md3) {
 		grid-template-columns: repeat(2, 1fr);
 	}
 }
@@ -417,7 +417,7 @@ $blog-date-muted: rgba($color-text-body, 0.6);
 			pointer-events: none;
 		}
 
-		@media (min-width: $bp-desktop) {
+		@media (min-width: $md2) {
 			&:not(._active):not(&--dots):hover {
 				background: rgba($color-brand, 0.08);
 			}
@@ -434,7 +434,7 @@ $blog-date-muted: rgba($color-text-body, 0.6);
 		text-decoration: none;
 		transition: opacity 0.2s ease;
 
-		@media (min-width: $bp-desktop) {
+		@media (min-width: $md2) {
 			&:hover {
 				opacity: 0.7;
 			}

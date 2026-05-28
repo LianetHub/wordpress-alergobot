@@ -14,7 +14,7 @@ $popup-gradient: linear-gradient(61deg, $color-primary 0%, $color-accent 99.68%)
 		position: relative;
 		padding: rem(40) rem(20) rem(32);
 
-		@media (min-width: $bp-mobile-lg) {
+		@media (min-width: $md4) {
 			padding: rem(40);
 		}
 	}
@@ -36,7 +36,7 @@ $popup-gradient: linear-gradient(61deg, $color-primary 0%, $color-accent 99.68%)
 		cursor: pointer;
 		transition: opacity 0.2s ease;
 
-		@media (min-width: $bp-desktop) {
+		@media (min-width: $md2) {
 			&:hover {
 				opacity: 0.75;
 			}
@@ -100,13 +100,13 @@ $popup-gradient: linear-gradient(61deg, $color-primary 0%, $color-accent 99.68%)
 		gap: rem(24);
 		align-items: start;
 
-		@media (min-width: $bp-tablet) {
+		@media (min-width: $md3) {
 			grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
 			gap: rem(32);
 		}
 
 		&--reverse {
-			@media (min-width: $bp-tablet) {
+			@media (min-width: $md3) {
 				grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
 			}
 		}
@@ -202,7 +202,7 @@ $popup-gradient: linear-gradient(61deg, $color-primary 0%, $color-accent 99.68%)
 			transform 0.2s cubic-bezier(0.22, 1, 0.36, 1);
 		@include adaptive-font(16, 20);
 
-		@media (min-width: $bp-desktop) {
+		@media (min-width: $md2) {
 			&:hover {
 				background: #fff;
 				transform: translateY(-2px);
@@ -225,7 +225,7 @@ $popup-gradient: linear-gradient(61deg, $color-primary 0%, $color-accent 99.68%)
 		position: relative;
 		min-height: rem(200);
 
-		@media (min-width: $bp-tablet) {
+		@media (min-width: $md3) {
 			display: block;
 		}
 	}
@@ -260,7 +260,7 @@ $popup-gradient: linear-gradient(61deg, $color-primary 0%, $color-accent 99.68%)
 		justify-content: center;
 		margin-bottom: rem(16);
 
-		@media (min-width: $bp-tablet) {
+		@media (min-width: $md3) {
 			margin-bottom: 0;
 			align-items: center;
 		}
@@ -271,7 +271,7 @@ $popup-gradient: linear-gradient(61deg, $color-primary 0%, $color-accent 99.68%)
 			height: auto;
 			filter: drop-shadow(rem(2) rem(2) rem(8) $color-primary);
 
-			@media (min-width: $bp-tablet) {
+			@media (min-width: $md3) {
 				max-width: rem(327);
 			}
 		}
@@ -283,11 +283,11 @@ $popup-gradient: linear-gradient(61deg, $color-primary 0%, $color-accent 99.68%)
 		gap: rem(10);
 		width: 100%;
 
-		@media (min-width: $bp-mobile-lg) {
+		@media (min-width: $md4) {
 			grid-template-columns: repeat(3, minmax(0, 1fr));
 		}
 
-		@media (min-width: $bp-tablet) {
+		@media (min-width: $md3) {
 			grid-template-columns: repeat(5, minmax(0, 1fr));
 		}
 	}
@@ -307,7 +307,7 @@ $popup-gradient: linear-gradient(61deg, $color-primary 0%, $color-accent 99.68%)
 		text-decoration: none;
 		transition: box-shadow 0.25s ease;
 
-		@media (min-width: $bp-desktop) {
+		@media (min-width: $md2) {
 			&:hover {
 				box-shadow: 0 rem(8) rem(24) rgba($color-primary, 0.15);
 			}
@@ -345,7 +345,7 @@ $popup-gradient: linear-gradient(61deg, $color-primary 0%, $color-accent 99.68%)
 		.popup-modal__inner {
 			padding-top: rem(32);
 
-			@media (min-width: $bp-mobile-lg) {
+			@media (min-width: $md4) {
 				padding-top: rem(40);
 			}
 		}
@@ -357,7 +357,7 @@ $popup-gradient: linear-gradient(61deg, $color-primary 0%, $color-accent 99.68%)
 		.popup-modal__decor--molecules {
 			display: none;
 
-			@media (min-width: $bp-tablet) {
+			@media (min-width: $md3) {
 				display: block;
 			}
 		}
@@ -372,7 +372,7 @@ $popup-gradient: linear-gradient(61deg, $color-primary 0%, $color-accent 99.68%)
 			opacity: 0.25;
 		}
 
-		@media (max-width: ($bp-tablet - 1px)) {
+		@media (max-width: ($md3 - 1px)) {
 			.popup-modal__visual {
 				display: grid;
 				grid-template-columns: 1fr 1fr;
@@ -405,7 +405,7 @@ $popup-gradient: linear-gradient(61deg, $color-primary 0%, $color-accent 99.68%)
 		max-width: rem(873);
 
 		.popup-modal__lead br {
-			@media (max-width: ($bp-mobile - 1px)) {
+			@media (max-width: ($md5 - 1px)) {
 				display: none;
 			}
 		}

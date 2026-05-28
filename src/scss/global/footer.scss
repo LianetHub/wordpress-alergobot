@@ -1,37 +1,36 @@
 .footer {
-	margin-top: auto;
+
 	color: #fff;
 	background: linear-gradient(106.85deg, $color-primary 0%, $color-accent 100%);
 
-	@media (min-width: $bp-tablet) {
+	@media (min-width: $md3) {
 		background: linear-gradient(157.64deg, $color-primary 0%, $color-accent 100%);
 	}
 
-	&__inner {
+	&__container {
 		padding-top: rem(16);
 		padding-bottom: rem(24);
 
-		@media (min-width: $bp-tablet) {
+		@media (min-width: $md3) {
 			display: grid;
-			grid-template-columns: minmax(0, 1fr) 1px minmax(0, 1fr);
-			grid-template-rows: auto auto;
+			grid-template-columns: 1fr 1px 1fr;
 			column-gap: rem(40);
-			row-gap: rem(45);
+			row-gap: rem(56);
 			align-items: start;
-			min-height: rem(165);
 			padding-top: rem(20);
-			padding-bottom: rem(20);
+			padding-bottom: rem(30);
 		}
 	}
 
 	&__brand-row {
 		display: flex;
-		align-items: center;
+		align-items: flex-end;
 		justify-content: space-between;
 		gap: rem(16);
 		width: 100%;
+		padding-right: rem(6);
 
-		@media (min-width: $bp-tablet) {
+		@media (min-width: $md3) {
 			grid-column: 1;
 			grid-row: 1;
 			max-width: rem(620);
@@ -42,30 +41,28 @@
 		display: inline-flex;
 		flex-shrink: 0;
 		text-decoration: none;
-	}
 
-	&__logo-img {
-		display: block;
-		width: rem(129);
-		height: rem(36);
-		object-fit: contain;
-		object-position: left bottom;
+		& img {
+			display: block;
+			width: rem(129);
+			height: rem(36);
+			object-fit: contain;
+			object-position: left bottom;
 
-		@media (min-width: $bp-tablet) {
-			width: rem(141);
-			height: rem(39);
+			@media (min-width: $md3) {
+				width: rem(141);
+				height: rem(39);
+			}
 		}
 	}
 
 	&__phone {
 		flex-shrink: 0;
 		color: #fff;
-		text-decoration: none;
-		font-weight: 400;
-		line-height: 1.2;
 		text-transform: uppercase;
-		letter-spacing: -0.04em;
 		white-space: nowrap;
+		font-family: $font-inter;
+		letter-spacing: em(-0.34, 24);
 		@include adaptive-font(18, 24);
 	}
 
@@ -73,7 +70,7 @@
 		width: 100%;
 		margin-top: rem(40);
 
-		@media (min-width: $bp-tablet) {
+		@media (min-width: $md3) {
 			grid-column: 3;
 			grid-row: 1;
 			margin-top: rem(10);
@@ -84,14 +81,12 @@
 	}
 
 	&__menu {
-		list-style: none;
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
 		gap: rem(12);
-		margin: 0;
-		padding: 0;
 		width: 100%;
+		font-family: $font-inter;
 	}
 
 	&__link {
@@ -104,7 +99,7 @@
 		white-space: nowrap;
 		@include adaptive-font(14, 16);
 
-		@media (min-width: $bp-desktop) {
+		@media (min-width: $md2) {
 			transition: opacity 0.2s ease;
 
 			&:hover {
@@ -114,20 +109,22 @@
 	}
 
 	&__divider {
-		width: 100%;
-		height: 1px;
-		margin: rem(40) 0;
-		background: rgba(255, 255, 255, 0.25);
+		background: rgba(255, 255, 255, 0.4);
 
-		@media (min-width: $bp-tablet) {
+		@media (max-width: $md3) {
+			width: 100%;
+			height: 1px;
+			margin: rem(40) 0;
+
+		}
+
+		@media (min-width: $md3) {
 			grid-column: 2;
-			grid-row: 1 / -1;
+			grid-row: span 2;
 			width: 1px;
-			height: auto;
-			min-height: rem(125);
-			margin: 0;
 			align-self: stretch;
-			justify-self: center;
+			margin-top: rem(-20);
+			margin-bottom: rem(-30);
 		}
 	}
 
@@ -138,7 +135,7 @@
 		gap: rem(10);
 		width: 100%;
 
-		@media (min-width: $bp-tablet) {
+		@media (min-width: $md3) {
 			grid-column: 1;
 			grid-row: 2;
 			flex-direction: row;
@@ -159,7 +156,7 @@
 		white-space: nowrap;
 		@include adaptive-font(14, 16);
 
-		@media (min-width: $bp-desktop) {
+		@media (min-width: $md2) {
 			transition: opacity 0.2s ease;
 
 			&:hover {
@@ -176,7 +173,7 @@
 		width: 100%;
 		margin-top: rem(40);
 
-		@media (min-width: $bp-tablet) {
+		@media (min-width: $md3) {
 			grid-column: 3;
 			grid-row: 2;
 			flex-direction: row;
@@ -199,7 +196,7 @@
 		white-space: nowrap;
 		@include adaptive-font(12, 14);
 
-		@media (min-width: $bp-tablet) {
+		@media (min-width: $md3) {
 			text-align: left;
 		}
 	}

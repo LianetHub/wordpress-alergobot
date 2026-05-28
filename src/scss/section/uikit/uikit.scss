@@ -29,11 +29,11 @@
 		gap: rem(24);
 		margin-bottom: rem(16);
 
-		@media (max-width: $bp-tablet) {
+		@media (max-width: $md3) {
 			grid-template-columns: repeat(2, 1fr);
 		}
 
-		@media (max-width: $bp-mobile) {
+		@media (max-width: $md5) {
 			grid-template-columns: 1fr;
 		}
 	}
@@ -67,7 +67,7 @@
 		grid-template-columns: 1fr 1fr;
 		gap: rem(40);
 
-		@media (max-width: $bp-mobile-lg) {
+		@media (max-width: $md4) {
 			grid-template-columns: 1fr;
 		}
 	}

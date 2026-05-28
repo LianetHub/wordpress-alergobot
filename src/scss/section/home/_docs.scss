@@ -3,7 +3,7 @@
 	background: $color-surface;
 	overflow: hidden;
 
-	@media (min-width: $bp-tablet) {
+	@media (min-width: $md3) {
 		padding: rem(48) 0;
 	}
 
@@ -13,7 +13,7 @@
 		gap: rem(10);
 		margin-bottom: rem(20);
 
-		@media (min-width: $bp-tablet) {
+		@media (min-width: $md3) {
 			display: grid;
 			grid-template-columns: minmax(0, 1fr) auto;
 			grid-template-rows: auto auto;
@@ -29,7 +29,7 @@
 		flex-direction: column;
 		gap: rem(10);
 
-		@media (min-width: $bp-tablet) {
+		@media (min-width: $md3) {
 			grid-column: 1;
 			grid-row: 1 / 3;
 			gap: rem(10);
@@ -45,7 +45,7 @@
 		letter-spacing: -0.04em;
 		@include adaptive-font(24, 48);
 
-		@media (min-width: $bp-tablet) {
+		@media (min-width: $md3) {
 			max-width: rem(900);
 		}
 	}
@@ -63,7 +63,7 @@
 		display: none;
 		gap: rem(20);
 
-		@media (min-width: $bp-tablet) {
+		@media (min-width: $md3) {
 			display: flex;
 			grid-column: 2;
 			grid-row: 1;
@@ -102,7 +102,7 @@
 			cursor: default;
 		}
 
-		@media (min-width: $bp-desktop) {
+		@media (min-width: $md2) {
 			&:not(.swiper-button-disabled):hover {
 				background: $color-accent-hover;
 			}
@@ -117,7 +117,7 @@
 		width: rem(257);
 		height: auto;
 
-		@media (min-width: $bp-tablet) {
+		@media (min-width: $md3) {
 			width: rem(315);
 		}
 	}
@@ -133,7 +133,7 @@
 		background: $color-surface-tab;
 		backdrop-filter: blur(8.159px);
 
-		@media (min-width: $bp-tablet) {
+		@media (min-width: $md3) {
 			padding: rem(20);
 			backdrop-filter: blur(10px);
 		}
@@ -152,7 +152,7 @@
 		object-position: center top;
 		background: #fff;
 
-		@media (min-width: $bp-tablet) {
+		@media (min-width: $md3) {
 			width: rem(276);
 			height: rem(395);
 			border-radius: rem(10);
@@ -168,11 +168,11 @@
 		letter-spacing: -0.02em;
 		@include adaptive-font(14, 18);
 
-		@media (max-width: #{$bp-tablet - 1px}) {
+		@media (max-width: #{$md3 - 1px}) {
 			max-width: rem(225);
 		}
 
-		@media (min-width: $bp-tablet) {
+		@media (min-width: $md3) {
 			max-width: rem(276);
 		}
 	}

@@ -1,5 +1,5 @@
 .header {
-	position: fixed;
+	position: sticky;
 	top: 0;
 	left: 0;
 	right: 0;
@@ -7,6 +7,7 @@
 	width: 100%;
 	background: $color-primary;
 	backdrop-filter: blur(10px);
+	border-radius: 0 0 rem(10) rem(10);
 
 	&__container {
 		padding-top: 0;
@@ -24,7 +25,7 @@
 		background: transparent;
 		color: #fff;
 
-		@media (min-width: $bp-tablet) {
+		@media (min-width: $md3) {
 			flex-wrap: nowrap;
 			min-height: $btn-height;
 			padding: rem(10) 0;
@@ -46,12 +47,12 @@
 	}
 
 	&__nav {
-		@media (max-width: $bp-tablet) {
+		@media (max-width: $md3) {
 			display: none;
 			width: 100%;
 		}
 
-		@media (min-width: $bp-tablet) {
+		@media (min-width: $md3) {
 			margin-left: rem(100);
 		}
 	}
@@ -74,7 +75,7 @@
 		@include adaptive-font(16, 18);
 		letter-spacing: 0.02em;
 
-		@media (min-width: $bp-desktop) {
+		@media (min-width: $md2) {
 			&:hover {
 				opacity: 0.85;
 			}
@@ -84,7 +85,7 @@
 	&__toggle {
 		margin-left: auto;
 
-		@media (min-width: $bp-tablet) {
+		@media (min-width: $md3) {
 			display: none;
 		}
 	}
@@ -96,12 +97,12 @@
 		white-space: nowrap;
 		flex-shrink: 0;
 
-		@media (max-width: $bp-tablet) {
+		@media (max-width: $md3) {
 			display: none;
 			width: 100%;
 		}
 
-		@media (min-width: $bp-tablet) {
+		@media (min-width: $md3) {
 			margin-left: auto;
 		}
 	}
@@ -111,9 +112,8 @@
 		text-decoration: none;
 		font-weight: 500;
 		line-height: 1.2;
-		@include adaptive-font(16, 18);
-		letter-spacing: 0.02em;
 		text-transform: uppercase;
+		@include adaptive-font(16, 18);
 	}
 
 	&__sep {
@@ -125,7 +125,7 @@
 
 	// Открытое мобильное меню (Figma: Меню_Mobile)
 	&.open-menu {
-		@media (max-width: $bp-tablet) {
+		@media (max-width: $md3) {
 			background: $color-primary;
 			backdrop-filter: blur(10px);
 
@@ -235,7 +235,7 @@
 	z-index: 11;
 	transition: all 0.3s ease;
 
-	@media (min-width: $bp-tablet) {
+	@media (min-width: $md3) {
 		display: none;
 	}
 
@@ -301,14 +301,5 @@
 				}
 			}
 		}
-	}
-}
-
-// Отступ под фиксированную шапку (кроме главной — hero под шапкой)
-.page:not(.page--home) {
-	padding-top: rem(88);
-
-	@media (min-width: $bp-tablet) {
-		padding-top: rem(100);
 	}
 }

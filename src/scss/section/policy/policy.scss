@@ -6,11 +6,11 @@
 	padding: rem(40) 0 rem(80);
 	overflow: hidden;
 
-	@media (max-width: $bp-mobile-lg) {
+	@media (max-width: $md4) {
 		padding: rem(16) 0 rem(48);
 	}
 
-	@media (min-width: $bp-desktop) {
+	@media (min-width: $md2) {
 		padding: rem(40) 0 rem(100);
 	}
 
@@ -26,7 +26,7 @@
 			height: rem(694);
 			transform: rotate(120deg);
 
-			@media (max-width: $bp-tablet) {
+			@media (max-width: $md3) {
 				display: none;
 			}
 		}
@@ -38,7 +38,7 @@
 			height: rem(694);
 			transform: scaleX(-1) rotate(60deg);
 
-			@media (max-width: $bp-tablet) {
+			@media (max-width: $md3) {
 				right: rem(-40);
 				top: rem(615);
 				width: rem(357);
@@ -47,7 +47,7 @@
 				transform: scaleX(-1) rotate(60deg);
 			}
 
-			@media (max-width: $bp-mobile-lg) {
+			@media (max-width: $md4) {
 				top: auto;
 				bottom: rem(120);
 				right: rem(-20);
@@ -67,7 +67,7 @@
 		max-width: rem(876);
 		margin: 0 auto;
 
-		@media (min-width: $bp-desktop) {
+		@media (min-width: $md2) {
 			gap: rem(40);
 		}
 	}
