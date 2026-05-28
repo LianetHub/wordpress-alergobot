@@ -6,7 +6,7 @@
 	min-height: rem(62);
 	padding: rem(20);
 	border: rem(0.5) solid #fff;
-	border-radius: $radius-btn;
+	border-radius: rem(10);
 	background: transparent;
 	color: #fff;
 	font-family: $font-family;
@@ -41,7 +41,7 @@
 	min-height: rem(60);
 	padding: rem(18) rem(16);
 	border: 0;
-	border-radius: $radius-btn;
+	border-radius: rem(10);
 	background: $color-surface-mint;
 	color: $color-primary;
 	font-family: $font-family;
@@ -149,7 +149,7 @@
 		.wpcf7-response-output {
 			margin: rem(10) 0 0;
 			padding: rem(12) rem(16);
-			border-radius: $radius-btn;
+			border-radius: rem(10);
 			color: #fff;
 			font-size: rem(14);
 			line-height: 1.3;

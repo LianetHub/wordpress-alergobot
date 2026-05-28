@@ -54,7 +54,7 @@
 
 	&__panel {
 		padding: rem(24);
-		border-radius: $radius-btn;
+		border-radius: rem(10);
 		background: $color-accent;
 
 		&--tabs {

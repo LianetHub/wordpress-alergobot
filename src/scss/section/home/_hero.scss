@@ -185,7 +185,7 @@
 		align-items: center;
 		gap: rem(20);
 		padding: rem(16) rem(20);
-		border-radius: $radius-btn;
+		border-radius: rem(10);
 		background: $color-surface-mint;
 		border: 0.5px solid #fff;
 		backdrop-filter: blur(10px);
@@ -201,7 +201,7 @@
 		flex-shrink: 0;
 		width: rem(42);
 		height: rem(42);
-		border-radius: $radius-btn;
+		border-radius: rem(10);
 		background: $color-primary;
 		color: #fff;
 		display: flex;

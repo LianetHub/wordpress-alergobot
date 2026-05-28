@@ -72,7 +72,7 @@
 		aspect-ratio: 1 / 1;
 		padding: rem(12);
 		border: 1px solid $color-accent;
-		border-radius: $radius-btn;
+		border-radius: rem(10);
 		background: $color-surface-mint;
 		display: flex;
 		align-items: center;
@@ -117,7 +117,7 @@
 		display: block;
 		min-height: rem(300);
 		border: 1px solid $color-accent;
-		border-radius: $radius-btn;
+		border-radius: rem(10);
 		overflow: hidden;
 		text-decoration: none;
 
@@ -145,7 +145,7 @@
 	flex-direction: column;
 	gap: rem(10);
 	padding: rem(16);
-	border-radius: $radius-btn;
+	border-radius: rem(10);
 	background: $color-accent;
 
 	@media (min-width: $md2) {
@@ -203,7 +203,7 @@
 		width: 100%;
 		padding: rem(10);
 		border: 0;
-		border-radius: $radius-btn;
+		border-radius: rem(10);
 		background: $color-surface-mint;
 		color: $color-primary;
 		font-family: $font-family;
@@ -311,7 +311,7 @@
 	flex-direction: column;
 	gap: rem(10);
 	padding: rem(10);
-	border-radius: $radius-btn;
+	border-radius: rem(10);
 	background: rgba($color-surface-tab, 0.9);
 	min-height: rem(119);
 
@@ -340,7 +340,7 @@
 		@media (min-width: $md2) {
 			width: rem(44);
 			height: rem(44);
-			border-radius: $radius-btn;
+			border-radius: rem(10);
 			padding: rem(10);
 
 			.icon {

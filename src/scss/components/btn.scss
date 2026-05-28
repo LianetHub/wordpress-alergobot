@@ -1,6 +1,8 @@
 // Кнопки UI Kit: Кнопка 1, 2, 3
 
 .btn {
+	position: relative;
+	z-index: 1;
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
@@ -8,7 +10,7 @@
 	min-height: $btn-height;
 	padding: rem(10) rem(20);
 	border: 1px solid transparent;
-	border-radius: $radius-btn;
+	border-radius: rem(10);
 	font-family: $font-inter;
 	font-weight: 500;
 	line-height: 1.2;
@@ -18,10 +20,10 @@
 	white-space: nowrap;
 	cursor: pointer;
 	transition:
-		background-color 0.25s cubic-bezier(0.22, 1, 0.36, 1),
-		border-color 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+		background-color 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+		border-color 0.3s cubic-bezier(0.22, 1, 0.36, 1),
 		transform 0.2s cubic-bezier(0.22, 1, 0.36, 1),
-		opacity 0.2s ease;
+		opacity 0.3s ease;
 	@include adaptive-font(16, 20);
 
 	&:disabled,
@@ -32,14 +34,9 @@
 		cursor: not-allowed;
 	}
 
-	@media (min-width: $md2) {
-		&:hover:not(:disabled):not([aria-disabled="true"]):not(.btn--disabled) {
-			transform: translateY(-2px);
-		}
-	}
 
 	&:active:not(:disabled):not([aria-disabled="true"]):not(.btn--disabled) {
-		transform: translateY(1px) scale(0.98);
+		transform: scale(0.98);
 	}
 
 	&__icon {
@@ -52,15 +49,35 @@
 	&--primary {
 		background: $gradient-btn-primary;
 		color: #fff;
+		border: none;
+
+		&::after {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background: $gradient-btn-primary-hover;
+			z-index: -1;
+			border-radius: rem(10);
+			opacity: 0;
+			transition: opacity 0.3s ease;
+		}
 
 		@media (min-width: $md2) {
 			&:hover:not(:disabled):not([aria-disabled="true"]) {
-				background: $gradient-btn-primary-hover;
+
+				&::after {
+					opacity: 1;
+				}
 			}
 		}
 
 		&:active:not(:disabled):not([aria-disabled="true"]) {
-			background: $gradient-btn-primary-hover;
+			&::after {
+				opacity: 1;
+			}
 		}
 	}
 

@@ -1,12 +1,13 @@
 .header {
-	position: sticky;
+	position: fixed;
 	top: 0;
 	left: 0;
 	right: 0;
 	z-index: 50;
 	width: 100%;
 	background: $color-primary;
-	backdrop-filter: blur(10px);
+	backdrop-filter: blur(rem(10));
+	-wekbit-backdrop-filter: blur(rem(10));
 	border-radius: 0 0 rem(10) rem(10);
 
 	&__container {
@@ -20,7 +21,7 @@
 		flex-wrap: wrap;
 		gap: rem(16);
 		min-height: rem(56);
-		padding: rem(16) 0;
+		padding: rem(8) 0;
 		border-radius: 0;
 		background: transparent;
 		color: #fff;
@@ -52,28 +53,31 @@
 			width: 100%;
 		}
 
-		@media (min-width: $md3) {
-			margin-left: rem(100);
+		@media (min-width: $md1) {
+			margin-left: rem(83);
 		}
 	}
 
 	&__menu {
-		list-style: none;
+
 		display: flex;
 		align-items: center;
-		gap: rem(40);
-		margin: 0;
-		padding: 0;
+		flex-wrap: wrap;
+		gap: rem(32);
+		row-gap: rem(10);
+
+		@media (min-width:$md1) {
+			gap: rem(40);
+
+		}
 	}
 
 	&__link {
-		color: #fff;
-		text-decoration: none;
 		font-weight: 500;
 		text-transform: uppercase;
 		line-height: 1.2;
+		transition: opacity 0.3s ease;
 		@include adaptive-font(16, 18);
-		letter-spacing: 0.02em;
 
 		@media (min-width: $md2) {
 			&:hover {
@@ -123,7 +127,7 @@
 		flex-shrink: 0;
 	}
 
-	// Открытое мобильное меню (Figma: Меню_Mobile)
+
 	&.open-menu {
 		@media (max-width: $md3) {
 			background: $color-primary;
@@ -135,7 +139,6 @@
 				max-width: none;
 				min-height: 100vh;
 				min-height: 100dvh;
-				padding: rem(16);
 			}
 
 			.header__bar {
@@ -144,23 +147,25 @@
 				align-items: stretch;
 				justify-content: flex-start;
 				flex-wrap: nowrap;
-				gap: 0;
+
 				min-height: 0;
-				padding: rem(16);
 			}
 
 			.header__logo {
 				align-self: flex-start;
+				order: 1;
+				min-height: rem(36);
+				display: flex;
+				justify-content: center;
+				align-items: center;
 			}
 
-			.header__logo-img {
-				width: rem(124);
-			}
+
 
 			.header__toggle {
 				position: absolute;
 				top: rem(16);
-				right: rem(16);
+				right: rem(0);
 				margin-left: 0;
 			}
 
@@ -176,10 +181,6 @@
 				width: 100%;
 				margin-left: 0;
 				order: 2;
-			}
-
-			.header__logo {
-				order: 1;
 			}
 
 			.header__toggle {
@@ -225,8 +226,8 @@
 	justify-content: center;
 	align-items: flex-end;
 	gap: rem(7);
-	min-width: rem(44);
-	height: rem(44);
+	min-width: rem(36);
+	height: rem(36);
 	padding: 0;
 	border: 0;
 	background: transparent;
@@ -241,7 +242,7 @@
 
 	& span {
 		display: block;
-		width: rem(36);
+		width: 100%;
 		padding: 0;
 		align-self: stretch;
 		transition:

@@ -5,7 +5,7 @@ $popup-gradient: linear-gradient(61deg, $color-primary 0%, $color-accent 99.68%)
 .popup-modal {
 	width: 100%;
 	max-width: rem(873);
-	border-radius: $radius-btn;
+	border-radius: rem(10);
 	background: $popup-gradient;
 	color: #fff;
 	overflow: hidden;
@@ -149,7 +149,7 @@ $popup-gradient: linear-gradient(61deg, $color-primary 0%, $color-accent 99.68%)
 		min-height: rem(52);
 		padding: rem(10) rem(20);
 		border: rem(0.5) solid #fff;
-		border-radius: $radius-btn;
+		border-radius: rem(10);
 		background: transparent;
 		color: #fff;
 		font-family: $font-family;
@@ -188,7 +188,7 @@ $popup-gradient: linear-gradient(61deg, $color-primary 0%, $color-accent 99.68%)
 		margin-top: rem(10);
 		padding: rem(10) rem(20);
 		border: 0;
-		border-radius: $radius-btn;
+		border-radius: rem(10);
 		background: $color-surface-mint;
 		color: $color-primary;
 		font-family: $font-family;
@@ -234,7 +234,7 @@ $popup-gradient: linear-gradient(61deg, $color-primary 0%, $color-accent 99.68%)
 		position: absolute;
 		width: rem(182);
 		height: rem(169);
-		border-radius: $radius-btn;
+		border-radius: rem(10);
 		background: $color-accent;
 		overflow: hidden;
 
@@ -301,7 +301,7 @@ $popup-gradient: linear-gradient(61deg, $color-primary 0%, $color-accent 99.68%)
 		min-height: rem(115);
 		padding: rem(12) rem(10);
 		border: rem(0.5) solid #fff;
-		border-radius: $radius-btn;
+		border-radius: rem(10);
 		background: $color-surface-tab;
 		backdrop-filter: blur(10px);
 		text-decoration: none;

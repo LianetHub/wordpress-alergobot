@@ -64,7 +64,7 @@
 
 	&__item {
 		border: 1px solid $color-accent;
-		border-radius: $radius-btn;
+		border-radius: rem(10);
 		background: #fff;
 		overflow: hidden;
 

@@ -117,7 +117,7 @@
 
 	&__figure {
 		margin: 0;
-		border-radius: $radius-btn;
+		border-radius: rem(10);
 		background: $color-surface-mint;
 		overflow: hidden;
 	}
@@ -162,7 +162,7 @@
 		gap: rem(10);
 		min-height: rem(119);
 		padding: rem(10);
-		border-radius: $radius-btn;
+		border-radius: rem(10);
 		background: $color-surface-tab;
 		color: $color-text-body;
 
@@ -215,7 +215,7 @@
 			width: rem(44);
 			height: rem(44);
 			padding: rem(10);
-			border-radius: $radius-btn;
+			border-radius: rem(10);
 
 			.icon {
 				width: rem(22);
@@ -277,7 +277,7 @@
 	&__map {
 		position: relative;
 		overflow: hidden;
-		border-radius: $radius-btn;
+		border-radius: rem(10);
 		height: rem(220);
 		background: linear-gradient(90deg,
 				rgba($color-accent, 0.1) 25%,

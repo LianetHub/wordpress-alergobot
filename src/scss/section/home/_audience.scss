@@ -37,7 +37,7 @@
 	}
 
 	&__photo {
-		border-radius: $radius-btn;
+		border-radius: rem(10);
 		overflow: hidden;
 		background: #fff;
 
@@ -203,7 +203,7 @@
 			z-index: 10;
 			flex-wrap: wrap;
 			align-items: flex-start;
-			border-radius: $radius-btn;
+			border-radius: rem(10);
 
 			.audience__card-text {
 				display: block;

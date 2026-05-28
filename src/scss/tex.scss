@@ -111,4 +111,12 @@ h3 {
 .page {
 	flex: 1 1 auto;
 	background: $color-surface-mint;
+
+	&:not(.page--home) {
+		padding-top: rem(56);
+
+		@media (min-width: $md3) {
+			padding-top: rem(80);
+		}
+	}
 }
