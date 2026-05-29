@@ -1,4 +1,4 @@
-// Страница «Каталог» — макеты Figma: Каталог_Desktop (1:793), Каталог_Mobile (1:4907)
+// Страница «Каталог» — Figma: Desktop 2072:756 / 1:793, Mobile 1:5001
 
 .page--catalog {
 	background: $color-surface-mint;
@@ -16,186 +16,7 @@
 	}
 }
 
-// ——— Hero ———
-.catalog-hero {
-	position: relative;
-	padding: rem(24) 0 rem(32);
-
-	@media (min-width: $md3) {
-		padding: rem(40) 0 rem(48);
-	}
-
-	&__container {
-		position: relative;
-	}
-
-	&__decor {
-		position: absolute;
-		width: rem(12);
-		height: rem(12);
-		background: url("@img/catalog/decor-corner.svg") center / contain no-repeat;
-		pointer-events: none;
-
-		&--tl {
-			left: 0;
-			top: rem(22);
-		}
-
-		&--tr {
-			right: 0;
-			top: rem(22);
-			background-image: url("@img/catalog/decor-corner-alt.svg");
-		}
-
-		&--bl {
-			left: 0;
-			bottom: rem(8);
-			background-image: url("@img/catalog/decor-corner-alt.svg");
-		}
-
-		&--br {
-			right: 0;
-			bottom: rem(8);
-			background-image: url("@img/catalog/decor-corner-alt.svg");
-		}
-
-		@media (min-width: $md3) {
-			width: rem(21);
-			height: rem(21);
-
-			&--tl {
-				top: rem(10);
-			}
-
-			&--tr {
-				top: rem(10);
-			}
-
-			&--bl {
-				bottom: rem(24);
-			}
-
-			&--br {
-				bottom: rem(24);
-			}
-		}
-	}
-
-	&__grid {
-		display: flex;
-		flex-direction: column;
-		gap: rem(20);
-
-		@media (min-width: $md3) {
-			flex-direction: row;
-			align-items: flex-start;
-			justify-content: space-between;
-			gap: rem(40);
-		}
-	}
-
-	&__main {
-		position: relative;
-		flex: 1 1 auto;
-		max-width: rem(1013);
-		padding-top: rem(22);
-
-		@media (min-width: $md3) {
-			padding-top: 0;
-			max-width: 58%;
-		}
-	}
-
-	&__title {
-		margin: 0;
-		color: $color-primary;
-		font-weight: 400;
-		line-height: 1.2;
-		letter-spacing: -0.04em;
-		@include adaptive-font(26, 56);
-	}
-
-	&__title-line {
-		display: block;
-
-		@media (max-width: ($md3 - 1px)) {
-			display: inline;
-
-			&:not(:last-child)::after {
-				content: " ";
-			}
-		}
-	}
-
-	&__cta {
-		margin-top: rem(20);
-		width: 100%;
-		max-width: rem(426);
-
-		@media (min-width: $md3) {
-			margin-top: rem(24);
-			margin-left: rem(61);
-		}
-	}
-
-	&__text {
-		margin: 0;
-		color: $color-text-body;
-		line-height: 1.3;
-		font-size: rem(14);
-
-		@media (min-width: $md3) {
-			flex: 0 0 rem(454);
-			padding-top: rem(8);
-			font-size: rem(18);
-		}
-	}
-
-	&__tags {
-		list-style: none;
-		margin: rem(20) 0 0;
-		padding: 0;
-		display: flex;
-		flex-wrap: wrap;
-		gap: rem(10);
-
-		@media (min-width: $md3) {
-			margin-top: rem(24);
-			margin-left: rem(61);
-			gap: rem(20);
-		}
-	}
-
-	&__tag {
-		display: inline-flex;
-		align-items: center;
-		justify-content: center;
-		padding: rem(6) rem(10);
-		border: rem(0.5) solid $color-accent;
-		border-radius: $radius-tab;
-		background: $color-surface-mint;
-		color: $color-primary;
-		font-weight: 500;
-		font-size: rem(8);
-		line-height: 1.2;
-		letter-spacing: -0.02em;
-		text-transform: uppercase;
-		text-decoration: none;
-		transition: border-color 0.2s ease, background 0.2s ease;
-
-		@media (min-width: $md4) {
-			padding: rem(6) rem(16);
-			font-size: rem(16);
-		}
-
-		@media (min-width: $md2) {
-			&:hover {
-				border-color: $color-accent-hover;
-				background: $color-surface-tab;
-			}
-		}
-	}
-}
+$catalog-overlap: 1400px;
 
 // ——— Секции каталога (устройства / реагенты) ———
 .catalog-section {
@@ -239,21 +60,20 @@
 		z-index: 1;
 		display: flex;
 		flex-direction: column;
-		gap: rem(16);
+		gap: rem(10);
 
 		@media (min-width: $md3) {
 			display: grid;
-			grid-template-columns: minmax(0, 1fr) auto;
-			grid-template-rows: auto 1fr;
-			column-gap: rem(24);
+			grid-template-columns: 1fr;
+			grid-template-rows: auto auto auto;
 			row-gap: rem(20);
 			align-items: start;
+			padding-top: rem(30);
 		}
 
-		&--reverse {
-			@media (min-width: $md3) {
-				grid-template-columns: auto minmax(0, 1fr);
-			}
+		@media (min-width: $catalog-overlap) {
+			grid-template-columns: minmax(0, rem(873)) minmax(0, 1fr);
+			grid-template-rows: auto auto;
 		}
 	}
 
@@ -266,20 +86,28 @@
 		border-radius: $radius-tab;
 		background: $color-accent;
 		color: #fff;
+		font-family: $font-inter;
 		font-weight: 500;
 		font-size: rem(14);
 		line-height: 1.2;
 		letter-spacing: -0.02em;
 		text-transform: uppercase;
+		white-space: nowrap;
 
 		@media (min-width: $md3) {
 			grid-row: 1;
+			z-index: 3;
 			padding: rem(10) rem(16);
 			font-size: rem(20);
 		}
 
 		&--devices {
 			@media (min-width: $md3) {
+				grid-column: 1;
+				justify-self: start;
+			}
+
+			@media (min-width: $catalog-overlap) {
 				grid-column: 2;
 				justify-self: end;
 			}
@@ -288,6 +116,7 @@
 		&--reagents {
 			@media (min-width: $md3) {
 				grid-column: 1;
+				justify-self: start;
 			}
 		}
 	}
@@ -301,17 +130,20 @@
 		border-radius: rem(10);
 		background: $color-surface-tab;
 		min-height: rem(357);
+		overflow: hidden;
 
 		@media (min-width: $md3) {
-			grid-row: 2;
 			grid-column: 1;
+			grid-row: 2;
+			width: 100%;
 			min-height: rem(425);
 			padding: rem(40);
 			gap: rem(20);
+			overflow: visible;
 		}
 
-		.catalog-section__layout--reverse & {
-			@media (min-width: $md3) {
+		.catalog-section--reagents & {
+			@media (min-width: $catalog-overlap) {
 				grid-column: 2;
 			}
 		}
@@ -321,12 +153,18 @@
 		display: flex;
 		flex-direction: column;
 		gap: rem(10);
-		max-width: rem(428);
+		position: relative;
+		z-index: 2;
+
+		@media (min-width: $md3) {
+			max-width: rem(428);
+		}
 	}
 
 	&__title {
 		margin: 0;
 		color: $color-primary;
+		font-family: $font-inter;
 		font-weight: 500;
 		line-height: 1.2;
 		letter-spacing: -0.04em;
@@ -359,6 +197,7 @@
 		grid-template-columns: 1fr 1fr;
 		gap: rem(10);
 		margin-top: auto;
+		padding-top: rem(10);
 
 		@media (min-width: $md3) {
 			display: none;
@@ -377,28 +216,14 @@
 
 		@media (min-width: $md3) {
 			border-radius: rem(10);
+			border-width: 1px;
 			min-height: rem(279);
+			width: rem(315);
+			height: rem(279);
 		}
 
-		&--embed {
+		&--overlap {
 			display: none;
-
-			@media (min-width: $md3) {
-				display: flex;
-				position: absolute;
-				right: rem(40);
-				bottom: rem(40);
-				width: rem(315);
-				height: rem(279);
-				border-width: 1px;
-			}
-
-			.catalog-section--reagents & {
-				@media (min-width: $md3) {
-					right: auto;
-					left: rem(-113);
-				}
-			}
 		}
 
 		&--fill {
@@ -412,6 +237,31 @@
 		max-width: rem(250);
 		height: auto;
 		object-fit: contain;
+
+		&--smart {
+			max-width: rem(110);
+
+			@media (min-width: $md3) {
+				max-width: rem(239);
+			}
+		}
+
+		&--elite,
+		&--station {
+			max-width: rem(110);
+
+			@media (min-width: $md3) {
+				max-width: rem(200);
+			}
+		}
+
+		.catalog-section__product--fill & {
+			max-width: rem(110);
+
+			@media (min-width: $md3) {
+				max-width: rem(200);
+			}
+		}
 	}
 
 	&__gallery {
@@ -419,18 +269,78 @@
 
 		@media (min-width: $md3) {
 			display: grid;
-			grid-row: 2;
+			grid-template-columns: repeat(3, minmax(0, 1fr));
+			gap: rem(16);
+			grid-column: 1;
+			grid-row: 3;
+			z-index: 1;
+		}
+
+		@media (min-width: $catalog-overlap) {
+			display: flex;
+			flex-wrap: nowrap;
+			grid-template-columns: none;
 			grid-column: 2;
-			grid-template-columns: repeat(2, rem(315));
+			grid-row: 2;
 			gap: rem(24);
-			align-self: start;
-			margin-top: rem(106);
+			margin-top: rem(76);
+			margin-left: rem(-52);
 		}
 
 		&--reagents {
 			@media (min-width: $md3) {
+				grid-template-columns: repeat(2, minmax(0, 1fr));
+			}
+
+			@media (min-width: $catalog-overlap) {
 				grid-column: 1;
-				margin-top: rem(106);
+				margin-left: 0;
+				margin-right: rem(-113);
+				justify-content: flex-end;
+			}
+		}
+
+		.catalog-section__product--overlap {
+			@media (min-width: $md3) {
+				display: flex;
+			}
+
+			@media (min-width: $catalog-overlap) {
+				flex: 0 0 rem(315);
+				position: relative;
+				z-index: 2;
+			}
+		}
+	}
+
+	// ——— Реагенты: галерея слева, карточка справа ———
+	&--reagents {
+		@media (min-width: $md3) and (max-width: ($catalog-overlap - 0.02px)) {
+			.catalog-section__card {
+				grid-row: 2;
+			}
+
+			.catalog-section__gallery--reagents {
+				grid-row: 3;
+			}
+		}
+
+		@media (min-width: $md3) {
+			.catalog-section__info,
+			.catalog-section__btn {
+				margin-left: auto;
+			}
+
+			.catalog-section__product--overlap {
+				@media (min-width: $catalog-overlap) {
+					order: 2;
+				}
+			}
+		}
+
+		@media (min-width: $catalog-overlap) {
+			.catalog-section__layout {
+				grid-template-columns: minmax(0, 1fr) minmax(0, rem(873));
 			}
 		}
 	}

@@ -5,32 +5,34 @@
         <div class="wrapper">
             @@include('html/_header.html', {})
             <main class="page page--catalog">
-                <section class="catalog-hero">
-                    <div class="catalog-hero__container _container">
-                        <span class="catalog-hero__decor catalog-hero__decor--tl" aria-hidden="true"></span>
-                        <span class="catalog-hero__decor catalog-hero__decor--tr" aria-hidden="true"></span>
-                        <div class="catalog-hero__grid">
-                            <div class="catalog-hero__main">
-                                <h1 class="catalog-hero__title">
-                                    <span class="catalog-hero__title-line">Каталог оборудования и реагентов</span>
-                                    <span class="catalog-hero__title-line">для диагностики аллергий</span>
+                <section class="heading heading--catalog">
+                    <div class="heading__container _container">
+                        <span class="heading__decor heading__decor--tl" aria-hidden="true"></span>
+                        <span class="heading__decor heading__decor--tr" aria-hidden="true"></span>
+                        <div class="heading__grid">
+                            <div class="heading__main">
+                                <h1 class="heading__title">
+                                    <span class="heading__title-line">Каталог оборудования и реагентов</span>
+                                    <span class="heading__title-line">для диагностики аллергии</span>
                                 </h1>
-                                <a class="btn btn--primary catalog-hero__cta" href="#catalog-request">
+                                <a class="btn btn--primary heading__cta" href="#catalog-request">
                                     Задать вопрос
                                     <svg class="btn__icon" width="28" height="28" aria-hidden="true">
                                         <use href="@img/icons.svg#icon-arrow-up-right"></use>
                                     </svg>
                                 </a>
-                                <ul class="catalog-hero__tags">
-                                    <li class="catalog-hero__tags-item"><a class="catalog-hero__tag" href="#catalog-devices">Оборудование</a></li>
-                                    <li class="catalog-hero__tags-item"><a class="catalog-hero__tag" href="analizatory.html">Анализаторы</a></li>
-                                    <li class="catalog-hero__tags-item"><a class="catalog-hero__tag" href="#catalog-reagents">Реагенты</a></li>
-                                    <li class="catalog-hero__tags-item"><a class="catalog-hero__tag" href="#catalog-reagents">Панели</a></li>
+                                <ul class="heading__tags">
+                                    <li class="heading__tags-item"><a class="heading__tag" href="#catalog-devices">Оборудование</a></li>
+                                    <li class="heading__tags-item"><a class="heading__tag" href="analizatory.html">Анализаторы</a></li>
+                                    <li class="heading__tags-item"><a class="heading__tag" href="#catalog-reagents">Реагенты</a></li>
+                                    <li class="heading__tags-item"><a class="heading__tag" href="#catalog-reagents">Панели</a></li>
                                 </ul>
-                                <span class="catalog-hero__decor catalog-hero__decor--bl" aria-hidden="true"></span>
-                                <span class="catalog-hero__decor catalog-hero__decor--br" aria-hidden="true"></span>
+                                <span class="heading__decor heading__decor--bl" aria-hidden="true"></span>
+                                <span class="heading__decor heading__decor--br" aria-hidden="true"></span>
                             </div>
-                            <p class="catalog-hero__text">В каталоге собраны решения для лабораторного анализа аллергии: диагностическое оборудование, анализаторы, панели и реагенты для исследований. Он поможет быстро подобрать подходящие диагностические наборы для клиники, лаборатории или диагностического центра, чтобы заказать или купить.</p>
+                            <div class="heading__aside">
+                                <p class="heading__text">В каталоге собраны решения для лабораторного анализа аллергии: диагностическое оборудование, анализаторы, панели и реагенты для исследований. Он поможет быстро подобрать подходящие диагностические наборы для клиники, лаборатории или диагностического центра, чтобы заказать или купить.</p>
+                            </div>
                         </div>
                     </div>
                 </section>
@@ -56,19 +58,19 @@
                                         <img class="catalog-section__img" src="@img/catalog/device-q-smart.png" alt="Иммунохимический анализатор Q-Smart" title="Иммунохимический анализатор Q-Smart" width="239" height="164" loading="lazy">
                                     </div>
                                     <div class="catalog-section__product">
-                                        <img class="catalog-section__img" src="@img/catalog/device-elite-2.png" alt="Иммунохимический анализатор Q-Smart Elite" title="Иммунохимический анализатор Q-Smart Elite" width="200" height="167" loading="lazy">
+                                        <img class="catalog-section__img" src="@img/catalog/device-elite-2.png" alt="Лабораторный анализатор для аллергодиагностики" title="Лабораторный анализатор для аллергодиагностики" width="200" height="167" loading="lazy">
                                     </div>
-                                </div>
-                                <div class="catalog-section__product catalog-section__product--embed">
-                                    <img class="catalog-section__img" src="@img/catalog/device-q-smart.png" alt="Иммунохимический анализатор Q-Smart" title="Иммунохимический анализатор Q-Smart" width="239" height="164" loading="lazy">
                                 </div>
                             </div>
                             <div class="catalog-section__gallery">
+                                <div class="catalog-section__product catalog-section__product--overlap">
+                                    <img class="catalog-section__img catalog-section__img--smart" src="@img/catalog/device-q-smart.png" alt="Иммунохимический анализатор Q-Smart" title="Иммунохимический анализатор Q-Smart" width="239" height="164" loading="lazy">
+                                </div>
                                 <div class="catalog-section__product catalog-section__product--fill">
-                                    <img class="catalog-section__img" src="@img/catalog/device-elite.png" alt="Иммунохимический анализатор Q-Smart Elite" title="Иммунохимический анализатор Q-Smart Elite" width="200" height="167" loading="lazy">
+                                    <img class="catalog-section__img catalog-section__img--elite" src="@img/catalog/device-elite.png" alt="Иммунохимический анализатор Q-Smart Elite" title="Иммунохимический анализатор Q-Smart Elite" width="200" height="167" loading="lazy">
                                 </div>
                                 <div class="catalog-section__product">
-                                    <img class="catalog-section__img" src="@img/catalog/device-elite-2.png" alt="Лабораторный анализатор для аллергодиагностики" title="Лабораторный анализатор для аллергодиагностики" width="200" height="167" loading="lazy">
+                                    <img class="catalog-section__img catalog-section__img--station" src="@img/catalog/device-elite-2.png" alt="Лабораторный анализатор для аллергодиагностики" title="Лабораторный анализатор для аллергодиагностики" width="200" height="167" loading="lazy">
                                 </div>
                             </div>
                         </div>
@@ -78,13 +80,13 @@
                 <section class="catalog-section catalog-section--reagents" id="catalog-reagents">
                     <div class="catalog-section__container _container">
                         <div class="catalog-section__decor catalog-section__decor--reagents" aria-hidden="true"></div>
-                        <div class="catalog-section__layout catalog-section__layout--reverse">
+                        <div class="catalog-section__layout">
                             <span class="catalog-section__badge catalog-section__badge--reagents">Панели и реагенты</span>
                             <div class="catalog-section__gallery catalog-section__gallery--reagents">
                                 <div class="catalog-section__product">
                                     <img class="catalog-section__img" src="@img/catalog/reagent-protia.png" alt="Панель PROTIA Allergy-Q 96 Multipanel" title="Панель PROTIA Allergy-Q 96 Multipanel" width="250" height="134" loading="lazy">
                                 </div>
-                                <div class="catalog-section__product">
+                                <div class="catalog-section__product catalog-section__product--overlap">
                                     <img class="catalog-section__img" src="@img/catalog/reagent-nabory.png" alt="Наборы реагентов для аллергодиагностики" title="Наборы реагентов для аллергодиагностики" width="225" height="161" loading="lazy">
                                 </div>
                             </div>
@@ -106,9 +108,6 @@
                                     <div class="catalog-section__product">
                                         <img class="catalog-section__img" src="@img/catalog/reagent-protia.png" alt="Панель PROTIA Allergy-Q 96 Multipanel" title="Панель PROTIA Allergy-Q 96 Multipanel" width="250" height="134" loading="lazy">
                                     </div>
-                                </div>
-                                <div class="catalog-section__product catalog-section__product--embed">
-                                    <img class="catalog-section__img" src="@img/catalog/reagent-nabory.png" alt="Наборы реагентов для аллергодиагностики" title="Наборы реагентов для аллергодиагностики" width="225" height="161" loading="lazy">
                                 </div>
                             </div>
                         </div>

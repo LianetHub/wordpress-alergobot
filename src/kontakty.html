@@ -5,19 +5,21 @@
         <div class="wrapper">
             @@include('html/_header.html', {})
             <main class="page page--contacts">
-                <section class="contacts-intro">
-                    <div class="contacts-intro__container _container">
-                        <div class="contacts-intro__head">
-                            <div class="contacts-intro__content">
-                                <h1 class="contacts-intro__title">Закажите&nbsp;оборудование для диагностики аллергии</h1>
-                                <p class="contacts-intro__text">Закажите современное оборудование для аллергодиагностики быстро и без лишних хлопот. Заполните форму, и наш менеджер подберет оптимальное решение под ваши задачи и пришлет полный прайс‑лист.</p>
+                <section class="heading heading--contacts">
+                    <div class="heading__container _container">
+                        <div class="heading__grid">
+                            <div class="heading__main">
+                                <h1 class="heading__title">Закажите&nbsp;оборудование для диагностики аллергии</h1>
+                                <p class="heading__text heading__text--main">Закажите современное оборудование для аллергодиагностики быстро и без лишних хлопот. Заполните форму, и наш менеджер подберет оптимальное решение под ваши задачи и пришлет полный прайс‑лист.</p>
                             </div>
-                            <div class="contacts-intro__products">
-                                <div class="contacts-intro__product">
-                                    <img class="contacts-intro__img" src="@img/contacts/product-02.png" alt="Анализатор для аллергодиагностики" title="Анализатор для аллергодиагностики" width="119" height="100">
-                                </div>
-                                <div class="contacts-intro__product">
-                                    <img class="contacts-intro__img" src="@img/contacts/product-01.png" alt="Диагностическое оборудование PROTIA" title="Диагностическое оборудование PROTIA" width="119" height="100">
+                            <div class="heading__aside">
+                                <div class="heading__products">
+                                    <div class="heading__product">
+                                        <img class="heading__product-img" src="@img/contacts/product-02.png" alt="Анализатор для аллергодиагностики" title="Анализатор для аллергодиагностики" width="119" height="100">
+                                    </div>
+                                    <div class="heading__product">
+                                        <img class="heading__product-img" src="@img/contacts/product-01.png" alt="Диагностическое оборудование PROTIA" title="Диагностическое оборудование PROTIA" width="119" height="100">
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -27,17 +29,32 @@
                 <section class="contacts-order">
                     <div class="contacts-order__container _container">
                         <div class="contacts-order__grid">
-                            <form class="contacts-form" action="#" method="post">
-                                <div class="contacts-form__row">
-                                    <input class="form-field" type="text" name="name" placeholder="Имя" autocomplete="name" required>
-                                    <input class="form-field" type="text" name="company" placeholder="Компания" autocomplete="organization">
+                            <form class="contacts-order__form form form--on-brand" action="#" method="post">
+                                <div class="form__row">
+                                    <label class="form__field">
+                                        <span class="visually-hidden">Имя</span>
+                                        <input class="form__control" type="text" name="name" placeholder="Имя" autocomplete="name" required>
+                                    </label>
+                                    <label class="form__field">
+                                        <span class="visually-hidden">Компания</span>
+                                        <input class="form__control" type="text" name="company" placeholder="Компания" autocomplete="organization">
+                                    </label>
                                 </div>
-                                <div class="contacts-form__row">
-                                    <input class="form-field" type="tel" name="phone" placeholder="+7 (" autocomplete="tel" required>
-                                    <input class="form-field" type="email" name="email" placeholder="E-mail" autocomplete="email" required>
+                                <div class="form__row">
+                                    <label class="form__field">
+                                        <span class="visually-hidden">Телефон</span>
+                                        <input class="form__control" type="tel" name="phone" placeholder="+7 (" autocomplete="tel" required>
+                                    </label>
+                                    <label class="form__field">
+                                        <span class="visually-hidden">E-mail</span>
+                                        <input class="form__control" type="email" name="email" placeholder="E-mail" autocomplete="email" required>
+                                    </label>
                                 </div>
-                                <textarea class="form-field contacts-form__textarea" name="comment" placeholder="Комментарий" rows="4"></textarea>
-                                <label class="checkbox contacts-form__agree">
+                                <label class="form__field">
+                                    <span class="visually-hidden">Комментарий</span>
+                                    <textarea class="form__control form__control--textarea" name="comment" placeholder="Комментарий" rows="4"></textarea>
+                                </label>
+                                <label class="checkbox form__agree contacts-order__agree">
                                     <input class="checkbox__input" type="checkbox" name="agree" required>
                                     <span class="checkbox__box">
                                         <svg class="icon" width="20" height="20" aria-hidden="true">
@@ -46,7 +63,7 @@
                                     </span>
                                     <span class="checkbox__text">Я даю согласие на <a href="politika-konfidentsialnosti.html">обработку персональных данных</a> и соглашаюсь с <a href="politika-konfidentsialnosti.html">политикой конфиденциальности</a></span>
                                 </label>
-                                <button class="contacts-form__submit" type="submit">Отправить заявку</button>
+                                <button class="form__submit" type="submit">Отправить заявку</button>
                             </form>
 
                             <a
