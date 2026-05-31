@@ -37,7 +37,7 @@
 	}
 
 	&__title {
-		margin: 0;
+
 		color: $color-primary;
 		font-weight: 500;
 		line-height: 1.2;
@@ -186,7 +186,7 @@
 
 	&__desc {
 		p {
-			margin: 0;
+
 			color: $color-text-body;
 			line-height: 1.3;
 			@include adaptive-font(14, 18);

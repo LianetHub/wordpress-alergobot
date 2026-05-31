@@ -38,7 +38,7 @@
 	}
 
 	&__title {
-		margin: 0;
+
 		color: $color-primary;
 		font-weight: 500;
 		line-height: 1.2;
@@ -51,7 +51,7 @@
 	}
 
 	&__text {
-		margin: 0;
+
 		color: $color-text-body;
 		font-family: "Manrope", $font-family;
 		font-weight: 400;
@@ -160,7 +160,7 @@
 	}
 
 	&__caption {
-		margin: 0;
+
 		flex-shrink: 0;
 		color: $color-primary;
 		font-weight: 400;

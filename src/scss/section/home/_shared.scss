@@ -1,25 +1,24 @@
-// Общие элементы главной
 $home-muted: #5c6f7a;
 $home-card: #e8f4f8;
 $home-teal: $color-accent;
 
 .tag {
 	display: inline-block;
-	padding: rem(8) rem(16);
 	border-radius: $radius-tab;
 	background: $color-accent;
 	color: #fff;
-	font-family: $font-family;
-	font-size: rem(20);
+	font-size: rem(14);
 	font-weight: 500;
 	line-height: 1.2;
-	letter-spacing: -0.02em;
+	// letter-spacing: -0.02em;
+	padding: rem(6) rem(12);
 	text-transform: uppercase;
 
-	@media (max-width: $md5) {
-		font-size: rem(14);
-		padding: rem(6) rem(12);
+	@media (min-width:$md5) {
+		padding: rem(8) rem(17);
+		font-size: rem(20);
 	}
+
 }
 
 .home-arrow {
@@ -49,11 +48,9 @@ $home-teal: $color-accent;
 	}
 
 	&__title {
-		margin: 0;
 		color: $color-primary;
 		font-weight: 500;
 		line-height: 1.2;
-		letter-spacing: -0.04em;
 		@include adaptive-font(26, 48);
 	}
 
@@ -73,7 +70,7 @@ $home-teal: $color-accent;
 	}
 
 	&__note {
-		margin: 0;
+
 		color: $color-brand-2;
 		font-style: italic;
 		line-height: 1.55;

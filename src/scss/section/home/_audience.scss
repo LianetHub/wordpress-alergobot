@@ -1,17 +1,16 @@
 .audience {
-	padding: rem(48) 0 rem(56);
+	padding: rem(100) 0 rem(56);
 	background: $color-surface;
 
 	&__head {
-		display: grid;
-		grid-template-columns: 1fr;
+		display: flex;
+		justify-content: space-between;
+		align-items: flex-start;
 		gap: rem(10);
 		margin-bottom: rem(20);
 
 		@media (min-width: $md3) {
-			grid-template-columns: minmax(0, 1fr) auto;
-			grid-template-rows: auto auto;
-			align-items: start;
+
 			column-gap: rem(32);
 			row-gap: rem(16);
 			margin-bottom: rem(32);
@@ -39,20 +38,15 @@
 	&__photo {
 		border-radius: rem(10);
 		overflow: hidden;
-		background: #fff;
+
 
 		@media (min-width: $md3) {
-			grid-column: 2;
-			grid-row: 2;
 			max-width: rem(427);
+			height: rem(212);
+			width: 100%;
 		}
 
-		img {
-			display: block;
-			width: 100%;
-			height: auto;
-			object-fit: cover;
-		}
+
 	}
 
 	&__scene {
@@ -73,23 +67,18 @@
 		object-fit: contain;
 		object-position: bottom center;
 		pointer-events: none;
-
-		@media (max-width: ($md3 - 1px)) {
-			position: absolute;
-			left: 50%;
-			top: rem(110);
-			transform: translateX(-50%);
-			z-index: 0;
-		}
+		position: absolute;
+		left: 50%;
+		top: rem(110);
+		transform: translateX(-50%);
 
 		@media (min-width: $md3) {
 			position: absolute;
-			left: 23.4%;
+			left: 25.3%;
 			top: 0;
 			width: min(56%, rem(529));
 			max-width: rem(529);
-			margin: 0;
-			z-index: 0;
+			transform: none;
 		}
 	}
 
@@ -110,6 +99,7 @@
 		align-items: center;
 		justify-content: space-between;
 		gap: rem(20);
+		row-gap: rem(12);
 		width: rem(246);
 		max-width: calc(100% - rem(32));
 		padding: rem(8) rem(16);
@@ -122,12 +112,13 @@
 		z-index: 1;
 		transition:
 			border-radius 0.25s cubic-bezier(0.22, 1, 0.36, 1),
-			background 0.2s ease,
+			background-color 0.2s ease,
 			z-index 0s;
 
 		@media (min-width: $md3) {
-			width: auto;
-			max-width: rem(392);
+			max-width: rem(331);
+
+			width: 100%;
 			padding: rem(12) rem(20);
 		}
 
@@ -135,69 +126,62 @@
 		&:nth-child(1) {
 			left: 0;
 			top: rem(20);
+
+			@media (min-width:$md3) {
+				left: 0;
+				top: rem(38);
+			}
 		}
 
 		// Диагностические центры
 		&:nth-child(2) {
 			left: 0;
 			top: rem(321);
+
+			@media (min-width:$md3) {
+				left: 45.7%;
+				top: rem(30);
+				right: auto;
+				max-width: rem(400);
+			}
 		}
 
 		// Больницы и поликлиники
 		&:nth-child(3) {
 			left: rem(86);
 			top: rem(391);
+
+			@media (min-width:$md3) {
+				left: auto;
+				top: rem(179);
+				right: 0%;
+				max-width: rem(392);
+			}
 		}
 
 		// Частные клиники
 		&:nth-child(4) {
 			left: rem(86);
 			top: rem(82);
-			width: rem(246);
-			max-width: calc(100% - rem(16));
+
+			@media (min-width:$md3) {
+				left: 8.34%;
+				top: rem(246);
+			}
 		}
 
 		// Дилеры и партнёры
 		&:nth-child(5) {
 			left: 0;
 			top: rem(461);
-		}
 
-		@media (min-width: $md3) {
-			&:nth-child(1) {
-				left: 0;
-				top: rem(38);
-				max-width: rem(312);
-			}
-
-			&:nth-child(2) {
-				left: 41.8%;
-				top: rem(30);
-				right: auto;
-				max-width: none;
-			}
-
-			&:nth-child(3) {
-				left: 64.65%;
-				top: rem(179);
-				right: auto;
-				max-width: none;
-			}
-
-			&:nth-child(4) {
-				left: 7.64%;
-				top: rem(246);
-				width: auto;
-				max-width: rem(331);
-			}
-
-			&:nth-child(5) {
-				left: 49.1%;
+			@media (min-width:$md3) {
+				left: 53.4%;
 				top: rem(328);
 				right: auto;
-				max-width: rem(312);
 			}
 		}
+
 
 		&._active {
 			z-index: 10;
@@ -218,7 +202,6 @@
 		font-weight: 500;
 		font-size: rem(18);
 		line-height: 1.2;
-		letter-spacing: -0.02em;
 
 		@media (min-width: $md2) {
 			font-size: rem(24);
@@ -231,7 +214,7 @@
 		width: rem(36);
 		height: rem(36);
 		border-radius: 50%;
-		background: $color-primary;
+
 
 		&::before,
 		&::after {
@@ -240,7 +223,7 @@
 			left: 50%;
 			top: 50%;
 			transform: translate(-50%, -50%);
-			background: #fff;
+			background: $color-primary;
 			border-radius: rem(2);
 			transition: opacity 0.2s ease;
 		}
@@ -264,14 +247,10 @@
 	&__card-text {
 		display: none;
 		width: 100%;
-		margin: rem(6) 0 0;
 		font-size: rem(14);
 		line-height: 1.3;
 		color: $color-primary;
 
-		@media (min-width: $md3) {
-			margin-top: rem(10);
-		}
 
 		@media (min-width: $md2) {
 			font-size: rem(18);

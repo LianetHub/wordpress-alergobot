@@ -48,7 +48,7 @@
 	}
 
 	&__title {
-		margin: 0;
+
 		color: $color-primary;
 		font-weight: 500;
 		line-height: 1.2;
@@ -59,9 +59,7 @@
 	&__slider {
 		overflow: visible;
 
-		@media (min-width: $md3) {
-			margin: 0;
-		}
+		@media (min-width: $md3) {}
 	}
 
 	&__grid.swiper-wrapper {
@@ -156,7 +154,7 @@
 	}
 
 	&__card-title {
-		margin: 0;
+
 		color: $color-brand;
 		font-weight: 500;
 		font-style: italic;
@@ -195,7 +193,7 @@
 	}
 
 	&__card-desc {
-		margin: 0;
+
 		color: $color-text-body;
 		font-family: "Manrope", $font-family;
 		font-size: rem(14);

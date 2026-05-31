@@ -71,7 +71,7 @@
 	}
 
 	&__title {
-		margin: 0;
+
 		color: $color-primary;
 		font-weight: 500;
 		line-height: 1.2;
@@ -85,7 +85,7 @@
 	}
 
 	&__text {
-		margin: 0;
+
 		color: $color-text-body;
 		font-family: "Manrope", $font-family;
 		font-weight: 400;
@@ -99,7 +99,7 @@
 	}
 
 	&__note {
-		margin: 0;
+
 		color: $color-primary;
 		font-weight: 500;
 		font-style: italic;
@@ -109,7 +109,7 @@
 
 		@media (min-width: $md3) {
 			grid-area: note;
-			margin: 0;
+
 			max-width: rem(650);
 		}
 	}

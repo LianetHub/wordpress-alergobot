@@ -43,7 +43,7 @@
 	}
 
 	&__title {
-		margin: 0;
+
 		font-weight: 400;
 		line-height: 1.2;
 		letter-spacing: -0.04em;
@@ -55,7 +55,7 @@
 	}
 
 	&__text {
-		margin: 0;
+
 		font-family: "Manrope", $font-family;
 		font-size: rem(18);
 		line-height: 1.3;
@@ -175,7 +175,7 @@
 			left: 50%;
 			bottom: rem(20);
 			max-width: rem(451);
-			margin: 0;
+
 			transform: translateX(-50%);
 		}
 	}
@@ -418,7 +418,7 @@
 
 // ——— РУ / КТРУ ———
 .product-spec {
-	margin: 0;
+
 	display: flex;
 	flex-direction: column;
 	gap: rem(1);
@@ -440,7 +440,7 @@
 	}
 
 	&__term {
-		margin: 0;
+
 		font-family: "Manrope", $font-family;
 		font-weight: 600;
 		font-size: rem(18);
@@ -449,7 +449,7 @@
 	}
 
 	&__value {
-		margin: 0;
+
 		font-family: "Manrope", $font-family;
 		font-weight: 400;
 		font-size: rem(18);
@@ -621,7 +621,7 @@
 	}
 
 	&__text {
-		margin: 0;
+
 		font-family: "Manrope", $font-family;
 		font-size: rem(18);
 		line-height: 1.3;
@@ -636,7 +636,7 @@
 	}
 
 	&__callout {
-		margin: 0;
+
 		padding: rem(20);
 		border: 0.5px solid $color-accent;
 		border-radius: rem(10);
@@ -714,7 +714,7 @@
 	}
 
 	&__card-title {
-		margin: 0;
+
 		font-weight: 500;
 		font-style: italic;
 		line-height: 1.2;
@@ -803,7 +803,7 @@
 	}
 
 	&__text {
-		margin: 0;
+
 		font-family: "Manrope", $font-family;
 		font-size: rem(18);
 		line-height: 1.3;
