@@ -24,7 +24,6 @@
 			padding-top: rem(40);
 			padding-bottom: rem(40);
 			min-height: rem(610);
-			box-sizing: border-box;
 		}
 	}
 
@@ -47,7 +46,7 @@
 		gap: rem(24);
 
 		@media (min-width: $md3) {
-			grid-template-columns: minmax(0, 1fr) minmax(0, rem(650));
+			grid-template-columns: 1fr minmax(0, rem(650));
 			column-gap: rem(21);
 			align-items: stretch;
 			min-height: rem(530);

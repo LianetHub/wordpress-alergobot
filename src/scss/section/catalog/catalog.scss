@@ -72,7 +72,7 @@ $catalog-overlap: 1400px;
 		}
 
 		@media (min-width: $catalog-overlap) {
-			grid-template-columns: minmax(0, rem(873)) minmax(0, 1fr);
+			grid-template-columns: minmax(0, rem(873)) 1fr;
 			grid-template-rows: auto auto;
 		}
 	}
@@ -269,7 +269,7 @@ $catalog-overlap: 1400px;
 
 		@media (min-width: $md3) {
 			display: grid;
-			grid-template-columns: repeat(3, minmax(0, 1fr));
+			grid-template-columns: repeat(3, 1fr);
 			gap: rem(16);
 			grid-column: 1;
 			grid-row: 3;
@@ -289,7 +289,7 @@ $catalog-overlap: 1400px;
 
 		&--reagents {
 			@media (min-width: $md3) {
-				grid-template-columns: repeat(2, minmax(0, 1fr));
+				grid-template-columns: repeat(2, 1fr);
 			}
 
 			@media (min-width: $catalog-overlap) {
@@ -341,7 +341,7 @@ $catalog-overlap: 1400px;
 
 		@media (min-width: $catalog-overlap) {
 			.catalog-section__layout {
-				grid-template-columns: minmax(0, 1fr) minmax(0, rem(873));
+				grid-template-columns: 1fr minmax(0, rem(873));
 			}
 		}
 	}
@@ -369,7 +369,7 @@ $catalog-overlap: 1400px;
 		gap: rem(24);
 
 		@media (min-width: $md3) {
-			grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+			grid-template-columns: 1fr 1fr;
 			gap: rem(40);
 			align-items: start;
 		}

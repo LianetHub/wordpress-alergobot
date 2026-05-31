@@ -8,7 +8,7 @@
 		gap: rem(10);
 
 		@media (min-width: $md3) {
-			grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+			grid-template-columns: 1fr 1fr;
 			grid-template-areas:
 				"intro badges"
 				"intro benefits";

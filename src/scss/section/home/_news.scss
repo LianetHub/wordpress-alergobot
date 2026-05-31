@@ -36,7 +36,7 @@
 
 		@media (min-width: $md3) {
 			display: grid;
-			grid-template-columns: minmax(0, 1fr) auto;
+			grid-template-columns: 1fr auto;
 			grid-template-areas: "title tag" "text .";
 			gap: rem(10) rem(32);
 			align-items: start;
@@ -113,7 +113,7 @@
 
 		@media (min-width: $md3) {
 			gap: rem(20);
-			grid-template-columns: repeat(2, minmax(0, 1fr));
+			grid-template-columns: repeat(2, 1fr);
 		}
 	}
 

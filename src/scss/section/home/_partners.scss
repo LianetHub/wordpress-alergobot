@@ -14,7 +14,7 @@
 
 		@media (min-width: $md3) {
 			display: grid;
-			grid-template-columns: minmax(0, 1fr) minmax(0, rem(650));
+			grid-template-columns: 1fr minmax(0, rem(650));
 			grid-template-areas:
 				"title tag"
 				"text note";
@@ -121,7 +121,7 @@
 	&__grid.swiper-wrapper {
 		@media (min-width: $md3) {
 			display: grid;
-			grid-template-columns: repeat(5, minmax(0, 1fr));
+			grid-template-columns: repeat(5, 1fr);
 			gap: rem(20);
 			transform: none !important;
 		}

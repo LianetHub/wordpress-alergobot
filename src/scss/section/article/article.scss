@@ -54,7 +54,7 @@ $article-date-muted: rgba($color-text-body, 0.6);
 		align-items: start;
 
 		@media (min-width: $md3) {
-			grid-template-columns: minmax(0, 1fr) rem(407);
+			grid-template-columns: 1fr rem(407);
 			grid-template-areas:
 				"header hero"
 				"content aside";

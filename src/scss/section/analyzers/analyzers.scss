@@ -18,7 +18,7 @@
 		gap: rem(28);
 
 		@media (min-width: $md3) {
-			grid-template-columns: repeat(2, minmax(0, 1fr));
+			grid-template-columns: repeat(2, 1fr);
 			gap: rem(20) rem(20);
 			align-items: start;
 		}
@@ -151,7 +151,7 @@
 
 		@media (min-width: $md3) {
 			display: grid;
-			grid-template-columns: minmax(0, 1fr) minmax(0, rem(650));
+			grid-template-columns: 1fr minmax(0, rem(650));
 			gap: rem(40);
 			align-items: start;
 		}
@@ -256,7 +256,7 @@
 
 	&__gallery {
 		display: grid;
-		grid-template-columns: repeat(2, minmax(0, 1fr));
+		grid-template-columns: repeat(2, 1fr);
 		gap: rem(10);
 
 		@media (min-width: $md3) {

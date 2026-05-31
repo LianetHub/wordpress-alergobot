@@ -7,12 +7,12 @@ const MAP_SELECTOR = "[data-map]";
 
 const getIconParams = () => {
     const width = window.innerWidth;
-    let size = [104, 116];
+    let size = [66, 74];
 
     if (width <= 767) {
-        size = [78, 88];
+        size = [50, 56];
     } else if (width <= 1024) {
-        size = [67, 75];
+        size = [43, 48];
     }
 
     return {

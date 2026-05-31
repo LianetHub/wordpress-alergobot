@@ -36,7 +36,7 @@ $blog-date-muted: rgba($color-text-body, 0.6);
 		gap: rem(20);
 
 		@media (min-width: $md3) {
-			grid-template-columns: minmax(0, 1.65fr) minmax(0, 1fr);
+			grid-template-columns: minmax(0, 1.65fr) 1fr;
 			gap: rem(24);
 			align-items: start;
 		}

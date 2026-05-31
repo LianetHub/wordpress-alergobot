@@ -101,7 +101,7 @@ $popup-gradient: linear-gradient(61deg, $color-primary 0%, $color-accent 99.68%)
 		align-items: start;
 
 		@media (min-width: $md3) {
-			grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+			grid-template-columns: 1fr 1fr;
 			gap: rem(32);
 		}
 
@@ -279,16 +279,16 @@ $popup-gradient: linear-gradient(61deg, $color-primary 0%, $color-accent 99.68%)
 
 	&__partners {
 		display: grid;
-		grid-template-columns: repeat(2, minmax(0, 1fr));
+		grid-template-columns: repeat(2, 1fr);
 		gap: rem(10);
 		width: 100%;
 
 		@media (min-width: $md4) {
-			grid-template-columns: repeat(3, minmax(0, 1fr));
+			grid-template-columns: repeat(3, 1fr);
 		}
 
 		@media (min-width: $md3) {
-			grid-template-columns: repeat(5, minmax(0, 1fr));
+			grid-template-columns: repeat(5, 1fr);
 		}
 	}
 

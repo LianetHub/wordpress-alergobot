@@ -13,7 +13,7 @@
 
 		@media (min-width: $md3) {
 			display: grid;
-			grid-template-columns: minmax(0, rem(648)) minmax(0, 1fr);
+			grid-template-columns: minmax(0, rem(648)) 1fr;
 			column-gap: rem(26);
 			align-items: stretch;
 		}

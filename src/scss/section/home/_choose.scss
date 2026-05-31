@@ -40,7 +40,7 @@
 
 		@media (min-width: $md3) {
 			display: grid;
-			grid-template-columns: minmax(0, 1fr) minmax(0, rem(538));
+			grid-template-columns: 1fr minmax(0, rem(538));
 			gap: rem(20) rem(32);
 			align-items: start;
 			margin-bottom: rem(28);

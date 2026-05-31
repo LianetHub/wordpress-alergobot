@@ -15,7 +15,7 @@
 
 		@media (min-width: $md3) {
 			display: grid;
-			grid-template-columns: minmax(0, 1fr) auto;
+			grid-template-columns: 1fr auto;
 			grid-template-rows: auto auto;
 			column-gap: rem(32);
 			row-gap: rem(10);
