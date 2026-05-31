@@ -24,10 +24,7 @@
         <path d="M8 20L20 8M20 8H11M20 8V17" stroke="currentColor" fill="none" stroke-width="2"
             stroke-linecap="round" stroke-linejoin="round" />
     </symbol>
-    <symbol id="icon-arrow-up-right" viewBox="0 0 28 28">
-        <path d="M8.60599 7.89401H20.394V19.682M19.5754 8.71262L7.62366 20.6644"
-            stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
-    </symbol>
+
     <symbol id="icon-arrow-chevron" viewBox="0 0 32 32">
         <path d="M12 25L21 15.5L12 6" stroke="currentColor" fill="none" stroke-width="2"
             stroke-linecap="round" stroke-linejoin="round" />

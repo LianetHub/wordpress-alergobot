@@ -1,4 +1,4 @@
-// Кнопки UI Kit: Кнопка 1, 2, 3
+// BTN UI Kit
 
 .btn {
 	position: relative;
@@ -8,7 +8,7 @@
 	justify-content: center;
 	gap: $btn-gap;
 	min-height: $btn-height;
-	padding: rem(10) rem(20);
+	padding: rem(9) rem(20);
 	border: 1px solid transparent;
 	border-radius: rem(10);
 	font-family: $font-inter;
@@ -41,11 +41,11 @@
 
 	&__icon {
 		flex-shrink: 0;
-		width: rem(28);
-		height: rem(28);
+		width: rem(32);
+		height: rem(32);
 	}
 
-	// Кнопка 1 — градиент + стрелка
+
 	&--primary {
 		background: $gradient-btn-primary;
 		color: #fff;
