@@ -36,7 +36,7 @@ $popup-gradient: linear-gradient(61deg, $color-primary 0%, $color-accent 99.68%)
 		cursor: pointer;
 		transition: opacity 0.2s ease;
 
-		@media (min-width: $md2) {
+		@media (any-hover: hover) {
 			&:hover {
 				opacity: 0.75;
 			}
@@ -202,7 +202,7 @@ $popup-gradient: linear-gradient(61deg, $color-primary 0%, $color-accent 99.68%)
 			transform 0.2s cubic-bezier(0.22, 1, 0.36, 1);
 		@include adaptive-font(16, 20);
 
-		@media (min-width: $md2) {
+		@media (any-hover: hover) {
 			&:hover {
 				background: #fff;
 				transform: translateY(-2px);
@@ -307,7 +307,7 @@ $popup-gradient: linear-gradient(61deg, $color-primary 0%, $color-accent 99.68%)
 		text-decoration: none;
 		transition: box-shadow 0.25s ease;
 
-		@media (min-width: $md2) {
+		@media (any-hover: hover) {
 			&:hover {
 				box-shadow: 0 rem(8) rem(24) rgba($color-primary, 0.15);
 			}

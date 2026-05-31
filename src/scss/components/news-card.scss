@@ -104,6 +104,7 @@
 	line-height: 1.2;
 	letter-spacing: -0.02em;
 	font-size: rem(12);
+	transition: color 0.2s ease;
 
 	@media (min-width: $md3) {
 		font-size: rem(24);
@@ -168,7 +169,7 @@
 	}
 }
 
-@media (min-width: $md2) {
+@media (any-hover: hover) {
 	.news-card-link:hover .news-card-title {
 		color: $color-accent;
 	}

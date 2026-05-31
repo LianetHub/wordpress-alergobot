@@ -3,7 +3,7 @@
 	padding: rem(24) 0 rem(32);
 
 	@media (min-width: $md3) {
-		padding: rem(40) 0 rem(48);
+		padding: rem(24) 0 rem(48);
 	}
 
 	&__container {
@@ -211,7 +211,7 @@
 			font-size: rem(16);
 		}
 
-		@media (min-width: $md2) {
+		@media (any-hover: hover) {
 			&:hover {
 				border-color: $color-accent-hover;
 				background: $color-surface-tab;
@@ -295,27 +295,11 @@
 	}
 
 	&--blog {
-		padding: rem(16) 0 0;
-
-		@media (min-width: $md3) {
-			padding: rem(40) 0 0;
-		}
-
-		@media (min-width: $md2) {
-			padding: rem(52) 0 0;
-		}
-
-		.heading__main {
-			max-width: none;
-
-			@media (min-width: $md3) {
-				flex: 1 1 auto;
-			}
-		}
+		padding-bottom: rem(54);
 
 		.heading__aside {
 			@media (min-width: $md3) {
-				flex: 0 0 rem(630);
+				padding-top: 0;
 				max-width: rem(630);
 			}
 		}

@@ -260,8 +260,10 @@
 			border-width: 1px;
 		}
 
-		&:hover {
-			background: rgba(255, 255, 255, 0.08);
+		@media (any-hover: hover) {
+			&:hover {
+				background: rgba(255, 255, 255, 0.08);
+			}
 		}
 
 		svg {
@@ -315,8 +317,10 @@
 			font-size: rem(20);
 		}
 
-		&:hover {
-			background: darken($color-surface-mint, 3%);
+		@media (any-hover: hover) {
+			&:hover {
+				background: darken($color-surface-mint, 3%);
+			}
 		}
 	}
 }

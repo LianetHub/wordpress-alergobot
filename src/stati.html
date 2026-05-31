@@ -5,20 +5,20 @@
         <div class="wrapper">
             @@include('html/_header.html', {})
             <main class="page page--blog">
+                <section class="heading heading--blog">
+                    <div class="heading__container _container">
+                        <div class="heading__grid">
+                            <div class="heading__main">
+                                <h1 class="heading__title">Статьи и новости</h1>
+                            </div>
+                            <div class="heading__aside">
+                                <p class="heading__text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
                 <section class="blog-hero">
                     <div class="blog-hero__container _container">
-                        <section class="heading heading--blog">
-                            <div class="heading__container _container">
-                                <div class="heading__grid">
-                                    <div class="heading__main">
-                                        <h1 class="heading__title">Статьи и новости</h1>
-                                    </div>
-                                    <div class="heading__aside">
-                                        <p class="heading__text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </section>
 
                         <div class="blog-hero__layout">
                             <article class="blog-featured">
@@ -37,32 +37,32 @@
                                 <h2 class="blog-recent__heading" id="blog-recent-title">Последние публикации</h2>
                                 <ul class="blog-recent__list">
                                     @@include('html/_blog-recent.html', {
-                                        "href": "statya.html",
-                                        "img": "img/blog/recent-01.png",
-                                        "title": "Основные отличия аллергического насморка от простудного",
-                                        "date": "11 апреля 2026",
-                                        "datetime": "2026-04-11"
+                                    "href": "statya.html",
+                                    "img": "img/blog/recent-01.png",
+                                    "title": "Основные отличия аллергического насморка от&nbsp;простудного",
+                                    "date": "11 апреля 2026",
+                                    "datetime": "2026-04-11"
                                     })
                                     @@include('html/_blog-recent.html', {
-                                        "href": "#",
-                                        "img": "img/blog/recent-02.png",
-                                        "title": "Как добиться длительной ремиссии при аллергии...",
-                                        "date": "8 апреля 2026",
-                                        "datetime": "2026-04-08"
+                                    "href": "#",
+                                    "img": "img/blog/recent-02.png",
+                                    "title": "Как добиться длительной ремиссии при аллергии...",
+                                    "date": "8 апреля 2026",
+                                    "datetime": "2026-04-08"
                                     })
                                     @@include('html/_blog-recent.html', {
-                                        "href": "#",
-                                        "img": "img/blog/recent-01.png",
-                                        "title": "Причины и симптомы аллергического ринита...",
-                                        "date": "14 апреля 2026",
-                                        "datetime": "2026-04-14"
+                                    "href": "#",
+                                    "img": "img/blog/recent-01.png",
+                                    "title": "Причины и симптомы аллергического ринита...",
+                                    "date": "14 апреля 2026",
+                                    "datetime": "2026-04-14"
                                     })
                                     @@include('html/_blog-recent.html', {
-                                        "href": "#",
-                                        "img": "img/blog/recent-02.png",
-                                        "title": "Все, что нужно знать про бронхиальную астму: опасность недуга, причины...",
-                                        "date": "16 апреля 2026",
-                                        "datetime": "2026-04-16"
+                                    "href": "#",
+                                    "img": "img/blog/recent-02.png",
+                                    "title": "Все, что нужно знать про бронхиальную астму: опасность недуга, причины...",
+                                    "date": "16 апреля 2026",
+                                    "datetime": "2026-04-16"
                                     })
                                 </ul>
                             </aside>
@@ -120,7 +120,7 @@
                         <nav class="blog-pagination" aria-label="Навигация по страницам">
                             <a class="blog-pagination__arrow blog-pagination__arrow--prev" href="#" aria-label="Предыдущая страница">
                                 <svg width="22" height="22" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                                    <path d="M15 6l-6 6 6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M15 6l-6 6 6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                                 </svg>
                             </a>
                             <ol class="blog-pagination__list">
@@ -133,7 +133,7 @@
                             </ol>
                             <a class="blog-pagination__arrow blog-pagination__arrow--next" href="#" aria-label="Следующая страница">
                                 <svg width="22" height="22" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                                    <path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                                 </svg>
                             </a>
                         </nav>

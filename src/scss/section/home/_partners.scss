@@ -63,7 +63,7 @@
 			font-size: rem(20);
 		}
 
-		@media (min-width: $md2) {
+		@media (any-hover: hover) {
 			&:hover {
 				opacity: 0.85;
 			}
@@ -149,13 +149,14 @@
 		background: $color-surface-tab;
 		backdrop-filter: blur(10px);
 		text-decoration: none;
+		transition: box-shadow 0.25s ease;
 
 		@media (min-width: $md3) {
 			height: auto;
 			min-height: rem(91);
 		}
 
-		@media (min-width: $md2) {
+		@media (any-hover: hover) {
 			&:hover {
 				box-shadow: 0 rem(8) rem(24) rgba($color-brand, 0.12);
 			}

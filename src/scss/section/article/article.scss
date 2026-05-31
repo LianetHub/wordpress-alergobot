@@ -328,6 +328,7 @@ $article-date-muted: rgba($color-text-body, 0.6);
 		line-height: 1.2;
 		letter-spacing: -0.02em;
 		font-size: rem(12);
+		transition: color 0.2s ease;
 
 		@media (min-width: $md3) {
 			font-size: rem(24);
@@ -394,7 +395,7 @@ $article-date-muted: rgba($color-text-body, 0.6);
 		}
 	}
 
-	@media (min-width: $md2) {
+	@media (any-hover: hover) {
 		&__link:hover .article-related__title {
 			color: $color-brand-2;
 		}

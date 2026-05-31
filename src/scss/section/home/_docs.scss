@@ -102,7 +102,7 @@
 			cursor: default;
 		}
 
-		@media (min-width: $md2) {
+		@media (any-hover: hover) {
 			&:not(.swiper-button-disabled):hover {
 				background: $color-accent-hover;
 			}

@@ -222,7 +222,8 @@
 		transition:
 			background 0.25s cubic-bezier(0.22, 1, 0.36, 1),
 			color 0.25s ease,
-			border-color 0.25s ease;
+			border-color 0.25s ease,
+			border-width 0.25s ease;
 		@include adaptive-font(18, 24);
 
 		@media (min-width: $md3) {
@@ -241,7 +242,7 @@
 			}
 		}
 
-		@media (min-width: $md2) {
+		@media (any-hover: hover) {
 			&:not(._active):hover {
 				border-width: 1px;
 			}
@@ -461,8 +462,9 @@
 		color: $color-text-body;
 		text-decoration: underline;
 		text-underline-offset: rem(3);
+		transition: color 0.2s ease;
 
-		@media (min-width: $md2) {
+		@media (any-hover: hover) {
 			&:hover {
 				color: $color-primary;
 			}
@@ -530,7 +532,7 @@
 		padding: rem(20) rem(40);
 	}
 
-	@media (min-width: $md2) {
+	@media (any-hover: hover) {
 		&:hover {
 			background: $color-primary-hover;
 		}

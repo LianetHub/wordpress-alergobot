@@ -1,10 +1,4 @@
-// Страница «Статьи и новости» — Figma: Блог Desktop 1:2217, Mobile 1:4181
-
 $blog-date-muted: rgba($color-text-body, 0.6);
-
-.page--blog {
-	background: $color-surface-mint;
-}
 
 .blog-hero {
 	padding: 0 0 rem(24);
@@ -17,18 +11,6 @@ $blog-date-muted: rgba($color-text-body, 0.6);
 		padding: 0 0 rem(44);
 	}
 
-	.heading--blog {
-		margin-bottom: rem(24);
-
-		@media (min-width: $md3) {
-			margin-bottom: rem(32);
-		}
-
-		.heading__title {
-			color: $color-brand;
-			font-weight: 500;
-		}
-	}
 
 	&__layout {
 		display: grid;
@@ -36,8 +18,8 @@ $blog-date-muted: rgba($color-text-body, 0.6);
 		gap: rem(20);
 
 		@media (min-width: $md3) {
-			grid-template-columns: minmax(0, 1.65fr) 1fr;
-			gap: rem(24);
+			grid-template-columns: 1fr rem(407);
+			gap: rem(40);
 			align-items: start;
 		}
 	}
@@ -63,6 +45,12 @@ $blog-date-muted: rgba($color-text-body, 0.6);
 		color: inherit;
 		text-decoration: none;
 		height: 100%;
+
+		@media (any-hover: hover) {
+			&:hover .blog-featured__title {
+				opacity: 0.85;
+			}
+		}
 	}
 
 	&__media {
@@ -133,23 +121,25 @@ $blog-date-muted: rgba($color-text-body, 0.6);
 	}
 
 	&__title {
-
 		color: $color-brand;
 		font-weight: 500;
 		font-style: italic;
 		line-height: 1.3;
-		letter-spacing: -0.02em;
-		@include adaptive-font(14, 24);
-	}
+		transition: opacity 0.2s ease;
 
-	@media (min-width: $md2) {
-		&__link:hover .blog-featured__title {
-			opacity: 0.85;
+		@media (max-width:$md5) {
+			letter-spacing: em(-0.45, 14);
 		}
+
+		@include adaptive-font(14, 24);
 	}
 }
 
 .blog-recent {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+
 	&__heading {
 		margin: 0 0 rem(16);
 		color: $color-brand;
@@ -161,10 +151,10 @@ $blog-date-muted: rgba($color-text-body, 0.6);
 	}
 
 	&__list {
-
+		margin-top: 2rem;
 		display: flex;
 		flex-direction: column;
-		gap: rem(20);
+		gap: rem(28);
 	}
 
 	&__link {
@@ -178,9 +168,11 @@ $blog-date-muted: rgba($color-text-body, 0.6);
 			gap: rem(20);
 		}
 
-		@media (min-width: $md2) {
-			&:hover .blog-recent__title {
-				color: $color-brand;
+		@media (any-hover: hover) {
+			&:hover {
+				.blog-recent__title {
+					color: $color-brand;
+				}
 			}
 		}
 	}
@@ -218,6 +210,7 @@ $blog-date-muted: rgba($color-text-body, 0.6);
 		font-weight: 700;
 		line-height: 1.3;
 		font-size: rem(14);
+		transition: color 0.2s ease;
 
 		@media (min-width: $md3) {
 			font-size: rem(18);
@@ -304,7 +297,7 @@ $blog-date-muted: rgba($color-text-body, 0.6);
 			}
 		}
 
-		@media (min-width: $md2) {
+		@media (any-hover: hover) {
 			&:not(._active):hover {
 				background: darken($color-surface-tab, 3%);
 			}
@@ -389,7 +382,7 @@ $blog-date-muted: rgba($color-text-body, 0.6);
 			pointer-events: none;
 		}
 
-		@media (min-width: $md2) {
+		@media (any-hover: hover) {
 			&:not(._active):not(&--dots):hover {
 				background: rgba($color-brand, 0.08);
 			}
@@ -406,7 +399,7 @@ $blog-date-muted: rgba($color-text-body, 0.6);
 		text-decoration: none;
 		transition: opacity 0.2s ease;
 
-		@media (min-width: $md2) {
+		@media (any-hover: hover) {
 			&:hover {
 				opacity: 0.7;
 			}

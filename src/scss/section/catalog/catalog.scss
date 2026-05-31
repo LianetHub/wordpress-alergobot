@@ -566,7 +566,7 @@ $catalog-overlap: 1400px;
 			font-size: rem(20);
 		}
 
-		@media (min-width: $md2) {
+		@media (any-hover: hover) {
 			&:hover {
 				background: #fff;
 				transform: translateY(-2px);

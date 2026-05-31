@@ -100,9 +100,9 @@
 		white-space: nowrap;
 		@include adaptive-font(14, 16);
 
-		@media (min-width: $md2) {
-			transition: opacity 0.2s ease;
+		transition: opacity 0.2s ease;
 
+		@media (any-hover: hover) {
 			&:hover {
 				opacity: 0.85;
 			}
@@ -167,9 +167,9 @@
 		white-space: nowrap;
 		@include adaptive-font(14, 16);
 
-		@media (min-width: $md2) {
-			transition: opacity 0.2s ease;
+		transition: opacity 0.2s ease;
 
+		@media (any-hover: hover) {
 			&:hover {
 				opacity: 0.85;
 			}
