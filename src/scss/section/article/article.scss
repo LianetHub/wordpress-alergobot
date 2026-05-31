@@ -1,10 +1,6 @@
-// Страница статьи — Figma: Desktop 1:2843, Mobile 1:5472
-
 $article-date-muted: rgba($color-text-body, 0.6);
 
-.page--article {
-	background: $color-surface-mint;
-}
+
 
 .article {
 	position: relative;
@@ -83,19 +79,7 @@ $article-date-muted: rgba($color-text-body, 0.6);
 	}
 
 	&__intro {
-		display: flex;
-		flex-direction: column;
-		gap: rem(10);
-	}
-
-	&__text {
-		color: $color-text-body;
-		line-height: 1.3;
-		font-size: rem(14);
-
-		@media (min-width: $md3) {
-			font-size: rem(18);
-		}
+		min-width: 0;
 	}
 
 	&__hero {
@@ -137,116 +121,55 @@ $article-date-muted: rgba($color-text-body, 0.6);
 	}
 
 	&__section {
-		display: flex;
-		flex-direction: column;
-		gap: rem(10);
-
-		@media (min-width: $md3) {
-			gap: rem(20);
-		}
-	}
-
-	&__subtitle {
-		color: $color-brand;
-		font-weight: 500;
-		line-height: 1.2;
-		letter-spacing: -0.04em;
-		@include adaptive-font(24, 48);
-	}
-
-	&__subheading {
-		color: $color-brand;
-		font-weight: 500;
-		font-style: italic;
-		line-height: 1.2;
-		letter-spacing: -0.02em;
-		@include adaptive-font(18, 24);
-	}
-
-	&__list {
-
-		display: flex;
-		flex-direction: column;
-		gap: rem(2);
-
-		@media (min-width: $md3) {
-			gap: rem(6);
-		}
-
-		&--num {
-			gap: rem(10);
-		}
-	}
-
-	&__item {
-		display: flex;
-		align-items: flex-start;
-		gap: rem(2);
-		color: $color-text-body;
-		line-height: 1.3;
-		font-size: rem(14);
-
-		@media (min-width: $md3) {
-			gap: rem(10);
-			font-size: rem(18);
-		}
-	}
-
-	&__list-icon {
-		flex-shrink: 0;
-		width: rem(36);
-		height: rem(36);
-		background: url("@img/article/list-plus.png") no-repeat center / contain;
-	}
-
-	&__item-num {
-		flex-shrink: 0;
-		width: rem(24);
-		height: rem(24);
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		border-radius: rem(6);
-		background: $color-brand-2;
-		color: #fff;
-		font-weight: 500;
-		font-style: italic;
-		font-size: rem(18);
-		line-height: 1.2;
-		letter-spacing: -0.02em;
-
-		@media (min-width: $md3) {
-			width: rem(30);
-			height: rem(30);
-			font-size: rem(24);
-		}
-	}
-
-	&__item-text {
-		flex: 1 1 auto;
 		min-width: 0;
 	}
 
-	&__figure {
-		border-radius: rem(8);
-		overflow: hidden;
-		background: #fff;
+	.typography-block {
+		ul > li::before {
+			width: rem(36);
+			height: rem(36);
+			background-image: url("@img/article/list-plus.png");
+		}
 
-		&--wide {
-			width: 100%;
-			aspect-ratio: 332 / 166;
+		ol > li::before {
+			width: rem(24);
+			height: rem(24);
+			min-width: rem(24);
+			font-size: rem(18);
 
 			@media (min-width: $md3) {
-				aspect-ratio: 876 / 436;
+				width: rem(30);
+				height: rem(30);
+				min-width: rem(30);
+				font-size: rem(24);
 			}
 		}
-	}
 
-	&__figure-img {
-		display: block;
-		width: 100%;
-		height: 100%;
-		object-fit: cover;
+		.article__gallery {
+			margin: rem(20) 0 0;
+		}
+
+		.article__figure {
+			border-radius: rem(8);
+			overflow: hidden;
+			background: #fff;
+			margin: 0;
+
+			img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+			}
+
+			&--wide {
+				width: 100%;
+				aspect-ratio: 332 / 166;
+
+				@media (min-width: $md3) {
+					aspect-ratio: 876 / 436;
+				}
+			}
+		}
 	}
 
 	&__gallery {
