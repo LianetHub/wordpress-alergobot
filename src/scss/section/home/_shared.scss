@@ -51,7 +51,12 @@ $home-teal: $color-accent;
 		color: $color-primary;
 		font-weight: 500;
 		line-height: 1.2;
-		@include adaptive-font(26, 48);
+		@include adaptive-font(24, 48);
+
+		@media (max-width:$md5) {
+			letter-spacing: em(-0.96, 24);
+
+		}
 	}
 
 	&__text {
