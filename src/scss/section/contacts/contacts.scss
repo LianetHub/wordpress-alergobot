@@ -15,7 +15,7 @@
 }
 
 .contacts-order {
-	padding: rem(20) 0 rem(40);
+	padding: rem(10) 0 rem(40);
 
 	@media (min-width: $md3) {
 		padding: rem(20) 0;
@@ -101,7 +101,6 @@
 		}
 	}
 
-	&__agree {}
 
 	&__map {
 		position: relative;
@@ -109,7 +108,7 @@
 		border: 1px solid $color-accent;
 		border-radius: rem(10);
 		height: 100%;
-		min-height: rem(220);
+		min-height: rem(300);
 		background: linear-gradient(90deg,
 				rgba($color-accent, 0.1) 25%,
 				rgba($color-accent, 0.2) 50%,
@@ -139,31 +138,72 @@
 .contacts-info {
 	position: relative;
 
-	overflow: hidden;
 
 	&__container {}
 
 	&__body {
-		padding: rem(40) 0 rem(48);
+		padding: rem(20) 0 rem(60);
 		display: grid;
-		grid-template-columns: repeat(4, 1fr);
-		gap: rem(22);
-		background: url("@img/contacts/contacts-page-decor.webp") right center / rem(796) auto no-repeat;
+		position: relative;
+		z-index: 1;
+
+		grid-template-columns: repeat(2, 1fr);
+		gap: rem(10);
+
+		@media (min-width:$md5) {
+			gap: rem(22);
+		}
+
+		@media (min-width:$md3) {
+			grid-template-columns: repeat(4, 1fr);
+		}
 
 		@media (min-width: $md2) {
 			padding: rem(120) 0 rem(170);
 		}
 
+		&::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			background: url("@img/contacts/contacts-page-decor.webp") center / contain no-repeat;
+			z-index: -1;
+			left: 50%;
+			transform: translateX(-50%);
+
+			@media (min-width:$md4) {
+				width: rem(796);
+			}
+
+			@media (min-width:$md3) {
+				right: 0;
+				transform: translateX(0);
+				left: auto;
+			}
+		}
 
 	}
 
 	&__head {
 		display: flex;
 		flex-direction: column;
-		gap: rem(14);
-
+		gap: rem(10);
 		grid-column: span 2;
 
+		margin-bottom: rem(10);
+
+		@media (min-width:$md3) {
+			margin-bottom: rem(0);
+			gap: rem(14);
+			grid-column: span 4;
+
+		}
+
+		@media (min-width:$md2) {
+			grid-column: span 2;
+		}
 
 	}
 
@@ -173,6 +213,10 @@
 		font-weight: 500;
 		line-height: 1.2;
 		@include adaptive-font(24, 48);
+
+		@media (max-width:$md5) {
+			letter-spacing: em(-0.45, 24);
+		}
 	}
 
 	&__text {
@@ -183,5 +227,36 @@
 		@include adaptive-font(14, 18);
 	}
 
+	.contacts-card {
+		@media (max-width: $md3) {
+			&:nth-child(2) {
+				grid-column: 1 / -1;
+				grid-row: 2;
+				max-width: calc(50% - rem(5));
+			}
+
+			&:nth-child(3) {
+				grid-column: 2;
+				grid-row: 3;
+			}
+
+			&:nth-child(4) {
+				grid-column: 2;
+				grid-row: 4;
+			}
+
+			&:nth-child(5) {
+				grid-column: 1;
+				grid-row: 3;
+			}
+		}
+
+		@media (min-width: $md3) {
+			&:nth-child(n + 2) {
+				grid-column: auto;
+				grid-row: auto;
+			}
+		}
+	}
 
 }

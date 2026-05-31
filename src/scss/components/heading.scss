@@ -73,10 +73,8 @@
 	&__main {
 		position: relative;
 		flex: 1 1 auto;
-		padding-top: rem(22);
 
 		@media (min-width: $md3) {
-			padding-top: 0;
 			max-width: rem(700);
 		}
 	}
@@ -86,6 +84,10 @@
 		line-height: 1.2;
 
 		@include adaptive-font(26, 56);
+
+		@media (max-width:$md5) {
+			letter-spacing: em(-0.45, 26);
+		}
 	}
 
 	&__title-line {}
@@ -221,12 +223,12 @@
 		display: grid;
 		grid-template-columns: repeat(2, 1fr);
 		gap: rem(10);
-		max-width: rem(332);
 
-		@media (min-width: $md3) {
+
+		@media (min-width: $md2) {
 			grid-template-columns: repeat(2, rem(140));
 			gap: rem(20);
-			max-width: none;
+
 		}
 	}
 
@@ -320,7 +322,7 @@
 	}
 
 	&--contacts {
-		padding: rem(16) 0 rem(20);
+		padding: rem(16) 0 rem(10);
 
 		@media (min-width: $md3) {
 			padding: rem(32) 0 rem(24);

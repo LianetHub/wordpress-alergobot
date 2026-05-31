@@ -57,7 +57,7 @@
 
 		@media (min-width: $md3) {
 			display: grid;
-			grid-template-columns: minmax(0, rem(610)) minmax(0, rem(387));
+			grid-template-columns: rem(610) rem(387);
 			justify-content: space-between;
 			align-items: start;
 			column-gap: rem(20);

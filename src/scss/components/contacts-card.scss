@@ -10,7 +10,10 @@
 
 	&.contacts-card--legal {
 		.contacts-card__body {
-			font-size: 1rem;
+			@media (min-width:$md3) {
+				font-size: 1rem;
+
+			}
 		}
 	}
 

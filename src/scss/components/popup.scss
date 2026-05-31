@@ -107,7 +107,7 @@ $popup-gradient: linear-gradient(61deg, $color-primary 0%, $color-accent 99.68%)
 
 		&--reverse {
 			@media (min-width: $md3) {
-				grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+				grid-template-columns: 0.9fr 1.1fr;
 			}
 		}
 	}
