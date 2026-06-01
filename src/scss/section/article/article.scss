@@ -44,14 +44,6 @@ $article-date-muted: rgba($color-text-body, 0.6);
 		}
 	}
 
-	&__title {
-		color: $color-brand;
-		font-weight: 500;
-		line-height: 1.2;
-		letter-spacing: -0.04em;
-		@include adaptive-font(26, 56);
-	}
-
 	&__intro {
 		min-width: 0;
 	}
@@ -206,10 +198,6 @@ $article-date-muted: rgba($color-text-body, 0.6);
 	&__title {
 		margin: 0 0 rem(16);
 		color: $color-brand;
-		font-weight: 500;
-		line-height: 1.2;
-		letter-spacing: -0.04em;
-		@include adaptive-font(24, 48);
 
 		@media (min-width: $md3) {
 			margin-bottom: rem(28);

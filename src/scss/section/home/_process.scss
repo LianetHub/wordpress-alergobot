@@ -47,15 +47,6 @@
 		}
 	}
 
-	&__title {
-
-		color: $color-primary;
-		font-weight: 500;
-		line-height: 1.2;
-		letter-spacing: -0.04em;
-		@include adaptive-font(24, 48);
-	}
-
 	&__slider {
 		overflow: visible;
 

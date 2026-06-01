@@ -23,23 +23,9 @@
 	}
 
 
-	&__title {
-		color: $color-primary;
-		font-weight: 500;
-		line-height: 1.2;
-		@include adaptive-font(24, 48);
-
-		@media (max-width: $md5) {
-			letter-spacing: em(-0.96, 24);
-		}
-	}
-
 	&__text {
 		margin: rem(10) 0 0;
-		color: $color-text-body;
 		font-family: "Manrope", $font-family;
-		line-height: 1.3;
-		@include adaptive-font(14, 18);
 
 		@media (min-width: $md3) {
 			max-width: rem(600);

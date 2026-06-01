@@ -79,17 +79,6 @@
 		}
 	}
 
-	&__title {
-		color: $color-primary;
-		line-height: 1.2;
-
-		@include adaptive-font(26, 56);
-
-		@media (max-width:$md5) {
-			letter-spacing: em(-0.45, 26);
-		}
-	}
-
 	&__title-line {}
 
 	&__cta {

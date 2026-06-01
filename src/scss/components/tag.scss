@@ -1,0 +1,35 @@
+.tag {
+	display: inline-block;
+	border-radius: $radius-tab;
+	background: $color-accent;
+	color: #fff;
+	font-family: $font-family;
+	font-size: rem(14);
+	font-weight: 500;
+	line-height: 1.2;
+	padding: rem(6) rem(12);
+	text-transform: uppercase;
+
+	@media (min-width: $md5) {
+		padding: rem(8) rem(17);
+		font-size: rem(20);
+	}
+
+	&--white {
+		display: inline-flex;
+		align-self: flex-start;
+		align-items: center;
+		justify-content: center;
+		background: #fff;
+		color: $color-primary;
+		padding: rem(6) rem(10);
+		letter-spacing: -0.02em;
+		white-space: nowrap;
+
+		@media (min-width: $md3) {
+			height: rem(40);
+			padding: rem(10) rem(16);
+			font-size: rem(20);
+		}
+	}
+}

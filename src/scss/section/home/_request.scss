@@ -66,13 +66,7 @@
 	}
 
 	&__title {
-
 		max-width: rem(651);
-		color: #fff;
-		font-weight: 500;
-		line-height: 1.2;
-		letter-spacing: -0.04em;
-		@include adaptive-font(28, 48);
 	}
 
 	&__note {

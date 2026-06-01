@@ -43,11 +43,8 @@
 	}
 
 	&__title {
-
 		font-weight: 400;
-		line-height: 1.2;
 		letter-spacing: -0.04em;
-		@include adaptive-font(26, 56);
 	}
 
 	&__title-line {
@@ -313,12 +310,6 @@
 
 	&__title {
 		margin: 0 0 rem(20);
-		font-weight: 500;
-		font-style: italic;
-		line-height: 1.2;
-		letter-spacing: -0.02em;
-		color: $color-primary;
-		@include adaptive-font(20, 24);
 	}
 
 	&__text {
@@ -603,11 +594,6 @@
 
 	&__title {
 		margin: 0 0 rem(16);
-		font-weight: 500;
-		line-height: 1.2;
-		letter-spacing: -0.04em;
-		color: $color-primary;
-		@include adaptive-font(24, 48);
 	}
 
 	&__lead {
@@ -736,11 +722,6 @@
 
 	&__heading {
 		margin: 0 0 rem(24);
-		font-weight: 500;
-		line-height: 1.2;
-		letter-spacing: -0.04em;
-		color: $color-primary;
-		@include adaptive-font(24, 48);
 
 		@media (min-width: $md3) {
 			margin-bottom: rem(48);
@@ -777,12 +758,6 @@
 
 	&__title {
 		margin: 0 0 rem(16);
-		font-weight: 500;
-		font-style: italic;
-		line-height: 1.2;
-		letter-spacing: -0.02em;
-		color: $color-primary;
-		@include adaptive-font(18, 24);
 	}
 
 	&__media {
