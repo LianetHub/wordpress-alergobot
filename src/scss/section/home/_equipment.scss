@@ -5,23 +5,7 @@
 	overflow: hidden;
 
 	@media (min-width: $md3) {
-		padding: rem(48) 0;
-	}
-
-	&__decor {
-		position: absolute;
-		top: rem(120);
-		right: rem(-40);
-		width: rem(350);
-		height: rem(154);
-		pointer-events: none;
-		background: url("@img/home/equipment-decor.png") no-repeat center / contain;
-		opacity: 0.35;
-		transform: rotate(150deg);
-
-		@media (min-width: $md3) {
-			display: none;
-		}
+		padding: rem(76) 0;
 	}
 
 	&__head {
@@ -31,13 +15,14 @@
 		margin-bottom: rem(20);
 
 		@media (min-width: $md3) {
-			display: grid;
-			grid-template-columns: 1fr auto;
-			grid-template-rows: auto auto;
-			align-items: start;
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+			align-items: flex-start;
 			column-gap: rem(32);
 			row-gap: rem(16);
 			margin-bottom: rem(28);
+			padding-right: 1rem;
 		}
 	}
 
@@ -45,8 +30,7 @@
 		align-self: flex-start;
 
 		@media (min-width: $md3) {
-			grid-column: 2;
-			grid-row: 1;
+			margin-top: 0.55rem;
 			justify-self: end;
 			min-height: rem(40);
 			padding: rem(10) rem(16);
@@ -55,9 +39,13 @@
 
 	&__intro {
 		@media (min-width: $md3) {
-			grid-column: 1;
-			grid-row: 1 / 3;
 			max-width: rem(874);
+		}
+	}
+
+	&__title {
+		@media (min-width: $md3) {
+			max-width: rem(740);
 		}
 	}
 
@@ -72,14 +60,13 @@
 		gap: rem(10);
 
 		@media (min-width: $md3) {
+			margin-top: 2.5rem;
 			grid-template-columns: repeat(4, 1fr);
 			gap: rem(20);
 		}
 	}
 
 	&__card {
-		display: flex;
-		flex-direction: column;
 		min-height: rem(292);
 		padding: rem(10);
 		border: rem(0.5) solid #fff;
@@ -100,6 +87,15 @@
 		}
 	}
 
+	&__card-link {
+		display: flex;
+		flex-direction: column;
+		height: 100%;
+		min-height: 100%;
+		color: inherit;
+		text-decoration: none;
+	}
+
 	&__card-name {
 
 		color: $color-brand;
@@ -108,6 +104,7 @@
 		font-size: rem(16);
 		line-height: 1.2;
 		letter-spacing: -0.02em;
+		min-height: rem(54);
 
 		@media (min-width: $md3) {
 			font-size: rem(24);
@@ -152,49 +149,17 @@
 		max-height: 100%;
 		object-fit: contain;
 
-		&--smart {
-			width: rem(123);
-			height: auto;
 
-			@media (min-width: $md3) {
-				width: rem(239);
-			}
-		}
-
-		&--elite {
-			width: rem(123);
-			height: auto;
-
-			@media (min-width: $md3) {
-				width: rem(200);
-			}
-		}
-
-		&--processor {
-			width: rem(123);
-			height: auto;
-
-			@media (min-width: $md3) {
-				width: rem(162);
-			}
-		}
-
-		&--reagents {
-			width: 100%;
-			height: 100%;
-			object-fit: cover;
-		}
 	}
 
 	&__card-text {
-		margin: rem(12) 0 0;
+		margin: rem(20) 0 0;
 		color: $color-text-body;
 		font-size: rem(10);
 		line-height: 1.3;
 
 		@media (min-width: $md3) {
-			margin-top: auto;
-			padding-top: rem(20);
+
 			font-size: rem(18);
 		}
 	}
@@ -205,7 +170,7 @@
 		margin-top: rem(20);
 
 		@media (min-width: $md3) {
-			margin-top: rem(28);
+			margin-top: rem(36);
 		}
 	}
 
