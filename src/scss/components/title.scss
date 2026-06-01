@@ -17,7 +17,11 @@
 
 .title-md {
 	@include adaptive-font(24, 48);
-	letter-spacing: -0.04em;
+
+	@media (max-width:$md5) {
+		letter-spacing: -0.04em;
+
+	}
 }
 
 .title-md-xl {
