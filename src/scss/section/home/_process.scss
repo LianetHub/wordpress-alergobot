@@ -1,9 +1,8 @@
 .process {
-	padding: rem(40) 0;
-	background: $color-surface;
+	padding: rem(28) 0;
 
 	@media (min-width: $md3) {
-		padding: rem(48) 0;
+		padding: rem(40) 0;
 	}
 
 	&__head {
@@ -53,22 +52,26 @@
 		@media (min-width: $md3) {}
 	}
 
-	&__grid.swiper-wrapper {
-		@media (min-width: $md3) {
-			display: grid;
-			grid-template-columns: repeat(2, 1fr);
-			gap: rem(20);
-			transform: none !important;
+	&__grid {
+		&.swiper-wrapper {
+			@media (min-width: $md3) {
+				display: grid;
+				grid-template-columns: repeat(2, 1fr);
+				gap: rem(20);
+				transform: none !important;
+			}
 		}
 	}
 
-	&__slide.swiper-slide {
-		width: rem(257);
-		height: auto;
+	&__slide {
+		&.swiper-slide {
+			width: rem(257);
+			height: auto;
 
-		@media (min-width: $md3) {
-			width: auto !important;
-			margin: 0 !important;
+			@media (min-width: $md3) {
+				width: auto !important;
+				margin: 0 !important;
+			}
 		}
 	}
 
@@ -89,17 +92,7 @@
 			padding: rem(20);
 		}
 
-		&--step-2 {
-			@media (min-width: $md3) {
-				min-height: rem(366);
-			}
-		}
 
-		&--step-4 {
-			@media (min-width: $md3) {
-				min-height: rem(343);
-			}
-		}
 	}
 
 	&__body {
@@ -109,7 +102,7 @@
 		gap: rem(10);
 		min-width: 0;
 
-		@media (min-width: $md3) {
+		@media (min-width: $md1) {
 			flex: 0 0 rem(315);
 			gap: rem(20);
 		}
@@ -184,11 +177,9 @@
 	}
 
 	&__card-desc {
-
+		margin-top: auto;
 		color: $color-text-body;
-		font-family: "Manrope", $font-family;
 		font-size: rem(14);
-		font-weight: 400;
 		line-height: 1.3;
 
 		@media (min-width: $md3) {
@@ -204,31 +195,15 @@
 		overflow: hidden;
 
 		@media (min-width: $md3) {
+			width: rem(200);
+			height: 100%;
+		}
+
+		@media (min-width:$md1) {
 			width: rem(275);
+
 		}
 
-		&--tall {
-			@media (min-width: $md3) {
-				height: rem(326);
-			}
-		}
-
-		&--short {
-			@media (min-width: $md3) {
-				height: rem(303);
-			}
-		}
 	}
 
-	&__card-img {
-		display: block;
-		width: 100%;
-		height: 100%;
-		object-fit: cover;
-		object-position: center bottom;
-
-		.process__media--cover & {
-			object-position: center center;
-		}
-	}
 }

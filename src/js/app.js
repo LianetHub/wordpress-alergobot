@@ -221,12 +221,12 @@ function initHomeSwipers() {
 		new Swiper(chooseEl, {
 			slidesPerView: 1,
 			spaceBetween: 10,
-			autoHeight: true,
+			// autoHeight: true,
 			breakpoints: {
 				991: {
 					slidesPerView: 2,
 					spaceBetween: 20,
-					autoHeight: false,
+					// autoHeight: false,
 				},
 			},
 			navigation: {

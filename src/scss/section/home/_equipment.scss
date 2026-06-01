@@ -1,8 +1,6 @@
 .equipment {
 	position: relative;
 	padding: rem(36) 0;
-	background: $color-surface;
-	overflow: hidden;
 
 	@media (min-width: $md3) {
 		padding: rem(76) 0;

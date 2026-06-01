@@ -1,8 +1,7 @@
 .news {
 	padding: rem(40) 0;
-	background: $color-surface;
 	position: relative;
-	overflow: hidden;
+
 
 	@media (min-width: $md3) {
 		padding: rem(48) 0 rem(72);
