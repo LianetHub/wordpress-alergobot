@@ -1,6 +1,6 @@
 .heading {
 	position: relative;
-	padding: rem(24) 0 rem(32);
+	padding: rem(16) 0 rem(32);
 
 	@media (min-width: $md3) {
 		padding: rem(24) 0 rem(48);
@@ -60,7 +60,7 @@
 	&__grid {
 		display: flex;
 		flex-direction: column;
-		gap: rem(20);
+		gap: rem(12);
 
 		@media (min-width: $md3) {
 			flex-direction: row;
@@ -295,7 +295,12 @@
 	}
 
 	&--blog {
-		padding-bottom: rem(54);
+		padding-bottom: rem(18);
+
+		@media (min-width:$md3) {
+			padding-bottom: rem(54);
+
+		}
 
 		.heading__aside {
 			@media (min-width: $md3) {

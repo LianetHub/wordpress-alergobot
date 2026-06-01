@@ -1,14 +1,14 @@
 $blog-date-muted: rgba($color-text-body, 0.6);
 
 .blog-hero {
-	padding: 0 0 rem(24);
+	padding: 0 0 rem(36);
 
 	@media (min-width: $md3) {
 		padding: 0 0 rem(36);
 	}
 
 	@media (min-width: $md2) {
-		padding: 0 0 rem(44);
+		padding: 0 0 rem(56);
 	}
 
 
@@ -141,7 +141,7 @@ $blog-date-muted: rgba($color-text-body, 0.6);
 	justify-content: space-between;
 
 	&__heading {
-		margin: 0 0 rem(16);
+
 		color: $color-brand;
 		font-weight: 500;
 		font-style: italic;
@@ -151,10 +151,16 @@ $blog-date-muted: rgba($color-text-body, 0.6);
 	}
 
 	&__list {
-		margin-top: 2rem;
 		display: flex;
 		flex-direction: column;
-		gap: rem(28);
+		gap: rem(20);
+		margin-top: 1.25rem;
+
+		@media (min-width:$md4) {
+			gap: rem(28);
+			margin-top: 2rem;
+
+		}
 	}
 
 	&__link {
@@ -231,20 +237,20 @@ $blog-date-muted: rgba($color-text-body, 0.6);
 }
 
 .blog-feed {
-	padding: 0 0 rem(48);
+	padding: rem(24) 0 rem(48);
 	background: $color-surface-mint;
 
 	@media (min-width: $md3) {
-		padding-bottom: rem(72);
+		padding: 0 0 rem(72);
 	}
 
 	&__container {
 		display: flex;
 		flex-direction: column;
-		gap: rem(20);
+		gap: rem(36);
 
 		@media (min-width: $md3) {
-			gap: rem(28);
+			gap: rem(44);
 		}
 	}
 }
@@ -275,13 +281,14 @@ $blog-date-muted: rgba($color-text-body, 0.6);
 		letter-spacing: -0.02em;
 		line-height: 1.2;
 		cursor: pointer;
-		transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+		transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
 		background: $color-surface-tab;
 		color: $color-brand;
 
 		@media (min-width: $md3) {
-			flex: 0 0 auto;
+
 			max-width: rem(315);
+			width: 100%;
 			padding: rem(12) rem(20);
 			font-size: rem(24);
 			letter-spacing: -0.02em;
@@ -292,9 +299,6 @@ $blog-date-muted: rgba($color-text-body, 0.6);
 			color: #fff;
 			border-color: $color-brand;
 
-			.blog-tabs__icon {
-				color: #fff;
-			}
 		}
 
 		@media (any-hover: hover) {
@@ -307,19 +311,16 @@ $blog-date-muted: rgba($color-text-body, 0.6);
 	&__icon {
 		flex-shrink: 0;
 		display: flex;
-		color: $color-brand;
+		justify-content: center;
+		align-items: center;
 		width: rem(28);
 		height: rem(28);
 
 		@media (min-width: $md3) {
-			width: rem(36);
-			height: rem(36);
+			width: rem(32);
+			height: rem(32);
 		}
 
-		.icon {
-			width: 100%;
-			height: 100%;
-		}
 	}
 }
 
@@ -345,34 +346,34 @@ $blog-date-muted: rgba($color-text-body, 0.6);
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	gap: rem(16);
+	gap: rem(20);
 	flex-wrap: wrap;
-	margin-top: rem(8);
 
 	&__list {
-
 		display: flex;
 		align-items: center;
 		gap: rem(16);
+		margin: 0;
+		padding: 0;
+		list-style: none;
 	}
 
 	&__num {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		min-width: rem(24);
-		height: rem(24);
-		padding: 0 rem(4);
-		border-radius: rem(4);
 		color: $color-text-body;
 		font-family: $font-family;
 		font-size: rem(16);
 		font-weight: 400;
 		line-height: 1.3;
 		text-decoration: none;
-		transition: background 0.2s ease, color 0.2s ease;
+		white-space: nowrap;
 
 		&._active {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			width: rem(24);
+			height: rem(24);
+			border-radius: rem(4);
 			background: $color-brand-2;
 			color: #fff;
 			font-weight: 800;
@@ -381,23 +382,28 @@ $blog-date-muted: rgba($color-text-body, 0.6);
 		&--dots {
 			pointer-events: none;
 		}
-
-		@media (any-hover: hover) {
-			&:not(._active):not(&--dots):hover {
-				background: rgba($color-brand, 0.08);
-			}
-		}
 	}
 
 	&__arrow {
 		display: flex;
+		flex-shrink: 0;
 		align-items: center;
 		justify-content: center;
-		width: rem(22);
-		height: rem(22);
-		color: $color-text-body;
+		width: rem(21.5);
+		height: rem(21.5);
+		color: $color-brand;
 		text-decoration: none;
 		transition: opacity 0.2s ease;
+
+		.icon {
+			display: block;
+			width: 100%;
+			height: 100%;
+		}
+
+		&--prev .icon {
+			transform: rotate(180deg);
+		}
 
 		@media (any-hover: hover) {
 			&:hover {

@@ -11,32 +11,7 @@ $article-date-muted: rgba($color-text-body, 0.6);
 		padding: rem(40) 0 rem(48);
 	}
 
-	&__decor {
-		position: absolute;
-		width: rem(280);
-		height: 55%;
-		pointer-events: none;
-		opacity: 0.4;
 
-		&--left {
-			left: 0;
-			top: rem(120);
-
-			@media (max-width: $md3) {
-				display: none;
-			}
-		}
-
-		&--right {
-			right: 0;
-			top: rem(400);
-			transform: scaleX(-1);
-
-			@media (max-width: $md3) {
-				display: none;
-			}
-		}
-	}
 
 	&__container {
 		position: relative;
@@ -125,13 +100,13 @@ $article-date-muted: rgba($color-text-body, 0.6);
 	}
 
 	.typography-block {
-		ul > li::before {
+		ul>li::before {
 			width: rem(36);
 			height: rem(36);
 			background-image: url("@img/article/list-plus.png");
 		}
 
-		ol > li::before {
+		ol>li::before {
 			width: rem(24);
 			height: rem(24);
 			min-width: rem(24);

@@ -25,15 +25,3 @@
 @import "section/analyzers/analyzers";
 @import "section/product/product";
 @import "section/uikit/uikit";
-
-.policy__decor {
-	background: url("@img/policy-pattern.svg") no-repeat center top / contain;
-}
-
-.article__decor {
-	background: url("@img/policy-pattern.svg") no-repeat center top / contain;
-}
-
-.contacts-info__decor {
-	background: url("@img/contacts/decor-molecules.png") no-repeat center / cover;
-}
