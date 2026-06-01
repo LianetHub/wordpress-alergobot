@@ -1,48 +1,37 @@
 .panels {
 	padding: rem(48) 0;
-	background: $color-surface;
+
 
 	&__head {
-		display: grid;
-		grid-template-columns: 1fr;
+		display: flex;
 		gap: rem(10);
 		margin-bottom: rem(20);
 
 		@media (min-width: $md3) {
-			grid-template-columns: 1fr auto;
-			grid-template-rows: auto auto;
-			align-items: start;
+
 			column-gap: rem(32);
 			row-gap: rem(16);
 			margin-bottom: rem(28);
 		}
 	}
 
-	&__tag {
-		justify-self: start;
-
-		@media (min-width: $md3) {
-			grid-column: 2;
-			grid-row: 1;
-			justify-self: end;
-		}
-	}
+	&__tag {}
 
 	&__intro {
 		@media (min-width: $md3) {
-			grid-column: 1;
-			grid-row: 1 / 3;
 			max-width: rem(907);
 		}
 	}
 
 	&__title {
-
 		color: $color-primary;
 		font-weight: 500;
 		line-height: 1.2;
-		letter-spacing: -0.04em;
 		@include adaptive-font(24, 48);
+
+		@media (max-width:$md5) {
+			letter-spacing: em(-0.96, 24);
+		}
 	}
 
 	&__lead {

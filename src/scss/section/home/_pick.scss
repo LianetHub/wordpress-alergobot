@@ -1,79 +1,23 @@
 .pick {
-	padding: rem(48) 0;
-	background: $color-surface;
+	padding: rem(42) 0;
 
-	&__top {
+	&__header {
 		display: grid;
-		grid-template-columns: 1fr;
-		gap: rem(10);
-
-		@media (min-width: $md3) {
-			grid-template-columns: 1fr 1fr;
-			grid-template-areas:
-				"intro badges"
-				"intro benefits";
-			column-gap: rem(20);
-			row-gap: rem(20);
-			align-items: start;
-		}
+		grid-template-columns: repeat(2, 1fr);
+		gap: 1rem;
 	}
 
-	&__badges {
-		display: flex;
-		flex-direction: column;
-		align-items: flex-start;
-		gap: rem(10);
 
-		@media (min-width: $md3) {
-			grid-area: badges;
-			flex-direction: row;
-			flex-wrap: wrap;
-			justify-content: flex-start;
-			justify-self: start;
-		}
-	}
 
-	&__badge {
-		display: inline-flex;
-		align-items: center;
-		justify-content: center;
-		padding: rem(6) rem(10);
-		border-radius: $radius-tab;
-		background: $color-accent;
-		color: #fff;
-		font-family: $font-family;
-		font-size: rem(14);
-		font-weight: 500;
-		line-height: 1.2;
-		letter-spacing: -0.02em;
-		text-transform: uppercase;
-		white-space: nowrap;
-
-		@media (min-width: $md3) {
-			height: rem(40);
-			padding: rem(10) rem(16);
-			font-size: rem(20);
-			letter-spacing: -0.02em;
-		}
-	}
-
-	&__intro {
-		@media (min-width: $md3) {
-			grid-area: intro;
-			max-width: rem(650);
-		}
-	}
 
 	&__title {
-
 		color: $color-primary;
 		font-weight: 500;
 		line-height: 1.2;
-		letter-spacing: -0.04em;
 		@include adaptive-font(24, 48);
 
-		@media (min-width: $md3) {
-			letter-spacing: -0.04em;
+		@media (max-width: $md5) {
+			letter-spacing: em(-0.96, 24);
 		}
 	}
 
@@ -89,9 +33,21 @@
 		}
 	}
 
+	// .pick__tags
+	&__tags {
+		display: flex;
+		align-items: center;
+		gap: rem(20);
+		flex-wrap: wrap;
+		margin-top: 0.5rem;
+	}
+
+	// .pick__tag
+	&__tag {}
+
 	&__benefits {
 		@media (min-width: $md3) {
-			grid-area: benefits;
+			margin-top: 4.125rem;
 			max-width: rem(648);
 			justify-self: end;
 		}
@@ -166,13 +122,28 @@
 
 	&__video-media {
 		position: relative;
+		display: block;
+		width: 100%;
+		margin: 0;
+		padding: 0;
+		border: none;
 		border-radius: rem(10);
 		overflow: hidden;
 		aspect-ratio: 332 / 195;
 		background: $color-accent;
+		cursor: pointer;
+		text-align: inherit;
+		font: inherit;
+		color: inherit;
+		-webkit-tap-highlight-color: transparent;
 
 		@media (min-width: $md3) {
 			aspect-ratio: 650 / 382;
+		}
+
+		&:focus-visible {
+			outline: rem(2) solid $color-accent;
+			outline-offset: rem(3);
 		}
 
 		>img {
@@ -180,6 +151,28 @@
 			width: 100%;
 			height: 100%;
 			object-fit: cover;
+			transition: transform 0.35s ease, opacity 0.25s ease;
+		}
+
+		@media (any-hover: hover) {
+			&:hover,
+			&:focus-visible {
+				>img {
+					transform: scale(1.03);
+					opacity: 0.92;
+				}
+
+				.pick__play {
+					transform: translate(-50%, -50%) scale(1.08);
+					background: rgba(255, 255, 255, 0.22);
+					border-color: rgba(255, 255, 255, 0.95);
+					box-shadow: 0 rem(8) rem(24) rgba($color-primary, 0.2);
+				}
+			}
+		}
+
+		&:active .pick__play {
+			transform: translate(-50%, -50%) scale(1.02);
 		}
 	}
 
@@ -198,7 +191,12 @@
 		border-radius: rem(10);
 		background: rgba(255, 255, 255, 0.1);
 		backdrop-filter: blur(5px);
-		cursor: pointer;
+		pointer-events: none;
+		transition:
+			transform 0.25s ease,
+			background-color 0.2s ease,
+			border-color 0.2s ease,
+			box-shadow 0.2s ease;
 
 		@media (min-width: $md3) {
 			width: rem(101);
@@ -230,15 +228,17 @@
 		font-size: rem(10);
 		line-height: 1.3;
 		letter-spacing: -0.02em;
+		font-family: $font-inter;
 
 		@media (min-width: $md3) {
 			min-height: rem(66);
-			margin-top: 0;
+
 			padding: rem(9);
 			border-width: 1px;
 			border-radius: rem(10);
 			font-size: rem(18);
-			letter-spacing: -0.02em;
+			line-height: 1.3;
+			letter-spacing: em(-0.36, 18);
 		}
 
 		p {

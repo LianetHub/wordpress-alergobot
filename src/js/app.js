@@ -45,12 +45,29 @@ function initBurger() {
 function initFancybox() {
 	if (typeof Fancybox === "undefined") return;
 
-	Fancybox.bind("[data-fancybox]", {
+	Fancybox.bind('[data-fancybox]:not([data-fancybox="pick-video"])', {
 		mainClass: "fancybox-popup",
 		dragToClose: false,
 		placeFocusBack: true,
 		autoFocus: true,
 		trapFocus: true,
+	});
+
+	Fancybox.bind('[data-fancybox="pick-video"]', {
+		mainClass: "fancybox-popup fancybox-video",
+		closeButton: true,
+		dragToClose: false,
+		placeFocusBack: true,
+		autoFocus: true,
+		trapFocus: true,
+		Html: {
+			preload: false,
+			iframeAttr: {
+				allow: "autoplay; fullscreen; picture-in-picture; encrypted-media",
+				allowfullscreen: "true",
+				referrerpolicy: "strict-origin-when-cross-origin",
+			},
+		},
 	});
 
 	document.querySelectorAll("[data-popup-form]").forEach((form) => {
