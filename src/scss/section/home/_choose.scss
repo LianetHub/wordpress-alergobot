@@ -26,12 +26,12 @@
 	&__head {
 		display: flex;
 		flex-direction: column;
-		gap: rem(10);
+		gap: rem(20);
 		margin-bottom: rem(20);
 
-		@media (min-width: $md3) {
-			display: grid;
-			grid-template-columns: 1fr rem(538);
+		@media (min-width: $md2) {
+			flex-direction: row;
+			justify-content: space-between;
 			gap: rem(20) rem(32);
 			align-items: center;
 			margin-bottom: rem(28);
@@ -43,41 +43,54 @@
 		flex-direction: column;
 		gap: rem(10);
 
-		@media (min-width: $md3) {
+		@media (min-width: $md2) {
 			gap: rem(16);
 			max-width: rem(726);
 		}
 	}
 
 	&__lead {
-		max-width: rem(650);
+		@media (min-width:$md2) {
+			max-width: rem(650);
+
+		}
 	}
 
 	&__note {
 		font-weight: 500;
 		font-style: italic;
 		line-height: 1.2;
-		max-width: rem(480);
+
 		@include adaptive-font(18, 24);
 
 		@media (min-width: $md3) {
 			padding-top: rem(4);
 		}
+
+		@media (min-width:$md2) {
+			max-width: rem(480);
+		}
+
+		@media (min-width:$md1) {
+			margin-right: 3.5rem;
+
+		}
 	}
 
 	&__slider {
-		margin-top: 2.5rem;
-		overflow: hidden;
-	}
+		margin-top: 1.5rem;
 
-	&__slide {
-		height: auto;
+		@media (min-width:$md3) {
+			margin-top: 2.5rem;
+
+		}
+
 	}
 
 	&__card {
 		display: flex;
 		flex-direction: row;
-
+		height: auto;
 		gap: rem(20);
 		min-height: rem(131);
 		padding: rem(16);
@@ -98,7 +111,7 @@
 		justify-content: space-between;
 		gap: rem(10);
 		min-width: 0;
-		min-height: rem(99);
+
 
 		@media (min-width: $md3) {
 			min-height: rem(216);
@@ -126,15 +139,16 @@
 		position: relative;
 		flex: 0 0 rem(113);
 		width: rem(113);
-		height: rem(99);
+		height: 100%;
 		overflow: hidden;
 		border-radius: rem(10);
 		background: #fff;
+		height: rem(99);
 
 		@media (min-width: $md3) {
 			flex: 0 0 rem(214);
 			width: rem(214);
-			height: rem(256);
+
 		}
 	}
 
@@ -169,14 +183,14 @@
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		gap: rem(14);
-		margin-top: rem(20);
+		gap: rem(20);
+		margin-top: rem(12);
 
-		@media (min-width: $md3) {
+		@media (min-width: $md4) {
 			flex-direction: row;
 			align-items: center;
 			justify-content: space-between;
-			gap: rem(20);
+
 			margin-top: rem(36);
 		}
 	}
@@ -186,7 +200,7 @@
 		display: flex;
 		gap: rem(10);
 
-		@media (min-width: $md3) {
+		@media (min-width: $md4) {
 			order: 2;
 			gap: rem(20);
 		}
@@ -247,39 +261,15 @@
 
 	&__btn {
 		order: 2;
-		display: inline-flex;
-		align-items: center;
-		justify-content: center;
 		width: 100%;
 		max-width: rem(332);
 		min-height: rem(52);
-		padding: rem(10);
-		border: 0;
-		border-radius: rem(10);
-		background: $color-surface-mint;
-		color: $color-primary;
-		font-family: $font-family;
-		font-size: rem(16);
-		font-weight: 500;
-		line-height: 1.2;
-		letter-spacing: -0.02em;
-		text-transform: uppercase;
-		white-space: nowrap;
-		cursor: pointer;
-		transition: background-color 0.2s ease;
 
-		@media (min-width: $md3) {
+		@media (min-width: $md4) {
 			order: 1;
 			width: rem(426);
 			max-width: none;
-			min-height: rem(60);
-			font-size: rem(20);
-		}
-
-		@media (any-hover: hover) {
-			&:hover {
-				background: darken($color-surface-mint, 3%);
-			}
+			min-height: $btn-height;
 		}
 	}
 }

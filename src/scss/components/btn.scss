@@ -6,6 +6,7 @@
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
+	user-select: none;
 	gap: $btn-gap;
 	min-height: $btn-height;
 	padding: rem(9) rem(20);
