@@ -49,7 +49,7 @@
 		font-style: italic;
 		line-height: 1.2;
 		letter-spacing: -0.02em;
-		margin: rem(20) 0 rem(10);
+		margin: rem(20) 0 0;
 		@include adaptive-font(18, 24);
 
 		&:first-child {
@@ -89,10 +89,19 @@
 		}
 	}
 
+	h2+p,
+	h3+p {
+		margin-top: rem(20);
+	}
+
 	h2+ul,
 	h2+ol,
 	h3+ul,
 	h3+ol {
+		margin-top: rem(20);
+	}
+
+	p+p {
 		margin-top: rem(10);
 	}
 
@@ -112,7 +121,7 @@
 				flex-shrink: 0;
 				width: rem(23);
 				height: rem(23);
-				background: url("@img/policy-plus.svg") no-repeat center / contain;
+				background: url("@img/list-marker-plus.svg") no-repeat center / contain;
 			}
 		}
 	}
