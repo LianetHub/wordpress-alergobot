@@ -1,6 +1,10 @@
 .panels {
-	padding: rem(56) 0 rem(74);
+	padding: rem(36) 0 rem(74);
 
+	@media (min-width:$md3) {
+		padding: rem(56) 0 rem(74);
+
+	}
 
 	&__head {
 		display: flex;
@@ -8,9 +12,10 @@
 		justify-content: space-between;
 		gap: rem(10);
 		margin-bottom: rem(20);
+		flex-direction: column;
 
 		@media (min-width: $md3) {
-
+			flex-direction: row;
 			column-gap: rem(32);
 			row-gap: rem(16);
 			margin-bottom: rem(40);
@@ -18,7 +23,12 @@
 	}
 
 	&__tag {
-		margin-top: 0.75rem;
+		order: -1;
+
+		@media (min-width:$md3) {
+			margin-top: 0.75rem;
+			order: 0;
+		}
 	}
 
 	&__intro {
@@ -124,30 +134,33 @@
 	&__content {
 		display: flex;
 		flex-direction: column;
-		gap: rem(20);
+		gap: rem(10);
 
-		@media (min-width: $md3) {
+		@media (min-width:$md3) {
+			gap: rem(20);
 			flex-direction: row;
 			align-items: flex-start;
-			gap: rem(100);
+			flex-wrap: wrap;
 		}
-	}
 
-	&__main {
-		display: flex;
-		flex-direction: column;
-		gap: rem(20);
-		min-width: 0;
+		@media (min-width: $md1) {
+			flex-wrap: nowrap;
+			justify-content: space-between;
+		}
 
-		@media (min-width: $md3) {
-			flex: 1;
-			flex-direction: row;
-			align-items: flex-start;
-			gap: rem(60);
+		@media (min-width:$md1) {
+			gap: rem(40);
+
 		}
 	}
 
 	&__desc {
+		min-width: 0;
+
+		@media (min-width: $md2) {
+			flex: 1;
+		}
+
 		p {
 
 			color: $color-text-body;
@@ -168,9 +181,18 @@
 	&__img {
 		display: block;
 		flex-shrink: 0;
-		width: rem(273);
 		max-width: 100%;
 		height: auto;
+		width: 100%;
+
+		@media (min-width:$md3) {
+			width: 50%;
+		}
+
+		@media (min-width:$md1) {
+			width: rem(273);
+
+		}
 	}
 
 	&__more {

@@ -53,11 +53,11 @@
 	&__benefits {
 		margin-top: 0.25rem;
 
-		@media (min-width: $md3) {
+		@media (min-width: $md2) {
 			margin-top: 4.125rem;
-			max-width: rem(648);
-			justify-self: end;
+
 		}
+
 	}
 
 	&__subtitle {
