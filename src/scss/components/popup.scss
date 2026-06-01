@@ -372,7 +372,7 @@ $popup-gradient: linear-gradient(61deg, $color-primary 0%, $color-accent 99.68%)
 			opacity: 0.25;
 		}
 
-		@media (max-width: ($md3 - 1px)) {
+		@media (max-width: ($md3)) {
 			.popup-modal__visual {
 				display: grid;
 				grid-template-columns: 1fr 1fr;

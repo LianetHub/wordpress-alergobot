@@ -656,7 +656,7 @@
 			max-width: rem(315);
 		}
 
-		@media (max-width: ($md3 - 1px)) {
+		@media (max-width: $md3) {
 			order: -1;
 		}
 	}

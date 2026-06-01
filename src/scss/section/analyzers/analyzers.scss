@@ -51,7 +51,7 @@
 		z-index: 1;
 		max-width: 100%;
 
-		@media (max-width: ($md3 - 1px)) {
+		@media (max-width: $md3) {
 			max-width: calc(100% - rem(150));
 		}
 
@@ -218,7 +218,7 @@
 
 		p {}
 
-		@media (max-width: ($md3 - 1px)) {
+		@media (max-width: ($md3)) {
 			p:nth-child(2) {
 				display: none;
 			}

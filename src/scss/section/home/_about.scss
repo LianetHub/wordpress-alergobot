@@ -135,7 +135,7 @@
 		}
 
 		&--crop img {
-			@media (max-width: ($md3 - 1px)) {
+			@media (max-width: $md3 ) {
 				object-position: 35% 20%;
 				transform: scale(1.2);
 				transform-origin: center;

@@ -269,7 +269,7 @@
 			opacity: 0.85;
 		}
 
-		@media (max-width: ($md3 - 1px)) {
+		@media (max-width: ($md3)) {
 			gap: 0;
 
 			&::before {
