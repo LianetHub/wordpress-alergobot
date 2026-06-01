@@ -1,13 +1,26 @@
 .pick {
-	padding: rem(42) 0;
+	padding: rem(24) 0;
+
+	@media (min-width:$md4) {
+		padding: rem(42) 0;
+
+	}
 
 	&__header {
 		display: grid;
-		grid-template-columns: repeat(2, 1fr);
-		gap: 1rem;
+		gap: 0.75rem;
+
+		@media (min-width:$md2) {
+			gap: 1rem;
+			grid-template-columns: repeat(2, 1fr);
+		}
 	}
 
-
+	&__side {
+		@media (max-width:$md2) {
+			display: contents;
+		}
+	}
 
 
 	&__title {
@@ -35,17 +48,25 @@
 
 	// .pick__tags
 	&__tags {
+		order: -1;
 		display: flex;
 		align-items: center;
-		gap: rem(20);
 		flex-wrap: wrap;
 		margin-top: 0.5rem;
+		gap: rem(10);
+
+		@media (min-width:$md4) {
+			gap: rem(20);
+
+		}
 	}
 
 	// .pick__tag
 	&__tag {}
 
 	&__benefits {
+		margin-top: 0.25rem;
+
 		@media (min-width: $md3) {
 			margin-top: 4.125rem;
 			max-width: rem(648);
@@ -113,20 +134,13 @@
 	&__video {
 		display: flex;
 		flex-direction: column;
-		gap: rem(10);
 
-		@media (min-width: $md3) {
-			gap: 0;
-		}
 	}
 
 	&__video-media {
 		position: relative;
 		display: block;
 		width: 100%;
-		margin: 0;
-		padding: 0;
-		border: none;
 		border-radius: rem(10);
 		overflow: hidden;
 		aspect-ratio: 332 / 195;
@@ -155,6 +169,7 @@
 		}
 
 		@media (any-hover: hover) {
+
 			&:hover,
 			&:focus-visible {
 				>img {
@@ -191,6 +206,7 @@
 		border-radius: rem(10);
 		background: rgba(255, 255, 255, 0.1);
 		backdrop-filter: blur(5px);
+		-wekbit-backdrop-filter: blur(5px);
 		pointer-events: none;
 		transition:
 			transform 0.25s ease,
