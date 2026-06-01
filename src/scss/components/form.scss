@@ -99,6 +99,9 @@
 
 	// Поля на brand-фоне (home-request, CF7 с модификатором)
 	&--on-brand {
+		.checkbox__text a {
+			color: #fff;
+		}
 
 		.form__control,
 		.form-field,

@@ -133,37 +133,9 @@
                                         <p class="catalog-request__note-text">По запросу направим презентацию, актуальный прайс и консультацию по ассортименту.</p>
                                     </div>
                                 </div>
-                                <form class="catalog-request__form" action="#" method="post">
+                                <form class="catalog-request__form form form--on-brand" action="#" method="post">
                                     <p class="catalog-request__form-lead">Мы подберём диагностическое оборудование, аллергопробы и реагенты под формат вашей работы. Расскажем о вариантах поставки, поможем с выбором. По запросу направим презентацию, актуальный прайс и консультацию по ассортименту, чтобы заказать или купить.</p>
-                                    <div class="catalog-request__row">
-                                        <label class="catalog-request__field">
-                                            <span class="visually-hidden">Имя</span>
-                                            <input class="catalog-request__input" type="text" name="name" placeholder="Имя" autocomplete="name" required>
-                                        </label>
-                                        <label class="catalog-request__field">
-                                            <span class="visually-hidden">Компания</span>
-                                            <input class="catalog-request__input" type="text" name="company" placeholder="Компания" autocomplete="organization">
-                                        </label>
-                                    </div>
-                                    <div class="catalog-request__row">
-                                        <label class="catalog-request__field">
-                                            <span class="visually-hidden">Телефон</span>
-                                            <input class="catalog-request__input" type="tel" name="phone" placeholder="+7 (" autocomplete="tel" required>
-                                        </label>
-                                        <label class="catalog-request__field">
-                                            <span class="visually-hidden">E-mail</span>
-                                            <input class="catalog-request__input" type="email" name="email" placeholder="E-mail" autocomplete="email" required>
-                                        </label>
-                                    </div>
-                                    <label class="catalog-request__field catalog-request__field--full">
-                                        <span class="visually-hidden">Комментарий</span>
-                                        <textarea class="catalog-request__input catalog-request__textarea" name="comment" placeholder="Комментарий" rows="4"></textarea>
-                                    </label>
-                                    <label class="catalog-request__agree">
-                                        <input class="catalog-request__checkbox" type="checkbox" name="agree" required>
-                                        <span class="catalog-request__agree-text">Я даю согласие на <a href="politika-konfidentsialnosti.html">обработку персональных данных</a> и соглашаюсь с <a href="politika-konfidentsialnosti.html">политикой конфиденциальности</a></span>
-                                    </label>
-                                    <button class="catalog-request__submit" type="submit">Отправить заявку</button>
+                                    @@include('html/_form-request-fields.html', {})
                                 </form>
                             </div>
                         </div>

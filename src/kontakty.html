@@ -30,40 +30,7 @@
                     <div class="contacts-order__container _container">
                         <div class="contacts-order__grid">
                             <form class="contacts-order__form form form--on-brand" action="#" method="post">
-                                <div class="form__row">
-                                    <label class="form__field">
-                                        <span class="visually-hidden">Имя</span>
-                                        <input class="form__control" type="text" name="name" placeholder="Имя" autocomplete="name" required>
-                                    </label>
-                                    <label class="form__field">
-                                        <span class="visually-hidden">Компания</span>
-                                        <input class="form__control" type="text" name="company" placeholder="Компания" autocomplete="organization">
-                                    </label>
-                                </div>
-                                <div class="form__row">
-                                    <label class="form__field">
-                                        <span class="visually-hidden">Телефон</span>
-                                        <input class="form__control" type="tel" name="phone" placeholder="+7 (" autocomplete="tel" required>
-                                    </label>
-                                    <label class="form__field">
-                                        <span class="visually-hidden">E-mail</span>
-                                        <input class="form__control" type="email" name="email" placeholder="E-mail" autocomplete="email" required>
-                                    </label>
-                                </div>
-                                <label class="form__field">
-                                    <span class="visually-hidden">Комментарий</span>
-                                    <textarea class="form__control form__control--textarea" name="comment" placeholder="Комментарий" rows="4"></textarea>
-                                </label>
-                                <label class="checkbox ">
-                                    <input class="checkbox__input" type="checkbox" name="agree" required>
-                                    <span class="checkbox__box">
-                                        <svg class="icon" width="20" height="20" aria-hidden="true">
-                                            <use href="@img/icons.svg#icon-check"></use>
-                                        </svg>
-                                    </span>
-                                    <span class="checkbox__text">Я даю согласие на <a href="politika-konfidentsialnosti.html">обработку персональных данных</a> и соглашаюсь с <a href="politika-konfidentsialnosti.html">политикой конфиденциальности</a></span>
-                                </label>
-                                <button class="form__submit" type="submit">Отправить заявку</button>
+                                @@include('html/_form-request-fields.html', {})
                             </form>
 
                             <div class="contacts-order__map" id="contacts-map" data-map data-coords="55.6848,37.7466" data-zoom="16" data-icon="@img/placemark.svg" role="region" aria-label="Карта — ул. Тихая, 28, Москва"></div>

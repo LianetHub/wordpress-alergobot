@@ -9,41 +9,8 @@
                 </div>
                 <div class="request__form-col">
                     <p class="request__lead">Оставьте заявку, чтобы подобрать, купить панели диагностики на аллергию и лабораторное оборудование, или изучить линейку PROTIA Allergy-Q для тестов. Мы направим материалы с оптимальным решением для вас.</p>
-                    <form class="form form--on-brand request__form" action="#" method="post">
-                        <div class="form__row">
-                            <label class="form__field">
-                                <span class="visually-hidden">Имя</span>
-                                <input class="form__control" type="text" name="name" placeholder="Имя" autocomplete="name" required>
-                            </label>
-                            <label class="form__field">
-                                <span class="visually-hidden">Компания</span>
-                                <input class="form__control" type="text" name="company" placeholder="Компания" autocomplete="organization">
-                            </label>
-                        </div>
-                        <div class="form__row">
-                            <label class="form__field">
-                                <span class="visually-hidden">Телефон</span>
-                                <input class="form__control" type="tel" name="phone" placeholder="+7 (" autocomplete="tel" required>
-                            </label>
-                            <label class="form__field">
-                                <span class="visually-hidden">E-mail</span>
-                                <input class="form__control" type="email" name="email" placeholder="E-mail" autocomplete="email" required>
-                            </label>
-                        </div>
-                        <label class="form__field">
-                            <span class="visually-hidden">Комментарий</span>
-                            <textarea class="form__control form__control--textarea" name="comment" placeholder="Комментарий" rows="4"></textarea>
-                        </label>
-                        <label class="checkbox form__agree request__agree">
-                            <input class="checkbox__input" type="checkbox" name="agree" required>
-                            <span class="checkbox__box">
-                                <svg class="icon" width="20" height="20" aria-hidden="true">
-                                    <use href="@img/icons.svg#icon-check"></use>
-                                </svg>
-                            </span>
-                            <span class="checkbox__text">Я даю согласие на <a href="politika-konfidentsialnosti.html">обработку персональных данных</a> и соглашаюсь с <a href="politika-konfidentsialnosti.html">политикой конфиденциальности</a></span>
-                        </label>
-                        <button class="form__submit" type="submit">Отправить заявку</button>
+                    <form class="request__form form form--on-brand" action="#" method="post">
+                        @@include('../_form-request-fields.html', {})
                     </form>
                 </div>
             </div>
