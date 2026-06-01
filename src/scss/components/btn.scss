@@ -43,6 +43,11 @@
 		flex-shrink: 0;
 		width: rem(32);
 		height: rem(32);
+
+		& svg {
+			width: 100%;
+			height: 100%;
+		}
 	}
 
 

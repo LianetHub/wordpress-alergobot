@@ -193,7 +193,7 @@ function initHomePanels() {
 		const items = wrap.querySelectorAll(".panels__item");
 
 		items.forEach((item) => {
-			const head = item.querySelector(".panels__head");
+			const head = item.querySelector(".panels__heading");
 			if (!head) return;
 
 			head.addEventListener("click", () => {
@@ -201,7 +201,7 @@ function initHomePanels() {
 
 				items.forEach((other) => {
 					other.classList.remove("_active");
-					other.querySelector(".panels__head")?.setAttribute("aria-expanded", "false");
+					other.querySelector(".panels__heading")?.setAttribute("aria-expanded", "false");
 				});
 
 				if (!isOpen) {
