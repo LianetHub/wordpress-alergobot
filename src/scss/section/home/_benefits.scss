@@ -7,13 +7,13 @@
 
 	&__head {
 		display: flex;
-		flex-direction: column;
+		flex-direction: column-reverse;
+		align-items: flex-start;
 		gap: rem(10);
 		margin-bottom: rem(17);
 
 		@media (min-width: $md3) {
 			flex-direction: row;
-			align-items: flex-start;
 			justify-content: space-between;
 			gap: rem(10) rem(24);
 			margin-bottom: rem(40);
