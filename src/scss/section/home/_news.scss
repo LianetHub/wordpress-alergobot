@@ -20,12 +20,11 @@
 		margin-bottom: rem(20);
 
 		@media (min-width: $md3) {
-			display: grid;
-			grid-template-columns: 1fr auto;
-			grid-template-areas: "title tag" "text .";
+			display: flex;
+			justify-content: space-between;
 			gap: rem(10) rem(32);
-			align-items: start;
-			margin-bottom: rem(28);
+			align-items: flex-start;
+			margin-bottom: rem(40);
 		}
 	}
 
@@ -34,19 +33,16 @@
 		flex-direction: column;
 		gap: rem(10);
 
-		@media (min-width: $md3) {
-			display: contents;
-		}
+
 	}
 
 	&__tag {
-		// только раскладка/позиционирование; внешний вид задаёт общий `.tag`
+
 		display: inline-flex;
 		align-self: flex-start;
 
 		@media (min-width: $md3) {
-			grid-area: tag;
-			justify-self: end;
+			margin-top: 1rem;
 		}
 	}
 
@@ -71,6 +67,7 @@
 		gap: rem(10);
 
 		@media (min-width: $md2) {
+
 			gap: rem(20);
 			grid-template-columns: repeat(2, 1fr);
 		}
