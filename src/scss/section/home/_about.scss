@@ -83,12 +83,7 @@
 		}
 	}
 
-	&__logo {
-		display: block;
-		width: 100%;
-		height: auto;
-		max-width: none;
-	}
+	&__logo {}
 
 	&__photos {
 		display: flex;
@@ -117,26 +112,8 @@
 			height: rem(189);
 		}
 
-		img {
-			display: block;
-			width: 100%;
-			height: 100%;
-			object-fit: cover;
-		}
 
-		&--crop img {
-			@media (max-width: $md3 ) {
-				object-position: 35% 20%;
-				transform: scale(1.2);
-				transform-origin: center;
-			}
 
-			@media (min-width: $md3) {
-				object-position: 35% 20%;
-				transform: scale(1.2);
-				transform-origin: center;
-			}
-		}
 	}
 
 	&__concept {
@@ -242,6 +219,7 @@
 
 		@media (min-width: $md3) {
 			font-size: rem(24);
+			margin-top: 3.5rem;
 			letter-spacing: -0.02em;
 		}
 	}
