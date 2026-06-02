@@ -1,0 +1,61 @@
+<section class="equipment equipment--related">
+    <div class="equipment__container _container">
+        <div class="equipment__head">
+            <div class="equipment__intro">
+                <h2 class="equipment__title title title-md">Вместе с&nbsp;этим смотрят</h2>
+            </div>
+        </div>
+        <ul class="equipment__grid">
+            @@loop('../templates/equipment-card.html', [
+            {
+            "href": "product.html",
+            "ariaLabel": "Анализатор Q-SMART, подробнее",
+            "nameClass": "",
+            "name": "Q-SMART",
+            "img": "@img/analyzers/device-q-smart.png",
+            "alt": "Анализатор Q-SMART",
+            "title": "Анализатор Q-SMART",
+            "width": "239",
+            "height": "164",
+            "text": "Компактное решение для лабораторий, которым важно сочетание точности, удобства и оптимизации повседневной работы."
+            },
+            {
+            "href": "#",
+            "ariaLabel": "Q-STATION ELITE, подробнее",
+            "nameClass": "",
+            "name": "Q-STATION ELITE",
+            "img": "@img/analyzers/device-q-station-elite.png",
+            "alt": "Q-STATION ELITE",
+            "title": "Q-STATION ELITE",
+            "width": "200",
+            "height": "167",
+            "text": "Система для более широких лабораторных задач, где важны производительность, стандартизация и удобство обработки результатов."
+            },
+            {
+            "href": "#",
+            "ariaLabel": "Q-PROCESSOR, подробнее",
+            "nameClass": "",
+            "name": "Q-PROCESSOR",
+            "img": "@img/product/related-q-processor.png",
+            "alt": "Устройство Q-PROCESSOR",
+            "title": "Q-PROCESSOR",
+            "width": "162",
+            "height": "161",
+            "text": "Решение для автоматизации отдельных этапов исследования и повышения стабильности лабораторного процесса."
+            },
+            {
+            "href": "katalog.html#catalog-reagents",
+            "ariaLabel": "Наборы реагентов и сопутствующие материалы",
+            "nameClass": "equipment__card-name--long",
+            "name": "Наборы реагентов и сопутствующие материалы",
+            "img": "@img/product/related-kits.png",
+            "alt": "Наборы реагентов PROTIA",
+            "title": "Наборы реагентов",
+            "width": "225",
+            "height": "161",
+            "text": "Полный комплект для организации работы в рамках единой диагностической системы."
+            }
+            ])
+        </ul>
+    </div>
+</section>

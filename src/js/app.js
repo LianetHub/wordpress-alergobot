@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	initFancybox();
 	initBlogTabs();
 	initProductTabs();
+	initProductTableMore();
 	initAccordion();
 	initTooltips();
 	initHome();
@@ -132,6 +133,26 @@ function initProductTabs() {
 				panel.hidden = !isActive;
 			});
 		});
+	});
+}
+
+function initProductTableMore() {
+	const wrap = document.querySelector("[data-product-table]");
+	const btn = document.querySelector("[data-product-table-more]");
+
+	if (!wrap || !btn) return;
+
+	const rows = wrap.querySelectorAll(".product-table tbody tr");
+
+	if (rows.length <= 10) {
+		btn.closest(".product-table__foot")?.remove();
+		return;
+	}
+
+	btn.addEventListener("click", () => {
+		const expanded = wrap.classList.toggle("product-table-wrap--expanded");
+		wrap.querySelector(".product-table")?.classList.toggle("product-table--expanded", expanded);
+		btn.setAttribute("aria-expanded", String(expanded));
 	});
 }
 

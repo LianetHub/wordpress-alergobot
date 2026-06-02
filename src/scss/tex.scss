@@ -130,3 +130,25 @@ h3 {
 .text-nowrap {
 	white-space: nowrap;
 }
+
+
+$scrollbarColor: $color-primary;
+
+::-webkit-scrollbar {
+	width: rem(8);
+}
+
+::-webkit-scrollbar-track {
+	background: #fff;
+}
+
+::-webkit-scrollbar-thumb {
+	background: $scrollbarColor;
+	border-radius: rem(8);
+
+	@media (any-hover: hover) {
+		&:hover {
+			background: darken($color: $scrollbarColor, $amount: 10);
+		}
+	}
+}

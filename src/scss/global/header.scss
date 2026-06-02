@@ -114,6 +114,15 @@
 		line-height: 1.2;
 		text-transform: uppercase;
 		@include adaptive-font(16, 18);
+		transition: opacity 0.2s ease;
+
+		@media (any-hover: hover) {
+			&:hover {
+
+				opacity: 0.85;
+			}
+		}
+
 	}
 
 	&__sep {

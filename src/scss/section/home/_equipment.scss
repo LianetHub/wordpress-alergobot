@@ -75,24 +75,20 @@
 	}
 
 	&__card {
-		min-height: rem(292);
+
 		padding: rem(10);
 		border: rem(0.5) solid #fff;
 		border-radius: rem(10);
 		background: $color-surface-tab;
 		transition: box-shadow 0.25s ease;
 
-		&:nth-child(n + 3) {
-			min-height: rem(266);
-		}
+
 
 		@media (min-width: $md3) {
-			min-height: rem(527);
+
 			padding: rem(20);
 
-			&:nth-child(n + 3) {
-				min-height: rem(527);
-			}
+
 		}
 
 		@media (any-hover: hover) {
@@ -206,6 +202,36 @@
 
 		&__card-link:hover &__card-media .cover-image {
 			transform: scale(1.04);
+		}
+	}
+
+	&--related {
+		padding: rem(32) 0 rem(48);
+
+		@media (min-width: $md3) {
+			padding: rem(48) 0 rem(72);
+		}
+
+		.equipment__container {
+			background: none;
+		}
+
+		.equipment__head {
+			margin-bottom: rem(24);
+
+			@media (min-width: $md3) {
+				margin-bottom: rem(48);
+			}
+		}
+
+		.equipment__title {
+			max-width: none;
+		}
+
+		.equipment__grid {
+			@media (min-width: $md3) {
+				margin-top: 0;
+			}
 		}
 	}
 }
