@@ -2,32 +2,18 @@
 	padding: rem(40) 0;
 	position: relative;
 
-
 	@media (min-width: $md3) {
 		padding: rem(48) 0 rem(72);
-	}
-
-	&__decor {
-		display: none;
-		pointer-events: none;
-
-		@media (max-width: ($md3 - 0.02px)) {
-			display: block;
-			position: absolute;
-			left: rem(-10);
-			top: rem(108);
-			width: rem(370);
-			height: rem(243);
-			background: url("@img/home/news-decor.png") center / contain no-repeat;
-			transform: rotate(-17deg) scaleY(-1);
-			opacity: 0.45;
-			z-index: 0;
-		}
 	}
 
 	&__container {
 		position: relative;
 		z-index: 1;
+		background: url("@img/decor-bg.svg") center 86% / 90% auto no-repeat;
+
+		@media (min-width:$md4) {
+			background: url("@img/decor-bg.svg") 67% 10% / auto no-repeat;
+		}
 	}
 
 	&__head {
@@ -54,28 +40,13 @@
 	}
 
 	&__tag {
+		// только раскладка/позиционирование; внешний вид задаёт общий `.tag`
 		display: inline-flex;
-		align-items: center;
-		justify-content: center;
 		align-self: flex-start;
-		padding: rem(6) rem(10);
-		border-radius: $radius-tab;
-		background: $color-accent;
-		color: #fff;
-		font-family: $font-family;
-		font-size: rem(14);
-		font-weight: 500;
-		line-height: 1.2;
-		letter-spacing: -0.02em;
-		text-transform: uppercase;
-		white-space: nowrap;
 
 		@media (min-width: $md3) {
 			grid-area: tag;
 			justify-self: end;
-			height: rem(40);
-			padding: rem(10) rem(16);
-			font-size: rem(20);
 		}
 	}
 
@@ -99,7 +70,7 @@
 		grid-template-columns: 1fr;
 		gap: rem(10);
 
-		@media (min-width: $md3) {
+		@media (min-width: $md2) {
 			gap: rem(20);
 			grid-template-columns: repeat(2, 1fr);
 		}
@@ -111,7 +82,7 @@
 		margin-top: rem(20);
 
 		@media (min-width: $md3) {
-			margin-top: rem(28);
+			margin-top: rem(40);
 		}
 	}
 

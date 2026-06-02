@@ -6,10 +6,10 @@
 	}
 
 	&__container {
-		background: url("@img/catalog-teaser-decor.svg") center 86% / 90% auto no-repeat;
+		background: url("@img/decor-bg.svg") center 86% / 90% auto no-repeat;
 
 		@media (min-width:$md4) {
-			background: url("@img/catalog-teaser-decor.svg") 67% 10% / auto no-repeat;
+			background: url("@img/decor-bg.svg") 67% 10% / auto no-repeat;
 
 		}
 	}
