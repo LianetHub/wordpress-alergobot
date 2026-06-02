@@ -1,5 +1,5 @@
 .about {
-	padding: rem(40) 0;
+	padding: rem(20) 0;
 
 	@media (min-width: $md3) {
 		padding: rem(48) 0;
@@ -37,13 +37,7 @@
 		@media (min-width: $md3) {
 			gap: rem(10);
 
-			.about__title {
-				margin-top: rem(19);
-			}
 
-			.about__logo-wrap {
-				margin-top: rem(10);
-			}
 		}
 	}
 
@@ -52,16 +46,11 @@
 		align-items: center;
 		justify-content: center;
 		align-self: flex-start;
-		padding: rem(6) rem(10);
-		border-radius: $radius-tab;
+		@include tag-base;
 		background: $color-accent;
 		color: #fff;
-		font-family: $font-family;
-		font-size: rem(14);
-		font-weight: 500;
-		line-height: 1.2;
+		padding: rem(6) rem(10);
 		letter-spacing: -0.02em;
-		text-transform: uppercase;
 		white-space: nowrap;
 
 		@media (min-width: $md3) {
@@ -78,6 +67,11 @@
 		max-width: 100%;
 		line-height: 0;
 
+		& img {
+			width: auto;
+			height: auto;
+		}
+
 		@media (min-width: $md3) {
 			width: rem(254);
 		}
@@ -86,12 +80,11 @@
 	&__logo {}
 
 	&__photos {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
 		gap: rem(10);
 
-		@media (min-width: $md3) {
+		@media (min-width: $md2) {
 			justify-content: flex-start;
 			gap: rem(20);
 			margin-top: rem(39);
@@ -99,14 +92,12 @@
 	}
 
 	&__photo {
-		flex: 0 0 rem(161);
-		width: rem(161);
-		height: rem(142);
+
 		border-radius: rem(10);
 		background: #fff;
 		overflow: hidden;
 
-		@media (min-width: $md3) {
+		@media (min-width: $md2) {
 			flex: 0 0 rem(214);
 			width: rem(214);
 			height: rem(189);
@@ -120,7 +111,7 @@
 		display: flex;
 		flex-direction: column;
 		gap: rem(12);
-		max-width: rem(332);
+
 
 		@media (min-width: $md3) {
 			max-width: rem(648);
@@ -214,8 +205,8 @@
 		font-weight: 500;
 		font-style: italic;
 		font-size: rem(18);
-		line-height: 1.2;
-		letter-spacing: -0.02em;
+		line-height: 1.23;
+
 
 		@media (min-width: $md3) {
 			font-size: rem(24);
