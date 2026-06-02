@@ -194,7 +194,7 @@ $popup-gradient: linear-gradient(61deg, $color-primary 0%, $color-accent 99.68%)
 		text-transform: uppercase;
 		cursor: pointer;
 		transition:
-			background 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+			background-color 0.25s cubic-bezier(0.22, 1, 0.36, 1),
 			transform 0.2s cubic-bezier(0.22, 1, 0.36, 1);
 		@include adaptive-font(16, 20);
 

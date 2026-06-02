@@ -3,18 +3,24 @@
 @mixin form-control-on-brand {
 	display: block;
 	width: 100%;
-	min-height: rem(62);
-	padding: rem(20);
+	min-height: rem(52);
+	padding: rem(16) rem(14);
 	border: rem(0.5) solid #fff;
 	border-radius: rem(10);
 	background: transparent;
 	color: #fff;
 	font-family: $font-family;
 	font-weight: 400;
-	font-size: rem(18);
 	line-height: 1.2;
 	letter-spacing: -0.02em;
 	transition: border-color 0.25s ease, opacity 0.2s ease;
+
+	@media (min-width:$md4) {
+		padding: rem(20);
+		font-size: rem(18);
+		min-height: rem(62);
+
+	}
 
 	&::placeholder {
 		color: rgba(255, 255, 255, 0.9);
@@ -38,20 +44,28 @@
 	align-items: center;
 	justify-content: center;
 	width: 100%;
-	min-height: rem(60);
-	padding: rem(18) rem(16);
+	min-height: rem(52);
+	padding: rem(16) rem(16);
 	border: 0;
 	border-radius: rem(10);
 	background: $color-surface-mint;
 	color: $color-primary;
 	font-family: $font-family;
 	font-weight: 500;
-	font-size: rem(20);
 	line-height: 1.2;
 	letter-spacing: -0.02em;
 	text-transform: uppercase;
 	cursor: pointer;
-	transition: background 0.2s ease, transform 0.2s ease;
+	transition: background-color 0.2s ease, transform 0.2s ease;
+	font-size: rem(17);
+
+	margin-top: 0.5rem;
+
+	@media (min-width:$md4) {
+		margin-top: 0;
+		min-height: rem(60);
+		font-size: rem(20);
+	}
 
 	@media (any-hover: hover) {
 		&:hover {
@@ -87,9 +101,14 @@
 	&__control {
 		@include form-control-on-brand;
 
-		&--textarea {
-			min-height: rem(137);
-			resize: vertical;
+		&:is(textarea) {
+			min-height: rem(110);
+			resize: none;
+
+			@media (min-width:$md4) {
+				min-height: rem(137);
+
+			}
 		}
 	}
 
@@ -97,66 +116,9 @@
 		@include form-submit-on-brand;
 	}
 
-	// Поля на brand-фоне (home-request, CF7 с модификатором)
-	&--on-brand {
-		.checkbox__text a {
-			color: #fff;
-		}
-
-		.form__control,
-		.form-field,
-		input[type="text"],
-		input[type="email"],
-		input[type="tel"],
-		input[type="url"],
-		input[type="number"],
-		select,
-		textarea,
-		.wpcf7-text,
-		.wpcf7-email,
-		.wpcf7-tel,
-		.wpcf7-url,
-		.wpcf7-number,
-		.wpcf7-textarea,
-		.wpcf7-select {
-			@include form-control-on-brand;
-		}
-
-		textarea,
-		.form__control--textarea,
-		.wpcf7-textarea {
-			min-height: rem(137);
-			resize: vertical;
-		}
-
-		.form__submit,
-		.wpcf7-submit {
-			@include form-submit-on-brand;
-		}
-
-		.wpcf7-form-control-wrap {
-			display: block;
-		}
-
-		.wpcf7-not-valid-tip {
-			margin-top: rem(4);
-			color: #fff;
-			font-size: rem(12);
-			line-height: 1.3;
-		}
-
-		.wpcf7-response-output {
-			margin: rem(10) 0 0;
-			padding: rem(12) rem(16);
-			border-radius: rem(10);
-			color: #fff;
-			font-size: rem(14);
-			line-height: 1.3;
-		}
-	}
 }
 
-// Совместимость со статической вёрсткой
+
 .form-field {
 	@include form-control-on-brand;
 }

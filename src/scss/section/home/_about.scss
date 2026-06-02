@@ -1,6 +1,5 @@
 .about {
 	padding: rem(40) 0;
-	background: $color-surface-mint;
 
 	@media (min-width: $md3) {
 		padding: rem(48) 0;
@@ -13,7 +12,7 @@
 
 		@media (min-width: $md3) {
 			display: grid;
-			grid-template-columns: minmax(0, rem(648)) 1fr;
+			grid-template-columns: repeat(2, 1fr);
 			column-gap: rem(26);
 			align-items: stretch;
 		}

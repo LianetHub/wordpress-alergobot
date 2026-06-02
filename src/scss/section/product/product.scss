@@ -217,7 +217,7 @@
 		letter-spacing: -0.02em;
 		cursor: pointer;
 		transition:
-			background 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+			background-color 0.25s cubic-bezier(0.22, 1, 0.36, 1),
 			color 0.25s ease,
 			border-color 0.25s ease,
 			border-width 0.25s ease;
@@ -517,7 +517,7 @@
 	background: $color-primary;
 	color: #fff;
 	text-decoration: none;
-	transition: background 0.25s ease;
+	transition: background-color 0.25s ease;
 
 	@media (min-width: $md3) {
 		padding: rem(20) rem(40);

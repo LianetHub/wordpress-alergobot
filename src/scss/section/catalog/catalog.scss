@@ -445,57 +445,7 @@ $catalog-overlap: 1400px;
 		}
 	}
 
-	&__form.form--on-brand {
-		.form__row {
-			@media (max-width: $md3) {
-				grid-template-columns: 1fr;
-			}
-		}
 
-		.form__control,
-		input[type="text"],
-		input[type="email"],
-		input[type="tel"],
-		textarea {
-			min-height: rem(52);
-			padding: rem(16);
-			border-width: rem(0.52);
-			font-size: rem(14);
-			letter-spacing: -0.02em;
-
-			@media (min-width: $md3) {
-				min-height: rem(62);
-				padding: rem(20);
-				border-width: rem(0.5);
-				font-size: rem(18);
-				letter-spacing: -0.02em;
-			}
-		}
-
-		textarea,
-		.form__control--textarea {
-			min-height: rem(110);
-			resize: vertical;
-
-			@media (min-width: $md3) {
-				min-height: rem(137);
-			}
-		}
-
-		.form__submit {
-			min-height: rem(52);
-			padding: rem(10) rem(16);
-			font-size: rem(16);
-			letter-spacing: -0.02em;
-
-			@media (min-width: $md3) {
-				min-height: rem(60);
-				padding: rem(18) rem(16);
-				font-size: rem(20);
-				letter-spacing: -0.02em;
-			}
-		}
-	}
 }
 
 // ——— FAQ ———
@@ -580,7 +530,7 @@ $catalog-overlap: 1400px;
 		border-radius: rem(10);
 		background: $color-surface-mint;
 		overflow: hidden;
-		transition: background 0.25s ease;
+		transition: background-color 0.25s ease;
 
 		&._active {
 			background: $color-surface-tab;
