@@ -73,7 +73,11 @@
 		display: flex;
 		justify-content: space-between;
 		align-items: flex-end;
-		padding-right: rem(20);
+		gap: rem(10);
+
+		@media (min-width:$md1) {
+			padding-right: rem(20);
+		}
 	}
 
 
@@ -101,8 +105,12 @@
 		background: $color-surface-mint;
 		overflow: hidden;
 
-		@media (min-width: $md3) {
+		& img {
+			width: auto;
+			height: auto;
+		}
 
+		@media (min-width: $md3) {
 			width: rem(295);
 			height: rem(261);
 		}
@@ -273,6 +281,25 @@
 	&__container {
 		position: relative;
 		z-index: 1;
+
+		&::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 50%;
+			transform: translateX(-50%);
+			height: rem(515);
+			background: url("@img/devices-benefits-decor.webp") center / contain no-repeat;
+			pointer-events: none;
+			mix-blend-mode: screen;
+			z-index: -1;
+			width: 100%;
+
+			@media (min-width:$md3) {
+				width: rem(830);
+
+			}
+		}
 	}
 
 	&__head {
@@ -396,6 +423,8 @@
 
 // ——— CTA ———
 .devices-cta {
+	position: relative;
+	z-index: 2;
 	padding: rem(32) 0 rem(48);
 
 	@media (min-width: $md3) {
