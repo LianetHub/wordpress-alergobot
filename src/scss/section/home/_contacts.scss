@@ -9,7 +9,7 @@
 		position: relative;
 		padding: rem(14);
 		border-radius: rem(10);
-		background: $color-accent;
+		background: url("@img/contacts-decor.svg") 0 0 / cover no-repeat, $color-accent;
 		color: #fff;
 		overflow: hidden;
 
@@ -19,28 +19,7 @@
 		}
 	}
 
-	&__decor {
-		position: absolute;
-		pointer-events: none;
-		z-index: 0;
-		left: rem(-33);
-		top: rem(9);
-		width: rem(457);
-		height: rem(457);
-		background: url("@img/home/contacts-decor.png") center / contain no-repeat;
-		opacity: 0.35;
-		transform: rotate(-45deg) scaleY(-1);
 
-		@media (min-width: $md3) {
-			left: auto;
-			right: rem(-120);
-			top: rem(-69);
-			width: rem(650);
-			height: rem(280);
-			opacity: 0.4;
-			transform: rotate(-135deg);
-		}
-	}
 
 	&__hero,
 	&__main {
