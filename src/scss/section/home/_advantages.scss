@@ -3,6 +3,10 @@
 
 	@media (min-width: $md3) {
 		padding: rem(36) 0;
+
+		&:last-child {
+			padding-bottom: rem(120);
+		}
 	}
 
 	&__head {

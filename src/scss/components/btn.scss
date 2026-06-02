@@ -8,7 +8,8 @@
 	justify-content: center;
 	user-select: none;
 	gap: $btn-gap;
-	min-height: $btn-height;
+	min-height: em(60, 20);
+
 	padding: rem(9) rem(20);
 	border: 1px solid transparent;
 	border-radius: rem(10);

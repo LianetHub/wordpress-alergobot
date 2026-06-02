@@ -10,8 +10,10 @@
 .title-lg {
 	@include adaptive-font(26, 56);
 
+	letter-spacing: em(-0.452, 56);
+
 	@media (max-width: $md5) {
-		letter-spacing: em(-0.45, 26);
+		letter-spacing: em(-0.6, 26);
 	}
 }
 
