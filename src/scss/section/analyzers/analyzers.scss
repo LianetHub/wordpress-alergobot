@@ -1,15 +1,8 @@
-// Страница «Анализаторы / Устройства» — Figma: 1:1224 (Desktop), 1:5120 (Mobile)
-
-.page--devices {
-	background: $color-surface-mint;
-}
-
-// ——— Карточки продуктов ———
-.devices-products {
+.category {
 	padding: rem(8) 0 rem(40);
 
 	@media (min-width: $md3) {
-		padding: rem(16) 0 rem(64);
+		padding: rem(52) 0 rem(40);
 	}
 
 	&__grid {
@@ -19,16 +12,22 @@
 
 		@media (min-width: $md3) {
 			grid-template-columns: repeat(2, 1fr);
-			gap: rem(20) rem(20);
+			gap: rem(40) rem(20);
 			align-items: start;
 		}
 	}
-}
 
-.devices-product {
-	display: flex;
-	flex-direction: column;
-	gap: rem(10);
+	&__item {
+		display: flex;
+		flex-direction: column;
+		gap: rem(10);
+
+		&--wide {
+			@media (min-width: $md3) {
+				grid-column: 1;
+			}
+		}
+	}
 
 	&__card {
 		position: relative;
@@ -49,15 +48,7 @@
 	&__content {
 		position: relative;
 		z-index: 1;
-		max-width: 100%;
 
-		@media (max-width: $md3) {
-			max-width: calc(100% - rem(150));
-		}
-
-		@media (min-width: $md3) {
-			max-width: rem(474);
-		}
 	}
 
 	&__title {
@@ -72,37 +63,20 @@
 
 		@media (min-width: $md3) {
 			font-size: rem(18);
-			max-width: rem(610);
+
 		}
 	}
 
-	&__media {
-		position: absolute;
-		right: rem(16);
-		bottom: rem(16);
+	&__footer {
+		position: relative;
+		z-index: 2;
 		display: flex;
-		align-items: center;
-		justify-content: center;
-		width: rem(145);
-		height: rem(128);
-		border: rem(0.5) solid $color-accent;
-		border-radius: rem(10);
-		background: $color-surface-mint;
-		overflow: hidden;
-
-		@media (min-width: $md3) {
-			right: rem(20);
-			bottom: rem(20);
-			width: rem(295);
-			height: rem(261);
-		}
-
-		img {
-			max-width: 90%;
-			max-height: 90%;
-			object-fit: contain;
-		}
+		justify-content: space-between;
+		align-items: flex-end;
+		padding-right: rem(20);
 	}
+
+
 
 	&__actions {
 		display: flex;
@@ -115,6 +89,27 @@
 		}
 	}
 
+	&__media {
+		margin-top: -4rem;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: rem(145);
+		height: rem(128);
+		border: rem(0.5) solid $color-accent;
+		border-radius: rem(10);
+		background: $color-surface-mint;
+		overflow: hidden;
+
+		@media (min-width: $md3) {
+
+			width: rem(295);
+			height: rem(261);
+		}
+
+
+	}
+
 	&__btn {
 		width: 100%;
 		min-height: rem(44);
@@ -123,32 +118,53 @@
 			min-height: $btn-height;
 		}
 	}
-
-	&--wide {
-		@media (min-width: $md3) {
-			grid-column: 1;
-		}
-	}
 }
 
-// ——— Как работают ———
+
 .devices-work {
 	padding: rem(40) 0;
 
 	@media (min-width: $md3) {
-		padding: rem(64) 0 rem(80);
+		padding: rem(64) 0 rem(40);
 	}
 
 	&__head {
 		display: flex;
-		flex-direction: column;
+		flex-direction: column-reverse;
 		gap: rem(20);
+		align-items: flex-start;
 
 		@media (min-width: $md3) {
-			display: grid;
-			grid-template-columns: 1fr minmax(0, rem(650));
+			flex-direction: row;
+			justify-content: space-between;
 			gap: rem(40);
-			align-items: start;
+
+		}
+	}
+
+
+	&__tag {
+		flex-shrink: 0;
+
+		@media (min-width:$md3) {
+			margin-top: 0.5rem;
+		}
+	}
+
+	&__title {
+		max-width: rem(653);
+	}
+
+	&__body {
+		margin-top: rem(20);
+		display: grid;
+		gap: 2rem;
+
+		@media (min-width:$md3) {
+			margin-top: rem(0);
+			grid-template-columns: repeat(2, 1fr);
+			align-items: end;
+
 		}
 	}
 
@@ -160,34 +176,6 @@
 		@media (min-width: $md3) {
 			position: relative;
 			padding-top: rem(56);
-		}
-	}
-
-	&__badge {
-		display: inline-flex;
-		align-self: flex-start;
-		padding: rem(6) rem(10);
-		border-radius: $radius-tab;
-		background: $color-accent;
-		color: #fff;
-		font-weight: 500;
-		font-size: rem(14);
-		line-height: 1.2;
-		letter-spacing: -0.02em;
-		text-transform: uppercase;
-
-		@media (min-width: $md3) {
-			position: absolute;
-			top: 0;
-			right: 0;
-			padding: rem(10) rem(16);
-			font-size: rem(20);
-		}
-	}
-
-	&__title {
-		span {
-			display: block;
 		}
 	}
 
@@ -272,31 +260,15 @@
 
 // ——— Преимущества ———
 .devices-benefits {
-	position: relative;
+
 	padding: rem(40) 0 rem(48);
-	overflow: hidden;
+
 
 	@media (min-width: $md3) {
 		padding: rem(56) 0 rem(80);
 	}
 
-	&__decor {
-		position: absolute;
-		left: 50%;
-		bottom: 0;
-		width: min(100%, rem(830));
-		height: rem(206);
-		transform: translateX(-50%);
-		background: url("@img/analyzers/decor-molecules.png") center / contain no-repeat;
-		opacity: 0.35;
-		filter: blur(5px);
-		pointer-events: none;
 
-		@media (min-width: $md3) {
-			height: rem(515);
-			opacity: 0.4;
-		}
-	}
 
 	&__container {
 		position: relative;
@@ -311,7 +283,7 @@
 		margin-bottom: rem(20);
 
 		@media (min-width: $md3) {
-			margin-bottom: rem(28);
+			margin-bottom: rem(40);
 		}
 	}
 
@@ -373,18 +345,13 @@
 
 	&__slider {
 		overflow: visible;
+
+		@media (min-width:$md3) {}
 	}
 
 	&__slide {
 		width: rem(247);
 		height: auto;
-
-		@media (min-width: $md3) {
-			width: auto;
-		}
-	}
-
-	&__card {
 		display: flex;
 		flex-direction: column;
 		gap: rem(10);
@@ -398,7 +365,12 @@
 			min-height: rem(200);
 			padding: rem(20);
 		}
+
+		@media (min-width: $md3) {
+			width: auto;
+		}
 	}
+
 
 	&__card-title {
 		color: $color-primary;
@@ -420,6 +392,7 @@
 		}
 	}
 }
+
 
 // ——— CTA ———
 .devices-cta {

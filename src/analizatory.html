@@ -36,69 +36,50 @@
                     </div>
                 </section>
 
-                <section class="devices-products" id="devices-products">
-                    <div class="devices-products__container _container">
-                        <div class="devices-products__grid">
-                            <article class="devices-product">
-                                <div class="devices-product__card">
-                                    <div class="devices-product__content">
-                                        <h2 class="devices-product__title title title-md">Анализатор иммунологический «Q-SMART»</h2>
-                                        <p class="devices-product__text">Компактное диагностическое оборудование с русифицированным интерфейсом для съёма информации при тестировании аллергии на базе PROTIA. Идентификация одновременно – на 8 компонентах диагностического набора из каталога.</p>
-                                    </div>
-                                    <div class="devices-product__media">
-                                        <img src="@img/analyzers/device-q-smart.png" alt="Анализатор иммунологический Q-SMART" title="Анализатор иммунологический Q-SMART" width="239" height="164" loading="lazy">
-                                    </div>
-                                </div>
-                                <div class="devices-product__actions">
-                                    <a class="btn btn--primary devices-product__btn" href="product.html">подробнее</a>
-                                    <button class="btn btn--secondary devices-product__btn" type="button" data-fancybox data-src="#popup-order">заказать</button>
-                                </div>
-                            </article>
+                <section class="category" id="category">
+                    <div class="category__container _container">
+                        <ul class="category__grid">
+                            @@loop('html/templates/category-item.html', [
+                            {
 
-                            <article class="devices-product">
-                                <div class="devices-product__card">
-                                    <div class="devices-product__content">
-                                        <h2 class="devices-product__title title title-md">Анализатор иммунологический «Q-STATION ELITE»</h2>
-                                        <p class="devices-product__text">Автоматизированное оборудование исследования аллергии для мед учреждений на базе PROTIA, рассчитанный на одновременную идентификацию до 48 объектов.</p>
-                                    </div>
-                                    <div class="devices-product__media">
-                                        <img src="@img/analyzers/device-q-station-elite.png" alt="Анализатор иммунологический Q-STATION ELITE" title="Анализатор иммунологический Q-STATION ELITE" width="239" height="164" loading="lazy">
-                                    </div>
-                                </div>
-                                <div class="devices-product__actions">
-                                    <a class="btn btn--primary devices-product__btn" href="#">подробнее</a>
-                                    <button class="btn btn--secondary devices-product__btn" type="button" data-fancybox data-src="#popup-order">заказать</button>
-                                </div>
-                            </article>
+                            "title": "Анализатор иммунологический <span class='text-nowrap'>«Q-SMART»</span>",
+                            "text": "Компактное диагностическое оборудование с русифицированным интерфейсом для съёма информации при тестировании аллергии на базе PROTIA. Идентификация одновременно – на 8 компонентах диагностического набора из каталога.",
+                            "img": "@img/analyzers/device-q-smart.png",
+                            "alt": "Анализатор иммунологический Q-SMART",
+                            "titleAttr": "Анализатор иммунологический Q-SMART",
+                            "href": "product.html"
+                            },
+                            {
 
-                            <article class="devices-product devices-product--wide">
-                                <div class="devices-product__card">
-                                    <div class="devices-product__content">
-                                        <h2 class="devices-product__title title title-md">Устройство автоматизированное «Q-PROCESSOR»</h2>
-                                        <p class="devices-product__text">Диагностический набор из каталога считывает панели PROTIA с использованием иммуноблоттинга, и последующим количественным определением иммуноглобулина IgE в определении аллергии фотометодом.</p>
-                                    </div>
-                                    <div class="devices-product__media">
-                                        <img src="@img/analyzers/device-q-processor.png" alt="Устройство автоматизированное Q-PROCESSOR" title="Устройство автоматизированное Q-PROCESSOR" width="239" height="164" loading="lazy">
-                                    </div>
-                                </div>
-                                <div class="devices-product__actions">
-                                    <a class="btn btn--primary devices-product__btn" href="#">подробнее</a>
-                                    <button class="btn btn--secondary devices-product__btn" type="button" data-fancybox data-src="#popup-order">заказать</button>
-                                </div>
-                            </article>
-                        </div>
+                            "title": "Анализатор иммунологический <span class='text-nowrap'>«Q-STATION ELITE»</span>",
+                            "text": "Автоматизированное оборудование исследования аллергии для мед учреждений на базе PROTIA, рассчитанный на одновременную идентификацию до 48 объектов.",
+                            "img": "@img/analyzers/device-q-processor.png",
+                            "alt": "Анализатор иммунологический Q-STATION ELITE",
+                            "titleAttr": "Анализатор иммунологический Q-STATION ELITE",
+                            "href": "#"
+                            },
+                            {
+
+                            "title": "Устройство автоматизированное <span class='text-nowrap'>«Q-PROCESSOR»</span>",
+                            "text": "Диагностический набор из каталога считывает панели PROTIA с использованием иммуноблоттинга, и последующим количественным определением иммуноглобулина IgE в определении аллергии фотометодом.",
+                            "img": "@img/analyzers/device-q-station-elite.png",
+                            "alt": "Устройство автоматизированное Q-PROCESSOR",
+                            "titleAttr": "Устройство автоматизированное Q-PROCESSOR",
+                            "href": "#"
+                            }
+                            ])
+                        </ul>
                     </div>
                 </section>
 
                 <section class="devices-work">
                     <div class="devices-work__container _container">
                         <div class="devices-work__head">
+                            <h2 class="devices-work__title title title-md">Как работают анализаторы и&nbsp;устройства</h2>
+                            <span class="tag devices-work__tag">работа с оборудованием</span>
+                        </div>
+                        <div class="devices-work__body">
                             <div class="devices-work__intro">
-                                <span class="devices-work__badge">работа с оборудованием</span>
-                                <h2 class="devices-work__title title title-md">
-                                    <span>Как работают анализаторы</span>
-                                    <span>и устройства</span>
-                                </h2>
                                 <div class="devices-work__text" data-devices-work-text>
                                     <p>Диагностическое оборудование используется для лабораторных аллергопроб с применением специализированных реагентов. Автоматизированные устройства из диагностических наборов помогают выстроить понятный и последовательный процесс исследования аллергии: от подготовки панели и прохождения этапов обработки до считывания результатов диагностики аллергии, и дальнейшей интерпретации данных специалистом.</p>
                                     <p>Решения важны лабораториям для стабилизации тестов, удобства работы персонала, минимизации ручных операций. Позволят организовать диагностику более точно и в едином алгоритме.</p>
@@ -118,7 +99,6 @@
                 </section>
 
                 <section class="devices-benefits">
-                    <div class="devices-benefits__decor" aria-hidden="true"></div>
                     <div class="devices-benefits__container _container">
                         <div class="devices-benefits__head">
                             <h2 class="devices-benefits__title title title-md">Почему это важно для лаборатории</h2>
@@ -127,26 +107,34 @@
                                 <button class="devices-benefits__arrow devices-benefits__arrow--next" type="button" aria-label="Вперёд"></button>
                             </div>
                         </div>
-                        <div class="swiper devices-benefits__slider">
+                        <div class=" devices-benefits__slider swiper">
                             <div class="swiper-wrapper">
-                                <div class="swiper-slide devices-benefits__slide">
-                                    <article class="devices-benefits__card">
-                                        <h3 class="devices-benefits__card-title">Стабильность аллергодиагностики</h3>
-                                        <p class="devices-benefits__card-text">Диагностическое оборудование из каталога помогает выстроить более последовательную и понятную схему проведения исследований.</p>
-                                    </article>
-                                </div>
-                                <div class="swiper-slide devices-benefits__slide">
-                                    <article class="devices-benefits__card">
-                                        <h3 class="devices-benefits__card-title">Минимирируется ручной труд</h3>
-                                        <p class="devices-benefits__card-text">Автоматизация отдельных этапов работы уменьшает нагрузку на персонал и делает лабораторный процесс более удобным.</p>
-                                    </article>
-                                </div>
-                                <div class="swiper-slide devices-benefits__slide">
-                                    <article class="devices-benefits__card">
-                                        <h3 class="devices-benefits__card-title">Удобство в ежедневной работе</h3>
-                                        <p class="devices-benefits__card-text">Анализаторы и устройства упрощают выполнение рутинных задач, помогают специалистам быстрее работать с панелями и результатами.</p>
-                                    </article>
-                                </div>
+                                @@loop('html/templates/devices-benefits-slide.html', [
+                                {
+                                "title": "Стабильность аллергодиагностики",
+                                "text": "Диагностическое оборудование из каталога помогает выстроить более последовательную и понятную схему проведения исследований."
+                                },
+                                {
+                                "title": "Минимирируется ручной труд",
+                                "text": "Автоматизация отдельных этапов работы уменьшает нагрузку на персонал и делает лабораторный процесс более удобным."
+                                },
+                                {
+                                "title": "Удобство в ежедневной работе",
+                                "text": "Анализаторы и устройства упрощают выполнение рутинных задач, помогают специалистам быстрее работать с панелями и результатами."
+                                },
+                                {
+                                "title": "Стабильность аллергодиагностики",
+                                "text": "Диагностическое оборудование из каталога помогает выстроить более последовательную и понятную схему проведения исследований."
+                                },
+                                {
+                                "title": "Минимирируется ручной труд",
+                                "text": "Автоматизация отдельных этапов работы уменьшает нагрузку на персонал и делает лабораторный процесс более удобным."
+                                },
+                                {
+                                "title": "Удобство в ежедневной работе",
+                                "text": "Анализаторы и устройства упрощают выполнение рутинных задач, помогают специалистам быстрее работать с панелями и результатами."
+                                }
+                                ])
                             </div>
                         </div>
                     </div>
@@ -156,9 +144,9 @@
                     <div class="devices-cta__container _container">
                         <div class="devices-cta__grid">
                             <div class="devices-cta__box devices-cta__box--form">
-                                <h2 class="devices-cta__title title title-md">Сформируйте запрос, и наши сотрудники вас проконсультируют</h2>
+                                <h2 class="devices-cta__title title title-md title--light">Сформируйте запрос, и&nbsp;наши сотрудники вас проконсультируют</h2>
                                 <p class="devices-cta__text">Если вам нужно подобрать диагностическое оборудование для тестирования пищевой аллергии и других её видов в клинике, оставьте заявку на сайте. Мы поможем выбрать подходящий диагностический набор, расскажем о различиях между решениями и направим презентацию, прайс и дополнительные описания продукции.</p>
-                                <a class="btn btn--white devices-cta__btn" href="katalog.html#catalog-request">
+                                <a class="btn btn--white devices-cta__btn" data-fancybox href="#popup-consultation">
                                     задать вопрос
                                     <svg class="btn__icon" width="28" height="28" aria-hidden="true">
                                         <use href="@img/icons.svg#icon-arrow-up-right"></use>

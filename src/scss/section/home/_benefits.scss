@@ -37,7 +37,7 @@
 
 		@media (min-width: $md3) {
 			display: grid;
-			grid-template-columns: 2fr 1fr;
+			grid-template-columns: repeat(3, 1fr);
 			gap: rem(10);
 
 		}
@@ -52,6 +52,7 @@
 		@media (min-width: $md3) {
 			display: grid;
 			grid-template-columns: repeat(2, 1fr);
+			grid-column: span 2;
 			gap: rem(20);
 		}
 	}
@@ -82,6 +83,12 @@
 		@media (min-width: $md3) {
 			font-size: rem(18);
 			max-width: rem(392);
+		}
+
+		& p {
+			&:not(:last-child) {
+				margin-bottom: 1em;
+			}
 		}
 	}
 

@@ -273,4 +273,45 @@
 			min-height: $btn-height;
 		}
 	}
+
+	&--related {
+		margin-top: rem(32);
+		margin-bottom: rem(48);
+
+		@media (min-width: $md3) {
+			margin-top: rem(48);
+			margin-bottom: rem(72);
+		}
+
+		.choose__tag,
+		.choose__lead,
+		.choose__note,
+		.choose__btn {
+			display: none;
+		}
+
+		.choose__head {
+			margin-bottom: rem(24);
+
+			@media (min-width: $md3) {
+				margin-bottom: rem(48);
+			}
+		}
+
+		.choose__head-main {
+			max-width: none;
+		}
+
+		.choose__footer {
+			justify-content: center;
+
+			@media (min-width: $md4) {
+				justify-content: flex-end;
+			}
+		}
+
+		.choose__nav {
+			order: 0;
+		}
+	}
 }
