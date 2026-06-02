@@ -407,4 +407,4 @@ function initDevicesBenefitsSwiper() {
 	});
 }
 
-// Fancybox.show([{ src: "#popup-presentation", type: "inline" }]);
+Fancybox.show([{ src: "#popup-partners", type: "inline" }]);

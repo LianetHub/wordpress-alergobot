@@ -262,21 +262,17 @@ $popup-gradient: linear-gradient(61deg, $color-primary 0%, $color-accent 99.68%)
 	}
 
 	&__partners {
-		display: grid;
-		grid-template-columns: repeat(2, 1fr);
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		align-items: center;
 		gap: rem(10);
 		width: 100%;
-
-		@media (min-width: $md4) {
-			grid-template-columns: repeat(3, 1fr);
-		}
-
-		@media (min-width: $md3) {
-			grid-template-columns: repeat(5, 1fr);
-		}
 	}
 
 	&__partner {
+		flex: 0 1 calc((100% - rem(10)) / 2);
+		min-width: 0;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
@@ -290,6 +286,14 @@ $popup-gradient: linear-gradient(61deg, $color-primary 0%, $color-accent 99.68%)
 		backdrop-filter: blur(10px);
 		text-decoration: none;
 		transition: box-shadow 0.25s ease;
+
+		@media (min-width: $md4) {
+			flex-basis: calc((100% - rem(20)) / 3);
+		}
+
+		@media (min-width: $md3) {
+			flex-basis: calc((100% - rem(40)) / 5);
+		}
 
 		@media (any-hover: hover) {
 			&:hover {
@@ -372,16 +376,19 @@ $popup-gradient: linear-gradient(61deg, $color-primary 0%, $color-accent 99.68%)
 				order: 1;
 			}
 		}
+
+
 	}
 
 	// Партнёры
 	&--partners {
 		max-width: rem(873);
 
-		.popup-modal__lead br {
-			@media (max-width: ($md5 - 1px)) {
-				display: none;
-			}
+		text-align: center;
+
+		.popup-modal__lead {
+			max-width: rem(500);
+			margin-inline: auto;
 		}
 	}
 
