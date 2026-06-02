@@ -2,34 +2,25 @@
     <!-- Консультация -->
     <div id="popup-consultation" class="popup-modal popup-modal--consult">
         <div class="popup-modal__inner">
-            <button type="button" class="popup-modal__close" data-fancybox-close aria-label="Закрыть">
-                <svg class="icon" width="16" height="16" aria-hidden="true">
-                    <use href="@img/icons.svg#icon-close"></use>
-                </svg>
-            </button>
-            <div class="popup-modal__decor popup-modal__decor--molecules" aria-hidden="true">
-                <img src="@img/popup/molecules.png" alt="" width="304" height="226" loading="lazy">
-                <img src="@img/popup/molecules.png" alt="" width="284" height="226" loading="lazy">
-            </div>
+            <h2 class="popup-modal__title title title-popup">Свяжитесь с нами для консультации</h2>
+            <p class="popup-modal__lead">Наш специалист ответит на любые ваши вопросы и поможет сделать выбор</p>
             <div class="popup-modal__content popup-modal__content--center">
-                <h2 class="popup-modal__title title title-popup">Свяжитесь с нами для консультации</h2>
-                <p class="popup-modal__lead">Наш специалист ответит на любые ваши вопросы и поможет сделать выбор</p>
                 <form class="popup-modal__form" action="#" method="post" data-popup-form>
                     @@include('_popup-form.html', {})
                     <button class="popup-modal__submit" type="submit">Отправить заявку</button>
                 </form>
             </div>
+            <button type="button" class="popup-modal__close" data-fancybox-close aria-label="Закрыть">
+                <svg class="icon" width="16" height="16" aria-hidden="true">
+                    <use href="@img/icons.svg#icon-close"></use>
+                </svg>
+            </button>
         </div>
     </div>
 
     <!-- Заказ -->
     <div id="popup-order" class="popup-modal popup-modal--order">
         <div class="popup-modal__inner">
-            <button type="button" class="popup-modal__close" data-fancybox-close aria-label="Закрыть">
-                <svg class="icon" width="16" height="16" aria-hidden="true">
-                    <use href="@img/icons.svg#icon-close"></use>
-                </svg>
-            </button>
             <div class="popup-modal__decor popup-modal__decor--union" aria-hidden="true"></div>
             <div class="popup-modal__layout">
                 <div class="popup-modal__content">
@@ -49,6 +40,11 @@
                     </div>
                 </div>
             </div>
+            <button type="button" class="popup-modal__close" data-fancybox-close aria-label="Закрыть">
+                <svg class="icon" width="16" height="16" aria-hidden="true">
+                    <use href="@img/icons.svg#icon-close"></use>
+                </svg>
+            </button>
         </div>
     </div>
 
@@ -63,14 +59,7 @@
             <div class="popup-modal__decor popup-modal__decor--union" aria-hidden="true"></div>
             <div class="popup-modal__layout popup-modal__layout--reverse">
                 <div class="popup-modal__media">
-                    <img
-                        src="@img/popup/presentation.png"
-                        alt="Презентация каталога BIO FOCUS"
-                        title="Презентация каталога BIO FOCUS"
-                        width="327"
-                        height="372"
-                        loading="lazy"
-                    >
+                    <img src="@img/popup/presentation.png" alt="Презентация каталога BIO FOCUS" title="Презентация каталога BIO FOCUS" width="327" height="372" loading="lazy">
                 </div>
                 <div class="popup-modal__content">
                     <h2 class="popup-modal__title title title-popup">

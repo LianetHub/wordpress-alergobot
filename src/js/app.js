@@ -406,3 +406,5 @@ function initDevicesBenefitsSwiper() {
 		},
 	});
 }
+
+Fancybox.show([{ src: "#popup-consultation", type: "inline" }]);

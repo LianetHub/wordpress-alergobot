@@ -41,6 +41,7 @@
 		line-height: 1.3;
 		letter-spacing: -0.02em;
 		@include adaptive-font(10, 12);
+		text-align: left;
 
 		& a {
 			text-decoration: underline;
