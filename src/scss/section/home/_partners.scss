@@ -7,16 +7,17 @@
 
 	&__head {
 		display: flex;
-		flex-direction: column;
-		gap: rem(20);
-		margin-bottom: rem(20);
+		align-items: flex-start;
+		flex-direction: column-reverse;
+		gap: rem(10);
+		margin-bottom: rem(12);
 
 		@media (min-width: $md3) {
 			flex-direction: row;
-			align-items: flex-start;
 			justify-content: space-between;
 			gap: rem(20) rem(32);
 			margin-bottom: rem(28);
+			gap: rem(20);
 		}
 	}
 
@@ -24,9 +25,15 @@
 
 	&__desc {
 		display: flex;
-		justify-content: space-between;
-		align-items: flex-start;
-		gap: rem(20);
+		gap: rem(10);
+		flex-direction: column;
+
+		@media (min-width:$md3) {
+			gap: rem(20);
+			flex-direction: row;
+			justify-content: space-between;
+			align-items: flex-start;
+		}
 	}
 
 	&__tag {
@@ -64,26 +71,21 @@
 	}
 
 	&__slider {
-		margin-top: 2rem;
 		overflow: visible;
-	}
+		margin-top: 1.125rem;
 
-	&__grid.swiper-wrapper {
-		@media (min-width: $md3) {
-			display: grid;
-			grid-template-columns: repeat(5, 1fr);
-			gap: rem(20);
-			transform: none !important;
+		@media (min-width:$md4) {
+			margin-top: 2rem;
+
 		}
+
 	}
 
-	&__slide.swiper-slide {
-		width: rem(196);
-		height: auto;
+	&__grid {}
 
-		@media (min-width: $md3) {
-			width: auto !important;
-			margin: 0 !important;
+	&__slide {
+		@media (max-width:$md4) {
+			width: rem(196);
 		}
 	}
 

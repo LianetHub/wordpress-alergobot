@@ -221,12 +221,10 @@ function initHomeSwipers() {
 		new Swiper(chooseEl, {
 			slidesPerView: 1,
 			spaceBetween: 10,
-			// autoHeight: true,
 			breakpoints: {
 				991: {
 					slidesPerView: 2,
 					spaceBetween: 20,
-					// autoHeight: false,
 				},
 			},
 			navigation: {
@@ -253,10 +251,19 @@ function initHomeSwipers() {
 	if (partnersEl) {
 		new Swiper(partnersEl, {
 			slidesPerView: "auto",
-			spaceBetween: 10,
+			spaceBetween: 12,
 			breakpoints: {
-				991: {
-					enabled: false,
+				575.98: {
+					slidesPerView: 3,
+					spaceBetween: 12,
+				},
+				991.98: {
+					slidesPerView: 4,
+					spaceBetween: 16,
+				},
+				1199.98: {
+					slidesPerView: 5,
+					spaceBetween: 20,
 				},
 			},
 		});
