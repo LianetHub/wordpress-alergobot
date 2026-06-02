@@ -2,61 +2,15 @@
     <div class="faq__container _container">
         <div class="faq__head">
             <span class="faq__tag tag">FAQ</span>
-            <h2 class="faq__title title-md">Ответы на популярные вопросы</h2>
+            <h2 class="faq__title title-md">@@faqTitle</h2>
         </div>
 
         <div class="faq__columns accordion" data-accordion>
             <div class="faq__col">
-                @@include('../components/accordion/item.html', {
-                "activeClass": " _active",
-                "expanded": "true",
-                "question": "PROTIA Allergy-Q – что это?",
-                "answer": "Это набор панелей и оборудования, выполняющий диагностику аллергии по большинству аллергенов за один тест, для профильных медицинских организаций."
-                })
-                @@include('../components/accordion/item.html', {
-                "activeClass": "",
-                "expanded": "false",
-                "question": "Что можно выбрать?",
-                "answer": "В линейке — анализаторы PROTIA Allergy-Q, панели аллергенов под разные профили исследований, расходные материалы и комплектующие. Состав подбирается под объём работы лаборатории и перечень нужных аллергенов."
-                })
-                @@include('../components/accordion/item.html', {
-                "activeClass": "",
-                "expanded": "false",
-                "question": "Какие есть документы?",
-                "answer": "Предоставляем регистрационные удостоверения Росздравнадзора, инструкции по применению, паспорта оборудования и сертификаты соответствия. Актуальные файлы в формате PDF доступны в разделе «Документы» на сайте."
-                })
-                @@include('../components/accordion/item.html', {
-                "activeClass": "",
-                "expanded": "false",
-                "question": "Есть ли тест-системы?",
-                "answer": "Да. Это диагностические панели и реагенты для количественного ИФА: готовые наборы под пищевые, респираторные и другие группы аллергенов, совместимые с оборудованием PROTIA Allergy-Q."
-                })
+                @@loop('../components/accordion/item.html', '@@faqCol1')
             </div>
             <div class="faq__col">
-                @@include('../components/accordion/item.html', {
-                "activeClass": "",
-                "expanded": "false",
-                "question": "Кому подойдут продукты?",
-                "answer": "Решения ориентированы на клиники, частные и государственные лаборатории, медицинские и диагностические центры, которые проводят или внедряют аллергологические исследования."
-                })
-                @@include('../components/accordion/item.html', {
-                "activeClass": "",
-                "expanded": "false",
-                "question": "Как подобрать состав для конкретной задачи?",
-                "answer": "Расскажите о типе учреждения, планируемом объёме тестов и перечне аллергенов — менеджер предложит оптимальный набор оборудования и панелей с учётом инфраструктуры и бюджета."
-                })
-                @@include('../components/accordion/item.html', {
-                "activeClass": "",
-                "expanded": "false",
-                "question": "Как ознакомиться с прайсом и презентацией?",
-                "answer": "Заполните форму заявки на главной странице — мы направим актуальный прайс и презентацию по интересующим позициям и свяжемся для уточнения деталей."
-                })
-                @@include('../components/accordion/item.html', {
-                "activeClass": "",
-                "expanded": "false",
-                "question": "Как получить консультацию для выбора?",
-                "answer": "Оставьте заявку через форму на сайте, позвоните или напишите нам — специалист уточнит задачи учреждения и поможет с подбором оборудования и тест-систем."
-                })
+                @@loop('../components/accordion/item.html', '@@faqCol2')
             </div>
         </div>
     </div>

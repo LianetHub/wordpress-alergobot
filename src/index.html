@@ -17,8 +17,13 @@
                 @@include('html/home/docs.html', {})
                 @@include('html/home/request.html', {})
                 @@include('html/home/about.html', {})
+                @@include('html/home/benefits.html', {})
                 @@include('html/home/news.html', {})
-                @@include('html/home/advantages.html', {})
+                @@include('html/home/advantages.html', {
+                "faqTitle": "Ответы на популярные вопросы",
+                "faqCol1": "html/data/faq-home-col1.json",
+                "faqCol2": "html/data/faq-home-col2.json"
+                })
                 @@include('html/home/contacts.html', {})
             </main>
             @@include('html/_footer.html', {})

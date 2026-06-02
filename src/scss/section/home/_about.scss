@@ -35,7 +35,7 @@
 		gap: rem(10);
 
 		@media (min-width: $md3) {
-			gap: rem(10);
+			gap: rem(26);
 
 
 		}
@@ -85,6 +85,7 @@
 		gap: rem(10);
 
 		@media (min-width: $md2) {
+			display: flex;
 			justify-content: flex-start;
 			gap: rem(20);
 			margin-top: rem(39);

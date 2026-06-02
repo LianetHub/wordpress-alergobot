@@ -1,6 +1,7 @@
 "use strict";
 
 import { initYandexMaps } from "./map.js";
+import { initTooltips } from "./tooltip.js";
 
 document.addEventListener("DOMContentLoaded", () => {
 	initBurger();
@@ -8,6 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	initBlogTabs();
 	initProductTabs();
 	initAccordion();
+	initTooltips();
 	initHome();
 	initDevicesPage();
 	initPhoneMask();

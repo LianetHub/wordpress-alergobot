@@ -99,9 +99,11 @@
             stroke-linecap="round" />
     </symbol>
     <symbol id="icon-eye-info" viewBox="0 0 36 36">
-        <path d="M18 8c-6 0-10.5 4.5-12 10 1.5 5.5 6 10 12 10s10.5-4.5 12-10c-1.5-5.5-6-10-12-10z"
-            stroke="currentColor" fill="none" stroke-width="1.5" />
-        <circle cx="18" cy="18" r="4" stroke="currentColor" fill="none" stroke-width="1.5" />
-        <path d="M18 22v4M16 26h4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+        <path
+            d="M15 18C15 18.7956 15.3161 19.5587 15.8787 20.1213C16.4413 20.6839 17.2044 21 18 21C18.7956 21 19.5587 20.6839 20.1213 20.1213C20.6839 19.5587 21 18.7956 21 18C21 17.2044 20.6839 16.4413 20.1213 15.8787C19.5587 15.3161 18.7956 15 18 15C17.2044 15 16.4413 15.3161 15.8787 15.8787C15.3161 16.4413 15 17.2044 15 18Z"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+        <path
+            d="M21.1065 26.646C20.0882 26.8839 19.0457 27.0027 18 27C12.6 27 8.1 24 4.5 18C8.1 12 12.6 9 18 9C23.019 9 27.26 11.591 30.723 16.773M28.5 33V33.015M28.5 28.5C29.1724 28.4979 29.8247 28.2702 30.3525 27.8534C30.8802 27.4367 31.2529 26.8549 31.4108 26.2013C31.5688 25.5477 31.5029 24.8599 31.2237 24.2482C30.9446 23.6364 30.4682 23.136 29.871 22.827C29.2743 22.5213 28.5917 22.4265 27.9342 22.5581C27.2768 22.6896 26.6832 23.0397 26.25 23.5515"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" />
     </symbol>
 </svg>

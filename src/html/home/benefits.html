@@ -1,0 +1,40 @@
+<section class="benefits">
+    <div class="benefits__container _container">
+        <header class="benefits__head">
+            <h2 class="benefits__title title title-md">Преимущества продуктов PROTIA</h2>
+            <span class="benefits__tag tag">бренд PROTIA</span>
+        </header>
+
+        <div class="benefits__body">
+            <div class="benefits__grid">
+                @@loop('../templates/benefits-card.html', [
+                {
+                "num": "1",
+                "title": "Специализация решений",
+                "tooltip": "Продукты PROTIA для лабораторной диагностики направлены на применение в профессиональной медицине."
+                },
+                {
+                "num": "2",
+                "title": "Технологичность",
+                "tooltip": "Технологии ориентированы на количественную аллергодиагностику: панели, оборудование и программное обеспечение работают как единая система."
+                },
+                {
+                "num": "3",
+                "title": "Международное признание",
+                "tooltip": "Продукция PROTIA применяется в лабораториях разных стран и соответствует требованиям международных стандартов диагностики."
+                },
+                {
+                "num": "4",
+                "title": "Запатентованная технология параллельного размещения мембран в панели",
+                "tooltip": "Запатентованный формат панелей с параллельным размещением мембран повышает точность и воспроизводимость результатов тестов."
+                }
+                ])
+            </div>
+
+            <div class="benefits__brand">
+                <img class="benefits__logo" src="@img/logo-color.png" alt="PROTIA" title="PROTIA" width="185" height="52" loading="lazy">
+                <p class="benefits__text">Южнокорейский бренд выпускает технологичное лабораторное оборудование для in vitro diagnostics. Линия бренда – объединить оборудование, панели и диагностическую логику в одну систему.</p>
+            </div>
+        </div>
+    </div>
+</section>
