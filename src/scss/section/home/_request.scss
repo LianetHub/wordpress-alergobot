@@ -8,36 +8,22 @@
 	&__box {
 		position: relative;
 		width: 100%;
-		background: $color-accent;
+		background: url("@img/request-bg.webp") 0 0 / cover no-repeat, $color-accent;
 		color: #fff;
 		overflow: hidden;
-	}
-
-	&__container {
-		position: relative;
-		z-index: 1;
+		border-radius: rem(20);
 		padding-top: rem(24);
 		padding-bottom: rem(24);
 
 		@media (min-width: $md3) {
 			padding-top: rem(40);
 			padding-bottom: rem(40);
-			min-height: rem(610);
+
 		}
 	}
 
-	&__decor {
-		position: absolute;
-		left: 0;
-		bottom: 0;
-		width: min(45%, rem(645));
-		height: rem(353);
-		background: url("@img/home/request-decor.png") left bottom / contain no-repeat;
-		opacity: 0.5;
-		mix-blend-mode: luminosity;
-		filter: blur(5px);
-		pointer-events: none;
-	}
+	&__container {}
+
 
 	&__grid {
 		display: grid;
@@ -45,7 +31,7 @@
 		gap: rem(24);
 
 		@media (min-width: $md3) {
-			grid-template-columns: 1fr minmax(0, rem(650));
+			grid-template-columns: 1fr rem(650);
 			column-gap: rem(21);
 			align-items: stretch;
 			min-height: rem(530);
