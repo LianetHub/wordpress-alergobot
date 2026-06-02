@@ -1,21 +1,31 @@
 <section class="partners">
     <div class="partners__container _container">
         <div class="partners__head">
-            <div class="partners__intro">
-                <button class="partners__tag" type="button" data-fancybox data-src="#popup-partners">лаборатории партнеры</button>
-                <h2 class="partners__title title title-md">Решения PROTIA применяются в профессиональной лабораторной практике</h2>
-                <p class="partners__text text-lead">Работа оборудования для лабораторной диагностики аллергии, использующая принцип ИФА и технологию иммуноблоттинга, ускоряет и расширяет анализ тестов. Оборудование и решения для диагностики аллергии из каталога предназначены профессиональным медицинским и лабораторным организациям. Купить их стремятся системно работающие компании, с повышенными запросами на качественную диагностику и надёжные поставки оборудования для тестов. Среди постоянных ведущих клиентов:</p>
+            <h2 class="partners__title title title-md">Решения PROTIA применяются в профессиональной лабораторной практике</h2>
+            <span class="partners__tag tag">лаборатории партнеры</span>
+        </div>
+        <div class="partners__desc">
+            <div class="partners__text text-lead">
+                <p>
+                    Работа оборудования для лабораторной диагностики аллергии, использующая принцип ИФА и технологию иммуноблоттинга, ускоряет и расширяет анализ тестов.
+                </p>
+                <p>
+                    Оборудование и решения для диагностики аллергии из каталога предназначены профессиональным медицинским и лабораторным организациям.
+                </p>
+                <p>
+                    Купить их стремятся системно работающие компании, с повышенными запросами на качественную диагностику и надёжные поставки оборудования для тестов. Среди постоянных ведущих клиентов:
+                </p>
             </div>
             <p class="partners__note">Наше оборудование используется лабораториями, диагностическими центрами, клиниками с инновационным подходом к тестам в диагностике аллергии.</p>
         </div>
-        <div class="swiper partners__slider">
+        <div class="partners__slider swiper">
             <div class="swiper-wrapper partners__grid">
                 @@loop('../templates/home-partners-card.html', [
                 {
                 "href": "#",
                 "label": "ИНВИТРО",
-                "wrapClass": "partners__logo-wrap partners__logo-wrap--invitro",
-                "img": "@img/home/partner-invito.png",
+                "wrapClass": "partners__logo-wrap",
+                "img": "@img/partners/partner-invito.png",
                 "width": "151",
                 "height": "43"
                 },
@@ -23,23 +33,23 @@
                 "href": "#",
                 "label": "ГЕМОТЕСТ",
                 "wrapClass": "partners__logo-wrap",
-                "img": "@img/home/partner-gemotest.png",
+                "img": "@img/partners/partner-gemotest.png",
                 "width": "151",
                 "height": "67"
                 },
                 {
                 "href": "#",
                 "label": "HELIX",
-                "wrapClass": "partners__logo-wrap partners__logo-wrap--helix",
-                "img": "@img/home/partner-helix.png",
+                "wrapClass": "partners__logo-wrap",
+                "img": "@img/partners/partner-helix.png",
                 "width": "126",
                 "height": "52"
                 },
                 {
                 "href": "#",
                 "label": "KDL",
-                "wrapClass": "partners__logo-wrap partners__logo-wrap--kdl",
-                "img": "@img/home/partner-kdl.png",
+                "wrapClass": "partners__logo-wrap",
+                "img": "@img/partners/partner-kdl.png",
                 "width": "118",
                 "height": "67"
                 },
@@ -47,7 +57,7 @@
                 "href": "#",
                 "label": "ABC медицина",
                 "wrapClass": "partners__logo-wrap",
-                "img": "@img/home/partner-abc.png",
+                "img": "@img/partners/partner-abc.png",
                 "width": "152",
                 "height": "67"
                 }

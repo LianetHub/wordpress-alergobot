@@ -2,7 +2,7 @@
 	padding: rem(40) 0;
 
 	@media (min-width: $md3) {
-		padding: rem(48) 0;
+		padding: rem(52) 0;
 	}
 
 	&__head {
@@ -12,73 +12,35 @@
 		margin-bottom: rem(20);
 
 		@media (min-width: $md3) {
-			display: grid;
-			grid-template-columns: 1fr minmax(0, rem(650));
-			grid-template-areas:
-				"title tag"
-				"text note";
+			flex-direction: row;
+			align-items: flex-start;
+			justify-content: space-between;
 			gap: rem(20) rem(32);
-			align-items: start;
 			margin-bottom: rem(28);
 		}
 	}
 
-	&__intro {
-		display: flex;
-		flex-direction: column;
-		gap: rem(10);
 
-		@media (min-width: $md3) {
-			display: contents;
-		}
+
+	&__desc {
+		display: flex;
+		justify-content: space-between;
+		align-items: flex-start;
+		gap: rem(20);
 	}
 
 	&__tag {
-		display: inline-flex;
-		align-items: center;
-		justify-content: center;
-		align-self: flex-start;
-		height: auto;
-		padding: rem(6) rem(10);
-		border: 0;
-		border-radius: $radius-tab;
-		background: $color-accent;
-		color: #fff;
-		font-family: $font-family;
-		font-size: rem(14);
-		font-weight: 500;
-		line-height: 1.2;
-		letter-spacing: -0.02em;
-		text-transform: uppercase;
-		white-space: nowrap;
-		cursor: pointer;
-		transition: opacity 0.2s ease;
-
-		@media (min-width: $md3) {
-			grid-area: tag;
-			justify-self: end;
-			height: rem(40);
-			padding: rem(10) rem(16);
-			font-size: rem(20);
-		}
-
-		@media (any-hover: hover) {
-			&:hover {
-				opacity: 0.85;
-			}
-		}
+		margin-top: 1rem;
 	}
 
 	&__title {
 		@media (min-width: $md3) {
-			grid-area: title;
 			max-width: rem(708);
 		}
 	}
 
 	&__text {
-		font-family: "Manrope", $font-family;
-		font-weight: 400;
+
 
 		@media (min-width: $md3) {
 			grid-area: text;
@@ -87,7 +49,6 @@
 	}
 
 	&__note {
-
 		color: $color-primary;
 		font-weight: 500;
 		font-style: italic;
@@ -96,13 +57,14 @@
 		@include adaptive-font(18, 24);
 
 		@media (min-width: $md3) {
-			grid-area: note;
+
 
 			max-width: rem(650);
 		}
 	}
 
 	&__slider {
+		margin-top: 2rem;
 		overflow: visible;
 	}
 
@@ -167,28 +129,6 @@
 			max-width: rem(151);
 		}
 
-		&--invitro {
-			@media (min-width: $md3) {
-				align-items: center;
-			}
-		}
-
-		&--helix {
-			justify-content: center;
-
-			@media (min-width: $md3) {
-				justify-content: flex-start;
-			}
-		}
-
-		&--kdl {
-			justify-content: center;
-
-			@media (min-width: $md3) {
-				justify-content: flex-start;
-				padding-left: rem(17);
-			}
-		}
 	}
 
 	&__logo {
