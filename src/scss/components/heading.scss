@@ -7,7 +7,12 @@
 	}
 
 	&.heading--catalog {
-		padding-bottom: rem(88);
+		padding-bottom: rem(20);
+
+		@media (min-width:$md3) {
+			padding-bottom: rem(88);
+
+		}
 	}
 
 	&.heading--devices {
