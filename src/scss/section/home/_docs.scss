@@ -1,5 +1,5 @@
 .docs {
-	padding: rem(40) 0;
+	padding: rem(24) 0;
 
 	@media (min-width: $md3) {
 		padding: rem(48) 0;
@@ -71,7 +71,7 @@
 		border-radius: 50%;
 		background: $color-accent;
 		cursor: pointer;
-		transition: background 0.2s ease, opacity 0.2s ease;
+		transition: background-color 0.2s ease, opacity 0.2s ease;
 
 		&-icon {
 			display: block;
@@ -97,15 +97,18 @@
 	}
 
 	&__slider {
-		overflow: hidden;
+		overflow: visible;
 	}
 
-	&__slide.swiper-slide {
-		width: rem(257);
-		height: auto;
+	&__slide {
+		&.swiper-slide {
+			height: auto;
+			width: rem(257);
 
-		@media (min-width: $md3) {
-			width: rem(315);
+
+			@media (min-width: $md1) {
+				width: rem(315);
+			}
 		}
 	}
 
@@ -128,22 +131,25 @@
 
 	&__media {
 		flex-shrink: 0;
+		width: rem(225);
+		aspect-ratio: 225 / 322;
+		border-radius: rem(6);
+		overflow: hidden;
+		background: #fff;
+
+		@media (min-width: $md1) {
+			width: rem(276);
+			aspect-ratio: 276 / 395;
+			border-radius: rem(10);
+		}
 	}
 
 	&__img {
 		display: block;
-		width: rem(225);
-		height: rem(322);
-		border-radius: rem(6);
+		width: 100%;
+		height: 100%;
 		object-fit: contain;
 		object-position: center top;
-		background: #fff;
-
-		@media (min-width: $md3) {
-			width: rem(276);
-			height: rem(395);
-			border-radius: rem(10);
-		}
 	}
 
 	&__caption {
