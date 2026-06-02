@@ -105,42 +105,42 @@
                             <aside class="article__aside blog-recent" aria-labelledby="article-popular-title">
                                 <h2 class="blog-recent__heading" id="article-popular-title">Популярные статьи</h2>
                                 <ul class="blog-recent__list">
-                                    @@include('html/_blog-recent.html', {
+                                    @@include('html/templates/blog-recent-item.html', {
                                     "href": "statya.html",
                                     "img": "img/article/lab.jpg",
                                     "title": "Основные отличия аллергического насморка от простудного",
                                     "date": "11 апреля 2026",
                                     "datetime": "2026-04-11"
                                     })
-                                    @@include('html/_blog-recent.html', {
+                                    @@include('html/templates/blog-recent-item.html', {
                                     "href": "#",
                                     "img": "img/article/lab.jpg",
                                     "title": "Как добиться длительной ремиссии при аллергии...",
                                     "date": "8 апреля 2026",
                                     "datetime": "2026-04-08"
                                     })
-                                    @@include('html/_blog-recent.html', {
+                                    @@include('html/templates/blog-recent-item.html', {
                                     "href": "#",
                                     "img": "img/article/lab.jpg",
                                     "title": "Причины и симптомы аллергического ринита...",
                                     "date": "14 апреля 2026",
                                     "datetime": "2026-04-14"
                                     })
-                                    @@include('html/_blog-recent.html', {
+                                    @@include('html/templates/blog-recent-item.html', {
                                     "href": "#",
                                     "img": "img/article/lab.jpg",
                                     "title": "Все, что нужно знать про бронхиальную астму: опасность недуга, причины...",
                                     "date": "16 апреля 2026",
                                     "datetime": "2026-04-16"
                                     })
-                                    @@include('html/_blog-recent.html', {
+                                    @@include('html/templates/blog-recent-item.html', {
                                     "href": "statya.html",
                                     "img": "img/article/lab.jpg",
                                     "title": "Основные отличия аллергического насморка от простудного",
                                     "date": "11 апреля 2026",
                                     "datetime": "2026-04-11"
                                     })
-                                    @@include('html/_blog-recent.html', {
+                                    @@include('html/templates/blog-recent-item.html', {
                                     "href": "#",
                                     "img": "img/article/lab.jpg",
                                     "title": "Как добиться длительной ремиссии при аллергии...",
@@ -156,33 +156,35 @@
                         <div class="article-more__container _container">
                             <h2 class="article-more__title title title-md title--brand">Вас может заинтересовать</h2>
                             <div class="article-more__grid">
-                                @@include('html/_article-related.html', {
-                                "modifier": "",
+                                @@loop('html/templates/news-card.html', [
+                                {
                                 "href": "#",
-                                "img": "img/article/related.jpg",
+                                "img": "@img/article/related.jpg",
+                                "alt": "Lorem ipsum dolor sit amet consectetur adipiscing elit",
                                 "date": "09.04.2026",
                                 "datetime": "2026-04-09",
                                 "title": "Lorem ipsum dolor sit amet consectetur adipiscing elit",
                                 "excerpt": "Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat."
-                                })
-                                @@include('html/_article-related.html', {
-                                "modifier": "",
+                                },
+                                {
                                 "href": "#",
-                                "img": "img/article/related.jpg",
+                                "img": "@img/article/related.jpg",
+                                "alt": "Lorem ipsum dolor sit amet consectetur adipiscing elit",
                                 "date": "09.04.2026",
                                 "datetime": "2026-04-09",
                                 "title": "Lorem ipsum dolor sit amet consectetur adipiscing elit",
                                 "excerpt": "Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat."
-                                })
-                                @@include('html/_article-related.html', {
-                                "modifier": " article-related--extra",
+                                },
+                                {
                                 "href": "#",
-                                "img": "img/article/related.jpg",
+                                "img": "@img/article/related.jpg",
+                                "alt": "Lorem ipsum dolor sit amet consectetur adipiscing elit",
                                 "date": "09.04.2026",
                                 "datetime": "2026-04-09",
                                 "title": "Lorem ipsum dolor sit amet consectetur adipiscing elit",
                                 "excerpt": "Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat."
-                                })
+                                }
+                                ])
                             </div>
                         </div>
                     </section>

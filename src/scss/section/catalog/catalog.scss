@@ -15,372 +15,77 @@
 	}
 }
 
-$catalog-overlap: 1400px;
-
-
 .catalog {
-	position: relative;
-	padding: 0 0 rem(24);
+	padding: 1.875rem 0;
 
-	&--reagents {
-		padding-top: rem(24);
-
-		@media (min-width: $md3) {
-			padding-top: rem(100);
-		}
-	}
-
+	// .catalog__container
 	&__container {
-		position: relative;
-	}
-
-
-	&__layout {
-		position: relative;
-		z-index: 1;
 		display: flex;
-		flex-direction: column;
-		gap: rem(10);
-
-		@media (min-width: $md3) {
-			display: grid;
-			grid-template-columns: 1fr;
-			grid-template-rows: auto auto auto;
-			row-gap: rem(20);
-			align-items: start;
-			padding-top: rem(30);
-		}
-
-		@media (min-width: $catalog-overlap) {
-			grid-template-columns: repeat(2, 1fr);
-			grid-template-rows: auto auto;
-			column-gap: 0;
-		}
 	}
 
-	&__badge {
-		display: inline-flex;
-		align-items: center;
-		justify-content: center;
-		align-self: flex-start;
-		padding: rem(6) rem(10);
-		border-radius: $radius-tab;
-		background: $color-accent;
-		color: #fff;
-		font-family: $font-inter;
-		font-weight: 500;
-		font-size: rem(14);
-		line-height: 1.2;
-		letter-spacing: -0.02em;
-		text-transform: uppercase;
-		white-space: nowrap;
-
-		@media (min-width: $md3) {
-			grid-row: 1;
-			z-index: 3;
-			padding: rem(10) rem(16);
-			font-size: rem(20);
-		}
-
-		&--devices {
-			@media (min-width: $md3) {
-				grid-column: 1;
-				justify-self: start;
-			}
-
-			@media (min-width: $catalog-overlap) {
-				grid-column: 2;
-				justify-self: end;
-			}
-		}
-
-		&--reagents {
-			@media (min-width: $md3) {
-				grid-column: 1;
-				justify-self: start;
-			}
-		}
+	// .catalog__main
+	&__main {
+		border-radius: 0.625rem;
+		background: #DEF3F9;
+		padding: 2.5rem 15.5rem 2.5rem 2.5rem;
+		flex: 1 1 auto;
 	}
 
-	&__card {
-		position: relative;
-		display: flex;
-		flex-direction: column;
-		gap: rem(10);
-		padding: rem(16);
-		border-radius: rem(10);
-		background: $color-surface-tab;
-		min-height: rem(357);
-		overflow: hidden;
-
-		@media (min-width: $md3) {
-			grid-column: 1;
-			grid-row: 2;
-			width: 100%;
-			min-height: rem(425);
-			padding: rem(40);
-			gap: rem(20);
-			overflow: visible;
-		}
-
-		.catalog--reagents & {
-			@media (min-width: $catalog-overlap) {
-				grid-column: 2;
-				align-items: flex-end;
-				padding: rem(40) rem(150) rem(40) rem(40);
-			}
-		}
-	}
-
+	// .catalog__info
 	&__info {
+		max-width: 26.5rem;
 		display: flex;
 		flex-direction: column;
 		gap: rem(10);
-		position: relative;
-		z-index: 2;
-
-		@media (min-width: $md3) {
-			max-width: rem(428);
-		}
-
-		.catalog--reagents & {
-			@media (min-width: $md3) {
-				width: 100%;
-				max-width: rem(428);
-			}
-
-			@media (min-width: $catalog-overlap) {
-				margin-left: auto;
-			}
-		}
 	}
 
-	&__text {
-		line-height: 1.3;
-		font-size: rem(14);
+	// .catalog__title
+	&__title {}
 
-		@media (min-width: $md3) {
-			font-size: rem(18);
-		}
-	}
+	// .catalog__text
+	&__text {}
 
+	// .catalog__btn
 	&__btn {
-		width: 100%;
-		margin-top: rem(4);
-
-		@media (min-width: $md3) {
-			max-width: rem(426);
-			margin-top: rem(10);
-		}
-
-		.catalog--reagents & {
-			@media (min-width: $catalog-overlap) {
-				margin-left: auto;
-			}
-		}
+		margin-top: rem(10);
 	}
 
-	&__products--mobile {
-		display: grid;
-		grid-template-columns: 1fr 1fr;
-		gap: rem(10);
-		margin-top: auto;
-		padding-top: rem(10);
-
-		@media (min-width: $md3) {
-			display: none;
-		}
-	}
-
-	&__product {
+	// .catalog__side
+	&__side {
+		flex-shrink: 0;
 		display: flex;
-		align-items: center;
-		justify-content: center;
-		border: rem(0.5) solid $color-accent;
-		border-radius: rem(6);
-		background: $color-surface-mint;
-		overflow: hidden;
-		min-height: rem(128);
-
-		@media (min-width: $md3) {
-			border-radius: rem(10);
-			border-width: 1px;
-			min-height: rem(279);
-			width: rem(315);
-			height: rem(279);
-			flex-shrink: 0;
-		}
-
-		&--overlap {
-			display: none;
-
-			@media (min-width: $md3) {
-				display: flex;
-				position: absolute;
-				z-index: 2;
-				width: rem(315);
-				height: rem(279);
-				min-height: rem(279);
-			}
-
-			.catalog--devices & {
-				@media (min-width: $catalog-overlap) {
-					left: rem(670);
-					top: calc(50% + #{rem(34)});
-					transform: translateY(-50%);
-				}
-			}
-
-			.catalog--reagents & {
-				@media (min-width: $catalog-overlap) {
-					left: rem(-113);
-					top: calc(50% + #{rem(34)});
-					transform: translateY(-50%);
-				}
-			}
-		}
-
-		&--tablet {
-			display: none;
-
-			@media (min-width: $md3) and (max-width: ($catalog-overlap - 0.02px)) {
-				display: flex;
-			}
-		}
-
-		&--fill {
-			background: $color-accent;
-			border-color: transparent;
-		}
+		flex-direction: column;
+		align-items: flex-end;
 	}
 
-	&__img {
-		width: 100%;
-		height: auto;
-		object-fit: contain;
+	// .catalog__tag
+	&__tag {}
 
-		&--smart {
-			max-width: rem(110);
-
-			@media (min-width: $md3) {
-				max-width: rem(239);
-			}
-		}
-
-		&--elite,
-		&--station {
-			max-width: rem(110);
-
-			@media (min-width: $md3) {
-				max-width: rem(200);
-			}
-		}
-
-		&--nabory {
-			max-width: rem(110);
-
-			@media (min-width: $md3) {
-				max-width: rem(225);
-			}
-		}
-
-		&--protia {
-			max-width: rem(110);
-
-			@media (min-width: $md3) {
-				max-width: rem(250);
-			}
-		}
-
-		.catalog__product--fill & {
-			max-width: rem(110);
-
-			@media (min-width: $md3) {
-				max-width: rem(200);
-			}
-		}
-	}
-
+	// .catalog__gallery
 	&__gallery {
-		display: none;
-
-		@media (min-width: $md3) {
-			display: flex;
-			flex-wrap: wrap;
-			gap: rem(16);
-			grid-column: 1;
-			grid-row: 3;
-			z-index: 1;
-		}
-
-		&--devices {
-			@media (min-width: $md3) and (max-width: ($catalog-overlap - 0.02px)) {
-				display: grid;
-				grid-template-columns: repeat(3, 1fr);
-				gap: rem(16);
-
-				.catalog__product {
-					width: auto;
-					height: auto;
-					min-height: rem(279);
-				}
-			}
-
-			@media (min-width: $catalog-overlap) {
-				grid-column: 2;
-				grid-row: 2;
-				flex-wrap: nowrap;
-				gap: rem(24);
-				margin-top: rem(76);
-				margin-left: rem(-52);
-				align-self: start;
-
-				.catalog__product {
-					flex: 0 0 rem(315);
-					max-width: rem(315);
-				}
-			}
-		}
-
-		&--reagents {
-			@media (min-width: $md3) and (max-width: ($catalog-overlap - 0.02px)) {
-				display: grid;
-				grid-template-columns: repeat(2, 1fr);
-				gap: rem(16);
-
-				.catalog__product {
-					width: auto;
-					height: auto;
-					min-height: rem(279);
-				}
-			}
-
-			@media (min-width: $catalog-overlap) {
-				grid-column: 1;
-				grid-row: 2;
-				justify-content: flex-end;
-				margin-top: rem(76);
-				margin-right: rem(-113);
-			}
-		}
+		margin-top: 4.12rem;
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 1.25rem;
+		margin-left: -13rem;
 	}
 
-	// ——— Реагенты: галерея слева, карточка справа ———
-	&--reagents {
-		@media (min-width: $md3) and (max-width: ($catalog-overlap - 0.02px)) {
-			.catalog__card {
-				grid-row: 2;
-			}
+	// .catalog__product
+	&__product {
+		border-radius: 0.625rem;
+		border: rem(1) solid #55ACBF;
+		background: #EDFBFF;
+		width: 19.6875rem;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		padding: 1.5rem 0.5rem;
 
-			.catalog__gallery--reagents {
-				grid-row: 3;
-			}
+		& img {
+			width: 100%;
+			height: auto;
+
 		}
 
-		@media (min-width: $catalog-overlap) {
-			.catalog__layout {
-				grid-template-columns: 1fr minmax(0, rem(873));
-			}
-		}
 	}
 }

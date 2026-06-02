@@ -164,7 +164,7 @@
 	}
 
 	a {
-		&:not(.btn, .article-related__more) {
+		&:not(.btn, .news-card__more) {
 			color: #1570ef;
 			transition: color 0.2s ease, opacity 0.2s ease;
 
