@@ -37,7 +37,11 @@
 		}
 	}
 
-
+	&__container {
+		@media (max-width:$md5) {
+			padding: 0;
+		}
+	}
 
 	&__hero,
 	&__main {

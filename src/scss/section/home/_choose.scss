@@ -263,10 +263,11 @@
 	&__btn {
 		order: 2;
 		width: 100%;
-		max-width: rem(332);
+
 		min-height: rem(52);
 
 		@media (min-width: $md4) {
+			max-width: rem(332);
 			order: 1;
 			width: rem(426);
 			max-width: none;

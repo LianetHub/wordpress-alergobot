@@ -56,9 +56,13 @@
 		gap: rem(10);
 		margin-top: rem(22);
 		width: 100%;
-		max-width: rem(332);
-		margin-bottom: auto;
 
+		margin-bottom: auto;
+		max-width: 100%;
+
+		@media (min-width:$md5) {
+			max-width: rem(332);
+		}
 
 		@media (min-width: $md3) {
 			flex-direction: row;
