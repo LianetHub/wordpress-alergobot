@@ -6,12 +6,30 @@
 	}
 
 	&__box {
+		--decor-y: 0px;
+		--photo-y: 0px;
 		position: relative;
 		padding: rem(14);
 		border-radius: rem(10);
-		background: url("@img/contacts-decor.svg") 0 0 / cover no-repeat, $color-accent;
+		background: $color-accent;
 		color: #fff;
 		overflow: hidden;
+
+		&::before {
+			content: "";
+			position: absolute;
+			inset: -12%;
+			z-index: 0;
+			background: url("@img/contacts-decor.svg") 0 0 / cover no-repeat;
+			pointer-events: none;
+			will-change: transform;
+			transform: translate3d(0, var(--decor-y), 0);
+
+			@media (prefers-reduced-motion: reduce) {
+				will-change: auto;
+				transform: none;
+			}
+		}
 
 		@media (min-width: $md3) {
 			padding: rem(40);
@@ -76,9 +94,17 @@
 		height: rem(217);
 		object-fit: cover;
 		object-position: center top;
+		will-change: transform;
+		transform: translate3d(0, var(--photo-y), 0) scale(1.06);
+		transform-origin: center center;
 
 		@media (min-width: $md3) {
 			height: rem(261);
+		}
+
+		@media (prefers-reduced-motion: reduce) {
+			will-change: auto;
+			transform: none;
 		}
 	}
 

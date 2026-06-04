@@ -80,6 +80,9 @@
 	}
 
 	&__molecules {
+		--mx: 0px;
+		--my: 0px;
+		--mrotate: 0deg;
 		display: block;
 		width: min(100%, rem(500));
 		height: auto;
@@ -90,7 +93,15 @@
 		position: absolute;
 		left: 50%;
 		top: rem(110);
-		transform: translateX(-50%);
+		z-index: 0;
+		opacity: 0;
+		will-change: transform, opacity;
+		transform: translateX(calc(-50% + var(--mx))) translateY(var(--my)) rotate(var(--mrotate));
+		transition: opacity 0.85s ease;
+
+		&.is-visible {
+			opacity: 1;
+		}
 
 		@media (min-width: $md3) {
 			position: absolute;
@@ -98,7 +109,17 @@
 			top: 0;
 			width: min(56%, rem(529));
 			max-width: rem(529);
-			transform: none;
+			transform: translate3d(var(--mx), var(--my), 0) rotate(var(--mrotate));
+		}
+
+		@media (prefers-reduced-motion: reduce) {
+			opacity: 1;
+			will-change: auto;
+			transform: translateX(-50%);
+
+			@media (min-width: $md3) {
+				transform: none;
+			}
 		}
 	}
 

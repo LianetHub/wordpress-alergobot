@@ -76,6 +76,7 @@
 	}
 
 	&__card {
+		position: relative;
 		display: flex;
 		flex-direction: column;
 		gap: rem(10);
@@ -84,6 +85,27 @@
 		border: 1px solid $color-accent;
 		border-radius: rem(10);
 		background: $color-surface-mint;
+		overflow: hidden;
+		transition:
+			transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+			box-shadow 0.35s ease,
+			border-color 0.25s ease,
+			background-color 0.25s ease;
+
+		&::after {
+			content: "";
+			position: absolute;
+			inset: 0;
+			background: linear-gradient(
+				105deg,
+				transparent 42%,
+				rgba(255, 255, 255, 0.45) 50%,
+				transparent 58%
+			);
+			transform: translateX(-120%);
+			transition: transform 0.65s ease;
+			pointer-events: none;
+		}
 
 		@media (min-width: $md3) {
 			flex-direction: row;
@@ -91,8 +113,6 @@
 			gap: rem(20);
 			padding: rem(20);
 		}
-
-
 	}
 
 	&__body {
@@ -109,6 +129,8 @@
 	}
 
 	&__step {
+		position: relative;
+		z-index: 1;
 		display: inline-flex;
 		align-items: center;
 		justify-content: center;
@@ -124,6 +146,11 @@
 		line-height: 1.2;
 		letter-spacing: -0.02em;
 		white-space: nowrap;
+		transition:
+			transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+			background-color 0.25s ease,
+			color 0.25s ease,
+			box-shadow 0.25s ease;
 
 		@media (min-width: $md3) {
 			min-height: 0;
@@ -138,13 +165,15 @@
 	}
 
 	&__card-title {
-
+		position: relative;
+		z-index: 1;
 		color: $color-brand;
 		font-weight: 500;
 		font-style: italic;
 		font-size: rem(18);
 		line-height: 1.2;
 		letter-spacing: -0.02em;
+		transition: color 0.25s ease, transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
 
 		@media (min-width: $md3) {
 			font-size: rem(24);
@@ -177,10 +206,13 @@
 	}
 
 	&__card-desc {
+		position: relative;
+		z-index: 1;
 		margin-top: auto;
 		color: $color-text-body;
 		font-size: rem(14);
 		line-height: 1.3;
+		transition: color 0.25s ease, transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
 
 		@media (min-width: $md3) {
 			font-size: rem(18);
@@ -188,11 +220,18 @@
 	}
 
 	&__media {
+		position: relative;
+		z-index: 1;
 		flex-shrink: 0;
 		width: 100%;
 		height: rem(176);
 		border-radius: rem(10);
 		overflow: hidden;
+		transition: box-shadow 0.35s ease;
+
+		.cover-image {
+			transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+		}
 
 		@media (min-width: $md3) {
 			width: rem(200);
@@ -204,6 +243,79 @@
 
 		}
 
+	}
+
+	@media (any-hover: hover) {
+		&__card:hover {
+			transform: translateY(rem(-6));
+			border-color: $color-accent;
+			background-color: #fff;
+			box-shadow: 0 rem(14) rem(36) rgba($color-brand, 0.16);
+
+			&::after {
+				transform: translateX(120%);
+			}
+		}
+
+		&__card:hover &__step {
+			transform: scale(1.04) translateY(rem(-2));
+			background: $color-accent;
+			color: #fff;
+			box-shadow: 0 rem(6) rem(16) rgba($color-brand, 0.2);
+		}
+
+		&__card:hover &__card-title {
+			color: $color-accent;
+			transform: translateX(rem(4));
+		}
+
+		&__card:hover &__card-desc {
+			transform: translateX(rem(4));
+		}
+
+		&__card:hover &__media {
+			box-shadow: 0 rem(8) rem(20) rgba($color-brand, 0.12);
+
+			.cover-image {
+				transform: scale(1.06);
+			}
+		}
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		&__card {
+			transition: border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+
+			&::after {
+				display: none;
+			}
+		}
+
+		&__step,
+		&__card-title,
+		&__card-desc,
+		&__media .cover-image {
+			transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+		}
+
+		@media (any-hover: hover) {
+			&__card:hover {
+				transform: none;
+			}
+
+			&__card:hover &__step {
+				transform: none;
+			}
+
+			&__card:hover &__card-title,
+			&__card:hover &__card-desc {
+				transform: none;
+			}
+
+			&__card:hover &__media .cover-image {
+				transform: none;
+			}
+		}
 	}
 
 }
