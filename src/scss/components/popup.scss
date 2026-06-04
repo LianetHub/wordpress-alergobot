@@ -74,7 +74,7 @@ $popup-gradient: linear-gradient(61deg, $color-primary 0%, $color-accent 99.68%)
 		display: grid;
 		grid-template-columns: 1fr;
 		gap: rem(24);
-		align-items: start;
+		align-items: center;
 
 		@media (min-width: $md3) {
 			grid-template-columns: 1fr 1fr;
@@ -97,7 +97,8 @@ $popup-gradient: linear-gradient(61deg, $color-primary 0%, $color-accent 99.68%)
 		margin: 0 0 rem(20);
 		line-height: 1.3;
 		@include adaptive-font(14, 18);
-
+		max-width: 29.125rem;
+		margin-inline: auto;
 
 		.popup-modal__content--center & {
 			max-width: rem(466);

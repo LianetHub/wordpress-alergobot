@@ -86,7 +86,7 @@
 		display: flex;
 		flex-direction: column;
 		gap: rem(10);
-		width: rem(161);
+		width: 100%;
 
 		@media (min-width: $md3) {
 			width: rem(315);
@@ -104,6 +104,7 @@
 		border-radius: rem(10);
 		background: $color-surface-mint;
 		overflow: hidden;
+		flex-shrink: 0;
 
 		& img {
 			width: auto;
@@ -373,11 +374,12 @@
 	&__slider {
 		overflow: visible;
 
-		@media (min-width:$md3) {}
+		@media (min-width:$md3) {
+			overflow: hidden;
+		}
 	}
 
 	&__slide {
-		width: rem(247);
 		height: auto;
 		display: flex;
 		flex-direction: column;
@@ -388,13 +390,13 @@
 		border-radius: rem(10);
 		background: $color-surface-tab;
 
-		@media (min-width: $md3) {
-			min-height: rem(200);
-			padding: rem(20);
+		@media (max-width: #{$md3 - 1px}) {
+			width: rem(247);
 		}
 
 		@media (min-width: $md3) {
-			width: auto;
+			min-height: rem(200);
+			padding: rem(20);
 		}
 	}
 

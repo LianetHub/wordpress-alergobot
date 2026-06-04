@@ -409,10 +409,13 @@ function initDevicesWorkMore() {
 
 	if (!root || !btn) return;
 
+	const labelMore = btn.dataset.labelMore || "Еще";
+	const labelLess = btn.dataset.labelLess || "Свернуть";
+
 	btn.addEventListener("click", () => {
 		const expanded = root.classList.toggle("_expanded");
 		btn.setAttribute("aria-expanded", String(expanded));
-		btn.hidden = expanded;
+		btn.textContent = expanded ? labelLess : labelMore;
 	});
 }
 
@@ -426,7 +429,12 @@ function initDevicesBenefitsSwiper() {
 		slidesPerView: "auto",
 		spaceBetween: 10,
 		breakpoints: {
-			991: {
+			767.98: {
+				slidesPerView: 2,
+				spaceBetween: 20,
+				allowTouchMove: false,
+			},
+			1199.98: {
 				slidesPerView: 3,
 				spaceBetween: 20,
 				allowTouchMove: false,
