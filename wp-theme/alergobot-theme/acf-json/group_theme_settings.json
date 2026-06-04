@@ -1,0 +1,106 @@
+{
+    "key": "group_theme_settings",
+    "title": "Настройки сайта",
+    "fields": [
+        {
+            "key": "field_logotip",
+            "label": "Логотип (шапка)",
+            "name": "logotip",
+            "type": "image",
+            "return_format": "array",
+            "preview_size": "medium"
+        },
+        {
+            "key": "field_logotip_podval",
+            "label": "Логотип (подвал)",
+            "name": "logotip_podval",
+            "type": "image",
+            "return_format": "array"
+        },
+        {
+            "key": "field_nomer_telefona",
+            "label": "Телефон",
+            "name": "nomer_telefona",
+            "type": "text"
+        },
+        {
+            "key": "field_nomer_telefona_2",
+            "label": "Телефон 2",
+            "name": "nomer_telefona_2",
+            "type": "text"
+        },
+        {
+            "key": "field_email",
+            "label": "Email",
+            "name": "email",
+            "type": "email"
+        },
+        {
+            "key": "field_kopirajt",
+            "label": "Копирайт",
+            "name": "kopirajt",
+            "type": "text"
+        },
+        {
+            "key": "field_ssylka_na_politiku",
+            "label": "Ссылка на политику",
+            "name": "ssylka_na_politiku",
+            "type": "url"
+        },
+        {
+            "key": "field_glavnoe_menyu",
+            "label": "Главное меню",
+            "name": "glavnoe_menyu",
+            "type": "repeater",
+            "layout": "table",
+            "sub_fields": [
+                {
+                    "key": "field_menu_nazvanie",
+                    "label": "Название",
+                    "name": "nazvanie",
+                    "type": "text"
+                },
+                {
+                    "key": "field_menu_ssylka",
+                    "label": "Ссылка",
+                    "name": "ssylka",
+                    "type": "url"
+                }
+            ]
+        },
+        {
+            "key": "field_cf7_konsultaciya",
+            "label": "CF7 — консультация",
+            "name": "cf7_konsultaciya",
+            "type": "text",
+            "instructions": "Шорткод, например [contact-form-7 id=\"123\" title=\"Консультация\"]"
+        },
+        {
+            "key": "field_cf7_zakaz",
+            "label": "CF7 — заказ",
+            "name": "cf7_zakaz",
+            "type": "text"
+        },
+        {
+            "key": "field_cf7_prezentaciya",
+            "label": "CF7 — презентация",
+            "name": "cf7_prezentaciya",
+            "type": "text"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "theme-settings"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "active": true
+}

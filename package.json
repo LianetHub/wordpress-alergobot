@@ -7,6 +7,10 @@
   "scripts": {
     "dev": "gulp",
     "build": "gulp build --build",
+    "build:theme": "gulp buildTheme --build",
+    "export:markup": "node scripts/export-home-markup.mjs && node scripts/export-page-markup.mjs",
+    "build:theme:full": "npm run build && npm run export:markup && npm run build:theme",
+    "watch:theme": "gulp watchTheme",
     "zip": "gulp deployZIP --build"
   },
   "author": "Liana",

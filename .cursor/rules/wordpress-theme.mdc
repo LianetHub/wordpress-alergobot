@@ -1,0 +1,62 @@
+---
+description: Натяжка вёрстки на WordPress (Underscores, ACF, CPT)
+globs: wp-theme/**/*.php,wp-theme/**/acf-json/**
+alwaysApply: false
+---
+
+# WordPress — тема alergobot
+
+## Стек
+
+- Тема на базе Underscores, text domain `alergobot`
+- ACF Pro: Options (`theme-settings`), Flexible Content главной (`page_content`)
+- CPT: `product` + таксономия `product_category`; `blogs` + `blog_category`
+- Формы: Contact Form 7 (шорткоды в ACF Options: `cf7_konsultaciya`, `cf7_zakaz`, `cf7_prezentaciya`)
+- Меню: ACF Repeater `glavnoe_menyu` в Options (не `wp_nav_menu`)
+
+## Структура темы
+
+```
+wp-theme/alergobot-theme/
+├── assets/           ← npm run build:theme
+├── inc/              setup, enqueue, acf, cpt, ajax, cf7, template-*
+├── inc/markup/       HTML-фрагменты из вёрстки (home/, pages/)
+├── template-parts/
+├── acf-json/
+└── style.css         только метаданные
+```
+
+## Подключение стилей (enqueue.php)
+
+Глобально: `reset`, `style-global`, `header`, `footer`.
+Условно: `home`, `catalog`, `product`, `analyzers`, `contacts`, `blog`, `article`, `policy`, `not-found`.
+
+## Шаблоны
+
+| Страница | Файл |
+|----------|------|
+| Главная | `front-page.php` + flexible / fallback markup |
+| Каталог | `page-katalog.php` |
+| Контакты | `page-kontakty.php` |
+| Анализаторы | `page-analizatory.php` |
+| Продукт | `single-product.php` |
+| Блог | `archive-blogs.php`, `single-blogs.php` |
+
+## AJAX
+
+- `filter_blogs`, `load_more_blogs` — `check_ajax_referer('alergobot_nonce')`
+- JS: объект `theme_ajax` из `wp_localize_script`
+
+## Безопасность
+
+- Вывод: `esc_html`, `esc_url`, `esc_attr`
+- Телефон для `tel:`: `alergobot_phone_clean()`
+- reCAPTCHA v3 на все CF7-формы
+
+## Чеклист сдачи
+
+- Адаптив 320–1920, формы, SEO-плагин, PageSpeed
+- Удалить Query Monitor перед запуском
+- Password Protected снять после согласования с менеджером
+
+Полный регламент: `Регламент интеграции WordPress.docx.txt`

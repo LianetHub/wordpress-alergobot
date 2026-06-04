@@ -109,6 +109,50 @@ export const normalize = () => {
         .pipe(app.plugins.browsersync.stream());
 }
 
+const compileScss = (srcGlob, title = 'SCSS') => {
+	return app.gulp.src(srcGlob, { sourcemaps: app.isDev })
+		.pipe(
+			app.plugins.plumber(
+				app.plugins.notify.onError({
+					title,
+					message: 'Error: <%= error.message %>',
+				})
+			)
+		)
+		.pipe(
+			sass({
+				outputStyle: 'expanded',
+			})
+		)
+		.pipe(
+			app.plugins.if(app.isBuild, groupCssMediaQueries())
+		)
+		.pipe(
+			app.plugins.if(
+				app.isBuild,
+				autoprefixer({
+					grid: true,
+					overrideBrowserslist: ['last 3 versions'],
+					cascade: true,
+				})
+			)
+		)
+		.pipe(app.plugins.replace(/@img\//g, '../img/'))
+		.pipe(app.gulp.dest(app.path.build.css))
+		.pipe(app.plugins.if(app.isBuild, cleanCss()))
+		.pipe(
+			rename({
+				extname: '.min.css',
+			})
+		)
+		.pipe(app.gulp.dest(app.path.build.css))
+		.pipe(app.plugins.browsersync.stream());
+};
+
+export const scssEntries = () => {
+	return compileScss(app.path.src.scssEntries, 'SCSS Entries');
+};
+
 export const copyCssLibs = () => {
     return app.gulp.src(app.path.src.cssLibs)
         .pipe(app.gulp.dest(app.path.build.cssLibs))

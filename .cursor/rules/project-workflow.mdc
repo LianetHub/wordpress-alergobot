@@ -1,0 +1,30 @@
+---
+description: Split-repo workflow — вёрстка alergobot и тема WordPress
+alwaysApply: true
+---
+
+# Workflow проекта alergobot
+
+## Репозитории
+
+- **alergobot** (этот репозиторий) — HTML/SCSS/JS, Gulp-сборка вёрстки.
+- **wp-theme/alergobot-theme** — исходники PHP-темы; на OSPanel копируется в `wp-content/themes/alergobot-theme/`.
+
+## Сборка
+
+| Команда | Назначение |
+|---------|------------|
+| `npm run dev` | Вёрстка → `dist/`, BrowserSync static |
+| `npm run build` | Production вёрстка в `dist/` |
+| `npm run build:theme` | Ассеты → `{THEME_PATH}/assets/` |
+| `npm run export:markup` | Скомпилированный HTML из `dist/` → `inc/markup/` |
+| `npm run build:theme:full` | build + export:markup + build:theme |
+| `npm run watch:theme` | Watch + proxy на `WP_PROXY_URL` |
+
+Скопируйте `.env.example` в `.env` и задайте `THEME_PATH`, `WP_PROXY_URL`.
+
+## Правила
+
+- Не коммитить `wp-theme/alergobot-theme/assets/` — генерируется сборкой.
+- PHP-шаблоны и `inc/markup/` — в теме; правки вёрстки секций сначала в `src/`, затем синхронизировать markup при необходимости.
+- Подробности интеграции: `docs/wordpress.md`.

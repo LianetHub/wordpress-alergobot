@@ -1,0 +1,59 @@
+<?php
+/**
+ * Template tags
+ *
+ * @package alergobot
+ */
+
+if (!function_exists('alergobot_assets_uri')) {
+	function alergobot_assets_uri($path = '') {
+		return trailingslashit(ALERGOBOT_ASSETS_URI) . ltrim($path, '/');
+	}
+}
+
+if (!function_exists('alergobot_phone_clean')) {
+	function alergobot_phone_clean($phone) {
+		return preg_replace('![^0-9]+!', '', (string) $phone);
+	}
+}
+
+if (!function_exists('alergobot_icon')) {
+	function alergobot_icon($id, $width = 24, $height = 24, $class = 'icon') {
+		$class_attr = $class ? ' class="' . esc_attr($class) . '"' : '';
+		printf(
+			'<svg%s width="%d" height="%d" aria-hidden="true"><use href="%s#%s"></use></svg>',
+			$class_attr,
+			(int) $width,
+			(int) $height,
+			esc_url(alergobot_assets_uri('img/icons.svg')),
+			esc_attr($id)
+		);
+	}
+}
+
+if (!function_exists('alergobot_acf_image')) {
+	function alergobot_acf_image($image, $size = 'full', $attrs = []) {
+		if (empty($image) || !is_array($image)) {
+			return '';
+		}
+		$url = $image['sizes'][$size] ?? $image['url'] ?? '';
+		if (!$url) {
+			return '';
+		}
+		$alt   = $attrs['alt'] ?? ($image['alt'] ?? '');
+		$title = $attrs['title'] ?? ($image['title'] ?? '');
+		$w     = $attrs['width'] ?? ($image['width'] ?? '');
+		$h     = $attrs['height'] ?? ($image['height'] ?? '');
+		$loading = $attrs['loading'] ?? 'lazy';
+
+		return sprintf(
+			'<img src="%s" alt="%s" title="%s" width="%s" height="%s" loading="%s">',
+			esc_url($url),
+			esc_attr($alt),
+			esc_attr($title),
+			esc_attr($w),
+			esc_attr($h),
+			esc_attr($loading)
+		);
+	}
+}
