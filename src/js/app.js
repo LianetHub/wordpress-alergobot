@@ -15,6 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	initAnimation();
 	initHome();
 	initDevicesPage();
+	initRelatedEquipmentSwiper();
 	initPhoneMask();
 	initYandexMaps();
 });
@@ -443,6 +444,36 @@ function initDevicesBenefitsSwiper() {
 		navigation: {
 			nextEl: ".devices-benefits__arrow--next",
 			prevEl: ".devices-benefits__arrow--prev",
+		},
+	});
+}
+
+function initRelatedEquipmentSwiper() {
+	if (typeof Swiper === "undefined") return;
+
+	const slider = document.querySelector(".equipment--related .equipment__slider");
+	if (!slider) return;
+
+	new Swiper(slider, {
+		slidesPerView: 1.15,
+		spaceBetween: 10,
+		breakpoints: {
+			575.98: {
+				slidesPerView: 2,
+				spaceBetween: 10,
+			},
+			991.98: {
+				slidesPerView: 3,
+				spaceBetween: 20,
+			},
+			1199.98: {
+				slidesPerView: 4,
+				spaceBetween: 20,
+			},
+		},
+		navigation: {
+			nextEl: ".equipment--related .equipment__arrow--next",
+			prevEl: ".equipment--related .equipment__arrow--prev",
 		},
 	});
 }

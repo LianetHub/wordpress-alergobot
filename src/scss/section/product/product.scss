@@ -423,7 +423,6 @@
 	width: 100%;
 	border-collapse: collapse;
 	table-layout: fixed;
-	font-family: "Manrope", $font-family;
 	font-weight: 400;
 	font-size: rem(10);
 	line-height: 1.3;
@@ -505,15 +504,7 @@
 	}
 
 	tbody {
-		tr {
-			&:nth-child(odd) {
-				background: $color-surface-tab;
-			}
-
-			&:nth-child(even) {
-				background: $color-bg;
-			}
-		}
+		tr {}
 
 		td {
 			padding: rem(10) rem(11);
@@ -523,7 +514,7 @@
 
 			&:last-child {
 				border-right: none;
-				text-align: right;
+				text-align: left;
 				padding-right: rem(12);
 				white-space: nowrap;
 			}
@@ -610,14 +601,18 @@
 
 	&__row {
 		display: grid;
-		grid-template-columns: 1fr;
+		grid-template-columns: 0.75fr 1fr;
 		gap: rem(8);
-		padding: rem(19);
+
 		border: 1px solid $color-accent;
 		border-radius: rem(10);
 		background: $color-surface-tab;
+		font-size: 0.625rem;
+		padding: rem(10);
 
 		@media (min-width: $md4) {
+			padding: rem(19);
+			font-size: rem(18);
 			grid-template-columns: minmax(rem(200), rem(295)) 1fr;
 			gap: rem(20);
 			align-items: start;
@@ -630,17 +625,16 @@
 
 	&__term {
 		font-weight: 600;
-		font-size: rem(18);
-		line-height: 1.3;
+
 		color: $color-primary;
 	}
 
 	&__value {
 
 		font-weight: 400;
-		font-size: rem(18);
 		line-height: 1.3;
 		color: $color-text-body;
+
 	}
 
 	&__link {
@@ -650,6 +644,7 @@
 		transition: color 0.2s ease;
 		font-weight: 600;
 		color: #26668C;
+		font-size: rem(18);
 
 		@media (any-hover: hover) {
 			&:hover {
@@ -707,7 +702,7 @@
 	width: 100%;
 	max-width: rem(874);
 	margin: 0 auto;
-	padding: rem(20) rem(24);
+	padding: rem(16);
 	border: 0.5px solid rgba(#fff, 0.6);
 	border-radius: rem(10);
 	background: $color-primary;
@@ -727,17 +722,27 @@
 
 	&__main {
 		display: flex;
-		flex-wrap: wrap;
+
 		align-items: center;
-		gap: rem(16) rem(60);
+		gap: rem(16);
+
+		@media (min-width:$md4) {
+			gap: rem(16) rem(60);
+
+		}
 	}
 
 	&__preview {
 		flex-shrink: 0;
-		width: rem(48);
-		height: rem(70);
+		width: rem(34);
+		height: rem(50);
 		border-radius: rem(2);
 		overflow: hidden;
+
+		@media (min-width:$md4) {
+			width: rem(48);
+			height: rem(70);
+		}
 
 		img {
 			width: 100%;
