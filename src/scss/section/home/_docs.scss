@@ -97,17 +97,18 @@
 	}
 
 	&__slider {
-		overflow: visible;
+		@media (max-width:$md4) {
+			overflow: visible;
+
+		}
 	}
 
 	&__slide {
 		&.swiper-slide {
 			height: auto;
-			width: rem(257);
 
-
-			@media (min-width: $md1) {
-				width: rem(315);
+			@media (max-width: #{$md3 - 1px}) {
+				width: rem(257);
 			}
 		}
 	}
@@ -131,14 +132,13 @@
 
 	&__media {
 		flex-shrink: 0;
-		width: rem(225);
+		width: 100%;
 		aspect-ratio: 225 / 322;
 		border-radius: rem(6);
 		overflow: hidden;
 		background: #fff;
 
 		@media (min-width: $md1) {
-			width: rem(276);
 			aspect-ratio: 276 / 395;
 			border-radius: rem(10);
 		}

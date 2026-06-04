@@ -24,6 +24,7 @@
 	transition:
 		background-color 0.3s cubic-bezier(0.22, 1, 0.36, 1),
 		border-color 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+		color 0.3s cubic-bezier(0.22, 1, 0.36, 1),
 		transform 0.2s cubic-bezier(0.22, 1, 0.36, 1),
 		opacity 0.3s ease;
 	@include adaptive-font(16, 20);
@@ -97,11 +98,13 @@
 		@media (any-hover: hover) {
 			&:hover:not(:disabled):not([aria-disabled="true"]) {
 				border-color: $color-accent;
+				color: $color-accent;
 			}
 		}
 
 		&:active:not(:disabled):not([aria-disabled="true"]) {
 			border-color: $color-accent;
+			color: $color-accent;
 		}
 	}
 
@@ -123,11 +126,27 @@
 	&--white {
 		background: $color-surface-mint;
 		color: $color-primary;
+
+		@media (any-hover: hover) {
+			&:hover:not(:disabled):not([aria-disabled="true"]) {
+				background-color: #fff;
+			}
+		}
+
+		&:active:not(:disabled):not([aria-disabled="true"]) {
+			background-color: #fff;
+		}
 	}
 
 	&--white-outline {
 		background: transparent;
 		border: 0.5px solid #fff;
 		color: #fff;
+
+		@media (any-hover: hover) {
+			&:hover:not(:disabled):not([aria-disabled="true"]) {
+				background: rgba(255, 255, 255, 0.05);
+			}
+		}
 	}
 }

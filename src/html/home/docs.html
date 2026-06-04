@@ -2,23 +2,23 @@
     <div class="docs__container _container">
         <div class="docs__head">
             <div class="docs__intro">
-                <h2 class="docs__title title title-md">Документы, подтверждающие качество и правовой статус решений</h2>
-                <p class="docs__text text-lead">Лабораторное оборудование PROTIA для использования в Российской Федерации подкрепляется официальными документами, регулирующими характеристики и статус бренда по международным стандартам лабораторной диагностики. Регистрационные удостоверения Росздравнадзора с приложением на каждый образец оборудования можно скачать в формате ПДФ на сайте.</p>
+                <h2 class="docs__title title title-md" data-animate="bottom">Документы, подтверждающие качество и правовой статус решений</h2>
+                <p class="docs__text text-lead" data-animate="bottom">Лабораторное оборудование PROTIA для использования в Российской Федерации подкрепляется официальными документами, регулирующими характеристики и статус бренда по международным стандартам лабораторной диагностики. Регистрационные удостоверения Росздравнадзора с приложением на каждый образец оборудования можно скачать в формате ПДФ на сайте.</p>
             </div>
-            <div class="docs__nav">
+            <div class="docs__nav" data-animate="bottom">
                 <button class="docs__arrow docs__arrow--prev" type="button" aria-label="Назад">
-                    <svg class="docs__arrow-icon icon" width="32" height="32" aria-hidden="true">
+                    <svg class="docs__arrow-icon icon" width="32" height="32" aria-hidden="true" data-animate="scale">
                         <use href="@img/icons.svg#icon-arrow-chevron"></use>
                     </svg>
                 </button>
                 <button class="docs__arrow docs__arrow--next" type="button" aria-label="Вперёд">
-                    <svg class="docs__arrow-icon icon" width="32" height="32" aria-hidden="true">
+                    <svg class="docs__arrow-icon icon" width="32" height="32" aria-hidden="true" data-animate="scale">
                         <use href="@img/icons.svg#icon-arrow-chevron"></use>
                     </svg>
                 </button>
             </div>
         </div>
-        <div class="docs__slider swiper">
+        <div class="docs__slider swiper" data-animate="bottom">
             <div class="swiper-wrapper">
                 @@loop('../templates/home-docs-card.html', [
                 {

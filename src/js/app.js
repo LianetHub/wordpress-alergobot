@@ -1,5 +1,6 @@
 "use strict";
 
+import { initAnimation } from "./animation.js";
 import { initYandexMaps } from "./map.js";
 import { initTooltips } from "./tooltip.js";
 
@@ -11,6 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	initProductTableMore();
 	initAccordion();
 	initTooltips();
+	initAnimation();
 	initHome();
 	initDevicesPage();
 	initPhoneMask();
@@ -298,7 +300,16 @@ function initHomeSwipers() {
 			slidesPerView: "auto",
 			spaceBetween: 10,
 			breakpoints: {
-				991: {
+				767.98: {
+					slidesPerView: 2,
+					spaceBetween: 15,
+				},
+				991.98: {
+					slidesPerView: 3,
+					spaceBetween: 20,
+				},
+				1199.98: {
+					slidesPerView: 4,
 					spaceBetween: 20,
 				},
 			},
