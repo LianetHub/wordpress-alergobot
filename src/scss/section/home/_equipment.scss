@@ -7,7 +7,17 @@
 	}
 
 	&__container {
-		background: url("@img/analyzers/equipment-decor.svg") 68% 0% / auto no-repeat;
+		position: relative;
+
+		&::before {
+			content: "";
+			position: absolute;
+			inset: 0;
+			z-index: -1;
+			background: url("@img/analyzers/equipment-decor.svg") 68% 0% / auto no-repeat;
+			pointer-events: none;
+			@include decor-parallax-motion;
+		}
 	}
 
 	&__head {
@@ -85,7 +95,7 @@
 
 
 		@media (min-width: $md3) {
-
+			height: 100%;
 			padding: rem(20);
 
 
@@ -165,12 +175,11 @@
 	&__card-text {
 		margin: rem(10) 0 0;
 		color: $color-text-body;
-		font-size: rem(10);
 		line-height: 1.3;
+		@include adaptive-font(10, 18);
 
 		@media (min-width: $md3) {
 			margin: rem(20) 0 0;
-			font-size: rem(18);
 		}
 	}
 
@@ -213,7 +222,9 @@
 		}
 
 		.equipment__container {
-			background: none;
+			&::before {
+				content: none;
+			}
 		}
 
 		.equipment__head {

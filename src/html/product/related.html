@@ -2,22 +2,22 @@
     <div class="equipment__container _container">
         <div class="equipment__head">
             <div class="equipment__intro">
-                <h2 class="equipment__title title title-md">Вместе с&nbsp;этим смотрят</h2>
+                <h2 class="equipment__title title title-md" data-animate="bottom">Вместе с&nbsp;этим смотрят</h2>
             </div>
             <div class="equipment__nav">
-                <button class="equipment__arrow equipment__arrow--prev" type="button" aria-label="Назад">
+                <button class="equipment__arrow equipment__arrow--prev" type="button" aria-label="Назад" data-animate="scale">
                     <svg class="equipment__arrow-icon icon" width="32" height="32" aria-hidden="true">
                         <use href="@img/icons.svg#icon-arrow-chevron"></use>
                     </svg>
                 </button>
-                <button class="equipment__arrow equipment__arrow--next" type="button" aria-label="Вперёд">
+                <button class="equipment__arrow equipment__arrow--next" type="button" aria-label="Вперёд" data-animate="scale">
                     <svg class="equipment__arrow-icon icon" width="32" height="32" aria-hidden="true">
                         <use href="@img/icons.svg#icon-arrow-chevron"></use>
                     </svg>
                 </button>
             </div>
         </div>
-        <div class="equipment__slider swiper">
+        <div class="equipment__slider swiper" data-animate="bottom">
             <div class="swiper-wrapper">
                 @@loop('../templates/equipment-card-slide.html', [
                 {
@@ -37,7 +37,7 @@
                 "ariaLabel": "Q-STATION ELITE, подробнее",
                 "nameClass": "",
                 "name": "Q-STATION ELITE",
-                "img": "@img/analyzers/device-q-station-elite.png",
+                "img": "@img/analyzers/device-q-processor.png",
                 "alt": "Q-STATION ELITE",
                 "title": "Q-STATION ELITE",
                 "width": "200",
@@ -67,7 +67,43 @@
                 "width": "225",
                 "height": "161",
                 "text": "Полный комплект для организации работы в рамках единой диагностической системы."
-                }
+                },
+                {
+                "href": "#",
+                "ariaLabel": "Q-STATION ELITE, подробнее",
+                "nameClass": "",
+                "name": "Q-STATION ELITE",
+                "img": "@img/analyzers/device-q-processor.png",
+                "alt": "Q-STATION ELITE",
+                "title": "Q-STATION ELITE",
+                "width": "200",
+                "height": "167",
+                "text": "Система для более широких лабораторных задач, где важны производительность, стандартизация и удобство обработки результатов."
+                },
+                {
+                "href": "#",
+                "ariaLabel": "Q-PROCESSOR, подробнее",
+                "nameClass": "",
+                "name": "Q-PROCESSOR",
+                "img": "@img/product/related-q-processor.png",
+                "alt": "Устройство Q-PROCESSOR",
+                "title": "Q-PROCESSOR",
+                "width": "162",
+                "height": "161",
+                "text": "Решение для автоматизации отдельных этапов исследования и повышения стабильности лабораторного процесса."
+                },
+                {
+                "href": "katalog.html#catalog-reagents",
+                "ariaLabel": "Наборы реагентов и сопутствующие материалы",
+                "nameClass": "equipment__card-name--long",
+                "name": "Наборы реагентов и сопутствующие материалы",
+                "img": "@img/product/related-kits.png",
+                "alt": "Наборы реагентов PROTIA",
+                "title": "Наборы реагентов",
+                "width": "225",
+                "height": "161",
+                "text": "Полный комплект для организации работы в рамках единой диагностической системы."
+                },
                 ])
             </div>
         </div>

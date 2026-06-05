@@ -1,8 +1,17 @@
 .policy {
 	position: relative;
-	background: url("@img/policy-decor.svg") 0 0 / 100% auto repeat-y;
 	padding: rem(40) 0 rem(80);
 	overflow: hidden;
+
+	&::before {
+		content: "";
+		position: absolute;
+		inset: 0;
+		z-index: 0;
+		background: url("@img/policy-decor.svg") 0 0 / 100% auto repeat-y;
+		pointer-events: none;
+		@include decor-parallax-motion;
+	}
 
 	@media (max-width: $md4) {
 		padding: rem(16) 0 rem(48);

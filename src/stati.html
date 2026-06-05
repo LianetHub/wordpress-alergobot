@@ -9,10 +9,10 @@
                     <div class="heading__container _container">
                         <div class="heading__grid">
                             <div class="heading__main">
-                                <h1 class="heading__title title title-lg">Статьи и новости</h1>
+                                <h1 class="heading__title title title-lg" data-animate="bottom">Статьи и новости</h1>
                             </div>
                             <div class="heading__aside">
-                                <p class="heading__text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+                                <p class="heading__text" data-animate="bottom">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
                             </div>
                         </div>
                     </div>
@@ -21,7 +21,7 @@
                     <div class="blog-hero__container _container">
 
                         <div class="blog-hero__layout">
-                            <article class="blog-featured">
+                            <article class="blog-featured" data-animate="bottom">
                                 <a class="blog-featured__link" href="statya.html">
                                     <div class="blog-featured__media">
                                         <img class="blog-featured__img" src="@img/blog/featured.png" alt="Учёные в лаборатории" title="Учёные в лаборатории" width="873" height="577">
@@ -34,7 +34,7 @@
                             </article>
 
                             <aside class="blog-recent" aria-labelledby="blog-recent-title">
-                                <h2 class="blog-recent__heading" id="blog-recent-title">Последние публикации</h2>
+                                <h2 class="blog-recent__heading" id="blog-recent-title" data-animate="bottom">Последние публикации</h2>
                                 <ul class="blog-recent__list">
                                     @@include('html/templates/blog-recent-item.html', {
                                     "href": "statya.html",
@@ -72,7 +72,7 @@
                 <section class="blog-feed">
                     <div class="blog-feed__container _container">
                         <div class="blog-tabs" role="tablist" aria-label="Тип публикаций">
-                            <button class="blog-tabs__btn _active" type="button" role="tab" aria-selected="true" aria-controls="blog-panel-articles" id="blog-tab-articles" data-blog-tab="articles">
+                            <button class="blog-tabs__btn _active" type="button" role="tab" aria-selected="true" aria-controls="blog-panel-articles" id="blog-tab-articles" data-blog-tab="articles" data-animate="fade">
                                 <span class="blog-tabs__text">Статьи</span>
                                 <span class="blog-tabs__icon" aria-hidden="true">
                                     <svg class="icon" width="16" height="16">
@@ -80,7 +80,7 @@
                                     </svg>
                                 </span>
                             </button>
-                            <button class="blog-tabs__btn" type="button" role="tab" aria-selected="false" aria-controls="blog-panel-news" id="blog-tab-news" data-blog-tab="news">
+                            <button class="blog-tabs__btn" type="button" role="tab" aria-selected="false" aria-controls="blog-panel-news" id="blog-tab-news" data-blog-tab="news" data-animate="fade">
                                 <span class="blog-tabs__text">Новости</span>
                                 <span class="blog-tabs__icon" aria-hidden="true">
                                     <svg class="icon" width="16" height="16">
@@ -116,7 +116,7 @@
                             </div>
                         </div>
 
-                        <nav class="blog-pagination" aria-label="Навигация по страницам">
+                        <nav class="blog-pagination" aria-label="Навигация по страницам" data-animate="bottom">
                             <a class="blog-pagination__arrow blog-pagination__arrow--prev" href="#" aria-label="Предыдущая страница">
                                 <svg class="icon" width="21.5" height="21.5" aria-hidden="true">
                                     <use href="@img/icons.svg#icon-pagination-arrow"></use>

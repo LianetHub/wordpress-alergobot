@@ -48,6 +48,10 @@
 		font-weight: 400;
 		line-height: 1.1;
 		color: #fff;
+
+		&[data-animate="bottom"] {
+			transition-delay: 0s;
+		}
 	}
 
 	&__actions {
@@ -59,6 +63,10 @@
 
 		margin-bottom: auto;
 		max-width: 100%;
+
+		&[data-animate="bottom"] {
+			transition-delay: 0.12s;
+		}
 
 		@media (min-width:$md5) {
 			max-width: rem(332);
@@ -91,6 +99,10 @@
 		font-size: rem(14);
 		line-height: 1.3;
 
+		&[data-animate="bottom"] {
+			transition-delay: 0.24s;
+		}
+
 		@media (min-width: $md2) {
 			align-items: center;
 			margin-top: rem(40);
@@ -110,6 +122,10 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
+
+		&[data-animate="scale"] {
+			transition-delay: 0.32s;
+		}
 
 		@media (min-width: $md2) {
 			width: rem(115);
@@ -150,6 +166,12 @@
 		backdrop-filter: blur(10px);
 		-webkit-backdrop-filter: blur(10px);
 		color: $color-text-body;
+
+		@for $i from 1 through 4 {
+			&:nth-child(#{$i})[data-animate="bottom"] {
+				transition-delay: #{0.18 + ($i - 1) * 0.1}s;
+			}
+		}
 
 		@media (min-width: $md2) {
 			align-items: flex-start;

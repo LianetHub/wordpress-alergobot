@@ -65,34 +65,59 @@ export function initAnimation() {
 			{ threshold: 0.1 },
 		);
 
-		animationSections.forEach((section) => sectionObserver.observe(section));
+		animationSections.forEach((section) => {
+			if (section.closest(".hero, .heading, .product-hero, .not-found")) return;
+			sectionObserver.observe(section);
+		});
 	}
 
+	initImmediateAnimation();
 	initAudienceMolecules();
-	initContactsParallax();
+	initDecorParallax();
 }
 
-function initContactsParallax() {
-	const box = document.querySelector("[data-contacts]");
-	if (!box) return;
+const IMMEDIATE_ANIMATION_ROOTS = [".hero", ".heading", ".product-hero", ".not-found"];
 
-	const motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+function initImmediateAnimation() {
+	const items = document.querySelectorAll(
+		IMMEDIATE_ANIMATION_ROOTS.map((root) => `${root} [data-animate]`).join(", "),
+	);
+	if (!items.length) return;
 
-	const resetMotion = () => {
-		box.style.removeProperty("--decor-y");
-		box.style.removeProperty("--photo-y");
+	const reveal = () => {
+		items.forEach((el) => el.classList.add("animated"));
 	};
 
-	if (motionQuery.matches) {
-		resetMotion();
+	if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+		reveal();
 		return;
 	}
 
-	let isActive = false;
-	let rafId = null;
+	requestAnimationFrame(reveal);
+}
 
-	const getScrollOffset = (factor) => {
-		const rect = box.getBoundingClientRect();
+function initDecorParallax() {
+	const scenes = document.querySelectorAll("[data-decor-parallax]");
+	if (!scenes.length) return;
+
+	const motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+	const activeScenes = new Set();
+
+	const resetScene = (el) => {
+		el.style.removeProperty("--decor-y");
+	};
+
+	const resetAll = () => {
+		scenes.forEach(resetScene);
+	};
+
+	if (motionQuery.matches) {
+		resetAll();
+		return;
+	}
+
+	const getScrollOffset = (el, factor) => {
+		const rect = el.getBoundingClientRect();
 		const viewportHeight = window.innerHeight;
 
 		if (rect.bottom < 0 || rect.top > viewportHeight) return 0;
@@ -102,38 +127,51 @@ function initContactsParallax() {
 	};
 
 	const updateMotion = () => {
-		const decorOffset = getScrollOffset(0.06);
-		const photoOffset = getScrollOffset(0.045);
+		activeScenes.forEach((el) => {
+			const factor = Number(el.dataset.decorParallax) || 0.06;
+			const decorOffset = getScrollOffset(el, factor);
 
-		box.style.setProperty("--decor-y", `${decorOffset.toFixed(2)}px`);
-		box.style.setProperty("--photo-y", `${photoOffset.toFixed(2)}px`);
+			el.style.setProperty("--decor-y", `${decorOffset.toFixed(2)}px`);
+		});
 	};
 
 	const loop = () => {
-		if (isActive) updateMotion();
-		rafId = requestAnimationFrame(loop);
+		if (activeScenes.size) updateMotion();
+		requestAnimationFrame(loop);
 	};
 
 	const observer = new IntersectionObserver(
 		(entries) => {
 			entries.forEach((entry) => {
-				isActive = entry.isIntersecting;
+				if (entry.isIntersecting) {
+					activeScenes.add(entry.target);
+				} else {
+					activeScenes.delete(entry.target);
+					resetScene(entry.target);
+				}
 			});
 		},
 		{ threshold: 0.08 },
 	);
 
+	scenes.forEach((el) => observer.observe(el));
+
 	motionQuery.addEventListener("change", (event) => {
 		if (event.matches) {
-			isActive = false;
-			resetMotion();
+			activeScenes.clear();
+			resetAll();
 		} else {
-			isActive = box.getBoundingClientRect().bottom > 0 && box.getBoundingClientRect().top < window.innerHeight;
+			scenes.forEach((el) => {
+				const rect = el.getBoundingClientRect();
+
+				if (rect.bottom > 0 && rect.top < window.innerHeight) {
+					activeScenes.add(el);
+				}
+			});
 		}
 	});
 
-	observer.observe(box);
-	rafId = requestAnimationFrame(loop);
+	requestAnimationFrame(loop);
 }
 
 function initAudienceMolecules() {

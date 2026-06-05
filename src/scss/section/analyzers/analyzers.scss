@@ -288,17 +288,16 @@
 			position: absolute;
 			top: 0;
 			left: 50%;
-			transform: translateX(-50%);
 			height: rem(515);
 			background: url("@img/devices-benefits-decor.webp") center / contain no-repeat;
 			pointer-events: none;
 			mix-blend-mode: screen;
 			z-index: -1;
 			width: 100%;
+			@include decor-parallax-motion(-50%);
 
 			@media (min-width:$md3) {
 				width: rem(830);
-
 			}
 		}
 	}

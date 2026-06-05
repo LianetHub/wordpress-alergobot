@@ -366,6 +366,10 @@
 		justify-content: center;
 		overflow: hidden;
 
+		& img {
+			max-width: 100%;
+		}
+
 		@media (min-width: $md3) {
 			width: rem(140);
 			height: rem(140);

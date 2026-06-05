@@ -7,8 +7,17 @@
     </div>
     <div class="category__footer">
         <div class="category__actions">
-            <a class="btn btn--primary category__btn" href="@@href">подробнее</a>
-            <button class="btn btn--secondary category__btn" type="button" data-fancybox data-src="#popup-order">заказать</button>
+            <a class="btn btn--primary category__btn" href="@@href">
+                подробнее <svg class="btn__icon" width="28" height="28" aria-hidden="true">
+                    <use href="@img/icons.svg#icon-arrow-up-right"></use>
+                </svg>
+            </a>
+            <button class="btn btn--secondary category__btn" type="button" data-fancybox data-src="#popup-order">
+                заказать
+                <svg class="btn__icon" width="28" height="28" aria-hidden="true">
+                    <use href="@img/icons.svg#icon-arrow-up-right"></use>
+                </svg>
+            </button>
         </div>
         <div class="category__media">
             <img src="@@img" alt="@@alt" title="@@titleAttr" width="239" height="164" loading="lazy">

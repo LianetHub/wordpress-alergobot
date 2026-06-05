@@ -109,7 +109,9 @@
 			background: url("@img/contacts-page-decor.webp") center / contain no-repeat;
 			z-index: -1;
 			left: 50%;
-			transform: translateX(-50%);
+			pointer-events: none;
+			will-change: transform;
+			transform: translate3d(-50%, var(--decor-y), 0);
 
 			@media (min-width:$md4) {
 				width: rem(796);
@@ -117,8 +119,17 @@
 
 			@media (min-width:$md3) {
 				right: 0;
-				transform: translateX(0);
 				left: auto;
+				transform: translate3d(0, var(--decor-y), 0);
+			}
+
+			@media (prefers-reduced-motion: reduce) {
+				will-change: auto;
+				transform: translate3d(-50%, 0, 0);
+
+				@media (min-width:$md3) {
+					transform: none;
+				}
 			}
 		}
 

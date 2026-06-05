@@ -14,23 +14,41 @@
 		border-radius: rem(10);
 		padding-top: rem(24);
 		padding-bottom: rem(24);
-		background: url("@img/request-decor-mobile.webp") 0 0 / cover no-repeat, $color-accent;
+		background: $color-accent;
 
-		@media (min-width:$md4) {
-			background: url("@img/request-decor.webp") 0 0 / cover no-repeat, $color-accent;
+		&::before {
+			content: "";
+			position: absolute;
+			inset: 0;
+			z-index: 0;
+			background: url("@img/request-decor-mobile.webp") 0 0 / cover no-repeat;
+			pointer-events: none;
+			@include decor-parallax-motion;
+
+			@media (min-width: $md4) {
+				background: url("@img/request-decor.webp") 0 0 / cover no-repeat;
+			}
 		}
 
 		@media (min-width: $md3) {
 			border-radius: rem(20);
 			padding-top: rem(40);
 			padding-bottom: rem(40);
-
 		}
+	}
+
+	&__container {
+		position: relative;
+		z-index: 1;
 	}
 
 	&--plain {
 		.request__box {
 			background: $color-accent;
+
+			&::before {
+				content: none;
+			}
 		}
 
 		.request__note {
@@ -87,9 +105,6 @@
 			@include adaptive-font(18, 24);
 		}
 	}
-
-	&__container {}
-
 
 	&__grid {
 		display: grid;

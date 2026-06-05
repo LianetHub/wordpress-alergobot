@@ -9,18 +9,18 @@
                     <div class="product-hero__container _container">
                         <div class="product-hero__card">
                             <div class="product-hero__content">
-                                <h1 class="product-hero__title title title-lg title--light">
+                                <h1 class="product-hero__title title title-lg title--light" data-animate="bottom">
                                     Анализатор иммунологический <span class="text-nowrap">«Q-SMART»</span>
                                 </h1>
-                                <p class="product-hero__text">Полностью русифицированный интерфейс до 8 идентифицируемых панелей. Количество определяемых аллерген-специфических IgE от 0,15 до 2000. МЕ/мл. Анализатор «Q-SMART» предназначен для считывания результатов анализов in vitro на панелях PROTIA Allergy-Q.</p>
-                                <button class="product-hero__order btn btn--white" type="button" data-fancybox data-src="#popup-order">
+                                <p class="product-hero__text" data-animate="bottom">Полностью русифицированный интерфейс до 8 идентифицируемых панелей. Количество определяемых аллерген-специфических IgE от 0,15 до 2000. МЕ/мл. Анализатор «Q-SMART» предназначен для считывания результатов анализов in vitro на панелях PROTIA Allergy-Q.</p>
+                                <button class="product-hero__order btn btn--white" type="button" data-fancybox data-src="#popup-order" data-animate="bottom">
                                     заказать
                                     <svg class="btn__icon" width="28" height="28" aria-hidden="true">
                                         <use href="@img/icons.svg#icon-arrow-up-right"></use>
                                     </svg>
                                 </button>
                             </div>
-                            <div class="product-hero__visual">
+                            <div class="product-hero__visual" data-animate="bottom">
                                 <div class="product-hero__media">
                                     <svg class="product-hero__media-defs" aria-hidden="true" focusable="false">
                                         <defs>
@@ -50,10 +50,10 @@
                                         <path d="M200 21C200 26.5228 204.477 31 210 31H290C295.523 31 300 35.4772 300 41V202C300 207.523 295.523 212 290 212H10C4.47716 212 0 207.523 0 202V10C0 4.47715 4.47715 0 10 0H190C195.523 0 200 4.47715 200 10V21Z" fill="#EDFBFF" />
                                         <path d="M210 31V31.4753V31.4753V31ZM290 212V212.475V212.475V212ZM10 212V212.475V212.475V212ZM0 202H-0.475329V202H0ZM10 0V-0.475329V-0.475329V0ZM200 21H199.525C199.525 26.7854 204.215 31.4753 210 31.4753V31V30.5247C204.74 30.5247 200.475 26.2603 200.475 21H200ZM210 31V31.4753H290V31V30.5247H210V31ZM300 41H299.525V202H300H300.475V41H300ZM300 202H299.525C299.525 207.26 295.26 211.525 290 211.525V212V212.475C295.785 212.475 300.475 207.785 300.475 202H300ZM290 212V211.525H10V212V212.475H290V212ZM10 212V211.525C4.73967 211.525 0.475329 207.26 0.475329 202H0H-0.475329C-0.475329 207.785 4.21464 212.475 10 212.475V212ZM0 202H0.475329V10H0H-0.475329V202H0ZM0 10H0.475329C0.475329 4.73967 4.73967 0.475329 10 0.475329V0V-0.475329C4.21464 -0.475329 -0.475329 4.21464 -0.475329 10H0ZM10 0V0.475329H190V0V-0.475329H10V0ZM200 10H199.525V21H200H200.475V10H200ZM190 0V0.475329C195.26 0.475329 199.525 4.73967 199.525 10H200H200.475C200.475 4.21464 195.785 -0.475329 190 -0.475329V0ZM290 31V31.4753C295.26 31.4753 299.525 35.7397 299.525 41H300H300.475C300.475 35.2146 295.785 30.5247 290 30.5247V31Z" fill="#55ACBF" mask="url(#product-hero-media-border-mask-mobile)" />
                                     </svg>
-                                    <span class="product-hero__stock">
+                                    <span class="product-hero__stock" data-animate="scale">
                                         В наличии
                                     </span>
-                                    <div class="product-hero__rating">
+                                    <div class="product-hero__rating" data-animate="scale">
                                         <span class="product-hero__rating-label">рейтинг</span>
                                         <span class="product-hero__rating-value">
                                             <svg class="icon product-hero__rating-star" aria-hidden="true">
@@ -74,7 +74,7 @@
                 <section class="product-detail">
                     <div class="product-detail__container _container">
                         <div class="product-tabs" role="tablist" aria-label="Разделы товара">
-                            <button class="product-tabs__btn _active" type="button" role="tab" id="product-tab-description" aria-selected="true" aria-controls="product-panel-description" data-product-tab="description">
+                            <button class="product-tabs__btn _active" type="button" role="tab" id="product-tab-description" aria-selected="true" aria-controls="product-panel-description" data-product-tab="description" data-animate="fade">
                                 <span class="product-tabs__text">Описание</span>
                                 <span class="product-tabs__icon" aria-hidden="true">
                                     <svg class="icon">
@@ -82,7 +82,7 @@
                                     </svg>
                                 </span>
                             </button>
-                            <button class="product-tabs__btn" type="button" role="tab" id="product-tab-ru" aria-selected="false" aria-controls="product-panel-ru" data-product-tab="ru">
+                            <button class="product-tabs__btn" type="button" role="tab" id="product-tab-ru" aria-selected="false" aria-controls="product-panel-ru" data-product-tab="ru" data-animate="fade">
                                 <span class="product-tabs__text">РУ / КТРУ</span>
                                 <span class="product-tabs__icon" aria-hidden="true">
                                     <svg class="icon">
@@ -90,7 +90,7 @@
                                     </svg>
                                 </span>
                             </button>
-                            <button class="product-tabs__btn" type="button" role="tab" id="product-tab-video" aria-selected="false" aria-controls="product-panel-video" data-product-tab="video">
+                            <button class="product-tabs__btn" type="button" role="tab" id="product-tab-video" aria-selected="false" aria-controls="product-panel-video" data-product-tab="video" data-animate="fade">
                                 <span class="product-tabs__text">Видео</span>
                                 <span class="product-tabs__icon" aria-hidden="true">
                                     <svg class="icon">
@@ -98,7 +98,7 @@
                                     </svg>
                                 </span>
                             </button>
-                            <button class="product-tabs__btn" type="button" role="tab" id="product-tab-docs" aria-selected="false" aria-controls="product-panel-docs" data-product-tab="docs">
+                            <button class="product-tabs__btn" type="button" role="tab" id="product-tab-docs" aria-selected="false" aria-controls="product-panel-docs" data-product-tab="docs" data-animate="fade">
                                 <span class="product-tabs__text">Документы</span>
                                 <span class="product-tabs__icon" aria-hidden="true">
                                     <svg class="icon">
@@ -213,7 +213,7 @@
 
                             <div class="product-panel" id="product-panel-video" role="tabpanel" aria-labelledby="product-tab-video" data-product-panel="video" hidden>
                                 <div class="product-panel__inner product-panel__inner--video">
-                                    <button class="product-video" type="button" aria-label="Воспроизвести видео о Q-SMART">
+                                    <button class="product-video" type="button" aria-label="Воспроизвести видео о Q-SMART" data-animate="bottom">
                                         <img class="product-video__poster" src="@img/product/video-poster.jpg" alt="Лабораторные исследования с оборудованием PROTIA" title="Лабораторные исследования с оборудованием PROTIA" width="874" height="492" loading="lazy">
                                         <span class="product-video__play" aria-hidden="true">
                                             <svg class="icon" width="88" height="88" viewBox="0 0 88 88" xmlns="http://www.w3.org/2000/svg">
@@ -226,7 +226,7 @@
 
                             <div class="product-panel" id="product-panel-docs" role="tabpanel" aria-labelledby="product-tab-docs" data-product-panel="docs" hidden>
                                 <div class="product-panel__inner product-panel__inner--docs">
-                                    <a class="product-doc" href="#">
+                                    <a class="product-doc" href="#" data-animate="bottom">
                                         <span class="product-doc__main">
                                             <span class="product-doc__preview">
                                                 <img src="@img/product/doc-thumb.png" alt="" title="" width="48" height="70" loading="lazy" aria-hidden="true">
@@ -247,7 +247,7 @@
                 <section class="benefits">
                     <div class="benefits__container _container">
                         <header class="benefits__head">
-                            <h2 class="benefits__title title title-md">Преимущества решений PROTIA</h2>
+                            <h2 class="benefits__title title title-md" data-animate="bottom">Преимущества решений PROTIA</h2>
                         </header>
 
                         <div class="benefits__body">
