@@ -1,14 +1,15 @@
 [data-decor-parallax] {
 	--decor-y: 0px;
+	--decor-scale: 1;
 }
 
 @mixin decor-parallax-motion($x: null) {
 	will-change: transform;
 
 	@if $x {
-		transform: translate3d($x, var(--decor-y), 0);
+		transform: translate3d($x, var(--decor-y), 0) scale(var(--decor-scale));
 	} @else {
-		transform: translate3d(0, var(--decor-y), 0);
+		transform: translate3d(0, var(--decor-y), 0) scale(var(--decor-scale));
 	}
 
 	@media (prefers-reduced-motion: reduce) {

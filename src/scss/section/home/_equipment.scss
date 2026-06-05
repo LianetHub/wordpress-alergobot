@@ -176,7 +176,7 @@
 		margin: rem(10) 0 0;
 		color: $color-text-body;
 		line-height: 1.3;
-		@include adaptive-font(10, 18);
+		@include adaptive-font(12, 18);
 
 		@media (min-width: $md3) {
 			margin: rem(20) 0 0;

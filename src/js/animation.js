@@ -105,6 +105,7 @@ function initDecorParallax() {
 
 	const resetScene = (el) => {
 		el.style.removeProperty("--decor-y");
+		el.style.removeProperty("--decor-scale");
 	};
 
 	const resetAll = () => {
@@ -128,10 +129,12 @@ function initDecorParallax() {
 
 	const updateMotion = () => {
 		activeScenes.forEach((el) => {
-			const factor = Number(el.dataset.decorParallax) || 0.06;
+			const factor = Number(el.dataset.decorParallax) || 0.24;
 			const decorOffset = getScrollOffset(el, factor);
+			const scale = 1 + Math.abs(decorOffset) * 0.0006;
 
 			el.style.setProperty("--decor-y", `${decorOffset.toFixed(2)}px`);
+			el.style.setProperty("--decor-scale", scale.toFixed(4));
 		});
 	};
 
