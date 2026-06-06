@@ -43,8 +43,9 @@ if (!function_exists('alergobot_home_rows')) {
 	{
 		static $cache = [];
 
-		$layout    = function_exists('get_row_layout') ? (string) get_row_layout() : 'acf';
-		$cache_key = $layout . '_' . $key;
+		$layout     = function_exists('get_row_layout') ? (string) get_row_layout() : 'acf';
+		$row_index  = function_exists('get_row_index') ? (int) get_row_index() : 0;
+		$cache_key  = $layout . '_' . $row_index . '_' . $key;
 
 		if (array_key_exists($cache_key, $cache)) {
 			return $cache[$cache_key];

@@ -5,7 +5,7 @@
  * @package alergobot
  */
 
-$logo_path = alergobot_home_get('logo_path');
+$logo = alergobot_home_get('logo');
 ?>
 <section class="about">
 	<div class="about__container _container">
@@ -18,21 +18,30 @@ $logo_path = alergobot_home_get('logo_path');
 					<?php if ($title = alergobot_home_get('title')) : ?>
 						<h2 class="about__title title title-md" data-animate="bottom"><?php echo esc_html($title); ?></h2>
 					<?php endif; ?>
-					<?php if ($logo_path) : ?>
+					<?php if ($logo) : ?>
 						<div class="about__logo-wrap" data-animate="bottom">
-							<img src="<?php echo esc_url(alergobot_acf_image_url($logo_path)); ?>" alt="<?php echo esc_attr(alergobot_home_get('logo_alt')); ?>" title="<?php echo esc_attr(alergobot_home_get('logo_alt')); ?>" width="254" height="47" loading="lazy">
+							<?php echo alergobot_acf_image($logo, 'full', [
+								'width'   => '254',
+								'height'  => '47',
+								'loading' => 'lazy',
+							]); ?>
 						</div>
 					<?php endif; ?>
 				</div>
 				<?php if (alergobot_home_rows('photos')) : ?>
 					<div class="about__photos">
 						<?php foreach (alergobot_home_rows('photos') as $photo) :
-							if (empty($photo['image_path'])) {
+							if (empty($photo['image'])) {
 								continue;
 							}
 							?>
 							<div class="about__photo" data-animate="bottom">
-								<img src="<?php echo esc_url(alergobot_acf_image_url($photo['image_path'])); ?>" class="cover-image" alt="<?php echo esc_attr($photo['image_alt'] ?? ''); ?>" title="<?php echo esc_attr($photo['image_alt'] ?? ''); ?>" width="214" height="189" loading="lazy">
+								<?php echo alergobot_acf_image($photo['image'], 'full', [
+									'class'   => 'cover-image',
+									'width'   => '214',
+									'height'  => '189',
+									'loading' => 'lazy',
+								]); ?>
 							</div>
 						<?php endforeach; ?>
 					</div>

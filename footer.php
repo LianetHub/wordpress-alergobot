@@ -6,7 +6,7 @@
  * @package alergobot
  */
 
-$logo_footer  = function_exists('get_field') ? get_field('logotip_podval', 'option') : null;
+$logo_footer  = function_exists('get_field') ? get_field('logotip', 'option') : null;
 $phones       = alergobot_get_phones();
 $footer_phone = $phones[0] ?? '';
 $copyright    = alergobot_get_option('kopirajt');
