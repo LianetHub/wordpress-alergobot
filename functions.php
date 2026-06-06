@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Alergobot theme functions
  *

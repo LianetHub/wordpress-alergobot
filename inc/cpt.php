@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Custom post types and taxonomies
  *
@@ -17,7 +18,7 @@ add_action('init', function () {
 		],
 		'public'             => true,
 		'has_archive'        => false,
-		'rewrite'            => ['slug' => 'product', 'with_front' => false],
+		'rewrite'            => ['slug' => 'oborudovanie', 'with_front' => false],
 		'supports'           => ['title', 'editor', 'thumbnail', 'excerpt'],
 		'menu_icon'          => 'dashicons-products',
 		'menu_position'      => 5,
@@ -32,7 +33,7 @@ add_action('init', function () {
 		'public'            => true,
 		'hierarchical'      => true,
 		'show_admin_column' => true,
-		'rewrite'           => ['slug' => 'catalog'],
+		'rewrite'           => ['slug' => 'category', 'with_front' => false],
 		'show_in_rest'      => true,
 	]);
 
@@ -46,8 +47,8 @@ add_action('init', function () {
 			'not_found'     => 'Статей не найдено',
 		],
 		'public'             => true,
-		'has_archive'        => true,
-		'rewrite'            => ['slug' => 'blog', 'with_front' => false],
+		'has_archive'        => 'stati-po-allergologii',
+		'rewrite'            => ['slug' => 'stati', 'with_front' => false],
 		'supports'           => ['title', 'editor', 'thumbnail', 'excerpt', 'author'],
 		'menu_icon'          => 'dashicons-admin-post',
 		'menu_position'      => 6,
@@ -62,24 +63,36 @@ add_action('init', function () {
 		'public'            => true,
 		'hierarchical'      => true,
 		'show_admin_column' => true,
-		'rewrite'           => ['slug' => 'blog-category'],
+		'rewrite'           => ['slug' => 'category', 'with_front' => false],
 		'show_in_rest'      => true,
 	]);
+
+	register_taxonomy_for_object_type('post_tag', 'blogs');
 });
 
 /**
  * Create default catalog terms on theme switch.
  */
 add_action('after_switch_theme', function () {
-	$terms = [
-		'equipment' => 'Оборудование',
-		'analyzers' => 'Анализаторы',
-		'reagents'  => 'Реагенты',
-		'panels'    => 'Панели',
+	$product_terms = [
+		'oborudovanie' => 'Оборудование',
+		'analyzers'    => 'Анализаторы',
+		'reagents'     => 'Реагенты',
+		'panels'       => 'Панели',
 	];
-	foreach ($terms as $slug => $name) {
+	foreach ($product_terms as $slug => $name) {
 		if (!term_exists($slug, 'product_category')) {
 			wp_insert_term($name, 'product_category', ['slug' => $slug]);
+		}
+	}
+
+	$blog_terms = [
+		'stati'   => 'Статьи',
+		'novosti' => 'Новости',
+	];
+	foreach ($blog_terms as $slug => $name) {
+		if (!term_exists($slug, 'blog_category')) {
+			wp_insert_term($name, 'blog_category', ['slug' => $slug]);
 		}
 	}
 

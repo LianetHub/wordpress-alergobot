@@ -1,12 +1,32 @@
 <?php
+
 /**
  * Template helpers
  *
  * @package alergobot
  */
 
+if (!function_exists('alergobot_blogs_archive_url')) {
+	function alergobot_blogs_archive_url()
+	{
+		$link = get_post_type_archive_link('blogs');
+
+		return $link ? $link : home_url('/stati-po-allergologii/');
+	}
+}
+
+if (!function_exists('alergobot_privacy_policy_url')) {
+	function alergobot_privacy_policy_url()
+	{
+		$page = get_page_by_path('privacy-policy');
+
+		return $page ? get_permalink($page) : home_url('/privacy-policy/');
+	}
+}
+
 if (!function_exists('alergobot_replace_markup_urls')) {
-	function alergobot_replace_markup_urls($html) {
+	function alergobot_replace_markup_urls($html)
+	{
 		$assets = alergobot_assets_uri();
 		$home   = trailingslashit(home_url());
 
@@ -17,11 +37,11 @@ if (!function_exists('alergobot_replace_markup_urls')) {
 			"url(img/" => "url(" . $assets . 'img/',
 			'href="index.html"' => 'href="' . esc_url($home) . '"',
 			'href="katalog.html"' => 'href="' . esc_url(home_url('/katalog/')) . '"',
-			'href="stati.html"' => 'href="' . esc_url(get_post_type_archive_link('blogs') ?: home_url('/stati/')) . '"',
+			'href="stati.html"' => 'href="' . esc_url(alergobot_blogs_archive_url()) . '"',
 			'href="kontakty.html"' => 'href="' . esc_url(home_url('/kontakty/')) . '"',
 			'href="analizatory.html"' => 'href="' . esc_url(home_url('/analizatory/')) . '"',
-			'href="politika-konfidentsialnosti.html"' => 'href="' . esc_url(home_url('/politika-konfidentsialnosti/')) . '"',
-			'href="statya.html"' => 'href="' . esc_url(home_url('/blog/')) . '"',
+			'href="politika-konfidentsialnosti.html"' => 'href="' . esc_url(alergobot_privacy_policy_url()) . '"',
+			'href="statya.html"' => 'href="' . esc_url(alergobot_blogs_archive_url()) . '"',
 			'action="#"' => 'action="' . esc_url(admin_url('admin-ajax.php')) . '"',
 		];
 
@@ -30,7 +50,8 @@ if (!function_exists('alergobot_replace_markup_urls')) {
 }
 
 if (!function_exists('alergobot_render_markup_file')) {
-	function alergobot_render_markup_file($relative_path) {
+	function alergobot_render_markup_file($relative_path)
+	{
 		$file = ALERGOBOT_DIR . '/inc/markup/' . ltrim($relative_path, '/');
 		if (!file_exists($file)) {
 			return;
@@ -41,13 +62,15 @@ if (!function_exists('alergobot_render_markup_file')) {
 }
 
 if (!function_exists('alergobot_render_home_section')) {
-	function alergobot_render_home_section($slug) {
+	function alergobot_render_home_section($slug)
+	{
 		alergobot_render_markup_file('home/' . $slug . '.html');
 	}
 }
 
 if (!function_exists('alergobot_render_page_markup')) {
-	function alergobot_render_page_markup($filename) {
+	function alergobot_render_page_markup($filename)
+	{
 		$file = ALERGOBOT_DIR . '/inc/markup/pages/' . ltrim($filename, '/');
 		if (!file_exists($file)) {
 			return;
@@ -64,7 +87,8 @@ if (!function_exists('alergobot_render_page_markup')) {
 }
 
 if (!function_exists('alergobot_inject_cf7_into_popups')) {
-	function alergobot_inject_cf7_into_popups($html) {
+	function alergobot_inject_cf7_into_popups($html)
+	{
 		$forms = [
 			'popup-consultation' => 'cf7_konsultaciya',
 			'popup-order'        => 'cf7_zakaz',
@@ -84,7 +108,8 @@ if (!function_exists('alergobot_inject_cf7_into_popups')) {
 }
 
 if (!function_exists('alergobot_get_main_class')) {
-	function alergobot_get_main_class() {
+	function alergobot_get_main_class()
+	{
 		if (is_front_page()) {
 			return 'main--home';
 		}
@@ -115,7 +140,7 @@ if (!function_exists('alergobot_get_main_class')) {
 		if (is_page_template('page-analizatory.php')) {
 			return 'main--devices';
 		}
-		if (is_page_template('page-policy.php')) {
+		if (is_page_template('page-policy.php') || is_page('privacy-policy')) {
 			return 'main--policy';
 		}
 
@@ -124,7 +149,8 @@ if (!function_exists('alergobot_get_main_class')) {
 }
 
 if (!function_exists('alergobot_get_option')) {
-	function alergobot_get_option($key, $default = '') {
+	function alergobot_get_option($key, $default = '')
+	{
 		if (function_exists('get_field')) {
 			$value = get_field($key, 'option');
 			if ($value !== null && $value !== '' && $value !== false) {
@@ -136,7 +162,8 @@ if (!function_exists('alergobot_get_option')) {
 }
 
 if (!function_exists('alergobot_render_main_menu')) {
-	function alergobot_render_main_menu($menu_class = 'header__menu') {
+	function alergobot_render_main_menu($menu_class = 'header__menu')
+	{
 		if (function_exists('have_rows') && have_rows('glavnoe_menyu', 'option')) {
 			echo '<ul class="' . esc_attr($menu_class) . '">';
 			while (have_rows('glavnoe_menyu', 'option')) {
@@ -181,7 +208,8 @@ if (!function_exists('alergobot_render_main_menu')) {
 }
 
 if (!function_exists('alergobot_cf7_form')) {
-	function alergobot_cf7_form($option_key, $fallback_shortcode = '') {
+	function alergobot_cf7_form($option_key, $fallback_shortcode = '')
+	{
 		$shortcode = alergobot_get_option($option_key, $fallback_shortcode);
 		if ($shortcode && function_exists('wpcf7_contact_form')) {
 			echo do_shortcode($shortcode);

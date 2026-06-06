@@ -121,6 +121,18 @@ h3 {
 	}
 }
 
+.admin-bar .main:not(.main--home) {
+	padding-top: calc(#{rem(56)} + 46px);
+
+	@media screen and (min-width: 783px) {
+		padding-top: calc(#{rem(56)} + 32px);
+	}
+
+	@media (min-width: $md3) {
+		padding-top: calc(#{rem(80)} + 32px);
+	}
+}
+
 .cover-image {
 	width: 100%;
 	height: 100%;

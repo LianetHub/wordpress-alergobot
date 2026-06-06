@@ -223,6 +223,19 @@
 	}
 }
 
+// WordPress admin bar (logged-in users)
+.admin-bar .header {
+	top: 32px;
+
+	@media screen and (max-width: 782px) {
+		top: 46px;
+
+		&.open-menu {
+			max-height: calc(100svh - 46px);
+		}
+	}
+}
+
 .icon-menu {
 	flex-shrink: 0;
 	display: flex;

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Enqueue styles and scripts
  *
@@ -41,7 +42,8 @@ add_action('wp_enqueue_scripts', function () {
 /**
  * Conditional page styles (regulation §3.2).
  */
-function alergobot_enqueue_conditional_styles($uri, $ver) {
+function alergobot_enqueue_conditional_styles($uri, $ver)
+{
 	$deps = ['alergobot-global', 'alergobot-header', 'alergobot-footer'];
 
 	if (is_front_page()) {
@@ -64,7 +66,7 @@ function alergobot_enqueue_conditional_styles($uri, $ver) {
 		wp_enqueue_style('alergobot-contacts', $uri . '/css/contacts.min.css', $deps, $ver);
 	}
 
-	if (is_post_type_archive('blogs') || is_singular('blogs') || is_tax('blog_category')) {
+	if (is_post_type_archive('blogs') || is_singular('blogs') || is_tax('blog_category') || is_tag()) {
 		wp_enqueue_style('alergobot-blog', $uri . '/css/blog.min.css', $deps, $ver);
 	}
 
@@ -72,7 +74,7 @@ function alergobot_enqueue_conditional_styles($uri, $ver) {
 		wp_enqueue_style('alergobot-article', $uri . '/css/article.min.css', $deps, $ver);
 	}
 
-	if (is_page_template('page-policy.php') || is_page('politika-konfidentsialnosti')) {
+	if (is_page_template('page-policy.php') || is_page('privacy-policy') || is_page('politika-konfidentsialnosti')) {
 		wp_enqueue_style('alergobot-policy', $uri . '/css/policy.min.css', $deps, $ver);
 	}
 

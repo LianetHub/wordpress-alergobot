@@ -10,7 +10,8 @@ alwaysApply: false
 
 - Тема на базе Underscores, text domain `alergobot`
 - ACF Pro: Options (`theme-settings`), Flexible Content главной (`page_content`)
-- CPT: `product` + таксономия `product_category`; `blogs` + `blog_category`
+- CPT: `product` + `product_category`; `blogs` + `blog_category` + `post_tag`
+- Legacy URL (slug'и CPT): `/oborudovanie/{slug}/`, `/stati/{slug}/`, архив `/stati-po-allergologii`, таксономии `/category/*`, `/tag/*`, страница `/privacy-policy`
 - Формы: Contact Form 7 (шорткоды в ACF Options: `cf7_konsultaciya`, `cf7_zakaz`, `cf7_prezentaciya`)
 - Меню: ACF Repeater `glavnoe_menyu` в Options (не `wp_nav_menu`)
 
