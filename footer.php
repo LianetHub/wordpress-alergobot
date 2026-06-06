@@ -6,11 +6,11 @@
  * @package alergobot
  */
 
-$logo_footer  = function_exists('get_field') ? get_field('logotip_podval', 'option') : null;
-$phone        = alergobot_get_option('nomer_telefona', '+7 (495) 352-87-77');
-$phone_clean  = alergobot_phone_clean($phone);
-$copyright    = alergobot_get_option('kopirajt', '© ' . gmdate('Y') . ' - Официальный сайт Аллергобот');
-$policy_link  = alergobot_get_option('ssylka_na_politiku', alergobot_privacy_policy_url());
+$logo_footer = function_exists('get_field') ? get_field('logotip_podval', 'option') : null;
+$phones      = alergobot_get_phones();
+$footer_phone = $phones[0] ?? '';
+$copyright   = alergobot_get_option('kopirajt', '© ' . gmdate('Y') . ' - Официальный сайт Аллергобот');
+$policy_link = alergobot_get_option('ssylka_na_politiku', alergobot_privacy_policy_url());
 ?>
 </main>
 <footer class="footer">
@@ -23,24 +23,30 @@ $policy_link  = alergobot_get_option('ssylka_na_politiku', alergobot_privacy_pol
 					<img src="<?php echo esc_url(alergobot_assets_uri('img/logo.png')); ?>" alt="<?php echo esc_attr(get_bloginfo('name')); ?>" width="141" height="39">
 				<?php endif; ?>
 			</a>
-			<a class="footer__phone" href="tel:+<?php echo esc_attr($phone_clean); ?>"><?php echo esc_html($phone); ?></a>
+			<?php if ($footer_phone) : ?>
+				<a class="footer__phone" href="tel:+<?php echo esc_attr(alergobot_phone_clean($footer_phone)); ?>"><?php echo esc_html($footer_phone); ?></a>
+			<?php endif; ?>
 		</div>
 
 		<nav class="footer__nav" aria-label="<?php esc_attr_e('Навигация в подвале', 'alergobot'); ?>">
-			<ul class="footer__menu">
-				<li class="footer__item"><a class="footer__link" href="<?php echo esc_url(home_url('/katalog/')); ?>"><?php esc_html_e('Каталог', 'alergobot'); ?></a></li>
-				<li class="footer__item"><a class="footer__link" href="#popup-presentation" data-fancybox data-src="#popup-presentation"><?php esc_html_e('Презентация', 'alergobot'); ?></a></li>
-				<li class="footer__item"><a class="footer__link" href="<?php echo esc_url(alergobot_blogs_archive_url()); ?>"><?php esc_html_e('Статьи', 'alergobot'); ?></a></li>
-				<li class="footer__item"><a class="footer__link" href="<?php echo esc_url(home_url('/kontakty/')); ?>"><?php esc_html_e('Контакты', 'alergobot'); ?></a></li>
-			</ul>
+			<?php if (function_exists('have_rows') && have_rows('glavnoe_menyu', 'option')) : ?>
+				<?php alergobot_render_main_menu('footer__menu', 'footer__item', 'footer__link'); ?>
+			<?php else : ?>
+				<ul class="footer__menu">
+					<li class="footer__item"><a class="footer__link" href="<?php echo esc_url(home_url('/katalog/')); ?>"><?php esc_html_e('Каталог', 'alergobot'); ?></a></li>
+					<li class="footer__item"><a class="footer__link" href="#popup-presentation" data-fancybox data-src="#popup-presentation"><?php esc_html_e('Презентация', 'alergobot'); ?></a></li>
+					<li class="footer__item"><a class="footer__link" href="<?php echo esc_url(alergobot_blogs_archive_url()); ?>"><?php esc_html_e('Статьи', 'alergobot'); ?></a></li>
+					<li class="footer__item"><a class="footer__link" href="<?php echo esc_url(home_url('/kontakty/')); ?>"><?php esc_html_e('Контакты', 'alergobot'); ?></a></li>
+				</ul>
+			<?php endif; ?>
 		</nav>
 
 		<div class="footer__divider" aria-hidden="true"></div>
 
 		<div class="footer__docs">
-			<a class="footer__doc" href="<?php echo esc_url($policy_link); ?>"><?php esc_html_e('Политика конфиденциальности', 'alergobot'); ?></a>
-			<a class="footer__doc" href="<?php echo esc_url(alergobot_get_option('ssylka_opd', '#')); ?>"><?php esc_html_e('Согласие ОПД', 'alergobot'); ?></a>
-			<a class="footer__doc" href="<?php echo esc_url(alergobot_get_option('ssylka_cookies', '#')); ?>"><?php esc_html_e('Согласие Cookies', 'alergobot'); ?></a>
+			<a class="footer__doc" href="<?php echo alergobot_esc_link($policy_link); ?>"><?php esc_html_e('Политика конфиденциальности', 'alergobot'); ?></a>
+			<a class="footer__doc" href="<?php echo alergobot_esc_link(alergobot_get_option('ssylka_opd', '#')); ?>"><?php esc_html_e('Согласие ОПД', 'alergobot'); ?></a>
+			<a class="footer__doc" href="<?php echo alergobot_esc_link(alergobot_get_option('ssylka_cookies', '#')); ?>"><?php esc_html_e('Согласие Cookies', 'alergobot'); ?></a>
 		</div>
 
 		<div class="footer__meta">

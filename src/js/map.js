@@ -1,5 +1,5 @@
-const YANDEX_MAPS_API_KEY = "4b85df55-35b1-4c23-8034-e5e8e6e58e52";
-const YANDEX_MAPS_LANG = "ru_RU";
+const YANDEX_MAPS_API_KEY = window.theme_map?.apiKey || "4b85df55-35b1-4c23-8034-e5e8e6e58e52";
+const YANDEX_MAPS_LANG = window.theme_map?.lang || "ru_RU";
 const MAP_SCRIPT_URL = `https://api-maps.yandex.ru/2.1/?apikey=${YANDEX_MAPS_API_KEY}&lang=${YANDEX_MAPS_LANG}`;
 const MAP_OBSERVER_ROOT_MARGIN = "200px";
 

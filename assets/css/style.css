@@ -2554,13 +2554,10 @@ h3 {
 }
 
 .footer {
-  color: #fff;
-  background: linear-gradient(106.85deg, #26668c 0%, #55acbf 100%);
-}
-
-.footer__container {
   padding-top: 1rem;
   padding-bottom: 1.5rem;
+  color: #fff;
+  background: linear-gradient(106.85deg, #26668c 0%, #55acbf 100%);
 }
 
 .footer__brand-row {
@@ -7968,6 +7965,8 @@ h3 {
   }
 
   .footer {
+    padding-top: 1.25rem;
+    padding-bottom: 1.875rem;
     background: linear-gradient(157.64deg, #26668c 0%, #55acbf 100%);
   }
 
@@ -7983,8 +7982,6 @@ h3 {
     -webkit-box-align: start;
         -ms-flex-align: start;
             align-items: start;
-    padding-top: 1.25rem;
-    padding-bottom: 1.875rem;
   }
 
   .footer__brand-row {

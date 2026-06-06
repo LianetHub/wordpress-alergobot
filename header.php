@@ -6,12 +6,9 @@
  * @package alergobot
  */
 
-$logo          = function_exists('get_field') ? get_field('logotip', 'option') : null;
-$phone         = alergobot_get_option('nomer_telefona', '+7 (495) 352-87-77');
-$phone_2       = alergobot_get_option('nomer_telefona_2', $phone);
-$phone_clean   = alergobot_phone_clean($phone);
-$phone_2_clean = alergobot_phone_clean($phone_2);
-$main_class    = alergobot_get_main_class();
+$logo        = function_exists('get_field') ? get_field('logotip', 'option') : null;
+$header_phones = alergobot_get_phones(true);
+$main_class  = alergobot_get_main_class();
 ?>
 <!doctype html>
 <html <?php language_attributes(); ?>>
@@ -45,21 +42,7 @@ $main_class    = alergobot_get_main_class();
 
 					<nav class="header__nav" id="header-nav" aria-label="<?php esc_attr_e('Основная навигация', 'alergobot'); ?>">
 						<?php if (function_exists('have_rows') && have_rows('glavnoe_menyu', 'option')) : ?>
-							<ul class="header__menu">
-								<?php
-								while (have_rows('glavnoe_menyu', 'option')) :
-									the_row();
-									$name = get_sub_field('nazvanie');
-									$link = get_sub_field('ssylka');
-									if (!$name || !$link) {
-										continue;
-									}
-								?>
-									<li class="header__item">
-										<a class="header__link" href="<?php echo esc_url($link); ?>"><?php echo esc_html($name); ?></a>
-									</li>
-								<?php endwhile; ?>
-							</ul>
+							<?php alergobot_render_main_menu(); ?>
 						<?php else : ?>
 							<ul class="header__menu">
 								<li class="header__item"><a class="header__link" href="<?php echo esc_url(home_url('/katalog/')); ?>"><?php esc_html_e('Каталог', 'alergobot'); ?></a></li>
@@ -70,11 +53,16 @@ $main_class    = alergobot_get_main_class();
 						<?php endif; ?>
 					</nav>
 
-					<div class="header__phones" aria-label="<?php esc_attr_e('Телефоны', 'alergobot'); ?>">
-						<a class="header__phone" href="tel:+<?php echo esc_attr($phone_clean); ?>"><?php echo esc_html($phone); ?></a>
-						<span class="header__sep" aria-hidden="true"></span>
-						<a class="header__phone" href="tel:+<?php echo esc_attr($phone_2_clean); ?>"><?php echo esc_html($phone_2); ?></a>
-					</div>
+					<?php if ($header_phones) : ?>
+						<div class="header__phones" aria-label="<?php esc_attr_e('Телефоны', 'alergobot'); ?>">
+							<?php foreach ($header_phones as $index => $phone) : ?>
+								<?php if ($index > 0) : ?>
+									<span class="header__sep" aria-hidden="true"></span>
+								<?php endif; ?>
+								<a class="header__phone" href="tel:+<?php echo esc_attr(alergobot_phone_clean($phone)); ?>"><?php echo esc_html($phone); ?></a>
+							<?php endforeach; ?>
+						</div>
+					<?php endif; ?>
 					<button class="icon-menu header__toggle" type="button" aria-label="<?php esc_attr_e('Открыть меню', 'alergobot'); ?>" aria-expanded="false" aria-controls="header-nav">
 						<span aria-hidden="true"></span>
 						<span aria-hidden="true"></span>

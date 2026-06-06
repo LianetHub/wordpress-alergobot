@@ -1,15 +1,17 @@
 .footer {
-
+	padding-top: rem(16);
+	padding-bottom: rem(24);
 	color: #fff;
 	background: linear-gradient(106.85deg, $color-primary 0%, $color-accent 100%);
 
 	@media (min-width: $md3) {
+		padding-top: rem(20);
+		padding-bottom: rem(30);
 		background: linear-gradient(157.64deg, $color-primary 0%, $color-accent 100%);
 	}
 
 	&__container {
-		padding-top: rem(16);
-		padding-bottom: rem(24);
+
 
 		@media (min-width: $md3) {
 			display: grid;
@@ -17,8 +19,7 @@
 			column-gap: rem(40);
 			row-gap: rem(56);
 			align-items: start;
-			padding-top: rem(20);
-			padding-bottom: rem(30);
+
 		}
 	}
 

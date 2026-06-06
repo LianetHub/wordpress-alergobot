@@ -33,6 +33,33 @@ add_filter('acf/settings/load_json', function ($paths) {
 	return $paths;
 });
 
+/**
+ * One-time import of default option values from acf-json/theme-settings-seed.json.
+ */
+add_action('acf/init', function () {
+	if (!function_exists('update_field') || !function_exists('get_field')) {
+		return;
+	}
+
+	$seed_file = ALERGOBOT_DIR . '/acf-json/theme-settings-seed.json';
+	if (!file_exists($seed_file)) {
+		return;
+	}
+
+	$seed = json_decode((string) file_get_contents($seed_file), true);
+	if (!is_array($seed)) {
+		return;
+	}
+
+	foreach ($seed as $field_name => $value) {
+		$current = get_field($field_name, 'option');
+		if ($current !== null && $current !== '' && $current !== false && $current !== []) {
+			continue;
+		}
+		update_field($field_name, $value, 'option');
+	}
+}, 20);
+
 add_action('wp_head', function () {
 	if (!function_exists('get_field')) {
 		return;
@@ -84,13 +111,21 @@ add_action('acf/input/admin_head', function () {
 add_action('admin_head', function () {
 ?>
 	<style>
-		#toplevel_page_<?php echo esc_attr(ALERGOBOT_ACF_SETTINGS_SLUG); ?>.wp-menu-name {
-			background: #1a5f4a;
-			color: #fff;
+		#toplevel_page_<?php echo esc_attr(ALERGOBOT_ACF_SETTINGS_SLUG); ?>>a {
+			background-color: #26668c !important;
+			color: #fff !important;
 		}
 
-		#toplevel_page_<?php echo esc_attr(ALERGOBOT_ACF_SETTINGS_SLUG); ?>:hover .wp-menu-name {
-			background: #134a3a;
+		#toplevel_page_<?php echo esc_attr(ALERGOBOT_ACF_SETTINGS_SLUG); ?>>a:hover,
+		#toplevel_page_<?php echo esc_attr(ALERGOBOT_ACF_SETTINGS_SLUG); ?>>a:focus {
+			background-color: #1e5270 !important;
+			color: #fff !important;
+		}
+
+		#toplevel_page_<?php echo esc_attr(ALERGOBOT_ACF_SETTINGS_SLUG); ?>.wp-has-current-submenu>a,
+		#toplevel_page_<?php echo esc_attr(ALERGOBOT_ACF_SETTINGS_SLUG); ?>.current>a {
+			background-color: #26668c !important;
+			color: #fff !important;
 		}
 	</style>
 <?php

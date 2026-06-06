@@ -28,15 +28,20 @@ add_action('wp_enqueue_scripts', function () {
 	wp_enqueue_script('alergobot-fancybox', $uri . '/js/libs/fancybox.min.js', ['alergobot-swiper'], $ver, true);
 	wp_enqueue_script('alergobot-app', $uri . '/js/app.min.js', ['alergobot-fancybox'], $ver, true);
 
-	if (is_page_template('page-kontakty.php') || is_page('kontakty')) {
-		wp_enqueue_script('alergobot-map', $uri . '/js/map.js', ['alergobot-app'], $ver, true);
-	}
+	$map = function_exists('alergobot_get_map_settings') ? alergobot_get_map_settings() : [];
 
 	wp_localize_script('alergobot-app', 'theme_ajax', [
 		'ajax_url' => admin_url('admin-ajax.php'),
 		'nonce'    => wp_create_nonce('alergobot_nonce'),
 		'home_url' => home_url('/'),
 	]);
+
+	if (!empty($map['apiKey'])) {
+		wp_localize_script('alergobot-app', 'theme_map', [
+			'apiKey' => $map['apiKey'],
+			'lang'   => 'ru_RU',
+		]);
+	}
 });
 
 /**

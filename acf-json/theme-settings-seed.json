@@ -1,0 +1,62 @@
+{
+    "telefony": [
+        {
+            "nomer": "+7 (495) 352-87-77",
+            "v_shapke": 1
+        },
+        {
+            "nomer": "+7 (495) 350-47-40",
+            "v_shapke": 1
+        },
+        {
+            "nomer": "+7 (916) 900-65-84",
+            "v_shapke": 0
+        }
+    ],
+    "glavnoe_menyu": [
+        {
+            "nazvanie": "Каталог",
+            "ssylka": "/katalog/",
+            "est_podmenyu": 0
+        },
+        {
+            "nazvanie": "Презентация",
+            "ssylka": "#popup-presentation",
+            "est_podmenyu": 0
+        },
+        {
+            "nazvanie": "Статьи",
+            "ssylka": "/stati-po-allergologii/",
+            "est_podmenyu": 0
+        },
+        {
+            "nazvanie": "Контакты",
+            "ssylka": "/kontakty/",
+            "est_podmenyu": 0
+        }
+    ],
+    "kontakty_zagolovok": "Контакты для связи",
+    "kontakty_tekst": "Мы всегда открыты для сотрудничества и рады новым интересным проектам!",
+    "email": "info@biofocus.ru",
+    "adres_indeks": "109387",
+    "adres_gorod": "Москва",
+    "adres_ulica": "ул. Тихая, д. 28, оф. 216",
+    "kompaniya_nazvanie": "ООО «Био Фокус»",
+    "kompaniya_inn": "7707384354",
+    "kompaniya_kpp": "772301001",
+    "kompaniya_ogrn": "1177746459142",
+    "karta_pokazyvat": 1,
+    "karta_koordinaty": "55.6848,37.7466",
+    "karta_zoom": 16,
+    "karta_podpis": "Карта — ул. Тихая, 28, Москва",
+    "karta_api_klyuch": "4b85df55-35b1-4c23-8034-e5e8e6e58e52",
+    "karta_ikonka": "img/placemark.svg",
+    "kopirajt": "© 2026 - Официальный сайт Аллергобот",
+    "ssylka_na_politiku": "/privacy-policy/",
+    "ssylka_opd": "#",
+    "ssylka_cookies": "#",
+    "cf7_konsultaciya": "[contact-form-7 id=\"1\" title=\"Консультация\"]",
+    "cf7_zakaz": "[contact-form-7 id=\"2\" title=\"Заявка\"]",
+    "cf7_prezentaciya": "[contact-form-7 id=\"3\" title=\"Презентация\"]",
+    "keywords": "PROTIA, аллергодиагностика, анализаторы, панели Allergy-Q, лабораторное оборудование, иммунохимилюминесценция, Аллергобот"
+}

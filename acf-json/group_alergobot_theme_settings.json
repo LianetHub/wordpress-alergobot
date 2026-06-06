@@ -1,0 +1,949 @@
+{
+    "key": "group_alg_theme_settings",
+    "title": "Настройки сайта",
+    "fields": [
+        {
+            "key": "field_alg_ts_acc_brand",
+            "label": "Брендинг",
+            "name": "",
+            "aria-label": "",
+            "type": "accordion",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "open": 1,
+            "multi_expand": 0,
+            "endpoint": 0
+        },
+        {
+            "key": "field_alg_ts_logotip",
+            "label": "Логотип (шапка)",
+            "name": "logotip",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "",
+            "preview_size": "medium"
+        },
+        {
+            "key": "field_alg_ts_logotip_podval",
+            "label": "Логотип (подвал)",
+            "name": "logotip_podval",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "",
+            "preview_size": "medium"
+        },
+        {
+            "key": "field_alg_ts_acc_phones",
+            "label": "Телефоны",
+            "name": "",
+            "aria-label": "",
+            "type": "accordion",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "open": 0,
+            "multi_expand": 0,
+            "endpoint": 0
+        },
+        {
+            "key": "field_alg_ts_telefony",
+            "label": "Телефоны",
+            "name": "telefony",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "table",
+            "pagination": 0,
+            "min": 0,
+            "max": 0,
+            "collapsed": "field_alg_ts_phone_nomer",
+            "button_label": "Добавить телефон",
+            "rows_per_page": 20,
+            "default_value": [
+                {
+                    "nomer": "+7 (495) 352-87-77",
+                    "v_shapke": 1
+                },
+                {
+                    "nomer": "+7 (495) 350-47-40",
+                    "v_shapke": 1
+                },
+                {
+                    "nomer": "+7 (916) 900-65-84",
+                    "v_shapke": 0
+                }
+            ],
+            "sub_fields": [
+                {
+                    "key": "field_alg_ts_phone_nomer",
+                    "label": "Номер",
+                    "name": "nomer",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "70",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "+7 (495) 000-00-00",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_alg_ts_telefony"
+                },
+                {
+                    "key": "field_alg_ts_phone_v_shapke",
+                    "label": "В шапке",
+                    "name": "v_shapke",
+                    "aria-label": "",
+                    "type": "true_false",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "30",
+                        "class": "",
+                        "id": ""
+                    },
+                    "message": "",
+                    "default_value": 0,
+                    "ui": 1,
+                    "ui_on_text": "Да",
+                    "ui_off_text": "Нет",
+                    "parent_repeater": "field_alg_ts_telefony"
+                }
+            ]
+        },
+        {
+            "key": "field_alg_ts_acc_menu",
+            "label": "Навигация",
+            "name": "",
+            "aria-label": "",
+            "type": "accordion",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "open": 0,
+            "multi_expand": 0,
+            "endpoint": 0
+        },
+        {
+            "key": "field_alg_ts_glavnoe_menyu",
+            "label": "Главное меню",
+            "name": "glavnoe_menyu",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "pagination": 0,
+            "min": 0,
+            "max": 0,
+            "collapsed": "field_alg_ts_menu_nazvanie",
+            "button_label": "Добавить пункт",
+            "rows_per_page": 20,
+            "default_value": [
+                {
+                    "nazvanie": "Каталог",
+                    "ssylka": "/katalog/",
+                    "est_podmenyu": 0
+                },
+                {
+                    "nazvanie": "Презентация",
+                    "ssylka": "#popup-presentation",
+                    "est_podmenyu": 0
+                },
+                {
+                    "nazvanie": "Статьи",
+                    "ssylka": "/stati-po-allergologii/",
+                    "est_podmenyu": 0
+                },
+                {
+                    "nazvanie": "Контакты",
+                    "ssylka": "/kontakty/",
+                    "est_podmenyu": 0
+                }
+            ],
+            "sub_fields": [
+                {
+                    "key": "field_alg_ts_menu_nazvanie",
+                    "label": "Название",
+                    "name": "nazvanie",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_alg_ts_glavnoe_menyu"
+                },
+                {
+                    "key": "field_alg_ts_menu_ssylka",
+                    "label": "Ссылка",
+                    "name": "ssylka",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Относительный путь, полный URL или якорь (#popup-presentation)",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "parent_repeater": "field_alg_ts_glavnoe_menyu"
+                },
+                {
+                    "key": "field_alg_ts_menu_est_podmenyu",
+                    "label": "Есть подменю",
+                    "name": "est_podmenyu",
+                    "aria-label": "",
+                    "type": "true_false",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "message": "",
+                    "default_value": 0,
+                    "ui": 1,
+                    "ui_on_text": "",
+                    "ui_off_text": "",
+                    "parent_repeater": "field_alg_ts_glavnoe_menyu"
+                },
+                {
+                    "key": "field_alg_ts_menu_podmenyu",
+                    "label": "Подменю",
+                    "name": "podmenyu",
+                    "aria-label": "",
+                    "type": "repeater",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_alg_ts_menu_est_podmenyu",
+                                "operator": "==",
+                                "value": "1"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "layout": "table",
+                    "pagination": 0,
+                    "min": 0,
+                    "max": 0,
+                    "collapsed": "",
+                    "button_label": "Добавить подпункт",
+                    "rows_per_page": 20,
+                    "sub_fields": [
+                        {
+                            "key": "field_alg_ts_submenu_nazvanie",
+                            "label": "Название",
+                            "name": "nazvanie",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 1,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "parent_repeater": "field_alg_ts_menu_podmenyu"
+                        },
+                        {
+                            "key": "field_alg_ts_submenu_ssylka",
+                            "label": "Ссылка",
+                            "name": "ssylka",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 1,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "parent_repeater": "field_alg_ts_menu_podmenyu"
+                        }
+                    ],
+                    "parent_repeater": "field_alg_ts_glavnoe_menyu"
+                }
+            ]
+        },
+        {
+            "key": "field_alg_ts_acc_company",
+            "label": "Информация о компании",
+            "name": "",
+            "aria-label": "",
+            "type": "accordion",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "open": 0,
+            "multi_expand": 0,
+            "endpoint": 0
+        },
+        {
+            "key": "field_alg_ts_kontakty_zagolovok",
+            "label": "Заголовок блока контактов",
+            "name": "kontakty_zagolovok",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Контакты для связи",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_alg_ts_email",
+            "label": "E-mail",
+            "name": "email",
+            "aria-label": "",
+            "type": "email",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "info@biofocus.ru",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_alg_ts_kontakty_tekst",
+            "label": "Текст под заголовком",
+            "name": "kontakty_tekst",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Мы всегда открыты для сотрудничества и рады новым интересным проектам!",
+            "maxlength": "",
+            "rows": 3,
+            "placeholder": "",
+            "new_lines": ""
+        },
+        {
+            "key": "field_alg_ts_adres_indeks",
+            "label": "Индекс",
+            "name": "adres_indeks",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "109387",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_alg_ts_adres_gorod",
+            "label": "Город",
+            "name": "adres_gorod",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Москва",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_alg_ts_adres_ulica",
+            "label": "Улица, дом, офис",
+            "name": "adres_ulica",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "ул. Тихая, д. 28, оф. 216",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_alg_ts_kompaniya_nazvanie",
+            "label": "Юридическое название",
+            "name": "kompaniya_nazvanie",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "ООО «Био Фокус»",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_alg_ts_kompaniya_inn",
+            "label": "ИНН",
+            "name": "kompaniya_inn",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "33",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "7707384354",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_alg_ts_kompaniya_kpp",
+            "label": "КПП",
+            "name": "kompaniya_kpp",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "33",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "772301001",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_alg_ts_kompaniya_ogrn",
+            "label": "ОГРН",
+            "name": "kompaniya_ogrn",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "34",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "1177746459142",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_alg_ts_acc_map",
+            "label": "Карта",
+            "name": "",
+            "aria-label": "",
+            "type": "accordion",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "open": 0,
+            "multi_expand": 0,
+            "endpoint": 0
+        },
+        {
+            "key": "field_alg_ts_karta_pokazyvat",
+            "label": "Показывать карту",
+            "name": "karta_pokazyvat",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 1,
+            "ui": 1,
+            "ui_on_text": "Да",
+            "ui_off_text": "Нет"
+        },
+        {
+            "key": "field_alg_ts_karta_koordinaty",
+            "label": "Координаты",
+            "name": "karta_koordinaty",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Широта и долгота через запятую, например: 55.6848,37.7466",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "55.6848,37.7466",
+            "maxlength": "",
+            "placeholder": "55.6848,37.7466",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_alg_ts_karta_zoom",
+            "label": "Масштаб (zoom)",
+            "name": "karta_zoom",
+            "aria-label": "",
+            "type": "number",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "33",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 16,
+            "min": 1,
+            "max": 21,
+            "step": 1,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_alg_ts_karta_podpis",
+            "label": "Подпись для screen readers",
+            "name": "karta_podpis",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Атрибут aria-label у блока карты",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "67",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Карта — ул. Тихая, 28, Москва",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_alg_ts_karta_api_klyuch",
+            "label": "API-ключ Яндекс.Карт",
+            "name": "karta_api_klyuch",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "4b85df55-35b1-4c23-8034-e5e8e6e58e52",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_alg_ts_karta_ikonka",
+            "label": "Иконка метки",
+            "name": "karta_ikonka",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Путь относительно папки assets, например: img/placemark.svg",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "img/placemark.svg",
+            "maxlength": "",
+            "placeholder": "img/placemark.svg",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_alg_ts_acc_footer",
+            "label": "Футер",
+            "name": "",
+            "aria-label": "",
+            "type": "accordion",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "open": 0,
+            "multi_expand": 0,
+            "endpoint": 0
+        },
+        {
+            "key": "field_alg_ts_kopirajt",
+            "label": "Копирайт",
+            "name": "kopirajt",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "© 2026 - Официальный сайт Аллергобот",
+            "maxlength": "",
+            "placeholder": "© 2026 - Официальный сайт Аллергобот",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_alg_ts_ssylka_na_politiku",
+            "label": "Ссылка на политику конфиденциальности",
+            "name": "ssylka_na_politiku",
+            "aria-label": "",
+            "type": "url",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "33",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "/privacy-policy/",
+            "placeholder": "/privacy-policy/"
+        },
+        {
+            "key": "field_alg_ts_ssylka_opd",
+            "label": "Ссылка «Согласие ОПД»",
+            "name": "ssylka_opd",
+            "aria-label": "",
+            "type": "url",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "33",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "#",
+            "placeholder": "#"
+        },
+        {
+            "key": "field_alg_ts_ssylka_cookies",
+            "label": "Ссылка «Согласие Cookies»",
+            "name": "ssylka_cookies",
+            "aria-label": "",
+            "type": "url",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "34",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "#",
+            "placeholder": "#"
+        },
+        {
+            "key": "field_alg_ts_acc_cf7",
+            "label": "Формы CF7",
+            "name": "",
+            "aria-label": "",
+            "type": "accordion",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "open": 0,
+            "multi_expand": 0,
+            "endpoint": 0
+        },
+        {
+            "key": "field_alg_ts_cf7_konsultaciya",
+            "label": "CF7: консультация",
+            "name": "cf7_konsultaciya",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Шорткод формы для попапа консультации",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "[contact-form-7 id=\"1\" title=\"Консультация\"]",
+            "maxlength": "",
+            "placeholder": "[contact-form-7 id=\"1\" title=\"Консультация\"]",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_alg_ts_cf7_zakaz",
+            "label": "CF7: заявка",
+            "name": "cf7_zakaz",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Шорткод формы для попапа заказа и секции request",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "[contact-form-7 id=\"2\" title=\"Заявка\"]",
+            "maxlength": "",
+            "placeholder": "[contact-form-7 id=\"2\" title=\"Заявка\"]",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_alg_ts_cf7_prezentaciya",
+            "label": "CF7: презентация",
+            "name": "cf7_prezentaciya",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Шорткод формы для попапа презентации",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "[contact-form-7 id=\"3\" title=\"Презентация\"]",
+            "maxlength": "",
+            "placeholder": "[contact-form-7 id=\"3\" title=\"Презентация\"]",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_alg_ts_acc_seo",
+            "label": "SEO",
+            "name": "",
+            "aria-label": "",
+            "type": "accordion",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "open": 0,
+            "multi_expand": 0,
+            "endpoint": 1
+        },
+        {
+            "key": "field_alg_ts_keywords",
+            "label": "Meta keywords",
+            "name": "keywords",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "PROTIA, аллергодиагностика, анализаторы, панели Allergy-Q, лабораторное оборудование, иммунохимилюминесценция, Аллергобот",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "theme-settings"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1781280000
+}

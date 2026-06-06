@@ -24,6 +24,141 @@ if (!function_exists('alergobot_privacy_policy_url')) {
 	}
 }
 
+if (!function_exists('alergobot_resolve_link')) {
+	function alergobot_resolve_link($link)
+	{
+		$link = trim((string) $link);
+		if ($link === '' || $link === '#') {
+			return $link;
+		}
+		if (str_starts_with($link, '#') || str_starts_with($link, 'mailto:') || str_starts_with($link, 'tel:')) {
+			return $link;
+		}
+		if (preg_match('#^https?://#i', $link)) {
+			return $link;
+		}
+
+		return home_url('/' . ltrim($link, '/'));
+	}
+}
+
+if (!function_exists('alergobot_esc_link')) {
+	function alergobot_esc_link($link)
+	{
+		$resolved = alergobot_resolve_link($link);
+
+		if (str_starts_with($resolved, '#')) {
+			return esc_attr($resolved);
+		}
+
+		return esc_url($resolved);
+	}
+}
+
+if (!function_exists('alergobot_get_phones')) {
+	function alergobot_get_phones($header_only = false)
+	{
+		$phones = [];
+
+		if (!function_exists('have_rows') || !have_rows('telefony', 'option')) {
+			return $phones;
+		}
+
+		while (have_rows('telefony', 'option')) {
+			the_row();
+			$number = get_sub_field('nomer');
+			if (!$number) {
+				continue;
+			}
+			if ($header_only && !get_sub_field('v_shapke')) {
+				continue;
+			}
+			$phones[] = $number;
+		}
+
+		return $phones;
+	}
+}
+
+if (!function_exists('alergobot_get_map_settings')) {
+	function alergobot_get_map_settings()
+	{
+		$icon = alergobot_get_option('karta_ikonka', 'img/placemark.svg');
+
+		return [
+			'show'   => (bool) alergobot_get_option('karta_pokazyvat', 1),
+			'coords' => alergobot_get_option('karta_koordinaty', '55.6848,37.7466'),
+			'zoom'   => (int) alergobot_get_option('karta_zoom', 16),
+			'label'  => alergobot_get_option('karta_podpis', 'Карта'),
+			'apiKey' => alergobot_get_option('karta_api_klyuch', ''),
+			'icon'   => alergobot_assets_uri(ltrim($icon, '/')),
+		];
+	}
+}
+
+if (!function_exists('alergobot_get_map_html')) {
+	function alergobot_get_map_html($id = 'contacts-map', $class = 'contacts-order__map')
+	{
+		$map = alergobot_get_map_settings();
+		if (!$map['show']) {
+			return '';
+		}
+
+		return sprintf(
+			'<div class="%s" id="%s" data-map data-coords="%s" data-zoom="%d" data-icon="%s" role="region" aria-label="%s" aria-busy="true" data-animate="bottom"></div>',
+			esc_attr($class),
+			esc_attr($id),
+			esc_attr($map['coords']),
+			(int) $map['zoom'],
+			esc_url($map['icon']),
+			esc_attr($map['label'])
+		);
+	}
+}
+
+if (!function_exists('alergobot_replace_dynamic_markup')) {
+	function alergobot_replace_dynamic_markup($html)
+	{
+		ob_start();
+		get_template_part('template-parts/company/contacts', 'info');
+		$contacts_info = ob_get_clean();
+
+		$html = preg_replace('/<section class="contacts-info">.*?<\/section>/s', $contacts_info, $html, 1);
+
+		$map_html = alergobot_get_map_html();
+		if ($map_html) {
+			$html = preg_replace(
+				'/<div class="contacts-order__map"[^>]*><\/div>/',
+				$map_html,
+				$html,
+				1
+			);
+			$html = preg_replace(
+				'/<div class="contacts__map"[^>]*><\/div>/',
+				alergobot_get_map_html('contacts-map', 'contacts__map'),
+				$html,
+				1
+			);
+		} else {
+			$html = preg_replace('/<div class="contacts-order__map"[^>]*><\/div>/', '', $html, 1);
+			$html = preg_replace('/<div class="contacts__map"[^>]*><\/div>/', '', $html, 1);
+		}
+
+		ob_start();
+		get_template_part('template-parts/company/contact', 'cards');
+		$contact_cards = ob_get_clean();
+
+		$html = preg_replace(
+			'/(<div class="contacts__cards">)\s*(?:<article class="contacts-card[\s\S]*?<\/article>\s*)+(<link itemprop="hasMap")/',
+			'$1' . $contact_cards . '</div>' . "\n\t\t\t\t\t\t\t\t" . '$2',
+			$html,
+			1
+		);
+
+		return $html;
+	}
+}
+
 if (!function_exists('alergobot_replace_markup_urls')) {
 	function alergobot_replace_markup_urls($html)
 	{
@@ -45,7 +180,9 @@ if (!function_exists('alergobot_replace_markup_urls')) {
 			'action="#"' => 'action="' . esc_url(admin_url('admin-ajax.php')) . '"',
 		];
 
-		return str_replace(array_keys($replacements), array_values($replacements), $html);
+		$html = str_replace(array_keys($replacements), array_values($replacements), $html);
+
+		return alergobot_replace_dynamic_markup($html);
 	}
 }
 
@@ -162,48 +299,17 @@ if (!function_exists('alergobot_get_option')) {
 }
 
 if (!function_exists('alergobot_render_main_menu')) {
-	function alergobot_render_main_menu($menu_class = 'header__menu')
+	function alergobot_render_main_menu($menu_class = 'header__menu', $item_class = 'header__item', $link_class = 'header__link')
 	{
-		if (function_exists('have_rows') && have_rows('glavnoe_menyu', 'option')) {
-			echo '<ul class="' . esc_attr($menu_class) . '">';
-			while (have_rows('glavnoe_menyu', 'option')) {
-				the_row();
-				$name = get_sub_field('nazvanie');
-				$link = get_sub_field('ssylka');
-				if (!$name || !$link) {
-					continue;
-				}
-				$has_submenu = get_sub_field('est_podmenyu');
-				echo '<li class="header__item' . ($has_submenu ? ' has-dropdown' : '') . '">';
-				printf(
-					'<a class="header__link" href="%s">%s</a>',
-					esc_url($link),
-					esc_html($name)
-				);
-				if ($has_submenu && have_rows('podmenyu')) {
-					echo '<ul class="header__submenu">';
-					while (have_rows('podmenyu')) {
-						the_row();
-						$sub_name = get_sub_field('nazvanie');
-						$sub_link = get_sub_field('ssylka');
-						if ($sub_name && $sub_link) {
-							printf(
-								'<li><a href="%s">%s</a></li>',
-								esc_url($sub_link),
-								esc_html($sub_name)
-							);
-						}
-					}
-					echo '</ul>';
-				}
-				echo '</li>';
-			}
-			echo '</ul>';
-			return;
-		}
-
-		alergobot_render_markup_file('_header.html');
-		// Extract only nav menu from markup fallback handled in header.php
+		get_template_part(
+			'template-parts/nav/menu',
+			null,
+			[
+				'menu_class' => $menu_class,
+				'item_class' => $item_class,
+				'link_class' => $link_class,
+			]
+		);
 	}
 }
 
