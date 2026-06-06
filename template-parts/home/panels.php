@@ -5,115 +5,68 @@
  * @package alergobot
  */
 
-?><section class="panels">
-				<div class="panels__container _container">
-					<div class="panels__head">
-						<div class="panels__intro">
-							<h2 class="panels__title title title-md title-md--panels" data-animate="bottom">Панели PROTIA Allergy-Q для различных направлений аллергодиагностики</h2>
-							<p class="panels__lead text-lead" data-animate="bottom">PROTIA Allergy-Q – набором оборудования, выявляющий IgE-тела против разных аллергенов. Основной метод лабораторной диагностики – иммуноблоттинг, за один тест анализирует десятки аллергенов.</p>
-						</div>
-						<span class="panels__tag tag" data-animate="scale">линейка панелей</span>
-					</div>
-					<ul class="panels__list" data-panels="">
-						<li class="panels__item _active" data-animate="bottom">
-							<button class="panels__heading" type="button" aria-expanded="true">
-								<span class="panels__name">Мультипанель</span>
-								<svg class="panels__chevron icon" width="32" height="32" aria-hidden="true">
-									<use href="<?php echo esc_url(alergobot_assets_uri('img/icons.svg')); ?>#icon-panels-chevron"></use>
-								</svg>
-							</button>
-							<div class="panels__body">
-								<div class="panels__inner">
-									<div class="panels__content">
-										<div class="panels__desc">
-											<p>Расширенная модель лабораторного оборудования. Комплексный анализ тестов с 90 аллергенами: респираторными, лекарственными, пищевыми, инсектными, эпидермиальными, грибковыми, бытовыми, рядом других. Показана диагностика на аллергию при астме, поллинозах, экземах.</p>
-											<p>Формирует стартовую картину, сокращая время для отдельных тестов.</p>
-										</div>
-										<img class="panels__img" src="<?php echo esc_url(alergobot_assets_uri('img/home/panels-multipanel.png')); ?>" alt="Мультипанель PROTIA Allergy-Q" title="Мультипанель PROTIA Allergy-Q" width="267" height="144" loading="lazy">
-										<a class="btn btn--secondary panels__more" href="<?php echo esc_url(home_url('/katalog/')); ?>"> Подробнее <svg class="btn__icon icon" width="28" height="28" aria-hidden="true">
-												<use href="<?php echo esc_url(alergobot_assets_uri('img/icons.svg')); ?>#icon-arrow-up-right"></use>
-											</svg>
-										</a>
-									</div>
-								</div>
-							</div>
-						</li>
-						<li class="panels__item" data-animate="bottom">
-							<button class="panels__heading" type="button" aria-expanded="false">
-								<span class="panels__name">Респираторная панель</span>
-								<svg class="panels__chevron icon" width="32" height="32" aria-hidden="true">
-									<use href="<?php echo esc_url(alergobot_assets_uri('img/icons.svg')); ?>#icon-panels-chevron"></use>
-								</svg>
-							</button>
-							<div class="panels__body">
-								<div class="panels__inner">
-									<div class="panels__content">
-										<div class="panels__desc">
-											<p>Подходит для первичной диагностики ингаляционной (дыхательной) аллергии и уточнения сенсибилизации при жалобах на ринит, кашель, бронхиальную астму, сезонные обострения и поллиноз.</p>
-											<p>Включает ключевые группы аллергенов (пыльца, домашняя пыль, клещи, эпителий животных, плесневые грибы) для быстрых и понятных выводов по профилю пациента.</p>
-										</div>
-										<img class="panels__img" src="<?php echo esc_url(alergobot_assets_uri('img/home/panels-multipanel.png')); ?>" alt="Респираторная панель PROTIA Allergy-Q" title="Респираторная панель PROTIA Allergy-Q" width="267" height="144" loading="lazy">
-										<a class="btn btn--secondary panels__more" href="<?php echo esc_url(home_url('/katalog/')); ?>"> Подробнее <svg class="btn__icon icon" width="28" height="28" aria-hidden="true">
-												<use href="<?php echo esc_url(alergobot_assets_uri('img/icons.svg')); ?>#icon-arrow-up-right"></use>
-											</svg>
-										</a>
-									</div>
-								</div>
-							</div>
-						</li>
-						<li class="panels__item" data-animate="bottom">
-							<button class="panels__heading" type="button" aria-expanded="false">
-								<span class="panels__name">Пищевая панель</span>
-								<svg class="panels__chevron icon" width="32" height="32" aria-hidden="true">
-									<use href="<?php echo esc_url(alergobot_assets_uri('img/icons.svg')); ?>#icon-panels-chevron"></use>
-								</svg>
-							</button>
-							<div class="panels__body">
-								<div class="panels__inner">
-									<div class="panels__content">
-										<div class="panels__desc">
-											<p>Оптимальна при подозрении на пищевую аллергию: реакции на отдельные продукты, перекрёстные реакции, симптомы со стороны ЖКТ и кожи, а также при необходимости расширенного скрининга.</p>
-											<p>Помогает быстро сформировать план дальнейшего обследования и ведения пациента, выделив наиболее вероятные пищевые триггеры.</p>
-										</div>
-										<img class="panels__img" src="<?php echo esc_url(alergobot_assets_uri('img/home/panels-multipanel.png')); ?>" alt="Пищевая панель PROTIA Allergy-Q" title="Пищевая панель PROTIA Allergy-Q" width="267" height="144" loading="lazy">
-										<a class="btn btn--secondary panels__more" href="<?php echo esc_url(home_url('/katalog/')); ?>"> Подробнее <svg class="btn__icon icon" width="28" height="28" aria-hidden="true">
-												<use href="<?php echo esc_url(alergobot_assets_uri('img/icons.svg')); ?>#icon-arrow-up-right"></use>
-											</svg>
-										</a>
-									</div>
-								</div>
-							</div>
-						</li>
-						<li class="panels__item" data-animate="bottom">
-							<button class="panels__heading" type="button" aria-expanded="false">
-								<span class="panels__name">Атопическая панель</span>
-								<svg class="panels__chevron icon" width="32" height="32" aria-hidden="true">
-									<use href="<?php echo esc_url(alergobot_assets_uri('img/icons.svg')); ?>#icon-panels-chevron"></use>
-								</svg>
-							</button>
-							<div class="panels__body">
-								<div class="panels__inner">
-									<div class="panels__content">
-										<div class="panels__desc">
-											<p>Рекомендуется при атопическом дерматите и других кожных проявлениях аллергии, когда важно оценить вклад бытовых, эпидермиальных и пищевых аллергенов в обострения.</p>
-											<p>Удобна как стартовая панель для подбора терапии и контроля факторов риска в динамике.</p>
-										</div>
-										<img class="panels__img" src="<?php echo esc_url(alergobot_assets_uri('img/home/panels-multipanel.png')); ?>" alt="Атопическая панель PROTIA Allergy-Q" title="Атопическая панель PROTIA Allergy-Q" width="267" height="144" loading="lazy">
-										<a class="btn btn--secondary panels__more" href="<?php echo esc_url(home_url('/katalog/')); ?>"> Подробнее <svg class="btn__icon icon" width="28" height="28" aria-hidden="true">
-												<use href="<?php echo esc_url(alergobot_assets_uri('img/icons.svg')); ?>#icon-arrow-up-right"></use>
-											</svg>
-										</a>
-									</div>
-								</div>
-							</div>
-						</li>
-					</ul>
-					<div class="panels__footer" data-animate="bottom">
-						<a class="btn btn--primary panels__footer-btn panels__footer-btn--desktop" href="<?php echo esc_url(home_url('/katalog/')); ?>">Перейти в каталог</a>
-						<a class="btn btn--primary panels__footer-btn panels__footer-btn--mobile" href="<?php echo esc_url(home_url('/analizatory/')); ?>"> Смотреть анализаторы <svg class="btn__icon icon" width="28" height="28" aria-hidden="true">
-								<use href="<?php echo esc_url(alergobot_assets_uri('img/icons.svg')); ?>#icon-arrow-up-right"></use>
+$footer_btn_desktop = alergobot_home_get('footer_btn_desktop');
+$footer_btn_mobile  = alergobot_home_get('footer_btn_mobile');
+?>
+<section class="panels">
+	<div class="panels__container _container">
+		<div class="panels__head">
+			<div class="panels__intro">
+				<?php if ($title = alergobot_home_get('title')) : ?>
+					<h2 class="panels__title title title-md title-md--panels" data-animate="bottom"><?php echo wp_kses_post($title); ?></h2>
+				<?php endif; ?>
+				<?php if ($lead = alergobot_home_get('lead')) : ?>
+					<p class="panels__lead text-lead" data-animate="bottom"><?php echo esc_html($lead); ?></p>
+				<?php endif; ?>
+			</div>
+			<?php if ($tag = alergobot_home_get('tag')) : ?>
+				<span class="panels__tag tag" data-animate="scale"><?php echo esc_html($tag); ?></span>
+			<?php endif; ?>
+		</div>
+		<?php if (alergobot_home_rows('items')) : ?>
+			<ul class="panels__list" data-panels="">
+				<?php foreach (alergobot_home_rows('items') as $item) :
+					$is_open = !empty($item['is_open']);
+					$link    = $item['link'] ?? [];
+					$image   = $item['image_path'] ?? '';
+					?>
+					<li class="panels__item<?php echo $is_open ? ' _active' : ''; ?>" data-animate="bottom">
+						<button class="panels__heading" type="button" aria-expanded="<?php echo $is_open ? 'true' : 'false'; ?>">
+							<span class="panels__name"><?php echo esc_html($item['name'] ?? ''); ?></span>
+							<svg class="panels__chevron icon" width="32" height="32" aria-hidden="true">
+								<use href="<?php echo esc_url(alergobot_assets_uri('img/icons.svg')); ?>#icon-panels-chevron"></use>
 							</svg>
-						</a>
-					</div>
-				</div>
-			</section>
+						</button>
+						<div class="panels__body">
+							<div class="panels__inner">
+								<div class="panels__content">
+									<?php if (!empty($item['description'])) : ?>
+										<div class="panels__desc"><?php echo wp_kses_post($item['description']); ?></div>
+									<?php endif; ?>
+									<?php if ($image) : ?>
+										<img class="panels__img" src="<?php echo esc_url(alergobot_acf_image_url($image)); ?>" alt="<?php echo esc_attr($item['image_alt'] ?? ''); ?>" title="<?php echo esc_attr($item['image_alt'] ?? ''); ?>" width="267" height="144" loading="lazy">
+									<?php endif; ?>
+									<a class="btn btn--secondary panels__more" href="<?php echo esc_url(alergobot_acf_link_url($link, home_url('/katalog/'))); ?>">
+										<?php echo esc_html(alergobot_acf_link_title($link, __('Подробнее', 'alergobot'))); ?>
+										<svg class="btn__icon icon" width="28" height="28" aria-hidden="true">
+											<use href="<?php echo esc_url(alergobot_assets_uri('img/icons.svg')); ?>#icon-arrow-up-right"></use>
+										</svg>
+									</a>
+								</div>
+							</div>
+						</div>
+					</li>
+				<?php endforeach; ?>
+			</ul>
+		<?php endif; ?>
+		<div class="panels__footer" data-animate="bottom">
+			<a class="btn btn--primary panels__footer-btn panels__footer-btn--desktop" href="<?php echo esc_url(alergobot_acf_link_url($footer_btn_desktop, home_url('/katalog/'))); ?>"><?php echo esc_html(alergobot_acf_link_title($footer_btn_desktop, __('Перейти в каталог', 'alergobot'))); ?></a>
+			<a class="btn btn--primary panels__footer-btn panels__footer-btn--mobile" href="<?php echo esc_url(alergobot_acf_link_url($footer_btn_mobile, home_url('/analizatory/'))); ?>">
+				<?php echo esc_html(alergobot_acf_link_title($footer_btn_mobile, __('Смотреть анализаторы', 'alergobot'))); ?>
+				<svg class="btn__icon icon" width="28" height="28" aria-hidden="true">
+					<use href="<?php echo esc_url(alergobot_assets_uri('img/icons.svg')); ?>#icon-arrow-up-right"></use>
+				</svg>
+			</a>
+		</div>
+	</div>
+</section>

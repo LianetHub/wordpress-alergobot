@@ -3,10 +3,36 @@
 /**
  * ACF configuration
  *
+ * acf-json/ — только для локальной разработки (генератор в tools/).
+ * На сервер папку не загружают: группы полей создаются вручную в админке ACF.
+ *
  * @package alergobot
  */
 
 define('ALERGOBOT_ACF_SETTINGS_SLUG', 'theme-settings');
+
+/**
+ * Путь к acf-json/ или пустая строка, если папки нет (продакшен).
+ */
+function alergobot_acf_json_dir()
+{
+	static $dir = null;
+
+	if ($dir === null) {
+		$path = ALERGOBOT_DIR . '/acf-json';
+		$dir  = is_dir($path) ? $path : '';
+	}
+
+	return $dir;
+}
+
+/**
+ * Доступны ли локальные JSON-файлы (только dev).
+ */
+function alergobot_acf_json_enabled()
+{
+	return alergobot_acf_json_dir() !== '';
+}
 
 add_action('acf/init', function () {
 	if (!function_exists('acf_add_options_page')) {
@@ -20,45 +46,19 @@ add_action('acf/init', function () {
 		'capability' => 'edit_posts',
 		'redirect'   => false,
 		'icon_url'   => 'dashicons-admin-generic',
-
 	]);
 });
 
-add_filter('acf/settings/save_json', function () {
-	return ALERGOBOT_DIR . '/acf-json';
-});
+if (alergobot_acf_json_enabled()) {
+	add_filter('acf/settings/save_json', function () {
+		return alergobot_acf_json_dir();
+	});
 
-add_filter('acf/settings/load_json', function ($paths) {
-	$paths[] = ALERGOBOT_DIR . '/acf-json';
-	return $paths;
-});
-
-/**
- * One-time import of default option values from acf-json/theme-settings-seed.json.
- */
-add_action('acf/init', function () {
-	if (!function_exists('update_field') || !function_exists('get_field')) {
-		return;
-	}
-
-	$seed_file = ALERGOBOT_DIR . '/acf-json/theme-settings-seed.json';
-	if (!file_exists($seed_file)) {
-		return;
-	}
-
-	$seed = json_decode((string) file_get_contents($seed_file), true);
-	if (!is_array($seed)) {
-		return;
-	}
-
-	foreach ($seed as $field_name => $value) {
-		$current = get_field($field_name, 'option');
-		if ($current !== null && $current !== '' && $current !== false && $current !== []) {
-			continue;
-		}
-		update_field($field_name, $value, 'option');
-	}
-}, 20);
+	add_filter('acf/settings/load_json', function ($paths) {
+		$paths[] = alergobot_acf_json_dir();
+		return $paths;
+	});
+}
 
 add_action('wp_head', function () {
 	if (!function_exists('get_field')) {

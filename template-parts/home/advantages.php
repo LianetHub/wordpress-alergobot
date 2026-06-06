@@ -1,125 +1,58 @@
 <?php
 /**
- * Home section: advantages
+ * Home section: advantages (FAQ)
  *
  * @package alergobot
  */
 
-?><section class="faq">
-				<div class="faq__container _container">
-					<div class="faq__head">
-						<span class="faq__tag tag" data-animate="scale">FAQ</span>
-						<h2 class="faq__title title-md" data-animate="bottom">Ответы на популярные вопросы</h2>
-					</div>
-					<div class="faq__columns accordion" data-accordion="">
-						<div class="faq__col">
-							<div class="accordion__item _active" data-animate="bottom">
-								<button class="accordion__header" type="button" aria-expanded="true">
-									<span class="accordion__question">PROTIA Allergy-Q – что это?</span>
-									<svg class="accordion__chevron icon" width="32" height="32" aria-hidden="true">
-										<use href="<?php echo esc_url(alergobot_assets_uri('img/icons.svg')); ?>#icon-panels-chevron"></use>
-									</svg>
-								</button>
-								<div class="accordion__body">
-									<div class="accordion__inner">
-										<p class="accordion__answer">Это набор панелей и оборудования, выполняющий диагностику аллергии по большинству аллергенов за один тест, для профильных медицинских организаций.</p>
-									</div>
-								</div>
-							</div>
-							<div class="accordion__item" data-animate="bottom">
-								<button class="accordion__header" type="button" aria-expanded="false">
-									<span class="accordion__question">Что можно выбрать?</span>
-									<svg class="accordion__chevron icon" width="32" height="32" aria-hidden="true">
-										<use href="<?php echo esc_url(alergobot_assets_uri('img/icons.svg')); ?>#icon-panels-chevron"></use>
-									</svg>
-								</button>
-								<div class="accordion__body">
-									<div class="accordion__inner">
-										<p class="accordion__answer">В линейке — анализаторы PROTIA Allergy-Q, панели аллергенов под разные профили исследований, расходные материалы и комплектующие. Состав подбирается под объём работы лаборатории и перечень нужных аллергенов.</p>
-									</div>
-								</div>
-							</div>
-							<div class="accordion__item" data-animate="bottom">
-								<button class="accordion__header" type="button" aria-expanded="false">
-									<span class="accordion__question">Какие есть документы?</span>
-									<svg class="accordion__chevron icon" width="32" height="32" aria-hidden="true">
-										<use href="<?php echo esc_url(alergobot_assets_uri('img/icons.svg')); ?>#icon-panels-chevron"></use>
-									</svg>
-								</button>
-								<div class="accordion__body">
-									<div class="accordion__inner">
-										<p class="accordion__answer">Предоставляем регистрационные удостоверения Росздравнадзора, инструкции по применению, паспорта оборудования и сертификаты соответствия. Актуальные файлы в формате PDF доступны в разделе «Документы» на сайте.</p>
-									</div>
-								</div>
-							</div>
-							<div class="accordion__item" data-animate="bottom">
-								<button class="accordion__header" type="button" aria-expanded="false">
-									<span class="accordion__question">Есть ли тест-системы?</span>
-									<svg class="accordion__chevron icon" width="32" height="32" aria-hidden="true">
-										<use href="<?php echo esc_url(alergobot_assets_uri('img/icons.svg')); ?>#icon-panels-chevron"></use>
-									</svg>
-								</button>
-								<div class="accordion__body">
-									<div class="accordion__inner">
-										<p class="accordion__answer">Да. Это диагностические панели и реагенты для количественного ИФА: готовые наборы под пищевые, респираторные и другие группы аллергенов, совместимые с оборудованием PROTIA Allergy-Q.</p>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="faq__col">
-							<div class="accordion__item" data-animate="bottom">
-								<button class="accordion__header" type="button" aria-expanded="false">
-									<span class="accordion__question">Кому подойдут продукты?</span>
-									<svg class="accordion__chevron icon" width="32" height="32" aria-hidden="true">
-										<use href="<?php echo esc_url(alergobot_assets_uri('img/icons.svg')); ?>#icon-panels-chevron"></use>
-									</svg>
-								</button>
-								<div class="accordion__body">
-									<div class="accordion__inner">
-										<p class="accordion__answer">Решения ориентированы на клиники, частные и государственные лаборатории, медицинские и диагностические центры, которые проводят или внедряют аллергологические исследования.</p>
-									</div>
-								</div>
-							</div>
-							<div class="accordion__item" data-animate="bottom">
-								<button class="accordion__header" type="button" aria-expanded="false">
-									<span class="accordion__question">Как подобрать состав для конкретной задачи?</span>
-									<svg class="accordion__chevron icon" width="32" height="32" aria-hidden="true">
-										<use href="<?php echo esc_url(alergobot_assets_uri('img/icons.svg')); ?>#icon-panels-chevron"></use>
-									</svg>
-								</button>
-								<div class="accordion__body">
-									<div class="accordion__inner">
-										<p class="accordion__answer">Расскажите о типе учреждения, планируемом объёме тестов и перечне аллергенов — менеджер предложит оптимальный набор оборудования и панелей с учётом инфраструктуры и бюджета.</p>
-									</div>
-								</div>
-							</div>
-							<div class="accordion__item" data-animate="bottom">
-								<button class="accordion__header" type="button" aria-expanded="false">
-									<span class="accordion__question">Как ознакомиться с прайсом и презентацией?</span>
-									<svg class="accordion__chevron icon" width="32" height="32" aria-hidden="true">
-										<use href="<?php echo esc_url(alergobot_assets_uri('img/icons.svg')); ?>#icon-panels-chevron"></use>
-									</svg>
-								</button>
-								<div class="accordion__body">
-									<div class="accordion__inner">
-										<p class="accordion__answer">Заполните форму заявки на главной странице — мы направим актуальный прайс и презентацию по интересующим позициям и свяжемся для уточнения деталей.</p>
-									</div>
-								</div>
-							</div>
-							<div class="accordion__item" data-animate="bottom">
-								<button class="accordion__header" type="button" aria-expanded="false">
-									<span class="accordion__question">Как получить консультацию для выбора?</span>
-									<svg class="accordion__chevron icon" width="32" height="32" aria-hidden="true">
-										<use href="<?php echo esc_url(alergobot_assets_uri('img/icons.svg')); ?>#icon-panels-chevron"></use>
-									</svg>
-								</button>
-								<div class="accordion__body">
-									<div class="accordion__inner">
-										<p class="accordion__answer">Оставьте заявку через форму на сайте, позвоните или напишите нам — специалист уточнит задачи учреждения и поможет с подбором оборудования и тест-систем.</p>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
+$faq_items = alergobot_home_rows('items');
+$faq_col1  = array_slice($faq_items, 0, 4);
+$faq_col2  = array_slice($faq_items, 4);
+
+$render_faq_item = static function (array $item) {
+	$is_open = !empty($item['is_open']);
+	?>
+	<div class="accordion__item<?php echo $is_open ? ' _active' : ''; ?>" data-animate="bottom">
+		<button class="accordion__header" type="button" aria-expanded="<?php echo $is_open ? 'true' : 'false'; ?>">
+			<span class="accordion__question"><?php echo esc_html($item['question'] ?? ''); ?></span>
+			<svg class="accordion__chevron icon" width="32" height="32" aria-hidden="true">
+				<use href="<?php echo esc_url(alergobot_assets_uri('img/icons.svg')); ?>#icon-panels-chevron"></use>
+			</svg>
+		</button>
+		<div class="accordion__body">
+			<div class="accordion__inner">
+				<p class="accordion__answer"><?php echo esc_html($item['answer'] ?? ''); ?></p>
+			</div>
+		</div>
+	</div>
+	<?php
+};
+?>
+<section class="faq">
+	<div class="faq__container _container">
+		<div class="faq__head">
+			<?php if ($tag = alergobot_home_get('tag')) : ?>
+				<span class="faq__tag tag" data-animate="scale"><?php echo esc_html($tag); ?></span>
+			<?php endif; ?>
+			<?php if ($title = alergobot_home_get('title')) : ?>
+				<h2 class="faq__title title-md" data-animate="bottom"><?php echo esc_html($title); ?></h2>
+			<?php endif; ?>
+		</div>
+		<div class="faq__columns accordion" data-accordion="">
+			<?php if ($faq_col1) : ?>
+				<div class="faq__col">
+					<?php foreach ($faq_col1 as $item) {
+						$render_faq_item($item);
+					} ?>
 				</div>
-			</section>
+			<?php endif; ?>
+			<?php if ($faq_col2) : ?>
+				<div class="faq__col">
+					<?php foreach ($faq_col2 as $item) {
+						$render_faq_item($item);
+					} ?>
+				</div>
+			<?php endif; ?>
+		</div>
+	</div>
+</section>

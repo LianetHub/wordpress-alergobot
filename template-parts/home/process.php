@@ -5,73 +5,42 @@
  * @package alergobot
  */
 
-?><section class="process">
-				<div class="process__container _container">
-					<div class="process__head">
-						<span class="tag process__tag" data-animate="scale">процесс диагностики</span>
-						<div class="process__intro">
-							<h2 class="process__title title title-md" data-animate="bottom">Понятный процесс диагностики — от&nbsp;выбора панели до получения результата</h2>
+?>
+<section class="process">
+	<div class="process__container _container">
+		<div class="process__head">
+			<?php if ($tag = alergobot_home_get('tag')) : ?>
+				<span class="tag process__tag" data-animate="scale"><?php echo esc_html($tag); ?></span>
+			<?php endif; ?>
+			<div class="process__intro">
+				<?php if ($title = alergobot_home_get('title')) : ?>
+					<h2 class="process__title title title-md" data-animate="bottom"><?php echo wp_kses_post($title); ?></h2>
+				<?php endif; ?>
+			</div>
+		</div>
+		<?php if (alergobot_home_rows('steps')) : ?>
+			<div class="process__slider swiper" data-animate="bottom">
+				<div class="swiper-wrapper process__grid">
+					<?php foreach (alergobot_home_rows('steps') as $step) : ?>
+						<div class="swiper-slide process__slide" data-animate="bottom">
+							<article class="process__card ">
+								<div class="process__body">
+									<span class="process__step"><?php echo esc_html($step['step_label'] ?? ''); ?></span>
+									<div class="process__text">
+										<h3 class="process__card-title"><?php echo wp_kses_post($step['title'] ?? ''); ?></h3>
+										<p class="process__card-desc"><?php echo esc_html($step['desc'] ?? ''); ?></p>
+									</div>
+								</div>
+								<?php if (!empty($step['image_path'])) : ?>
+									<div class="process__media">
+										<img class="cover-image" src="<?php echo esc_url(alergobot_acf_image_url($step['image_path'])); ?>" alt="<?php echo esc_attr($step['image_alt'] ?? ''); ?>" title="<?php echo esc_attr($step['image_alt'] ?? ''); ?>" width="275" height="326" loading="lazy">
+									</div>
+								<?php endif; ?>
+							</article>
 						</div>
-					</div>
-					<div class="process__slider swiper" data-animate="bottom">
-						<div class="swiper-wrapper process__grid">
-							<div class="swiper-slide process__slide" data-animate="bottom">
-								<article class="process__card ">
-									<div class="process__body">
-										<span class="process__step">Шаг 1</span>
-										<div class="process__text">
-											<h3 class="process__card-title">Подбор панели под&nbsp;задачу</h3>
-											<p class="process__card-desc">Выбор оборудования для лабораторной диагностики на основе симптомов и опросов. Учитывается требуемая задача – первичная оценка, выявление конкретных компонентов, или подтверждение результатов других тестов.</p>
-										</div>
-									</div>
-									<div class="process__media">
-										<img class="cover-image" src="<?php echo esc_url(alergobot_assets_uri('img/home/process-step-1.png')); ?>" alt="Подбор панели под задачу" title="Подбор панели под задачу" width="275" height="326" loading="lazy">
-									</div>
-								</article>
-							</div>
-							<div class="swiper-slide process__slide" data-animate="bottom">
-								<article class="process__card ">
-									<div class="process__body">
-										<span class="process__step">Шаг 2</span>
-										<div class="process__text">
-											<h3 class="process__card-title">Подготовка и проведение исследования</h3>
-											<p class="process__card-desc">Из венозной крови выделяют сыворотку. За сутки до тестов предписывается режим для пациента: воздержание от нагрузок и спиртного, сдача крови натощак.</p>
-										</div>
-									</div>
-									<div class="process__media">
-										<img class="cover-image" src="<?php echo esc_url(alergobot_assets_uri('img/home/process-step-2.png')); ?>" alt="Подготовка и проведение исследования" title="Подготовка и проведение исследования" width="275" height="326" loading="lazy">
-									</div>
-								</article>
-							</div>
-							<div class="swiper-slide process__slide" data-animate="bottom">
-								<article class="process__card ">
-									<div class="process__body">
-										<span class="process__step">Шаг 3</span>
-										<div class="process__text">
-											<h3 class="process__card-title">Обработка результатов</h3>
-											<p class="process__card-desc">Тесты показывают IgE-антител для каждого компонента. Аллергенность отмечается классом от 0 до 6, в единицах МЕ/мл. Данные тестов структурируются в наглядные форматы для интерпретации диагностики.</p>
-										</div>
-									</div>
-									<div class="process__media">
-										<img class="cover-image" src="<?php echo esc_url(alergobot_assets_uri('img/home/process-step-3.png')); ?>" alt="Обработка результатов" title="Обработка результатов" width="275" height="326" loading="lazy">
-									</div>
-								</article>
-							</div>
-							<div class="swiper-slide process__slide" data-animate="bottom">
-								<article class="process__card ">
-									<div class="process__body">
-										<span class="process__step">Шаг 4</span>
-										<div class="process__text">
-											<h3 class="process__card-title">Интеграция в рабочий процесс лаборатории</h3>
-											<p class="process__card-desc">Мультиплексное оборудование вместе с лабораторными методами обеспечивает диагностику по десяткам аллергенов за один тест. Растёт скорость и точность диагностики.</p>
-										</div>
-									</div>
-									<div class="process__media">
-										<img class="cover-image" src="<?php echo esc_url(alergobot_assets_uri('img/home/process-step-4.png')); ?>" alt="Интеграция в рабочий процесс лаборатории" title="Интеграция в рабочий процесс лаборатории" width="275" height="326" loading="lazy">
-									</div>
-								</article>
-							</div>
-						</div>
-					</div>
+					<?php endforeach; ?>
 				</div>
-			</section>
+			</div>
+		<?php endif; ?>
+	</div>
+</section>

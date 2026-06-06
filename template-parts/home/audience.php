@@ -5,47 +5,43 @@
  * @package alergobot
  */
 
-?><section class="audience">
-				<div class="audience__container _container">
-					<div class="audience__head">
-						<div class="audience__intro">
-							<h2 class="section-head__title title title-md" data-animate="scale">Кому подходят наши системы&nbsp;и&nbsp;панели</h2>
-							<p class="section-head__text text-lead" data-animate="scale">Лабораторное медицинское оборудование для аллерготестов PROTIA Allergy-Q, которое можно купить у нас в «Био Фокус», с высокой чувствительностью диагностирует иммунитет от аллергии с кожными, дыхательными, пищеварительными реакциями. Результаты тестов позволяют однозначно выбирать способ иммунотерапии, прогнозировать его эффективность.</p>
-						</div>
-						<div class="audience__photo" data-animate="scale">
-							<img src="<?php echo esc_url(alergobot_assets_uri('img/home/audience-lab.png')); ?>" class="cover-image" alt="Специалисты в лаборатории" title="Специалисты в лаборатории" width="427" height="212" loading="lazy">
-						</div>
-						<span class="audience__tag tag" data-animate="scale">для кого</span>
-					</div>
-					<div class="audience__scene" data-audience="">
-						<img src="<?php echo esc_url(alergobot_assets_uri('img/home/audience-molecules.png')); ?>" alt="Фото малекул" width="529" height="477" loading="lazy" aria-hidden="true" class="audience__molecules">
-						<div class="audience__cards">
-							<button class="audience__card" type="button" data-audience-card="" aria-expanded="false" data-animate="bottom">
-								<span class="audience__card-title">Лаборатории</span>
-								<span class="audience__toggle" aria-hidden="true"></span>
-								<span class="audience__card-text">Для организации полноценного направления аллергодиагностики с устойчивым лабораторным процессом.</span>
-							</button>
-							<button class="audience__card" type="button" data-audience-card="" aria-expanded="false" data-animate="bottom">
-								<span class="audience__card-title">Диагностические центры</span>
-								<span class="audience__toggle" aria-hidden="true"></span>
-								<span class="audience__card-text">Для расширения профиля исследований и стандартизации диагностических маршрутов.</span>
-							</button>
-							<button class="audience__card" type="button" data-audience-card="" aria-expanded="false" data-animate="bottom">
-								<span class="audience__card-title">Больницы и поликлиники</span>
-								<span class="audience__toggle" aria-hidden="true"></span>
-								<span class="audience__card-text">Для внедрения аллергодиагностики в рамках многопрофильной медицинской помощи.</span>
-							</button>
-							<button class="audience__card _active" type="button" data-audience-card="" aria-expanded="true" data-animate="bottom">
-								<span class="audience__card-title">Частные клиники</span>
-								<span class="audience__toggle" aria-hidden="true"></span>
-								<span class="audience__card-text">В коммерческих медучреждениях оборудование комплексно определит диагностику состояний, качественные лабораторные оценки в тестах на аллергию.</span>
-							</button>
-							<button class="audience__card" type="button" data-audience-card="" aria-expanded="false" data-animate="bottom">
-								<span class="audience__card-title">Дилеры и партнёры</span>
-								<span class="audience__toggle" aria-hidden="true"></span>
-								<span class="audience__card-text">Для развития дистрибуции и сопровождения внедрения решений PROTIA.</span>
-							</button>
-						</div>
-					</div>
+$photo_path = alergobot_home_get('photo_path');
+?>
+<section class="audience">
+	<div class="audience__container _container">
+		<div class="audience__head">
+			<div class="audience__intro">
+				<?php if ($title = alergobot_home_get('title')) : ?>
+					<h2 class="section-head__title title title-md" data-animate="scale"><?php echo wp_kses_post($title); ?></h2>
+				<?php endif; ?>
+				<?php if ($text = alergobot_home_get('text')) : ?>
+					<p class="section-head__text text-lead" data-animate="scale"><?php echo esc_html($text); ?></p>
+				<?php endif; ?>
+			</div>
+			<?php if ($photo_path) : ?>
+				<div class="audience__photo" data-animate="scale">
+					<img src="<?php echo esc_url(alergobot_acf_image_url($photo_path)); ?>" class="cover-image" alt="<?php echo esc_attr(alergobot_home_get('photo_alt')); ?>" title="<?php echo esc_attr(alergobot_home_get('photo_alt')); ?>" width="427" height="212" loading="lazy">
 				</div>
-			</section>
+			<?php endif; ?>
+			<?php if ($tag = alergobot_home_get('tag')) : ?>
+				<span class="audience__tag tag" data-animate="scale"><?php echo esc_html($tag); ?></span>
+			<?php endif; ?>
+		</div>
+		<div class="audience__scene" data-audience="">
+			<img src="<?php echo esc_url(alergobot_assets_uri('img/home/audience-molecules.png')); ?>" alt="Фото малекул" width="529" height="477" loading="lazy" aria-hidden="true" class="audience__molecules">
+			<?php if (alergobot_home_rows('cards')) : ?>
+				<div class="audience__cards">
+					<?php foreach (alergobot_home_rows('cards') as $card) :
+						$is_active = !empty($card['is_active']);
+						?>
+						<button class="audience__card<?php echo $is_active ? ' _active' : ''; ?>" type="button" data-audience-card="" aria-expanded="<?php echo $is_active ? 'true' : 'false'; ?>" data-animate="bottom">
+							<span class="audience__card-title"><?php echo esc_html($card['title'] ?? ''); ?></span>
+							<span class="audience__toggle" aria-hidden="true"></span>
+							<span class="audience__card-text"><?php echo esc_html($card['text'] ?? ''); ?></span>
+						</button>
+					<?php endforeach; ?>
+				</div>
+			<?php endif; ?>
+		</div>
+	</div>
+</section>

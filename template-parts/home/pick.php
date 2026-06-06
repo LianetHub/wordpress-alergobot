@@ -5,59 +5,64 @@
  * @package alergobot
  */
 
-?><section class="pick" id="pick">
-				<div class="pick__container _container">
-					<div class="pick__header">
-						<div class="pick__main">
-							<h2 class="pick__title title title-md" data-animate="bottom">Иммуноблоттинг как надёжный инструмент аллергодиагностики</h2>
-							<p class="pick__text text-lead" data-animate="bottom">Иммуноблот с высокой точностью замеряет любое количество антител к каждому конкретному белку-антигену за один тест. Подтвердит скрининг, диагностику состояний в тестах – по аллергиям, инфекционным и автоиммунным заболеваниям.</p>
-						</div>
-						<div class="pick__side">
-							<div class="pick__tags">
-								<span class="pick__tag tag" data-animate="scale">удобный процесс</span>
-								<span class="pick__tag tag" data-animate="scale">широкий охват аллергенов</span>
-							</div>
-							<div class="pick__benefits">
-								<h3 class="pick__subtitle" data-animate="bottom">Преимущества метода</h3>
-								<ul class="pick__list">
-									<li data-animate="bottom">Подходит для широкого спектра задач диагностики</li>
-									<li data-animate="bottom">Позволяет работать с разными группами аллергенов</li>
-									<li data-animate="bottom">Самый чувствительный и специфический</li>
-									<li data-animate="bottom">Удобный для лабораторной маршрутизации</li>
-									<li data-animate="bottom">Может использоваться в комплексе с современным оборудованием и программным обеспечением</li>
-								</ul>
-							</div>
-						</div>
+?>
+<section class="pick" id="pick">
+	<div class="pick__container _container">
+		<div class="pick__header">
+			<div class="pick__main">
+				<?php if ($title = alergobot_home_get('title')) : ?>
+					<h2 class="pick__title title title-md" data-animate="bottom"><?php echo wp_kses_post($title); ?></h2>
+				<?php endif; ?>
+				<?php if ($text = alergobot_home_get('text')) : ?>
+					<p class="pick__text text-lead" data-animate="bottom"><?php echo esc_html($text); ?></p>
+				<?php endif; ?>
+			</div>
+			<div class="pick__side">
+				<?php if (alergobot_home_rows('tags')) : ?>
+					<div class="pick__tags">
+						<?php foreach (alergobot_home_rows('tags') as $tag_item) : ?>
+							<span class="pick__tag tag" data-animate="scale"><?php echo esc_html($tag_item['text'] ?? ''); ?></span>
+						<?php endforeach; ?>
 					</div>
-					<div class="pick__videos">
-						<article class="pick__video" data-animate="bottom">
-							<button class="pick__video-media" type="button" aria-label="Смотреть видео: Оборудование Q-Smart" data-fancybox="pick-video" data-type="iframe" data-width="960" data-height="540" data-src="https://rutube.ru/play/embed/aad0852ff96122ae9d98eeec86795037/?autoplay=1">
-								<img src="<?php echo esc_url(alergobot_assets_uri('img/home/pick-video-1.png')); ?>" alt="" width="650" height="382" loading="lazy" decoding="async">
-								<span class="pick__play" aria-hidden="true">
-									<svg width="38" height="61" aria-hidden="true">
-										<use href="<?php echo esc_url(alergobot_assets_uri('img/icons.svg')); ?>#icon-pick-play"></use>
-									</svg>
-								</span>
-							</button>
-							<div class="pick__caption" data-animate="bottom">
-								<p>Lorem ipsum dolor sit amet consectetur adipiscing elit</p>
-								<p>Lorem ipsum dolor sit amet consectetur adipiscing elit</p>
-							</div>
-						</article>
-						<article class="pick__video" data-animate="bottom">
-							<button class="pick__video-media" type="button" aria-label="Смотреть видео: Презентация оборудования" data-fancybox="pick-video" data-type="iframe" data-width="960" data-height="540" data-src="https://rutube.ru/play/embed/2536215ea9d5029014982e751b2fc0b4/?autoplay=1">
-								<img src="<?php echo esc_url(alergobot_assets_uri('img/home/pick-video-2.png')); ?>" alt="" width="650" height="382" loading="lazy" decoding="async">
-								<span class="pick__play" aria-hidden="true">
-									<svg width="38" height="61" aria-hidden="true">
-										<use href="<?php echo esc_url(alergobot_assets_uri('img/icons.svg')); ?>#icon-pick-play"></use>
-									</svg>
-								</span>
-							</button>
-							<div class="pick__caption" data-animate="bottom">
-								<p>Lorem ipsum dolor sit amet consectetur adipiscing elit</p>
-								<p>Lorem ipsum dolor sit amet consectetur adipiscing elit</p>
-							</div>
-						</article>
-					</div>
+				<?php endif; ?>
+				<div class="pick__benefits">
+					<?php if ($benefits_title = alergobot_home_get('benefits_title')) : ?>
+						<h3 class="pick__subtitle" data-animate="bottom"><?php echo esc_html($benefits_title); ?></h3>
+					<?php endif; ?>
+					<?php if (alergobot_home_rows('benefits_list')) : ?>
+						<ul class="pick__list">
+							<?php foreach (alergobot_home_rows('benefits_list') as $benefit) : ?>
+								<li data-animate="bottom"><?php echo esc_html($benefit['text'] ?? ''); ?></li>
+							<?php endforeach; ?>
+						</ul>
+					<?php endif; ?>
 				</div>
-			</section>
+			</div>
+		</div>
+		<?php if (alergobot_home_rows('videos')) : ?>
+			<div class="pick__videos">
+				<?php foreach (alergobot_home_rows('videos') as $video) : ?>
+					<article class="pick__video" data-animate="bottom">
+						<button class="pick__video-media" type="button" aria-label="<?php echo esc_attr($video['aria_label'] ?? ''); ?>" data-fancybox="pick-video" data-type="iframe" data-width="960" data-height="540" data-src="<?php echo esc_url($video['video_url'] ?? ''); ?>">
+							<?php if (!empty($video['poster_path'])) : ?>
+								<img src="<?php echo esc_url(alergobot_acf_image_url($video['poster_path'])); ?>" alt="" width="650" height="382" loading="lazy" decoding="async">
+							<?php endif; ?>
+							<span class="pick__play" aria-hidden="true">
+								<svg width="38" height="61" aria-hidden="true">
+									<use href="<?php echo esc_url(alergobot_assets_uri('img/icons.svg')); ?>#icon-pick-play"></use>
+								</svg>
+							</span>
+						</button>
+						<?php if (!empty($video['captions']) && is_array($video['captions'])) : ?>
+							<div class="pick__caption" data-animate="bottom">
+								<?php foreach ($video['captions'] as $caption) : ?>
+									<p><?php echo esc_html($caption['text'] ?? ''); ?></p>
+								<?php endforeach; ?>
+							</div>
+						<?php endif; ?>
+					</article>
+				<?php endforeach; ?>
+			</div>
+		<?php endif; ?>
+	</div>
+</section>

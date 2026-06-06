@@ -5,55 +5,44 @@
  * @package alergobot
  */
 
-?><section class="equipment">
-				<div class="equipment__container _container" data-decor-parallax="">
-					<div class="equipment__head">
-						<div class="equipment__intro">
-							<h2 class="equipment__title title title-md" data-animate="bottom">Оборудование для исследований в&nbsp;единой системе</h2>
-							<p class="equipment__lead text-lead" data-animate="bottom">Набор оборудования PROTIA Allergy-Q предназначен для лабораторной диагностики со стабильными результатами тестов. С ним организуется полноценная диагностическая цепочка.</p>
-						</div>
-						<span class="tag equipment__tag" data-animate="scale">оборудование</span>
-					</div>
-					<ul class="equipment__grid">
-						<li class="equipment__card" data-animate="bottom">
-							<a class="equipment__card-link" href="product.html" aria-label="Анализатор Q-SMART, подробнее">
-								<h3 class="equipment__card-name ">Q-SMART</h3>
+$footer_btn = alergobot_home_get('footer_btn');
+?>
+<section class="equipment">
+	<div class="equipment__container _container" data-decor-parallax="">
+		<div class="equipment__head">
+			<div class="equipment__intro">
+				<?php if ($title = alergobot_home_get('title')) : ?>
+					<h2 class="equipment__title title title-md" data-animate="bottom"><?php echo wp_kses_post($title); ?></h2>
+				<?php endif; ?>
+				<?php if ($lead = alergobot_home_get('lead')) : ?>
+					<p class="equipment__lead text-lead" data-animate="bottom"><?php echo esc_html($lead); ?></p>
+				<?php endif; ?>
+			</div>
+			<?php if ($tag = alergobot_home_get('tag')) : ?>
+				<span class="tag equipment__tag" data-animate="scale"><?php echo esc_html($tag); ?></span>
+			<?php endif; ?>
+		</div>
+		<?php if (alergobot_home_rows('items')) : ?>
+			<ul class="equipment__grid">
+				<?php foreach (alergobot_home_rows('items') as $item) :
+					$link = $item['link'] ?? [];
+					?>
+					<li class="equipment__card" data-animate="bottom">
+						<a class="equipment__card-link" href="<?php echo esc_url(alergobot_acf_link_url($link, '#')); ?>" aria-label="<?php echo esc_attr($item['aria_label'] ?? ''); ?>">
+							<h3 class="equipment__card-name <?php echo esc_attr($item['name_class'] ?? ''); ?>"><?php echo esc_html($item['name'] ?? ''); ?></h3>
+							<?php if (!empty($item['image_path'])) : ?>
 								<div class="equipment__card-media">
-									<img class="cover-image" src="<?php echo esc_url(alergobot_assets_uri('img/analyzers/device-q-smart.png')); ?>" alt="Анализатор Q-SMART" title="Анализатор Q-SMART" width="239" height="164" loading="lazy">
+									<img class="cover-image" src="<?php echo esc_url(alergobot_acf_image_url($item['image_path'])); ?>" alt="<?php echo esc_attr($item['image_alt'] ?? ''); ?>" title="<?php echo esc_attr($item['image_alt'] ?? ''); ?>" loading="lazy">
 								</div>
-								<p class="equipment__card-text">Компактное оборудование для лабораторных исследований, чтобы в тестах сочетать точность и удобство, оптимизировать диагностику аллергии в повседневной работе.</p>
-							</a>
-						</li>
-						<li class="equipment__card" data-animate="bottom">
-							<a class="equipment__card-link" href="#" aria-label="Q-STATION ELITE, подробнее">
-								<h3 class="equipment__card-name ">Q-STATION ELITE</h3>
-								<div class="equipment__card-media">
-									<img class="cover-image" src="<?php echo esc_url(alergobot_assets_uri('img/analyzers/device-q-processor.png')); ?>" alt="Q-STATION ELITE" title="Q-STATION ELITE" width="200" height="167" loading="lazy">
-								</div>
-								<p class="equipment__card-text">Система охватывает расширенный спектр лабораторной диагностики. Применяется для тестов, где важна производительность, стандартизация процессов и оборудования, удобство обработки результатов.</p>
-							</a>
-						</li>
-						<li class="equipment__card" data-animate="bottom">
-							<a class="equipment__card-link" href="#" aria-label="Q-PROCESSOR, подробнее">
-								<h3 class="equipment__card-name ">Q-PROCESSOR</h3>
-								<div class="equipment__card-media">
-									<img class="cover-image" src="<?php echo esc_url(alergobot_assets_uri('img/analyzers/device-q-station-elite.png')); ?>" alt="Q-PROCESSOR" title="Q-PROCESSOR" width="162" height="161" loading="lazy">
-								</div>
-								<p class="equipment__card-text">Данное оборудование автоматизирует этапы тестов на аллергию в диагностике. Повысит стабильность результатов в лабораторных процессах.</p>
-							</a>
-						</li>
-						<li class="equipment__card" data-animate="bottom">
-							<a class="equipment__card-link" href="katalog.html#catalog-reagents" aria-label="Наборы реагентов и&nbsp;сопутствующие материалы">
-								<h3 class="equipment__card-name equipment__card-name--long">Наборы реагентов и сопутствующие материалы</h3>
-								<div class="equipment__card-media">
-									<img class="cover-image" src="<?php echo esc_url(alergobot_assets_uri('img/analyzers/equipment-reagents.png')); ?>" alt="Наборы реагентов" title="Наборы реагентов" width="225" height="161" loading="lazy">
-								</div>
-								<p class="equipment__card-text">Комплектующие: нитроцеллюлозные мембраны; детекционные системы; аллергены всех групп; маркеры CCD перекрёстных реакций.</p>
-							</a>
-						</li>
-					</ul>
-					<div class="equipment__footer" data-animate="bottom">
-						<a class="btn btn--primary equipment__btn" href="<?php echo esc_url(home_url('/katalog/')); ?>">Подобрать оборудование</a>
-					</div>
-				</div>
-			</section>
+							<?php endif; ?>
+							<p class="equipment__card-text"><?php echo esc_html($item['text'] ?? ''); ?></p>
+						</a>
+					</li>
+				<?php endforeach; ?>
+			</ul>
+		<?php endif; ?>
+		<div class="equipment__footer" data-animate="bottom">
+			<a class="btn btn--primary equipment__btn" href="<?php echo esc_url(alergobot_acf_link_url($footer_btn, home_url('/katalog/'))); ?>"><?php echo esc_html(alergobot_acf_link_title($footer_btn, __('Подобрать оборудование', 'alergobot'))); ?></a>
+		</div>
+	</div>
+</section>

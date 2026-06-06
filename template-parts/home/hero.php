@@ -5,59 +5,50 @@
  * @package alergobot
  */
 
-?><section class="hero">
-				<div class="hero__container _container">
-					<div class="hero__grid">
-						<div class="hero__main">
-							<h1 class="hero__title title title-lg" data-animate="bottom">Современные решения для&nbsp;аллергодиагностики напрямую из Южной Кореи</h1>
-							<div class="hero__actions" data-animate="bottom">
-								<a class="btn btn--white hero__btn" href="<?php echo esc_url(home_url('/katalog/')); ?>"> Перейти в каталог <svg class="btn__icon" width="32" height="32" aria-hidden="true">
-										<use href="<?php echo esc_url(alergobot_assets_uri('img/icons.svg')); ?>#icon-arrow-up-right"></use>
-									</svg>
-								</a>
-								<button class="hero__btn btn btn--white-outline" type="button" data-fancybox="" data-src="#popup-presentation">Запросить презентацию</button>
-							</div>
-							<div class="hero__note" data-animate="bottom">
-								<span class="hero__flag" aria-hidden="true" data-animate="scale">
-									<img src="<?php echo esc_url(alergobot_assets_uri('img/home/hero-flag-kr.webp')); ?>" alt="Флаг Кореи" width="83" height="67" loading="eager">
-								</span>
-								<p>Способность организма противостоять аллергии с высокой точностью определит корейское лабораторное оборудование PROTIA для диагностики объемов иммуноглобулина IgE в крови пациента. Это единственный в России комплексный способ узнать аллергию, высокотехнологичный и доступный.</p>
-							</div>
-						</div>
-						<ul class="hero__cards">
-							<li class="hero__card" data-animate="bottom">
-								<span class="hero__card-icon" aria-hidden="true">
-									<svg width="42" height="42" aria-hidden="true">
-										<use href="<?php echo esc_url(alergobot_assets_uri('img/icons.svg')); ?>#icon-hero-chemistry"></use>
-									</svg>
-								</span>
-								<span class="hero__card-text">Количественное определение специфических IgE</span>
-							</li>
-							<li class="hero__card" data-animate="bottom">
-								<span class="hero__card-icon" aria-hidden="true">
-									<svg width="42" height="42" aria-hidden="true">
-										<use href="<?php echo esc_url(alergobot_assets_uri('img/icons.svg')); ?>#icon-hero-panels"></use>
-									</svg>
-								</span>
-								<span class="hero__card-text">Панели для основных<br> клинических задач</span>
-							</li>
-							<li class="hero__card" data-animate="bottom">
-								<span class="hero__card-icon" aria-hidden="true">
-									<svg width="42" height="42" aria-hidden="true">
-										<use href="<?php echo esc_url(alergobot_assets_uri('img/icons.svg')); ?>#icon-hero-microscope"></use>
-									</svg>
-								</span>
-								<span class="hero__card-text">Оборудование и расходные<br> материалы в единой системе</span>
-							</li>
-							<li class="hero__card" data-animate="bottom">
-								<span class="hero__card-icon" aria-hidden="true">
-									<svg width="42" height="42" aria-hidden="true">
-										<use href="<?php echo esc_url(alergobot_assets_uri('img/icons.svg')); ?>#icon-hero-doc"></use>
-									</svg>
-								</span>
-								<span class="hero__card-text"> Регистрационные удостоверения<br> и профессиональная поддержка </span>
-							</li>
-						</ul>
-					</div>
+$btn_catalog     = alergobot_home_get('btn_catalog');
+$btn_catalog_url = alergobot_acf_link_url($btn_catalog, home_url('/katalog/'));
+?>
+<section class="hero">
+	<div class="hero__container _container">
+		<div class="hero__grid">
+			<div class="hero__main">
+				<?php if ($title = alergobot_home_get('title')) : ?>
+					<h1 class="hero__title title title-lg" data-animate="bottom"><?php echo wp_kses_post($title); ?></h1>
+				<?php endif; ?>
+				<div class="hero__actions" data-animate="bottom">
+					<a class="btn btn--white hero__btn" href="<?php echo esc_url($btn_catalog_url); ?>">
+						<?php echo esc_html(alergobot_acf_link_title($btn_catalog, __('Перейти в каталог', 'alergobot'))); ?>
+						<svg class="btn__icon" width="32" height="32" aria-hidden="true">
+							<use href="<?php echo esc_url(alergobot_assets_uri('img/icons.svg')); ?>#icon-arrow-up-right"></use>
+						</svg>
+					</a>
+					<button class="hero__btn btn btn--white-outline" type="button" data-fancybox="" data-src="#popup-presentation"><?php echo esc_html(alergobot_home_get('btn_presentation_label', __('Запросить презентацию', 'alergobot'))); ?></button>
 				</div>
-			</section>
+				<div class="hero__note" data-animate="bottom">
+					<?php if ($flag_path = alergobot_home_get('flag_image_path')) : ?>
+						<span class="hero__flag" aria-hidden="true" data-animate="scale">
+							<img src="<?php echo esc_url(alergobot_acf_image_url($flag_path)); ?>" alt="<?php echo esc_attr(alergobot_home_get('flag_image_alt')); ?>" width="83" height="67" loading="eager">
+						</span>
+					<?php endif; ?>
+					<?php if ($note = alergobot_home_get('note_text')) : ?>
+						<p><?php echo esc_html($note); ?></p>
+					<?php endif; ?>
+				</div>
+			</div>
+			<?php if (alergobot_home_rows('cards')) : ?>
+				<ul class="hero__cards">
+					<?php foreach (alergobot_home_rows('cards') as $card) : ?>
+						<li class="hero__card" data-animate="bottom">
+							<span class="hero__card-icon" aria-hidden="true">
+								<svg width="42" height="42" aria-hidden="true">
+									<use href="<?php echo esc_url(alergobot_assets_uri('img/icons.svg')); ?>#<?php echo esc_attr($card['icon'] ?? ''); ?>"></use>
+								</svg>
+							</span>
+							<span class="hero__card-text"><?php echo wp_kses_post(nl2br($card['text'] ?? '')); ?></span>
+						</li>
+					<?php endforeach; ?>
+				</ul>
+			<?php endif; ?>
+		</div>
+	</div>
+</section>

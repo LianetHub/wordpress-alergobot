@@ -23,8 +23,8 @@ if (!function_exists('have_rows') || !have_rows('glavnoe_menyu', 'option')) {
 	while (have_rows('glavnoe_menyu', 'option')) :
 		the_row();
 		$name = get_sub_field('nazvanie');
-		$link = get_sub_field('ssylka');
-		if (!$name || !$link) {
+		$link = alergobot_normalize_link(get_sub_field('ssylka'));
+		if (!$name || $link === '') {
 			continue;
 		}
 		$has_submenu = (bool) get_sub_field('est_podmenyu');
@@ -43,8 +43,8 @@ if (!function_exists('have_rows') || !have_rows('glavnoe_menyu', 'option')) {
 					while (have_rows('podmenyu')) :
 						the_row();
 						$sub_name = get_sub_field('nazvanie');
-						$sub_link = get_sub_field('ssylka');
-						if ($sub_name && $sub_link) :
+						$sub_link = alergobot_normalize_link(get_sub_field('ssylka'));
+						if ($sub_name && $sub_link !== '') :
 					?>
 							<li><a href="<?php echo alergobot_esc_link($sub_link); ?>"><?php echo esc_html($sub_name); ?></a></li>
 					<?php

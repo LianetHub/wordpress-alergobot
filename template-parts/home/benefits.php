@@ -5,63 +5,47 @@
  * @package alergobot
  */
 
-?><section class="benefits">
-				<div class="benefits__container _container">
-					<header class="benefits__head">
-						<h2 class="benefits__title title title-md" data-animate="bottom">Преимущества продуктов PROTIA</h2>
-						<span class="benefits__tag tag" data-animate="scale">бренд PROTIA</span>
-					</header>
-					<div class="benefits__body">
-						<div class="benefits__grid">
-							<article class="benefits__card" data-animate="bottom">
-								<div class="benefits__card-head">
-									<span class="benefits__num">1</span>
-									<button class="benefits__info tooltip-trigger" type="button" data-tooltip="Продукты PROTIA для лабораторной диагностики направлены на применение в профессиональной медицине." aria-label="Подробнее: Специализация решений" aria-expanded="false">
-										<svg class="icon benefits__info-icon" aria-hidden="true">
-											<use href="<?php echo esc_url(alergobot_assets_uri('img/icons.svg')); ?>#icon-eye-info"></use>
-										</svg>
-									</button>
-								</div>
-								<h3 class="benefits__card-title">Специализация решений</h3>
-							</article>
-							<article class="benefits__card" data-animate="bottom">
-								<div class="benefits__card-head">
-									<span class="benefits__num">2</span>
-									<button class="benefits__info tooltip-trigger" type="button" data-tooltip="Технологии ориентированы на количественную аллергодиагностику: панели, оборудование и программное обеспечение работают как единая система." aria-label="Подробнее: Технологичность" aria-expanded="false">
-										<svg class="icon benefits__info-icon" aria-hidden="true">
-											<use href="<?php echo esc_url(alergobot_assets_uri('img/icons.svg')); ?>#icon-eye-info"></use>
-										</svg>
-									</button>
-								</div>
-								<h3 class="benefits__card-title">Технологичность</h3>
-							</article>
-							<article class="benefits__card" data-animate="bottom">
-								<div class="benefits__card-head">
-									<span class="benefits__num">3</span>
-									<button class="benefits__info tooltip-trigger" type="button" data-tooltip="Продукция PROTIA применяется в лабораториях разных стран и соответствует требованиям международных стандартов диагностики." aria-label="Подробнее: Международное признание" aria-expanded="false">
-										<svg class="icon benefits__info-icon" aria-hidden="true">
-											<use href="<?php echo esc_url(alergobot_assets_uri('img/icons.svg')); ?>#icon-eye-info"></use>
-										</svg>
-									</button>
-								</div>
-								<h3 class="benefits__card-title">Международное признание</h3>
-							</article>
-							<article class="benefits__card" data-animate="bottom">
-								<div class="benefits__card-head">
-									<span class="benefits__num">4</span>
-									<button class="benefits__info tooltip-trigger" type="button" data-tooltip="Запатентованный формат панелей с параллельным размещением мембран повышает точность и воспроизводимость результатов тестов." aria-label="Подробнее: Запатентованная технология параллельного размещения мембран в панели" aria-expanded="false">
-										<svg class="icon benefits__info-icon" aria-hidden="true">
-											<use href="<?php echo esc_url(alergobot_assets_uri('img/icons.svg')); ?>#icon-eye-info"></use>
-										</svg>
-									</button>
-								</div>
-								<h3 class="benefits__card-title">Запатентованная технология параллельного размещения мембран в панели</h3>
-							</article>
-						</div>
-						<div class="benefits__brand" data-animate="bottom">
-							<img class="benefits__logo" src="<?php echo esc_url(alergobot_assets_uri('img/logo-color.png')); ?>" alt="PROTIA" title="PROTIA" width="185" height="52" loading="lazy">
-							<p class="benefits__text">Южнокорейский бренд выпускает технологичное лабораторное оборудование для in vitro diagnostics. Линия бренда – объединить оборудование, панели и диагностическую логику в одну систему.</p>
-						</div>
-					</div>
+$brand_logo_path = alergobot_home_get('brand_logo_path');
+?>
+<section class="benefits">
+	<div class="benefits__container _container">
+		<header class="benefits__head">
+			<?php if ($title = alergobot_home_get('title')) : ?>
+				<h2 class="benefits__title title title-md" data-animate="bottom"><?php echo esc_html($title); ?></h2>
+			<?php endif; ?>
+			<?php if ($tag = alergobot_home_get('tag')) : ?>
+				<span class="benefits__tag tag" data-animate="scale"><?php echo esc_html($tag); ?></span>
+			<?php endif; ?>
+		</header>
+		<div class="benefits__body">
+			<?php if (alergobot_home_rows('cards')) : ?>
+				<div class="benefits__grid">
+					<?php foreach (alergobot_home_rows('cards') as $card) :
+						$card_title = $card['title'] ?? '';
+						$tooltip    = $card['tooltip'] ?? '';
+						?>
+						<article class="benefits__card" data-animate="bottom">
+							<div class="benefits__card-head">
+								<span class="benefits__num"><?php echo esc_html($card['num'] ?? ''); ?></span>
+								<button class="benefits__info tooltip-trigger" type="button" data-tooltip="<?php echo esc_attr($tooltip); ?>" aria-label="<?php echo esc_attr(sprintf(/* translators: %s benefit title */ __('Подробнее: %s', 'alergobot'), $card_title)); ?>" aria-expanded="false">
+									<svg class="icon benefits__info-icon" aria-hidden="true">
+										<use href="<?php echo esc_url(alergobot_assets_uri('img/icons.svg')); ?>#icon-eye-info"></use>
+									</svg>
+								</button>
+							</div>
+							<h3 class="benefits__card-title"><?php echo esc_html($card_title); ?></h3>
+						</article>
+					<?php endforeach; ?>
 				</div>
-			</section>
+			<?php endif; ?>
+			<div class="benefits__brand" data-animate="bottom">
+				<?php if ($brand_logo_path) : ?>
+					<img class="benefits__logo" src="<?php echo esc_url(alergobot_acf_image_url($brand_logo_path)); ?>" alt="PROTIA" title="PROTIA" width="185" height="52" loading="lazy">
+				<?php endif; ?>
+				<?php if ($brand_text = alergobot_home_get('brand_text')) : ?>
+					<p class="benefits__text"><?php echo esc_html($brand_text); ?></p>
+				<?php endif; ?>
+			</div>
+		</div>
+	</div>
+</section>

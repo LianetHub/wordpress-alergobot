@@ -24,10 +24,96 @@ if (!function_exists('alergobot_privacy_policy_url')) {
 	}
 }
 
+if (!function_exists('alergobot_home_get')) {
+	function alergobot_home_get($key, $default = '')
+	{
+		if (function_exists('get_sub_field')) {
+			$value = get_sub_field($key);
+			if ($value !== null && $value !== '' && $value !== false) {
+				return $value;
+			}
+		}
+
+		return $default;
+	}
+}
+
+if (!function_exists('alergobot_home_rows')) {
+	function alergobot_home_rows($key)
+	{
+		static $cache = [];
+
+		$layout    = function_exists('get_row_layout') ? (string) get_row_layout() : 'acf';
+		$cache_key = $layout . '_' . $key;
+
+		if (array_key_exists($cache_key, $cache)) {
+			return $cache[$cache_key];
+		}
+
+		if (!function_exists('have_rows') || !have_rows($key)) {
+			$cache[$cache_key] = [];
+			return $cache[$cache_key];
+		}
+
+		$rows = [];
+		while (have_rows($key)) {
+			the_row();
+			$rows[] = get_row(true);
+		}
+
+		$cache[$cache_key] = $rows;
+		return $cache[$cache_key];
+	}
+}
+
+if (!function_exists('alergobot_acf_link_url')) {
+	function alergobot_acf_link_url($link, $fallback = '#')
+	{
+		if (!is_array($link) || empty($link['url'])) {
+			return $fallback;
+		}
+
+		return alergobot_resolve_link($link['url']);
+	}
+}
+
+if (!function_exists('alergobot_acf_link_title')) {
+	function alergobot_acf_link_title($link, $fallback = '')
+	{
+		if (!is_array($link)) {
+			return $fallback;
+		}
+
+		return (string) ($link['title'] ?? $fallback);
+	}
+}
+
+if (!function_exists('alergobot_acf_link_target')) {
+	function alergobot_acf_link_target($link)
+	{
+		if (!is_array($link) || empty($link['target'])) {
+			return '';
+		}
+
+		return (string) $link['target'];
+	}
+}
+
+if (!function_exists('alergobot_normalize_link')) {
+	function alergobot_normalize_link($link)
+	{
+		if (is_array($link)) {
+			return trim((string) ($link['url'] ?? ''));
+		}
+
+		return trim((string) $link);
+	}
+}
+
 if (!function_exists('alergobot_resolve_link')) {
 	function alergobot_resolve_link($link)
 	{
-		$link = trim((string) $link);
+		$link = alergobot_normalize_link($link);
 		if ($link === '' || $link === '#') {
 			return $link;
 		}
