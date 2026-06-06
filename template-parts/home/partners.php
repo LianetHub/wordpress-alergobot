@@ -32,15 +32,19 @@
 			<div class="partners__slider swiper" data-animate="bottom">
 				<div class="swiper-wrapper">
 					<?php foreach (alergobot_home_rows('logos') as $logo) :
-						if (empty($logo['image_path'])) {
+						$image = $logo['image'] ?? null;
+						if (empty($image)) {
 							continue;
 						}
 						$link = $logo['link'] ?? [];
 						?>
 						<div class="swiper-slide partners__slide" data-animate="bottom">
-							<a class="partners__card" href="<?php echo esc_url(alergobot_acf_link_url($link, '#')); ?>" aria-label="<?php echo esc_attr($logo['aria_label'] ?? ''); ?>">
+							<a class="partners__card" href="<?php echo esc_url(alergobot_acf_link_url($link, '#')); ?>">
 								<span class="partners__logo-wrap">
-									<img class="partners__logo" src="<?php echo esc_url(alergobot_acf_image_url($logo['image_path'])); ?>" alt="<?php echo esc_attr($logo['image_alt'] ?? ''); ?>" title="<?php echo esc_attr($logo['image_alt'] ?? ''); ?>" loading="lazy">
+									<?php echo alergobot_acf_image($image, 'full', [
+										'class'   => 'partners__logo',
+										'loading' => 'lazy',
+									]); ?>
 								</span>
 								<span class="partners__arrow" aria-hidden="true">
 									<svg class="partners__arrow-icon icon" width="28" height="28">
