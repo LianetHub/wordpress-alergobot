@@ -3,8 +3,7 @@
     @@include('html/_head.html', { "title": "Главная" })
     <body>
         <div class="wrapper">
-            @@include('html/_header.html', {})
-            <main class="page page--home">
+            @@include('html/_header.html', { "mainModifier": "main--home" })
                 @@include('html/home/hero.html', {})
                 @@include('html/home/audience.html', {})
                 @@include('html/home/catalog-teaser.html', {})
@@ -33,7 +32,6 @@
                 "faqCol2": "html/data/faq-home-col2.json"
                 })
                 @@include('html/home/contacts.html', {})
-            </main>
             @@include('html/_footer.html', {})
         </div>
         @@include('html/_popups.html', {})

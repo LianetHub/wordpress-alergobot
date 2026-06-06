@@ -3,8 +3,7 @@
     @@include('html/_head.html', { "title": "Анализаторы и устройства" })
     <body>
         <div class="wrapper">
-            @@include('html/_header.html', {})
-            <main class="page page--devices">
+            @@include('html/_header.html', { "mainModifier": "main--devices" })
                 <section class="heading heading--devices">
                     <div class="heading__container _container">
                         <div class="heading__grid">
@@ -162,7 +161,6 @@
                         </div>
                     </div>
                 </section>
-            </main>
             @@include('html/_footer.html', {})
         </div>
         @@include('html/_popups.html', {})

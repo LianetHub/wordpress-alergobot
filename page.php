@@ -6,21 +6,17 @@
  */
 
 get_header();
-?>
-<main class="page">
-	<?php
-	while (have_posts()) :
-		the_post();
-		?>
-		<div class="_container">
-			<h1 class="title title-lg"><?php the_title(); ?></h1>
-			<div class="page__content">
-				<?php the_content(); ?>
-			</div>
-		</div>
-		<?php
-	endwhile;
+
+while (have_posts()) :
+	the_post();
 	?>
-</main>
-<?php
+	<div class="_container">
+		<h1 class="title title-lg"><?php the_title(); ?></h1>
+		<div class="page__content">
+			<?php the_content(); ?>
+		</div>
+	</div>
+	<?php
+endwhile;
+
 get_footer();

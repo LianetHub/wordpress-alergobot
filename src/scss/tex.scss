@@ -108,11 +108,11 @@ h3 {
 	overflow-x: clip;
 }
 
-.page {
+.main {
 	flex: 1 1 auto;
 	background: $color-surface-mint;
 
-	&:not(.page--home) {
+	&:not(.main--home) {
 		padding-top: rem(56);
 
 		@media (min-width: $md3) {

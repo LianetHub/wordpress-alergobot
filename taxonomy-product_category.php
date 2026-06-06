@@ -9,7 +9,6 @@ get_header();
 
 $term = get_queried_object();
 ?>
-<main class="page page--catalog">
 	<section class="heading">
 		<div class="heading__container _container">
 			<h1 class="heading__title title title-lg"><?php echo esc_html($term->name); ?></h1>
@@ -34,6 +33,5 @@ $term = get_queried_object();
 			</div>
 		</div>
 	</section>
-</main>
 <?php
 get_footer();

@@ -3,8 +3,7 @@
     @@include('html/_head.html', { "title": "Анализатор иммунологический Q-SMART" })
     <body>
         <div class="wrapper">
-            @@include('html/_header.html', {})
-            <main class="page page--product">
+            @@include('html/_header.html', { "mainModifier": "main--product" })
                 <section class="product-hero">
                     <div class="product-hero__container _container">
                         <div class="product-hero__card">
@@ -314,7 +313,6 @@
 
                 @@include('html/product/related.html', {})
 
-            </main>
             @@include('html/_footer.html', {})
         </div>
         @@include('html/_popups.html', {})

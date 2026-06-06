@@ -10,6 +10,7 @@ $phone       = alergobot_get_option('nomer_telefona', '+7 (495) 352-87-77');
 $phone_2     = alergobot_get_option('nomer_telefona_2', $phone);
 $phone_clean = alergobot_phone_clean($phone);
 $phone_2_clean = alergobot_phone_clean($phone_2);
+$main_class    = alergobot_get_main_class();
 ?>
 <!doctype html>
 <html <?php language_attributes(); ?>>
@@ -79,3 +80,4 @@ $phone_2_clean = alergobot_phone_clean($phone_2);
 			</div>
 		</div>
 	</header>
+	<main class="main<?php echo $main_class ? ' ' . esc_attr($main_class) : ''; ?>">

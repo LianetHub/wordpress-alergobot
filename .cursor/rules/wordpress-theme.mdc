@@ -1,6 +1,6 @@
 ---
 description: Натяжка вёрстки на WordPress (Underscores, ACF, CPT)
-globs: wp-theme/**/*.php,wp-theme/**/acf-json/**
+globs: "**/*.php,acf-json/**,inc/**/*.php"
 alwaysApply: false
 ---
 
@@ -17,8 +17,8 @@ alwaysApply: false
 ## Структура темы
 
 ```
-wp-theme/alergobot-theme/
-├── assets/           ← npm run build:theme
+./
+├── assets/           ← npm run build
 ├── inc/              setup, enqueue, acf, cpt, ajax, cf7, template-*
 ├── inc/markup/       HTML-фрагменты из вёрстки (home/, pages/)
 ├── template-parts/

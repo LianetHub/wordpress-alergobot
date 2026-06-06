@@ -11,6 +11,7 @@ $phone_clean  = alergobot_phone_clean($phone);
 $copyright    = alergobot_get_option('kopirajt', '© ' . gmdate('Y') . ' - Официальный сайт Аллергобот');
 $policy_link  = alergobot_get_option('ssylka_na_politiku', home_url('/politika-konfidentsialnosti/'));
 ?>
+	</main>
 	<footer class="footer">
 		<div class="footer__container _container">
 			<div class="footer__brand-row">

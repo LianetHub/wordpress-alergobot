@@ -1,6 +1,7 @@
 /node_modules
 /.vscode
-/dist
-/alergobot
 .env
-wp-theme/alergobot-theme/assets/
+
+.cursorrules
+/.cursor
+/acf-json

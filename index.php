@@ -7,7 +7,7 @@
 
 get_header();
 ?>
-<div class="page _container">
+<div class="_container">
 	<?php
 	if (have_posts()) :
 		while (have_posts()) :

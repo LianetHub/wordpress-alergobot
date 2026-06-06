@@ -33,16 +33,8 @@ function loadEnvFile() {
 const fileEnv = loadEnvFile();
 
 export const env = {
-	THEME_PATH:
-		process.env.THEME_PATH ||
-		fileEnv.THEME_PATH ||
-		path.join(projectRoot, 'wp-theme/alergobot-theme'),
 	WP_PROXY_URL:
 		process.env.WP_PROXY_URL ||
 		fileEnv.WP_PROXY_URL ||
 		'http://wordpress-alergobot.local',
 };
-
-export function getThemeAssetsDir() {
-	return path.join(env.THEME_PATH.replace(/\\/g, '/'), 'assets').replace(/\\/g, '/');
-}

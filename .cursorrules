@@ -1,9 +1,0 @@
-# Правила проекта alergobot
-
-Актуальные своды правил перенесены в `.cursor/rules/`:
-
-- **layout-standards.mdc** — вёрстка (HTML, SCSS, Gulp, компоненты)
-- **wordpress-theme.mdc** — натяжка на WordPress
-- **project-workflow.mdc** — split-repo и команды сборки
-
-Полный регламент интеграции WP: `Регламент интеграции WordPress.docx.txt`

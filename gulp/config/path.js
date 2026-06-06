@@ -1,45 +1,22 @@
 import * as nodePath from 'path';
-import { getThemeAssetsDir } from './env.js';
 
 const rootFolder = nodePath.basename(nodePath.resolve());
-const layoutBuildFolder = `./dist`;
-const srcFolder = `./src`;
-
-function buildPaths(buildRoot) {
-	return {
-		files: `${buildRoot}/files/`,
-		html: buildRoot === layoutBuildFolder ? `${buildRoot}/` : null,
-		css: `${buildRoot}/css/`,
-		cssLibs: `${buildRoot}/css/libs/`,
-		normalize: `${buildRoot}/css/`,
-		js: `${buildRoot}/js/`,
-		jsLibs: `${buildRoot}/js/libs/`,
-		jsChunks: `${buildRoot}/js/`,
-		images: `${buildRoot}/img/`,
-		favicon: `${buildRoot}/`,
-		fonts: `${buildRoot}/fonts/`,
-		json: `${buildRoot}/json/`,
-		php: null,
-	};
-}
-
-const layoutBuild = buildPaths(layoutBuildFolder);
-layoutBuild.html = `${layoutBuildFolder}/`;
-layoutBuild.php = `${layoutBuildFolder}/`;
-
-const themeAssets = getThemeAssetsDir().replace(/\\/g, '/');
-const themeBuild = buildPaths(themeAssets);
-themeBuild.php = `${nodePath.dirname(themeAssets).replace(/\\/g, '/')}/`;
+const buildFolder = './assets';
+const srcFolder = './src';
 
 export const path = {
-	layout: {
-		build: layoutBuild,
-		clean: layoutBuildFolder,
-	},
-	theme: {
-		build: themeBuild,
-		clean: themeAssets,
-		themeRoot: themeBuild.php,
+	build: {
+		files: `${buildFolder}/files/`,
+		css: `${buildFolder}/css/`,
+		cssLibs: `${buildFolder}/css/libs/`,
+		normalize: `${buildFolder}/css/`,
+		js: `${buildFolder}/js/`,
+		jsLibs: `${buildFolder}/js/libs/`,
+		jsChunks: `${buildFolder}/js/`,
+		images: `${buildFolder}/img/`,
+		favicon: `${buildFolder}/`,
+		fonts: `${buildFolder}/fonts/`,
+		json: `${buildFolder}/json/`,
 	},
 	src: {
 		files: `${srcFolder}/files/**/*.*`,
@@ -55,7 +32,6 @@ export const path = {
 		images: `${srcFolder}/img/**/*.{jpg,jpeg,png,gif,webp}`,
 		svg: `${srcFolder}/img/**/*.svg`,
 		json: `${srcFolder}/json/*.*`,
-		php: `${srcFolder}/theme-php/**/*.php`,
 	},
 	watch: {
 		files: `${srcFolder}/files/**/*.*`,
@@ -66,17 +42,11 @@ export const path = {
 		images: `${srcFolder}/img/**/*.{jpg,jpeg,png,svg,gif,ico,webp}`,
 		json: `${srcFolder}/json/*.*`,
 		fonts: `${srcFolder}/fonts/*.{ttf,otf,woff,woff2}`,
-		php: `wp-theme/alergobot-theme/**/*.php`,
+		php: `**/*.php`,
 	},
+	clean: buildFolder,
+	buildFolder,
 	srcFolder,
 	rootFolder,
 	ftp: '',
 };
-
-export function resolveBuildPath(isTheme) {
-	return isTheme ? path.theme.build : path.layout.build;
-}
-
-export function resolveCleanPath(isTheme) {
-	return isTheme ? path.theme.clean : path.layout.clean;
-}

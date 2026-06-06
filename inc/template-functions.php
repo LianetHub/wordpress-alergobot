@@ -83,6 +83,46 @@ if (!function_exists('alergobot_inject_cf7_into_popups')) {
 	}
 }
 
+if (!function_exists('alergobot_get_main_class')) {
+	function alergobot_get_main_class() {
+		if (is_front_page()) {
+			return 'main--home';
+		}
+		if (is_404()) {
+			return 'main--not-found';
+		}
+		if (is_search()) {
+			return 'main--search';
+		}
+		if (is_singular('product')) {
+			return 'main--product';
+		}
+		if (is_singular('blogs')) {
+			return 'main--article';
+		}
+		if (is_post_type_archive('blogs')) {
+			return 'main--blog';
+		}
+		if (is_tax('product_category')) {
+			return 'main--catalog';
+		}
+		if (is_page_template('page-katalog.php')) {
+			return 'main--catalog';
+		}
+		if (is_page_template('page-kontakty.php')) {
+			return 'main--contacts';
+		}
+		if (is_page_template('page-analizatory.php')) {
+			return 'main--devices';
+		}
+		if (is_page_template('page-policy.php')) {
+			return 'main--policy';
+		}
+
+		return '';
+	}
+}
+
 if (!function_exists('alergobot_get_option')) {
 	function alergobot_get_option($key, $default = '') {
 		if (function_exists('get_field')) {

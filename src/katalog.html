@@ -3,8 +3,7 @@
     @@include('html/_head.html', { "title": "Каталог" })
     <body>
         <div class="wrapper">
-            @@include('html/_header.html', {})
-            <main class="page page--catalog">
+            @@include('html/_header.html', { "mainModifier": "main--catalog" })
                 <section class="heading heading--catalog">
                     <div class="heading__container _container">
                         <div class="heading__wrapper">
@@ -132,7 +131,6 @@
                 "faqCol1": "html/data/faq-catalog-col1.json",
                 "faqCol2": "html/data/faq-catalog-col2.json"
                 })
-            </main>
             @@include('html/_footer.html', {})
         </div>
         @@include('html/_popups.html', {})

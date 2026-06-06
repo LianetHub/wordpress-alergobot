@@ -7,7 +7,6 @@
 
 get_header();
 ?>
-<main class="page page--policy">
 	<?php
 	if (have_posts()) :
 		while (have_posts()) :
@@ -18,6 +17,5 @@ get_header();
 		alergobot_render_page_markup('politika-konfidentsialnosti.html');
 	endif;
 	?>
-</main>
 <?php
 get_footer();

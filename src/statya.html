@@ -3,8 +3,7 @@
     @@include('html/_head.html', { "title": "Основные отличия аллергического насморка от простудного" })
     <body>
         <div class="wrapper">
-            @@include('html/_header.html', {})
-            <main class="page page--article">
+            @@include('html/_header.html', { "mainModifier": "main--article" })
                 <div class="article">
 
                     <div class="article__container _container">
@@ -180,7 +179,6 @@
                         </div>
                     </section>
                 </div>
-            </main>
             @@include('html/_footer.html', {})
         </div>
         @@include('html/_popups.html', {})

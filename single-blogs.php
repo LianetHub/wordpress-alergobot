@@ -11,7 +11,6 @@ $post_id    = get_the_ID();
 $title      = function_exists('get_field') && get_field('zagolovok') ? get_field('zagolovok') : get_the_title();
 $categories = get_the_terms($post_id, 'blog_category');
 ?>
-<main class="page page--article">
 	<?php
 	if (file_exists(ALERGOBOT_DIR . '/inc/markup/pages/statya.html')) {
 		alergobot_render_page_markup('statya.html');
@@ -39,6 +38,5 @@ $categories = get_the_terms($post_id, 'blog_category');
 		<?php
 	endif;
 	?>
-</main>
 <?php
 get_footer();

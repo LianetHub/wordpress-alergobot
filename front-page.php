@@ -6,9 +6,7 @@
  */
 
 get_header();
-?>
-<main class="page page--home">
-<?php
+
 if (function_exists('have_rows') && have_rows('page_content')) :
 	while (have_rows('page_content')) :
 		the_row();
@@ -37,7 +35,5 @@ else :
 		alergobot_render_home_section($section);
 	}
 endif;
-?>
-</main>
-<?php
+
 get_footer();
