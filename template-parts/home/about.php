@@ -54,9 +54,9 @@ $logo = alergobot_home_get('logo');
 						<p class="about__concept-lead" data-animate="bottom"><?php echo esc_html($concept_lead); ?></p>
 					<?php endif; ?>
 					<?php if (alergobot_home_rows('concept_list')) : ?>
-						<ul class="about__list" data-animate="bottom">
+						<ul class="about__list" >
 							<?php foreach (alergobot_home_rows('concept_list') as $item) : ?>
-								<li><?php echo esc_html($item['text'] ?? ''); ?></li>
+								<li data-animate="bottom"><?php echo esc_html($item['text'] ?? ''); ?></li>
 							<?php endforeach; ?>
 						</ul>
 					<?php endif; ?>

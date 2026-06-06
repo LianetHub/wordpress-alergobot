@@ -18,6 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	initRelatedEquipmentSwiper();
 	initPhoneMask();
 	initYandexMaps();
+	initCf7();
 });
 
 function initBurger() {
@@ -76,17 +77,20 @@ function initFancybox() {
 		},
 	});
 
-	document.querySelectorAll("[data-popup-form]").forEach((form) => {
-		form.addEventListener("submit", (event) => {
-			event.preventDefault();
+}
 
-			const isError = form.dataset.popupDemo === "error";
-			const target = isError ? "#popup-error" : "#popup-success";
+function initCf7() {
+	const showStatusPopup = (isError) => {
+		if (typeof Fancybox === "undefined") return;
 
-			Fancybox.close();
-			Fancybox.show([{ src: target, type: "inline" }]);
-		});
-	});
+		const target = isError ? "#popup-error" : "#popup-success";
+		Fancybox.close();
+		Fancybox.show([{ src: target, type: "inline" }]);
+	};
+
+	document.addEventListener("wpcf7mailsent", () => showStatusPopup(false));
+	document.addEventListener("wpcf7mailfailed", () => showStatusPopup(true));
+	document.addEventListener("wpcf7spam", () => showStatusPopup(true));
 }
 
 function initBlogTabs() {

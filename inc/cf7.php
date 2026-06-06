@@ -5,12 +5,8 @@
  * @package alergobot
  */
 
-add_filter('wpcf7_form_elements', function ($content) {
-	$content = preg_replace('/<span[^>]*>(.*?)<\/span>/s', '$1', $content);
-	$content = preg_replace('/<p\b[^>]*>/', '', $content);
-	$content = str_replace('</p>', '', $content);
-	return $content;
-});
+// Отключаем автоматические <p> и <br> в разметке формы.
+add_filter('wpcf7_autop_or_not', '__return_false');
 
 add_action('wpcf7_mail_sent', function () {
 	// Hook for analytics or custom redirects if needed.
