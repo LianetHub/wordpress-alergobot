@@ -92,6 +92,10 @@
 		container-type: size;
 		container-name: product-hero-media;
 
+		@media (max-width: $md3) {
+			--hero-media-aspect: 300 / 212;
+		}
+
 		@media (min-width:$md3) {
 			max-width: rem(608);
 		}
@@ -110,6 +114,20 @@
 		width: 100%;
 		height: 100%;
 		pointer-events: none;
+
+		&--mobile {
+			display: none;
+
+			@media (max-width: $md3) {
+				display: block;
+			}
+		}
+
+		&--desktop {
+			@media (max-width: $md3) {
+				display: none;
+			}
+		}
 	}
 
 	&__media-inner {
@@ -122,6 +140,11 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
+
+		@media (max-width: $md3) {
+			clip-path: url(#product-hero-media-clip-mobile);
+			padding: 17.925% 3.333% 4.717% 3.333%;
+		}
 
 		img {
 			width: auto;
@@ -169,6 +192,7 @@
 		z-index: 2;
 		display: flex;
 		align-items: center;
+		box-sizing: border-box;
 
 		top: 0;
 		right: 0;
@@ -178,6 +202,15 @@
 		padding-inline: calc(16 / var(--hero-ref-w) * 100cqw);
 		border-radius: calc(10 / var(--hero-ref-w) * 100cqw);
 		background: #EDFBFF;
+
+		@media (max-width: $md3) {
+			justify-content: center;
+			width: calc(92 / 300 * 100%);
+			height: calc(22 / 212 * 100%);
+			gap: calc(5 / 300 * 100cqw);
+			padding: 0;
+			border-radius: calc(5 / 300 * 100cqw);
+		}
 	}
 
 	&__rating-label {
@@ -187,6 +220,11 @@
 		letter-spacing: -0.02em;
 		text-transform: uppercase;
 		color: #26668C;
+		flex-shrink: 0;
+
+		@media (max-width: $md3) {
+			font-size: calc(8 / 300 * 100cqw);
+		}
 	}
 
 	&__rating-value {
@@ -201,6 +239,12 @@
 		letter-spacing: -0.02em;
 		text-transform: uppercase;
 		color: $color-primary;
+		flex-shrink: 0;
+
+		@media (max-width: $md3) {
+			gap: calc(2 / 300 * 100cqw);
+			font-size: calc(10 / 300 * 100cqw);
+		}
 	}
 
 	&__rating-star {
@@ -208,6 +252,11 @@
 		width: calc(26 / var(--hero-ref-w) * 100cqw);
 		height: calc(26 / var(--hero-ref-w) * 100cqw);
 		color: inherit;
+
+		@media (max-width: $md3) {
+			width: calc(13 / 300 * 100cqw);
+			height: calc(13 / 300 * 100cqw);
+		}
 	}
 
 	&__img {
@@ -309,12 +358,19 @@
 	&__icon {
 		flex-shrink: 0;
 		display: flex;
-		width: 1.25rem;
-		height: 1.25rem;
 		color: $color-primary;
 
+		@media (min-width:$md4) {
+			width: 1.25rem;
+			height: 1.25rem;
 
+		}
 
+		.icon {
+			display: block;
+			width: 100%;
+			height: 100%;
+		}
 	}
 }
 
@@ -423,7 +479,6 @@
 	width: 100%;
 	border-collapse: collapse;
 	table-layout: fixed;
-	font-family: "Manrope", $font-family;
 	font-weight: 400;
 	font-size: rem(10);
 	line-height: 1.3;
@@ -505,15 +560,7 @@
 	}
 
 	tbody {
-		tr {
-			&:nth-child(odd) {
-				background: $color-surface-tab;
-			}
-
-			&:nth-child(even) {
-				background: $color-bg;
-			}
-		}
+		tr {}
 
 		td {
 			padding: rem(10) rem(11);
@@ -523,7 +570,7 @@
 
 			&:last-child {
 				border-right: none;
-				text-align: right;
+				text-align: left;
 				padding-right: rem(12);
 				white-space: nowrap;
 			}
@@ -610,14 +657,18 @@
 
 	&__row {
 		display: grid;
-		grid-template-columns: 1fr;
+		grid-template-columns: 0.75fr 1fr;
 		gap: rem(8);
-		padding: rem(19);
+
 		border: 1px solid $color-accent;
 		border-radius: rem(10);
 		background: $color-surface-tab;
+		font-size: 0.625rem;
+		padding: rem(10);
 
 		@media (min-width: $md4) {
+			padding: rem(19);
+			font-size: rem(18);
 			grid-template-columns: minmax(rem(200), rem(295)) 1fr;
 			gap: rem(20);
 			align-items: start;
@@ -630,17 +681,16 @@
 
 	&__term {
 		font-weight: 600;
-		font-size: rem(18);
-		line-height: 1.3;
+
 		color: $color-primary;
 	}
 
 	&__value {
 
 		font-weight: 400;
-		font-size: rem(18);
 		line-height: 1.3;
 		color: $color-text-body;
+
 	}
 
 	&__link {
@@ -650,6 +700,7 @@
 		transition: color 0.2s ease;
 		font-weight: 600;
 		color: #26668C;
+		font-size: rem(18);
 
 		@media (any-hover: hover) {
 			&:hover {
@@ -707,7 +758,7 @@
 	width: 100%;
 	max-width: rem(874);
 	margin: 0 auto;
-	padding: rem(20) rem(24);
+	padding: rem(16);
 	border: 0.5px solid rgba(#fff, 0.6);
 	border-radius: rem(10);
 	background: $color-primary;
@@ -727,17 +778,27 @@
 
 	&__main {
 		display: flex;
-		flex-wrap: wrap;
+
 		align-items: center;
-		gap: rem(16) rem(60);
+		gap: rem(16);
+
+		@media (min-width:$md4) {
+			gap: rem(16) rem(60);
+
+		}
 	}
 
 	&__preview {
 		flex-shrink: 0;
-		width: rem(48);
-		height: rem(70);
+		width: rem(34);
+		height: rem(50);
 		border-radius: rem(2);
 		overflow: hidden;
+
+		@media (min-width:$md4) {
+			width: rem(48);
+			height: rem(70);
+		}
 
 		img {
 			width: 100%;

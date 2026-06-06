@@ -9,9 +9,19 @@
 		position: relative;
 		padding: rem(14);
 		border-radius: rem(10);
-		background: url("@img/contacts-decor.svg") 0 0 / cover no-repeat, $color-accent;
+		background: $color-accent;
 		color: #fff;
 		overflow: hidden;
+
+		&::before {
+			content: "";
+			position: absolute;
+			inset: -12%;
+			z-index: 0;
+			background: url("@img/contacts-decor.svg") 0 0 / cover no-repeat;
+			pointer-events: none;
+			@include decor-parallax-motion;
+		}
 
 		@media (min-width: $md3) {
 			padding: rem(40);
@@ -19,7 +29,11 @@
 		}
 	}
 
-
+	&__container {
+		@media (max-width:$md5) {
+			padding: 0;
+		}
+	}
 
 	&__hero,
 	&__main {
@@ -76,6 +90,8 @@
 		height: rem(217);
 		object-fit: cover;
 		object-position: center top;
+		transform: scale(1.06);
+		transform-origin: center center;
 
 		@media (min-width: $md3) {
 			height: rem(261);

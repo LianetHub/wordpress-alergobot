@@ -9,27 +9,30 @@
                     <div class="product-hero__container _container">
                         <div class="product-hero__card">
                             <div class="product-hero__content">
-                                <h1 class="product-hero__title title title-lg title--light">
+                                <h1 class="product-hero__title title title-lg title--light" data-animate="bottom">
                                     Анализатор иммунологический <span class="text-nowrap">«Q-SMART»</span>
                                 </h1>
-                                <p class="product-hero__text">Полностью русифицированный интерфейс до 8 идентифицируемых панелей. Количество определяемых аллерген-специфических IgE от 0,15 до 2000. МЕ/мл. Анализатор «Q-SMART» предназначен для считывания результатов анализов in vitro на панелях PROTIA Allergy-Q.</p>
-                                <button class="product-hero__order btn btn--white" type="button" data-fancybox data-src="#popup-order">
+                                <p class="product-hero__text" data-animate="bottom">Полностью русифицированный интерфейс до 8 идентифицируемых панелей. Количество определяемых аллерген-специфических IgE от 0,15 до 2000. МЕ/мл. Анализатор «Q-SMART» предназначен для считывания результатов анализов in vitro на панелях PROTIA Allergy-Q.</p>
+                                <button class="product-hero__order btn btn--white" type="button" data-fancybox data-src="#popup-order" data-animate="bottom">
                                     заказать
                                     <svg class="btn__icon" width="28" height="28" aria-hidden="true">
                                         <use href="@img/icons.svg#icon-arrow-up-right"></use>
                                     </svg>
                                 </button>
                             </div>
-                            <div class="product-hero__visual">
+                            <div class="product-hero__visual" data-animate="bottom">
                                 <div class="product-hero__media">
                                     <svg class="product-hero__media-defs" aria-hidden="true" focusable="false">
                                         <defs>
                                             <clipPath id="product-hero-media-clip" clipPathUnits="objectBoundingBox">
                                                 <path d="M0.699013 0.105381C0.699013 0.117764 0.706377 0.127803 0.715461 0.127803H0.983553C0.992637 0.127803 1 0.137841 1 0.150224V0.977578C1 0.989962 0.992637 1 0.983553 1H0.016447C0.007364 1 0 0.989962 0 0.977578V0.022422C0 0.010038 0.007364 0 0.016447 0H0.682566C0.69165 0 0.699013 0.010038 0.699013 0.022422V0.105381Z" />
                                             </clipPath>
+                                            <clipPath id="product-hero-media-clip-mobile" clipPathUnits="objectBoundingBox">
+                                                <path d="M0.666667 0.0990566C0.666667 0.125108 0.68159 0.146226 0.7 0.146226H0.966667C0.985077 0.146226 1 0.167453 1 0.193396V0.95283C1 0.978774 0.985077 1 0.966667 1H0.033333C0.014923 1 0 0.978774 0 0.95283V0.0471698C0 0.0212264 0.014923 0 0.033333 0H0.633333C0.651743 0 0.666667 0.0212264 0.666667 0.0471698V0.0990566Z" />
+                                            </clipPath>
                                         </defs>
                                     </svg>
-                                    <svg class="product-hero__media-shape" viewBox="0 0 608 446" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+                                    <svg class="product-hero__media-shape product-hero__media-shape--desktop" viewBox="0 0 608 446" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
                                         <defs>
                                             <mask id="product-hero-media-border-mask" fill="white">
                                                 <path d="M425 47C425 52.5228 429.477 57 435 57H598C603.523 57 608 61.4772 608 67V436C608 441.523 603.523 446 598 446H10C4.47715 446 0 441.523 0 436V10C3.41467e-06 4.47716 4.47715 1.93278e-07 10 0H415C420.523 0 425 4.47715 425 10V47Z" />
@@ -38,10 +41,19 @@
                                         <path d="M425 47C425 52.5228 429.477 57 435 57H598C603.523 57 608 61.4772 608 67V436C608 441.523 603.523 446 598 446H10C4.47715 446 0 441.523 0 436V10C3.41467e-06 4.47716 4.47715 1.93278e-07 10 0H415C420.523 0 425 4.47715 425 10V47Z" fill="#EDFBFF" />
                                         <path d="M608 436H609V436H608ZM598 446V447V447V446ZM0 10L-1 10V10H0ZM10 0V-1V-1V0ZM425 47H424C424 53.0751 428.925 58 435 58V57V56C430.029 56 426 51.9706 426 47H425ZM435 57V58H598V57V56H435V57ZM608 67H607V436H608H609V67H608ZM608 436H607C607 440.971 602.971 445 598 445V446V447C604.075 447 609 442.075 609 436H608ZM598 446V445H10V446V447H598V446ZM10 446V445C5.02944 445 1 440.971 1 436H0H-1C-1 442.075 3.92487 447 10 447V446ZM0 436H1V10H0H-1V436H0ZM0 10L1 10C1 5.02944 5.02944 1 10 1V0V-1C3.92487 -1 -0.999996 3.92487 -1 10L0 10ZM10 0V1H415V0V-1H10V0ZM425 10H424V47H425H426V10H425ZM415 0V1C419.971 1 424 5.02944 424 10H425H426C426 3.92487 421.075 -1 415 -1V0ZM598 57V58C602.971 58 607 62.0294 607 67H608H609C609 60.9249 604.075 56 598 56V57Z" fill="#55ACBF" mask="url(#product-hero-media-border-mask)" />
                                     </svg>
-                                    <span class="product-hero__stock">
+                                    <svg class="product-hero__media-shape product-hero__media-shape--mobile" viewBox="0 0 300 212" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+                                        <defs>
+                                            <mask id="product-hero-media-border-mask-mobile" fill="white">
+                                                <path d="M200 21C200 26.5228 204.477 31 210 31H290C295.523 31 300 35.4772 300 41V202C300 207.523 295.523 212 290 212H10C4.47716 212 0 207.523 0 202V10C0 4.47715 4.47715 0 10 0H190C195.523 0 200 4.47715 200 10V21Z" />
+                                            </mask>
+                                        </defs>
+                                        <path d="M200 21C200 26.5228 204.477 31 210 31H290C295.523 31 300 35.4772 300 41V202C300 207.523 295.523 212 290 212H10C4.47716 212 0 207.523 0 202V10C0 4.47715 4.47715 0 10 0H190C195.523 0 200 4.47715 200 10V21Z" fill="#EDFBFF" />
+                                        <path d="M210 31V31.4753V31.4753V31ZM290 212V212.475V212.475V212ZM10 212V212.475V212.475V212ZM0 202H-0.475329V202H0ZM10 0V-0.475329V-0.475329V0ZM200 21H199.525C199.525 26.7854 204.215 31.4753 210 31.4753V31V30.5247C204.74 30.5247 200.475 26.2603 200.475 21H200ZM210 31V31.4753H290V31V30.5247H210V31ZM300 41H299.525V202H300H300.475V41H300ZM300 202H299.525C299.525 207.26 295.26 211.525 290 211.525V212V212.475C295.785 212.475 300.475 207.785 300.475 202H300ZM290 212V211.525H10V212V212.475H290V212ZM10 212V211.525C4.73967 211.525 0.475329 207.26 0.475329 202H0H-0.475329C-0.475329 207.785 4.21464 212.475 10 212.475V212ZM0 202H0.475329V10H0H-0.475329V202H0ZM0 10H0.475329C0.475329 4.73967 4.73967 0.475329 10 0.475329V0V-0.475329C4.21464 -0.475329 -0.475329 4.21464 -0.475329 10H0ZM10 0V0.475329H190V0V-0.475329H10V0ZM200 10H199.525V21H200H200.475V10H200ZM190 0V0.475329C195.26 0.475329 199.525 4.73967 199.525 10H200H200.475C200.475 4.21464 195.785 -0.475329 190 -0.475329V0ZM290 31V31.4753C295.26 31.4753 299.525 35.7397 299.525 41H300H300.475C300.475 35.2146 295.785 30.5247 290 30.5247V31Z" fill="#55ACBF" mask="url(#product-hero-media-border-mask-mobile)" />
+                                    </svg>
+                                    <span class="product-hero__stock" data-animate="scale">
                                         В наличии
                                     </span>
-                                    <div class="product-hero__rating">
+                                    <div class="product-hero__rating" data-animate="scale">
                                         <span class="product-hero__rating-label">рейтинг</span>
                                         <span class="product-hero__rating-value">
                                             <svg class="icon product-hero__rating-star" aria-hidden="true">
@@ -52,7 +64,6 @@
                                     </div>
                                     <div class="product-hero__media-inner">
                                         <img src="@img/product/device-hero.png" alt="Анализатор иммунологический Q-SMART" title="Анализатор иммунологический Q-SMART" width="451" height="308">
-
                                     </div>
                                 </div>
                             </div>
@@ -63,34 +74,34 @@
                 <section class="product-detail">
                     <div class="product-detail__container _container">
                         <div class="product-tabs" role="tablist" aria-label="Разделы товара">
-                            <button class="product-tabs__btn _active" type="button" role="tab" id="product-tab-description" aria-selected="true" aria-controls="product-panel-description" data-product-tab="description">
+                            <button class="product-tabs__btn _active" type="button" role="tab" id="product-tab-description" aria-selected="true" aria-controls="product-panel-description" data-product-tab="description" data-animate="fade">
                                 <span class="product-tabs__text">Описание</span>
                                 <span class="product-tabs__icon" aria-hidden="true">
-                                    <svg class="icon">
+                                    <svg class="icon" width="16" height="16">
                                         <use href="@img/icons.svg#icon-tab-plus"></use>
                                     </svg>
                                 </span>
                             </button>
-                            <button class="product-tabs__btn" type="button" role="tab" id="product-tab-ru" aria-selected="false" aria-controls="product-panel-ru" data-product-tab="ru">
+                            <button class="product-tabs__btn" type="button" role="tab" id="product-tab-ru" aria-selected="false" aria-controls="product-panel-ru" data-product-tab="ru" data-animate="fade">
                                 <span class="product-tabs__text">РУ / КТРУ</span>
                                 <span class="product-tabs__icon" aria-hidden="true">
-                                    <svg class="icon">
+                                    <svg class="icon" width="16" height="16">
                                         <use href="@img/icons.svg#icon-tab-plus"></use>
                                     </svg>
                                 </span>
                             </button>
-                            <button class="product-tabs__btn" type="button" role="tab" id="product-tab-video" aria-selected="false" aria-controls="product-panel-video" data-product-tab="video">
+                            <button class="product-tabs__btn" type="button" role="tab" id="product-tab-video" aria-selected="false" aria-controls="product-panel-video" data-product-tab="video" data-animate="fade">
                                 <span class="product-tabs__text">Видео</span>
                                 <span class="product-tabs__icon" aria-hidden="true">
-                                    <svg class="icon">
+                                    <svg class="icon" width="16" height="16">
                                         <use href="@img/icons.svg#icon-tab-plus"></use>
                                     </svg>
                                 </span>
                             </button>
-                            <button class="product-tabs__btn" type="button" role="tab" id="product-tab-docs" aria-selected="false" aria-controls="product-panel-docs" data-product-tab="docs">
+                            <button class="product-tabs__btn" type="button" role="tab" id="product-tab-docs" aria-selected="false" aria-controls="product-panel-docs" data-product-tab="docs" data-animate="fade">
                                 <span class="product-tabs__text">Документы</span>
                                 <span class="product-tabs__icon" aria-hidden="true">
-                                    <svg class="icon">
+                                    <svg class="icon" width="16" height="16">
                                         <use href="@img/icons.svg#icon-tab-plus"></use>
                                     </svg>
                                 </span>
@@ -100,40 +111,40 @@
                         <div class="product-panels">
                             <div class="product-panel _active" id="product-panel-description" role="tabpanel" aria-labelledby="product-tab-description" data-product-panel="description">
                                 <div class="product-panel__inner product-panel__inner--description">
-                                    <p class="product-panel__lead">Анализатор «Q-SMART» обеспечивает проведение лабораторных исследований методом иммунохемилюминесцентного анализа (ИХЛА), в основе которого лежат иммунные реакции антигена с антителом. Оборудование предназначено для считывания результатов анализов со всех типов панелей PROTIA Allergy-Q</p>
+                                    <p class="product-panel__lead" data-animate="bottom">Анализатор «Q-SMART» обеспечивает проведение лабораторных исследований методом иммунохемилюминесцентного анализа (ИХЛА), в основе которого лежат иммунные реакции антигена с антителом. Оборудование предназначено для считывания результатов анализов со всех типов панелей PROTIA Allergy-Q</p>
 
                                     <div class="product-block">
-                                        <h2 class="product-block__title title title-md-sm">Особенности работы иммунологического фотометрического анализатора «Q-SMART»</h2>
+                                        <h2 class="product-block__title title title-md-sm" data-animate="bottom">Особенности работы иммунологического фотометрического анализатора «Q-SMART»</h2>
                                         <ul class="product-list">
-                                            <li class="product-list__item">Работает в паре с внешним компьютером с OC Windows (XP, 7, 10)</li>
-                                            <li class="product-list__item">Имеет полностью русифицированный интерфейс</li>
-                                            <li class="product-list__item">Разрешение при сканировании: 1200 х 1200 dpi</li>
-                                            <li class="product-list__item">Количество одновременно идентифицируемых панелей: 8</li>
-                                            <li class="product-list__item">Единицы измерений: МЕ/мл</li>
-                                            <li class="product-list__item">Количество определяемых аллерген-специфических IgE-антител: 0…2000.МЕ/мл</li>
-                                            <li class="product-list__item">Интерфейс для связи с компьютером: USB 2.0</li>
-                                            <li class="product-list__item">Напряжение питания через блок питания: 220B+-10%</li>
+                                            <li class="product-list__item" data-animate="bottom">Работает в паре с внешним компьютером с OC Windows (XP, 7, 10)</li>
+                                            <li class="product-list__item" data-animate="bottom">Имеет полностью русифицированный интерфейс</li>
+                                            <li class="product-list__item" data-animate="bottom">Разрешение при сканировании: 1200 х 1200 dpi</li>
+                                            <li class="product-list__item" data-animate="bottom">Количество одновременно идентифицируемых панелей: 8</li>
+                                            <li class="product-list__item" data-animate="bottom">Единицы измерений: МЕ/мл</li>
+                                            <li class="product-list__item" data-animate="bottom">Количество определяемых аллерген-специфических IgE-антител: 0…2000.МЕ/мл</li>
+                                            <li class="product-list__item" data-animate="bottom">Интерфейс для связи с компьютером: USB 2.0</li>
+                                            <li class="product-list__item" data-animate="bottom">Напряжение питания через блок питания: 220B+-10%</li>
                                         </ul>
                                     </div>
 
                                     <div class="product-block">
-                                        <h2 class="product-block__title title title-md-sm">Комплектация поставки:</h2>
+                                        <h2 class="product-block__title title title-md-sm" data-animate="bottom">Комплектация поставки:</h2>
                                         <ul class="product-list">
-                                            <li class="product-list__item">аппарат анализатора Q-SMART</li>
-                                            <li class="product-list__item">блок питания MOD6A-181WP24</li>
-                                            <li class="product-list__item">USB-кабель</li>
-                                            <li class="product-list__item">USB-ключ</li>
-                                            <li class="product-list__item">поролоновый мат</li>
-                                            <li class="product-list__item">калибровочная карта</li>
-                                            <li class="product-list__item">выдвижной ящик</li>
-                                            <li class="product-list__item">руководство по эксплуатации</li>
+                                            <li class="product-list__item" data-animate="bottom">аппарат анализатора Q-SMART</li>
+                                            <li class="product-list__item" data-animate="bottom">блок питания MOD6A-181WP24</li>
+                                            <li class="product-list__item" data-animate="bottom">USB-кабель</li>
+                                            <li class="product-list__item" data-animate="bottom">USB-ключ</li>
+                                            <li class="product-list__item" data-animate="bottom">поролоновый мат</li>
+                                            <li class="product-list__item" data-animate="bottom">калибровочная карта</li>
+                                            <li class="product-list__item" data-animate="bottom">выдвижной ящик</li>
+                                            <li class="product-list__item" data-animate="bottom">руководство по эксплуатации</li>
                                         </ul>
                                     </div>
 
                                     <div class="product-block product-block--allergens">
-                                        <h2 class="product-block__title title title-md-sm">Аллергены</h2>
-                                        <p class="product-block__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                                        <div class="product-table-wrap" data-product-table>
+                                        <h2 class="product-block__title title title-md-sm" data-animate="bottom">Аллергены</h2>
+                                        <p class="product-block__text" data-animate="bottom">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                                        <div class="product-table-wrap" data-product-table data-animate="bottom">
                                             <table class="product-table">
                                                 <colgroup>
                                                     <col class="product-table__col-num">
@@ -170,29 +181,29 @@
 
                             <div class="product-panel" id="product-panel-ru" role="tabpanel" aria-labelledby="product-tab-ru" data-product-panel="ru" hidden>
                                 <div class="product-panel__inner product-panel__inner--ru">
-                                    <h2 class="product-panel__heading">Регистрационное удостоверение</h2>
+                                    <h2 class="product-panel__heading" data-animate="bottom">Регистрационное удостоверение</h2>
                                     <dl class="product-spec">
-                                        <div class="product-spec__row">
+                                        <div class="product-spec__row" data-animate="bottom">
                                             <dt class="product-spec__term">Регистрационный номер медицинского изделия</dt>
                                             <dd class="product-spec__value">РЗН 2021/14798</dd>
                                         </div>
-                                        <div class="product-spec__row">
+                                        <div class="product-spec__row" data-animate="bottom">
                                             <dt class="product-spec__term">Дата государственной регистрации медицинского изделия</dt>
                                             <dd class="product-spec__value">14.07.2021</dd>
                                         </div>
-                                        <div class="product-spec__row">
+                                        <div class="product-spec__row" data-animate="bottom">
                                             <dt class="product-spec__term">Наименование медицинского изделия</dt>
                                             <dd class="product-spec__value">Анализатор иммунологический фотометрический «Q-SMART» для диагностики ин витро на панелях «PROTIA» в составе: — анализатор Q-SMART; — блок питания MOD 6А-181WP24; — USB-кабель; — USB-ключ; — поролоновый мат; — калибровочная карта; — выдвижной ящик; — руководство по эксплуатации.</dd>
                                         </div>
-                                        <div class="product-spec__row">
+                                        <div class="product-spec__row" data-animate="bottom">
                                             <dt class="product-spec__term">Наименование организации-производителя медицинского изделия</dt>
                                             <dd class="product-spec__value">ProteomeTech Inc.</dd>
                                         </div>
-                                        <div class="product-spec__row">
+                                        <div class="product-spec__row" data-animate="bottom">
                                             <dt class="product-spec__term">Место нахождения организации-производителя медицинского изделия</dt>
                                             <dd class="product-spec__value">ProteomeTech Inc., A-702, 401, Yangcheon-ro, Gangseo-gu, Seoul 07528, Republic of Korea</dd>
                                         </div>
-                                        <div class="product-spec__row">
+                                        <div class="product-spec__row" data-animate="bottom">
                                             <dt class="product-spec__term">Скачать РУ</dt>
                                             <dd class="product-spec__value"><a class="product-spec__link" href="#">РУ_Q-SMART.pdf</a></dd>
                                         </div>
@@ -202,7 +213,7 @@
 
                             <div class="product-panel" id="product-panel-video" role="tabpanel" aria-labelledby="product-tab-video" data-product-panel="video" hidden>
                                 <div class="product-panel__inner product-panel__inner--video">
-                                    <button class="product-video" type="button" aria-label="Воспроизвести видео о Q-SMART">
+                                    <button class="product-video" type="button" aria-label="Воспроизвести видео о Q-SMART" data-animate="bottom">
                                         <img class="product-video__poster" src="@img/product/video-poster.jpg" alt="Лабораторные исследования с оборудованием PROTIA" title="Лабораторные исследования с оборудованием PROTIA" width="874" height="492" loading="lazy">
                                         <span class="product-video__play" aria-hidden="true">
                                             <svg class="icon" width="88" height="88" viewBox="0 0 88 88" xmlns="http://www.w3.org/2000/svg">
@@ -215,7 +226,7 @@
 
                             <div class="product-panel" id="product-panel-docs" role="tabpanel" aria-labelledby="product-tab-docs" data-product-panel="docs" hidden>
                                 <div class="product-panel__inner product-panel__inner--docs">
-                                    <a class="product-doc" href="#">
+                                    <a class="product-doc" href="#" data-animate="bottom">
                                         <span class="product-doc__main">
                                             <span class="product-doc__preview">
                                                 <img src="@img/product/doc-thumb.png" alt="" title="" width="48" height="70" loading="lazy" aria-hidden="true">
@@ -236,12 +247,12 @@
                 <section class="benefits">
                     <div class="benefits__container _container">
                         <header class="benefits__head">
-                            <h2 class="benefits__title title title-md">Преимущества решений PROTIA</h2>
+                            <h2 class="benefits__title title title-md" data-animate="bottom">Преимущества решений PROTIA</h2>
                         </header>
 
                         <div class="benefits__body">
                             <div class="benefits__brand">
-                                <div class="benefits__text">
+                                <div class="benefits__text" data-animate="bottom">
                                     <p>
                                         <strong>PROTIA — южнокорейский производитель решений для in vitro diagnostics с фокусом на технологичность, точность и развитие современных диагностических систем.</strong>
                                     </p>
@@ -251,7 +262,7 @@
                                 </div>
                             </div>
                             <div class="benefits__grid">
-                                <article class="benefits__card">
+                                <article class="benefits__card" data-animate="bottom">
                                     <div class="benefits__card-head">
                                         <span class="benefits__num">1</span>
                                         <button class="benefits__info tooltip-trigger" type="button" data-tooltip="Продукты PROTIA для лабораторной диагностики направлены на применение в профессиональной медицинской среде." aria-label="Подробнее: Профессиональная специализация в IVD" aria-expanded="false">
@@ -262,7 +273,7 @@
                                     </div>
                                     <h3 class="benefits__card-title">Профессиональная специализация в IVD</h3>
                                 </article>
-                                <article class="benefits__card">
+                                <article class="benefits__card" data-animate="bottom">
                                     <div class="benefits__card-head">
                                         <span class="benefits__num">2</span>
                                         <button class="benefits__info tooltip-trigger" type="button" data-tooltip="Продукция PROTIA применяется в лабораториях разных стран и соответствует требованиям международных стандартов диагностики." aria-label="Подробнее: Признание на международном уровне" aria-expanded="false">
@@ -273,7 +284,7 @@
                                     </div>
                                     <h3 class="benefits__card-title">Признание на международном уровне</h3>
                                 </article>
-                                <article class="benefits__card">
+                                <article class="benefits__card" data-animate="bottom">
                                     <div class="benefits__card-head">
                                         <span class="benefits__num">3</span>
                                         <button class="benefits__info tooltip-trigger" type="button" data-tooltip="Технологии ориентированы на количественную аллергодиагностику: панели, оборудование и программное обеспечение работают как единая система." aria-label="Подробнее: Технологичный подход к аллергодиагностике" aria-expanded="false">
@@ -284,7 +295,7 @@
                                     </div>
                                     <h3 class="benefits__card-title">Технологичный подход к аллергодиагностике</h3>
                                 </article>
-                                <article class="benefits__card">
+                                <article class="benefits__card" data-animate="bottom">
                                     <div class="benefits__card-head">
                                         <span class="benefits__num">4</span>
                                         <button class="benefits__info tooltip-trigger" type="button" data-tooltip="Запатентованный формат панелей с параллельным размещением мембран повышает точность и воспроизводимость результатов тестов." aria-label="Подробнее: Запатентованная технология параллельного размещения мембран в панели" aria-expanded="false">
@@ -296,7 +307,6 @@
                                     <h3 class="benefits__card-title">Запатентованная технология параллельного размещения мембран в панели</h3>
                                 </article>
                             </div>
-
 
                         </div>
                     </div>

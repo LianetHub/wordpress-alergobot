@@ -39,7 +39,7 @@ pages.forEach((file) => {
 });
 
 // Popups from index is not ideal - compile from src via separate file
-const popupsSrc = path.join(root, 'dist/index.html');
+const popupsSrc = path.join(root, 'dist/homepage.html');
 if (fs.existsSync(popupsSrc)) {
 	const $ = cheerio.load(fs.readFileSync(popupsSrc, 'utf8'), { decodeEntities: false });
 	const popups = $('.popups').first();

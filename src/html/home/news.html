@@ -1,11 +1,11 @@
 <section class="news">
-    <div class="news__container _container">
+    <div class="news__container _container" data-decor-parallax>
         <div class="news__head">
             <div class="news__intro">
-                <h2 class="news__title title title-md">Новости и материалы</h2>
-                <p class="news__text text-lead">Персонал компании отслеживает новости в лабораторной диагностике аллергии. Отражает это в передовой политике и новостной рубрике с помощью виджетов-карточек на сайте. Заказывайте новостную рассылку на почту или в мессенджеры, чтобы быть в курсе самых свежих новостей, и купить нужное оборудование.</p>
+                <h2 class="news__title title title-md" data-animate="bottom">Новости и материалы</h2>
+                <p class="news__text text-lead" data-animate="bottom">Персонал компании отслеживает новости в лабораторной диагностике аллергии. Отражает это в передовой политике и новостной рубрике с помощью виджетов-карточек на сайте. Заказывайте новостную рассылку на почту или в мессенджеры, чтобы быть в курсе самых свежих новостей, и купить нужное оборудование.</p>
             </div>
-            <span class="news__tag tag">новости</span>
+            <span class="news__tag tag" data-animate="scale">новости</span>
         </div>
         <div class="news__grid">
             @@loop('../templates/news-card.html', [
@@ -29,7 +29,7 @@
             }
             ])
         </div>
-        <div class="news__footer">
+        <div class="news__footer" data-animate="bottom">
             <a class="btn btn--primary news__btn" href="stati.html">Смотреть все материалы</a>
         </div>
     </div>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ru">
+    @@include('html/_head.html', { "title": "Главная" })
+    <body>
+        <div class="wrapper">
+            @@include('html/_header.html', {})
+            <main class="page page--home">
+                @@include('html/home/hero.html', {})
+                @@include('html/home/audience.html', {})
+                @@include('html/home/catalog-teaser.html', {})
+                @@include('html/home/pick.html', {})
+                @@include('html/home/panels.html', {})
+                @@include('html/home/choose.html', {
+                "modifier": "",
+                "tag": "выбор панели",
+                "title": "Как выбрать подходящую панель для вашей лаборатории",
+                "lead": "Вид панели, которую нужно купить, выбирается с учётом клинических показаний и лабораторных тестов. Зависит от профиля учреждения, сценариев диагностики.",
+                "note": "Если вы не уверены, какое решение подойдёт именно вам, наши специалисты помогут подобрать панель под задачи вашей лаборатории.",
+                "slides": "html/data/choose-home-slides.json",
+                "btnText": "Получить консультацию"
+                })
+                @@include('html/home/equipment.html', {})
+                @@include('html/home/process.html', {})
+                @@include('html/home/partners.html', {})
+                @@include('html/home/docs.html', {})
+                @@include('html/home/request.html', {})
+                @@include('html/home/about.html', {})
+                @@include('html/home/benefits.html', {})
+                @@include('html/home/news.html', {})
+                @@include('html/home/advantages.html', {
+                "faqTitle": "Ответы на популярные вопросы",
+                "faqCol1": "html/data/faq-home-col1.json",
+                "faqCol2": "html/data/faq-home-col2.json"
+                })
+                @@include('html/home/contacts.html', {})
+            </main>
+            @@include('html/_footer.html', {})
+        </div>
+        @@include('html/_popups.html', {})
+        @@include('html/_js.html', {})
+    </body>
+</html>

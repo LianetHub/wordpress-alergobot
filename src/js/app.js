@@ -1,5 +1,6 @@
 "use strict";
 
+import { initAnimation } from "./animation.js";
 import { initYandexMaps } from "./map.js";
 import { initTooltips } from "./tooltip.js";
 
@@ -11,8 +12,10 @@ document.addEventListener("DOMContentLoaded", () => {
 	initProductTableMore();
 	initAccordion();
 	initTooltips();
+	initAnimation();
 	initHome();
 	initDevicesPage();
+	initRelatedEquipmentSwiper();
 	initPhoneMask();
 	initYandexMaps();
 });
@@ -351,7 +354,16 @@ function initHomeSwipers() {
 			slidesPerView: "auto",
 			spaceBetween: 10,
 			breakpoints: {
-				991: {
+				767.98: {
+					slidesPerView: 2,
+					spaceBetween: 15,
+				},
+				991.98: {
+					slidesPerView: 3,
+					spaceBetween: 20,
+				},
+				1199.98: {
+					slidesPerView: 4,
 					spaceBetween: 20,
 				},
 			},
@@ -451,10 +463,13 @@ function initDevicesWorkMore() {
 
 	if (!root || !btn) return;
 
+	const labelMore = btn.dataset.labelMore || "Еще";
+	const labelLess = btn.dataset.labelLess || "Свернуть";
+
 	btn.addEventListener("click", () => {
 		const expanded = root.classList.toggle("_expanded");
 		btn.setAttribute("aria-expanded", String(expanded));
-		btn.hidden = expanded;
+		btn.textContent = expanded ? labelLess : labelMore;
 	});
 }
 
@@ -468,7 +483,12 @@ function initDevicesBenefitsSwiper() {
 		slidesPerView: "auto",
 		spaceBetween: 10,
 		breakpoints: {
-			991: {
+			767.98: {
+				slidesPerView: 2,
+				spaceBetween: 20,
+				allowTouchMove: false,
+			},
+			1199.98: {
 				slidesPerView: 3,
 				spaceBetween: 20,
 				allowTouchMove: false,
@@ -477,6 +497,36 @@ function initDevicesBenefitsSwiper() {
 		navigation: {
 			nextEl: ".devices-benefits__arrow--next",
 			prevEl: ".devices-benefits__arrow--prev",
+		},
+	});
+}
+
+function initRelatedEquipmentSwiper() {
+	if (typeof Swiper === "undefined") return;
+
+	const slider = document.querySelector(".equipment--related .equipment__slider");
+	if (!slider) return;
+
+	new Swiper(slider, {
+		slidesPerView: 1.15,
+		spaceBetween: 10,
+		breakpoints: {
+			575.98: {
+				slidesPerView: 2,
+				spaceBetween: 10,
+			},
+			991.98: {
+				slidesPerView: 3,
+				spaceBetween: 20,
+			},
+			1199.98: {
+				slidesPerView: 4,
+				spaceBetween: 20,
+			},
+		},
+		navigation: {
+			nextEl: ".equipment--related .equipment__arrow--next",
+			prevEl: ".equipment--related .equipment__arrow--prev",
 		},
 	});
 }

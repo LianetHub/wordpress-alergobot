@@ -5,7 +5,7 @@ import cheerio from 'cheerio';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(__dirname, '..');
-const indexHtml = path.join(root, 'dist/index.html');
+const indexHtml = path.join(root, 'dist/homepage.html');
 const outDir = path.join(root, 'wp-theme/alergobot-theme/inc/markup/home');
 
 const sectionMap = {
@@ -28,7 +28,7 @@ const sectionMap = {
 };
 
 if (!fs.existsSync(indexHtml)) {
-	console.error('Run npm run build first to create dist/index.html');
+	console.error('Run npm run build first to create dist/homepage.html');
 	process.exit(1);
 }
 
