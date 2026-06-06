@@ -3,36 +3,12 @@
 /**
  * ACF configuration
  *
- * acf-json/ — только для локальной разработки (генератор в tools/).
- * На сервер папку не загружают: группы полей создаются вручную в админке ACF.
+ * Группы полей настраиваются в админке WordPress (ACF).
  *
  * @package alergobot
  */
 
 define('ALERGOBOT_ACF_SETTINGS_SLUG', 'theme-settings');
-
-/**
- * Путь к acf-json/ или пустая строка, если папки нет (продакшен).
- */
-function alergobot_acf_json_dir()
-{
-	static $dir = null;
-
-	if ($dir === null) {
-		$path = ALERGOBOT_DIR . '/acf-json';
-		$dir  = is_dir($path) ? $path : '';
-	}
-
-	return $dir;
-}
-
-/**
- * Доступны ли локальные JSON-файлы (только dev).
- */
-function alergobot_acf_json_enabled()
-{
-	return alergobot_acf_json_dir() !== '';
-}
 
 add_action('acf/init', function () {
 	if (!function_exists('acf_add_options_page')) {
@@ -48,17 +24,6 @@ add_action('acf/init', function () {
 		'icon_url'   => 'dashicons-admin-generic',
 	]);
 });
-
-if (alergobot_acf_json_enabled()) {
-	add_filter('acf/settings/save_json', function () {
-		return alergobot_acf_json_dir();
-	});
-
-	add_filter('acf/settings/load_json', function ($paths) {
-		$paths[] = alergobot_acf_json_dir();
-		return $paths;
-	});
-}
 
 add_action('wp_head', function () {
 	if (!function_exists('get_field')) {

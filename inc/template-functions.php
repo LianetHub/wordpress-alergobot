@@ -58,7 +58,10 @@ if (!function_exists('alergobot_home_rows')) {
 		$rows = [];
 		while (have_rows($key)) {
 			the_row();
-			$rows[] = get_row(true);
+			$row = get_row(true);
+			if (is_array($row)) {
+				$rows[] = $row;
+			}
 		}
 
 		$cache[$cache_key] = $rows;

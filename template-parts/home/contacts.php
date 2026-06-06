@@ -7,7 +7,7 @@
 
 $company_name = alergobot_get_option('kompaniya_nazvanie', 'ООО «Био Фокус»');
 $map_html     = alergobot_get_map_html('contacts-map', 'contacts__map');
-$photo_path   = alergobot_home_get('photo_path');
+$photo        = alergobot_home_get('photo');
 ?>
 <section class="contacts" id="contacts">
 	<div class="contacts__wrap">
@@ -27,9 +27,14 @@ $photo_path   = alergobot_home_get('photo_path');
 							<p class="contacts__text" data-animate="bottom"><?php echo esc_html($text); ?></p>
 						<?php endif; ?>
 					</div>
-					<?php if ($photo_path) : ?>
+					<?php if ($photo) : ?>
 						<figure class="contacts__figure" data-animate="bottom">
-							<img class="contacts__photo" src="<?php echo esc_url(alergobot_acf_image_url($photo_path)); ?>" alt="<?php echo esc_attr(alergobot_home_get('photo_alt')); ?>" title="<?php echo esc_attr(alergobot_home_get('photo_alt')); ?>" width="387" height="261" loading="lazy">
+							<?php echo alergobot_acf_image($photo, 'full', [
+								'class'   => 'contacts__photo',
+								'width'   => '387',
+								'height'  => '261',
+								'loading' => 'lazy',
+							]); ?>
 						</figure>
 					<?php endif; ?>
 				</header>

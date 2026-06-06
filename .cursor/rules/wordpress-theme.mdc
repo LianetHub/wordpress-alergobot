@@ -1,6 +1,6 @@
 ---
 description: Натяжка вёрстки на WordPress (Underscores, ACF, CPT)
-globs: "**/*.php,acf-json/**,inc/**/*.php"
+globs: "**/*.php,inc/**/*.php"
 alwaysApply: false
 ---
 
@@ -27,7 +27,6 @@ alwaysApply: false
 │   ├── company/      контакты, карточки
 │   ├── blog/         карточки статей
 │   └── product/      карточки продуктов
-├── acf-json/
 └── style.css         только метаданные
 ```
 
