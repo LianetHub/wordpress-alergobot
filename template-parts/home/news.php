@@ -1,4 +1,11 @@
-<section class="news">
+<?php
+/**
+ * Home section: news
+ *
+ * @package alergobot
+ */
+
+?><section class="news">
 				<div class="news__container _container" data-decor-parallax="">
 					<div class="news__head">
 						<div class="news__intro">
@@ -9,9 +16,9 @@
 					</div>
 					<div class="news__grid">
 						<article class="news-card" data-animate="bottom">
-							<a class="news-card__link" href="statya.html">
+							<a class="news-card__link" href="<?php echo esc_url(alergobot_blogs_archive_url()); ?>">
 								<div class="news-card__media">
-									<img class="news-card__img" src="img/home/news-thumb.png" alt="Новость от 09.04.2026" title="Новость от 09.04.2026" width="295" height="277" loading="lazy">
+									<img class="news-card__img" src="<?php echo esc_url(alergobot_assets_uri('img/home/news-thumb.png')); ?>" alt="Новость от 09.04.2026" title="Новость от 09.04.2026" width="295" height="277" loading="lazy">
 								</div>
 								<div class="news-card__body">
 									<time class="news-card__date" datetime="2026-04-09">09.04.2026</time>
@@ -23,7 +30,7 @@
 										<span class="news-card__more-label">Читать статью</span>
 										<span class="news-card__more-icon" aria-hidden="true">
 											<svg class="icon" width="28" height="28" viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg">
-												<use href="img/icons.svg#icon-arrow-up-right"></use>
+												<use href="<?php echo esc_url(alergobot_assets_uri('img/icons.svg')); ?>#icon-arrow-up-right"></use>
 											</svg>
 										</span>
 									</span>
@@ -31,9 +38,9 @@
 							</a>
 						</article>
 						<article class="news-card" data-animate="bottom">
-							<a class="news-card__link" href="statya.html">
+							<a class="news-card__link" href="<?php echo esc_url(alergobot_blogs_archive_url()); ?>">
 								<div class="news-card__media">
-									<img class="news-card__img" src="img/home/news-thumb.png" alt="Новость от 09.04.2026" title="Новость от 09.04.2026" width="295" height="277" loading="lazy">
+									<img class="news-card__img" src="<?php echo esc_url(alergobot_assets_uri('img/home/news-thumb.png')); ?>" alt="Новость от 09.04.2026" title="Новость от 09.04.2026" width="295" height="277" loading="lazy">
 								</div>
 								<div class="news-card__body">
 									<time class="news-card__date" datetime="2026-04-09">09.04.2026</time>
@@ -45,7 +52,7 @@
 										<span class="news-card__more-label">Читать статью</span>
 										<span class="news-card__more-icon" aria-hidden="true">
 											<svg class="icon" width="28" height="28" viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg">
-												<use href="img/icons.svg#icon-arrow-up-right"></use>
+												<use href="<?php echo esc_url(alergobot_assets_uri('img/icons.svg')); ?>#icon-arrow-up-right"></use>
 											</svg>
 										</span>
 									</span>
@@ -54,7 +61,7 @@
 						</article>
 					</div>
 					<div class="news__footer" data-animate="bottom">
-						<a class="btn btn--primary news__btn" href="stati.html">Смотреть все материалы</a>
+						<a class="btn btn--primary news__btn" href="<?php echo esc_url(alergobot_blogs_archive_url()); ?>">Смотреть все материалы</a>
 					</div>
 				</div>
 			</section>

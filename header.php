@@ -6,9 +6,9 @@
  * @package alergobot
  */
 
-$logo        = function_exists('get_field') ? get_field('logotip', 'option') : null;
+$logo          = function_exists('get_field') ? get_field('logotip', 'option') : null;
 $header_phones = alergobot_get_phones(true);
-$main_class  = alergobot_get_main_class();
+$main_class    = alergobot_get_main_class();
 ?>
 <!doctype html>
 <html <?php language_attributes(); ?>>
@@ -32,24 +32,15 @@ $main_class  = alergobot_get_main_class();
 		<header class="header">
 			<div class="header__container _container _container--small">
 				<div class="header__bar">
-					<a href="<?php echo esc_url(home_url('/')); ?>" class="header__logo">
-						<?php if ($logo) : ?>
-							<?php echo alergobot_acf_image($logo, 'full', ['class' => 'header__logo-img', 'loading' => 'eager']); ?>
-						<?php else : ?>
-							<img class="header__logo-img" src="<?php echo esc_url(alergobot_assets_uri('img/logo.png')); ?>" alt="<?php echo esc_attr(get_bloginfo('name')); ?>" title="PROTIA" width="111" height="31">
-						<?php endif; ?>
-					</a>
+					<?php if ($logo) : ?>
+						<a href="<?php echo esc_url(home_url('/')); ?>" class="header__logo">
+							<?php echo alergobot_acf_image($logo, 'full', ['class' => 'header__logo-img', 'loading' => 'eager', 'width' => '111', 'height' => '31']); ?>
+						</a>
+					<?php endif; ?>
 
 					<nav class="header__nav" id="header-nav" aria-label="<?php esc_attr_e('Основная навигация', 'alergobot'); ?>">
 						<?php if (function_exists('have_rows') && have_rows('glavnoe_menyu', 'option')) : ?>
 							<?php alergobot_render_main_menu(); ?>
-						<?php else : ?>
-							<ul class="header__menu">
-								<li class="header__item"><a class="header__link" href="<?php echo esc_url(home_url('/katalog/')); ?>"><?php esc_html_e('Каталог', 'alergobot'); ?></a></li>
-								<li class="header__item"><a class="header__link" href="#popup-presentation" data-fancybox data-src="#popup-presentation"><?php esc_html_e('Презентация', 'alergobot'); ?></a></li>
-								<li class="header__item"><a class="header__link" href="<?php echo esc_url(alergobot_blogs_archive_url()); ?>"><?php esc_html_e('Статьи', 'alergobot'); ?></a></li>
-								<li class="header__item"><a class="header__link" href="<?php echo esc_url(home_url('/kontakty/')); ?>"><?php esc_html_e('Контакты', 'alergobot'); ?></a></li>
-							</ul>
 						<?php endif; ?>
 					</nav>
 

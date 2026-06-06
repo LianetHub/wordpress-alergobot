@@ -21,8 +21,12 @@ alwaysApply: false
 ./
 ├── assets/           ← npm run build
 ├── inc/              setup, enqueue, acf, cpt, ajax, cf7, template-*
-├── inc/markup/       HTML-фрагменты из вёрстки (home/, pages/)
 ├── template-parts/
+│   ├── home/         секции главной
+│   ├── pages/        шаблоны страниц
+│   ├── company/      контакты, карточки
+│   ├── blog/         карточки статей
+│   └── product/      карточки продуктов
 ├── acf-json/
 └── style.css         только метаданные
 ```
@@ -36,7 +40,7 @@ alwaysApply: false
 
 | Страница | Файл |
 |----------|------|
-| Главная | `front-page.php` + flexible / fallback markup |
+| Главная | `front-page.php` + flexible / fallback `template-parts/home/` |
 | Каталог | `page-katalog.php` |
 | Контакты | `page-kontakty.php` |
 | Анализаторы | `page-analizatory.php` |

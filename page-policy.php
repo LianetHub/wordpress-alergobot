@@ -14,7 +14,7 @@ get_header();
 			the_content();
 		endwhile;
 	else :
-		alergobot_render_page_markup('politika-konfidentsialnosti.html');
+		get_template_part('template-parts/pages/policy', 'fallback');
 	endif;
 	?>
 <?php

@@ -7,6 +7,6 @@
 
 get_header();
 ?>
-	<?php alergobot_render_page_markup('kontakty.html'); ?>
+	<?php get_template_part('template-parts/pages/kontakty'); ?>
 <?php
 get_footer();

@@ -6,51 +6,56 @@
  * @package alergobot
  */
 
-$logo_footer = function_exists('get_field') ? get_field('logotip_podval', 'option') : null;
-$phones      = alergobot_get_phones();
+$logo_footer  = function_exists('get_field') ? get_field('logotip_podval', 'option') : null;
+$phones       = alergobot_get_phones();
 $footer_phone = $phones[0] ?? '';
-$copyright   = alergobot_get_option('kopirajt', '© ' . gmdate('Y') . ' - Официальный сайт Аллергобот');
-$policy_link = alergobot_get_option('ssylka_na_politiku', alergobot_privacy_policy_url());
+$copyright    = alergobot_get_option('kopirajt');
+$policy_link  = alergobot_get_option('ssylka_na_politiku');
+$link_opd     = alergobot_get_option('ssylka_opd');
+$link_cookies = alergobot_get_option('ssylka_cookies');
 ?>
 </main>
 <footer class="footer">
 	<div class="footer__container _container">
-		<div class="footer__brand-row">
-			<a href="<?php echo esc_url(home_url('/')); ?>" class="footer__logo">
+		<?php if ($logo_footer || $footer_phone) : ?>
+			<div class="footer__brand-row">
 				<?php if ($logo_footer) : ?>
-					<?php echo alergobot_acf_image($logo_footer, 'full', ['width' => '141', 'height' => '39']); ?>
-				<?php else : ?>
-					<img src="<?php echo esc_url(alergobot_assets_uri('img/logo.png')); ?>" alt="<?php echo esc_attr(get_bloginfo('name')); ?>" width="141" height="39">
+					<a href="<?php echo esc_url(home_url('/')); ?>" class="footer__logo">
+						<?php echo alergobot_acf_image($logo_footer, 'full', ['width' => '141', 'height' => '39']); ?>
+					</a>
 				<?php endif; ?>
-			</a>
-			<?php if ($footer_phone) : ?>
-				<a class="footer__phone" href="tel:+<?php echo esc_attr(alergobot_phone_clean($footer_phone)); ?>"><?php echo esc_html($footer_phone); ?></a>
-			<?php endif; ?>
-		</div>
+				<?php if ($footer_phone) : ?>
+					<a class="footer__phone" href="tel:+<?php echo esc_attr(alergobot_phone_clean($footer_phone)); ?>"><?php echo esc_html($footer_phone); ?></a>
+				<?php endif; ?>
+			</div>
+		<?php endif; ?>
 
-		<nav class="footer__nav" aria-label="<?php esc_attr_e('Навигация в подвале', 'alergobot'); ?>">
-			<?php if (function_exists('have_rows') && have_rows('glavnoe_menyu', 'option')) : ?>
+		<?php if (function_exists('have_rows') && have_rows('glavnoe_menyu', 'option')) : ?>
+			<nav class="footer__nav" aria-label="<?php esc_attr_e('Навигация в подвале', 'alergobot'); ?>">
 				<?php alergobot_render_main_menu('footer__menu', 'footer__item', 'footer__link'); ?>
-			<?php else : ?>
-				<ul class="footer__menu">
-					<li class="footer__item"><a class="footer__link" href="<?php echo esc_url(home_url('/katalog/')); ?>"><?php esc_html_e('Каталог', 'alergobot'); ?></a></li>
-					<li class="footer__item"><a class="footer__link" href="#popup-presentation" data-fancybox data-src="#popup-presentation"><?php esc_html_e('Презентация', 'alergobot'); ?></a></li>
-					<li class="footer__item"><a class="footer__link" href="<?php echo esc_url(alergobot_blogs_archive_url()); ?>"><?php esc_html_e('Статьи', 'alergobot'); ?></a></li>
-					<li class="footer__item"><a class="footer__link" href="<?php echo esc_url(home_url('/kontakty/')); ?>"><?php esc_html_e('Контакты', 'alergobot'); ?></a></li>
-				</ul>
-			<?php endif; ?>
-		</nav>
+			</nav>
+		<?php endif; ?>
 
 		<div class="footer__divider" aria-hidden="true"></div>
+		<?php if ($policy_link || $link_opd || $link_cookies) : ?>
 
-		<div class="footer__docs">
-			<a class="footer__doc" href="<?php echo alergobot_esc_link($policy_link); ?>"><?php esc_html_e('Политика конфиденциальности', 'alergobot'); ?></a>
-			<a class="footer__doc" href="<?php echo alergobot_esc_link(alergobot_get_option('ssylka_opd', '#')); ?>"><?php esc_html_e('Согласие ОПД', 'alergobot'); ?></a>
-			<a class="footer__doc" href="<?php echo alergobot_esc_link(alergobot_get_option('ssylka_cookies', '#')); ?>"><?php esc_html_e('Согласие Cookies', 'alergobot'); ?></a>
-		</div>
+			<div class="footer__docs">
+				<?php if ($policy_link) : ?>
+					<a class="footer__doc" href="<?php echo alergobot_esc_link($policy_link); ?>"><?php esc_html_e('Политика конфиденциальности', 'alergobot'); ?></a>
+				<?php endif; ?>
+				<?php if ($link_opd) : ?>
+					<a class="footer__doc" href="<?php echo alergobot_esc_link($link_opd); ?>"><?php esc_html_e('Согласие ОПД', 'alergobot'); ?></a>
+				<?php endif; ?>
+				<?php if ($link_cookies) : ?>
+					<a class="footer__doc" href="<?php echo alergobot_esc_link($link_cookies); ?>"><?php esc_html_e('Согласие Cookies', 'alergobot'); ?></a>
+				<?php endif; ?>
+			</div>
+		<?php endif; ?>
 
 		<div class="footer__meta">
-			<p class="footer__copy"><?php echo esc_html($copyright); ?></p>
+			<?php if ($copyright) : ?>
+				<p class="footer__copy"><?php echo esc_html($copyright); ?></p>
+			<?php endif; ?>
 			<div class="footer__dev">
 				<img class="footer__dev-logo" src="<?php echo esc_url(alergobot_assets_uri('img/ds-art-logo.png')); ?>" alt="" width="26" height="22" aria-hidden="true">
 				<span class="footer__dev-text"><?php esc_html_e('Сайт разработан компанией DS-ART', 'alergobot'); ?></span>

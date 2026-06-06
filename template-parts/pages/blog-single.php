@@ -1,5 +1,11 @@
-<main class="main main--article">
-			<div class="article">
+<?php
+/**
+ * Page template: blog-single
+ *
+ * @package alergobot
+ */
+
+?><div class="article">
 				<div class="article__container _container">
 					<div class="article__layout">
 						<header class="article__header" data-animate="bottom">
@@ -11,7 +17,7 @@
 							</div>
 						</header>
 						<figure class="article__hero" data-animate="bottom">
-							<img class="article__hero-img" src="img/article/hero.jpg" alt="Женщина с платком при насморке" title="Женщина с платком при насморке" width="407" height="420">
+							<img class="article__hero-img" src="<?php echo esc_url(alergobot_assets_uri('img/article/hero.jpg')); ?>" alt="Женщина с платком при насморке" title="Женщина с платком при насморке" width="407" height="420">
 						</figure>
 						<div class="article__body typography-block">
 							<h2 data-animate="bottom">Аллергический насморк и его симптомы</h2>
@@ -29,7 +35,7 @@
 							</ul>
 							<p>Как отличить аллергический насморк? В отличие от простудного, он может резко возникать из-за запаха парфюмерии, бытовой химии, контакта с домашними животными, дыма сигарет и не только. Для постановки диагноза «аллергия» проводят риноскопию, а также кожные тесты и лабораторные исследования на выявление провоцирующего аллергена и специфических антител класса IgE.</p>
 							<figure data-animate="bottom">
-								<img src="img/article/lab.jpg" alt="Учёные в лаборатории" title="Учёные в лаборатории" width="876" height="436" loading="lazy">
+								<img src="<?php echo esc_url(alergobot_assets_uri('img/article/lab.jpg')); ?>" alt="Учёные в лаборатории" title="Учёные в лаборатории" width="876" height="436" loading="lazy">
 							</figure>
 							<h2 data-animate="bottom">Простудный насморк и его симптомы</h2>
 							<p>Чтобы понять, как отличить обычный насморк от аллергического, стоит разобраться в его основной симптоматике:</p>
@@ -41,10 +47,10 @@
 							<p>Отличить простудный насморк от аллергического можно по его продолжительности. Он не исчезает внезапно на несколько дней, как аллергический, а постоянно сопровождает больного и при наличии правильной терапии проходит за 1–2 недели. При отсутствии лечения простудный насморк распространяется в носовые пазухи и бронхи, что приводит к отиту, бронхиту, риносинуситу и прочим осложнениям.</p>
 							<div class="article__gallery article__gallery--duo" data-animate="bottom">
 								<figure>
-									<img src="img/article/lab.jpg" alt="Лабораторные исследования" title="Лабораторные исследования" width="433" height="433" loading="lazy">
+									<img src="<?php echo esc_url(alergobot_assets_uri('img/article/lab.jpg')); ?>" alt="Лабораторные исследования" title="Лабораторные исследования" width="433" height="433" loading="lazy">
 								</figure>
 								<figure>
-									<img src="img/article/lab.jpg" alt="Специалисты в лаборатории" title="Специалисты в лаборатории" width="433" height="433" loading="lazy">
+									<img src="<?php echo esc_url(alergobot_assets_uri('img/article/lab.jpg')); ?>" alt="Специалисты в лаборатории" title="Специалисты в лаборатории" width="433" height="433" loading="lazy">
 								</figure>
 							</div>
 							<h2 data-animate="bottom">Параметры, по которым можно отличить аллергию от простуды</h2>
@@ -84,8 +90,8 @@
 							<h2 class="blog-recent__heading" id="article-popular-title" data-animate="bottom">Популярные статьи</h2>
 							<ul class="blog-recent__list">
 								<li class="blog-recent__item" data-animate="bottom">
-									<a class="blog-recent__link" href="statya.html">
-										<img class="blog-recent__thumb" src="img/article/lab.jpg" alt="" title="" width="104" height="104" loading="lazy">
+									<a class="blog-recent__link" href="<?php echo esc_url(alergobot_blogs_archive_url()); ?>">
+										<img class="blog-recent__thumb" src="<?php echo esc_url(alergobot_assets_uri('img/article/lab.jpg')); ?>" alt="" title="" width="104" height="104" loading="lazy">
 										<span class="blog-recent__body">
 											<span class="blog-recent__title">Основные отличия аллергического насморка от простудного</span>
 											<time class="blog-recent__date" datetime="2026-04-11">11 апреля 2026</time>
@@ -94,7 +100,7 @@
 								</li>
 								<li class="blog-recent__item" data-animate="bottom">
 									<a class="blog-recent__link" href="#">
-										<img class="blog-recent__thumb" src="img/article/lab.jpg" alt="" title="" width="104" height="104" loading="lazy">
+										<img class="blog-recent__thumb" src="<?php echo esc_url(alergobot_assets_uri('img/article/lab.jpg')); ?>" alt="" title="" width="104" height="104" loading="lazy">
 										<span class="blog-recent__body">
 											<span class="blog-recent__title">Как добиться длительной ремиссии при аллергии...</span>
 											<time class="blog-recent__date" datetime="2026-04-08">8 апреля 2026</time>
@@ -103,7 +109,7 @@
 								</li>
 								<li class="blog-recent__item" data-animate="bottom">
 									<a class="blog-recent__link" href="#">
-										<img class="blog-recent__thumb" src="img/article/lab.jpg" alt="" title="" width="104" height="104" loading="lazy">
+										<img class="blog-recent__thumb" src="<?php echo esc_url(alergobot_assets_uri('img/article/lab.jpg')); ?>" alt="" title="" width="104" height="104" loading="lazy">
 										<span class="blog-recent__body">
 											<span class="blog-recent__title">Причины и симптомы аллергического ринита...</span>
 											<time class="blog-recent__date" datetime="2026-04-14">14 апреля 2026</time>
@@ -112,7 +118,7 @@
 								</li>
 								<li class="blog-recent__item" data-animate="bottom">
 									<a class="blog-recent__link" href="#">
-										<img class="blog-recent__thumb" src="img/article/lab.jpg" alt="" title="" width="104" height="104" loading="lazy">
+										<img class="blog-recent__thumb" src="<?php echo esc_url(alergobot_assets_uri('img/article/lab.jpg')); ?>" alt="" title="" width="104" height="104" loading="lazy">
 										<span class="blog-recent__body">
 											<span class="blog-recent__title">Все, что нужно знать про бронхиальную астму: опасность недуга, причины...</span>
 											<time class="blog-recent__date" datetime="2026-04-16">16 апреля 2026</time>
@@ -120,8 +126,8 @@
 									</a>
 								</li>
 								<li class="blog-recent__item" data-animate="bottom">
-									<a class="blog-recent__link" href="statya.html">
-										<img class="blog-recent__thumb" src="img/article/lab.jpg" alt="" title="" width="104" height="104" loading="lazy">
+									<a class="blog-recent__link" href="<?php echo esc_url(alergobot_blogs_archive_url()); ?>">
+										<img class="blog-recent__thumb" src="<?php echo esc_url(alergobot_assets_uri('img/article/lab.jpg')); ?>" alt="" title="" width="104" height="104" loading="lazy">
 										<span class="blog-recent__body">
 											<span class="blog-recent__title">Основные отличия аллергического насморка от простудного</span>
 											<time class="blog-recent__date" datetime="2026-04-11">11 апреля 2026</time>
@@ -130,7 +136,7 @@
 								</li>
 								<li class="blog-recent__item" data-animate="bottom">
 									<a class="blog-recent__link" href="#">
-										<img class="blog-recent__thumb" src="img/article/lab.jpg" alt="" title="" width="104" height="104" loading="lazy">
+										<img class="blog-recent__thumb" src="<?php echo esc_url(alergobot_assets_uri('img/article/lab.jpg')); ?>" alt="" title="" width="104" height="104" loading="lazy">
 										<span class="blog-recent__body">
 											<span class="blog-recent__title">Как добиться длительной ремиссии при аллергии...</span>
 											<time class="blog-recent__date" datetime="2026-04-08">8 апреля 2026</time>
@@ -148,7 +154,7 @@
 							<article class="news-card" data-animate="bottom">
 								<a class="news-card__link" href="#">
 									<div class="news-card__media">
-										<img class="news-card__img" src="img/article/related.jpg" alt="Lorem ipsum dolor sit amet consectetur adipiscing elit" title="Lorem ipsum dolor sit amet consectetur adipiscing elit" width="295" height="277" loading="lazy">
+										<img class="news-card__img" src="<?php echo esc_url(alergobot_assets_uri('img/article/related.jpg')); ?>" alt="Lorem ipsum dolor sit amet consectetur adipiscing elit" title="Lorem ipsum dolor sit amet consectetur adipiscing elit" width="295" height="277" loading="lazy">
 									</div>
 									<div class="news-card__body">
 										<time class="news-card__date" datetime="2026-04-09">09.04.2026</time>
@@ -160,7 +166,7 @@
 											<span class="news-card__more-label">Читать статью</span>
 											<span class="news-card__more-icon" aria-hidden="true">
 												<svg class="icon" width="28" height="28" viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg">
-													<use href="img/icons.svg#icon-arrow-up-right"></use>
+													<use href="<?php echo esc_url(alergobot_assets_uri('img/icons.svg')); ?>#icon-arrow-up-right"></use>
 												</svg>
 											</span>
 										</span>
@@ -170,7 +176,7 @@
 							<article class="news-card" data-animate="bottom">
 								<a class="news-card__link" href="#">
 									<div class="news-card__media">
-										<img class="news-card__img" src="img/article/related.jpg" alt="Lorem ipsum dolor sit amet consectetur adipiscing elit" title="Lorem ipsum dolor sit amet consectetur adipiscing elit" width="295" height="277" loading="lazy">
+										<img class="news-card__img" src="<?php echo esc_url(alergobot_assets_uri('img/article/related.jpg')); ?>" alt="Lorem ipsum dolor sit amet consectetur adipiscing elit" title="Lorem ipsum dolor sit amet consectetur adipiscing elit" width="295" height="277" loading="lazy">
 									</div>
 									<div class="news-card__body">
 										<time class="news-card__date" datetime="2026-04-09">09.04.2026</time>
@@ -182,7 +188,7 @@
 											<span class="news-card__more-label">Читать статью</span>
 											<span class="news-card__more-icon" aria-hidden="true">
 												<svg class="icon" width="28" height="28" viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg">
-													<use href="img/icons.svg#icon-arrow-up-right"></use>
+													<use href="<?php echo esc_url(alergobot_assets_uri('img/icons.svg')); ?>#icon-arrow-up-right"></use>
 												</svg>
 											</span>
 										</span>
@@ -193,4 +199,3 @@
 					</div>
 				</section>
 			</div>
-		</main>

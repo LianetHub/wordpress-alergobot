@@ -1,4 +1,11 @@
-<section class="faq">
+<?php
+/**
+ * Home section: advantages
+ *
+ * @package alergobot
+ */
+
+?><section class="faq">
 				<div class="faq__container _container">
 					<div class="faq__head">
 						<span class="faq__tag tag" data-animate="scale">FAQ</span>
@@ -10,7 +17,7 @@
 								<button class="accordion__header" type="button" aria-expanded="true">
 									<span class="accordion__question">PROTIA Allergy-Q – что это?</span>
 									<svg class="accordion__chevron icon" width="32" height="32" aria-hidden="true">
-										<use href="img/icons.svg#icon-panels-chevron"></use>
+										<use href="<?php echo esc_url(alergobot_assets_uri('img/icons.svg')); ?>#icon-panels-chevron"></use>
 									</svg>
 								</button>
 								<div class="accordion__body">
@@ -23,7 +30,7 @@
 								<button class="accordion__header" type="button" aria-expanded="false">
 									<span class="accordion__question">Что можно выбрать?</span>
 									<svg class="accordion__chevron icon" width="32" height="32" aria-hidden="true">
-										<use href="img/icons.svg#icon-panels-chevron"></use>
+										<use href="<?php echo esc_url(alergobot_assets_uri('img/icons.svg')); ?>#icon-panels-chevron"></use>
 									</svg>
 								</button>
 								<div class="accordion__body">
@@ -36,7 +43,7 @@
 								<button class="accordion__header" type="button" aria-expanded="false">
 									<span class="accordion__question">Какие есть документы?</span>
 									<svg class="accordion__chevron icon" width="32" height="32" aria-hidden="true">
-										<use href="img/icons.svg#icon-panels-chevron"></use>
+										<use href="<?php echo esc_url(alergobot_assets_uri('img/icons.svg')); ?>#icon-panels-chevron"></use>
 									</svg>
 								</button>
 								<div class="accordion__body">
@@ -49,7 +56,7 @@
 								<button class="accordion__header" type="button" aria-expanded="false">
 									<span class="accordion__question">Есть ли тест-системы?</span>
 									<svg class="accordion__chevron icon" width="32" height="32" aria-hidden="true">
-										<use href="img/icons.svg#icon-panels-chevron"></use>
+										<use href="<?php echo esc_url(alergobot_assets_uri('img/icons.svg')); ?>#icon-panels-chevron"></use>
 									</svg>
 								</button>
 								<div class="accordion__body">
@@ -64,7 +71,7 @@
 								<button class="accordion__header" type="button" aria-expanded="false">
 									<span class="accordion__question">Кому подойдут продукты?</span>
 									<svg class="accordion__chevron icon" width="32" height="32" aria-hidden="true">
-										<use href="img/icons.svg#icon-panels-chevron"></use>
+										<use href="<?php echo esc_url(alergobot_assets_uri('img/icons.svg')); ?>#icon-panels-chevron"></use>
 									</svg>
 								</button>
 								<div class="accordion__body">
@@ -77,7 +84,7 @@
 								<button class="accordion__header" type="button" aria-expanded="false">
 									<span class="accordion__question">Как подобрать состав для конкретной задачи?</span>
 									<svg class="accordion__chevron icon" width="32" height="32" aria-hidden="true">
-										<use href="img/icons.svg#icon-panels-chevron"></use>
+										<use href="<?php echo esc_url(alergobot_assets_uri('img/icons.svg')); ?>#icon-panels-chevron"></use>
 									</svg>
 								</button>
 								<div class="accordion__body">
@@ -90,7 +97,7 @@
 								<button class="accordion__header" type="button" aria-expanded="false">
 									<span class="accordion__question">Как ознакомиться с прайсом и презентацией?</span>
 									<svg class="accordion__chevron icon" width="32" height="32" aria-hidden="true">
-										<use href="img/icons.svg#icon-panels-chevron"></use>
+										<use href="<?php echo esc_url(alergobot_assets_uri('img/icons.svg')); ?>#icon-panels-chevron"></use>
 									</svg>
 								</button>
 								<div class="accordion__body">
@@ -103,7 +110,7 @@
 								<button class="accordion__header" type="button" aria-expanded="false">
 									<span class="accordion__question">Как получить консультацию для выбора?</span>
 									<svg class="accordion__chevron icon" width="32" height="32" aria-hidden="true">
-										<use href="img/icons.svg#icon-panels-chevron"></use>
+										<use href="<?php echo esc_url(alergobot_assets_uri('img/icons.svg')); ?>#icon-panels-chevron"></use>
 									</svg>
 								</button>
 								<div class="accordion__body">

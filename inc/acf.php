@@ -20,7 +20,7 @@ add_action('acf/init', function () {
 		'capability' => 'edit_posts',
 		'redirect'   => false,
 		'icon_url'   => 'dashicons-admin-generic',
-		'position'   => 2,
+
 	]);
 });
 

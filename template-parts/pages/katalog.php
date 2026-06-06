@@ -1,5 +1,11 @@
-<main class="main main--catalog">
-			<section class="heading heading--catalog">
+<?php
+/**
+ * Page template: katalog
+ *
+ * @package alergobot
+ */
+
+?><section class="heading heading--catalog">
 				<div class="heading__container _container">
 					<div class="heading__wrapper">
 						<div class="heading__points" aria-hidden="true">
@@ -9,12 +15,12 @@
 						<div class="heading__grid">
 							<div class="heading__main">
 								<a class="btn btn--primary heading__cta" href="#catalog-request" data-animate="bottom"> Задать вопрос <svg class="btn__icon" width="28" height="28" aria-hidden="true">
-										<use href="img/icons.svg#icon-arrow-up-right"></use>
+										<use href="<?php echo esc_url(alergobot_assets_uri('img/icons.svg')); ?>#icon-arrow-up-right"></use>
 									</svg>
 								</a>
 								<ul class="heading__tags">
 									<li class="heading__tags-item"><a class="heading__tag" href="#catalog-devices" data-animate="scale">Оборудование</a></li>
-									<li class="heading__tags-item"><a class="heading__tag" href="analizatory.html" data-animate="scale">Анализаторы</a></li>
+									<li class="heading__tags-item"><a class="heading__tag" href="<?php echo esc_url(home_url('/analizatory/')); ?>" data-animate="scale">Анализаторы</a></li>
 									<li class="heading__tags-item"><a class="heading__tag" href="#catalog-reagents" data-animate="scale">Реагенты</a></li>
 									<li class="heading__tags-item"><a class="heading__tag" href="#catalog-reagents" data-animate="scale">Панели</a></li>
 								</ul>
@@ -35,8 +41,8 @@
 						<div class="catalog__info">
 							<h2 class="catalog__title title title-md" data-animate="bottom">Каталог устройств и&nbsp;анализаторов</h2>
 							<p class="catalog__text" data-animate="bottom">Раздел представляет диагностическое оборудование для исследований в области аллергии. Перейдите в подкатегорию, чтобы посмотреть описание и характеристики, заказать (купить) нужные диагностические наборы.</p>
-							<a class="btn btn--primary catalog__btn" href="analizatory.html" data-animate="bottom"> Перейти в каталог <svg class="btn__icon" width="28" height="28">
-									<use href="img/icons.svg#icon-arrow-up-right"></use>
+							<a class="btn btn--primary catalog__btn" href="<?php echo esc_url(home_url('/analizatory/')); ?>" data-animate="bottom"> Перейти в каталог <svg class="btn__icon" width="28" height="28">
+									<use href="<?php echo esc_url(alergobot_assets_uri('img/icons.svg')); ?>#icon-arrow-up-right"></use>
 								</svg>
 							</a>
 						</div>
@@ -44,11 +50,11 @@
 					<div class="catalog__side">
 						<span class="tag catalog__tag" data-animate="scale">Устройства и анализаторы</span>
 						<div class="catalog__gallery" data-decor-parallax="">
-							<a href="analizatory.html" class="catalog__product" data-animate="bottom">
-								<img src="img/catalog/device-q-smart.png" alt="Иммунохимический анализатор Q-Smart" title="Иммунохимический анализатор Q-Smart" width="239" height="164" loading="lazy">
+							<a href="<?php echo esc_url(home_url('/analizatory/')); ?>" class="catalog__product" data-animate="bottom">
+								<img src="<?php echo esc_url(alergobot_assets_uri('img/catalog/device-q-smart.png')); ?>" alt="Иммунохимический анализатор Q-Smart" title="Иммунохимический анализатор Q-Smart" width="239" height="164" loading="lazy">
 							</a>
-							<a href="analizatory.html" class="catalog__product" data-animate="bottom">
-								<img src="img/catalog/device-elite-2.png" alt="Лабораторный анализатор Q-STATION" title="Лабораторный анализатор Q-STATION" width="200" height="167" loading="lazy">
+							<a href="<?php echo esc_url(home_url('/analizatory/')); ?>" class="catalog__product" data-animate="bottom">
+								<img src="<?php echo esc_url(alergobot_assets_uri('img/catalog/device-elite-2.png')); ?>" alt="Лабораторный анализатор Q-STATION" title="Лабораторный анализатор Q-STATION" width="200" height="167" loading="lazy">
 							</a>
 						</div>
 					</div>
@@ -60,8 +66,8 @@
 						<div class="catalog__info">
 							<h2 class="catalog__title title title-md" data-animate="bottom">Каталог панелей и реагентов</h2>
 							<p class="catalog__text" data-animate="bottom">В каталоге собраны панели, тест-системы и реагенты для диагностических наборов, исследующих аллергию. Перейдите в подкатегорию, чтобы подобрать, заказать или купить нужный состав оборудования и реагентов под задачи вашего мед учреждения.</p>
-							<a class="btn btn--primary catalog__btn" href="homepage.html" data-animate="bottom" s=""> Перейти в каталог <svg class="btn__icon" width="28" height="28">
-									<use href="img/icons.svg#icon-arrow-up-right"></use>
+							<a class="btn btn--primary catalog__btn" href="<?php echo esc_url(home_url('/')); ?>" data-animate="bottom" s=""> Перейти в каталог <svg class="btn__icon" width="28" height="28">
+									<use href="<?php echo esc_url(alergobot_assets_uri('img/icons.svg')); ?>#icon-arrow-up-right"></use>
 								</svg>
 							</a>
 						</div>
@@ -69,11 +75,11 @@
 					<div class="catalog__side">
 						<span class="tag catalog__tag" data-animate="scale">Панели и реагенты</span>
 						<div class="catalog__gallery" data-decor-parallax="">
-							<a href="homepage.html" class="catalog__product" data-animate="bottom">
-								<img src="img/catalog/reagent-protia.png" alt="Панель PROTIA Allergy-Q 96 Multipanel" title="Панель PROTIA Allergy-Q 96 Multipanel" width="250" height="134" loading="lazy">
+							<a href="<?php echo esc_url(home_url('/')); ?>" class="catalog__product" data-animate="bottom">
+								<img src="<?php echo esc_url(alergobot_assets_uri('img/catalog/reagent-protia.png')); ?>" alt="Панель PROTIA Allergy-Q 96 Multipanel" title="Панель PROTIA Allergy-Q 96 Multipanel" width="250" height="134" loading="lazy">
 							</a>
-							<a href="homepage.html" class="catalog__product" data-animate="bottom">
-								<img src="img/analyzers/equipment-reagents.png" alt="Наборы реагентов для аллергодиагностики" title="Наборы реагентов для аллергодиагностики" width="225" height="161" loading="lazy">
+							<a href="<?php echo esc_url(home_url('/')); ?>" class="catalog__product" data-animate="bottom">
+								<img src="<?php echo esc_url(alergobot_assets_uri('img/analyzers/equipment-reagents.png')); ?>" alt="Наборы реагентов для аллергодиагностики" title="Наборы реагентов для аллергодиагностики" width="225" height="161" loading="lazy">
 							</a>
 						</div>
 					</div>
@@ -88,7 +94,7 @@
 								<div class="request__note" data-animate="bottom">
 									<span class="request__note-icon" aria-hidden="true">
 										<svg class="request__note-icon-svg" width="50" height="50" aria-hidden="true">
-											<use href="img/icons.svg#icon-request-chat"></use>
+											<use href="<?php echo esc_url(alergobot_assets_uri('img/icons.svg')); ?>#icon-request-chat"></use>
 										</svg>
 									</span>
 									<p class="request__note-text">По запросу направим презентацию, актуальный прайс и консультацию по ассортименту.</p>
@@ -96,7 +102,7 @@
 							</div>
 							<div class="request__form-col">
 								<p class="request__lead" data-animate="bottom">Мы подберём диагностическое оборудование, аллергопробы и реагенты под формат вашей работы. Расскажем о вариантах поставки, поможем с выбором. По запросу направим презентацию, актуальный прайс и консультацию по ассортименту, чтобы заказать или купить.</p>
-								<form class="request__form form" action="#" method="post" data-animate="bottom">
+								<form class="request__form form" action="<?php echo esc_url(admin_url('admin-ajax.php')); ?>" method="post" data-animate="bottom">
 									<div class="form__row">
 										<label class="form__field">
 											<input class="form__control" type="text" name="name" placeholder="Имя" autocomplete="name" required="">
@@ -120,10 +126,10 @@
 										<input class="checkbox__input" type="checkbox" name="agree" required="">
 										<span class="checkbox__box">
 											<svg class="icon" width="20" height="20" aria-hidden="true">
-												<use href="img/icons.svg#icon-check"></use>
+												<use href="<?php echo esc_url(alergobot_assets_uri('img/icons.svg')); ?>#icon-check"></use>
 											</svg>
 										</span>
-										<span class="checkbox__text">Я даю согласие на <a href="politika-konfidentsialnosti.html">обработку персональных данных</a> и соглашаюсь с <a href="politika-konfidentsialnosti.html">политикой конфиденциальности</a></span>
+										<span class="checkbox__text">Я даю согласие на <a href="<?php echo esc_url(alergobot_privacy_policy_url()); ?>">обработку персональных данных</a> и соглашаюсь с <a href="<?php echo esc_url(alergobot_privacy_policy_url()); ?>">политикой конфиденциальности</a></span>
 									</label>
 									<button class="form__submit" type="submit">Отправить заявку</button>
 								</form>
@@ -144,7 +150,7 @@
 								<button class="accordion__header" type="button" aria-expanded="true">
 									<span class="accordion__question">Что есть в каталоге?</span>
 									<svg class="accordion__chevron icon" width="32" height="32" aria-hidden="true">
-										<use href="img/icons.svg#icon-panels-chevron"></use>
+										<use href="<?php echo esc_url(alergobot_assets_uri('img/icons.svg')); ?>#icon-panels-chevron"></use>
 									</svg>
 								</button>
 								<div class="accordion__body">
@@ -157,7 +163,7 @@
 								<button class="accordion__header" type="button" aria-expanded="false">
 									<span class="accordion__question">Можно ли подобрать решение под задачи конкретной лаборатории?</span>
 									<svg class="accordion__chevron icon" width="32" height="32" aria-hidden="true">
-										<use href="img/icons.svg#icon-panels-chevron"></use>
+										<use href="<?php echo esc_url(alergobot_assets_uri('img/icons.svg')); ?>#icon-panels-chevron"></use>
 									</svg>
 								</button>
 								<div class="accordion__body">
@@ -170,7 +176,7 @@
 								<button class="accordion__header" type="button" aria-expanded="false">
 									<span class="accordion__question">Чем отличаются устройства и анализаторы от панелей и реагентов?</span>
 									<svg class="accordion__chevron icon" width="32" height="32" aria-hidden="true">
-										<use href="img/icons.svg#icon-panels-chevron"></use>
+										<use href="<?php echo esc_url(alergobot_assets_uri('img/icons.svg')); ?>#icon-panels-chevron"></use>
 									</svg>
 								</button>
 								<div class="accordion__body">
@@ -185,7 +191,7 @@
 								<button class="accordion__header" type="button" aria-expanded="false">
 									<span class="accordion__question">Кому подойдет перечень из каталога?</span>
 									<svg class="accordion__chevron icon" width="32" height="32" aria-hidden="true">
-										<use href="img/icons.svg#icon-panels-chevron"></use>
+										<use href="<?php echo esc_url(alergobot_assets_uri('img/icons.svg')); ?>#icon-panels-chevron"></use>
 									</svg>
 								</button>
 								<div class="accordion__body">
@@ -198,7 +204,7 @@
 								<button class="accordion__header" type="button" aria-expanded="false">
 									<span class="accordion__question">Можно ли запросить прайс и презентацию по продукции?</span>
 									<svg class="accordion__chevron icon" width="32" height="32" aria-hidden="true">
-										<use href="img/icons.svg#icon-panels-chevron"></use>
+										<use href="<?php echo esc_url(alergobot_assets_uri('img/icons.svg')); ?>#icon-panels-chevron"></use>
 									</svg>
 								</button>
 								<div class="accordion__body">
@@ -211,7 +217,7 @@
 								<button class="accordion__header" type="button" aria-expanded="false">
 									<span class="accordion__question">Как разобраться, какой раздел каталога нужен?</span>
 									<svg class="accordion__chevron icon" width="32" height="32" aria-hidden="true">
-										<use href="img/icons.svg#icon-panels-chevron"></use>
+										<use href="<?php echo esc_url(alergobot_assets_uri('img/icons.svg')); ?>#icon-panels-chevron"></use>
 									</svg>
 								</button>
 								<div class="accordion__body">
@@ -224,4 +230,3 @@
 					</div>
 				</div>
 			</section>
-		</main>

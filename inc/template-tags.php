@@ -31,29 +31,98 @@ if (!function_exists('alergobot_icon')) {
 	}
 }
 
+if (!function_exists('alergobot_acf_image_url')) {
+	function alergobot_acf_image_url($image, $size = 'full', $fallback = '') {
+		if (empty($image)) {
+			return $fallback;
+		}
+
+		if (is_numeric($image)) {
+			$url = wp_get_attachment_image_url((int) $image, $size);
+			return $url ?: $fallback;
+		}
+
+		if (is_string($image)) {
+			if (preg_match('#^https?://#i', $image) || str_starts_with($image, '/')) {
+				return $image;
+			}
+
+			return alergobot_assets_uri(ltrim($image, '/'));
+		}
+
+		if (!is_array($image)) {
+			return $fallback;
+		}
+
+		$url = $image['sizes'][$size] ?? $image['url'] ?? '';
+		return $url ?: $fallback;
+	}
+}
+
 if (!function_exists('alergobot_acf_image')) {
 	function alergobot_acf_image($image, $size = 'full', $attrs = []) {
-		if (empty($image) || !is_array($image)) {
-			return '';
-		}
-		$url = $image['sizes'][$size] ?? $image['url'] ?? '';
+		$url = alergobot_acf_image_url($image, $size);
 		if (!$url) {
 			return '';
 		}
-		$alt   = $attrs['alt'] ?? ($image['alt'] ?? '');
-		$title = $attrs['title'] ?? ($image['title'] ?? '');
-		$w     = $attrs['width'] ?? ($image['width'] ?? '');
-		$h     = $attrs['height'] ?? ($image['height'] ?? '');
+
+		if (is_numeric($image)) {
+			$image = [
+				'url' => $url,
+			];
+		} elseif (is_string($image)) {
+			$image = ['url' => $url];
+		} elseif (!is_array($image)) {
+			return '';
+		}
+
+		$url = $image['sizes'][$size] ?? $image['url'] ?? $url;
+		if (!$url) {
+			return '';
+		}
+
+		$alt     = $attrs['alt'] ?? ($image['alt'] ?? '');
+		$title   = $attrs['title'] ?? ($image['title'] ?? '');
+		$w       = $attrs['width'] ?? ($image['width'] ?? '');
+		$h       = $attrs['height'] ?? ($image['height'] ?? '');
 		$loading = $attrs['loading'] ?? 'lazy';
+		$class   = $attrs['class'] ?? '';
+		$class_attr = $class ? sprintf(' class="%s"', esc_attr($class)) : '';
 
 		return sprintf(
-			'<img src="%s" alt="%s" title="%s" width="%s" height="%s" loading="%s">',
+			'<img src="%s" alt="%s" title="%s" width="%s" height="%s" loading="%s"%s>',
 			esc_url($url),
 			esc_attr($alt),
 			esc_attr($title),
 			esc_attr($w),
 			esc_attr($h),
-			esc_attr($loading)
+			esc_attr($loading),
+			$class_attr
 		);
+	}
+}
+
+if (!function_exists('alergobot_contact_card_icon')) {
+	function alergobot_contact_card_icon($field_name, $width = 22, $height = 22) {
+		if (!function_exists('get_field')) {
+			return;
+		}
+
+		$image = get_field($field_name, 'option');
+		$html  = alergobot_acf_image($image, 'full', [
+			'class' => 'icon',
+			'alt'   => '',
+			'width' => $width,
+			'height' => $height,
+		]);
+
+		if (!$html) {
+			return;
+		}
+
+		echo '<div class="contacts-card__icon" aria-hidden="true">';
+		// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+		echo $html;
+		echo '</div>';
 	}
 }

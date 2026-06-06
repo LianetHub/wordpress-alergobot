@@ -442,6 +442,106 @@
             "new_lines": ""
         },
         {
+            "key": "field_alg_ts_ikonka_telefon",
+            "label": "Иконка — телефон",
+            "name": "ikonka_telefon",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "svg,png,jpg,jpeg,webp",
+            "preview_size": "thumbnail"
+        },
+        {
+            "key": "field_alg_ts_ikonka_adres",
+            "label": "Иконка — адрес",
+            "name": "ikonka_adres",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "svg,png,jpg,jpeg,webp",
+            "preview_size": "thumbnail"
+        },
+        {
+            "key": "field_alg_ts_ikonka_uridicheskaya",
+            "label": "Иконка — юр. информация",
+            "name": "ikonka_uridicheskaya",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "svg,png,jpg,jpeg,webp",
+            "preview_size": "thumbnail"
+        },
+        {
+            "key": "field_alg_ts_ikonka_email",
+            "label": "Иконка — e-mail",
+            "name": "ikonka_email",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "svg,png,jpg,jpeg,webp",
+            "preview_size": "thumbnail"
+        },
+        {
             "key": "field_alg_ts_adres_indeks",
             "label": "Индекс",
             "name": "adres_indeks",
@@ -764,8 +864,8 @@
             "label": "Ссылка на политику конфиденциальности",
             "name": "ssylka_na_politiku",
             "aria-label": "",
-            "type": "url",
-            "instructions": "",
+            "type": "text",
+            "instructions": "Относительный путь, полный URL или якорь (#popup-presentation)",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -774,15 +874,18 @@
                 "id": ""
             },
             "default_value": "/privacy-policy/",
-            "placeholder": "/privacy-policy/"
+            "maxlength": "",
+            "placeholder": "/privacy-policy/",
+            "prepend": "",
+            "append": ""
         },
         {
             "key": "field_alg_ts_ssylka_opd",
             "label": "Ссылка «Согласие ОПД»",
             "name": "ssylka_opd",
             "aria-label": "",
-            "type": "url",
-            "instructions": "",
+            "type": "text",
+            "instructions": "Относительный путь, полный URL или якорь (#popup-presentation)",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -791,15 +894,18 @@
                 "id": ""
             },
             "default_value": "#",
-            "placeholder": "#"
+            "maxlength": "",
+            "placeholder": "#",
+            "prepend": "",
+            "append": ""
         },
         {
             "key": "field_alg_ts_ssylka_cookies",
             "label": "Ссылка «Согласие Cookies»",
             "name": "ssylka_cookies",
             "aria-label": "",
-            "type": "url",
-            "instructions": "",
+            "type": "text",
+            "instructions": "Относительный путь, полный URL или якорь (#popup-presentation)",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -808,7 +914,10 @@
                 "id": ""
             },
             "default_value": "#",
-            "placeholder": "#"
+            "maxlength": "",
+            "placeholder": "#",
+            "prepend": "",
+            "append": ""
         },
         {
             "key": "field_alg_ts_acc_cf7",
@@ -945,5 +1054,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1781280000
+    "modified": 1749225600
 }

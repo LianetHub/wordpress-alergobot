@@ -1,23 +1,29 @@
-<main class="main main--devices">
-			<section class="heading heading--devices">
+<?php
+/**
+ * Page template: analizatory
+ *
+ * @package alergobot
+ */
+
+?><section class="heading heading--devices">
 				<div class="heading__container _container">
 					<div class="heading__grid">
 						<div class="heading__main">
 							<h1 class="heading__title title title-lg" data-animate="bottom"> Оборудование для диагностики аллергии на&nbsp;панелях PROTIA </h1>
 							<div class="heading__actions">
 								<button class="btn btn--primary heading__btn" type="button" data-fancybox="" data-src="#popup-order" data-animate="bottom"> оформить заказ <svg class="btn__icon" width="28" height="28" aria-hidden="true">
-										<use href="img/icons.svg#icon-arrow-up-right"></use>
+										<use href="<?php echo esc_url(alergobot_assets_uri('img/icons.svg')); ?>#icon-arrow-up-right"></use>
 									</svg>
 								</button>
 								<button class="btn btn--secondary heading__btn" type="button" data-fancybox="" data-src="#popup-consultation" data-animate="bottom"> задать вопрос <svg class="btn__icon" width="28" height="28" aria-hidden="true">
-										<use href="img/icons.svg#icon-arrow-up-right"></use>
+										<use href="<?php echo esc_url(alergobot_assets_uri('img/icons.svg')); ?>#icon-arrow-up-right"></use>
 									</svg>
 								</button>
 							</div>
 						</div>
 						<div class="heading__aside">
 							<p class="heading__text" data-animate="bottom">В данном каталоге представлены диагностические наборы с анализаторами аллергии и устройствами обработки данных.</p>
-							<img class="heading__logo" src="img/logo-color.png" alt="PROTIA" title="PROTIA" width="185" height="52" loading="lazy" data-animate="fade">
+							<img class="heading__logo" src="<?php echo esc_url(alergobot_assets_uri('img/logo-color.png')); ?>" alt="PROTIA" title="PROTIA" width="185" height="52" loading="lazy" data-animate="fade">
 						</div>
 					</div>
 					<div class="heading__divider" aria-hidden="true"></div>
@@ -36,16 +42,16 @@
 							<div class="category__footer">
 								<div class="category__actions">
 									<a class="btn btn--primary category__btn" href="product.html"> подробнее <svg class="btn__icon" width="28" height="28" aria-hidden="true">
-											<use href="img/icons.svg#icon-arrow-up-right"></use>
+											<use href="<?php echo esc_url(alergobot_assets_uri('img/icons.svg')); ?>#icon-arrow-up-right"></use>
 										</svg>
 									</a>
 									<button class="btn btn--secondary category__btn" type="button" data-fancybox="" data-src="#popup-order"> заказать <svg class="btn__icon" width="28" height="28" aria-hidden="true">
-											<use href="img/icons.svg#icon-arrow-up-right"></use>
+											<use href="<?php echo esc_url(alergobot_assets_uri('img/icons.svg')); ?>#icon-arrow-up-right"></use>
 										</svg>
 									</button>
 								</div>
 								<div class="category__media">
-									<img src="img/analyzers/device-q-smart.png" alt="Анализатор иммунологический Q-SMART" title="Анализатор иммунологический Q-SMART" width="239" height="164" loading="lazy">
+									<img src="<?php echo esc_url(alergobot_assets_uri('img/analyzers/device-q-smart.png')); ?>" alt="Анализатор иммунологический Q-SMART" title="Анализатор иммунологический Q-SMART" width="239" height="164" loading="lazy">
 								</div>
 							</div>
 						</li>
@@ -59,16 +65,16 @@
 							<div class="category__footer">
 								<div class="category__actions">
 									<a class="btn btn--primary category__btn" href="#"> подробнее <svg class="btn__icon" width="28" height="28" aria-hidden="true">
-											<use href="img/icons.svg#icon-arrow-up-right"></use>
+											<use href="<?php echo esc_url(alergobot_assets_uri('img/icons.svg')); ?>#icon-arrow-up-right"></use>
 										</svg>
 									</a>
 									<button class="btn btn--secondary category__btn" type="button" data-fancybox="" data-src="#popup-order"> заказать <svg class="btn__icon" width="28" height="28" aria-hidden="true">
-											<use href="img/icons.svg#icon-arrow-up-right"></use>
+											<use href="<?php echo esc_url(alergobot_assets_uri('img/icons.svg')); ?>#icon-arrow-up-right"></use>
 										</svg>
 									</button>
 								</div>
 								<div class="category__media">
-									<img src="img/analyzers/device-q-processor.png" alt="Анализатор иммунологический Q-STATION ELITE" title="Анализатор иммунологический Q-STATION ELITE" width="239" height="164" loading="lazy">
+									<img src="<?php echo esc_url(alergobot_assets_uri('img/analyzers/device-q-processor.png')); ?>" alt="Анализатор иммунологический Q-STATION ELITE" title="Анализатор иммунологический Q-STATION ELITE" width="239" height="164" loading="lazy">
 								</div>
 							</div>
 						</li>
@@ -82,16 +88,16 @@
 							<div class="category__footer">
 								<div class="category__actions">
 									<a class="btn btn--primary category__btn" href="#"> подробнее <svg class="btn__icon" width="28" height="28" aria-hidden="true">
-											<use href="img/icons.svg#icon-arrow-up-right"></use>
+											<use href="<?php echo esc_url(alergobot_assets_uri('img/icons.svg')); ?>#icon-arrow-up-right"></use>
 										</svg>
 									</a>
 									<button class="btn btn--secondary category__btn" type="button" data-fancybox="" data-src="#popup-order"> заказать <svg class="btn__icon" width="28" height="28" aria-hidden="true">
-											<use href="img/icons.svg#icon-arrow-up-right"></use>
+											<use href="<?php echo esc_url(alergobot_assets_uri('img/icons.svg')); ?>#icon-arrow-up-right"></use>
 										</svg>
 									</button>
 								</div>
 								<div class="category__media">
-									<img src="img/analyzers/device-q-station-elite.png" alt="Устройство автоматизированное Q-PROCESSOR" title="Устройство автоматизированное Q-PROCESSOR" width="239" height="164" loading="lazy">
+									<img src="<?php echo esc_url(alergobot_assets_uri('img/analyzers/device-q-station-elite.png')); ?>" alt="Устройство автоматизированное Q-PROCESSOR" title="Устройство автоматизированное Q-PROCESSOR" width="239" height="164" loading="lazy">
 								</div>
 							</div>
 						</li>
@@ -114,10 +120,10 @@
 						</div>
 						<div class="devices-work__gallery">
 							<div class="devices-work__photo" data-animate="bottom">
-								<img src="img/analyzers/work-01.png" alt="Работа с диагностическим оборудованием в лаборатории" title="Работа с диагностическим оборудованием в лаборатории" width="315" height="293" loading="lazy">
+								<img src="<?php echo esc_url(alergobot_assets_uri('img/analyzers/work-01.png')); ?>" alt="Работа с диагностическим оборудованием в лаборатории" title="Работа с диагностическим оборудованием в лаборатории" width="315" height="293" loading="lazy">
 							</div>
 							<div class="devices-work__photo" data-animate="bottom">
-								<img src="img/analyzers/work-02.png" alt="Обработка панелей PROTIA" title="Обработка панелей PROTIA" width="315" height="293" loading="lazy">
+								<img src="<?php echo esc_url(alergobot_assets_uri('img/analyzers/work-02.png')); ?>" alt="Обработка панелей PROTIA" title="Обработка панелей PROTIA" width="315" height="293" loading="lazy">
 							</div>
 						</div>
 					</div>
@@ -169,17 +175,16 @@
 							<h2 class="devices-cta__title title title-md title--light">Сформируйте запрос, и&nbsp;наши сотрудники вас проконсультируют</h2>
 							<p class="devices-cta__text">Если вам нужно подобрать диагностическое оборудование для тестирования пищевой аллергии и других её видов в клинике, оставьте заявку на сайте. Мы поможем выбрать подходящий диагностический набор, расскажем о различиях между решениями и направим презентацию, прайс и дополнительные описания продукции.</p>
 							<a class="btn btn--white devices-cta__btn" data-fancybox="" href="#popup-consultation"> задать вопрос <svg class="btn__icon" width="28" height="28" aria-hidden="true">
-									<use href="img/icons.svg#icon-arrow-up-right"></use>
+									<use href="<?php echo esc_url(alergobot_assets_uri('img/icons.svg')); ?>#icon-arrow-up-right"></use>
 								</svg>
 							</a>
 						</div>
 						<div class="devices-cta__box devices-cta__box--visual" data-animate="bottom">
 							<div class="devices-cta__visual">
-								<img src="img/analyzers/cta-equipment.png" alt="Лабораторное оборудование PROTIA" title="Лабораторное оборудование PROTIA" width="570" height="298" loading="lazy">
+								<img src="<?php echo esc_url(alergobot_assets_uri('img/analyzers/cta-equipment.png')); ?>" alt="Лабораторное оборудование PROTIA" title="Лабораторное оборудование PROTIA" width="570" height="298" loading="lazy">
 							</div>
 							<p class="devices-cta__note">Мы поможем выбрать подходящую модель, расскажем о различиях между решениями и направим презентацию, прайс и дополнительную информацию по продукции.</p>
 						</div>
 					</div>
 				</div>
 			</section>
-		</main>

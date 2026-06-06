@@ -1,5 +1,11 @@
-<main class="main">
-			<section class="policy" data-decor-parallax="">
+<?php
+/**
+ * Page template: policy-fallback
+ *
+ * @package alergobot
+ */
+
+?><section class="policy" data-decor-parallax="">
 				<div class="policy__container _container">
 					<div class="policy__inner typography-block" data-animate="bottom">
 						<h1>Политика конфиденциальности</h1>
@@ -27,4 +33,3 @@
 					</div>
 				</div>
 			</section>
-		</main>

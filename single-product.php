@@ -9,8 +9,9 @@ get_header();
 
 while (have_posts()) :
 	the_post();
-	if (file_exists(ALERGOBOT_DIR . '/inc/markup/pages/product.html') && !get_field('use_custom_layout')) {
-		alergobot_render_page_markup('product.html');
+
+	if (!get_field('use_custom_layout')) {
+		get_template_part('template-parts/pages/product', 'single');
 	} else {
 		?>
 		<section class="product-hero">

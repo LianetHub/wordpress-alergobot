@@ -8,15 +8,10 @@
 
 $phones = alergobot_get_phones();
 $email  = alergobot_get_option('email', 'info@biofocus.ru');
-$icons  = alergobot_assets_uri('img/icons.svg');
 ?>
 <?php if ($phones) : ?>
 	<article class="contacts-card contacts-card--phone" data-animate="bottom">
-		<div class="contacts-card__icon" aria-hidden="true">
-			<svg class="icon" width="22" height="22">
-				<use href="<?php echo esc_url($icons); ?>#icon-phone"></use>
-			</svg>
-		</div>
+		<?php alergobot_contact_card_icon('ikonka_telefon', 22, 22); ?>
 		<div class="contacts-card__body">
 			<?php foreach ($phones as $phone) : ?>
 				<a class="contacts-card__link" href="tel:+<?php echo esc_attr(alergobot_phone_clean($phone)); ?>" itemprop="telephone"><?php echo esc_html($phone); ?></a>
@@ -27,11 +22,7 @@ $icons  = alergobot_assets_uri('img/icons.svg');
 
 <article class="contacts-card contacts-card--address" itemprop="address" itemscope itemtype="https://schema.org/PostalAddress" data-animate="bottom">
 	<meta itemprop="addressCountry" content="RU">
-	<div class="contacts-card__icon" aria-hidden="true">
-		<svg class="icon" width="24" height="24">
-			<use href="<?php echo esc_url($icons); ?>#icon-pin"></use>
-		</svg>
-	</div>
+	<?php alergobot_contact_card_icon('ikonka_adres', 24, 24); ?>
 	<address class="contacts-card__body">
 		<?php if (alergobot_get_option('adres_indeks')) : ?>
 			<span itemprop="postalCode"><?php echo esc_html(alergobot_get_option('adres_indeks')); ?></span>,
@@ -46,11 +37,7 @@ $icons  = alergobot_assets_uri('img/icons.svg');
 </article>
 
 <article class="contacts-card contacts-card--legal" data-animate="bottom">
-	<div class="contacts-card__icon" aria-hidden="true">
-		<svg class="icon" width="22" height="22">
-			<use href="<?php echo esc_url($icons); ?>#icon-doc"></use>
-		</svg>
-	</div>
+	<?php alergobot_contact_card_icon('ikonka_uridicheskaya', 22, 22); ?>
 	<div class="contacts-card__body">
 		<?php if (alergobot_get_option('kompaniya_nazvanie')) : ?>
 			<span itemprop="legalName"><?php echo esc_html(alergobot_get_option('kompaniya_nazvanie')); ?></span>,<br>
@@ -73,11 +60,7 @@ $icons  = alergobot_assets_uri('img/icons.svg');
 
 <?php if ($email) : ?>
 	<article class="contacts-card contacts-card--email" data-animate="bottom">
-		<div class="contacts-card__icon" aria-hidden="true">
-			<svg class="icon" width="22" height="22">
-				<use href="<?php echo esc_url($icons); ?>#icon-email"></use>
-			</svg>
-		</div>
+		<?php alergobot_contact_card_icon('ikonka_email', 22, 22); ?>
 		<p class="contacts-card__body">
 			<a class="contacts-card__link" href="mailto:<?php echo esc_attr($email); ?>" itemprop="email"><?php echo esc_html($email); ?></a>
 		</p>

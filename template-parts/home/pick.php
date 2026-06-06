@@ -1,4 +1,11 @@
-<section class="pick" id="pick">
+<?php
+/**
+ * Home section: pick
+ *
+ * @package alergobot
+ */
+
+?><section class="pick" id="pick">
 				<div class="pick__container _container">
 					<div class="pick__header">
 						<div class="pick__main">
@@ -25,10 +32,10 @@
 					<div class="pick__videos">
 						<article class="pick__video" data-animate="bottom">
 							<button class="pick__video-media" type="button" aria-label="Смотреть видео: Оборудование Q-Smart" data-fancybox="pick-video" data-type="iframe" data-width="960" data-height="540" data-src="https://rutube.ru/play/embed/aad0852ff96122ae9d98eeec86795037/?autoplay=1">
-								<img src="img/home/pick-video-1.png" alt="" width="650" height="382" loading="lazy" decoding="async">
+								<img src="<?php echo esc_url(alergobot_assets_uri('img/home/pick-video-1.png')); ?>" alt="" width="650" height="382" loading="lazy" decoding="async">
 								<span class="pick__play" aria-hidden="true">
 									<svg width="38" height="61" aria-hidden="true">
-										<use href="img/icons.svg#icon-pick-play"></use>
+										<use href="<?php echo esc_url(alergobot_assets_uri('img/icons.svg')); ?>#icon-pick-play"></use>
 									</svg>
 								</span>
 							</button>
@@ -39,10 +46,10 @@
 						</article>
 						<article class="pick__video" data-animate="bottom">
 							<button class="pick__video-media" type="button" aria-label="Смотреть видео: Презентация оборудования" data-fancybox="pick-video" data-type="iframe" data-width="960" data-height="540" data-src="https://rutube.ru/play/embed/2536215ea9d5029014982e751b2fc0b4/?autoplay=1">
-								<img src="img/home/pick-video-2.png" alt="" width="650" height="382" loading="lazy" decoding="async">
+								<img src="<?php echo esc_url(alergobot_assets_uri('img/home/pick-video-2.png')); ?>" alt="" width="650" height="382" loading="lazy" decoding="async">
 								<span class="pick__play" aria-hidden="true">
 									<svg width="38" height="61" aria-hidden="true">
-										<use href="img/icons.svg#icon-pick-play"></use>
+										<use href="<?php echo esc_url(alergobot_assets_uri('img/icons.svg')); ?>#icon-pick-play"></use>
 									</svg>
 								</span>
 							</button>

@@ -1,4 +1,11 @@
-<section class="benefits">
+<?php
+/**
+ * Home section: benefits
+ *
+ * @package alergobot
+ */
+
+?><section class="benefits">
 				<div class="benefits__container _container">
 					<header class="benefits__head">
 						<h2 class="benefits__title title title-md" data-animate="bottom">Преимущества продуктов PROTIA</h2>
@@ -11,7 +18,7 @@
 									<span class="benefits__num">1</span>
 									<button class="benefits__info tooltip-trigger" type="button" data-tooltip="Продукты PROTIA для лабораторной диагностики направлены на применение в профессиональной медицине." aria-label="Подробнее: Специализация решений" aria-expanded="false">
 										<svg class="icon benefits__info-icon" aria-hidden="true">
-											<use href="img/icons.svg#icon-eye-info"></use>
+											<use href="<?php echo esc_url(alergobot_assets_uri('img/icons.svg')); ?>#icon-eye-info"></use>
 										</svg>
 									</button>
 								</div>
@@ -22,7 +29,7 @@
 									<span class="benefits__num">2</span>
 									<button class="benefits__info tooltip-trigger" type="button" data-tooltip="Технологии ориентированы на количественную аллергодиагностику: панели, оборудование и программное обеспечение работают как единая система." aria-label="Подробнее: Технологичность" aria-expanded="false">
 										<svg class="icon benefits__info-icon" aria-hidden="true">
-											<use href="img/icons.svg#icon-eye-info"></use>
+											<use href="<?php echo esc_url(alergobot_assets_uri('img/icons.svg')); ?>#icon-eye-info"></use>
 										</svg>
 									</button>
 								</div>
@@ -33,7 +40,7 @@
 									<span class="benefits__num">3</span>
 									<button class="benefits__info tooltip-trigger" type="button" data-tooltip="Продукция PROTIA применяется в лабораториях разных стран и соответствует требованиям международных стандартов диагностики." aria-label="Подробнее: Международное признание" aria-expanded="false">
 										<svg class="icon benefits__info-icon" aria-hidden="true">
-											<use href="img/icons.svg#icon-eye-info"></use>
+											<use href="<?php echo esc_url(alergobot_assets_uri('img/icons.svg')); ?>#icon-eye-info"></use>
 										</svg>
 									</button>
 								</div>
@@ -44,7 +51,7 @@
 									<span class="benefits__num">4</span>
 									<button class="benefits__info tooltip-trigger" type="button" data-tooltip="Запатентованный формат панелей с параллельным размещением мембран повышает точность и воспроизводимость результатов тестов." aria-label="Подробнее: Запатентованная технология параллельного размещения мембран в панели" aria-expanded="false">
 										<svg class="icon benefits__info-icon" aria-hidden="true">
-											<use href="img/icons.svg#icon-eye-info"></use>
+											<use href="<?php echo esc_url(alergobot_assets_uri('img/icons.svg')); ?>#icon-eye-info"></use>
 										</svg>
 									</button>
 								</div>
@@ -52,7 +59,7 @@
 							</article>
 						</div>
 						<div class="benefits__brand" data-animate="bottom">
-							<img class="benefits__logo" src="img/logo-color.png" alt="PROTIA" title="PROTIA" width="185" height="52" loading="lazy">
+							<img class="benefits__logo" src="<?php echo esc_url(alergobot_assets_uri('img/logo-color.png')); ?>" alt="PROTIA" title="PROTIA" width="185" height="52" loading="lazy">
 							<p class="benefits__text">Южнокорейский бренд выпускает технологичное лабораторное оборудование для in vitro diagnostics. Линия бренда – объединить оборудование, панели и диагностическую логику в одну систему.</p>
 						</div>
 					</div>

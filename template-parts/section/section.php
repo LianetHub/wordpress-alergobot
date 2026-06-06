@@ -1,10 +1,9 @@
 <?php
 /**
- * Flexible content section (markup from inc/markup/home)
+ * Flexible content section
  *
  * @package alergobot
  */
 
-$layout = get_row_layout();
-$file   = str_replace('_', '-', $layout);
-alergobot_render_home_section($file);
+$file = str_replace('_', '-', get_row_layout());
+get_template_part('template-parts/home/' . $file);

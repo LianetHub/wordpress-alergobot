@@ -1,5 +1,11 @@
-<main class="main main--product">
-			<section class="product-hero">
+<?php
+/**
+ * Page template: product-single
+ *
+ * @package alergobot
+ */
+
+?><section class="product-hero">
 				<div class="product-hero__container _container">
 					<div class="product-hero__card">
 						<div class="product-hero__content">
@@ -7,7 +13,7 @@
 							</h1>
 							<p class="product-hero__text" data-animate="bottom">Полностью русифицированный интерфейс до 8 идентифицируемых панелей. Количество определяемых аллерген-специфических IgE от 0,15 до 2000. МЕ/мл. Анализатор «Q-SMART» предназначен для считывания результатов анализов in vitro на панелях PROTIA Allergy-Q.</p>
 							<button class="product-hero__order btn btn--white" type="button" data-fancybox="" data-src="#popup-order" data-animate="bottom"> заказать <svg class="btn__icon" width="28" height="28" aria-hidden="true">
-									<use href="img/icons.svg#icon-arrow-up-right"></use>
+									<use href="<?php echo esc_url(alergobot_assets_uri('img/icons.svg')); ?>#icon-arrow-up-right"></use>
 								</svg>
 							</button>
 						</div>
@@ -46,11 +52,11 @@
 									<span class="product-hero__rating-label">рейтинг</span>
 									<span class="product-hero__rating-value">
 										<svg class="icon product-hero__rating-star" aria-hidden="true">
-											<use href="img/icons.svg#icon-star"></use>
+											<use href="<?php echo esc_url(alergobot_assets_uri('img/icons.svg')); ?>#icon-star"></use>
 										</svg> 4,8 </span>
 								</div>
 								<div class="product-hero__media-inner">
-									<img src="img/product/device-hero.png" alt="Анализатор иммунологический Q-SMART" title="Анализатор иммунологический Q-SMART" width="451" height="308">
+									<img src="<?php echo esc_url(alergobot_assets_uri('img/product/device-hero.png')); ?>" alt="Анализатор иммунологический Q-SMART" title="Анализатор иммунологический Q-SMART" width="451" height="308">
 								</div>
 							</div>
 						</div>
@@ -64,7 +70,7 @@
 							<span class="product-tabs__text">Описание</span>
 							<span class="product-tabs__icon" aria-hidden="true">
 								<svg class="icon" width="16" height="16">
-									<use href="img/icons.svg#icon-tab-plus"></use>
+									<use href="<?php echo esc_url(alergobot_assets_uri('img/icons.svg')); ?>#icon-tab-plus"></use>
 								</svg>
 							</span>
 						</button>
@@ -72,7 +78,7 @@
 							<span class="product-tabs__text">РУ / КТРУ</span>
 							<span class="product-tabs__icon" aria-hidden="true">
 								<svg class="icon" width="16" height="16">
-									<use href="img/icons.svg#icon-tab-plus"></use>
+									<use href="<?php echo esc_url(alergobot_assets_uri('img/icons.svg')); ?>#icon-tab-plus"></use>
 								</svg>
 							</span>
 						</button>
@@ -80,7 +86,7 @@
 							<span class="product-tabs__text">Видео</span>
 							<span class="product-tabs__icon" aria-hidden="true">
 								<svg class="icon" width="16" height="16">
-									<use href="img/icons.svg#icon-tab-plus"></use>
+									<use href="<?php echo esc_url(alergobot_assets_uri('img/icons.svg')); ?>#icon-tab-plus"></use>
 								</svg>
 							</span>
 						</button>
@@ -88,7 +94,7 @@
 							<span class="product-tabs__text">Документы</span>
 							<span class="product-tabs__icon" aria-hidden="true">
 								<svg class="icon" width="16" height="16">
-									<use href="img/icons.svg#icon-tab-plus"></use>
+									<use href="<?php echo esc_url(alergobot_assets_uri('img/icons.svg')); ?>#icon-tab-plus"></use>
 								</svg>
 							</span>
 						</button>
@@ -451,10 +457,10 @@
 						<div class="product-panel" id="product-panel-video" role="tabpanel" aria-labelledby="product-tab-video" data-product-panel="video" hidden="">
 							<div class="product-panel__inner product-panel__inner--video">
 								<button class="product-video" type="button" aria-label="Воспроизвести видео о Q-SMART" data-animate="bottom">
-									<img class="product-video__poster" src="img/product/video-poster.jpg" alt="Лабораторные исследования с оборудованием PROTIA" title="Лабораторные исследования с оборудованием PROTIA" width="874" height="492" loading="lazy">
+									<img class="product-video__poster" src="<?php echo esc_url(alergobot_assets_uri('img/product/video-poster.jpg')); ?>" alt="Лабораторные исследования с оборудованием PROTIA" title="Лабораторные исследования с оборудованием PROTIA" width="874" height="492" loading="lazy">
 									<span class="product-video__play" aria-hidden="true">
 										<svg class="icon" width="88" height="88" viewBox="0 0 88 88" xmlns="http://www.w3.org/2000/svg">
-											<use href="img/icons.svg#icon-play"></use>
+											<use href="<?php echo esc_url(alergobot_assets_uri('img/icons.svg')); ?>#icon-play"></use>
 										</svg>
 									</span>
 								</button>
@@ -465,13 +471,13 @@
 								<a class="product-doc" href="#" data-animate="bottom">
 									<span class="product-doc__main">
 										<span class="product-doc__preview">
-											<img src="img/product/doc-thumb.png" alt="" title="" width="48" height="70" loading="lazy" aria-hidden="true">
+											<img src="<?php echo esc_url(alergobot_assets_uri('img/product/doc-thumb.png')); ?>" alt="" title="" width="48" height="70" loading="lazy" aria-hidden="true">
 										</span>
 										<span class="product-doc__name">РУ_Q-SMART</span>
 										<span class="product-doc__size">658.1 Кб</span>
 									</span>
 									<svg class="icon product-doc__icon" width="36" height="36" aria-hidden="true">
-										<use href="img/icons.svg#icon-eye-info"></use>
+										<use href="<?php echo esc_url(alergobot_assets_uri('img/icons.svg')); ?>#icon-eye-info"></use>
 									</svg>
 								</a>
 							</div>
@@ -499,7 +505,7 @@
 									<span class="benefits__num">1</span>
 									<button class="benefits__info tooltip-trigger" type="button" data-tooltip="Продукты PROTIA для лабораторной диагностики направлены на применение в профессиональной медицинской среде." aria-label="Подробнее: Профессиональная специализация в IVD" aria-expanded="false">
 										<svg class="icon benefits__info-icon" aria-hidden="true">
-											<use href="img/icons.svg#icon-eye-info"></use>
+											<use href="<?php echo esc_url(alergobot_assets_uri('img/icons.svg')); ?>#icon-eye-info"></use>
 										</svg>
 									</button>
 								</div>
@@ -510,7 +516,7 @@
 									<span class="benefits__num">2</span>
 									<button class="benefits__info tooltip-trigger" type="button" data-tooltip="Продукция PROTIA применяется в лабораториях разных стран и соответствует требованиям международных стандартов диагностики." aria-label="Подробнее: Признание на международном уровне" aria-expanded="false">
 										<svg class="icon benefits__info-icon" aria-hidden="true">
-											<use href="img/icons.svg#icon-eye-info"></use>
+											<use href="<?php echo esc_url(alergobot_assets_uri('img/icons.svg')); ?>#icon-eye-info"></use>
 										</svg>
 									</button>
 								</div>
@@ -521,7 +527,7 @@
 									<span class="benefits__num">3</span>
 									<button class="benefits__info tooltip-trigger" type="button" data-tooltip="Технологии ориентированы на количественную аллергодиагностику: панели, оборудование и программное обеспечение работают как единая система." aria-label="Подробнее: Технологичный подход к аллергодиагностике" aria-expanded="false">
 										<svg class="icon benefits__info-icon" aria-hidden="true">
-											<use href="img/icons.svg#icon-eye-info"></use>
+											<use href="<?php echo esc_url(alergobot_assets_uri('img/icons.svg')); ?>#icon-eye-info"></use>
 										</svg>
 									</button>
 								</div>
@@ -532,7 +538,7 @@
 									<span class="benefits__num">4</span>
 									<button class="benefits__info tooltip-trigger" type="button" data-tooltip="Запатентованный формат панелей с параллельным размещением мембран повышает точность и воспроизводимость результатов тестов." aria-label="Подробнее: Запатентованная технология параллельного размещения мембран в панели" aria-expanded="false">
 										<svg class="icon benefits__info-icon" aria-hidden="true">
-											<use href="img/icons.svg#icon-eye-info"></use>
+											<use href="<?php echo esc_url(alergobot_assets_uri('img/icons.svg')); ?>#icon-eye-info"></use>
 										</svg>
 									</button>
 								</div>
@@ -551,12 +557,12 @@
 						<div class="equipment__nav">
 							<button class="equipment__arrow equipment__arrow--prev" type="button" aria-label="Назад" data-animate="scale">
 								<svg class="equipment__arrow-icon icon" width="32" height="32" aria-hidden="true">
-									<use href="img/icons.svg#icon-arrow-chevron"></use>
+									<use href="<?php echo esc_url(alergobot_assets_uri('img/icons.svg')); ?>#icon-arrow-chevron"></use>
 								</svg>
 							</button>
 							<button class="equipment__arrow equipment__arrow--next" type="button" aria-label="Вперёд" data-animate="scale">
 								<svg class="equipment__arrow-icon icon" width="32" height="32" aria-hidden="true">
-									<use href="img/icons.svg#icon-arrow-chevron"></use>
+									<use href="<?php echo esc_url(alergobot_assets_uri('img/icons.svg')); ?>#icon-arrow-chevron"></use>
 								</svg>
 							</button>
 						</div>
@@ -568,7 +574,7 @@
 									<a class="equipment__card-link" href="product.html" aria-label="Анализатор Q-SMART, подробнее">
 										<h3 class="equipment__card-name ">Q-SMART</h3>
 										<div class="equipment__card-media">
-											<img class="cover-image" src="img/analyzers/device-q-smart.png" alt="Анализатор Q-SMART" title="Анализатор Q-SMART" width="239" height="164" loading="lazy">
+											<img class="cover-image" src="<?php echo esc_url(alergobot_assets_uri('img/analyzers/device-q-smart.png')); ?>" alt="Анализатор Q-SMART" title="Анализатор Q-SMART" width="239" height="164" loading="lazy">
 										</div>
 										<p class="equipment__card-text">Компактное решение для лабораторий, которым важно сочетание точности, удобства и оптимизации повседневной работы.</p>
 									</a>
@@ -579,7 +585,7 @@
 									<a class="equipment__card-link" href="#" aria-label="Q-STATION ELITE, подробнее">
 										<h3 class="equipment__card-name ">Q-STATION ELITE</h3>
 										<div class="equipment__card-media">
-											<img class="cover-image" src="img/analyzers/device-q-processor.png" alt="Q-STATION ELITE" title="Q-STATION ELITE" width="200" height="167" loading="lazy">
+											<img class="cover-image" src="<?php echo esc_url(alergobot_assets_uri('img/analyzers/device-q-processor.png')); ?>" alt="Q-STATION ELITE" title="Q-STATION ELITE" width="200" height="167" loading="lazy">
 										</div>
 										<p class="equipment__card-text">Система для более широких лабораторных задач, где важны производительность, стандартизация и удобство обработки результатов.</p>
 									</a>
@@ -590,7 +596,7 @@
 									<a class="equipment__card-link" href="#" aria-label="Q-PROCESSOR, подробнее">
 										<h3 class="equipment__card-name ">Q-PROCESSOR</h3>
 										<div class="equipment__card-media">
-											<img class="cover-image" src="img/product/related-q-processor.png" alt="Устройство Q-PROCESSOR" title="Q-PROCESSOR" width="162" height="161" loading="lazy">
+											<img class="cover-image" src="<?php echo esc_url(alergobot_assets_uri('img/product/related-q-processor.png')); ?>" alt="Устройство Q-PROCESSOR" title="Q-PROCESSOR" width="162" height="161" loading="lazy">
 										</div>
 										<p class="equipment__card-text">Решение для автоматизации отдельных этапов исследования и повышения стабильности лабораторного процесса.</p>
 									</a>
@@ -601,7 +607,7 @@
 									<a class="equipment__card-link" href="katalog.html#catalog-reagents" aria-label="Наборы реагентов и сопутствующие материалы">
 										<h3 class="equipment__card-name equipment__card-name--long">Наборы реагентов и сопутствующие материалы</h3>
 										<div class="equipment__card-media">
-											<img class="cover-image" src="img/product/related-kits.png" alt="Наборы реагентов PROTIA" title="Наборы реагентов" width="225" height="161" loading="lazy">
+											<img class="cover-image" src="<?php echo esc_url(alergobot_assets_uri('img/product/related-kits.png')); ?>" alt="Наборы реагентов PROTIA" title="Наборы реагентов" width="225" height="161" loading="lazy">
 										</div>
 										<p class="equipment__card-text">Полный комплект для организации работы в рамках единой диагностической системы.</p>
 									</a>
@@ -612,7 +618,7 @@
 									<a class="equipment__card-link" href="#" aria-label="Q-STATION ELITE, подробнее">
 										<h3 class="equipment__card-name ">Q-STATION ELITE</h3>
 										<div class="equipment__card-media">
-											<img class="cover-image" src="img/analyzers/device-q-processor.png" alt="Q-STATION ELITE" title="Q-STATION ELITE" width="200" height="167" loading="lazy">
+											<img class="cover-image" src="<?php echo esc_url(alergobot_assets_uri('img/analyzers/device-q-processor.png')); ?>" alt="Q-STATION ELITE" title="Q-STATION ELITE" width="200" height="167" loading="lazy">
 										</div>
 										<p class="equipment__card-text">Система для более широких лабораторных задач, где важны производительность, стандартизация и удобство обработки результатов.</p>
 									</a>
@@ -623,7 +629,7 @@
 									<a class="equipment__card-link" href="#" aria-label="Q-PROCESSOR, подробнее">
 										<h3 class="equipment__card-name ">Q-PROCESSOR</h3>
 										<div class="equipment__card-media">
-											<img class="cover-image" src="img/product/related-q-processor.png" alt="Устройство Q-PROCESSOR" title="Q-PROCESSOR" width="162" height="161" loading="lazy">
+											<img class="cover-image" src="<?php echo esc_url(alergobot_assets_uri('img/product/related-q-processor.png')); ?>" alt="Устройство Q-PROCESSOR" title="Q-PROCESSOR" width="162" height="161" loading="lazy">
 										</div>
 										<p class="equipment__card-text">Решение для автоматизации отдельных этапов исследования и повышения стабильности лабораторного процесса.</p>
 									</a>
@@ -634,7 +640,7 @@
 									<a class="equipment__card-link" href="katalog.html#catalog-reagents" aria-label="Наборы реагентов и сопутствующие материалы">
 										<h3 class="equipment__card-name equipment__card-name--long">Наборы реагентов и сопутствующие материалы</h3>
 										<div class="equipment__card-media">
-											<img class="cover-image" src="img/product/related-kits.png" alt="Наборы реагентов PROTIA" title="Наборы реагентов" width="225" height="161" loading="lazy">
+											<img class="cover-image" src="<?php echo esc_url(alergobot_assets_uri('img/product/related-kits.png')); ?>" alt="Наборы реагентов PROTIA" title="Наборы реагентов" width="225" height="161" loading="lazy">
 										</div>
 										<p class="equipment__card-text">Полный комплект для организации работы в рамках единой диагностической системы.</p>
 									</a>
@@ -644,4 +650,3 @@
 					</div>
 				</div>
 			</section>
-		</main>

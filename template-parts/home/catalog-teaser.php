@@ -1,4 +1,11 @@
-<section class="catalog-teaser">
+<?php
+/**
+ * Home section: catalog-teaser
+ *
+ * @package alergobot
+ */
+
+?><section class="catalog-teaser">
 				<div class="catalog-teaser__container _container" data-decor-parallax="">
 					<div class="catalog-teaser__head">
 						<h2 class="catalog-teaser__title title title-md" data-animate="bottom">Подберите решение под задачи вашей лаборатории</h2>
@@ -8,25 +15,25 @@
 						<div class="catalog-teaser__main">
 							<p class="catalog-teaser__text text-lead" data-animate="bottom">Важно определиться со&nbsp;способом измерений иммунной защиты от аллергии, для максимальной эффективности результатов. Поможет наглядный каталог лабораторного оборудования с&nbsp;описанием аллергопанелей, их&nbsp;назначения и&nbsp;состава. Правильно подобрав, можно его купить, и&nbsp;организовать диагностику на&nbsp;высоком методологическом уровне.</p>
 							<div class="catalog-teaser__actions">
-								<a class="btn btn--primary catalog-teaser__btn" data-animate="bottom" href="analizatory.html"> Смотреть анализаторы <svg class="btn__icon icon" width="28" height="28" aria-hidden="true">
-										<use href="img/icons.svg#icon-arrow-up-right"></use>
+								<a class="btn btn--primary catalog-teaser__btn" data-animate="bottom" href="<?php echo esc_url(home_url('/analizatory/')); ?>"> Смотреть анализаторы <svg class="btn__icon icon" width="28" height="28" aria-hidden="true">
+										<use href="<?php echo esc_url(alergobot_assets_uri('img/icons.svg')); ?>#icon-arrow-up-right"></use>
 									</svg>
 								</a>
 								<a class="btn btn--secondary catalog-teaser__btn" data-animate="bottom" href="katalog.html#catalog-reagents"> смотреть панели <svg class="btn__icon icon" width="28" height="28" aria-hidden="true">
-										<use href="img/icons.svg#icon-arrow-up-right"></use>
+										<use href="<?php echo esc_url(alergobot_assets_uri('img/icons.svg')); ?>#icon-arrow-up-right"></use>
 									</svg>
 								</a>
 							</div>
 						</div>
 						<ul class="catalog-teaser__gallery">
 							<li class="catalog-teaser__card" data-animate="bottom">
-								<img src="img/product/01.png" class="cover-image" alt="Иммунохимический анализатор Q-Smart" title="Иммунохимический анализатор Q-Smart" loading="lazy">
+								<img src="<?php echo esc_url(alergobot_assets_uri('img/product/01.png')); ?>" class="cover-image" alt="Иммунохимический анализатор Q-Smart" title="Иммунохимический анализатор Q-Smart" loading="lazy">
 							</li>
 							<li class="catalog-teaser__card" data-animate="bottom">
-								<img src="img/product/03.png" class="cover-image" alt="Лабораторный анализатор Q-STATION" title="Лабораторный анализатор Q-STATION" loading="lazy">
+								<img src="<?php echo esc_url(alergobot_assets_uri('img/product/03.png')); ?>" class="cover-image" alt="Лабораторный анализатор Q-STATION" title="Лабораторный анализатор Q-STATION" loading="lazy">
 							</li>
 							<li class="catalog-teaser__card" data-animate="bottom">
-								<img src="img/product/02.png" class="cover-image" alt="Наборы реагентов для аллергодиагностики" title="Наборы реагентов для аллергодиагностики" loading="lazy">
+								<img src="<?php echo esc_url(alergobot_assets_uri('img/product/02.png')); ?>" class="cover-image" alt="Наборы реагентов для аллергодиагностики" title="Наборы реагентов для аллергодиагностики" loading="lazy">
 							</li>
 						</ul>
 					</div>

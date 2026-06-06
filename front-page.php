@@ -32,7 +32,7 @@ else :
 		'contacts',
 	];
 	foreach ($sections as $section) {
-		alergobot_render_home_section($section);
+		get_template_part('template-parts/home/' . $section);
 	}
 endif;
 

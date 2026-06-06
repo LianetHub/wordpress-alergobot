@@ -1,4 +1,11 @@
-<section class="about">
+<?php
+/**
+ * Home section: about
+ *
+ * @package alergobot
+ */
+
+?><section class="about">
 				<div class="about__container _container">
 					<div class="about__layout">
 						<div class="about__main">
@@ -6,15 +13,15 @@
 								<span class="about__tag tag" data-animate="scale">о нас</span>
 								<h2 class="about__title title title-md" data-animate="bottom">Компания «Био Фокус»</h2>
 								<div class="about__logo-wrap" data-animate="bottom">
-									<img src="img/home/about-logo.png" alt="Био Фокус" title="Био Фокус" width="254" height="47" loading="lazy">
+									<img src="<?php echo esc_url(alergobot_assets_uri('img/home/about-logo.png')); ?>" alt="Био Фокус" title="Био Фокус" width="254" height="47" loading="lazy">
 								</div>
 							</div>
 							<div class="about__photos">
 								<div class="about__photo" data-animate="bottom">
-									<img src="img/home/about-lab-1.webp" class="cover-image" alt="Лаборатория" title="Лаборатория" width="214" height="189" loading="lazy">
+									<img src="<?php echo esc_url(alergobot_assets_uri('img/home/about-lab-1.webp')); ?>" class="cover-image" alt="Лаборатория" title="Лаборатория" width="214" height="189" loading="lazy">
 								</div>
 								<div class="about__photo" data-animate="bottom">
-									<img src="img/home/about-lab-2.webp" class="cover-image" alt="Специалисты в лаборатории" title="Специалисты в лаборатории" width="214" height="189" loading="lazy">
+									<img src="<?php echo esc_url(alergobot_assets_uri('img/home/about-lab-2.webp')); ?>" class="cover-image" alt="Специалисты в лаборатории" title="Специалисты в лаборатории" width="214" height="189" loading="lazy">
 								</div>
 							</div>
 							<div class="about__concept">

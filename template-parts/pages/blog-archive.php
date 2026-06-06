@@ -1,5 +1,11 @@
-<main class="main main--blog">
-			<section class="heading heading--blog">
+<?php
+/**
+ * Page template: blog-archive
+ *
+ * @package alergobot
+ */
+
+?><section class="heading heading--blog">
 				<div class="heading__container _container">
 					<div class="heading__grid">
 						<div class="heading__main">
@@ -15,9 +21,9 @@
 				<div class="blog-hero__container _container">
 					<div class="blog-hero__layout">
 						<article class="blog-featured" data-animate="bottom">
-							<a class="blog-featured__link" href="statya.html">
+							<a class="blog-featured__link" href="<?php echo esc_url(alergobot_blogs_archive_url()); ?>">
 								<div class="blog-featured__media">
-									<img class="blog-featured__img" src="img/blog/featured.png" alt="Учёные в лаборатории" title="Учёные в лаборатории" width="873" height="577">
+									<img class="blog-featured__img" src="<?php echo esc_url(alergobot_assets_uri('img/blog/featured.png')); ?>" alt="Учёные в лаборатории" title="Учёные в лаборатории" width="873" height="577">
 									<time class="blog-featured__date" datetime="2026-04-11">11.04.2026</time>
 									<div class="blog-featured__caption">
 										<h2 class="blog-featured__title">Аллергический кашель: симптомы у детей и взрослых, методы диагностики и лечения</h2>
@@ -29,8 +35,8 @@
 							<h2 class="blog-recent__heading" id="blog-recent-title" data-animate="bottom">Последние публикации</h2>
 							<ul class="blog-recent__list">
 								<li class="blog-recent__item" data-animate="bottom">
-									<a class="blog-recent__link" href="statya.html">
-										<img class="blog-recent__thumb" src="img/blog/recent-01.png" alt="" title="" width="104" height="104" loading="lazy">
+									<a class="blog-recent__link" href="<?php echo esc_url(alergobot_blogs_archive_url()); ?>">
+										<img class="blog-recent__thumb" src="<?php echo esc_url(alergobot_assets_uri('img/blog/recent-01.png')); ?>" alt="" title="" width="104" height="104" loading="lazy">
 										<span class="blog-recent__body">
 											<span class="blog-recent__title">Основные отличия аллергического насморка от&nbsp;простудного</span>
 											<time class="blog-recent__date" datetime="2026-04-11">11 апреля 2026</time>
@@ -39,7 +45,7 @@
 								</li>
 								<li class="blog-recent__item" data-animate="bottom">
 									<a class="blog-recent__link" href="#">
-										<img class="blog-recent__thumb" src="img/blog/recent-02.png" alt="" title="" width="104" height="104" loading="lazy">
+										<img class="blog-recent__thumb" src="<?php echo esc_url(alergobot_assets_uri('img/blog/recent-02.png')); ?>" alt="" title="" width="104" height="104" loading="lazy">
 										<span class="blog-recent__body">
 											<span class="blog-recent__title">Как добиться длительной ремиссии при аллергии...</span>
 											<time class="blog-recent__date" datetime="2026-04-08">8 апреля 2026</time>
@@ -48,7 +54,7 @@
 								</li>
 								<li class="blog-recent__item" data-animate="bottom">
 									<a class="blog-recent__link" href="#">
-										<img class="blog-recent__thumb" src="img/blog/recent-01.png" alt="" title="" width="104" height="104" loading="lazy">
+										<img class="blog-recent__thumb" src="<?php echo esc_url(alergobot_assets_uri('img/blog/recent-01.png')); ?>" alt="" title="" width="104" height="104" loading="lazy">
 										<span class="blog-recent__body">
 											<span class="blog-recent__title">Причины и симптомы аллергического ринита...</span>
 											<time class="blog-recent__date" datetime="2026-04-14">14 апреля 2026</time>
@@ -57,7 +63,7 @@
 								</li>
 								<li class="blog-recent__item" data-animate="bottom">
 									<a class="blog-recent__link" href="#">
-										<img class="blog-recent__thumb" src="img/blog/recent-02.png" alt="" title="" width="104" height="104" loading="lazy">
+										<img class="blog-recent__thumb" src="<?php echo esc_url(alergobot_assets_uri('img/blog/recent-02.png')); ?>" alt="" title="" width="104" height="104" loading="lazy">
 										<span class="blog-recent__body">
 											<span class="blog-recent__title">Все, что нужно знать про бронхиальную астму: опасность недуга, причины...</span>
 											<time class="blog-recent__date" datetime="2026-04-16">16 апреля 2026</time>
@@ -76,7 +82,7 @@
 							<span class="blog-tabs__text">Статьи</span>
 							<span class="blog-tabs__icon" aria-hidden="true">
 								<svg class="icon" width="16" height="16">
-									<use href="img/icons.svg#icon-tab-plus"></use>
+									<use href="<?php echo esc_url(alergobot_assets_uri('img/icons.svg')); ?>#icon-tab-plus"></use>
 								</svg>
 							</span>
 						</button>
@@ -84,7 +90,7 @@
 							<span class="blog-tabs__text">Новости</span>
 							<span class="blog-tabs__icon" aria-hidden="true">
 								<svg class="icon" width="16" height="16">
-									<use href="img/icons.svg#icon-tab-plus"></use>
+									<use href="<?php echo esc_url(alergobot_assets_uri('img/icons.svg')); ?>#icon-tab-plus"></use>
 								</svg>
 							</span>
 						</button>
@@ -92,9 +98,9 @@
 					<div class="blog-panel _active" id="blog-panel-articles" role="tabpanel" aria-labelledby="blog-tab-articles" data-blog-panel="articles">
 						<div class="blog-grid">
 							<article class="news-card news-card--feed" data-animate="bottom">
-								<a class="news-card__link" href="statya.html">
+								<a class="news-card__link" href="<?php echo esc_url(alergobot_blogs_archive_url()); ?>">
 									<div class="news-card__media">
-										<img class="news-card__img" src="img/blog/card.png" alt="Lorem ipsum dolor sit amet consectetur adipiscing elit" title="Lorem ipsum dolor sit amet consectetur adipiscing elit" width="295" height="278" loading="lazy">
+										<img class="news-card__img" src="<?php echo esc_url(alergobot_assets_uri('img/blog/card.png')); ?>" alt="Lorem ipsum dolor sit amet consectetur adipiscing elit" title="Lorem ipsum dolor sit amet consectetur adipiscing elit" width="295" height="278" loading="lazy">
 									</div>
 									<div class="news-card__body">
 										<div class="news-card__meta">
@@ -109,7 +115,7 @@
 											<span class="news-card__more-label">Подробнее</span>
 											<span class="news-card__more-icon" aria-hidden="true">
 												<svg class="icon" width="28" height="28" viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg">
-													<use href="img/icons.svg#icon-arrow-up-right"></use>
+													<use href="<?php echo esc_url(alergobot_assets_uri('img/icons.svg')); ?>#icon-arrow-up-right"></use>
 												</svg>
 											</span>
 										</span>
@@ -119,7 +125,7 @@
 							<article class="news-card news-card--feed" data-animate="bottom">
 								<a class="news-card__link" href="#">
 									<div class="news-card__media">
-										<img class="news-card__img" src="img/blog/card.png" alt="Lorem ipsum dolor sit amet consectetur adipiscing elit" title="Lorem ipsum dolor sit amet consectetur adipiscing elit" width="295" height="278" loading="lazy">
+										<img class="news-card__img" src="<?php echo esc_url(alergobot_assets_uri('img/blog/card.png')); ?>" alt="Lorem ipsum dolor sit amet consectetur adipiscing elit" title="Lorem ipsum dolor sit amet consectetur adipiscing elit" width="295" height="278" loading="lazy">
 									</div>
 									<div class="news-card__body">
 										<div class="news-card__meta">
@@ -134,7 +140,7 @@
 											<span class="news-card__more-label">Подробнее</span>
 											<span class="news-card__more-icon" aria-hidden="true">
 												<svg class="icon" width="28" height="28" viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg">
-													<use href="img/icons.svg#icon-arrow-up-right"></use>
+													<use href="<?php echo esc_url(alergobot_assets_uri('img/icons.svg')); ?>#icon-arrow-up-right"></use>
 												</svg>
 											</span>
 										</span>
@@ -144,7 +150,7 @@
 							<article class="news-card news-card--feed" data-animate="bottom">
 								<a class="news-card__link" href="#">
 									<div class="news-card__media">
-										<img class="news-card__img" src="img/blog/card.png" alt="Lorem ipsum dolor sit amet consectetur adipiscing elit" title="Lorem ipsum dolor sit amet consectetur adipiscing elit" width="295" height="278" loading="lazy">
+										<img class="news-card__img" src="<?php echo esc_url(alergobot_assets_uri('img/blog/card.png')); ?>" alt="Lorem ipsum dolor sit amet consectetur adipiscing elit" title="Lorem ipsum dolor sit amet consectetur adipiscing elit" width="295" height="278" loading="lazy">
 									</div>
 									<div class="news-card__body">
 										<div class="news-card__meta">
@@ -159,7 +165,7 @@
 											<span class="news-card__more-label">Подробнее</span>
 											<span class="news-card__more-icon" aria-hidden="true">
 												<svg class="icon" width="28" height="28" viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg">
-													<use href="img/icons.svg#icon-arrow-up-right"></use>
+													<use href="<?php echo esc_url(alergobot_assets_uri('img/icons.svg')); ?>#icon-arrow-up-right"></use>
 												</svg>
 											</span>
 										</span>
@@ -169,7 +175,7 @@
 							<article class="news-card news-card--feed" data-animate="bottom">
 								<a class="news-card__link" href="#">
 									<div class="news-card__media">
-										<img class="news-card__img" src="img/blog/card.png" alt="Lorem ipsum dolor sit amet consectetur adipiscing elit" title="Lorem ipsum dolor sit amet consectetur adipiscing elit" width="295" height="278" loading="lazy">
+										<img class="news-card__img" src="<?php echo esc_url(alergobot_assets_uri('img/blog/card.png')); ?>" alt="Lorem ipsum dolor sit amet consectetur adipiscing elit" title="Lorem ipsum dolor sit amet consectetur adipiscing elit" width="295" height="278" loading="lazy">
 									</div>
 									<div class="news-card__body">
 										<div class="news-card__meta">
@@ -184,7 +190,7 @@
 											<span class="news-card__more-label">Подробнее</span>
 											<span class="news-card__more-icon" aria-hidden="true">
 												<svg class="icon" width="28" height="28" viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg">
-													<use href="img/icons.svg#icon-arrow-up-right"></use>
+													<use href="<?php echo esc_url(alergobot_assets_uri('img/icons.svg')); ?>#icon-arrow-up-right"></use>
 												</svg>
 											</span>
 										</span>
@@ -194,7 +200,7 @@
 							<article class="news-card news-card--feed" data-animate="bottom">
 								<a class="news-card__link" href="#">
 									<div class="news-card__media">
-										<img class="news-card__img" src="img/blog/card.png" alt="Lorem ipsum dolor sit amet consectetur adipiscing elit" title="Lorem ipsum dolor sit amet consectetur adipiscing elit" width="295" height="278" loading="lazy">
+										<img class="news-card__img" src="<?php echo esc_url(alergobot_assets_uri('img/blog/card.png')); ?>" alt="Lorem ipsum dolor sit amet consectetur adipiscing elit" title="Lorem ipsum dolor sit amet consectetur adipiscing elit" width="295" height="278" loading="lazy">
 									</div>
 									<div class="news-card__body">
 										<div class="news-card__meta">
@@ -209,7 +215,7 @@
 											<span class="news-card__more-label">Подробнее</span>
 											<span class="news-card__more-icon" aria-hidden="true">
 												<svg class="icon" width="28" height="28" viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg">
-													<use href="img/icons.svg#icon-arrow-up-right"></use>
+													<use href="<?php echo esc_url(alergobot_assets_uri('img/icons.svg')); ?>#icon-arrow-up-right"></use>
 												</svg>
 											</span>
 										</span>
@@ -219,7 +225,7 @@
 							<article class="news-card news-card--feed" data-animate="bottom">
 								<a class="news-card__link" href="#">
 									<div class="news-card__media">
-										<img class="news-card__img" src="img/blog/card.png" alt="Lorem ipsum dolor sit amet consectetur adipiscing elit" title="Lorem ipsum dolor sit amet consectetur adipiscing elit" width="295" height="278" loading="lazy">
+										<img class="news-card__img" src="<?php echo esc_url(alergobot_assets_uri('img/blog/card.png')); ?>" alt="Lorem ipsum dolor sit amet consectetur adipiscing elit" title="Lorem ipsum dolor sit amet consectetur adipiscing elit" width="295" height="278" loading="lazy">
 									</div>
 									<div class="news-card__body">
 										<div class="news-card__meta">
@@ -234,7 +240,7 @@
 											<span class="news-card__more-label">Подробнее</span>
 											<span class="news-card__more-icon" aria-hidden="true">
 												<svg class="icon" width="28" height="28" viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg">
-													<use href="img/icons.svg#icon-arrow-up-right"></use>
+													<use href="<?php echo esc_url(alergobot_assets_uri('img/icons.svg')); ?>#icon-arrow-up-right"></use>
 												</svg>
 											</span>
 										</span>
@@ -244,7 +250,7 @@
 							<article class="news-card news-card--feed" data-animate="bottom">
 								<a class="news-card__link" href="#">
 									<div class="news-card__media">
-										<img class="news-card__img" src="img/blog/card.png" alt="Lorem ipsum dolor sit amet consectetur adipiscing elit" title="Lorem ipsum dolor sit amet consectetur adipiscing elit" width="295" height="278" loading="lazy">
+										<img class="news-card__img" src="<?php echo esc_url(alergobot_assets_uri('img/blog/card.png')); ?>" alt="Lorem ipsum dolor sit amet consectetur adipiscing elit" title="Lorem ipsum dolor sit amet consectetur adipiscing elit" width="295" height="278" loading="lazy">
 									</div>
 									<div class="news-card__body">
 										<div class="news-card__meta">
@@ -259,7 +265,7 @@
 											<span class="news-card__more-label">Подробнее</span>
 											<span class="news-card__more-icon" aria-hidden="true">
 												<svg class="icon" width="28" height="28" viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg">
-													<use href="img/icons.svg#icon-arrow-up-right"></use>
+													<use href="<?php echo esc_url(alergobot_assets_uri('img/icons.svg')); ?>#icon-arrow-up-right"></use>
 												</svg>
 											</span>
 										</span>
@@ -269,7 +275,7 @@
 							<article class="news-card news-card--feed" data-animate="bottom">
 								<a class="news-card__link" href="#">
 									<div class="news-card__media">
-										<img class="news-card__img" src="img/blog/card.png" alt="Lorem ipsum dolor sit amet consectetur adipiscing elit" title="Lorem ipsum dolor sit amet consectetur adipiscing elit" width="295" height="278" loading="lazy">
+										<img class="news-card__img" src="<?php echo esc_url(alergobot_assets_uri('img/blog/card.png')); ?>" alt="Lorem ipsum dolor sit amet consectetur adipiscing elit" title="Lorem ipsum dolor sit amet consectetur adipiscing elit" width="295" height="278" loading="lazy">
 									</div>
 									<div class="news-card__body">
 										<div class="news-card__meta">
@@ -284,7 +290,7 @@
 											<span class="news-card__more-label">Подробнее</span>
 											<span class="news-card__more-icon" aria-hidden="true">
 												<svg class="icon" width="28" height="28" viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg">
-													<use href="img/icons.svg#icon-arrow-up-right"></use>
+													<use href="<?php echo esc_url(alergobot_assets_uri('img/icons.svg')); ?>#icon-arrow-up-right"></use>
 												</svg>
 											</span>
 										</span>
@@ -294,7 +300,7 @@
 							<article class="news-card news-card--feed" data-animate="bottom">
 								<a class="news-card__link" href="#">
 									<div class="news-card__media">
-										<img class="news-card__img" src="img/blog/card.png" alt="Lorem ipsum dolor sit amet consectetur adipiscing elit" title="Lorem ipsum dolor sit amet consectetur adipiscing elit" width="295" height="278" loading="lazy">
+										<img class="news-card__img" src="<?php echo esc_url(alergobot_assets_uri('img/blog/card.png')); ?>" alt="Lorem ipsum dolor sit amet consectetur adipiscing elit" title="Lorem ipsum dolor sit amet consectetur adipiscing elit" width="295" height="278" loading="lazy">
 									</div>
 									<div class="news-card__body">
 										<div class="news-card__meta">
@@ -309,7 +315,7 @@
 											<span class="news-card__more-label">Подробнее</span>
 											<span class="news-card__more-icon" aria-hidden="true">
 												<svg class="icon" width="28" height="28" viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg">
-													<use href="img/icons.svg#icon-arrow-up-right"></use>
+													<use href="<?php echo esc_url(alergobot_assets_uri('img/icons.svg')); ?>#icon-arrow-up-right"></use>
 												</svg>
 											</span>
 										</span>
@@ -319,7 +325,7 @@
 							<article class="news-card news-card--feed" data-animate="bottom">
 								<a class="news-card__link" href="#">
 									<div class="news-card__media">
-										<img class="news-card__img" src="img/blog/card.png" alt="Lorem ipsum dolor sit amet consectetur adipiscing elit" title="Lorem ipsum dolor sit amet consectetur adipiscing elit" width="295" height="278" loading="lazy">
+										<img class="news-card__img" src="<?php echo esc_url(alergobot_assets_uri('img/blog/card.png')); ?>" alt="Lorem ipsum dolor sit amet consectetur adipiscing elit" title="Lorem ipsum dolor sit amet consectetur adipiscing elit" width="295" height="278" loading="lazy">
 									</div>
 									<div class="news-card__body">
 										<div class="news-card__meta">
@@ -334,7 +340,7 @@
 											<span class="news-card__more-label">Подробнее</span>
 											<span class="news-card__more-icon" aria-hidden="true">
 												<svg class="icon" width="28" height="28" viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg">
-													<use href="img/icons.svg#icon-arrow-up-right"></use>
+													<use href="<?php echo esc_url(alergobot_assets_uri('img/icons.svg')); ?>#icon-arrow-up-right"></use>
 												</svg>
 											</span>
 										</span>
@@ -348,7 +354,7 @@
 							<article class="news-card news-card--feed" data-animate="bottom">
 								<a class="news-card__link" href="#">
 									<div class="news-card__media">
-										<img class="news-card__img" src="img/blog/card.png" alt="Lorem ipsum dolor sit amet consectetur adipiscing elit" title="Lorem ipsum dolor sit amet consectetur adipiscing elit" width="295" height="278" loading="lazy">
+										<img class="news-card__img" src="<?php echo esc_url(alergobot_assets_uri('img/blog/card.png')); ?>" alt="Lorem ipsum dolor sit amet consectetur adipiscing elit" title="Lorem ipsum dolor sit amet consectetur adipiscing elit" width="295" height="278" loading="lazy">
 									</div>
 									<div class="news-card__body">
 										<div class="news-card__meta">
@@ -363,7 +369,7 @@
 											<span class="news-card__more-label">Подробнее</span>
 											<span class="news-card__more-icon" aria-hidden="true">
 												<svg class="icon" width="28" height="28" viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg">
-													<use href="img/icons.svg#icon-arrow-up-right"></use>
+													<use href="<?php echo esc_url(alergobot_assets_uri('img/icons.svg')); ?>#icon-arrow-up-right"></use>
 												</svg>
 											</span>
 										</span>
@@ -373,7 +379,7 @@
 							<article class="news-card news-card--feed" data-animate="bottom">
 								<a class="news-card__link" href="#">
 									<div class="news-card__media">
-										<img class="news-card__img" src="img/blog/card.png" alt="Lorem ipsum dolor sit amet consectetur adipiscing elit" title="Lorem ipsum dolor sit amet consectetur adipiscing elit" width="295" height="278" loading="lazy">
+										<img class="news-card__img" src="<?php echo esc_url(alergobot_assets_uri('img/blog/card.png')); ?>" alt="Lorem ipsum dolor sit amet consectetur adipiscing elit" title="Lorem ipsum dolor sit amet consectetur adipiscing elit" width="295" height="278" loading="lazy">
 									</div>
 									<div class="news-card__body">
 										<div class="news-card__meta">
@@ -388,7 +394,7 @@
 											<span class="news-card__more-label">Подробнее</span>
 											<span class="news-card__more-icon" aria-hidden="true">
 												<svg class="icon" width="28" height="28" viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg">
-													<use href="img/icons.svg#icon-arrow-up-right"></use>
+													<use href="<?php echo esc_url(alergobot_assets_uri('img/icons.svg')); ?>#icon-arrow-up-right"></use>
 												</svg>
 											</span>
 										</span>
@@ -398,7 +404,7 @@
 							<article class="news-card news-card--feed" data-animate="bottom">
 								<a class="news-card__link" href="#">
 									<div class="news-card__media">
-										<img class="news-card__img" src="img/blog/card.png" alt="Lorem ipsum dolor sit amet consectetur adipiscing elit" title="Lorem ipsum dolor sit amet consectetur adipiscing elit" width="295" height="278" loading="lazy">
+										<img class="news-card__img" src="<?php echo esc_url(alergobot_assets_uri('img/blog/card.png')); ?>" alt="Lorem ipsum dolor sit amet consectetur adipiscing elit" title="Lorem ipsum dolor sit amet consectetur adipiscing elit" width="295" height="278" loading="lazy">
 									</div>
 									<div class="news-card__body">
 										<div class="news-card__meta">
@@ -413,7 +419,7 @@
 											<span class="news-card__more-label">Подробнее</span>
 											<span class="news-card__more-icon" aria-hidden="true">
 												<svg class="icon" width="28" height="28" viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg">
-													<use href="img/icons.svg#icon-arrow-up-right"></use>
+													<use href="<?php echo esc_url(alergobot_assets_uri('img/icons.svg')); ?>#icon-arrow-up-right"></use>
 												</svg>
 											</span>
 										</span>
@@ -423,7 +429,7 @@
 							<article class="news-card news-card--feed" data-animate="bottom">
 								<a class="news-card__link" href="#">
 									<div class="news-card__media">
-										<img class="news-card__img" src="img/blog/card.png" alt="Lorem ipsum dolor sit amet consectetur adipiscing elit" title="Lorem ipsum dolor sit amet consectetur adipiscing elit" width="295" height="278" loading="lazy">
+										<img class="news-card__img" src="<?php echo esc_url(alergobot_assets_uri('img/blog/card.png')); ?>" alt="Lorem ipsum dolor sit amet consectetur adipiscing elit" title="Lorem ipsum dolor sit amet consectetur adipiscing elit" width="295" height="278" loading="lazy">
 									</div>
 									<div class="news-card__body">
 										<div class="news-card__meta">
@@ -438,7 +444,7 @@
 											<span class="news-card__more-label">Подробнее</span>
 											<span class="news-card__more-icon" aria-hidden="true">
 												<svg class="icon" width="28" height="28" viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg">
-													<use href="img/icons.svg#icon-arrow-up-right"></use>
+													<use href="<?php echo esc_url(alergobot_assets_uri('img/icons.svg')); ?>#icon-arrow-up-right"></use>
 												</svg>
 											</span>
 										</span>
@@ -448,7 +454,7 @@
 							<article class="news-card news-card--feed" data-animate="bottom">
 								<a class="news-card__link" href="#">
 									<div class="news-card__media">
-										<img class="news-card__img" src="img/blog/card.png" alt="Lorem ipsum dolor sit amet consectetur adipiscing elit" title="Lorem ipsum dolor sit amet consectetur adipiscing elit" width="295" height="278" loading="lazy">
+										<img class="news-card__img" src="<?php echo esc_url(alergobot_assets_uri('img/blog/card.png')); ?>" alt="Lorem ipsum dolor sit amet consectetur adipiscing elit" title="Lorem ipsum dolor sit amet consectetur adipiscing elit" width="295" height="278" loading="lazy">
 									</div>
 									<div class="news-card__body">
 										<div class="news-card__meta">
@@ -463,7 +469,7 @@
 											<span class="news-card__more-label">Подробнее</span>
 											<span class="news-card__more-icon" aria-hidden="true">
 												<svg class="icon" width="28" height="28" viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg">
-													<use href="img/icons.svg#icon-arrow-up-right"></use>
+													<use href="<?php echo esc_url(alergobot_assets_uri('img/icons.svg')); ?>#icon-arrow-up-right"></use>
 												</svg>
 											</span>
 										</span>
@@ -473,7 +479,7 @@
 							<article class="news-card news-card--feed" data-animate="bottom">
 								<a class="news-card__link" href="#">
 									<div class="news-card__media">
-										<img class="news-card__img" src="img/blog/card.png" alt="Lorem ipsum dolor sit amet consectetur adipiscing elit" title="Lorem ipsum dolor sit amet consectetur adipiscing elit" width="295" height="278" loading="lazy">
+										<img class="news-card__img" src="<?php echo esc_url(alergobot_assets_uri('img/blog/card.png')); ?>" alt="Lorem ipsum dolor sit amet consectetur adipiscing elit" title="Lorem ipsum dolor sit amet consectetur adipiscing elit" width="295" height="278" loading="lazy">
 									</div>
 									<div class="news-card__body">
 										<div class="news-card__meta">
@@ -488,7 +494,7 @@
 											<span class="news-card__more-label">Подробнее</span>
 											<span class="news-card__more-icon" aria-hidden="true">
 												<svg class="icon" width="28" height="28" viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg">
-													<use href="img/icons.svg#icon-arrow-up-right"></use>
+													<use href="<?php echo esc_url(alergobot_assets_uri('img/icons.svg')); ?>#icon-arrow-up-right"></use>
 												</svg>
 											</span>
 										</span>
@@ -500,7 +506,7 @@
 					<nav class="blog-pagination" aria-label="Навигация по страницам" data-animate="bottom">
 						<a class="blog-pagination__arrow blog-pagination__arrow--prev" href="#" aria-label="Предыдущая страница">
 							<svg class="icon" width="21.5" height="21.5" aria-hidden="true">
-								<use href="img/icons.svg#icon-pagination-arrow"></use>
+								<use href="<?php echo esc_url(alergobot_assets_uri('img/icons.svg')); ?>#icon-pagination-arrow"></use>
 							</svg>
 						</a>
 						<ol class="blog-pagination__list">
@@ -513,10 +519,9 @@
 						</ol>
 						<a class="blog-pagination__arrow blog-pagination__arrow--next" href="#" aria-label="Следующая страница">
 							<svg class="icon" width="21.5" height="21.5" aria-hidden="true">
-								<use href="img/icons.svg#icon-pagination-arrow"></use>
+								<use href="<?php echo esc_url(alergobot_assets_uri('img/icons.svg')); ?>#icon-pagination-arrow"></use>
 							</svg>
 						</a>
 					</nav>
 				</div>
 			</section>
-		</main>

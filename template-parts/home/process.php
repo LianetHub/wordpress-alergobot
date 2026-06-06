@@ -1,4 +1,11 @@
-<section class="process">
+<?php
+/**
+ * Home section: process
+ *
+ * @package alergobot
+ */
+
+?><section class="process">
 				<div class="process__container _container">
 					<div class="process__head">
 						<span class="tag process__tag" data-animate="scale">процесс диагностики</span>
@@ -18,7 +25,7 @@
 										</div>
 									</div>
 									<div class="process__media">
-										<img class="cover-image" src="img/home/process-step-1.png" alt="Подбор панели под задачу" title="Подбор панели под задачу" width="275" height="326" loading="lazy">
+										<img class="cover-image" src="<?php echo esc_url(alergobot_assets_uri('img/home/process-step-1.png')); ?>" alt="Подбор панели под задачу" title="Подбор панели под задачу" width="275" height="326" loading="lazy">
 									</div>
 								</article>
 							</div>
@@ -32,7 +39,7 @@
 										</div>
 									</div>
 									<div class="process__media">
-										<img class="cover-image" src="img/home/process-step-2.png" alt="Подготовка и проведение исследования" title="Подготовка и проведение исследования" width="275" height="326" loading="lazy">
+										<img class="cover-image" src="<?php echo esc_url(alergobot_assets_uri('img/home/process-step-2.png')); ?>" alt="Подготовка и проведение исследования" title="Подготовка и проведение исследования" width="275" height="326" loading="lazy">
 									</div>
 								</article>
 							</div>
@@ -46,7 +53,7 @@
 										</div>
 									</div>
 									<div class="process__media">
-										<img class="cover-image" src="img/home/process-step-3.png" alt="Обработка результатов" title="Обработка результатов" width="275" height="326" loading="lazy">
+										<img class="cover-image" src="<?php echo esc_url(alergobot_assets_uri('img/home/process-step-3.png')); ?>" alt="Обработка результатов" title="Обработка результатов" width="275" height="326" loading="lazy">
 									</div>
 								</article>
 							</div>
@@ -60,7 +67,7 @@
 										</div>
 									</div>
 									<div class="process__media">
-										<img class="cover-image" src="img/home/process-step-4.png" alt="Интеграция в рабочий процесс лаборатории" title="Интеграция в рабочий процесс лаборатории" width="275" height="326" loading="lazy">
+										<img class="cover-image" src="<?php echo esc_url(alergobot_assets_uri('img/home/process-step-4.png')); ?>" alt="Интеграция в рабочий процесс лаборатории" title="Интеграция в рабочий процесс лаборатории" width="275" height="326" loading="lazy">
 									</div>
 								</article>
 							</div>

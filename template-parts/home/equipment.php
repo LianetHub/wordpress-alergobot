@@ -1,4 +1,11 @@
-<section class="equipment">
+<?php
+/**
+ * Home section: equipment
+ *
+ * @package alergobot
+ */
+
+?><section class="equipment">
 				<div class="equipment__container _container" data-decor-parallax="">
 					<div class="equipment__head">
 						<div class="equipment__intro">
@@ -12,7 +19,7 @@
 							<a class="equipment__card-link" href="product.html" aria-label="Анализатор Q-SMART, подробнее">
 								<h3 class="equipment__card-name ">Q-SMART</h3>
 								<div class="equipment__card-media">
-									<img class="cover-image" src="img/analyzers/device-q-smart.png" alt="Анализатор Q-SMART" title="Анализатор Q-SMART" width="239" height="164" loading="lazy">
+									<img class="cover-image" src="<?php echo esc_url(alergobot_assets_uri('img/analyzers/device-q-smart.png')); ?>" alt="Анализатор Q-SMART" title="Анализатор Q-SMART" width="239" height="164" loading="lazy">
 								</div>
 								<p class="equipment__card-text">Компактное оборудование для лабораторных исследований, чтобы в тестах сочетать точность и удобство, оптимизировать диагностику аллергии в повседневной работе.</p>
 							</a>
@@ -21,7 +28,7 @@
 							<a class="equipment__card-link" href="#" aria-label="Q-STATION ELITE, подробнее">
 								<h3 class="equipment__card-name ">Q-STATION ELITE</h3>
 								<div class="equipment__card-media">
-									<img class="cover-image" src="img/analyzers/device-q-processor.png" alt="Q-STATION ELITE" title="Q-STATION ELITE" width="200" height="167" loading="lazy">
+									<img class="cover-image" src="<?php echo esc_url(alergobot_assets_uri('img/analyzers/device-q-processor.png')); ?>" alt="Q-STATION ELITE" title="Q-STATION ELITE" width="200" height="167" loading="lazy">
 								</div>
 								<p class="equipment__card-text">Система охватывает расширенный спектр лабораторной диагностики. Применяется для тестов, где важна производительность, стандартизация процессов и оборудования, удобство обработки результатов.</p>
 							</a>
@@ -30,7 +37,7 @@
 							<a class="equipment__card-link" href="#" aria-label="Q-PROCESSOR, подробнее">
 								<h3 class="equipment__card-name ">Q-PROCESSOR</h3>
 								<div class="equipment__card-media">
-									<img class="cover-image" src="img/analyzers/device-q-station-elite.png" alt="Q-PROCESSOR" title="Q-PROCESSOR" width="162" height="161" loading="lazy">
+									<img class="cover-image" src="<?php echo esc_url(alergobot_assets_uri('img/analyzers/device-q-station-elite.png')); ?>" alt="Q-PROCESSOR" title="Q-PROCESSOR" width="162" height="161" loading="lazy">
 								</div>
 								<p class="equipment__card-text">Данное оборудование автоматизирует этапы тестов на аллергию в диагностике. Повысит стабильность результатов в лабораторных процессах.</p>
 							</a>
@@ -39,14 +46,14 @@
 							<a class="equipment__card-link" href="katalog.html#catalog-reagents" aria-label="Наборы реагентов и&nbsp;сопутствующие материалы">
 								<h3 class="equipment__card-name equipment__card-name--long">Наборы реагентов и сопутствующие материалы</h3>
 								<div class="equipment__card-media">
-									<img class="cover-image" src="img/analyzers/equipment-reagents.png" alt="Наборы реагентов" title="Наборы реагентов" width="225" height="161" loading="lazy">
+									<img class="cover-image" src="<?php echo esc_url(alergobot_assets_uri('img/analyzers/equipment-reagents.png')); ?>" alt="Наборы реагентов" title="Наборы реагентов" width="225" height="161" loading="lazy">
 								</div>
 								<p class="equipment__card-text">Комплектующие: нитроцеллюлозные мембраны; детекционные системы; аллергены всех групп; маркеры CCD перекрёстных реакций.</p>
 							</a>
 						</li>
 					</ul>
 					<div class="equipment__footer" data-animate="bottom">
-						<a class="btn btn--primary equipment__btn" href="katalog.html">Подобрать оборудование</a>
+						<a class="btn btn--primary equipment__btn" href="<?php echo esc_url(home_url('/katalog/')); ?>">Подобрать оборудование</a>
 					</div>
 				</div>
 			</section>

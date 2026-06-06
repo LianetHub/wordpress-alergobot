@@ -83,7 +83,8 @@ if (!function_exists('alergobot_get_phones')) {
 if (!function_exists('alergobot_get_map_settings')) {
 	function alergobot_get_map_settings()
 	{
-		$icon = alergobot_get_option('karta_ikonka', 'img/placemark.svg');
+		$icon_default = 'img/placemark.svg';
+		$icon = alergobot_get_option('karta_ikonka', $icon_default);
 
 		return [
 			'show'   => (bool) alergobot_get_option('karta_pokazyvat', 1),
@@ -91,7 +92,7 @@ if (!function_exists('alergobot_get_map_settings')) {
 			'zoom'   => (int) alergobot_get_option('karta_zoom', 16),
 			'label'  => alergobot_get_option('karta_podpis', 'Карта'),
 			'apiKey' => alergobot_get_option('karta_api_klyuch', ''),
-			'icon'   => alergobot_assets_uri(ltrim($icon, '/')),
+			'icon'   => alergobot_acf_image_url($icon, 'full', alergobot_assets_uri($icon_default)),
 		];
 	}
 }
@@ -113,134 +114,6 @@ if (!function_exists('alergobot_get_map_html')) {
 			esc_url($map['icon']),
 			esc_attr($map['label'])
 		);
-	}
-}
-
-if (!function_exists('alergobot_replace_dynamic_markup')) {
-	function alergobot_replace_dynamic_markup($html)
-	{
-		ob_start();
-		get_template_part('template-parts/company/contacts', 'info');
-		$contacts_info = ob_get_clean();
-
-		$html = preg_replace('/<section class="contacts-info">.*?<\/section>/s', $contacts_info, $html, 1);
-
-		$map_html = alergobot_get_map_html();
-		if ($map_html) {
-			$html = preg_replace(
-				'/<div class="contacts-order__map"[^>]*><\/div>/',
-				$map_html,
-				$html,
-				1
-			);
-			$html = preg_replace(
-				'/<div class="contacts__map"[^>]*><\/div>/',
-				alergobot_get_map_html('contacts-map', 'contacts__map'),
-				$html,
-				1
-			);
-		} else {
-			$html = preg_replace('/<div class="contacts-order__map"[^>]*><\/div>/', '', $html, 1);
-			$html = preg_replace('/<div class="contacts__map"[^>]*><\/div>/', '', $html, 1);
-		}
-
-		ob_start();
-		get_template_part('template-parts/company/contact', 'cards');
-		$contact_cards = ob_get_clean();
-
-		$html = preg_replace(
-			'/(<div class="contacts__cards">)\s*(?:<article class="contacts-card[\s\S]*?<\/article>\s*)+(<link itemprop="hasMap")/',
-			'$1' . $contact_cards . '</div>' . "\n\t\t\t\t\t\t\t\t" . '$2',
-			$html,
-			1
-		);
-
-		return $html;
-	}
-}
-
-if (!function_exists('alergobot_replace_markup_urls')) {
-	function alergobot_replace_markup_urls($html)
-	{
-		$assets = alergobot_assets_uri();
-		$home   = trailingslashit(home_url());
-
-		$replacements = [
-			'@img/' => $assets . 'img/',
-			'src="img/' => 'src="' . $assets . 'img/',
-			"href=\"img/" => "href=\"" . $assets . 'img/',
-			"url(img/" => "url(" . $assets . 'img/',
-			'href="index.html"' => 'href="' . esc_url($home) . '"',
-			'href="katalog.html"' => 'href="' . esc_url(home_url('/katalog/')) . '"',
-			'href="stati.html"' => 'href="' . esc_url(alergobot_blogs_archive_url()) . '"',
-			'href="kontakty.html"' => 'href="' . esc_url(home_url('/kontakty/')) . '"',
-			'href="analizatory.html"' => 'href="' . esc_url(home_url('/analizatory/')) . '"',
-			'href="politika-konfidentsialnosti.html"' => 'href="' . esc_url(alergobot_privacy_policy_url()) . '"',
-			'href="statya.html"' => 'href="' . esc_url(alergobot_blogs_archive_url()) . '"',
-			'action="#"' => 'action="' . esc_url(admin_url('admin-ajax.php')) . '"',
-		];
-
-		$html = str_replace(array_keys($replacements), array_values($replacements), $html);
-
-		return alergobot_replace_dynamic_markup($html);
-	}
-}
-
-if (!function_exists('alergobot_render_markup_file')) {
-	function alergobot_render_markup_file($relative_path)
-	{
-		$file = ALERGOBOT_DIR . '/inc/markup/' . ltrim($relative_path, '/');
-		if (!file_exists($file)) {
-			return;
-		}
-		// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-		echo alergobot_replace_markup_urls(file_get_contents($file));
-	}
-}
-
-if (!function_exists('alergobot_render_home_section')) {
-	function alergobot_render_home_section($slug)
-	{
-		alergobot_render_markup_file('home/' . $slug . '.html');
-	}
-}
-
-if (!function_exists('alergobot_render_page_markup')) {
-	function alergobot_render_page_markup($filename)
-	{
-		$file = ALERGOBOT_DIR . '/inc/markup/pages/' . ltrim($filename, '/');
-		if (!file_exists($file)) {
-			return;
-		}
-		$html = file_get_contents($file);
-		if (preg_match('/<main\b[^>]*>(.*)<\/main>/s', $html, $matches)) {
-			// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-			echo alergobot_replace_markup_urls($matches[1]);
-			return;
-		}
-		// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-		echo alergobot_replace_markup_urls($html);
-	}
-}
-
-if (!function_exists('alergobot_inject_cf7_into_popups')) {
-	function alergobot_inject_cf7_into_popups($html)
-	{
-		$forms = [
-			'popup-consultation' => 'cf7_konsultaciya',
-			'popup-order'        => 'cf7_zakaz',
-			'popup-presentation' => 'cf7_prezentaciya',
-		];
-		foreach ($forms as $popup_id => $option_key) {
-			$shortcode = alergobot_get_option($option_key, '');
-			if (!$shortcode) {
-				continue;
-			}
-			$cf7 = do_shortcode($shortcode);
-			$pattern = '/(<div id="' . preg_quote($popup_id, '/') . '"[^>]*>.*?<form[^>]*>).*?(<\/form>)/s';
-			$html    = preg_replace($pattern, '$1' . $cf7 . '$2', $html, 1);
-		}
-		return $html;
 	}
 }
 

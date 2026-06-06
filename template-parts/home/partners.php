@@ -1,4 +1,11 @@
-<section class="partners">
+<?php
+/**
+ * Home section: partners
+ *
+ * @package alergobot
+ */
+
+?><section class="partners">
 				<div class="partners__container _container">
 					<div class="partners__head">
 						<h2 class="partners__title title title-md" data-animate="bottom">Решения PROTIA применяются в профессиональной лабораторной практике</h2>
@@ -17,11 +24,11 @@
 							<div class="swiper-slide partners__slide" data-animate="bottom">
 								<a class="partners__card" href="#" aria-label="ИНВИТРО">
 									<span class="partners__logo-wrap">
-										<img class="partners__logo" src="img/partners/partner-invito.png" alt="ИНВИТРО" title="ИНВИТРО" width="151" height="43" loading="lazy">
+										<img class="partners__logo" src="<?php echo esc_url(alergobot_assets_uri('img/partners/partner-invito.png')); ?>" alt="ИНВИТРО" title="ИНВИТРО" width="151" height="43" loading="lazy">
 									</span>
 									<span class="partners__arrow" aria-hidden="true">
 										<svg class="partners__arrow-icon icon" width="28" height="28">
-											<use href="img/icons.svg#icon-arrow-up-right"></use>
+											<use href="<?php echo esc_url(alergobot_assets_uri('img/icons.svg')); ?>#icon-arrow-up-right"></use>
 										</svg>
 									</span>
 								</a>
@@ -29,11 +36,11 @@
 							<div class="swiper-slide partners__slide" data-animate="bottom">
 								<a class="partners__card" href="#" aria-label="ГЕМОТЕСТ">
 									<span class="partners__logo-wrap">
-										<img class="partners__logo" src="img/partners/partner-gemotest.png" alt="ГЕМОТЕСТ" title="ГЕМОТЕСТ" width="151" height="67" loading="lazy">
+										<img class="partners__logo" src="<?php echo esc_url(alergobot_assets_uri('img/partners/partner-gemotest.png')); ?>" alt="ГЕМОТЕСТ" title="ГЕМОТЕСТ" width="151" height="67" loading="lazy">
 									</span>
 									<span class="partners__arrow" aria-hidden="true">
 										<svg class="partners__arrow-icon icon" width="28" height="28">
-											<use href="img/icons.svg#icon-arrow-up-right"></use>
+											<use href="<?php echo esc_url(alergobot_assets_uri('img/icons.svg')); ?>#icon-arrow-up-right"></use>
 										</svg>
 									</span>
 								</a>
@@ -41,11 +48,11 @@
 							<div class="swiper-slide partners__slide" data-animate="bottom">
 								<a class="partners__card" href="#" aria-label="HELIX">
 									<span class="partners__logo-wrap">
-										<img class="partners__logo" src="img/partners/partner-helix.png" alt="HELIX" title="HELIX" width="126" height="52" loading="lazy">
+										<img class="partners__logo" src="<?php echo esc_url(alergobot_assets_uri('img/partners/partner-helix.png')); ?>" alt="HELIX" title="HELIX" width="126" height="52" loading="lazy">
 									</span>
 									<span class="partners__arrow" aria-hidden="true">
 										<svg class="partners__arrow-icon icon" width="28" height="28">
-											<use href="img/icons.svg#icon-arrow-up-right"></use>
+											<use href="<?php echo esc_url(alergobot_assets_uri('img/icons.svg')); ?>#icon-arrow-up-right"></use>
 										</svg>
 									</span>
 								</a>
@@ -53,11 +60,11 @@
 							<div class="swiper-slide partners__slide" data-animate="bottom">
 								<a class="partners__card" href="#" aria-label="KDL">
 									<span class="partners__logo-wrap">
-										<img class="partners__logo" src="img/partners/partner-kdl.png" alt="KDL" title="KDL" width="118" height="67" loading="lazy">
+										<img class="partners__logo" src="<?php echo esc_url(alergobot_assets_uri('img/partners/partner-kdl.png')); ?>" alt="KDL" title="KDL" width="118" height="67" loading="lazy">
 									</span>
 									<span class="partners__arrow" aria-hidden="true">
 										<svg class="partners__arrow-icon icon" width="28" height="28">
-											<use href="img/icons.svg#icon-arrow-up-right"></use>
+											<use href="<?php echo esc_url(alergobot_assets_uri('img/icons.svg')); ?>#icon-arrow-up-right"></use>
 										</svg>
 									</span>
 								</a>
@@ -65,11 +72,11 @@
 							<div class="swiper-slide partners__slide" data-animate="bottom">
 								<a class="partners__card" href="#" aria-label="ABC медицина">
 									<span class="partners__logo-wrap">
-										<img class="partners__logo" src="img/partners/partner-abc.png" alt="ABC медицина" title="ABC медицина" width="152" height="67" loading="lazy">
+										<img class="partners__logo" src="<?php echo esc_url(alergobot_assets_uri('img/partners/partner-abc.png')); ?>" alt="ABC медицина" title="ABC медицина" width="152" height="67" loading="lazy">
 									</span>
 									<span class="partners__arrow" aria-hidden="true">
 										<svg class="partners__arrow-icon icon" width="28" height="28">
-											<use href="img/icons.svg#icon-arrow-up-right"></use>
+											<use href="<?php echo esc_url(alergobot_assets_uri('img/icons.svg')); ?>#icon-arrow-up-right"></use>
 										</svg>
 									</span>
 								</a>

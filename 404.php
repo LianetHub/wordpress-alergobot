@@ -7,6 +7,6 @@
 
 get_header();
 ?>
-	<?php alergobot_render_page_markup('404.html'); ?>
+	<?php get_template_part('template-parts/pages/404'); ?>
 <?php
 get_footer();

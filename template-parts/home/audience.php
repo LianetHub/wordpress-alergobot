@@ -1,4 +1,11 @@
-<section class="audience">
+<?php
+/**
+ * Home section: audience
+ *
+ * @package alergobot
+ */
+
+?><section class="audience">
 				<div class="audience__container _container">
 					<div class="audience__head">
 						<div class="audience__intro">
@@ -6,12 +13,12 @@
 							<p class="section-head__text text-lead" data-animate="scale">Лабораторное медицинское оборудование для аллерготестов PROTIA Allergy-Q, которое можно купить у нас в «Био Фокус», с высокой чувствительностью диагностирует иммунитет от аллергии с кожными, дыхательными, пищеварительными реакциями. Результаты тестов позволяют однозначно выбирать способ иммунотерапии, прогнозировать его эффективность.</p>
 						</div>
 						<div class="audience__photo" data-animate="scale">
-							<img src="img/home/audience-lab.png" class="cover-image" alt="Специалисты в лаборатории" title="Специалисты в лаборатории" width="427" height="212" loading="lazy">
+							<img src="<?php echo esc_url(alergobot_assets_uri('img/home/audience-lab.png')); ?>" class="cover-image" alt="Специалисты в лаборатории" title="Специалисты в лаборатории" width="427" height="212" loading="lazy">
 						</div>
 						<span class="audience__tag tag" data-animate="scale">для кого</span>
 					</div>
 					<div class="audience__scene" data-audience="">
-						<img src="img/home/audience-molecules.png" alt="Фото малекул" width="529" height="477" loading="lazy" aria-hidden="true" class="audience__molecules">
+						<img src="<?php echo esc_url(alergobot_assets_uri('img/home/audience-molecules.png')); ?>" alt="Фото малекул" width="529" height="477" loading="lazy" aria-hidden="true" class="audience__molecules">
 						<div class="audience__cards">
 							<button class="audience__card" type="button" data-audience-card="" aria-expanded="false" data-animate="bottom">
 								<span class="audience__card-title">Лаборатории</span>

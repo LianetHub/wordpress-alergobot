@@ -7,6 +7,6 @@
 
 get_header();
 ?>
-	<?php alergobot_render_page_markup('katalog.html'); ?>
+	<?php get_template_part('template-parts/pages/katalog'); ?>
 <?php
 get_footer();
