@@ -31,9 +31,14 @@
 										<p class="process__card-desc"><?php echo esc_html($step['desc'] ?? ''); ?></p>
 									</div>
 								</div>
-								<?php if (!empty($step['image_path'])) : ?>
+								<?php if (!empty($step['image'])) : ?>
 									<div class="process__media">
-										<img class="cover-image" src="<?php echo esc_url(alergobot_acf_image_url($step['image_path'])); ?>" alt="<?php echo esc_attr($step['image_alt'] ?? ''); ?>" title="<?php echo esc_attr($step['image_alt'] ?? ''); ?>" width="275" height="326" loading="lazy">
+										<?php echo alergobot_acf_image($step['image'], 'full', [
+											'class'   => 'cover-image',
+											'width'   => '275',
+											'height'  => '326',
+											'loading' => 'lazy',
+										]); ?>
 									</div>
 								<?php endif; ?>
 							</article>
