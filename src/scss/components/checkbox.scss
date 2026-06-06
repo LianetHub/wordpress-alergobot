@@ -76,6 +76,9 @@ $checkbox-check-mark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/20
 		letter-spacing: -0.02em;
 		@include adaptive-font(10, 12);
 		text-align: left;
+		min-height: 2rem;
+		vertical-align: middle;
+		align-content: center;
 
 		& a {
 			text-decoration: underline;
@@ -89,6 +92,7 @@ $checkbox-check-mark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/20
 	}
 
 	&:has(.wpcf7-form-control-wrap) {
+
 		.checkbox__text,
 		.wpcf7-list-item-label:not(:empty) {
 			position: relative;
@@ -127,10 +131,10 @@ $checkbox-check-mark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/20
 		display: none;
 	}
 
-	
-	&__input:checked + .checkbox__box::before,
-	&__input:checked + .checkbox__text::before,
-	&__input:checked + .wpcf7-list-item-label::before,
+
+	&__input:checked+.checkbox__box::before,
+	&__input:checked+.checkbox__text::before,
+	&__input:checked+.wpcf7-list-item-label::before,
 	&:has(.checkbox__input:checked) .checkbox__box::before,
 	&:has(.checkbox__input:checked) .checkbox__text::before,
 	&:has(.checkbox__input:checked) .wpcf7-list-item-label::before,
@@ -141,21 +145,21 @@ $checkbox-check-mark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/20
 	}
 
 	// Ошибка
-	&__input.wpcf7-not-valid + .checkbox__box::before,
-	&__input.wpcf7-not-valid + .checkbox__text::before,
-	&__input.wpcf7-not-valid + .wpcf7-list-item-label::before,
-	&__input[aria-invalid="true"] + .checkbox__box::before,
-	&__input[aria-invalid="true"] + .checkbox__text::before,
-	&__input[aria-invalid="true"] + .wpcf7-list-item-label::before,
+	&__input.wpcf7-not-valid+.checkbox__box::before,
+	&__input.wpcf7-not-valid+.checkbox__text::before,
+	&__input.wpcf7-not-valid+.wpcf7-list-item-label::before,
+	&__input[aria-invalid="true"]+.checkbox__box::before,
+	&__input[aria-invalid="true"]+.checkbox__text::before,
+	&__input[aria-invalid="true"]+.wpcf7-list-item-label::before,
 	&:has(.wpcf7-not-valid) .checkbox__box::before,
 	&:has(.wpcf7-not-valid) .checkbox__text::before,
 	&:has(.wpcf7-not-valid) .wpcf7-list-item-label::before {
 		@include checkbox-box-error;
 	}
 
-	&__input:focus-visible + .checkbox__box::before,
-	&__input:focus-visible + .checkbox__text::before,
-	&__input:focus-visible + .wpcf7-list-item-label::before,
+	&__input:focus-visible+.checkbox__box::before,
+	&__input:focus-visible+.checkbox__text::before,
+	&__input:focus-visible+.wpcf7-list-item-label::before,
 	&:has(input[type="checkbox"]:focus-visible) .checkbox__box::before,
 	&:has(input[type="checkbox"]:focus-visible) .checkbox__text::before,
 	&:has(input[type="checkbox"]:focus-visible) .wpcf7-list-item-label::before {

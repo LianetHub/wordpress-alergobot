@@ -25,7 +25,7 @@ add_action('wp_enqueue_scripts', function () {
 	alergobot_enqueue_conditional_styles($uri, $ver);
 
 	wp_enqueue_script('alergobot-swiper', $uri . '/js/libs/swiper-bundle.min.js', [], $ver, true);
-	wp_enqueue_script('alergobot-fancybox', $uri . '/js/libs/fancybox.min.js', ['alergobot-swiper'], $ver, true);
+	wp_enqueue_script('alergobot-fancybox', $uri . '/js/libs/fancybox.umd.js', ['alergobot-swiper'], $ver, true);
 	wp_enqueue_script('alergobot-app', $uri . '/js/app.min.js', ['alergobot-fancybox'], $ver, true);
 
 	$map = function_exists('alergobot_get_map_settings') ? alergobot_get_map_settings() : [];

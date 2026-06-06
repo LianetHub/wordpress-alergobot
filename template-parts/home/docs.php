@@ -30,19 +30,31 @@
 				</button>
 			</div>
 		</div>
-		<?php if (alergobot_home_rows('items')) : ?>
+		<?php
+		$docs_items = function_exists('get_sub_field') ? get_sub_field('items') : [];
+		if (!is_array($docs_items)) {
+			$docs_items = [];
+		}
+		?>
+		<?php if ($docs_items) : ?>
 			<div class="docs__slider swiper" data-animate="bottom">
 				<div class="swiper-wrapper">
-					<?php foreach (alergobot_home_rows('items') as $doc) :
-						if (empty($doc['image_path'])) {
+					<?php foreach ($docs_items as $doc) :
+						$image = $doc['image'] ?? null;
+						if (empty($image)) {
 							continue;
 						}
-						$image_url = alergobot_acf_image_url($doc['image_path']);
+						$image_url = alergobot_acf_image_url($image);
 						?>
 						<div class="swiper-slide docs__slide" data-animate="bottom">
 							<a href="<?php echo esc_url($image_url); ?>" data-fancybox="docs" class="docs__card">
 								<div class="docs__media">
-									<img class="cover-image" src="<?php echo esc_url($image_url); ?>" alt="<?php echo esc_attr($doc['image_alt'] ?? ''); ?>" title="<?php echo esc_attr($doc['image_alt'] ?? ''); ?>" width="276" height="395" loading="lazy">
+									<?php echo alergobot_acf_image($image, 'full', [
+										'class'   => 'cover-image',
+										'width'   => '276',
+										'height'  => '395',
+										'loading' => 'lazy',
+									]); ?>
 								</div>
 								<p class="docs__caption"><?php echo esc_html($doc['caption'] ?? ''); ?></p>
 							</a>

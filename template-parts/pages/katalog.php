@@ -124,11 +124,7 @@
 									</label>
 									<label class="checkbox">
 										<input class="checkbox__input" type="checkbox" name="agree" required="">
-										<span class="checkbox__box">
-											<svg class="icon" width="20" height="20" aria-hidden="true">
-												<use href="<?php echo esc_url(alergobot_assets_uri('img/icons.svg')); ?>#icon-check"></use>
-											</svg>
-										</span>
+										<span class="checkbox__box" aria-hidden="true"></span>
 										<span class="checkbox__text">Я даю согласие на <a href="<?php echo esc_url(alergobot_privacy_policy_url()); ?>">обработку персональных данных</a> и соглашаюсь с <a href="<?php echo esc_url(alergobot_privacy_policy_url()); ?>">политикой конфиденциальности</a></span>
 									</label>
 									<button class="form__submit" type="submit">Отправить заявку</button>

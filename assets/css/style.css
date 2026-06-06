@@ -1165,6 +1165,10 @@ h3 {
   letter-spacing: -0.02em;
   font-size: clamp(10px, 0.1851851852vw + 9.3333333333px, 12px);
   text-align: left;
+  min-height: 2rem;
+  vertical-align: middle;
+  -ms-flex-line-pack: center;
+      align-content: center;
 }
 
 .checkbox__text a,

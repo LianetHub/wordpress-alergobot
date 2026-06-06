@@ -51,17 +51,12 @@ if (!function_exists('alergobot_home_rows')) {
 			return $cache[$cache_key];
 		}
 
-		if (!function_exists('have_rows') || !have_rows($key)) {
-			$cache[$cache_key] = [];
-			return $cache[$cache_key];
-		}
-
 		$rows = [];
-		while (have_rows($key)) {
-			the_row();
-			$row = get_row(true);
-			if (is_array($row)) {
-				$rows[] = $row;
+
+		if (function_exists('get_sub_field')) {
+			$value = get_sub_field($key);
+			if (is_array($value) && $value !== []) {
+				$rows = array_values($value);
 			}
 		}
 
