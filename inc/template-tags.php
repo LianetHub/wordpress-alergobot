@@ -101,28 +101,3 @@ if (!function_exists('alergobot_acf_image')) {
 		);
 	}
 }
-
-if (!function_exists('alergobot_contact_card_icon')) {
-	function alergobot_contact_card_icon($field_name, $width = 22, $height = 22) {
-		if (!function_exists('get_field')) {
-			return;
-		}
-
-		$image = get_field($field_name, 'option');
-		$html  = alergobot_acf_image($image, 'full', [
-			'class' => 'icon',
-			'alt'   => '',
-			'width' => $width,
-			'height' => $height,
-		]);
-
-		if (!$html) {
-			return;
-		}
-
-		echo '<div class="contacts-card__icon" aria-hidden="true">';
-		// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-		echo $html;
-		echo '</div>';
-	}
-}
