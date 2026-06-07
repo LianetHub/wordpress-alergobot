@@ -329,19 +329,15 @@ h3 {
 }
 
 .typography-block ul > li {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  gap: 0.625rem;
+  position: relative;
+  padding-left: 2.0625rem;
 }
 
 .typography-block ul > li::before {
   content: "";
-  -ms-flex-negative: 0;
-      flex-shrink: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 1.4375rem;
   height: 1.4375rem;
   background: url("../img/list-marker-plus.svg") no-repeat center/contain;

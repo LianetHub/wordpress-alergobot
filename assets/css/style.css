@@ -329,19 +329,15 @@ h3 {
 }
 
 .typography-block ul > li {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  gap: 0.625rem;
+  position: relative;
+  padding-left: 2.0625rem;
 }
 
 .typography-block ul > li::before {
   content: "";
-  -ms-flex-negative: 0;
-      flex-shrink: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 1.4375rem;
   height: 1.4375rem;
   background: url("../img/list-marker-plus.svg") no-repeat center/contain;
@@ -6501,12 +6497,13 @@ h3 {
   margin-top: 2.5rem;
 }
 
+.article__body.typography-block ul > li {
+  padding-left: 2.875rem;
+}
+
 .article__body.typography-block ul > li::before {
   width: 2.25rem;
   height: 2.25rem;
-  -ms-flex-item-align: center;
-      -ms-grid-row-align: center;
-      align-self: center;
   background: url("../img/list-marker-plus.svg") no-repeat center/contain;
 }
 

@@ -86,11 +86,14 @@ $article-date-muted: rgba($color-text-body, 0.6);
 				margin-top: rem(40);
 			}
 
-			ul>li::before {
-				width: rem(36);
-				height: rem(36);
-				align-self: center;
-				background: url("@img/list-marker-plus.svg") no-repeat center / contain;
+			ul>li {
+				padding-left: rem(46);
+
+				&::before {
+					width: rem(36);
+					height: rem(36);
+					background: url("@img/list-marker-plus.svg") no-repeat center / contain;
+				}
 			}
 
 			ol>li::before {

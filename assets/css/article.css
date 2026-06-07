@@ -147,12 +147,13 @@ h3 {
   margin-top: 2.5rem;
 }
 
+.article__body.typography-block ul > li {
+  padding-left: 2.875rem;
+}
+
 .article__body.typography-block ul > li::before {
   width: 2.25rem;
   height: 2.25rem;
-  -ms-flex-item-align: center;
-      -ms-grid-row-align: center;
-      align-self: center;
   background: url("../img/list-marker-plus.svg") no-repeat center/contain;
 }
 

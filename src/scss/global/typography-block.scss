@@ -112,17 +112,20 @@
 
 	ul {
 		&>li {
-			display: flex;
-			align-items: center;
-			gap: rem(10);
+			position: relative;
+			padding-left: rem(33);
 
 			&::before {
 				content: "";
-				flex-shrink: 0;
+				position: absolute;
+				top: 0;
+				left: 0;
 				width: rem(23);
 				height: rem(23);
 				background: url("@img/list-marker-plus.svg") no-repeat center / contain;
 			}
+
+			
 		}
 	}
 
