@@ -44,8 +44,12 @@
 				<?php foreach (alergobot_home_rows('videos') as $video) : ?>
 					<article class="pick__video" data-animate="bottom">
 						<button class="pick__video-media" type="button" aria-label="<?php echo esc_attr($video['aria_label'] ?? ''); ?>" data-fancybox="pick-video" data-type="iframe" data-width="960" data-height="540" data-src="<?php echo esc_url($video['video_url'] ?? ''); ?>">
-							<?php if (!empty($video['poster_path'])) : ?>
-								<img src="<?php echo esc_url(alergobot_acf_image_url($video['poster_path'])); ?>" alt="" width="650" height="382" loading="lazy" decoding="async">
+							<?php if (!empty($video['poster'])) : ?>
+								<?php echo alergobot_acf_image($video['poster'], 'full', [
+									'width'   => '650',
+									'height'  => '382',
+									'loading' => 'lazy',
+								]); ?>
 							<?php endif; ?>
 							<span class="pick__play" aria-hidden="true">
 								<svg width="38" height="61" aria-hidden="true">
@@ -54,9 +58,9 @@
 							</span>
 						</button>
 						<?php if (!empty($video['captions']) && is_array($video['captions'])) : ?>
-							<div class="pick__caption" data-animate="bottom">
+							<div class="pick__caption" >
 								<?php foreach ($video['captions'] as $caption) : ?>
-									<p><?php echo esc_html($caption['text'] ?? ''); ?></p>
+									<p data-animate="bottom"><?php echo esc_html($caption['text'] ?? ''); ?></p>
 								<?php endforeach; ?>
 							</div>
 						<?php endif; ?>
