@@ -37,9 +37,14 @@ add_action('acf/init', function () {
 });
 
 add_action('wp_head', function () {
+	if (function_exists('alergobot_render_favicons')) {
+		alergobot_render_favicons();
+	}
+
 	if (!function_exists('get_field')) {
 		return;
 	}
+
 	$keywords = get_field('keywords', 'option');
 	if ($keywords) {
 		printf('<meta name="keywords" content="%s">', esc_attr($keywords));

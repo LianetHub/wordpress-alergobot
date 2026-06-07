@@ -963,6 +963,85 @@ if (!function_exists('alergobot_get_option')) {
 	}
 }
 
+if (!function_exists('alergobot_render_favicons')) {
+	function alergobot_render_favicons()
+	{
+		$png_url = alergobot_acf_image_url(
+			alergobot_get_option('favicon_png'),
+			'full',
+			alergobot_assets_uri('favicon-96x96.png')
+		);
+		$svg_url = alergobot_acf_image_url(
+			alergobot_get_option('favicon_svg'),
+			'full',
+			alergobot_assets_uri('favicon.svg')
+		);
+		$ico_url = alergobot_acf_image_url(
+			alergobot_get_option('favicon_ico'),
+			'full',
+			alergobot_assets_uri('favicon.ico')
+		);
+		$apple_url = alergobot_acf_image_url(
+			alergobot_get_option('favicon_apple'),
+			'full',
+			alergobot_assets_uri('apple-touch-icon.png')
+		);
+		$manifest_url = alergobot_web_manifest_url();
+
+		printf('<link rel="icon" type="image/png" href="%s" sizes="96x96">' . "\n", esc_url($png_url));
+		printf('<link rel="icon" type="image/svg+xml" href="%s">' . "\n", esc_url($svg_url));
+		printf('<link rel="shortcut icon" href="%s">' . "\n", esc_url($ico_url));
+		printf('<link rel="apple-touch-icon" sizes="180x180" href="%s">' . "\n", esc_url($apple_url));
+		printf('<meta name="apple-mobile-web-app-title" content="%s">' . "\n", esc_attr('Protia'));
+		printf('<link rel="manifest" href="%s">' . "\n", esc_url($manifest_url));
+	}
+}
+
+if (!function_exists('alergobot_web_manifest_url')) {
+	function alergobot_web_manifest_url()
+	{
+		return home_url('/site.webmanifest');
+	}
+}
+
+if (!function_exists('alergobot_get_web_manifest_data')) {
+	function alergobot_get_web_manifest_data()
+	{
+		$icon_192 = alergobot_acf_image_url(
+			alergobot_get_option('favicon_manifest_192'),
+			'full',
+			alergobot_assets_uri('web-app-manifest-192x192.png')
+		);
+		$icon_512 = alergobot_acf_image_url(
+			alergobot_get_option('favicon_manifest_512'),
+			'full',
+			alergobot_assets_uri('web-app-manifest-512x512.png')
+		);
+
+		return [
+			'name'             => 'Protia',
+			'short_name'       => 'Protia',
+			'icons'            => [
+				[
+					'src'     => $icon_192,
+					'sizes'   => '192x192',
+					'type'    => 'image/png',
+					'purpose' => 'maskable',
+				],
+				[
+					'src'     => $icon_512,
+					'sizes'   => '512x512',
+					'type'    => 'image/png',
+					'purpose' => 'maskable',
+				],
+			],
+			'theme_color'      => '#ffffff',
+			'background_color' => '#ffffff',
+			'display'          => 'standalone',
+		];
+	}
+}
+
 if (!function_exists('alergobot_render_main_menu')) {
 	function alergobot_render_main_menu($menu_class = 'header__menu', $item_class = 'header__item', $link_class = 'header__link')
 	{
