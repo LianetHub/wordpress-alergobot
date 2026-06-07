@@ -165,8 +165,11 @@ add_action('init', function () {
 		'hierarchical'          => false,
 		'supports'              => ['title', 'editor', 'thumbnail', 'excerpt', 'author'],
 		'taxonomies'            => ['blog_category', 'post_tag'],
-		'has_archive'           => false,
-		'rewrite'               => false,
+		'has_archive'           => 'stati-po-allergologii',
+		'rewrite'               => [
+			'slug'       => 'stati',
+			'with_front' => false,
+		],
 		'query_var'             => true,
 		'can_export'            => true,
 		'delete_with_user'      => false,
@@ -210,13 +213,27 @@ add_action('init', function () {
 		'show_tagcloud'         => false,
 		'show_in_quick_edit'    => true,
 		'show_admin_column'     => true,
-		'rewrite'               => false,
+		'rewrite'               => [
+			'slug'       => 'category',
+			'with_front' => false,
+		],
 		'query_var'             => true,
 		'show_in_rest'          => true,
 	]);
 
 	register_taxonomy_for_object_type('post_tag', 'blogs');
 });
+
+add_action('init', function () {
+	$version = '20260607-blogs-rewrite';
+
+	if (get_option('alergobot_rewrite_version') === $version) {
+		return;
+	}
+
+	flush_rewrite_rules(false);
+	update_option('alergobot_rewrite_version', $version);
+}, 99);
 
 
 add_filter('post_type_link', function (string $post_link, WP_Post $post): string {

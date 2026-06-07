@@ -212,8 +212,6 @@ $article-date-muted: rgba($color-text-body, 0.6);
 			align-self: start;
 			position: sticky;
 			top: rem(80);
-			max-height: calc(100vh - #{rem(48)});
-			overflow-y: auto;
 		}
 
 		.blog-recent__heading {
