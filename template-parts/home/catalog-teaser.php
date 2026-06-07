@@ -46,7 +46,11 @@ $btn_panels    = alergobot_home_get('btn_panels');
 						}
 						?>
 						<li class="catalog-teaser__card" data-animate="bottom">
-							<img src="<?php echo esc_url(alergobot_acf_image_url($item['image_path'])); ?>" class="cover-image" alt="<?php echo esc_attr($item['image_alt'] ?? ''); ?>" title="<?php echo esc_attr($item['image_title'] ?? ''); ?>" loading="lazy">
+							<?php
+							$img_w = $item['image_width'] ?? 800;
+							$img_h = $item['image_height'] ?? 600;
+							?>
+							<img src="<?php echo esc_url(alergobot_acf_image_url($item['image_path'])); ?>" class="cover-image" alt="<?php echo esc_attr($item['image_alt'] ?? ''); ?>" title="<?php echo esc_attr($item['image_title'] ?? ''); ?>" width="<?php echo esc_attr((string) $img_w); ?>" height="<?php echo esc_attr((string) $img_h); ?>" loading="lazy">
 						</li>
 					<?php endforeach; ?>
 				</ul>

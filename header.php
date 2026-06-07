@@ -34,7 +34,7 @@ $main_class    = alergobot_get_main_class();
 				<div class="header__bar">
 					<?php if ($logo) : ?>
 						<a href="<?php echo esc_url(home_url('/')); ?>" class="header__logo">
-							<?php echo alergobot_acf_image($logo, 'full', ['class' => 'header__logo-img', 'loading' => 'eager', 'width' => '111', 'height' => '31']); ?>
+							<?php echo alergobot_acf_image($logo, 'full', ['class' => 'header__logo-img', 'loading' => 'eager', 'fetchpriority' => 'high', 'width' => '111', 'height' => '31']); ?>
 						</a>
 					<?php endif; ?>
 

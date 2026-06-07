@@ -68,7 +68,7 @@ $has_cta       = $cta_title || $cta_text || $cta_note || $cta_image_url;
 						<p class="heading__text" data-animate="bottom"><?php echo esc_html($heading_text); ?></p>
 					<?php endif; ?>
 					<?php if ($logo_url) : ?>
-						<img class="heading__logo" src="<?php echo esc_url($logo_url); ?>" alt="PROTIA" title="PROTIA" width="185" height="52" loading="lazy" data-animate="fade">
+						<img class="heading__logo" src="<?php echo esc_url($logo_url); ?>" alt="PROTIA" title="PROTIA" width="185" height="52" data-animate="fade">
 					<?php endif; ?>
 				</div>
 			<?php endif; ?>
@@ -118,9 +118,15 @@ $has_cta       = $cta_title || $cta_text || $cta_note || $cta_image_url;
 							$photo_alt = is_array($photo) ? ($photo['alt'] ?? '') : '';
 							$photo_w   = is_array($photo) ? ($photo['width'] ?? '') : '';
 							$photo_h   = is_array($photo) ? ($photo['height'] ?? '') : '';
+							if (!$photo_w) {
+								$photo_w = 315;
+							}
+							if (!$photo_h) {
+								$photo_h = 293;
+							}
 							?>
 							<div class="devices-work__photo" data-animate="bottom">
-								<img src="<?php echo esc_url($photo_url); ?>" alt="<?php echo esc_attr($photo_alt); ?>" title="<?php echo esc_attr($photo_alt); ?>"<?php echo $photo_w ? ' width="' . esc_attr((string) $photo_w) . '"' : ''; ?><?php echo $photo_h ? ' height="' . esc_attr((string) $photo_h) . '"' : ''; ?> loading="lazy">
+								<img src="<?php echo esc_url($photo_url); ?>" alt="<?php echo esc_attr($photo_alt); ?>" title="<?php echo esc_attr($photo_alt); ?>" width="<?php echo esc_attr((string) $photo_w); ?>" height="<?php echo esc_attr((string) $photo_h); ?>" loading="lazy">
 							</div>
 						<?php endforeach; ?>
 					</div>

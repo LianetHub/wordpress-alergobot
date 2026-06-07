@@ -57,7 +57,7 @@ $link_cookies = alergobot_get_option('ssylka_cookies');
 				<p class="footer__copy"><?php echo esc_html($copyright); ?></p>
 			<?php endif; ?>
 			<div class="footer__dev">
-				<img class="footer__dev-logo" src="<?php echo esc_url(alergobot_assets_uri('img/ds-art-logo.png')); ?>" alt="" width="26" height="22" aria-hidden="true">
+				<img class="footer__dev-logo" src="<?php echo esc_url(alergobot_assets_uri('img/ds-art-logo.png')); ?>" alt="" width="26" height="22" loading="lazy" aria-hidden="true">
 				<span class="footer__dev-text"><?php esc_html_e('Сайт разработан компанией DS-ART', 'alergobot'); ?></span>
 			</div>
 		</div>

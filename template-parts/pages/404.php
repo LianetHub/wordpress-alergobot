@@ -20,7 +20,7 @@ $subtitle = alergobot_get_option('404_subtitle', __('Воспользуйтес�
 			<?php endif; ?>
 		</div>
 		<div class="not-found__visual" aria-hidden="true" data-animate="fade">
-			<img src="<?php echo esc_url(alergobot_assets_uri('img/404.png')); ?>" alt="" title="" width="703" height="383">
+			<img src="<?php echo esc_url(alergobot_assets_uri('img/404.png')); ?>" alt="" title="" width="703" height="383" fetchpriority="high">
 		</div>
 		<div class="not-found__actions" data-animate="bottom">
 			<a class="btn btn--primary not-found__btn" href="<?php echo esc_url(home_url('/')); ?>"> Вернуться на главную <svg class="btn__icon" width="28" height="28" aria-hidden="true">

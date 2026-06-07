@@ -659,10 +659,14 @@ if (!function_exists('alergobot_render_catalog_gallery_product')) {
 
 		if (!empty($item['img_w'])) {
 			$img_attrs .= ' width="' . esc_attr((string) $item['img_w']) . '"';
+		} else {
+			$img_attrs .= ' width="239"';
 		}
 
 		if (!empty($item['img_h'])) {
 			$img_attrs .= ' height="' . esc_attr((string) $item['img_h']) . '"';
+		} else {
+			$img_attrs .= ' height="164"';
 		}
 
 		if ($tag === 'a') {

@@ -15,7 +15,7 @@ $date      = get_the_date('d.m.Y');
 <article class="blog-featured" data-animate="bottom">
 	<a class="blog-featured__link" href="<?php echo esc_url($permalink); ?>">
 		<div class="blog-featured__media">
-			<img class="blog-featured__img" src="<?php echo esc_url($thumb); ?>" alt="<?php echo esc_attr($title); ?>" title="<?php echo esc_attr($title); ?>" width="873" height="582">
+			<img class="blog-featured__img" src="<?php echo esc_url($thumb); ?>" alt="<?php echo esc_attr($title); ?>" title="<?php echo esc_attr($title); ?>" width="873" height="582" fetchpriority="high">
 			<time class="blog-featured__date" datetime="<?php echo esc_attr($date_iso); ?>"><?php echo esc_html($date); ?></time>
 			<div class="blog-featured__caption">
 				<h2 class="blog-featured__title"><?php echo esc_html($title); ?></h2>

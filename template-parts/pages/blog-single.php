@@ -82,10 +82,11 @@ if ($post_id) {
 				<figure class="article__hero" data-animate="bottom">
 					<?php
 					the_post_thumbnail('large', [
-						'class'   => 'article__hero-img',
-						'loading' => 'eager',
-						'width'   => 407,
-						'height'  => 420,
+						'class'         => 'article__hero-img',
+						'loading'       => 'eager',
+						'fetchpriority' => 'high',
+						'width'         => 407,
+						'height'        => 420,
 					]);
 					?>
 				</figure>

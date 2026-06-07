@@ -18,10 +18,10 @@
 			<div class="heading__aside">
 				<div class="heading__products">
 					<div class="heading__product" data-animate="bottom">
-						<img src="<?php echo esc_url(alergobot_assets_uri('img/product/02.png')); ?>" class="cover-image" alt="Анализатор для аллергодиагностики" title="Анализатор для аллергодиагностики">
+						<img src="<?php echo esc_url(alergobot_assets_uri('img/product/02.png')); ?>" class="cover-image" alt="Анализатор для аллергодиагностики" title="Анализатор для аллергодиагностики" width="800" height="600" fetchpriority="high">
 					</div>
 					<div class="heading__product" data-animate="bottom">
-						<img src="<?php echo esc_url(alergobot_assets_uri('img/product/01.png')); ?>" class="cover-image" alt="Диагностическое оборудование PROTIA" title="Диагностическое оборудование PROTIA">
+						<img src="<?php echo esc_url(alergobot_assets_uri('img/product/01.png')); ?>" class="cover-image" alt="Диагностическое оборудование PROTIA" title="Диагностическое оборудование PROTIA" width="800" height="600" fetchpriority="high">
 					</div>
 				</div>
 			</div>

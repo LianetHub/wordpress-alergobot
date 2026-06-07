@@ -81,8 +81,13 @@ if (!function_exists('alergobot_acf_image')) {
 		}
 
 		if (is_numeric($image)) {
-			$image = [
-				'url' => $url,
+			$attachment_id = (int) $image;
+			$meta          = wp_get_attachment_metadata($attachment_id) ?: [];
+			$image         = [
+				'url'    => $url,
+				'alt'    => (string) get_post_meta($attachment_id, '_wp_attachment_image_alt', true),
+				'width'  => $meta['width'] ?? '',
+				'height' => $meta['height'] ?? '',
 			];
 		} elseif (is_string($image)) {
 			$image = ['url' => $url];
@@ -99,21 +104,32 @@ if (!function_exists('alergobot_acf_image')) {
 		$title   = $attrs['title'] ?? ($image['title'] ?? '');
 		$w       = $attrs['width'] ?? ($image['width'] ?? '');
 		$h       = $attrs['height'] ?? ($image['height'] ?? '');
-		$loading = $attrs['loading'] ?? 'lazy';
-		$class   = $attrs['class'] ?? '';
-		$class_attr = $class ? sprintf(' class="%s"', esc_attr($class)) : '';
+		$loading       = $attrs['loading'] ?? 'lazy';
+		$fetchpriority = $attrs['fetchpriority'] ?? '';
+		$class         = $attrs['class'] ?? '';
+		$class_attr    = $class ? sprintf(' class="%s"', esc_attr($class)) : '';
 		$aria_hidden_attr = !empty($attrs['aria-hidden'])
 			? sprintf(' aria-hidden="%s"', esc_attr($attrs['aria-hidden']))
 			: '';
+		$dim_attrs = '';
+		if ($w !== '' && $w !== null) {
+			$dim_attrs .= sprintf(' width="%s"', esc_attr((string) $w));
+		}
+		if ($h !== '' && $h !== null) {
+			$dim_attrs .= sprintf(' height="%s"', esc_attr((string) $h));
+		}
+		$fetchpriority_attr = $fetchpriority
+			? sprintf(' fetchpriority="%s"', esc_attr($fetchpriority))
+			: '';
 
 		return sprintf(
-			'<img src="%s" alt="%s" title="%s" width="%s" height="%s" loading="%s"%s%s>',
+			'<img src="%s" alt="%s" title="%s"%s loading="%s"%s%s%s>',
 			esc_url($url),
 			esc_attr($alt),
 			esc_attr($title),
-			esc_attr($w),
-			esc_attr($h),
+			$dim_attrs,
 			esc_attr($loading),
+			$fetchpriority_attr,
 			$aria_hidden_attr,
 			$class_attr
 		);

@@ -77,7 +77,7 @@ $rating   = function_exists('get_field') ? (string) get_field('product_rating', 
 							</div>
 						<?php endif; ?>
 						<div class="product-hero__media-inner">
-							<img src="<?php echo esc_url($hero_url); ?>" alt="<?php echo esc_attr($hero_alt); ?>" title="<?php echo esc_attr($hero_alt); ?>" width="451" height="308">
+							<img src="<?php echo esc_url($hero_url); ?>" alt="<?php echo esc_attr($hero_alt); ?>" title="<?php echo esc_attr($hero_alt); ?>" width="451" height="308" fetchpriority="high">
 						</div>
 					</div>
 				</div>
