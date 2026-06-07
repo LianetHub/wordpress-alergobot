@@ -381,8 +381,6 @@ h3 {
         align-self: start;
     position: sticky;
     top: 5rem;
-    max-height: calc(100vh - 3rem);
-    overflow-y: auto;
   }
 
   .article-more {

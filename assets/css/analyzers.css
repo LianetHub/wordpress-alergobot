@@ -583,6 +583,7 @@ h3 {
   .category__card {
     min-height: 23.375rem;
     padding: 1.25rem;
+    padding-bottom: 3.75rem;
   }
 
   .category__text {

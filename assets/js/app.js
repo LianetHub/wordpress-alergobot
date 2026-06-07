@@ -4,6 +4,7 @@ import { initAnimation } from "./animation.js";
 import { initBlogFeed } from "./blog-feed.js";
 import { initYandexMaps } from "./map.js";
 import { initTooltips } from "./tooltip.js";
+import { initCookieNotice } from "./cookie-notice.js";
 
 document.addEventListener("DOMContentLoaded", () => {
 	initBurger();
@@ -20,6 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	initPhoneMask();
 	initYandexMaps();
 	initCf7();
+	initCookieNotice();
 });
 
 function initBurger() {

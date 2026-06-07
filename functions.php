@@ -22,3 +22,4 @@ require_once $alergobot_inc . 'cpt.php';
 require_once $alergobot_inc . 'gallery.php';
 require_once $alergobot_inc . 'ajax.php';
 require_once $alergobot_inc . 'cf7.php';
+require_once $alergobot_inc . 'cookie-notice.php';
