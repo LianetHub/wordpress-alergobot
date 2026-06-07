@@ -16,13 +16,13 @@ add_action('init', function () {
 			'search_items'  => 'Искать продукцию',
 			'not_found'     => 'Продукция не найдена',
 		],
-		'public'             => true,
-		'has_archive'        => false,
-		'rewrite'            => ['slug' => 'oborudovanie', 'with_front' => false],
-		'supports'           => ['title', 'editor', 'thumbnail', 'excerpt'],
-		'menu_icon'          => 'dashicons-products',
-		'menu_position'      => 5,
-		'show_in_rest'       => true,
+		'public'        => true,
+		'has_archive'   => false,
+		'rewrite'       => false,
+		'supports'      => ['title', 'editor', 'thumbnail', 'excerpt'],
+		'menu_icon'     => 'dashicons-products',
+		'menu_position' => 5,
+		'show_in_rest'  => true,
 	]);
 
 	register_taxonomy('product_category', ['product'], [
@@ -46,13 +46,13 @@ add_action('init', function () {
 			'search_items'  => 'Искать статьи',
 			'not_found'     => 'Статей не найдено',
 		],
-		'public'             => true,
-		'has_archive'        => 'stati-po-allergologii',
-		'rewrite'            => ['slug' => 'stati', 'with_front' => false],
-		'supports'           => ['title', 'editor', 'thumbnail', 'excerpt', 'author'],
-		'menu_icon'          => 'dashicons-admin-post',
-		'menu_position'      => 6,
-		'show_in_rest'       => true,
+		'public'        => true,
+		'has_archive'   => false,
+		'rewrite'       => false,
+		'supports'      => ['title', 'editor', 'thumbnail', 'excerpt', 'author'],
+		'menu_icon'     => 'dashicons-admin-post',
+		'menu_position' => 6,
+		'show_in_rest'  => true,
 	]);
 
 	register_taxonomy('blog_category', ['blogs'], [
@@ -63,56 +63,30 @@ add_action('init', function () {
 		'public'            => true,
 		'hierarchical'      => true,
 		'show_admin_column' => true,
-		'rewrite'           => ['slug' => 'category', 'with_front' => false],
+		'rewrite'           => false,
 		'show_in_rest'      => true,
 	]);
 
 	register_taxonomy_for_object_type('post_tag', 'blogs');
 });
 
-/**
- * Create default catalog terms on theme switch.
- */
-add_action('after_switch_theme', function () {
-	$product_terms = [
-		'ustroystva'  => 'Оборудование',
-		'analizatory' => 'Анализаторы',
-		'reagenty'    => 'Реагенты',
-		'paneli'      => 'Панели',
-	];
 
-	$legacy_slugs = [
-		'oborudovanie' => 'ustroystva',
-		'analyzers'    => 'analizatory',
-		'reagents'     => 'reagenty',
-		'panels'       => 'paneli',
-	];
-
-	foreach ($legacy_slugs as $old_slug => $new_slug) {
-		$term = get_term_by('slug', $old_slug, 'product_category');
-		if ($term && !is_wp_error($term)) {
-			wp_update_term((int) $term->term_id, 'product_category', [
-				'slug' => $new_slug,
-				'name' => $product_terms[$new_slug],
-			]);
-		}
+add_filter('request', function (array $query_vars): array {
+	if (empty($query_vars['pagename']) || isset($query_vars['product_category'])) {
+		return $query_vars;
 	}
 
-	foreach ($product_terms as $slug => $name) {
-		if (!term_exists($slug, 'product_category')) {
-			wp_insert_term($name, 'product_category', ['slug' => $slug]);
-		}
+	if (!preg_match('#^oborudovanie/([^/]+)/?$#', (string) $query_vars['pagename'], $matches)) {
+		return $query_vars;
 	}
 
-	$blog_terms = [
-		'stati'   => 'Статьи',
-		'novosti' => 'Новости',
-	];
-	foreach ($blog_terms as $slug => $name) {
-		if (!term_exists($slug, 'blog_category')) {
-			wp_insert_term($name, 'blog_category', ['slug' => $slug]);
-		}
+	$term = get_term_by('slug', $matches[1], 'product_category');
+	if (!$term || is_wp_error($term)) {
+		return $query_vars;
 	}
 
-	flush_rewrite_rules();
+	unset($query_vars['pagename'], $query_vars['page'], $query_vars['name']);
+	$query_vars['product_category'] = $matches[1];
+
+	return $query_vars;
 });

@@ -15,9 +15,9 @@
 			<h2 class="popup-modal__title title title-popup">Свяжитесь с нами для консультации</h2>
 			<p class="popup-modal__lead">Наш специалист ответит на любые ваши вопросы и&nbsp;поможет сделать выбор</p>
 			<div class="popup-modal__content popup-modal__content--center">
-				<form class="popup-modal__form" action="<?php echo esc_url(admin_url('admin-ajax.php')); ?>" method="post" data-popup-form="">
+				<div class="popup-modal__form"  >
 					<?php alergobot_cf7_form('cf7_konsultaciya'); ?>
-				</form>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -28,9 +28,9 @@
 				<div class="popup-modal__content">
 					<h2 class="popup-modal__title title title-popup">Оформить заказ</h2>
 					<p class="popup-modal__lead">Заполните форму заказа, чтобы получить предварительную консультацию и ответы на вопросы, которые вас интересует по оборудованию</p>
-					<form class="popup-modal__form" action="<?php echo esc_url(admin_url('admin-ajax.php')); ?>" method="post" data-popup-form="">
+					<div class="popup-modal__form" >
 						<?php alergobot_cf7_form('cf7_zakaz'); ?>
-					</form>
+					</div>
 				</div>
 				<div class="popup-modal__visual" aria-hidden="true">
 					<div class="popup-modal__photo">

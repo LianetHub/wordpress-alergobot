@@ -47,10 +47,7 @@ $has_request = $request_title || $request_note || $request_lead;
 									continue;
 								}
 
-								$tag_url = get_term_link($term);
-								if (is_wp_error($tag_url)) {
-									continue;
-								}
+								$tag_url = alergobot_get_product_category_link($term->slug);
 								?>
 								<li class="heading__tags-item">
 									<a class="heading__tag" href="<?php echo esc_url($tag_url); ?>" data-animate="scale">

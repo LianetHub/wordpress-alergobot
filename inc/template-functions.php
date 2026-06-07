@@ -524,14 +524,11 @@ if (!function_exists('alergobot_get_product_category_term_id')) {
 if (!function_exists('alergobot_get_product_category_link')) {
 	function alergobot_get_product_category_link($slug, $fallback = '')
 	{
-		$term_id = alergobot_get_product_category_term_id($slug);
-		if (!$term_id) {
+		if (!alergobot_get_product_category_term_id($slug)) {
 			return $fallback ?: alergobot_catalog_url();
 		}
 
-		$link = get_term_link($term_id, 'product_category');
-
-		return is_wp_error($link) ? ($fallback ?: alergobot_catalog_url()) : $link;
+		return home_url(user_trailingslashit('oborudovanie/' . $slug));
 	}
 }
 
