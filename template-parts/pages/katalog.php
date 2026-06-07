@@ -75,12 +75,13 @@ $has_request = $request_title || $request_note || $request_lead;
 	$section_title = $section['title'] ?? '';
 	$section_text  = $section['text'] ?? '';
 	$section_btn   = $section['btn'] ?? null;
+	$section_btn_2 = $section['btn_2'] ?? null;
 	$section_tag   = $section['tag'] ?? '';
 	$gallery       = $section['gallery'] ?? [];
 	$btn_url       = is_array($section_btn) ? alergobot_acf_link_url($section_btn, '') : '';
-	$btn_title     = is_array($section_btn) ? alergobot_acf_link_title($section_btn, '') : '';
+	$btn_2_url     = is_array($section_btn_2) ? alergobot_acf_link_url($section_btn_2, '') : '';
 
-	if (!$section_title && !$section_text && !$btn_url && !$section_tag && !$gallery) {
+	if (!$section_title && !$section_text && !$btn_url && !$btn_2_url && !$section_tag && !$gallery) {
 		continue;
 	}
 ?>
@@ -94,14 +95,29 @@ $has_request = $request_title || $request_note || $request_lead;
 					<?php if ($section_text) : ?>
 						<p class="catalog__text" data-animate="bottom"><?php echo esc_html($section_text); ?></p>
 					<?php endif; ?>
-					<?php if ($btn_url && $btn_title) : ?>
-						<a class="btn btn--primary catalog__btn" href="<?php echo esc_url($btn_url); ?>" data-animate="bottom" <?php echo alergobot_acf_link_target($section_btn) ? ' target="' . esc_attr(alergobot_acf_link_target($section_btn)) . '"' : ''; ?>>
-							<?php echo esc_html($btn_title); ?>
+					<?php
+					$section_buttons = [
+						['link' => $section_btn, 'class' => 'btn btn--primary catalog__btn'],
+						['link' => $section_btn_2, 'class' => 'btn btn--secondary catalog__btn'],
+					];
+					foreach ($section_buttons as $button) :
+						$button_link = $button['link'] ?? null;
+						if (!is_array($button_link)) {
+							continue;
+						}
+						$button_url   = alergobot_acf_link_url($button_link, '');
+						$button_title = alergobot_acf_link_title($button_link, '');
+						if (!$button_url || !$button_title) {
+							continue;
+						}
+					?>
+						<a class="<?php echo esc_attr($button['class']); ?>" href="<?php echo esc_url($button_url); ?>" data-animate="bottom"<?php echo alergobot_acf_link_target($button_link) ? ' target="' . esc_attr(alergobot_acf_link_target($button_link)) . '"' : ''; ?>>
+							<?php echo esc_html($button_title); ?>
 							<svg class="btn__icon" width="28" height="28">
 								<use href="<?php echo esc_url($icons); ?>#icon-arrow-up-right"></use>
 							</svg>
 						</a>
-					<?php endif; ?>
+					<?php endforeach; ?>
 				</div>
 			</div>
 			<div class="catalog__side">
@@ -109,28 +125,18 @@ $has_request = $request_title || $request_note || $request_lead;
 					<span class="tag catalog__tag" data-animate="scale"><?php echo esc_html($section_tag); ?></span>
 				<?php endif; ?>
 				<?php if ($gallery) : ?>
-					<div class="catalog__gallery" data-decor-parallax="">
+					<div class="catalog__gallery" data-decor-parallax>
 						<?php foreach ($gallery as $gallery_item) :
-							$image = $gallery_item['image'] ?? null;
-							$link  = $gallery_item['link'] ?? null;
-							$img_url = alergobot_acf_image_url($image);
-							if (!$img_url) {
+							$gallery_item = alergobot_resolve_catalog_gallery_item($gallery_item, $btn_url);
+							if (!$gallery_item) {
 								continue;
 							}
-							$img_alt = is_array($image) ? ($image['alt'] ?? '') : '';
-							$img_w   = is_array($image) ? ($image['width'] ?? '') : '';
-							$img_h   = is_array($image) ? ($image['height'] ?? '') : '';
-							$link_url = is_array($link) ? alergobot_acf_link_url($link, '') : '';
+
+							alergobot_render_catalog_gallery_product(
+								$gallery_item,
+								$gallery_item['link_url'] ? 'a' : 'div'
+							);
 						?>
-							<?php if ($link_url) : ?>
-								<a href="<?php echo esc_url($link_url); ?>" class="catalog__product" data-animate="bottom">
-									<img src="<?php echo esc_url($img_url); ?>" alt="<?php echo esc_attr($img_alt); ?>" title="<?php echo esc_attr($img_alt); ?>" <?php echo $img_w ? ' width="' . esc_attr((string) $img_w) . '"' : ''; ?><?php echo $img_h ? ' height="' . esc_attr((string) $img_h) . '"' : ''; ?> loading="lazy">
-								</a>
-							<?php else : ?>
-								<div class="catalog__product" data-animate="bottom">
-									<img src="<?php echo esc_url($img_url); ?>" alt="<?php echo esc_attr($img_alt); ?>" title="<?php echo esc_attr($img_alt); ?>" <?php echo $img_w ? ' width="' . esc_attr((string) $img_w) . '"' : ''; ?><?php echo $img_h ? ' height="' . esc_attr((string) $img_h) . '"' : ''; ?> loading="lazy">
-								</div>
-							<?php endif; ?>
 						<?php endforeach; ?>
 					</div>
 				<?php endif; ?>

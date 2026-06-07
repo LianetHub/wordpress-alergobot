@@ -3,7 +3,7 @@
 /**
  * ACF configuration
  *
- * Группы полей настраиваются в админке WordPress (ACF).
+ * Группы полей в админке WordPress (ACF).
  *
  * @package alergobot
  */

@@ -127,6 +127,10 @@
 		justify-content: center;
 		align-items: center;
 		padding: 0.875rem 0.25rem;
+		color: inherit;
+		text-decoration: none;
+		overflow: hidden;
+		transition: border-color 0.25s ease, box-shadow 0.25s ease;
 
 		@media (min-width:$md3) {
 			border-radius: 0.625rem;
@@ -137,13 +141,46 @@
 		@media (min-width:$md2) {
 			width: 19.6875rem;
 		}
+	}
 
-		& img {
-			width: 100%;
-			height: auto;
+	&__product-media {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 100%;
+		position: relative;
+	}
 
+	&__product-img {
+		width: 100%;
+		height: auto;
+		transition: opacity 0.25s ease, transform 0.25s ease;
+
+		&--hover {
+			position: absolute;
+			inset: 0;
+			margin: auto;
+			opacity: 0;
+		}
+	}
+
+	@media (any-hover: hover) {
+		&__product:hover {
+			box-shadow: 0 rem(8) rem(24) rgba($color-brand, 0.12);
 		}
 
+		&__product:not(&__product--has-hover):hover &__product-img {
+			transform: scale(1.04);
+		}
+
+		&__product--has-hover:hover &__product-img--default {
+			opacity: 0;
+		}
+
+		&__product--has-hover:hover &__product-img--hover {
+			opacity: 1;
+			transform: scale(1.04);
+		}
 	}
 
 	&--reverse {

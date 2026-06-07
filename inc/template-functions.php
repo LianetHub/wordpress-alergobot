@@ -572,6 +572,126 @@ if (!function_exists('alergobot_get_product_category_terms')) {
 	}
 }
 
+if (!function_exists('alergobot_resolve_catalog_gallery_item')) {
+	/**
+	 * Normalize catalog section gallery row: image URL, alt, dimensions, link.
+	 *
+	 * @param array  $item           ACF gallery repeater row.
+	 * @param string $fallback_link  Section button URL when item link is empty.
+	 * @return array{img_url: string, img_hover_url: string, img_alt: string, img_w: int|string, img_h: int|string, link_url: string, link_target: string}|null
+	 */
+	function alergobot_resolve_catalog_gallery_item($item, $fallback_link = '')
+	{
+		if (!is_array($item)) {
+			return null;
+		}
+
+		$product = $item['product'] ?? null;
+		$image   = $item['image'] ?? null;
+		$image_hover = $item['image_hover'] ?? null;
+		$link    = $item['link'] ?? null;
+
+		if (is_numeric($product)) {
+			$product = get_post((int) $product);
+		}
+
+		if ($product instanceof WP_Post) {
+			$post_id = $product->ID;
+
+			if (!$image && function_exists('get_field')) {
+				$image = get_field('product_hero_image', $post_id);
+			}
+
+			if (!$image) {
+				$thumb_id = get_post_thumbnail_id($post_id);
+				if ($thumb_id) {
+					$image = $thumb_id;
+				}
+			}
+		}
+
+		$img_url = alergobot_acf_image_url($image);
+		if (!$img_url) {
+			return null;
+		}
+
+		$img_alt = is_array($image) ? (string) ($image['alt'] ?? '') : '';
+		if ($img_alt === '' && $product instanceof WP_Post) {
+			$img_alt = get_the_title($product);
+		}
+
+		$img_w = is_array($image) ? ($image['width'] ?? '') : '';
+		$img_h = is_array($image) ? ($image['height'] ?? '') : '';
+
+		$link_url    = is_array($link) ? alergobot_acf_link_url($link, '') : '';
+		$link_target = is_array($link) ? alergobot_acf_link_target($link) : '';
+
+		if (!$link_url && $product instanceof WP_Post) {
+			$link_url = get_permalink($product);
+		}
+
+		if (!$link_url && $fallback_link) {
+			$link_url = $fallback_link;
+		}
+
+		$img_hover_url = alergobot_acf_image_url($image_hover);
+
+		return [
+			'img_url'       => $img_url,
+			'img_hover_url' => $img_hover_url,
+			'img_alt'       => $img_alt,
+			'img_w'         => $img_w,
+			'img_h'         => $img_h,
+			'link_url'      => $link_url,
+			'link_target'   => $link_target,
+		];
+	}
+}
+
+if (!function_exists('alergobot_render_catalog_gallery_product')) {
+	/**
+	 * Render catalog section gallery card with optional hover image.
+	 *
+	 * @param array  $item Resolved gallery row from alergobot_resolve_catalog_gallery_item().
+	 * @param string $tag  Wrapper tag: `a` or `div`.
+	 */
+	function alergobot_render_catalog_gallery_product(array $item, $tag = 'a')
+	{
+		$has_hover = !empty($item['img_hover_url']);
+		$class     = 'catalog__product' . ($has_hover ? ' catalog__product--has-hover' : '');
+		$img_attrs = '';
+
+		if (!empty($item['img_w'])) {
+			$img_attrs .= ' width="' . esc_attr((string) $item['img_w']) . '"';
+		}
+
+		if (!empty($item['img_h'])) {
+			$img_attrs .= ' height="' . esc_attr((string) $item['img_h']) . '"';
+		}
+
+		if ($tag === 'a') {
+			printf(
+				'<a href="%1$s" class="%2$s" data-animate="bottom"%3$s%4$s>',
+				esc_url($item['link_url']),
+				esc_attr($class),
+				!empty($item['link_target']) ? ' target="' . esc_attr($item['link_target']) . '"' : '',
+				($item['link_target'] ?? '') === '_blank' ? ' rel="noopener noreferrer"' : ''
+			);
+		} else {
+			printf('<div class="%s" data-animate="bottom">', esc_attr($class));
+		}
+		?>
+		<span class="catalog__product-media">
+			<img class="catalog__product-img<?php echo $has_hover ? ' catalog__product-img--default' : ''; ?>" src="<?php echo esc_url($item['img_url']); ?>" alt="<?php echo esc_attr($item['img_alt']); ?>" title="<?php echo esc_attr($item['img_alt']); ?>"<?php echo $img_attrs; ?> loading="lazy">
+			<?php if ($has_hover) : ?>
+				<img class="catalog__product-img catalog__product-img--hover" src="<?php echo esc_url($item['img_hover_url']); ?>" alt="" aria-hidden="true"<?php echo $img_attrs; ?> loading="lazy">
+			<?php endif; ?>
+		</span>
+		<?php
+		echo $tag === 'a' ? '</a>' : '</div>';
+	}
+}
+
 if (!function_exists('alergobot_get_term_field')) {
 	function alergobot_get_term_field($field, $term)
 	{

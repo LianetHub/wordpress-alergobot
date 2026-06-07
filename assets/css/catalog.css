@@ -171,11 +171,43 @@ h3 {
       -ms-flex-align: center;
           align-items: center;
   padding: 0.875rem 0.25rem;
+  color: inherit;
+  text-decoration: none;
+  overflow: hidden;
+  -webkit-transition: border-color 0.25s ease, -webkit-box-shadow 0.25s ease;
+  transition: border-color 0.25s ease, -webkit-box-shadow 0.25s ease;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, -webkit-box-shadow 0.25s ease;
 }
 
-.catalog__product img {
+.catalog__product-media {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
+  position: relative;
+}
+
+.catalog__product-img {
   width: 100%;
   height: auto;
+  -webkit-transition: opacity 0.25s ease, -webkit-transform 0.25s ease;
+  transition: opacity 0.25s ease, -webkit-transform 0.25s ease;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  transition: opacity 0.25s ease, transform 0.25s ease, -webkit-transform 0.25s ease;
+}
+
+.catalog__product-img--hover {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  opacity: 0;
 }
 
 @media (min-width: 575.98px) {
@@ -353,5 +385,27 @@ h3 {
 @media (any-hover: hover) {
   ::-webkit-scrollbar-thumb:hover {
     background: #1b4964;
+  }
+
+  .catalog__product:hover {
+    -webkit-box-shadow: 0 0.5rem 1.5rem rgba(38, 102, 140, 0.12);
+            box-shadow: 0 0.5rem 1.5rem rgba(38, 102, 140, 0.12);
+  }
+
+  .catalog__product:not(.catalog__product--has-hover):hover .catalog__product-img {
+    -webkit-transform: scale(1.04);
+        -ms-transform: scale(1.04);
+            transform: scale(1.04);
+  }
+
+  .catalog__product--has-hover:hover .catalog__product-img--default {
+    opacity: 0;
+  }
+
+  .catalog__product--has-hover:hover .catalog__product-img--hover {
+    opacity: 1;
+    -webkit-transform: scale(1.04);
+        -ms-transform: scale(1.04);
+            transform: scale(1.04);
   }
 }

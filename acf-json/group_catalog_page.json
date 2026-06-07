@@ -66,6 +66,13 @@
                     "parent_repeater": "field_catalog_sections"
                 },
                 {
+                    "key": "field_catalog_section_btn_2",
+                    "label": "Кнопка 2",
+                    "name": "btn_2",
+                    "type": "link",
+                    "parent_repeater": "field_catalog_sections"
+                },
+                {
                     "key": "field_catalog_section_tag",
                     "label": "Тег",
                     "name": "tag",
@@ -74,18 +81,46 @@
                 },
                 {
                     "key": "field_catalog_section_gallery",
-                    "label": "Галерея",
+                    "label": "Галерея изображений",
                     "name": "gallery",
                     "type": "repeater",
-                    "layout": "table",
+                    "instructions": "Добавьте 1–4 карточки с изображениями справа в секции. Можно выбрать товар из каталога — подставятся его фото и ссылка. Или задайте изображение и ссылку вручную. Если ссылка у карточки пустая — используется URL кнопки секции.",
+                    "layout": "block",
+                    "min": 0,
+                    "max": 4,
                     "button_label": "Добавить изображение",
                     "parent_repeater": "field_catalog_sections",
                     "sub_fields": [
+                        {
+                            "key": "field_catalog_section_gallery_product",
+                            "label": "Товар",
+                            "name": "product",
+                            "type": "post_object",
+                            "instructions": "Необязательно. Если выбран — подставятся изображение и ссылка на карточку товара.",
+                            "post_type": [
+                                "product"
+                            ],
+                            "return_format": "object",
+                            "allow_null": 1,
+                            "ui": 1,
+                            "parent_repeater": "field_catalog_section_gallery"
+                        },
                         {
                             "key": "field_catalog_section_gallery_image",
                             "label": "Изображение",
                             "name": "image",
                             "type": "image",
+                            "instructions": "Загрузите PNG/JPG или оставьте пустым, если выбран товар выше.",
+                            "return_format": "array",
+                            "preview_size": "medium",
+                            "parent_repeater": "field_catalog_section_gallery"
+                        },
+                        {
+                            "key": "field_catalog_section_gallery_image_hover",
+                            "label": "Изображение при наведении",
+                            "name": "image_hover",
+                            "type": "image",
+                            "instructions": "Необязательно. Показывается при hover вместо основного изображения.",
                             "return_format": "array",
                             "preview_size": "medium",
                             "parent_repeater": "field_catalog_section_gallery"
@@ -95,6 +130,7 @@
                             "label": "Ссылка",
                             "name": "link",
                             "type": "link",
+                            "instructions": "Куда ведёт клик по изображению. Можно указать категорию или карточку товара.",
                             "parent_repeater": "field_catalog_section_gallery"
                         }
                     ]
@@ -164,5 +200,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1780790400
+    "modified": 1749254400
 }

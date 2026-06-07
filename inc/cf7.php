@@ -9,7 +9,7 @@
 add_filter('wpcf7_autop_or_not', '__return_false');
 
 /**
- * Нормализует пути к SVG-спрайту и убирает скрытые иконки в чекбоксе (галочка через CSS).
+ * Нормализует пути к SVG-спрайту.
  */
 add_filter('wpcf7_form_elements', function ($content) {
 	$icons_uri = alergobot_assets_uri('img/icons.svg');

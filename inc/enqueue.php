@@ -17,7 +17,7 @@ add_action('wp_enqueue_scripts', function () {
 	wp_enqueue_style('alergobot-header', $uri . '/css/header.min.css', ['alergobot-global'], $ver);
 	wp_enqueue_style('alergobot-footer', $uri . '/css/footer.min.css', ['alergobot-global'], $ver);
 
-	// Полный бандл (fallback при неполной сборке split CSS).
+	// fallback при неполной сборке split CSS.
 	if (file_exists(ALERGOBOT_DIR . '/assets/css/style.min.css')) {
 		wp_enqueue_style('alergobot-style-bundle', $uri . '/css/style.min.css', ['alergobot-reset'], $ver);
 	}
@@ -45,7 +45,7 @@ add_action('wp_enqueue_scripts', function () {
 });
 
 /**
- * Conditional page styles (regulation §3.2).
+ * Conditional page styles.
  */
 function alergobot_enqueue_conditional_styles($uri, $ver)
 {
