@@ -101,34 +101,6 @@ function initBlogTabs() {
 	if (!feed || typeof theme_ajax === "undefined") return;
 
 	initBlogFeed(feed, theme_ajax);
-	const grid = feed.querySelector("[data-blog-grid]");
-
-	const loadMoreBtn = document.querySelector("[data-blog-load-more]");
-	if (loadMoreBtn && grid) {
-		let page = Number.parseInt(feed.dataset.currentPage || "1", 10) || 1;
-
-		loadMoreBtn.addEventListener("click", () => {
-			page += 1;
-			const body = new URLSearchParams({
-				action: "load_more_blogs",
-				nonce: theme_ajax.nonce,
-				category: loadMoreBtn.dataset.blogCategory || "all",
-				page: String(page),
-			});
-
-			fetch(theme_ajax.ajax_url, { method: "POST", body })
-				.then((response) => response.json())
-				.then((data) => {
-					if (data.success && data.data?.html) {
-						grid.insertAdjacentHTML("beforeend", data.data.html);
-						if (page >= data.data.max_pages) {
-							loadMoreBtn.hidden = true;
-						}
-					}
-				})
-				.catch((error) => console.error(error));
-		});
-	}
 }
 
 function initProductTabs() {

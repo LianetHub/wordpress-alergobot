@@ -48,7 +48,7 @@ alwaysApply: false
 
 ## AJAX
 
-- `filter_blogs`, `load_more_blogs` — `check_ajax_referer('alergobot_nonce')`
+- `filter_blogs` — `check_ajax_referer('alergobot_nonce')`
 - JS: объект `theme_ajax` из `wp_localize_script`
 
 ## Безопасность
