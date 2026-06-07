@@ -30,21 +30,11 @@ $blog-date-muted: rgba($color-text-body, 0.6);
 	border-radius: rem(10);
 	overflow: hidden;
 	background: $color-brand-2;
-	min-height: rem(284);
-
-	@media (min-width: $md3) {
-		min-height: rem(400);
-	}
-
-	@media (min-width: $md2) {
-		min-height: rem(577);
-	}
 
 	&__link {
 		display: block;
 		color: inherit;
 		text-decoration: none;
-		height: 100%;
 
 		@media (any-hover: hover) {
 			&:hover .blog-featured__title {
@@ -55,23 +45,16 @@ $blog-date-muted: rgba($color-text-body, 0.6);
 
 	&__media {
 		position: relative;
-		min-height: rem(284);
-		height: 100%;
-
-		@media (min-width: $md3) {
-			min-height: rem(400);
-		}
-
-		@media (min-width: $md2) {
-			min-height: rem(577);
-		}
+		width: 100%;
+		aspect-ratio: 873 / 582;
 	}
 
 	&__img {
+		position: absolute;
+		inset: 0;
 		display: block;
 		width: 100%;
 		height: 100%;
-		min-height: inherit;
 		object-fit: cover;
 	}
 

@@ -96,30 +96,13 @@ function initCf7() {
 function initBlogTabs() {
 	const tabs = document.querySelectorAll("[data-blog-tab]");
 	const panels = document.querySelectorAll("[data-blog-panel]");
-	const grid = document.querySelector("[data-blog-grid]");
+	const paginations = document.querySelectorAll("[data-blog-pagination]");
 
 	if (!tabs.length || !panels.length) return;
 
-	const filterByAjax = (category) => {
-		if (typeof theme_ajax === "undefined" || !grid) return false;
-
-		const body = new URLSearchParams({
-			action: "filter_blogs",
-			nonce: theme_ajax.nonce,
-			category: category || "all",
-			page: "1",
-		});
-
-		fetch(theme_ajax.ajax_url, { method: "POST", body })
-			.then((response) => response.json())
-			.then((data) => {
-				if (data.success && data.data?.html) {
-					grid.innerHTML = data.data.html;
-				}
-			})
-			.catch((error) => console.error(error));
-
-		return true;
+	const getActiveGrid = () => {
+		const activePanel = document.querySelector("[data-blog-panel]._active");
+		return activePanel?.querySelector("[data-blog-grid]") ?? null;
 	};
 
 	tabs.forEach((tab) => {
@@ -138,16 +121,19 @@ function initBlogTabs() {
 				panel.hidden = !isActive;
 			});
 
-			if (tab.dataset.blogCategory) {
-				filterByAjax(tab.dataset.blogCategory);
-			}
+			paginations.forEach((pagination) => {
+				pagination.hidden = pagination.dataset.blogPagination !== target;
+			});
 		});
 	});
 
 	const loadMoreBtn = document.querySelector("[data-blog-load-more]");
-	if (loadMoreBtn && typeof theme_ajax !== "undefined" && grid) {
+	if (loadMoreBtn && typeof theme_ajax !== "undefined") {
 		let page = 1;
 		loadMoreBtn.addEventListener("click", () => {
+			const grid = getActiveGrid();
+			if (!grid) return;
+
 			page += 1;
 			const body = new URLSearchParams({
 				action: "load_more_blogs",

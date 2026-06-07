@@ -31,6 +31,252 @@ if (!function_exists('alergobot_query_blogs')) {
 	}
 }
 
+if (!function_exists('alergobot_get_blog_category_term_id')) {
+	function alergobot_get_blog_category_term_id($slug)
+	{
+		$term = get_term_by('slug', $slug, 'blog_category');
+
+		return ($term && !is_wp_error($term)) ? (int) $term->term_id : 0;
+	}
+}
+
+if (!function_exists('alergobot_get_blog_badge_label')) {
+	function alergobot_get_blog_badge_label($post_id = 0)
+	{
+		$post_id = $post_id ?: get_the_ID();
+		$terms   = wp_get_post_terms($post_id, 'blog_category', ['fields' => 'slugs']);
+
+		if (!is_wp_error($terms) && in_array('novosti', $terms, true)) {
+			return __('Новость', 'alergobot');
+		}
+
+		return __('Статья', 'alergobot');
+	}
+}
+
+if (!function_exists('alergobot_get_blog_archive_context')) {
+	function alergobot_get_blog_archive_context()
+	{
+		$context = [
+			'active_tab'       => 'articles',
+			'heading_title'    => __('Статьи и новости', 'alergobot'),
+			'heading_text'     => '',
+			'archive_taxonomy' => '',
+			'archive_term_id'  => 0,
+			'archive_term_slug'=> '',
+			'tag_id'           => 0,
+			'base_url'         => alergobot_blogs_archive_url(),
+			'articles_term_id' => alergobot_get_blog_category_term_id('stati'),
+			'news_term_id'     => alergobot_get_blog_category_term_id('novosti'),
+			'posts_per_page'   => 9,
+			'articles_paged'   => max(1, (int) get_query_var('paged'), (int) get_query_var('page')),
+			'news_paged'       => isset($_GET['news_page']) ? max(1, absint($_GET['news_page'])) : 1,
+		];
+
+		if (is_tax('blog_category')) {
+			$term = get_queried_object();
+			if ($term instanceof WP_Term) {
+				$context['archive_taxonomy']  = 'blog_category';
+				$context['archive_term_id']   = (int) $term->term_id;
+				$context['archive_term_slug'] = $term->slug;
+				$context['heading_title']     = $term->name;
+				$context['heading_text']      = (string) $term->description;
+				$context['base_url']          = get_term_link($term);
+				$context['active_tab']        = $term->slug === 'novosti' ? 'news' : 'articles';
+			}
+		} elseif (is_tag()) {
+			$tag = get_queried_object();
+			if ($tag instanceof WP_Term) {
+				$context['tag_id']        = (int) $tag->term_id;
+				$context['heading_title'] = sprintf(
+					/* translators: %s: tag name */
+					__('Метка: %s', 'alergobot'),
+					$tag->name
+				);
+				$context['base_url'] = get_term_link($tag);
+			}
+		} elseif (isset($_GET['tab']) && sanitize_key(wp_unslash($_GET['tab'])) === 'news') {
+			$context['active_tab'] = 'news';
+		}
+
+		return $context;
+	}
+}
+
+if (!function_exists('alergobot_get_blog_archive_base_query_args')) {
+	function alergobot_get_blog_archive_base_query_args(array $context, array $extra = [])
+	{
+		$args      = array_merge(['paged' => 1], $extra);
+		$tax_query = [];
+
+		if ($context['archive_taxonomy'] === 'blog_category' && $context['archive_term_id']) {
+			$tax_query[] = [
+				'taxonomy' => 'blog_category',
+				'field'    => 'term_id',
+				'terms'    => $context['archive_term_id'],
+			];
+		}
+
+		if ($context['tag_id']) {
+			$tax_query[] = [
+				'taxonomy' => 'post_tag',
+				'field'    => 'term_id',
+				'terms'    => $context['tag_id'],
+			];
+		}
+
+		if ($tax_query) {
+			$args['tax_query'] = count($tax_query) > 1
+				? array_merge(['relation' => 'AND'], $tax_query)
+				: $tax_query;
+		}
+
+		return $args;
+	}
+}
+
+if (!function_exists('alergobot_get_blog_archive_query_args')) {
+	function alergobot_get_blog_archive_query_args(array $context, $tab = 'articles', array $extra = [])
+	{
+		$args = [
+			'posts_per_page' => $context['posts_per_page'],
+			'paged'          => $tab === 'news' ? $context['news_paged'] : $context['articles_paged'],
+		];
+
+		$tab_slug      = $tab === 'news' ? 'novosti' : 'stati';
+		$tab_term_id   = $tab === 'news' ? $context['news_term_id'] : $context['articles_term_id'];
+		$archive_match = $context['archive_taxonomy'] === 'blog_category'
+			&& $context['archive_term_slug'] === $tab_slug;
+		$tax_query     = [];
+
+		if ($archive_match && $context['archive_term_id']) {
+			$tax_query[] = [
+				'taxonomy' => 'blog_category',
+				'field'    => 'term_id',
+				'terms'    => $context['archive_term_id'],
+			];
+		} elseif ($tab_term_id) {
+			$tax_query[] = [
+				'taxonomy' => 'blog_category',
+				'field'    => 'term_id',
+				'terms'    => $tab_term_id,
+			];
+		}
+
+		if ($context['tag_id']) {
+			$tax_query[] = [
+				'taxonomy' => 'post_tag',
+				'field'    => 'term_id',
+				'terms'    => $context['tag_id'],
+			];
+		}
+
+		if ($tax_query) {
+			$args['tax_query'] = count($tax_query) > 1
+				? array_merge(['relation' => 'AND'], $tax_query)
+				: $tax_query;
+		}
+
+		return array_merge($args, $extra);
+	}
+}
+
+if (!function_exists('alergobot_render_blog_pagination')) {
+	function alergobot_render_blog_pagination(WP_Query $query, array $args = [])
+	{
+		$total = (int) $query->max_num_pages;
+		if ($total <= 1) {
+			return;
+		}
+
+		$defaults = [
+			'base_url'   => alergobot_blogs_archive_url(),
+			'current'    => 1,
+			'page_param' => '',
+			'panel'      => '',
+			'hidden'     => false,
+		];
+		$args     = array_merge($defaults, $args);
+		$current  = max(1, min((int) $args['current'], $total));
+		$base_url = $args['base_url'];
+
+		$page_url = static function ($page) use ($base_url, $args) {
+			if ($page <= 1) {
+				return $args['page_param'] ? remove_query_arg($args['page_param'], $base_url) : $base_url;
+			}
+
+			if ($args['page_param']) {
+				return add_query_arg($args['page_param'], $page, $base_url);
+			}
+
+			return trailingslashit($base_url) . 'page/' . $page . '/';
+		};
+
+		$pages = [1];
+		if ($total > 1) {
+			$start = max(2, $current - 1);
+			$end   = min($total - 1, $current + 1);
+
+			if ($start > 2) {
+				$pages[] = 'dots';
+			}
+
+			for ($page = $start; $page <= $end; $page++) {
+				$pages[] = $page;
+			}
+
+			if ($end < $total - 1) {
+				$pages[] = 'dots';
+			}
+
+			$pages[] = $total;
+		}
+
+		$pages = array_values(array_unique($pages, SORT_REGULAR));
+		?>
+		<nav
+			class="blog-pagination"
+			aria-label="<?php esc_attr_e('Навигация по страницам', 'alergobot'); ?>"
+			<?php if ($args['panel']) : ?>
+				data-blog-pagination="<?php echo esc_attr($args['panel']); ?>"
+			<?php endif; ?>
+			<?php echo $args['hidden'] ? ' hidden' : ''; ?>
+			data-animate="bottom"
+		>
+			<?php if ($current > 1) : ?>
+				<a class="blog-pagination__arrow blog-pagination__arrow--prev" href="<?php echo esc_url($page_url($current - 1)); ?>" aria-label="<?php esc_attr_e('Предыдущая страница', 'alergobot'); ?>">
+					<svg class="icon" width="21.5" height="21.5" aria-hidden="true">
+						<use href="<?php echo esc_url(alergobot_assets_uri('img/icons.svg')); ?>#icon-pagination-arrow"></use>
+					</svg>
+				</a>
+			<?php endif; ?>
+			<ol class="blog-pagination__list">
+				<?php foreach ($pages as $page) : ?>
+					<?php if ($page === 'dots') : ?>
+						<li><span class="blog-pagination__num blog-pagination__num--dots" aria-hidden="true">...</span></li>
+						<?php continue; ?>
+					<?php endif; ?>
+					<li>
+						<?php if ((int) $page === $current) : ?>
+							<span class="blog-pagination__num _active" aria-current="page"><?php echo esc_html((string) $page); ?></span>
+						<?php else : ?>
+							<a class="blog-pagination__num" href="<?php echo esc_url($page_url((int) $page)); ?>"><?php echo esc_html((string) $page); ?></a>
+						<?php endif; ?>
+					</li>
+				<?php endforeach; ?>
+			</ol>
+			<?php if ($current < $total) : ?>
+				<a class="blog-pagination__arrow blog-pagination__arrow--next" href="<?php echo esc_url($page_url($current + 1)); ?>" aria-label="<?php esc_attr_e('Следующая страница', 'alergobot'); ?>">
+					<svg class="icon" width="21.5" height="21.5" aria-hidden="true">
+						<use href="<?php echo esc_url(alergobot_assets_uri('img/icons.svg')); ?>#icon-pagination-arrow"></use>
+					</svg>
+				</a>
+			<?php endif; ?>
+		</nav>
+		<?php
+	}
+}
+
 if (!function_exists('alergobot_get_related_blogs_query')) {
 	function alergobot_get_related_blogs_query($post_id = 0, $limit = 2)
 	{

@@ -54,7 +54,7 @@
 
 	&.heading--blog {
 		padding-bottom: rem(18);
-
+		padding-top: 0;
 		@media (min-width:$md3) {
 			padding-bottom: rem(54);
 
