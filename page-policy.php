@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Template Name: Политика конфиденциальности
  *
@@ -7,15 +8,20 @@
 
 get_header();
 ?>
-	<?php
-	if (have_posts()) :
-		while (have_posts()) :
-			the_post();
-			the_content();
-		endwhile;
-	else :
-		get_template_part('template-parts/pages/policy', 'fallback');
-	endif;
-	?>
+<?php
+while (have_posts()) :
+	the_post();
+?>
+	<section class="policy" data-decor-parallax>
+		<div class="policy__container _container">
+			<div class="policy__inner typography-block" data-animate="bottom">
+				<h1> <?php the_title(); ?></h1>
+				<?php the_content(); ?>
+			</div>
+		</div>
+	</section>
+<?php
+endwhile;
+?>
 <?php
 get_footer();
