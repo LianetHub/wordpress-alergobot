@@ -5,7 +5,11 @@
  * @package alergobot
  */
 
-$photo_path = alergobot_home_get('photo_path');
+$head_photo = alergobot_home_get('photo_lab') ?: alergobot_home_get('photo_path');
+$head_alt   = is_array($head_photo) ? ($head_photo['alt'] ?? '') : alergobot_home_get('photo_alt');
+$molecules  = alergobot_home_get('molecules') ?: alergobot_home_get('molecules_path') ?: alergobot_home_get('photo');
+$cards_raw  = function_exists('get_sub_field') ? get_sub_field('cards') : [];
+$cards      = is_array($cards_raw) && $cards_raw !== [] ? array_values($cards_raw) : [];
 ?>
 <section class="audience">
 	<div class="audience__container _container">
@@ -18,23 +22,38 @@ $photo_path = alergobot_home_get('photo_path');
 					<p class="section-head__text text-lead" data-animate="scale"><?php echo esc_html($text); ?></p>
 				<?php endif; ?>
 			</div>
-			<?php if ($photo_path) : ?>
+			<?php if ($head_photo) : ?>
 				<div class="audience__photo" data-animate="scale">
-					<img src="<?php echo esc_url(alergobot_acf_image_url($photo_path)); ?>" class="cover-image" alt="<?php echo esc_attr(alergobot_home_get('photo_alt')); ?>" title="<?php echo esc_attr(alergobot_home_get('photo_alt')); ?>" width="427" height="212" loading="lazy">
+					<?php echo alergobot_acf_image($head_photo, 'full', [
+						'class'   => 'cover-image',
+						'alt'     => $head_alt,
+						'title'   => $head_alt,
+						'width'   => '427',
+						'height'  => '212',
+						'loading' => 'lazy',
+					]); ?>
 				</div>
 			<?php endif; ?>
 			<?php if ($tag = alergobot_home_get('tag')) : ?>
 				<span class="audience__tag tag" data-animate="scale"><?php echo esc_html($tag); ?></span>
 			<?php endif; ?>
 		</div>
-		<div class="audience__scene" data-audience="">
-			<img src="<?php echo esc_url(alergobot_assets_uri('img/home/audience-molecules.png')); ?>" alt="Фото малекул" width="529" height="477" loading="lazy" aria-hidden="true" class="audience__molecules">
-			<?php if (alergobot_home_rows('cards')) : ?>
+		<div class="audience__scene" data-audience>
+			<?php if ($molecules) : ?>
+				<?php echo alergobot_acf_image($molecules, 'full', [
+					'class'       => 'audience__molecules',
+					'width'       => '529',
+					'height'      => '477',
+					'loading'     => 'lazy',
+					'aria-hidden' => 'true',
+				]); ?>
+			<?php endif; ?>
+			<?php if ($cards) : ?>
 				<div class="audience__cards">
-					<?php foreach (alergobot_home_rows('cards') as $card) :
+					<?php foreach ($cards as $card) :
 						$is_active = !empty($card['is_active']);
 						?>
-						<button class="audience__card<?php echo $is_active ? ' _active' : ''; ?>" type="button" data-audience-card="" aria-expanded="<?php echo $is_active ? 'true' : 'false'; ?>" data-animate="bottom">
+						<button class="audience__card<?php echo $is_active ? ' _active' : ''; ?>" type="button" data-audience-card aria-expanded="<?php echo $is_active ? 'true' : 'false'; ?>" data-animate="scale">
 							<span class="audience__card-title"><?php echo esc_html($card['title'] ?? ''); ?></span>
 							<span class="audience__toggle" aria-hidden="true"></span>
 							<span class="audience__card-text"><?php echo esc_html($card['text'] ?? ''); ?></span>

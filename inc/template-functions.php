@@ -41,27 +41,16 @@ if (!function_exists('alergobot_home_get')) {
 if (!function_exists('alergobot_home_rows')) {
 	function alergobot_home_rows($key)
 	{
-		static $cache = [];
-
-		$layout     = function_exists('get_row_layout') ? (string) get_row_layout() : 'acf';
-		$row_index  = function_exists('get_row_index') ? (int) get_row_index() : 0;
-		$cache_key  = $layout . '_' . $row_index . '_' . $key;
-
-		if (array_key_exists($cache_key, $cache)) {
-			return $cache[$cache_key];
+		if (!function_exists('get_sub_field')) {
+			return [];
 		}
 
-		$rows = [];
-
-		if (function_exists('get_sub_field')) {
-			$value = get_sub_field($key);
-			if (is_array($value) && $value !== []) {
-				$rows = array_values($value);
-			}
+		$value = get_sub_field($key);
+		if (!is_array($value) || $value === []) {
+			return [];
 		}
 
-		$cache[$cache_key] = $rows;
-		return $cache[$cache_key];
+		return array_values($value);
 	}
 }
 

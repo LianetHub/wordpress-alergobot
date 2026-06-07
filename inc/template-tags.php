@@ -102,15 +102,19 @@ if (!function_exists('alergobot_acf_image')) {
 		$loading = $attrs['loading'] ?? 'lazy';
 		$class   = $attrs['class'] ?? '';
 		$class_attr = $class ? sprintf(' class="%s"', esc_attr($class)) : '';
+		$aria_hidden_attr = !empty($attrs['aria-hidden'])
+			? sprintf(' aria-hidden="%s"', esc_attr($attrs['aria-hidden']))
+			: '';
 
 		return sprintf(
-			'<img src="%s" alt="%s" title="%s" width="%s" height="%s" loading="%s"%s>',
+			'<img src="%s" alt="%s" title="%s" width="%s" height="%s" loading="%s"%s%s>',
 			esc_url($url),
 			esc_attr($alt),
 			esc_attr($title),
 			esc_attr($w),
 			esc_attr($h),
 			esc_attr($loading),
+			$aria_hidden_attr,
 			$class_attr
 		);
 	}
