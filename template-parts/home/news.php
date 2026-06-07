@@ -5,7 +5,12 @@
  * @package alergobot
  */
 
-$footer_btn = alergobot_home_get('footer_btn');
+$blogs_query       = alergobot_query_blogs([
+	'posts_per_page' => 2,
+]);
+$blogs_archive_url = alergobot_blogs_archive_url();
+$icons_svg         = alergobot_assets_uri('img/icons.svg');
+$thumb_fallback    = alergobot_assets_uri('img/blog/card.png');
 ?>
 <section class="news">
 	<div class="news__container _container" data-decor-parallax="">
@@ -22,46 +27,49 @@ $footer_btn = alergobot_home_get('footer_btn');
 				<span class="news__tag tag" data-animate="scale"><?php echo esc_html($tag); ?></span>
 			<?php endif; ?>
 		</div>
-		<?php if (alergobot_home_rows('items')) : ?>
+		<?php if ($blogs_query->have_posts()) : ?>
 			<div class="news__grid">
-				<?php foreach (alergobot_home_rows('items') as $item) :
-					$date       = $item['date'] ?? '';
-					$link       = $item['link'] ?? [];
-					$link_url   = alergobot_acf_link_url($link, alergobot_blogs_archive_url());
-					$date_attr  = $date ? esc_attr($date) : '';
-					$date_label = $date ? wp_date('d.m.Y', strtotime($date)) : '';
+				<?php
+				while ($blogs_query->have_posts()) :
+					$blogs_query->the_post();
+					$post_id   = get_the_ID();
+					$permalink = get_permalink();
+					$title     = get_the_title();
+					$excerpt   = alergobot_get_blog_intro($post_id);
+					$thumb     = get_the_post_thumbnail_url($post_id, 'medium_large') ?: $thumb_fallback;
+					$date_iso  = get_the_date('c');
+					$date      = get_the_date('d.m.Y');
 					?>
 					<article class="news-card" data-animate="bottom">
-						<a class="news-card__link" href="<?php echo esc_url($link_url); ?>">
-							<?php if (!empty($item['image_path'])) : ?>
-								<div class="news-card__media">
-									<img class="news-card__img" src="<?php echo esc_url(alergobot_acf_image_url($item['image_path'])); ?>" alt="<?php echo esc_attr($item['image_alt'] ?? ''); ?>" title="<?php echo esc_attr($item['image_alt'] ?? ''); ?>" width="295" height="277" loading="lazy">
-								</div>
-							<?php endif; ?>
+						<a class="news-card__link" href="<?php echo esc_url($permalink); ?>">
+							<div class="news-card__media">
+								<img class="news-card__img" src="<?php echo esc_url($thumb); ?>" alt="<?php echo esc_attr($title); ?>" title="<?php echo esc_attr($title); ?>" width="295" height="277" loading="lazy">
+							</div>
 							<div class="news-card__body">
-								<?php if ($date_label) : ?>
-									<time class="news-card__date" datetime="<?php echo $date_attr; ?>"><?php echo esc_html($date_label); ?></time>
-								<?php endif; ?>
+								<time class="news-card__date" datetime="<?php echo esc_attr($date_iso); ?>"><?php echo esc_html($date); ?></time>
 								<div class="news-card__text">
-									<h3 class="news-card__title"><?php echo esc_html($item['title'] ?? ''); ?></h3>
-									<p class="news-card__excerpt"><?php echo esc_html($item['excerpt'] ?? ''); ?></p>
+									<h3 class="news-card__title"><?php echo esc_html($title); ?></h3>
+									<?php if ($excerpt) : ?>
+										<p class="news-card__excerpt"><?php echo esc_html(wp_strip_all_tags($excerpt)); ?></p>
+									<?php endif; ?>
 								</div>
 								<span class="news-card__more">
 									<span class="news-card__more-label"><?php esc_html_e('Читать статью', 'alergobot'); ?></span>
 									<span class="news-card__more-icon" aria-hidden="true">
 										<svg class="icon" width="28" height="28" viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg">
-											<use href="<?php echo esc_url(alergobot_assets_uri('img/icons.svg')); ?>#icon-arrow-up-right"></use>
+											<use href="<?php echo esc_url($icons_svg); ?>#icon-arrow-up-right"></use>
 										</svg>
 									</span>
 								</span>
 							</div>
 						</a>
 					</article>
-				<?php endforeach; ?>
+				<?php endwhile; ?>
 			</div>
+			<?php wp_reset_postdata(); ?>
 		<?php endif; ?>
 		<div class="news__footer" data-animate="bottom">
-			<a class="btn btn--primary news__btn" href="<?php echo esc_url(alergobot_acf_link_url($footer_btn, alergobot_blogs_archive_url())); ?>"><?php echo esc_html(alergobot_acf_link_title($footer_btn, __('Смотреть все материалы', 'alergobot'))); ?></a>
+			<a class="btn btn--primary news__btn" href="<?php echo esc_url($blogs_archive_url); ?>"><?php esc_html_e('Смотреть все материалы', 'alergobot'); ?></a>
 		</div>
 	</div>
 </section>
