@@ -8,7 +8,7 @@
 $post_id = get_the_ID();
 $icons   = alergobot_assets_uri('img/icons.svg');
 
-$docs = function_exists('get_field') ? get_field('product_docs', $post_id) : [];
+$docs = alergobot_get_post_field('product_docs', $post_id) ?: [];
 
 if (!$docs) {
 	return;

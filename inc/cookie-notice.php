@@ -47,7 +47,7 @@ if (!function_exists('alergobot_should_show_cookie_notice')) {
 	 */
 	function alergobot_should_show_cookie_notice()
 	{
-		$enabled = function_exists('get_field') ? get_field('cookie_plashka_vklyuchit', 'option') : null;
+		$enabled = alergobot_get_option_raw('cookie_plashka_vklyuchit');
 
 		if ($enabled === null) {
 			$enabled = 1;

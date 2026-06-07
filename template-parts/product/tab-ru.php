@@ -7,8 +7,8 @@
 
 $post_id = get_the_ID();
 
-$specs   = function_exists('get_field') ? get_field('product_ru_specs', $post_id) : [];
-$ru_file = function_exists('get_field') ? get_field('product_ru_file', $post_id) : null;
+$specs   = alergobot_get_post_field('product_ru_specs', $post_id) ?: [];
+$ru_file = alergobot_get_post_field('product_ru_file', $post_id);
 
 if (!$specs && !$ru_file) {
 	return;

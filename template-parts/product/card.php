@@ -9,12 +9,12 @@ $permalink = get_permalink();
 $post_id   = get_the_ID();
 $icons     = alergobot_assets_uri('img/icons.svg');
 
-$card_title = function_exists('get_field') ? (string) get_field('product_card_title', $post_id) : '';
+$card_title = (string) alergobot_get_post_field('product_card_title', $post_id);
 if (!$card_title) {
 	$card_title = get_the_title();
 }
 
-$card_text = function_exists('get_field') ? (string) get_field('product_hero_text', $post_id) : '';
+$card_text = (string) alergobot_get_post_field('product_hero_text', $post_id);
 $thumb     = get_the_post_thumbnail_url($post_id, 'medium');
 
 ?>

@@ -41,11 +41,7 @@ add_action('wp_head', function () {
 		alergobot_render_favicons();
 	}
 
-	if (!function_exists('get_field')) {
-		return;
-	}
-
-	$keywords = get_field('keywords', 'option');
+	$keywords = alergobot_get_option('keywords');
 	if ($keywords) {
 		printf('<meta name="keywords" content="%s">', esc_attr($keywords));
 	}

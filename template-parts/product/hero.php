@@ -8,12 +8,12 @@
 $post_id = get_the_ID();
 $icons   = alergobot_assets_uri('img/icons.svg');
 
-$hero_text = function_exists('get_field') ? (string) get_field('product_hero_text', $post_id) : '';
+$hero_text = (string) alergobot_get_post_field('product_hero_text', $post_id);
 $hero_url  = get_the_post_thumbnail_url($post_id, 'full') ?: '';
 $hero_alt  = wp_strip_all_tags(get_the_title($post_id));
 
-$in_stock = function_exists('get_field') ? get_field('product_in_stock', $post_id) : null;
-$rating   = function_exists('get_field') ? (string) get_field('product_rating', $post_id) : '';
+$in_stock = alergobot_get_post_field('product_in_stock', $post_id);
+$rating   = (string) alergobot_get_post_field('product_rating', $post_id);
 
 ?>
 <section class="product-hero">

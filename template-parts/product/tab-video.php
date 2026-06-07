@@ -8,8 +8,8 @@
 $post_id = get_the_ID();
 $icons   = alergobot_assets_uri('img/icons.svg');
 
-$poster = function_exists('get_field') ? get_field('product_video_poster', $post_id) : null;
-$video  = function_exists('get_field') ? (string) get_field('product_video_url', $post_id) : '';
+$poster = alergobot_get_post_field('product_video_poster', $post_id);
+$video  = (string) alergobot_get_post_field('product_video_url', $post_id);
 
 if (!$poster && !$video) {
 	return;

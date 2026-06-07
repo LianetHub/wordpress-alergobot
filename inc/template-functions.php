@@ -411,16 +411,30 @@ if (!function_exists('alergobot_home_get')) {
 if (!function_exists('alergobot_home_rows')) {
 	function alergobot_home_rows($key)
 	{
+		static $cache = [];
+
 		if (!function_exists('get_sub_field')) {
 			return [];
 		}
 
-		$value = get_sub_field($key);
-		if (!is_array($value) || $value === []) {
-			return [];
+		$context = 'default';
+		if (function_exists('get_row_layout') && function_exists('get_row_index')) {
+			$context = get_row_layout() . ':' . get_row_index();
 		}
 
-		return array_values($value);
+		$cache_key = $context . ':' . $key;
+		if (isset($cache[$cache_key])) {
+			return $cache[$cache_key];
+		}
+
+		$value = get_sub_field($key);
+		if (!is_array($value) || $value === []) {
+			$cache[$cache_key] = [];
+		} else {
+			$cache[$cache_key] = array_values($value);
+		}
+
+		return $cache[$cache_key];
 	}
 }
 
@@ -692,6 +706,73 @@ if (!function_exists('alergobot_render_catalog_gallery_product')) {
 	}
 }
 
+if (!function_exists('alergobot_get_post_field')) {
+	/**
+	 * Cached ACF field for a post (loads all fields once per post).
+	 *
+	 * @param string   $key     Field name.
+	 * @param int|null $post_id Post ID.
+	 * @return mixed
+	 */
+	function alergobot_get_post_field($key, $post_id = 0)
+	{
+		static $cache = [];
+
+		$post_id = $post_id ? (int) $post_id : (int) get_the_ID();
+		if (!$post_id || !function_exists('get_field')) {
+			return false;
+		}
+
+		if (!isset($cache[$post_id])) {
+			$cache[$post_id] = function_exists('get_fields') ? (get_fields($post_id) ?: []) : [];
+		}
+
+		if (array_key_exists($key, $cache[$post_id])) {
+			return $cache[$post_id][$key];
+		}
+
+		$value = get_field($key, $post_id);
+		$cache[$post_id][$key] = $value;
+
+		return $value;
+	}
+}
+
+if (!function_exists('alergobot_get_term_fields')) {
+	/**
+	 * Cached ACF fields for a taxonomy term.
+	 *
+	 * @param string|int|WP_Term $term Term object, ID, or ACF term key.
+	 * @return array<string, mixed>
+	 */
+	function alergobot_get_term_fields($term)
+	{
+		static $cache = [];
+
+		if (!function_exists('get_fields')) {
+			return [];
+		}
+
+		if ($term instanceof WP_Term) {
+			$term_key = $term;
+		} elseif (is_numeric($term)) {
+			$term_key = 'product_category_' . (int) $term;
+		} else {
+			$term_key = (string) $term;
+		}
+
+		if ($term_key === '') {
+			return [];
+		}
+
+		if (!isset($cache[$term_key])) {
+			$cache[$term_key] = get_fields($term_key) ?: [];
+		}
+
+		return $cache[$term_key];
+	}
+}
+
 if (!function_exists('alergobot_product_has_description_tab')) {
 	function alergobot_product_has_description_tab($post_id)
 	{
@@ -699,11 +780,11 @@ if (!function_exists('alergobot_product_has_description_tab')) {
 			return false;
 		}
 
-		if ((string) get_field('product_panel_lead', $post_id) !== '') {
+		if ((string) alergobot_get_post_field('product_panel_lead', $post_id) !== '') {
 			return true;
 		}
 
-		$blocks = get_field('product_blocks', $post_id);
+		$blocks = alergobot_get_post_field('product_blocks', $post_id);
 		if (is_array($blocks)) {
 			foreach ($blocks as $block) {
 				if (!empty($block['title'])) {
@@ -718,7 +799,7 @@ if (!function_exists('alergobot_product_has_description_tab')) {
 			}
 		}
 
-		$allergens = get_field('product_allergens', $post_id);
+		$allergens = alergobot_get_post_field('product_allergens', $post_id);
 		if (!is_array($allergens)) {
 			return false;
 		}
@@ -738,12 +819,12 @@ if (!function_exists('alergobot_product_has_ru_tab')) {
 			return false;
 		}
 
-		$ru_file = get_field('product_ru_file', $post_id);
+		$ru_file = alergobot_get_post_field('product_ru_file', $post_id);
 		if (is_array($ru_file) && !empty($ru_file['url'])) {
 			return true;
 		}
 
-		$specs = get_field('product_ru_specs', $post_id);
+		$specs = alergobot_get_post_field('product_ru_specs', $post_id);
 		if (!is_array($specs)) {
 			return false;
 		}
@@ -771,7 +852,7 @@ if (!function_exists('alergobot_product_has_video_tab')) {
 			return false;
 		}
 
-		return (bool) alergobot_acf_image_url(get_field('product_video_poster', $post_id));
+		return (bool) alergobot_acf_image_url(alergobot_get_post_field('product_video_poster', $post_id));
 	}
 }
 
@@ -782,7 +863,7 @@ if (!function_exists('alergobot_product_has_docs_tab')) {
 			return false;
 		}
 
-		$docs = get_field('product_docs', $post_id);
+		$docs = alergobot_get_post_field('product_docs', $post_id);
 		if (!is_array($docs)) {
 			return false;
 		}
@@ -805,15 +886,9 @@ if (!function_exists('alergobot_get_term_field')) {
 			return null;
 		}
 
-		if ($term instanceof WP_Term) {
-			return get_field($field, $term);
-		}
+		$fields = alergobot_get_term_fields($term);
 
-		if (is_numeric($term)) {
-			return get_field($field, 'product_category_' . (int) $term);
-		}
-
-		return get_field($field, 'product_category_' . $term);
+		return array_key_exists($field, $fields) ? $fields[$field] : null;
 	}
 }
 
@@ -950,15 +1025,48 @@ if (!function_exists('alergobot_get_main_class')) {
 	}
 }
 
+if (!function_exists('alergobot_get_option_raw')) {
+	/**
+	 * Raw ACF option value (preserves false/0 for toggles).
+	 *
+	 * @param string $key Field name.
+	 * @return mixed|null
+	 */
+	function alergobot_get_option_raw($key)
+	{
+		static $cache = null;
+
+		if (!function_exists('get_field')) {
+			return null;
+		}
+
+		if ($cache === null) {
+			$cache = function_exists('get_fields') ? (get_fields('option') ?: []) : [];
+		}
+
+		if (array_key_exists($key, $cache)) {
+			return $cache[$key];
+		}
+
+		$value = get_field($key, 'option');
+		$cache[$key] = $value;
+
+		return $value;
+	}
+}
+
 if (!function_exists('alergobot_get_option')) {
 	function alergobot_get_option($key, $default = '')
 	{
-		if (function_exists('get_field')) {
-			$value = get_field($key, 'option');
-			if ($value !== null && $value !== '' && $value !== false) {
-				return $value;
-			}
+		if (!function_exists('get_field')) {
+			return $default;
 		}
+
+		$value = alergobot_get_option_raw($key);
+		if ($value !== null && $value !== '' && $value !== false) {
+			return $value;
+		}
+
 		return $default;
 	}
 }

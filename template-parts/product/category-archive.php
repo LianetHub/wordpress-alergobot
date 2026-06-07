@@ -16,23 +16,32 @@ $icons     = alergobot_assets_uri('img/icons.svg');
 $heading_title = '';
 $heading_text  = '';
 $heading_logo  = null;
+$work_title    = '';
+$work_tag      = '';
+$work_text     = '';
+$work_gallery  = [];
+$benefits      = [];
+$cta_title     = '';
+$cta_text      = '';
+$cta_image     = null;
+$cta_note      = '';
 
-if ($term_key && function_exists('get_field')) {
-	$heading_title = (string) get_field('cat_heading_title', $term_key);
-	$heading_text  = (string) get_field('cat_heading_text', $term_key);
-	$heading_logo  = get_field('cat_heading_logo', $term_key);
+if ($term_key) {
+	$term_fields = alergobot_get_term_fields($term_key);
+
+	$heading_title = (string) ($term_fields['cat_heading_title'] ?? '');
+	$heading_text  = (string) ($term_fields['cat_heading_text'] ?? '');
+	$heading_logo  = $term_fields['cat_heading_logo'] ?? null;
+	$work_title    = (string) ($term_fields['cat_work_title'] ?? '');
+	$work_tag      = (string) ($term_fields['cat_work_tag'] ?? '');
+	$work_text     = (string) ($term_fields['cat_work_text'] ?? '');
+	$work_gallery  = (array) ($term_fields['cat_work_gallery'] ?? []);
+	$benefits      = (array) ($term_fields['cat_benefits'] ?? []);
+	$cta_title     = (string) ($term_fields['cat_cta_title'] ?? '');
+	$cta_text      = (string) ($term_fields['cat_cta_text'] ?? '');
+	$cta_image     = $term_fields['cat_cta_image'] ?? null;
+	$cta_note      = (string) ($term_fields['cat_cta_note'] ?? '');
 }
-
-$work_title   = ($term_key && function_exists('get_field')) ? (string) get_field('cat_work_title', $term_key) : '';
-$work_tag     = ($term_key && function_exists('get_field')) ? (string) get_field('cat_work_tag', $term_key) : '';
-$work_text    = ($term_key && function_exists('get_field')) ? (string) get_field('cat_work_text', $term_key) : '';
-$work_gallery = ($term_key && function_exists('get_field')) ? (array) get_field('cat_work_gallery', $term_key) : [];
-$benefits     = ($term_key && function_exists('get_field')) ? (array) get_field('cat_benefits', $term_key) : [];
-
-$cta_title = ($term_key && function_exists('get_field')) ? (string) get_field('cat_cta_title', $term_key) : '';
-$cta_text  = ($term_key && function_exists('get_field')) ? (string) get_field('cat_cta_text', $term_key) : '';
-$cta_image = ($term_key && function_exists('get_field')) ? get_field('cat_cta_image', $term_key) : null;
-$cta_note  = ($term_key && function_exists('get_field')) ? (string) get_field('cat_cta_note', $term_key) : '';
 
 $logo_url      = alergobot_acf_image_url($heading_logo);
 $cta_image_url = alergobot_acf_image_url($cta_image);

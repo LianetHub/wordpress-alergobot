@@ -7,9 +7,9 @@
 
 $post_id = get_the_ID();
 
-$panel_lead = function_exists('get_field') ? (string) get_field('product_panel_lead', $post_id) : '';
-$blocks     = function_exists('get_field') ? get_field('product_blocks', $post_id) : [];
-$allergens  = function_exists('get_field') ? get_field('product_allergens', $post_id) : null;
+$panel_lead = (string) alergobot_get_post_field('product_panel_lead', $post_id);
+$blocks     = alergobot_get_post_field('product_blocks', $post_id) ?: [];
+$allergens  = alergobot_get_post_field('product_allergens', $post_id);
 
 if (!$panel_lead && !$blocks && !$allergens) {
 	return;

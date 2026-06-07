@@ -8,8 +8,8 @@
 $post_id = get_the_ID();
 $icons   = alergobot_assets_uri('img/icons.svg');
 
-$benefits_text  = function_exists('get_field') ? get_field('product_benefits_text', $post_id) : '';
-$benefits_cards = function_exists('get_field') ? get_field('product_benefits_cards', $post_id) : [];
+$benefits_text  = alergobot_get_post_field('product_benefits_text', $post_id);
+$benefits_cards = alergobot_get_post_field('product_benefits_cards', $post_id) ?: [];
 
 if (!$benefits_text && !$benefits_cards) {
 	return;

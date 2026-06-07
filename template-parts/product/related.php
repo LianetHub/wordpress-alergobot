@@ -5,7 +5,7 @@
  * @package alergobot
  */
 
-$related = function_exists('get_field') ? get_field('related_products') : null;
+$related = alergobot_get_post_field('related_products');
 if (empty($related)) {
 	return;
 }

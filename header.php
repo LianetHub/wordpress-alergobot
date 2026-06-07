@@ -6,7 +6,7 @@
  * @package alergobot
  */
 
-$logo          = function_exists('get_field') ? get_field('logotip', 'option') : null;
+$logo          = alergobot_get_option('logotip');
 $header_phones = alergobot_get_phones(true);
 $main_class    = alergobot_get_main_class();
 ?>
