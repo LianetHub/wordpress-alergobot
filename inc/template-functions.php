@@ -15,6 +15,65 @@ if (!function_exists('alergobot_blogs_archive_url')) {
 	}
 }
 
+if (!function_exists('alergobot_query_blogs')) {
+	function alergobot_query_blogs($args = [])
+	{
+		$defaults = [
+			'post_type'      => 'blogs',
+			'post_status'    => 'publish',
+			'posts_per_page' => 6,
+			'orderby'        => 'date',
+			'order'          => 'DESC',
+			'ignore_sticky_posts' => true,
+		];
+
+		return new WP_Query(array_merge($defaults, $args));
+	}
+}
+
+if (!function_exists('alergobot_get_related_blogs_query')) {
+	function alergobot_get_related_blogs_query($post_id = 0, $limit = 2)
+	{
+		$post_id = $post_id ?: get_the_ID();
+		$args    = [
+			'posts_per_page' => $limit,
+			'post__not_in'   => [$post_id],
+		];
+
+		$categories = wp_get_post_terms($post_id, 'blog_category', ['fields' => 'ids']);
+		if (!empty($categories) && !is_wp_error($categories)) {
+			$args['tax_query'] = [[
+				'taxonomy' => 'blog_category',
+				'field'    => 'term_id',
+				'terms'    => $categories,
+			]];
+		}
+
+		return alergobot_query_blogs($args);
+	}
+}
+
+if (!function_exists('alergobot_get_blog_intro')) {
+	function alergobot_get_blog_intro($post_id = 0)
+	{
+		$post_id = $post_id ?: get_the_ID();
+		$intro   = '';
+
+		if (function_exists('get_field')) {
+			$acf_intro = get_field('intro', $post_id);
+			if (is_string($acf_intro) && trim($acf_intro) !== '') {
+				$intro = $acf_intro;
+			}
+		}
+
+		if ($intro === '' && $post_id && has_excerpt($post_id)) {
+			$intro = get_the_excerpt($post_id);
+		}
+
+		return is_string($intro) ? $intro : '';
+	}
+}
+
 if (!function_exists('alergobot_privacy_policy_url')) {
 	function alergobot_privacy_policy_url()
 	{

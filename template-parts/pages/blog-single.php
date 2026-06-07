@@ -1,201 +1,128 @@
 <?php
+
 /**
  * Page template: blog-single
  *
  * @package alergobot
  */
 
-?><div class="article">
-				<div class="article__container _container">
-					<div class="article__layout">
-						<header class="article__header" data-animate="bottom">
-							<h1 class="article__title title title-lg title--brand">Основные отличия аллергического насморка от простудного</h1>
-							<div class="article__intro typography-block">
-								<p>Как отличить аллергический насморк от простудного</p>
-								<p>Насморк — это воспаление слизистой носа, которое может быть вызвано попаданием на слизистую вирусов, бактерий, патогенных грибов, вследствие чего возникает грипп, ОРВИ, гепатит и другие инфекционные заболевания. Но далеко не во всех случаях наличие насморка говорит о простуде: часто воспаление может быть вызвано попаданием в организм одного из видов аллергенов. Чтобы своевременно принять необходимые меры по лечению недуга, очень важно уметь отличать аллергический ринит от простудного, так как методы лечения сильно отличаются.</p>
-								<p>Как отличить аллергический насморк от простудного? Давайте разбираться.</p>
-							</div>
-						</header>
-						<figure class="article__hero" data-animate="bottom">
-							<img class="article__hero-img" src="<?php echo esc_url(alergobot_assets_uri('img/article/hero.jpg')); ?>" alt="Женщина с платком при насморке" title="Женщина с платком при насморке" width="407" height="420">
-						</figure>
-						<div class="article__body typography-block">
-							<h2 data-animate="bottom">Аллергический насморк и его симптомы</h2>
-							<p>Аллергический ринит обусловлен воздействием аллергена и проявляется обильными выделениями из носовой полости, отеком и зудом кончика носа. Протекает волнообразно, может возникнуть резко и также резко прекратиться. Наблюдается чаще летом, в период цветения растений, что является признаком поллиноза, и сопровождается чиханием, зудом век, покраснением глаз. Также может проявляться и в течение всего года.</p>
-							<h3 data-animate="bottom">Помимо самого насморка, сопровождается и другими симптомами:</h3>
-							<ul>
-								<li>слабость, головная боль, рассеянное внимание;</li>
-								<li>конъюнктивит;</li>
-								<li>гнусавость голоса, храп, сопение;</li>
-								<li>жжение внутри носовых пазух;</li>
-								<li>краснота и жжение кончика носа;</li>
-								<li>чихание и кашель</li>
-								<li>снижение обоняния;</li>
-								<li>шум в ушах из-за постоянного высмаркивания.</li>
-							</ul>
-							<p>Как отличить аллергический насморк? В отличие от простудного, он может резко возникать из-за запаха парфюмерии, бытовой химии, контакта с домашними животными, дыма сигарет и не только. Для постановки диагноза «аллергия» проводят риноскопию, а также кожные тесты и лабораторные исследования на выявление провоцирующего аллергена и специфических антител класса IgE.</p>
-							<figure data-animate="bottom">
-								<img src="<?php echo esc_url(alergobot_assets_uri('img/article/lab.jpg')); ?>" alt="Учёные в лаборатории" title="Учёные в лаборатории" width="876" height="436" loading="lazy">
-							</figure>
-							<h2 data-animate="bottom">Простудный насморк и его симптомы</h2>
-							<p>Чтобы понять, как отличить обычный насморк от аллергического, стоит разобраться в его основной симптоматике:</p>
-							<ol>
-								<li>неприятный зуд в носу с обильными выделениями и чиханием на фоне высокой температуры, сильной головной боли и слабости всего организма;</li>
-								<li>отек слизистой, который не дает нормально дышать и снижает восприятие запахов. Сохраняется высокая температура, сонливость, апатия;</li>
-								<li>заложенность носа сильнее проявляется в ночное время суток, нарушая сон. Цвет назальных выделений меняется на желто-зеленоватый, а сама жидкость становится густой. При высмаркивании закладывает уши и появляется головная боль</li>
-							</ol>
-							<p>Отличить простудный насморк от аллергического можно по его продолжительности. Он не исчезает внезапно на несколько дней, как аллергический, а постоянно сопровождает больного и при наличии правильной терапии проходит за 1–2 недели. При отсутствии лечения простудный насморк распространяется в носовые пазухи и бронхи, что приводит к отиту, бронхиту, риносинуситу и прочим осложнениям.</p>
-							<div class="article__gallery article__gallery--duo" data-animate="bottom">
-								<figure>
-									<img src="<?php echo esc_url(alergobot_assets_uri('img/article/lab.jpg')); ?>" alt="Лабораторные исследования" title="Лабораторные исследования" width="433" height="433" loading="lazy">
-								</figure>
-								<figure>
-									<img src="<?php echo esc_url(alergobot_assets_uri('img/article/lab.jpg')); ?>" alt="Специалисты в лаборатории" title="Специалисты в лаборатории" width="433" height="433" loading="lazy">
-								</figure>
-							</div>
-							<h2 data-animate="bottom">Параметры, по которым можно отличить аллергию от простуды</h2>
-							<p>Как отличить аллергический насморк</p>
-							<p>При обращении к врачу специалист быстро поставит диагноз: аллергический или простудный насморк. Диагноз подтверждается на основе собранного анамнеза, жалоб пациента, проведенных лабораторных исследований и осмотра слизистой. Но как отличить аллергический насморк от простуды самостоятельно? Для этого стоит проанализировать симптомы:</p>
-							<h3 data-animate="bottom">Отличия по симптомам и течению</h3>
-							<ul>
-								<li>при простудном течении проблемы симптомы никак не усиливаются на фоне воздействия внешних факторов: погоды, резких запахов вокруг, сезона, смены обстановки. Аллергический же, наоборот, резко усиливается в жаркую погоду, от любого сильного запаха и может дополняться резким чиханием;</li>
-								<li>ринит аллергического характера не сопровождается высокой температурой тела и другими симптомами простуды. Он развивается резко и остро и может исчезнуть к вечеру, а утром появиться вновь;</li>
-								<li>простудный насморк отличается цветом и текстурой выделений, аллергический же всегда водянистый и прозрачный;</li>
-								<li>зуд кожи и кончика носа, чихание, покраснение глаз — это отличительные черты аллергического течения проблемы, при простудном такие симптомы возникают редко;</li>
-								<li>вирусный проходит от приема противовирусных препаратов, на аллергический же насморк эти средства не дадут никакого эффекта;</li>
-								<li>также и на простудный насморк никак не подействует прием антигистаминов, чего не скажешь про аллергическое течение заболевания.</li>
-							</ul>
-							<p>Также отличить аллергический насморк у ребенка и взрослого можно по наследственной составляющей. Если в семье есть астматики и аллергики, то вероятность, что проблема имеет именно аллергический характер, очень высока.</p>
-							<h2 data-animate="bottom">Профилактические меры при простудном и аллергическом насморке</h2>
-							<p>Чтобы не провоцировать новые приступы аллергического насморка, стоит максимально ограничить контакт с аллергеном:</p>
-							<ol>
-								<li>используйте очистители и увлажнители воздуха;</li>
-								<li>замените все пуховые и ватные подушки, одеяла на синтепон и другие гипоаллергенные постельные принадлежности;</li>
-								<li>все пылесборники (ковры, шторы, текстиль) являются потенциальными возбудителями аллергии, поэтому устраняйте их хотя бы на пик обострения проблемы;</li>
-								<li>если главным возбудителем является шерсть домашних животных, то, как бы это ни было печально, с ними придется расстаться;</li>
-								<li>обрабатывайте матрасы, пледы, покрывала и прочие поверхности акарицидными средствами.</li>
-							</ol>
-							<p>Для профилактики простудного насморка важно укрепить защитные функции организма и повысить иммунитет. К таким мерам профилактики можно отнести:</p>
-							<ul>
-								<li>правильное питание, обогащенное витаминами;</li>
-								<li>закаливание всего организма и регулярные занятия спортом;</li>
-								<li>проветривание помещения, в частности перед сном;</li>
-								<li>соблюдение норм и правил личной гигиены.</li>
-							</ul>
-							<p>В период пика распространенности простудных заболеваний используйте маски и антисептики</p>
-							<h2 data-animate="bottom">Заключение</h2>
-							<p>Многие люди часто путают аллергический насморк с простудным и, занимаясь самолечением, не понимают, почему же недуг не отпускает и никакие лекарства не помогают. Несмотря на то, что многие симптомы этих двух видов насморка пересекаются, понять, как отличить аллергический насморк от простудного, достаточно просто, если знать характер симптоматики. Но лучше всего обратиться к специалисту, который точно диагностирует проблему, поставит верный диагноз и подберет эффективное лечение.</p>
-						</div>
-						<aside class="article__aside blog-recent" aria-labelledby="article-popular-title">
-							<h2 class="blog-recent__heading" id="article-popular-title" data-animate="bottom">Популярные статьи</h2>
-							<ul class="blog-recent__list">
-								<li class="blog-recent__item" data-animate="bottom">
-									<a class="blog-recent__link" href="<?php echo esc_url(alergobot_blogs_archive_url()); ?>">
-										<img class="blog-recent__thumb" src="<?php echo esc_url(alergobot_assets_uri('img/article/lab.jpg')); ?>" alt="" title="" width="104" height="104" loading="lazy">
-										<span class="blog-recent__body">
-											<span class="blog-recent__title">Основные отличия аллергического насморка от простудного</span>
-											<time class="blog-recent__date" datetime="2026-04-11">11 апреля 2026</time>
-										</span>
-									</a>
-								</li>
-								<li class="blog-recent__item" data-animate="bottom">
-									<a class="blog-recent__link" href="#">
-										<img class="blog-recent__thumb" src="<?php echo esc_url(alergobot_assets_uri('img/article/lab.jpg')); ?>" alt="" title="" width="104" height="104" loading="lazy">
-										<span class="blog-recent__body">
-											<span class="blog-recent__title">Как добиться длительной ремиссии при аллергии...</span>
-											<time class="blog-recent__date" datetime="2026-04-08">8 апреля 2026</time>
-										</span>
-									</a>
-								</li>
-								<li class="blog-recent__item" data-animate="bottom">
-									<a class="blog-recent__link" href="#">
-										<img class="blog-recent__thumb" src="<?php echo esc_url(alergobot_assets_uri('img/article/lab.jpg')); ?>" alt="" title="" width="104" height="104" loading="lazy">
-										<span class="blog-recent__body">
-											<span class="blog-recent__title">Причины и симптомы аллергического ринита...</span>
-											<time class="blog-recent__date" datetime="2026-04-14">14 апреля 2026</time>
-										</span>
-									</a>
-								</li>
-								<li class="blog-recent__item" data-animate="bottom">
-									<a class="blog-recent__link" href="#">
-										<img class="blog-recent__thumb" src="<?php echo esc_url(alergobot_assets_uri('img/article/lab.jpg')); ?>" alt="" title="" width="104" height="104" loading="lazy">
-										<span class="blog-recent__body">
-											<span class="blog-recent__title">Все, что нужно знать про бронхиальную астму: опасность недуга, причины...</span>
-											<time class="blog-recent__date" datetime="2026-04-16">16 апреля 2026</time>
-										</span>
-									</a>
-								</li>
-								<li class="blog-recent__item" data-animate="bottom">
-									<a class="blog-recent__link" href="<?php echo esc_url(alergobot_blogs_archive_url()); ?>">
-										<img class="blog-recent__thumb" src="<?php echo esc_url(alergobot_assets_uri('img/article/lab.jpg')); ?>" alt="" title="" width="104" height="104" loading="lazy">
-										<span class="blog-recent__body">
-											<span class="blog-recent__title">Основные отличия аллергического насморка от простудного</span>
-											<time class="blog-recent__date" datetime="2026-04-11">11 апреля 2026</time>
-										</span>
-									</a>
-								</li>
-								<li class="blog-recent__item" data-animate="bottom">
-									<a class="blog-recent__link" href="#">
-										<img class="blog-recent__thumb" src="<?php echo esc_url(alergobot_assets_uri('img/article/lab.jpg')); ?>" alt="" title="" width="104" height="104" loading="lazy">
-										<span class="blog-recent__body">
-											<span class="blog-recent__title">Как добиться длительной ремиссии при аллергии...</span>
-											<time class="blog-recent__date" datetime="2026-04-08">8 апреля 2026</time>
-										</span>
-									</a>
-								</li>
-							</ul>
-						</aside>
+$post_id       = get_the_ID();
+$intro         = '';
+
+if (function_exists('alergobot_get_blog_intro')) {
+	$intro = alergobot_get_blog_intro($post_id);
+} else {
+	if (function_exists('get_field')) {
+		$acf_intro = get_field('intro', $post_id);
+		if (is_string($acf_intro) && trim($acf_intro) !== '') {
+			$intro = $acf_intro;
+		}
+	}
+	if ($intro === '' && $post_id && has_excerpt($post_id)) {
+		$intro = get_the_excerpt($post_id);
+	}
+}
+
+$recent_query  = null;
+$related_query = null;
+
+if ($post_id) {
+	if (function_exists('alergobot_query_blogs')) {
+		$recent_query = alergobot_query_blogs([
+			'posts_per_page' => 6,
+			'post__not_in'   => [$post_id],
+		]);
+	} else {
+		$recent_query = new WP_Query([
+			'post_type'      => 'blogs',
+			'post_status'    => 'publish',
+			'posts_per_page' => 6,
+			'post__not_in'   => [$post_id],
+			'orderby'        => 'date',
+			'order'          => 'DESC',
+		]);
+	}
+
+	if (function_exists('alergobot_get_related_blogs_query')) {
+		$related_query = alergobot_get_related_blogs_query($post_id, 2);
+	} else {
+		$related_args = [
+			'post_type'      => 'blogs',
+			'post_status'    => 'publish',
+			'posts_per_page' => 2,
+			'post__not_in'   => [$post_id],
+			'orderby'        => 'date',
+			'order'          => 'DESC',
+		];
+		$categories = wp_get_post_terms($post_id, 'blog_category', ['fields' => 'ids']);
+		if (!empty($categories) && !is_wp_error($categories)) {
+			$related_args['tax_query'] = [[
+				'taxonomy' => 'blog_category',
+				'field'    => 'term_id',
+				'terms'    => $categories,
+			]];
+		}
+		$related_query = new WP_Query($related_args);
+	}
+}
+
+?>
+<div class="article">
+	<div class="article__container _container">
+		<div class="article__layout">
+			<header class="article__header" data-animate="bottom">
+				<h1 class="article__title title title-lg title--brand"><?php the_title(); ?></h1>
+				<?php if ($intro) : ?>
+					<div class="article__intro typography-block">
+						<?php echo wp_kses_post(wpautop($intro)); ?>
 					</div>
-				</div>
-				<section class="article-more">
-					<div class="article-more__container _container">
-						<h2 class="article-more__title title title-md title--brand" data-animate="bottom">Вас может заинтересовать</h2>
-						<div class="article-more__grid">
-							<article class="news-card" data-animate="bottom">
-								<a class="news-card__link" href="#">
-									<div class="news-card__media">
-										<img class="news-card__img" src="<?php echo esc_url(alergobot_assets_uri('img/article/related.jpg')); ?>" alt="Lorem ipsum dolor sit amet consectetur adipiscing elit" title="Lorem ipsum dolor sit amet consectetur adipiscing elit" width="295" height="277" loading="lazy">
-									</div>
-									<div class="news-card__body">
-										<time class="news-card__date" datetime="2026-04-09">09.04.2026</time>
-										<div class="news-card__text">
-											<h3 class="news-card__title">Lorem ipsum dolor sit amet consectetur adipiscing elit</h3>
-											<p class="news-card__excerpt">Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat.</p>
-										</div>
-										<span class="news-card__more">
-											<span class="news-card__more-label">Читать статью</span>
-											<span class="news-card__more-icon" aria-hidden="true">
-												<svg class="icon" width="28" height="28" viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg">
-													<use href="<?php echo esc_url(alergobot_assets_uri('img/icons.svg')); ?>#icon-arrow-up-right"></use>
-												</svg>
-											</span>
-										</span>
-									</div>
-								</a>
-							</article>
-							<article class="news-card" data-animate="bottom">
-								<a class="news-card__link" href="#">
-									<div class="news-card__media">
-										<img class="news-card__img" src="<?php echo esc_url(alergobot_assets_uri('img/article/related.jpg')); ?>" alt="Lorem ipsum dolor sit amet consectetur adipiscing elit" title="Lorem ipsum dolor sit amet consectetur adipiscing elit" width="295" height="277" loading="lazy">
-									</div>
-									<div class="news-card__body">
-										<time class="news-card__date" datetime="2026-04-09">09.04.2026</time>
-										<div class="news-card__text">
-											<h3 class="news-card__title">Lorem ipsum dolor sit amet consectetur adipiscing elit</h3>
-											<p class="news-card__excerpt">Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat.</p>
-										</div>
-										<span class="news-card__more">
-											<span class="news-card__more-label">Читать статью</span>
-											<span class="news-card__more-icon" aria-hidden="true">
-												<svg class="icon" width="28" height="28" viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg">
-													<use href="<?php echo esc_url(alergobot_assets_uri('img/icons.svg')); ?>#icon-arrow-up-right"></use>
-												</svg>
-											</span>
-										</span>
-									</div>
-								</a>
-							</article>
-						</div>
-					</div>
-				</section>
+				<?php endif; ?>
+			</header>
+			<?php if (has_post_thumbnail()) : ?>
+				<figure class="article__hero" data-animate="bottom">
+					<?php
+					the_post_thumbnail('large', [
+						'class'   => 'article__hero-img',
+						'loading' => 'eager',
+						'width'   => 407,
+						'height'  => 420,
+					]);
+					?>
+				</figure>
+			<?php endif; ?>
+			<div class="article__body typography-block">
+				<?php the_content(); ?>
 			</div>
+			<?php if ($recent_query instanceof WP_Query && $recent_query->have_posts()) : ?>
+				<aside class="article__aside blog-recent" aria-labelledby="article-popular-title">
+					<h2 class="blog-recent__heading" id="article-popular-title" data-animate="bottom"><?php esc_html_e('Популярные статьи', 'alergobot'); ?></h2>
+					<ul class="blog-recent__list">
+						<?php
+						while ($recent_query->have_posts()) :
+							$recent_query->the_post();
+							get_template_part('template-parts/blog/recent', 'item');
+						endwhile;
+						wp_reset_postdata();
+						?>
+					</ul>
+				</aside>
+			<?php endif; ?>
+		</div>
+	</div>
+	<?php if ($related_query instanceof WP_Query && $related_query->have_posts()) : ?>
+		<section class="article-more">
+			<div class="article-more__container _container">
+				<h2 class="article-more__title title title-md title--brand" data-animate="bottom"><?php esc_html_e('Вас может заинтересовать', 'alergobot'); ?></h2>
+				<div class="article-more__grid">
+					<?php
+					while ($related_query->have_posts()) :
+						$related_query->the_post();
+						get_template_part('template-parts/blog/related', 'card');
+					endwhile;
+					wp_reset_postdata();
+					?>
+				</div>
+			</div>
+		</section>
+	<?php endif; ?>
+</div>

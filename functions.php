@@ -19,5 +19,6 @@ require_once $alergobot_inc . 'setup.php';
 require_once $alergobot_inc . 'enqueue.php';
 require_once $alergobot_inc . 'acf.php';
 require_once $alergobot_inc . 'cpt.php';
+require_once $alergobot_inc . 'gallery.php';
 require_once $alergobot_inc . 'ajax.php';
 require_once $alergobot_inc . 'cf7.php';
