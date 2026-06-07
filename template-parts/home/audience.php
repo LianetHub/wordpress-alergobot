@@ -5,9 +5,9 @@
  * @package alergobot
  */
 
-$head_photo = alergobot_home_get('photo_lab') ?: alergobot_home_get('photo_path');
-$head_alt   = is_array($head_photo) ? ($head_photo['alt'] ?? '') : alergobot_home_get('photo_alt');
-$molecules  = alergobot_home_get('molecules') ?: alergobot_home_get('molecules_path') ?: alergobot_home_get('photo');
+$head_photo = function_exists('get_sub_field') ? get_sub_field('photo_lab') : null;
+$head_alt   = is_array($head_photo) ? ($head_photo['alt'] ?? '') : '';
+$molecules  = alergobot_home_get('photo');
 $cards_raw  = function_exists('get_sub_field') ? get_sub_field('cards') : [];
 $cards      = is_array($cards_raw) && $cards_raw !== [] ? array_values($cards_raw) : [];
 ?>
@@ -16,14 +16,14 @@ $cards      = is_array($cards_raw) && $cards_raw !== [] ? array_values($cards_ra
 		<div class="audience__head">
 			<div class="audience__intro">
 				<?php if ($title = alergobot_home_get('title')) : ?>
-					<h2 class="section-head__title title title-md" data-animate="scale"><?php echo wp_kses_post($title); ?></h2>
+					<h2 class="section-head__title title title-md" data-animate="bottom"><?php echo wp_kses_post($title); ?></h2>
 				<?php endif; ?>
 				<?php if ($text = alergobot_home_get('text')) : ?>
-					<p class="section-head__text text-lead" data-animate="scale"><?php echo esc_html($text); ?></p>
+					<p class="section-head__text text-lead" data-animate="bottom"><?php echo esc_html($text); ?></p>
 				<?php endif; ?>
 			</div>
 			<?php if ($head_photo) : ?>
-				<div class="audience__photo" data-animate="scale">
+				<div class="audience__photo" data-animate="bottom">
 					<?php echo alergobot_acf_image($head_photo, 'full', [
 						'class'   => 'cover-image',
 						'alt'     => $head_alt,
@@ -35,7 +35,7 @@ $cards      = is_array($cards_raw) && $cards_raw !== [] ? array_values($cards_ra
 				</div>
 			<?php endif; ?>
 			<?php if ($tag = alergobot_home_get('tag')) : ?>
-				<span class="audience__tag tag" data-animate="scale"><?php echo esc_html($tag); ?></span>
+				<span class="audience__tag tag" data-animate="bottom"><?php echo esc_html($tag); ?></span>
 			<?php endif; ?>
 		</div>
 		<div class="audience__scene" data-audience>
