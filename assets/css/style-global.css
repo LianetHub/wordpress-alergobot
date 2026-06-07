@@ -2416,6 +2416,9 @@ h3 {
 
 .heading.heading--blog {
   padding-bottom: 1.125rem;
+}
+
+.heading.heading--blog .heading__main {
   padding-top: 0;
 }
 

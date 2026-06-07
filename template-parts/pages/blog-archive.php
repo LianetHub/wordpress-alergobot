@@ -26,11 +26,12 @@ if ($featured_id) {
 }
 $recent_query = alergobot_query_blogs($recent_args);
 
-$articles_query = alergobot_query_blogs(alergobot_get_blog_archive_query_args($context, 'articles'));
-$news_query     = alergobot_query_blogs(alergobot_get_blog_archive_query_args($context, 'news'));
+$active_tab   = $context['active_tab'];
+$active_query = alergobot_query_blogs(alergobot_get_blog_archive_query_args($context, $active_tab));
+$current_page = $active_tab === 'news' ? $context['news_paged'] : $context['articles_paged'];
 
-$articles_active = $context['active_tab'] === 'articles';
-$news_active     = $context['active_tab'] === 'news';
+$articles_active = $active_tab === 'articles';
+$news_active     = $active_tab === 'news';
 $news_base_url   = add_query_arg('tab', 'news', $context['base_url']);
 
 $heading_text = $context['heading_text'];
@@ -79,16 +80,23 @@ if ($heading_text === '' && !is_tax() && !is_tag()) {
 		</div>
 	</div>
 </section>
-<section class="blog-feed">
+<section
+	class="blog-feed"
+	data-blog-feed
+	data-active-tab="<?php echo esc_attr($active_tab); ?>"
+	data-current-page="<?php echo esc_attr((string) $current_page); ?>"
+	data-base-url="<?php echo esc_url($context['base_url']); ?>"
+	data-archive-term-id="<?php echo esc_attr((string) $context['archive_term_id']); ?>"
+	data-tag-id="<?php echo esc_attr((string) $context['tag_id']); ?>">
 	<div class="blog-feed__container _container">
 		<div class="blog-tabs" role="tablist" aria-label="<?php esc_attr_e('Тип публикаций', 'alergobot'); ?>">
-			<button
+			<a
 				class="blog-tabs__btn<?php echo $articles_active ? ' _active' : ''; ?>"
-				type="button"
 				role="tab"
 				aria-selected="<?php echo $articles_active ? 'true' : 'false'; ?>"
-				aria-controls="blog-panel-articles"
+				aria-controls="blog-panel-feed"
 				id="blog-tab-articles"
+				href="<?php echo esc_url($context['base_url']); ?>"
 				data-blog-tab="articles"
 				data-animate="fade">
 				<span class="blog-tabs__text"><?php esc_html_e('Статьи', 'alergobot'); ?></span>
@@ -97,14 +105,14 @@ if ($heading_text === '' && !is_tax() && !is_tag()) {
 						<use href="<?php echo esc_url(alergobot_assets_uri('img/icons.svg')); ?>#icon-tab-plus"></use>
 					</svg>
 				</span>
-			</button>
-			<button
+			</a>
+			<a
 				class="blog-tabs__btn<?php echo $news_active ? ' _active' : ''; ?>"
-				type="button"
 				role="tab"
 				aria-selected="<?php echo $news_active ? 'true' : 'false'; ?>"
-				aria-controls="blog-panel-news"
+				aria-controls="blog-panel-feed"
 				id="blog-tab-news"
+				href="<?php echo esc_url($news_base_url); ?>"
 				data-blog-tab="news"
 				data-animate="fade">
 				<span class="blog-tabs__text"><?php esc_html_e('Новости', 'alergobot'); ?></span>
@@ -113,20 +121,19 @@ if ($heading_text === '' && !is_tax() && !is_tag()) {
 						<use href="<?php echo esc_url(alergobot_assets_uri('img/icons.svg')); ?>#icon-tab-plus"></use>
 					</svg>
 				</span>
-			</button>
+			</a>
 		</div>
 		<div
-			class="blog-panel<?php echo $articles_active ? ' _active' : ''; ?>"
-			id="blog-panel-articles"
+			class="blog-panel _active"
+			id="blog-panel-feed"
 			role="tabpanel"
-			aria-labelledby="blog-tab-articles"
-			data-blog-panel="articles"
-			<?php echo $articles_active ? '' : ' hidden'; ?>>
+			aria-labelledby="blog-tab-<?php echo esc_attr($active_tab); ?>"
+			data-blog-panel>
 			<div class="blog-grid" data-blog-grid>
 				<?php
-				if ($articles_query->have_posts()) :
-					while ($articles_query->have_posts()) :
-						$articles_query->the_post();
+				if ($active_query->have_posts()) :
+					while ($active_query->have_posts()) :
+						$active_query->the_post();
 						get_template_part('template-parts/blog/card');
 					endwhile;
 					wp_reset_postdata();
@@ -136,43 +143,13 @@ if ($heading_text === '' && !is_tax() && !is_tag()) {
 				?>
 			</div>
 		</div>
-		<div
-			class="blog-panel<?php echo $news_active ? ' _active' : ''; ?>"
-			id="blog-panel-news"
-			role="tabpanel"
-			aria-labelledby="blog-tab-news"
-			data-blog-panel="news"
-			<?php echo $news_active ? '' : ' hidden'; ?>>
-			<div class="blog-grid" data-blog-grid>
-				<?php
-				if ($news_query->have_posts()) :
-					while ($news_query->have_posts()) :
-						$news_query->the_post();
-						get_template_part('template-parts/blog/card');
-					endwhile;
-					wp_reset_postdata();
-				else :
-					echo '<p class="no-posts">' . esc_html__('Записей не найдено', 'alergobot') . '</p>';
-				endif;
-				?>
-			</div>
-		
-				
+		<div data-blog-pagination-slot>
+			<?php
+			alergobot_render_blog_pagination(
+				$active_query,
+				alergobot_get_blog_archive_pagination_args($context, $active_tab)
+			);
+			?>
 		</div>
-		<?php
-		alergobot_render_blog_pagination($articles_query, [
-			'base_url' => $context['base_url'],
-			'current'  => $context['articles_paged'],
-			'panel'    => 'articles',
-			'hidden'   => !$articles_active,
-		]);
-		alergobot_render_blog_pagination($news_query, [
-			'base_url'   => $news_base_url,
-			'current'    => $context['news_paged'],
-			'page_param' => 'news_page',
-			'panel'      => 'news',
-			'hidden'     => !$news_active,
-		]);
-		?>
 	</div>
 </section>

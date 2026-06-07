@@ -14,25 +14,20 @@ add_action('wp_ajax_nopriv_load_more_blogs', 'alergobot_ajax_load_more_blogs');
 function alergobot_ajax_filter_blogs() {
 	check_ajax_referer('alergobot_nonce', 'nonce');
 
-	$category = isset($_POST['category']) ? sanitize_text_field(wp_unslash($_POST['category'])) : '';
-	$page     = isset($_POST['page']) ? absint($_POST['page']) : 1;
-
-	$args = [
-		'post_type'      => 'blogs',
-		'posts_per_page' => 9,
-		'paged'          => $page,
-		'post_status'    => 'publish',
-	];
-
-	if ($category && $category !== 'all') {
-		$args['tax_query'] = [[
-			'taxonomy' => 'blog_category',
-			'field'    => 'term_id',
-			'terms'    => absint($category),
-		]];
+	$tab = isset($_POST['tab']) ? sanitize_key(wp_unslash($_POST['tab'])) : 'articles';
+	if (!in_array($tab, ['articles', 'news'], true)) {
+		$tab = 'articles';
 	}
 
-	$query = new WP_Query($args);
+	$context = alergobot_get_blog_archive_context_from_request([
+		'tab'             => $tab,
+		'page'            => isset($_POST['page']) ? absint($_POST['page']) : 1,
+		'archive_term_id' => isset($_POST['archive_term_id']) ? absint($_POST['archive_term_id']) : 0,
+		'tag_id'          => isset($_POST['tag_id']) ? absint($_POST['tag_id']) : 0,
+		'base_url'        => isset($_POST['base_url']) ? esc_url_raw(wp_unslash($_POST['base_url'])) : '',
+	]);
+
+	$query = alergobot_query_blogs(alergobot_get_blog_archive_query_args($context, $tab));
 
 	ob_start();
 	if ($query->have_posts()) {
@@ -44,11 +39,19 @@ function alergobot_ajax_filter_blogs() {
 	} else {
 		echo '<p class="no-posts">' . esc_html__('Записей не найдено', 'alergobot') . '</p>';
 	}
+	$html = ob_get_clean();
+
+	ob_start();
+	alergobot_render_blog_pagination($query, alergobot_get_blog_archive_pagination_args($context, $tab));
+	$pagination = ob_get_clean();
 
 	wp_send_json_success([
-		'html'      => ob_get_clean(),
-		'max_pages' => $query->max_num_pages,
-		'found'     => $query->found_posts,
+		'html'       => $html,
+		'pagination' => $pagination,
+		'max_pages'  => $query->max_num_pages,
+		'found'      => $query->found_posts,
+		'tab'        => $tab,
+		'page'       => $tab === 'news' ? $context['news_paged'] : $context['articles_paged'],
 	]);
 }
 
@@ -60,7 +63,7 @@ function alergobot_ajax_load_more_blogs() {
 
 	$args = [
 		'post_type'      => 'blogs',
-		'posts_per_page' => 9,
+		'posts_per_page' => max(1, (int) get_option('posts_per_page', 9)),
 		'paged'          => $page,
 		'post_status'    => 'publish',
 	];

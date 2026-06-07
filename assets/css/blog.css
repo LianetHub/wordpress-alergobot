@@ -295,6 +295,7 @@ h3 {
       -ms-flex-pack: justify;
           justify-content: space-between;
   gap: 0.625rem;
+  text-decoration: none;
   padding: 0.625rem 0.875rem;
   border: 0.5px solid #26668c;
   border-radius: 100px;

@@ -68,7 +68,7 @@ if (!function_exists('alergobot_get_blog_archive_context')) {
 			'base_url'         => alergobot_blogs_archive_url(),
 			'articles_term_id' => alergobot_get_blog_category_term_id('stati'),
 			'news_term_id'     => alergobot_get_blog_category_term_id('novosti'),
-			'posts_per_page'   => 9,
+			'posts_per_page'   => max(1, (int) get_option('posts_per_page', 9)),
 			'articles_paged'   => max(1, (int) get_query_var('paged'), (int) get_query_var('page')),
 			'news_paged'       => isset($_GET['news_page']) ? max(1, absint($_GET['news_page'])) : 1,
 		];
@@ -100,6 +100,71 @@ if (!function_exists('alergobot_get_blog_archive_context')) {
 		}
 
 		return $context;
+	}
+}
+
+if (!function_exists('alergobot_get_blog_archive_context_from_request')) {
+	function alergobot_get_blog_archive_context_from_request(array $overrides = [])
+	{
+		$context = alergobot_get_blog_archive_context();
+		$tab     = isset($overrides['tab']) ? sanitize_key($overrides['tab']) : '';
+
+		if ($tab === 'news' || $tab === 'articles') {
+			$context['active_tab'] = $tab;
+		}
+
+		if (isset($overrides['page'])) {
+			$page = max(1, absint($overrides['page']));
+
+			if ($context['active_tab'] === 'news') {
+				$context['news_paged'] = $page;
+			} else {
+				$context['articles_paged'] = $page;
+			}
+		}
+
+		if (!empty($overrides['archive_term_id'])) {
+			$term_id = absint($overrides['archive_term_id']);
+			$term    = get_term($term_id, 'blog_category');
+
+			if ($term && !is_wp_error($term)) {
+				$context['archive_taxonomy']  = 'blog_category';
+				$context['archive_term_id']   = $term_id;
+				$context['archive_term_slug'] = $term->slug;
+			}
+		}
+
+		if (!empty($overrides['tag_id'])) {
+			$context['tag_id'] = absint($overrides['tag_id']);
+		}
+
+		if (!empty($overrides['base_url'])) {
+			$context['base_url'] = esc_url_raw($overrides['base_url']);
+		}
+
+		return $context;
+	}
+}
+
+if (!function_exists('alergobot_get_blog_archive_pagination_args')) {
+	function alergobot_get_blog_archive_pagination_args(array $context, $tab = 'articles')
+	{
+		$news_base_url = add_query_arg('tab', 'news', $context['base_url']);
+
+		if ($tab === 'news') {
+			return [
+				'base_url'   => $news_base_url,
+				'current'    => $context['news_paged'],
+				'page_param' => 'news_page',
+				'panel'      => 'news',
+			];
+		}
+
+		return [
+			'base_url' => $context['base_url'],
+			'current'  => $context['articles_paged'],
+			'panel'    => 'articles',
+		];
 	}
 }
 
@@ -244,7 +309,7 @@ if (!function_exists('alergobot_render_blog_pagination')) {
 			data-animate="bottom"
 		>
 			<?php if ($current > 1) : ?>
-				<a class="blog-pagination__arrow blog-pagination__arrow--prev" href="<?php echo esc_url($page_url($current - 1)); ?>" aria-label="<?php esc_attr_e('Предыдущая страница', 'alergobot'); ?>">
+				<a class="blog-pagination__arrow blog-pagination__arrow--prev" href="<?php echo esc_url($page_url($current - 1)); ?>" data-blog-page="<?php echo esc_attr((string) ($current - 1)); ?>" aria-label="<?php esc_attr_e('Предыдущая страница', 'alergobot'); ?>">
 					<svg class="icon" width="21.5" height="21.5" aria-hidden="true">
 						<use href="<?php echo esc_url(alergobot_assets_uri('img/icons.svg')); ?>#icon-pagination-arrow"></use>
 					</svg>
@@ -260,13 +325,13 @@ if (!function_exists('alergobot_render_blog_pagination')) {
 						<?php if ((int) $page === $current) : ?>
 							<span class="blog-pagination__num _active" aria-current="page"><?php echo esc_html((string) $page); ?></span>
 						<?php else : ?>
-							<a class="blog-pagination__num" href="<?php echo esc_url($page_url((int) $page)); ?>"><?php echo esc_html((string) $page); ?></a>
+							<a class="blog-pagination__num" href="<?php echo esc_url($page_url((int) $page)); ?>" data-blog-page="<?php echo esc_attr((string) $page); ?>"><?php echo esc_html((string) $page); ?></a>
 						<?php endif; ?>
 					</li>
 				<?php endforeach; ?>
 			</ol>
 			<?php if ($current < $total) : ?>
-				<a class="blog-pagination__arrow blog-pagination__arrow--next" href="<?php echo esc_url($page_url($current + 1)); ?>" aria-label="<?php esc_attr_e('Следующая страница', 'alergobot'); ?>">
+				<a class="blog-pagination__arrow blog-pagination__arrow--next" href="<?php echo esc_url($page_url($current + 1)); ?>" data-blog-page="<?php echo esc_attr((string) ($current + 1)); ?>" aria-label="<?php esc_attr_e('Следующая страница', 'alergobot'); ?>">
 					<svg class="icon" width="21.5" height="21.5" aria-hidden="true">
 						<use href="<?php echo esc_url(alergobot_assets_uri('img/icons.svg')); ?>#icon-pagination-arrow"></use>
 					</svg>

@@ -1,6 +1,7 @@
 "use strict";
 
 import { initAnimation } from "./animation.js";
+import { initBlogFeed } from "./blog-feed.js";
 import { initYandexMaps } from "./map.js";
 import { initTooltips } from "./tooltip.js";
 
@@ -94,46 +95,17 @@ function initCf7() {
 }
 
 function initBlogTabs() {
-	const tabs = document.querySelectorAll("[data-blog-tab]");
-	const panels = document.querySelectorAll("[data-blog-panel]");
-	const paginations = document.querySelectorAll("[data-blog-pagination]");
+	const feed = document.querySelector("[data-blog-feed]");
+	if (!feed || typeof theme_ajax === "undefined") return;
 
-	if (!tabs.length || !panels.length) return;
-
-	const getActiveGrid = () => {
-		const activePanel = document.querySelector("[data-blog-panel]._active");
-		return activePanel?.querySelector("[data-blog-grid]") ?? null;
-	};
-
-	tabs.forEach((tab) => {
-		tab.addEventListener("click", () => {
-			const target = tab.dataset.blogTab;
-
-			tabs.forEach((item) => {
-				const isActive = item === tab;
-				item.classList.toggle("_active", isActive);
-				item.setAttribute("aria-selected", String(isActive));
-			});
-
-			panels.forEach((panel) => {
-				const isActive = panel.dataset.blogPanel === target;
-				panel.classList.toggle("_active", isActive);
-				panel.hidden = !isActive;
-			});
-
-			paginations.forEach((pagination) => {
-				pagination.hidden = pagination.dataset.blogPagination !== target;
-			});
-		});
-	});
+	initBlogFeed(feed, theme_ajax);
+	const grid = feed.querySelector("[data-blog-grid]");
 
 	const loadMoreBtn = document.querySelector("[data-blog-load-more]");
-	if (loadMoreBtn && typeof theme_ajax !== "undefined") {
-		let page = 1;
-		loadMoreBtn.addEventListener("click", () => {
-			const grid = getActiveGrid();
-			if (!grid) return;
+	if (loadMoreBtn && grid) {
+		let page = Number.parseInt(feed.dataset.currentPage || "1", 10) || 1;
 
+		loadMoreBtn.addEventListener("click", () => {
 			page += 1;
 			const body = new URLSearchParams({
 				action: "load_more_blogs",
