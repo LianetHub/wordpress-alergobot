@@ -9,6 +9,17 @@
  */
 
 define('ALERGOBOT_ACF_SETTINGS_SLUG', 'theme-settings');
+define('ALERGOBOT_ACF_JSON_DIR', ALERGOBOT_DIR . '/acf-json');
+
+add_filter('acf/settings/save_json', function () {
+	return ALERGOBOT_ACF_JSON_DIR;
+});
+
+add_filter('acf/settings/load_json', function ($paths) {
+	$paths[] = ALERGOBOT_ACF_JSON_DIR;
+
+	return $paths;
+});
 
 add_action('acf/init', function () {
 	if (!function_exists('acf_add_options_page')) {

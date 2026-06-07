@@ -33,7 +33,7 @@ add_action('init', function () {
 		'public'            => true,
 		'hierarchical'      => true,
 		'show_admin_column' => true,
-		'rewrite'           => ['slug' => 'category', 'with_front' => false],
+		'rewrite'           => ['slug' => 'oborudovanie', 'with_front' => false],
 		'show_in_rest'      => true,
 	]);
 
@@ -75,11 +75,29 @@ add_action('init', function () {
  */
 add_action('after_switch_theme', function () {
 	$product_terms = [
-		'oborudovanie' => 'Оборудование',
-		'analyzers'    => 'Анализаторы',
-		'reagents'     => 'Реагенты',
-		'panels'       => 'Панели',
+		'ustroystva'  => 'Оборудование',
+		'analizatory' => 'Анализаторы',
+		'reagenty'    => 'Реагенты',
+		'paneli'      => 'Панели',
 	];
+
+	$legacy_slugs = [
+		'oborudovanie' => 'ustroystva',
+		'analyzers'    => 'analizatory',
+		'reagents'     => 'reagenty',
+		'panels'       => 'paneli',
+	];
+
+	foreach ($legacy_slugs as $old_slug => $new_slug) {
+		$term = get_term_by('slug', $old_slug, 'product_category');
+		if ($term && !is_wp_error($term)) {
+			wp_update_term((int) $term->term_id, 'product_category', [
+				'slug' => $new_slug,
+				'name' => $product_terms[$new_slug],
+			]);
+		}
+	}
+
 	foreach ($product_terms as $slug => $name) {
 		if (!term_exists($slug, 'product_category')) {
 			wp_insert_term($name, 'product_category', ['slug' => $slug]);

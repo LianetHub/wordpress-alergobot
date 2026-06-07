@@ -1,0 +1,130 @@
+{
+    "key": "group_alergobot_product_category",
+    "title": "Каталог — категория",
+    "fields": [
+        {
+            "key": "field_cat_heading_title",
+            "label": "Заголовок H1",
+            "name": "cat_heading_title",
+            "type": "text",
+            "instructions": "Если пусто — название категории."
+        },
+        {
+            "key": "field_cat_heading_text",
+            "label": "Текст в шапке",
+            "name": "cat_heading_text",
+            "type": "textarea",
+            "rows": 4
+        },
+        {
+            "key": "field_cat_heading_logo",
+            "label": "Логотип в шапке",
+            "name": "cat_heading_logo",
+            "type": "image",
+            "return_format": "array",
+            "preview_size": "medium"
+        },
+        {
+            "key": "field_cat_work_title",
+            "label": "Блок «Как работает» — заголовок",
+            "name": "cat_work_title",
+            "type": "text"
+        },
+        {
+            "key": "field_cat_work_tag",
+            "label": "Блок «Как работает» — тег",
+            "name": "cat_work_tag",
+            "type": "text"
+        },
+        {
+            "key": "field_cat_work_text",
+            "label": "Блок «Как работает» — текст",
+            "name": "cat_work_text",
+            "type": "wysiwyg",
+            "tabs": "all",
+            "toolbar": "basic",
+            "media_upload": 0
+        },
+        {
+            "key": "field_cat_work_gallery",
+            "label": "Блок «Как работает» — галерея",
+            "name": "cat_work_gallery",
+            "type": "gallery",
+            "return_format": "array",
+            "preview_size": "medium",
+            "insert": "append",
+            "library": "all"
+        },
+        {
+            "key": "field_cat_benefits",
+            "label": "Слайдер преимуществ",
+            "name": "cat_benefits",
+            "type": "repeater",
+            "layout": "table",
+            "button_label": "Добавить слайд",
+            "sub_fields": [
+                {
+                    "key": "field_cat_benefits_title",
+                    "label": "Заголовок",
+                    "name": "title",
+                    "type": "text",
+                    "parent_repeater": "field_cat_benefits"
+                },
+                {
+                    "key": "field_cat_benefits_text",
+                    "label": "Текст",
+                    "name": "text",
+                    "type": "textarea",
+                    "rows": 3,
+                    "parent_repeater": "field_cat_benefits"
+                }
+            ]
+        },
+        {
+            "key": "field_cat_cta_title",
+            "label": "CTA — заголовок",
+            "name": "cat_cta_title",
+            "type": "text"
+        },
+        {
+            "key": "field_cat_cta_text",
+            "label": "CTA — текст",
+            "name": "cat_cta_text",
+            "type": "textarea",
+            "rows": 4
+        },
+        {
+            "key": "field_cat_cta_image",
+            "label": "CTA — изображение",
+            "name": "cat_cta_image",
+            "type": "image",
+            "return_format": "array",
+            "preview_size": "medium"
+        },
+        {
+            "key": "field_cat_cta_note",
+            "label": "CTA — примечание",
+            "name": "cat_cta_note",
+            "type": "textarea",
+            "rows": 3
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "taxonomy",
+                "operator": "==",
+                "value": "product_category"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1780790400
+}

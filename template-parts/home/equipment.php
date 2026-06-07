@@ -42,7 +42,7 @@ $footer_btn = alergobot_home_get('footer_btn');
 			</ul>
 		<?php endif; ?>
 		<div class="equipment__footer" data-animate="bottom">
-			<a class="btn btn--primary equipment__btn" href="<?php echo esc_url(alergobot_acf_link_url($footer_btn, home_url('/katalog/'))); ?>"><?php echo esc_html(alergobot_acf_link_title($footer_btn, __('Подобрать оборудование', 'alergobot'))); ?></a>
+			<a class="btn btn--primary equipment__btn" href="<?php echo esc_url(alergobot_acf_link_url($footer_btn, alergobot_catalog_url())); ?>"><?php echo esc_html(alergobot_acf_link_title($footer_btn, __('Подобрать оборудование', 'alergobot'))); ?></a>
 		</div>
 	</div>
 </section>

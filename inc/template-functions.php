@@ -499,6 +499,131 @@ if (!function_exists('alergobot_esc_link')) {
 	}
 }
 
+if (!function_exists('alergobot_catalog_url')) {
+	function alergobot_catalog_url()
+	{
+		$page = get_page_by_path('oborudovanie');
+
+		if ($page) {
+			return get_permalink($page);
+		}
+
+		return home_url('/oborudovanie/');
+	}
+}
+
+if (!function_exists('alergobot_get_product_category_term_id')) {
+	function alergobot_get_product_category_term_id($slug)
+	{
+		$term = get_term_by('slug', $slug, 'product_category');
+
+		return ($term && !is_wp_error($term)) ? (int) $term->term_id : 0;
+	}
+}
+
+if (!function_exists('alergobot_get_product_category_link')) {
+	function alergobot_get_product_category_link($slug, $fallback = '')
+	{
+		$term_id = alergobot_get_product_category_term_id($slug);
+		if (!$term_id) {
+			return $fallback ?: alergobot_catalog_url();
+		}
+
+		$link = get_term_link($term_id, 'product_category');
+
+		return is_wp_error($link) ? ($fallback ?: alergobot_catalog_url()) : $link;
+	}
+}
+
+if (!function_exists('alergobot_get_product_category_terms')) {
+	/**
+	 * Product catalog categories in display order.
+	 *
+	 * @return WP_Term[]
+	 */
+	function alergobot_get_product_category_terms()
+	{
+		$order = ['ustroystva', 'analizatory', 'reagenty', 'paneli'];
+		$terms = get_terms([
+			'taxonomy'   => 'product_category',
+			'hide_empty' => false,
+		]);
+
+		if (is_wp_error($terms) || !$terms) {
+			return [];
+		}
+
+		$by_slug = [];
+		foreach ($terms as $term) {
+			$by_slug[$term->slug] = $term;
+		}
+
+		$ordered = [];
+		foreach ($order as $slug) {
+			if (isset($by_slug[$slug])) {
+				$ordered[] = $by_slug[$slug];
+			}
+		}
+
+		foreach ($terms as $term) {
+			if (!in_array($term->slug, $order, true)) {
+				$ordered[] = $term;
+			}
+		}
+
+		return $ordered;
+	}
+}
+
+if (!function_exists('alergobot_get_term_field')) {
+	function alergobot_get_term_field($field, $term)
+	{
+		if (!function_exists('get_field')) {
+			return null;
+		}
+
+		if ($term instanceof WP_Term) {
+			return get_field($field, $term);
+		}
+
+		if (is_numeric($term)) {
+			return get_field($field, 'product_category_' . (int) $term);
+		}
+
+		return get_field($field, 'product_category_' . $term);
+	}
+}
+
+if (!function_exists('alergobot_format_file_size')) {
+	function alergobot_format_file_size($bytes)
+	{
+		$bytes = (int) $bytes;
+		if ($bytes <= 0) {
+			return '';
+		}
+
+		if ($bytes >= 1048576) {
+			return number_format($bytes / 1048576, 1, '.', '') . ' Мб';
+		}
+
+		return number_format($bytes / 1024, 1, '.', '') . ' Кб';
+	}
+}
+
+if (!function_exists('alergobot_split_faq_columns')) {
+	function alergobot_split_faq_columns(array $items)
+	{
+		$count = count($items);
+		if ($count === 0) {
+			return [[], []];
+		}
+
+		$mid = (int) ceil($count / 2);
+
+		return [array_slice($items, 0, $mid), array_slice($items, $mid)];
+	}
+}
+
 if (!function_exists('alergobot_get_phones')) {
 	function alergobot_get_phones($header_only = false)
 	{
@@ -583,9 +708,9 @@ if (!function_exists('alergobot_get_main_class')) {
 			return 'main--blog';
 		}
 		if (is_tax('product_category')) {
-			return 'main--catalog';
+			return 'main--devices';
 		}
-		if (is_page_template('page-katalog.php')) {
+		if (is_page_template('page-katalog.php') || is_page('oborudovanie') || is_page('katalog')) {
 			return 'main--catalog';
 		}
 		if (is_page_template('page-kontakty.php')) {

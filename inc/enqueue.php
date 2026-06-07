@@ -55,7 +55,7 @@ function alergobot_enqueue_conditional_styles($uri, $ver)
 		wp_enqueue_style('alergobot-home', $uri . '/css/home.min.css', $deps, $ver);
 	}
 
-	if (is_page_template('page-katalog.php') || is_page('katalog')) {
+	if (is_page_template('page-katalog.php') || is_page('oborudovanie') || is_page('katalog')) {
 		wp_enqueue_style('alergobot-catalog', $uri . '/css/catalog.min.css', $deps, $ver);
 	}
 
@@ -63,7 +63,7 @@ function alergobot_enqueue_conditional_styles($uri, $ver)
 		wp_enqueue_style('alergobot-product', $uri . '/css/product.min.css', $deps, $ver);
 	}
 
-	if (is_page_template('page-analizatory.php') || is_tax('product_category', 'analyzers') || is_page('analizatory')) {
+	if (is_tax('product_category') || is_page_template('page-analizatory.php') || is_page('analizatory')) {
 		wp_enqueue_style('alergobot-analyzers', $uri . '/css/analyzers.min.css', $deps, $ver);
 	}
 

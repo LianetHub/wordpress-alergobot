@@ -27,7 +27,7 @@ $subtitle = alergobot_get_option('404_subtitle', __('Воспользуйтес�
 					<use href="<?php echo esc_url(alergobot_assets_uri('img/icons.svg')); ?>#icon-arrow-up-right"></use>
 				</svg>
 			</a>
-			<a class="btn btn--secondary not-found__btn" href="<?php echo esc_url(home_url('/katalog/')); ?>"> Смотреть каталог <svg class="btn__icon" width="28" height="28" aria-hidden="true">
+			<a class="btn btn--secondary not-found__btn" href="<?php echo esc_url(alergobot_catalog_url()); ?>"> Смотреть каталог <svg class="btn__icon" width="28" height="28" aria-hidden="true">
 					<use href="<?php echo esc_url(alergobot_assets_uri('img/icons.svg')); ?>#icon-arrow-up-right"></use>
 				</svg>
 			</a>

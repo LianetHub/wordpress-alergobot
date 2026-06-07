@@ -6,7 +6,7 @@
  */
 
 $btn_catalog     = alergobot_home_get('btn_catalog');
-$btn_catalog_url = alergobot_acf_link_url($btn_catalog, home_url('/katalog/'));
+$btn_catalog_url = alergobot_acf_link_url($btn_catalog, alergobot_catalog_url());
 ?>
 <section class="hero">
 	<div class="hero__container _container">
