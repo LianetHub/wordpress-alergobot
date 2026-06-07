@@ -22,16 +22,20 @@ $btn_catalog_url = alergobot_acf_link_url($btn_catalog, home_url('/katalog/'));
 							<use href="<?php echo esc_url(alergobot_assets_uri('img/icons.svg')); ?>#icon-arrow-up-right"></use>
 						</svg>
 					</a>
-					<button class="hero__btn btn btn--white-outline" type="button" data-fancybox="" data-src="#popup-presentation"><?php echo esc_html(alergobot_home_get('btn_presentation_label', __('Запросить презентацию', 'alergobot'))); ?></button>
+					<button class="hero__btn btn btn--white-outline" type="button" data-fancybox data-src="#popup-presentation"><?php echo esc_html(alergobot_home_get('btn_presentation_label', __('Запросить презентацию', 'alergobot'))); ?></button>
 				</div>
-				<div class="hero__note" data-animate="bottom">
-					<?php if ($flag_path = alergobot_home_get('flag_image_path')) : ?>
+				<div class="hero__note" >
+					<?php if ($flag_image = alergobot_home_get('flag_image')) : ?>
 						<span class="hero__flag" aria-hidden="true" data-animate="scale">
-							<img src="<?php echo esc_url(alergobot_acf_image_url($flag_path)); ?>" alt="<?php echo esc_attr(alergobot_home_get('flag_image_alt')); ?>" width="83" height="67" loading="eager">
+							<?php echo alergobot_acf_image($flag_image, 'full', [
+								'width'   => '83',
+								'height'  => '67',
+								'loading' => 'eager',
+							]); ?>
 						</span>
 					<?php endif; ?>
 					<?php if ($note = alergobot_home_get('note_text')) : ?>
-						<p><?php echo esc_html($note); ?></p>
+						<p data-animate="bottom"><?php echo esc_html($note); ?></p>
 					<?php endif; ?>
 				</div>
 			</div>

@@ -191,6 +191,11 @@ $popup-gradient: linear-gradient(61deg, $color-primary 0%, $color-accent 99.68%)
 		display: flex;
 		flex-direction: column;
 		gap: rem(10);
+
+		.form__control {
+			min-height: rem(52);
+			padding-block: 0.875rem;
+		}
 	}
 
 	&__visual {

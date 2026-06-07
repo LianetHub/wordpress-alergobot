@@ -1498,6 +1498,11 @@ h3 {
   gap: 0.625rem;
 }
 
+.popup-modal__form .form__control {
+  min-height: 3.25rem;
+  padding-block: 0.875rem;
+}
+
 .popup-modal__visual {
   display: none;
   position: relative;
