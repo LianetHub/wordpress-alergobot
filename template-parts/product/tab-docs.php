@@ -28,12 +28,14 @@ $is_active = (bool) get_query_var('product_tab_active');
 				continue;
 			}
 
-			$file_url    = $file['url'];
-			$file_name   = $name ?: ($file['filename'] ?? $file['title'] ?? '');
-			$file_size   = alergobot_format_file_size($file['filesize'] ?? 0);
-			$preview_url = alergobot_acf_image_url($preview);
+			$file_url      = $file['url'];
+			$file_name     = $name ?: ($file['filename'] ?? $file['title'] ?? '');
+			$file_size     = alergobot_format_file_size($file['filesize'] ?? 0);
+			$preview_url   = alergobot_acf_image_url($preview);
+			$download_name = $file['filename'] ?? '';
+			$tooltip       = $doc['tooltip'] ?? __('Скачать', 'alergobot');
 			?>
-			<a class="product-doc" href="<?php echo esc_url($file_url); ?>" target="_blank" rel="noopener noreferrer" data-animate="bottom">
+			<a class="product-doc" href="<?php echo esc_url($file_url); ?>"<?php echo $download_name ? ' download="' . esc_attr($download_name) . '"' : ' download'; ?> rel="noopener noreferrer" data-animate="bottom">
 				<span class="product-doc__main">
 					<?php if ($preview_url) : ?>
 						<span class="product-doc__preview">
@@ -45,9 +47,11 @@ $is_active = (bool) get_query_var('product_tab_active');
 						<span class="product-doc__size"><?php echo esc_html($file_size); ?></span>
 					<?php endif; ?>
 				</span>
-				<svg class="icon product-doc__icon" width="36" height="36" aria-hidden="true">
-					<use href="<?php echo esc_url($icons); ?>#icon-eye-info"></use>
-				</svg>
+				<span class="product-doc__icon tooltip-trigger" data-tooltip="<?php echo esc_attr($tooltip); ?>" aria-label="<?php echo esc_attr($tooltip); ?>" aria-expanded="false">
+					<svg class="icon" width="36" height="36" aria-hidden="true">
+						<use href="<?php echo esc_url($icons); ?>#icon-eye-info"></use>
+					</svg>
+				</span>
 			</a>
 		<?php endforeach; ?>
 	</div>

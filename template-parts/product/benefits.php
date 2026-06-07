@@ -31,17 +31,17 @@ if (!$benefits_text && !$benefits_cards) {
 			<?php endif; ?>
 			<?php if ($benefits_cards) : ?>
 				<div class="benefits__grid">
-					<?php foreach ($benefits_cards as $card_index => $card) :
-						$num     = $card['num'] ?? (string) ($card_index + 1);
+					<?php $card_number = 0; foreach ($benefits_cards as $card) :
 						$title   = $card['title'] ?? '';
 						$tooltip = $card['tooltip'] ?? '';
 						if (!$title) {
 							continue;
 						}
+						$card_number++;
 						?>
 						<article class="benefits__card" data-animate="bottom">
 							<div class="benefits__card-head">
-								<span class="benefits__num"><?php echo esc_html($num); ?></span>
+								<span class="benefits__num"><?php echo esc_html((string) $card_number); ?></span>
 								<?php if ($tooltip) : ?>
 									<button class="benefits__info tooltip-trigger" type="button" data-tooltip="<?php echo esc_attr($tooltip); ?>" aria-label="<?php echo esc_attr(sprintf(__('Подробнее: %s', 'alergobot'), $title)); ?>" aria-expanded="false">
 										<svg class="icon benefits__info-icon" aria-hidden="true">

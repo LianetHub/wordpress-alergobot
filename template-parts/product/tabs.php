@@ -8,27 +8,10 @@
 $post_id = get_the_ID();
 $icons   = alergobot_assets_uri('img/icons.svg');
 
-$has_description = (bool) (
-	function_exists('get_field') && (
-		get_field('product_panel_lead', $post_id)
-		|| get_field('product_blocks', $post_id)
-		|| get_field('product_allergens', $post_id)
-	)
-);
-
-$has_ru = (bool) (
-	function_exists('get_field') && (
-		get_field('product_ru_specs', $post_id)
-		|| get_field('product_ru_file', $post_id)
-	)
-);
-
-$has_video = (bool) (
-	function_exists('get_field')
-	&& alergobot_acf_image_url(get_field('product_video_poster', $post_id))
-);
-
-$has_docs = (bool) (function_exists('get_field') && get_field('product_docs', $post_id));
+$has_description = alergobot_product_has_description_tab($post_id);
+$has_ru          = alergobot_product_has_ru_tab($post_id);
+$has_video       = alergobot_product_has_video_tab($post_id);
+$has_docs        = alergobot_product_has_docs_tab($post_id);
 
 if (!$has_description && !$has_ru && !$has_video && !$has_docs) {
 	return;

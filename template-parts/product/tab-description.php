@@ -75,9 +75,9 @@ $is_active     = (bool) get_query_var('product_tab_active');
 								</tr>
 							</thead>
 							<tbody>
-								<?php foreach ($allergen_rows as $row) : ?>
+								<?php foreach ($allergen_rows as $row_index => $row) : ?>
 									<tr>
-										<td><?php echo esc_html($row['num'] ?? ''); ?></td>
+										<td><?php echo esc_html((string) ($row_index + 1)); ?></td>
 										<td><?php echo esc_html($row['name_ru'] ?? ''); ?></td>
 										<td><?php echo esc_html($row['name_en'] ?? ''); ?></td>
 										<td><?php echo esc_html($row['code'] ?? ''); ?></td>

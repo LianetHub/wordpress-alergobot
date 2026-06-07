@@ -219,22 +219,55 @@ add_action('init', function () {
 });
 
 
+add_filter('post_type_link', function (string $post_link, WP_Post $post): string {
+	if ($post->post_type !== 'product' || $post->post_name === '') {
+		return $post_link;
+	}
+
+	return home_url(user_trailingslashit('oborudovanie/' . $post->post_name));
+}, 10, 2);
+
 add_filter('request', function (array $query_vars): array {
-	if (empty($query_vars['pagename']) || isset($query_vars['product_category'])) {
+	$slug = '';
+
+	if (!empty($query_vars['pagename']) && !isset($query_vars['product_category'])) {
+		if (preg_match('#^oborudovanie/([^/]+)/?$#', (string) $query_vars['pagename'], $matches)) {
+			$slug = $matches[1];
+		}
+	} elseif (!empty($query_vars['product_category']) && empty($query_vars['name'])) {
+		$term_slug = (string) $query_vars['product_category'];
+
+		if (!function_exists('alergobot_get_product_category_term_id') || !alergobot_get_product_category_term_id($term_slug)) {
+			$slug = $term_slug;
+		}
+	}
+
+	if ($slug === '') {
 		return $query_vars;
 	}
 
-	if (!preg_match('#^oborudovanie/([^/]+)/?$#', (string) $query_vars['pagename'], $matches)) {
+	if (function_exists('alergobot_get_product_category_term_id') && alergobot_get_product_category_term_id($slug)) {
+		unset($query_vars['pagename'], $query_vars['page'], $query_vars['name']);
+		$query_vars['product_category'] = $slug;
+
 		return $query_vars;
 	}
 
-	$term = get_term_by('slug', $matches[1], 'product_category');
-	if (!$term || is_wp_error($term)) {
+	$product = get_posts([
+		'name'           => $slug,
+		'post_type'      => 'product',
+		'post_status'    => 'publish',
+		'posts_per_page' => 1,
+	]);
+
+	if (empty($product)) {
 		return $query_vars;
 	}
 
-	unset($query_vars['pagename'], $query_vars['page'], $query_vars['name']);
-	$query_vars['product_category'] = $matches[1];
+	unset($query_vars['pagename'], $query_vars['page'], $query_vars['product_category']);
+	$query_vars['post_type'] = 'product';
+	$query_vars['product']   = $slug;
+	$query_vars['name']      = $slug;
 
 	return $query_vars;
 });

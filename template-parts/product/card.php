@@ -14,18 +14,17 @@ if (!$card_title) {
 	$card_title = get_the_title();
 }
 
-$card_text = get_the_excerpt();
+$card_text = function_exists('get_field') ? (string) get_field('product_hero_text', $post_id) : '';
 $thumb     = get_the_post_thumbnail_url($post_id, 'medium');
-if (!$thumb && function_exists('get_field')) {
-	$thumb = alergobot_acf_image_url(get_field('product_hero_image', $post_id));
-}
 
 ?>
 <li class="category__item" data-animate="bottom">
 	<div class="category__card">
 		<div class="category__content">
 			<?php if ($card_title) : ?>
-				<h2 class="category__title title title-md"><?php echo wp_kses_post($card_title); ?></h2>
+				<h2 class="category__title title title-md">
+					<a href="<?php echo esc_url($permalink); ?>"><?php echo wp_kses_post($card_title); ?></a>
+				</h2>
 			<?php endif; ?>
 			<?php if ($card_text) : ?>
 				<p class="category__text"><?php echo esc_html($card_text); ?></p>
