@@ -87,3 +87,25 @@ function alergobot_enqueue_conditional_styles($uri, $ver)
 		wp_enqueue_style('alergobot-not-found', $uri . '/css/not-found.min.css', $deps, $ver);
 	}
 }
+
+/**
+ * Preload local variable fonts before CSS @font-face is parsed.
+ */
+add_action('wp_head', 'alergobot_preload_fonts', 1);
+
+function alergobot_preload_fonts()
+{
+	$fonts = [
+		'Manrope-VariableFont_wght.woff2',
+		'Inter-VariableFont_opsz,wght.woff2',
+	];
+
+	$base = ALERGOBOT_ASSETS_URI . '/fonts/';
+
+	foreach ($fonts as $file) {
+		printf(
+			'<link rel="preload" href="%s" as="font" type="font/woff2" crossorigin>' . "\n",
+			esc_url($base . $file)
+		);
+	}
+}
