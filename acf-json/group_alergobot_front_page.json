@@ -869,6 +869,7 @@
                                     "max": 0,
                                     "rows_per_page": 20,
                                     "collapsed": "",
+                                    "parent_repeater": "field_99d0956cf3dbe",
                                     "sub_fields": [
                                         {
                                             "key": "field_71d653cce275e",
@@ -891,8 +892,7 @@
                                             "placeholder": "",
                                             "parent_repeater": "field_bc20f06e2766f"
                                         }
-                                    ],
-                                    "parent_repeater": "field_99d0956cf3dbe"
+                                    ]
                                 }
                             ]
                         }
@@ -2830,5 +2830,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1781217600
+    "modified": 1781084841
 }

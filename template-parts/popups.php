@@ -6,16 +6,35 @@
  * @package alergobot
  */
 
+$consult_title      = alergobot_get_option('popup_consult_title');
+$consult_lead       = alergobot_get_option('popup_consult_lead');
+$order_title        = alergobot_get_option('popup_order_title');
+$order_lead         = alergobot_get_option('popup_order_lead');
+$order_image_1      = alergobot_get_option_raw('popup_order_image_1');
+$order_image_2      = alergobot_get_option_raw('popup_order_image_2');
+$presentation_title = alergobot_get_option('popup_presentation_title');
+$presentation_lead  = alergobot_get_option('popup_presentation_lead');
+$presentation_image = alergobot_get_option_raw('popup_presentation_image');
+$partners_title     = alergobot_get_option('popup_partners_title');
+$partners_lead      = alergobot_get_option('popup_partners_lead');
+$partners_action    = alergobot_get_option('popup_partners_action');
+$success_title      = alergobot_get_option('popup_success_title');
+$error_title        = alergobot_get_option('popup_error_title');
+
 ?>
 
 <div class="popups" hidden>
 	<!-- Консультация -->
 	<div id="popup-consultation" class="popup-modal popup-modal--consult">
 		<div class="popup-modal__inner">
-			<h2 class="popup-modal__title title title-popup">Свяжитесь с нами для консультации</h2>
-			<p class="popup-modal__lead">Наш специалист ответит на любые ваши вопросы и&nbsp;поможет сделать выбор</p>
+			<?php if ($consult_title) : ?>
+				<h2 class="popup-modal__title title title-popup"><?php echo esc_html($consult_title); ?></h2>
+			<?php endif; ?>
+			<?php if ($consult_lead) : ?>
+				<p class="popup-modal__lead"><?php echo esc_html($consult_lead); ?></p>
+			<?php endif; ?>
 			<div class="popup-modal__content popup-modal__content--center">
-				<div class="popup-modal__form"  >
+				<div class="popup-modal__form">
 					<?php alergobot_cf7_form('cf7_konsultaciya'); ?>
 				</div>
 			</div>
@@ -26,20 +45,40 @@
 		<div class="popup-modal__inner">
 			<div class="popup-modal__layout">
 				<div class="popup-modal__content">
-					<h2 class="popup-modal__title title title-popup">Оформить заказ</h2>
-					<p class="popup-modal__lead">Заполните форму заказа, чтобы получить предварительную консультацию и ответы на вопросы, которые вас интересует по оборудованию</p>
-					<div class="popup-modal__form" >
+					<?php if ($order_title) : ?>
+						<h2 class="popup-modal__title title title-popup"><?php echo esc_html($order_title); ?></h2>
+					<?php endif; ?>
+					<?php if ($order_lead) : ?>
+						<p class="popup-modal__lead"><?php echo esc_html($order_lead); ?></p>
+					<?php endif; ?>
+					<div class="popup-modal__form">
 						<?php alergobot_cf7_form('cf7_zakaz'); ?>
 					</div>
 				</div>
-				<div class="popup-modal__visual" aria-hidden="true">
-					<div class="popup-modal__photo">
-						<img src="<?php echo esc_url(alergobot_assets_uri('img/popup/order-02.png')); ?>" alt="" width="182" height="169" loading="lazy">
+				<?php if ($order_image_1 || $order_image_2) : ?>
+					<div class="popup-modal__visual" aria-hidden="true">
+						<?php if ($order_image_1) : ?>
+							<div class="popup-modal__photo">
+								<?php echo alergobot_acf_image($order_image_1, 'full', [
+									'alt'     => '',
+									'width'   => '182',
+									'height'  => '169',
+									'loading' => 'lazy',
+								]); ?>
+							</div>
+						<?php endif; ?>
+						<?php if ($order_image_2) : ?>
+							<div class="popup-modal__photo">
+								<?php echo alergobot_acf_image($order_image_2, 'full', [
+									'alt'     => '',
+									'width'   => '182',
+									'height'  => '169',
+									'loading' => 'lazy',
+								]); ?>
+							</div>
+						<?php endif; ?>
 					</div>
-					<div class="popup-modal__photo">
-						<img src="<?php echo esc_url(alergobot_assets_uri('img/popup/order-01.png')); ?>" alt="" width="182" height="169" loading="lazy">
-					</div>
-				</div>
+				<?php endif; ?>
 			</div>
 		</div>
 	</div>
@@ -47,12 +86,22 @@
 	<div id="popup-presentation" class="popup-modal popup-modal--presentation">
 		<div class="popup-modal__inner">
 			<div class="popup-modal__layout popup-modal__layout--reverse">
-				<div class="popup-modal__media">
-					<img src="<?php echo esc_url(alergobot_assets_uri('img/popup/presentation.png')); ?>" alt="Презентация каталога BIO FOCUS" title="Презентация каталога BIO FOCUS" width="327" height="372" loading="lazy">
-				</div>
+				<?php if ($presentation_image) : ?>
+					<div class="popup-modal__media">
+						<?php echo alergobot_acf_image($presentation_image, 'full', [
+							'width'   => '327',
+							'height'  => '372',
+							'loading' => 'lazy',
+						]); ?>
+					</div>
+				<?php endif; ?>
 				<div class="popup-modal__content">
-					<h2 class="popup-modal__title title title-popup"> Получите презентацию<br> и прайс прямо сейчас! </h2>
-					<p class="popup-modal__lead">Оставляйте заявку и мы направим презентацию и прайс по всему каталогу. Наши менеджеры помогут подобрать оптимальное решение под задачи вашей организации.</p>
+					<?php if ($presentation_title) : ?>
+						<h2 class="popup-modal__title title title-popup"><?php echo wp_kses_post($presentation_title); ?></h2>
+					<?php endif; ?>
+					<?php if ($presentation_lead) : ?>
+						<p class="popup-modal__lead"><?php echo esc_html($presentation_lead); ?></p>
+					<?php endif; ?>
 					<div class="popup-modal__form">
 						<?php alergobot_cf7_form('cf7_prezentaciya'); ?>
 					</div>
@@ -63,45 +112,40 @@
 	<!-- Запись к партнёрам -->
 	<div id="popup-partners" class="popup-modal popup-modal--partners">
 		<div class="popup-modal__inner">
-			<h2 class="popup-modal__title title title-popup">Запишитесь на диагностику к партнерам</h2>
-			<p class="popup-modal__lead"> Пройдите тестирование на нашем оборудовании у партнеров в удобном для вас городе! </p>
-			<div class="popup-modal__partners">
-				<a class="popup-modal__partner" href="#" target="_blank" rel="noopener noreferrer">
-					<img class="popup-modal__partner-logo" src="<?php echo esc_url(alergobot_assets_uri('img/partners/partner-invito.png')); ?>" alt="ИНВИТРО" title="ИНВИТРО" width="127" height="43" loading="lazy">
-					<span class="popup-modal__partner-action"> записаться <svg class="icon popup-modal__partner-icon" width="24" height="24" aria-hidden="true">
-							<use href="<?php echo esc_url(alergobot_assets_uri('img/icons.svg')); ?>#icon-arrow-up-right"></use>
-						</svg>
-					</span>
-				</a>
-				<a class="popup-modal__partner" href="#" target="_blank" rel="noopener noreferrer">
-					<img class="popup-modal__partner-logo" src="<?php echo esc_url(alergobot_assets_uri('img/partners/partner-gemotest.png')); ?>" alt="ГЕМОТЕСТ" title="ГЕМОТЕСТ" width="121" height="54" loading="lazy">
-					<span class="popup-modal__partner-action"> записаться <svg class="icon popup-modal__partner-icon" width="24" height="24" aria-hidden="true">
-							<use href="<?php echo esc_url(alergobot_assets_uri('img/icons.svg')); ?>#icon-arrow-up-right"></use>
-						</svg>
-					</span>
-				</a>
-				<a class="popup-modal__partner" href="#" target="_blank" rel="noopener noreferrer">
-					<img class="popup-modal__partner-logo" src="<?php echo esc_url(alergobot_assets_uri('img/partners/partner-helix.png')); ?>" alt="HELIX" title="HELIX" width="99" height="41" loading="lazy">
-					<span class="popup-modal__partner-action"> записаться <svg class="icon popup-modal__partner-icon" width="24" height="24" aria-hidden="true">
-							<use href="<?php echo esc_url(alergobot_assets_uri('img/icons.svg')); ?>#icon-arrow-up-right"></use>
-						</svg>
-					</span>
-				</a>
-				<a class="popup-modal__partner" href="#" target="_blank" rel="noopener noreferrer">
-					<img class="popup-modal__partner-logo" src="<?php echo esc_url(alergobot_assets_uri('img/partners/partner-kdl.png')); ?>" alt="KDL" title="KDL" width="106" height="60" loading="lazy">
-					<span class="popup-modal__partner-action"> записаться <svg class="icon popup-modal__partner-icon" width="24" height="24" aria-hidden="true">
-							<use href="<?php echo esc_url(alergobot_assets_uri('img/icons.svg')); ?>#icon-arrow-up-right"></use>
-						</svg>
-					</span>
-				</a>
-				<a class="popup-modal__partner" href="#" target="_blank" rel="noopener noreferrer">
-					<img class="popup-modal__partner-logo" src="<?php echo esc_url(alergobot_assets_uri('img/partners/partner-abc.png')); ?>" alt="ABC медицина" title="ABC медицина" width="124" height="55" loading="lazy">
-					<span class="popup-modal__partner-action"> записаться <svg class="icon popup-modal__partner-icon" width="24" height="24" aria-hidden="true">
-							<use href="<?php echo esc_url(alergobot_assets_uri('img/icons.svg')); ?>#icon-arrow-up-right"></use>
-						</svg>
-					</span>
-				</a>
-			</div>
+			<?php if ($partners_title) : ?>
+				<h2 class="popup-modal__title title title-popup"><?php echo esc_html($partners_title); ?></h2>
+			<?php endif; ?>
+			<?php if ($partners_lead) : ?>
+				<p class="popup-modal__lead"><?php echo esc_html($partners_lead); ?></p>
+			<?php endif; ?>
+			<?php if (function_exists('have_rows') && have_rows('popup_partners_items', 'option')) : ?>
+				<div class="popup-modal__partners">
+					<?php
+					while (have_rows('popup_partners_items', 'option')) :
+						the_row();
+						$logo = get_sub_field('logo');
+						if (empty($logo)) {
+							continue;
+						}
+						$link = (string) get_sub_field('ssylka');
+						?>
+						<a class="popup-modal__partner" href="<?php echo esc_url($link ?: '#'); ?>" target="_blank" rel="noopener noreferrer">
+							<?php echo alergobot_acf_image($logo, 'full', [
+								'class'   => 'popup-modal__partner-logo',
+								'loading' => 'lazy',
+							]); ?>
+							<?php if ($partners_action) : ?>
+								<span class="popup-modal__partner-action">
+									<?php echo esc_html($partners_action); ?>
+									<svg class="icon popup-modal__partner-icon" width="24" height="24" aria-hidden="true">
+										<use href="<?php echo esc_url(alergobot_assets_uri('img/icons.svg')); ?>#icon-arrow-up-right"></use>
+									</svg>
+								</span>
+							<?php endif; ?>
+						</a>
+					<?php endwhile; ?>
+				</div>
+			<?php endif; ?>
 		</div>
 	</div>
 	<!-- Заявка отправлена -->
@@ -111,7 +155,9 @@
 				<svg class="popup-modal__status-icon icon" width="28" height="28" aria-hidden="true">
 					<use href="<?php echo esc_url(alergobot_assets_uri('img/icons.svg')); ?>#icon-check-circle"></use>
 				</svg>
-				<h2 class="popup-modal__status-title"> Спасибо!<br> Ваша заявка отправлена </h2>
+				<?php if ($success_title) : ?>
+					<h2 class="popup-modal__status-title"><?php echo wp_kses_post($success_title); ?></h2>
+				<?php endif; ?>
 			</div>
 		</div>
 	</div>
@@ -122,7 +168,9 @@
 				<svg class="popup-modal__status-icon popup-modal__status-icon--error icon" width="28" height="28" aria-hidden="true">
 					<use href="<?php echo esc_url(alergobot_assets_uri('img/icons.svg')); ?>#icon-close-circle"></use>
 				</svg>
-				<h2 class="popup-modal__status-title"> Не удалось отправить...<br> Попробуйте снова </h2>
+				<?php if ($error_title) : ?>
+					<h2 class="popup-modal__status-title"><?php echo wp_kses_post($error_title); ?></h2>
+				<?php endif; ?>
 			</div>
 		</div>
 	</div>
