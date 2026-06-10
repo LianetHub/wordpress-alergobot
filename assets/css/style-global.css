@@ -2731,50 +2731,6 @@ h3 {
   --decor-scale: 1;
 }
 
-.cookie {
-  position: fixed;
-  z-index: 40;
-  left: 1rem;
-  right: 1rem;
-  bottom: 1.375rem;
-  padding: 1rem;
-  border: 0.0625rem solid rgba(38, 102, 140, 0.12);
-  border-radius: 0.625rem;
-  background: rgba(237, 251, 255, 0.95);
-  backdrop-filter: blur(1.0625rem);
-  -webkit-backdrop-filter: blur(1.0625rem);
-  -webkit-box-shadow: 0 0.375rem 1.5rem rgba(38, 102, 140, 0.12);
-          box-shadow: 0 0.375rem 1.5rem rgba(38, 102, 140, 0.12);
-  opacity: 1;
-  visibility: visible;
-  -webkit-transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
-  transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
-}
-
-.cookie--hidden {
-  opacity: 0;
-  visibility: hidden;
-}
-
-.cookie__text {
-  color: #425460;
-  font-size: 0.8125rem;
-  line-height: 1.38462;
-}
-
-.cookie__text a {
-  color: #26668c;
-  text-decoration: underline;
-  text-underline-offset: 0.125rem;
-  -webkit-transition: color 0.2s ease;
-  transition: color 0.2s ease;
-}
-
-.cookie__accept {
-  margin-top: 1.125rem;
-  width: 100%;
-}
-
 @media (min-width: 575.98px) {
   ._container {
     -webkit-box-sizing: content-box;
@@ -2790,23 +2746,6 @@ h3 {
   .tooltip-float {
     font-size: 1rem;
     padding: 0.875rem 1.125rem;
-  }
-
-  .cookie {
-    left: 2rem;
-    right: auto;
-    bottom: 2.5rem;
-    max-width: 33.1625rem;
-    padding: 1.5rem 1.875rem 1.5625rem;
-  }
-
-  .cookie__text {
-    font-size: 1.125rem;
-    line-height: 1.4;
-  }
-
-  .cookie__accept {
-    width: auto;
   }
 }
 
@@ -3448,11 +3387,6 @@ h3 {
   .heading__tag:hover {
     border-color: #5fb9cd;
     background: #def3f9;
-  }
-
-  .cookie__text a:hover {
-    color: #55acbf;
-    text-decoration: none;
   }
 }
 
