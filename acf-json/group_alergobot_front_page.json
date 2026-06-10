@@ -1328,27 +1328,6 @@
                                     "allow_in_bindings": 1,
                                     "preview_size": "medium",
                                     "parent_repeater": "field_33b246dead77a"
-                                },
-                                {
-                                    "key": "field_9954a5a6e896e",
-                                    "label": "Alt",
-                                    "name": "image_alt",
-                                    "aria-label": "",
-                                    "type": "text",
-                                    "instructions": "",
-                                    "required": 0,
-                                    "conditional_logic": false,
-                                    "wrapper": {
-                                        "width": "",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "default_value": "",
-                                    "maxlength": "",
-                                    "placeholder": "",
-                                    "prepend": "",
-                                    "append": "",
-                                    "parent_repeater": "field_33b246dead77a"
                                 }
                             ]
                         },
@@ -2904,5 +2883,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1781206800
+    "modified": 1781210400
 }

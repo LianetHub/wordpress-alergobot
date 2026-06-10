@@ -6,7 +6,7 @@
  */
 
 ?>
-<section class="choose ">
+<section class="choose">
 	<div class="choose__container _container">
 		<div class="choose__head">
 			<div class="choose__head-main">
@@ -37,8 +37,6 @@
 								<div class="choose__card-media">
 									<?php echo alergobot_acf_image($slide['image'], 'full', [
 										'class'   => 'cover-image',
-										'alt'     => $slide['image_alt'] ?? '',
-										'title'   => $slide['image_alt'] ?? '',
 										'width'   => '214',
 										'height'  => '256',
 										'loading' => 'lazy',
