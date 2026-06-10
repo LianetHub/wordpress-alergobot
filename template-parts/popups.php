@@ -118,20 +118,23 @@ $error_title        = alergobot_get_option('popup_error_title');
 			<?php if ($partners_lead) : ?>
 				<p class="popup-modal__lead"><?php echo esc_html($partners_lead); ?></p>
 			<?php endif; ?>
-			<?php if (function_exists('have_rows') && have_rows('popup_partners_items', 'option')) : ?>
+			<?php
+			$partners = alergobot_get_partners();
+			if ($partners) :
+				?>
 				<div class="popup-modal__partners">
-					<?php
-					while (have_rows('popup_partners_items', 'option')) :
-						the_row();
-						$logo = get_sub_field('logo');
-						if (empty($logo)) {
+					<?php foreach ($partners as $partner) :
+						$thumb_id = get_post_thumbnail_id($partner);
+						if (!$thumb_id) {
 							continue;
 						}
-						$link = (string) get_sub_field('ssylka');
+						$link = alergobot_get_partner_link($partner->ID);
 						?>
 						<a class="popup-modal__partner" href="<?php echo esc_url($link ?: '#'); ?>" target="_blank" rel="noopener noreferrer">
-							<?php echo alergobot_acf_image($logo, 'full', [
+							<?php echo alergobot_acf_image($thumb_id, 'full', [
 								'class'   => 'popup-modal__partner-logo',
+								'alt'     => get_the_title($partner),
+								'title'   => get_the_title($partner),
 								'loading' => 'lazy',
 							]); ?>
 							<?php if ($partners_action) : ?>
@@ -143,7 +146,7 @@ $error_title        = alergobot_get_option('popup_error_title');
 								</span>
 							<?php endif; ?>
 						</a>
-					<?php endwhile; ?>
+					<?php endforeach; ?>
 				</div>
 			<?php endif; ?>
 		</div>

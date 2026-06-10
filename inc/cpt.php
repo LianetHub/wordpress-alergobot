@@ -222,6 +222,57 @@ add_action('init', function () {
 	]);
 
 	register_taxonomy_for_object_type('post_tag', 'blogs');
+
+	register_post_type('partner', [
+		'labels' => [
+			'name'                     => 'Партнёры',
+			'singular_name'            => 'Партнёр',
+			'menu_name'                => 'Партнёры',
+			'name_admin_bar'           => 'Партнёр',
+			'add_new'                  => 'Добавить',
+			'add_new_item'             => 'Добавить партнёра',
+			'new_item'                 => 'Новый партнёр',
+			'edit_item'                => 'Редактировать партнёра',
+			'view_item'                => 'Просмотреть партнёра',
+			'view_items'               => 'Просмотреть партнёров',
+			'search_items'             => 'Искать партнёров',
+			'not_found'                => 'Партнёры не найдены',
+			'not_found_in_trash'       => 'В корзине партнёры не найдены',
+			'all_items'                => 'Все партнёры',
+			'featured_image'           => 'Логотип партнёра',
+			'set_featured_image'       => 'Установить логотип',
+			'remove_featured_image'    => 'Удалить логотип',
+			'use_featured_image'       => 'Использовать как логотип',
+			'filter_items_list'        => 'Фильтровать список партнёров',
+			'items_list_navigation'    => 'Навигация по списку партнёров',
+			'items_list'               => 'Список партнёров',
+			'item_published'           => 'Партнёр опубликован.',
+			'item_published_privately' => 'Партнёр опубликован приватно.',
+			'item_reverted_to_draft'   => 'Партнёр возвращён в черновики.',
+			'item_scheduled'           => 'Публикация партнёра запланирована.',
+			'item_updated'             => 'Партнёр обновлён.',
+		],
+		'description'           => '',
+		'public'              => false,
+		'publicly_queryable'  => false,
+		'exclude_from_search' => true,
+		'show_ui'             => true,
+		'show_in_menu'        => true,
+		'show_in_nav_menus'   => false,
+		'show_in_admin_bar'   => true,
+		'menu_position'       => 7,
+		'menu_icon'           => 'dashicons-groups',
+		'capability_type'     => 'post',
+		'map_meta_cap'        => true,
+		'hierarchical'        => false,
+		'supports'            => ['title', 'thumbnail'],
+		'has_archive'         => false,
+		'rewrite'             => false,
+		'query_var'           => false,
+		'can_export'          => true,
+		'delete_with_user'    => false,
+		'show_in_rest'        => true,
+	]);
 });
 
 add_action('init', function () {

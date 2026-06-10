@@ -62,6 +62,38 @@ if (!function_exists('alergobot_query_blogs')) {
 	}
 }
 
+if (!function_exists('alergobot_get_partners')) {
+	function alergobot_get_partners()
+	{
+		return get_posts([
+			'post_type'      => 'partner',
+			'post_status'    => 'publish',
+			'posts_per_page' => -1,
+			'orderby'        => 'title',
+			'order'          => 'ASC',
+		]);
+	}
+}
+
+if (!function_exists('alergobot_get_partner_link')) {
+	function alergobot_get_partner_link($post_id = 0)
+	{
+		$post_id = $post_id ?: get_the_ID();
+		if (!$post_id) {
+			return '';
+		}
+
+		if (function_exists('get_field')) {
+			$link = get_field('ssylka', $post_id);
+			if (is_string($link) && $link !== '') {
+				return $link;
+			}
+		}
+
+		return (string) get_post_meta($post_id, 'ssylka', true);
+	}
+}
+
 if (!function_exists('alergobot_get_blog_category_term_id')) {
 	function alergobot_get_blog_category_term_id($slug)
 	{

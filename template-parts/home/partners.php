@@ -5,6 +5,8 @@
  * @package alergobot
  */
 
+$partners = alergobot_get_partners();
+
 ?>
 <section class="partners">
 	<div class="partners__container _container">
@@ -28,21 +30,22 @@
 				<p class="partners__note <?php echo alergobot_anim_class('fade-up'); ?>"><?php echo esc_html($note); ?></p>
 			<?php endif; ?>
 		</div>
-		<?php if (alergobot_home_rows('logos')) : ?>
+		<?php if ($partners) : ?>
 			<div class="partners__slider swiper">
 				<div class="swiper-wrapper <?php echo alergobot_anim_class('stagger'); ?>">
-					<?php foreach (alergobot_home_rows('logos') as $logo) :
-						$image = $logo['image'] ?? null;
-						if (empty($image)) {
+					<?php foreach ($partners as $partner) :
+						$thumb_id = get_post_thumbnail_id($partner);
+						if (!$thumb_id) {
 							continue;
 						}
-						$link = $logo['link'] ?? [];
 						?>
 						<div class="swiper-slide partners__slide">
-							<a class="partners__card" href="<?php echo esc_url(alergobot_acf_link_url($link, '#')); ?>">
+							<a class="partners__card" href="#popup-partners" data-fancybox data-src="#popup-partners" aria-label="<?php echo esc_attr(get_the_title($partner)); ?>">
 								<span class="partners__logo-wrap">
-									<?php echo alergobot_acf_image($image, 'full', [
+									<?php echo alergobot_acf_image($thumb_id, 'full', [
 										'class'   => 'partners__logo',
+										'alt'     => get_the_title($partner),
+										'title'   => get_the_title($partner),
 										'loading' => 'lazy',
 									]); ?>
 								</span>
