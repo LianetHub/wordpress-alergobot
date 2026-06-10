@@ -31,8 +31,8 @@ $icons_uri = alergobot_assets_uri('img/icons.svg');
 				</button>
 			</div>
 		</div>
-		<div class="equipment__slider swiper">
-			<div class="swiper-wrapper <?php echo alergobot_anim_class('stagger'); ?>">
+		<div class="equipment__slider swiper <?php echo alergobot_anim_class('reveal'); ?>">
+			<div class="swiper-wrapper">
 				<?php foreach ($related as $post) : ?>
 					<?php
 					setup_postdata($post);

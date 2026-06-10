@@ -34,12 +34,14 @@ $has_request = $request_title || $request_note || $request_lead;
 			<?php endif; ?>
 			<div class="heading__grid">
 				<div class="heading__main">
-					<a class="btn btn--primary heading__cta a-hover-lift <?php echo alergobot_anim_class('fade-up', '_anim-no-hide'); ?>" href="#catalog-request">
+					<?php echo alergobot_anim_wrap_open('fade-up', '_anim-no-hide', 'inline'); ?>
+					<a class="btn btn--primary heading__cta a-hover-lift" href="#catalog-request">
 						<?php esc_html_e('Задать вопрос', 'alergobot'); ?>
 						<svg class="btn__icon" width="28" height="28" aria-hidden="true">
 							<use href="<?php echo esc_url($icons); ?>#icon-arrow-up-right"></use>
 						</svg>
 					</a>
+					<?php echo alergobot_anim_wrap_close(); ?>
 					<?php if ($heading_tags) : ?>
 						<ul class="heading__tags">
 							<?php foreach ($heading_tags as $term) :
@@ -111,12 +113,14 @@ $has_request = $request_title || $request_note || $request_lead;
 							continue;
 						}
 					?>
-						<a class="<?php echo esc_attr($button['class']); ?><?php echo str_contains($button['class'], 'btn--primary') ? ' a-hover-lift' : ''; ?> <?php echo alergobot_anim_class('fade-up'); ?>" href="<?php echo esc_url($button_url); ?>"<?php echo alergobot_acf_link_target($button_link) ? ' target="' . esc_attr(alergobot_acf_link_target($button_link)) . '"' : ''; ?>>
+						<?php echo alergobot_anim_wrap_open('fade-up', '', str_contains($button['class'], 'btn--primary') ? 'fill' : 'inline'); ?>
+						<a class="<?php echo esc_attr($button['class']); ?><?php echo str_contains($button['class'], 'btn--primary') ? ' a-hover-lift' : ''; ?>" href="<?php echo esc_url($button_url); ?>"<?php echo alergobot_acf_link_target($button_link) ? ' target="' . esc_attr(alergobot_acf_link_target($button_link)) . '"' : ''; ?>>
 							<?php echo esc_html($button_title); ?>
 							<svg class="btn__icon" width="28" height="28">
 								<use href="<?php echo esc_url($icons); ?>#icon-arrow-up-right"></use>
 							</svg>
 						</a>
+						<?php echo alergobot_anim_wrap_close(); ?>
 					<?php endforeach; ?>
 				</div>
 			</div>
@@ -125,7 +129,7 @@ $has_request = $request_title || $request_note || $request_lead;
 					<span class="tag catalog__tag <?php echo alergobot_anim_class('bounce-up'); ?>"><?php echo esc_html($section_tag); ?></span>
 				<?php endif; ?>
 				<?php if ($gallery) : ?>
-					<div class="catalog__gallery <?php echo alergobot_anim_class('stagger'); ?>" data-decor-parallax>
+					<div class="catalog__gallery" data-decor-parallax>
 						<?php foreach ($gallery as $gallery_item) :
 							$gallery_item = alergobot_resolve_catalog_gallery_item($gallery_item, $btn_url);
 							if (!$gallery_item) {

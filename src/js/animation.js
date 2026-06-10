@@ -1,6 +1,9 @@
 "use strict";
 
 const IMMEDIATE_ANIMATION_ROOTS = [".hero", ".heading", ".product-hero", ".not-found"];
+const IMMEDIATE_ANIMATION_DELAY = 450;
+const SCROLL_ANIMATION_INIT_DELAY = 350;
+const ANIM_DURATION_SCALE = 1.15;
 
 let animItems = [];
 let animTicking = false;
@@ -8,8 +11,8 @@ let scrollInitialized = false;
 
 export function initAnimation() {
 	initRipple();
-	initScrollAnimation();
 	initImmediateAnimation();
+	initScrollAnimation();
 	initAudienceMolecules();
 	initDecorParallax();
 }
@@ -58,7 +61,7 @@ function initScrollAnimation() {
 		scrollInitialized = true;
 	}
 
-	setTimeout(animOnScroll, 200);
+	setTimeout(animOnScroll, SCROLL_ANIMATION_INIT_DELAY);
 }
 
 function handleAnimScroll() {
@@ -100,7 +103,7 @@ function resetItemAnimations(container) {
 	});
 }
 
-function animateNumber(el, duration = 700) {
+function animateNumber(el, duration = Math.round(700 * ANIM_DURATION_SCALE)) {
 	const end = parseInt(el.dataset.num, 10);
 	if (Number.isNaN(end)) return;
 
@@ -131,7 +134,7 @@ function startCounter(el) {
 	const suffix = originalText.replace(/[0-9\s\u00A0\u202F]/g, "");
 	const startNumber = Math.floor(targetNumber * 0.8);
 	const startTime = performance.now();
-	const animationDuration = 1500;
+	const animationDuration = Math.round(1500 * ANIM_DURATION_SCALE);
 
 	const formatNumber = (num) => num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, "\u00A0");
 
@@ -157,18 +160,27 @@ function initImmediateAnimation() {
 	const items = document.querySelectorAll(selector);
 	if (!items.length) return;
 
-	const reveal = () => {
+	if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
 		items.forEach((el) => {
 			el.classList.add("_active", "_anim-no-hide");
 		});
-	};
-
-	if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-		reveal();
 		return;
 	}
 
-	requestAnimationFrame(reveal);
+	setTimeout(() => {
+		requestAnimationFrame(() => {
+			items.forEach((el) => {
+				el.classList.remove("_active");
+				el.classList.add("_anim-no-hide");
+			});
+
+			requestAnimationFrame(() => {
+				items.forEach((el) => {
+					el.classList.add("_active");
+				});
+			});
+		});
+	}, IMMEDIATE_ANIMATION_DELAY);
 }
 
 function initDecorParallax() {

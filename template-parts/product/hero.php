@@ -24,12 +24,14 @@ $rating   = (string) alergobot_get_post_field('product_rating', $post_id);
 				<?php if ($hero_text) : ?>
 					<p class="product-hero__text <?php echo alergobot_anim_class('fade-up', '_anim-no-hide'); ?>"><?php echo esc_html($hero_text); ?></p>
 				<?php endif; ?>
-				<button class="product-hero__order btn btn--white a-hover-lift <?php echo alergobot_anim_class('fade-up', '_anim-no-hide'); ?>" type="button" data-fancybox="" data-src="#popup-order">
+				<?php echo alergobot_anim_wrap_open('fade-up', '_anim-no-hide', 'fill'); ?>
+				<button class="product-hero__order btn btn--white a-hover-lift" type="button" data-fancybox="" data-src="#popup-order">
 					<?php esc_html_e('заказать', 'alergobot'); ?>
 					<svg class="btn__icon" width="28" height="28" aria-hidden="true">
 						<use href="<?php echo esc_url($icons); ?>#icon-arrow-up-right"></use>
 					</svg>
 				</button>
+				<?php echo alergobot_anim_wrap_close(); ?>
 			</div>
 			<?php if ($hero_url) : ?>
 				<div class="product-hero__visual <?php echo alergobot_anim_class('reveal', '_anim-no-hide'); ?>">

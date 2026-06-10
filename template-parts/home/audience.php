@@ -23,7 +23,7 @@ $cards      = is_array($cards_raw) && $cards_raw !== [] ? array_values($cards_ra
 				<?php endif; ?>
 			</div>
 			<?php if ($head_photo) : ?>
-				<div class="audience__photo <?php echo alergobot_anim_class('fade-up'); ?>">
+				<div class="audience__photo <?php echo alergobot_anim_class('reveal-circle'); ?>">
 					<?php echo alergobot_acf_image($head_photo, 'full', [
 						'class'   => 'cover-image',
 						'alt'     => $head_alt,
@@ -53,11 +53,13 @@ $cards      = is_array($cards_raw) && $cards_raw !== [] ? array_values($cards_ra
 					<?php foreach ($cards as $card) :
 						$is_active = !empty($card['is_active']);
 						?>
+						<div class="audience__card-wrap">
 						<button class="audience__card<?php echo $is_active ? ' _active' : ''; ?>" type="button" data-audience-card aria-expanded="<?php echo $is_active ? 'true' : 'false'; ?>">
 							<span class="audience__card-title"><?php echo esc_html($card['title'] ?? ''); ?></span>
 							<span class="audience__toggle" aria-hidden="true"></span>
 							<span class="audience__card-text"><?php echo esc_html($card['text'] ?? ''); ?></span>
 						</button>
+						</div>
 					<?php endforeach; ?>
 				</div>
 			<?php endif; ?>

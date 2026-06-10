@@ -94,6 +94,14 @@
 		gap: 0.875rem;
 		padding: 0 1rem;
 
+		> ._anim-items {
+			@for $i from 1 through 8 {
+				&:nth-child(#{$i}) {
+					transition-delay: #{$i * 0.115}s;
+				}
+			}
+		}
+
 		@media (min-width:$md3) {
 			margin-top: 4.12rem;
 			margin-left: -13rem;

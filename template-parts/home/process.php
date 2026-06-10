@@ -19,8 +19,8 @@
 			</div>
 		</div>
 		<?php if (alergobot_home_rows('steps')) : ?>
-			<div class="process__slider swiper <?php echo alergobot_anim_class('slide-left'); ?>">
-				<div class="swiper-wrapper process__grid">
+			<div class="process__slider swiper">
+				<div class="swiper-wrapper process__grid <?php echo alergobot_anim_class('stagger'); ?>">
 					<?php foreach (alergobot_home_rows('steps') as $step) : ?>
 						<div class="swiper-slide process__slide">
 							<article class="process__card">

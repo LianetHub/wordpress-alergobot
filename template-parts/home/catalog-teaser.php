@@ -24,22 +24,26 @@ $btn_panels    = alergobot_home_get('btn_panels');
 					<p class="catalog-teaser__text text-lead <?php echo alergobot_anim_class('fade-up'); ?>"><?php echo wp_kses_post($text); ?></p>
 				<?php endif; ?>
 				<div class="catalog-teaser__actions">
-					<a class="btn btn--primary catalog-teaser__btn a-hover-lift <?php echo alergobot_anim_class('fade-up'); ?>" href="<?php echo esc_url(alergobot_acf_link_url($btn_analyzers, alergobot_get_product_category_link('analizatory'))); ?>">
+					<?php echo alergobot_anim_wrap_open('fade-up', '', 'fill'); ?>
+					<a class="btn btn--primary catalog-teaser__btn a-hover-lift" href="<?php echo esc_url(alergobot_acf_link_url($btn_analyzers, alergobot_get_product_category_link('analizatory'))); ?>">
 						<?php echo esc_html(alergobot_acf_link_title($btn_analyzers, __('Смотреть анализаторы', 'alergobot'))); ?>
 						<svg class="btn__icon icon" width="28" height="28" aria-hidden="true">
 							<use href="<?php echo esc_url(alergobot_assets_uri('img/icons.svg')); ?>#icon-arrow-up-right"></use>
 						</svg>
 					</a>
-					<a class="btn btn--secondary catalog-teaser__btn <?php echo alergobot_anim_class('fade-up'); ?>" href="<?php echo esc_url(alergobot_acf_link_url($btn_panels, alergobot_catalog_url() . '#catalog-reagents')); ?>">
+					<?php echo alergobot_anim_wrap_close(); ?>
+					<?php echo alergobot_anim_wrap_open('fade-up', '', 'fill'); ?>
+					<a class="btn btn--secondary catalog-teaser__btn" href="<?php echo esc_url(alergobot_acf_link_url($btn_panels, alergobot_catalog_url() . '#catalog-reagents')); ?>">
 						<?php echo esc_html(alergobot_acf_link_title($btn_panels, __('смотреть панели', 'alergobot'))); ?>
 						<svg class="btn__icon icon" width="28" height="28" aria-hidden="true">
 							<use href="<?php echo esc_url(alergobot_assets_uri('img/icons.svg')); ?>#icon-arrow-up-right"></use>
 						</svg>
 					</a>
+					<?php echo alergobot_anim_wrap_close(); ?>
 				</div>
 			</div>
 			<?php if (alergobot_home_rows('gallery')) : ?>
-				<ul class="catalog-teaser__gallery <?php echo alergobot_anim_class('stagger'); ?>">
+				<ul class="catalog-teaser__gallery">
 					<?php foreach (alergobot_home_rows('gallery') as $item) :
 						if (empty($item['image'])) {
 							continue;
@@ -47,7 +51,7 @@ $btn_panels    = alergobot_home_get('btn_panels');
 						$img_w = $item['image_width'] ?? 800;
 						$img_h = $item['image_height'] ?? 600;
 						?>
-						<li class="catalog-teaser__card">
+						<li class="catalog-teaser__card <?php echo alergobot_anim_class('reveal-circle'); ?>">
 							<?php echo alergobot_acf_image($item['image'], 'full', [
 								'class'   => 'cover-image',
 								'alt'     => $item['image_alt'] ?? '',

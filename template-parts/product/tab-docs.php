@@ -35,6 +35,7 @@ $is_active = (bool) get_query_var('product_tab_active');
 			$download_name = $file['filename'] ?? '';
 			$tooltip       = $doc['tooltip'] ?? __('Скачать', 'alergobot');
 			?>
+			<div class="product-doc-wrap">
 			<a class="product-doc" href="<?php echo esc_url($file_url); ?>"<?php echo $download_name ? ' download="' . esc_attr($download_name) . '"' : ' download'; ?> rel="noopener noreferrer">
 				<span class="product-doc__main">
 					<?php if ($preview_url) : ?>
@@ -53,6 +54,7 @@ $is_active = (bool) get_query_var('product_tab_active');
 					</svg>
 				</span>
 			</a>
+			</div>
 		<?php endforeach; ?>
 	</div>
 </div>

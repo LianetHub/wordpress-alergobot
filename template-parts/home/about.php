@@ -19,7 +19,7 @@ $logo = alergobot_home_get('logo');
 						<h2 class="about__title title title-md <?php echo alergobot_anim_class('fade-up'); ?>"><?php echo esc_html($title); ?></h2>
 					<?php endif; ?>
 					<?php if ($logo) : ?>
-						<div class="about__logo-wrap <?php echo alergobot_anim_class('fade-up'); ?>">
+						<div class="about__logo-wrap <?php echo alergobot_anim_class('scale-up'); ?>">
 							<?php echo alergobot_acf_image($logo, 'full', [
 								'width'   => '254',
 								'height'  => '47',

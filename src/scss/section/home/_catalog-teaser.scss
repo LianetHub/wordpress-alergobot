@@ -131,6 +131,12 @@
 		background: $color-surface-mint;
 		overflow: hidden;
 
+		@for $i from 1 through 3 {
+			&:nth-child(#{$i})._anim-items {
+				transition-delay: #{$i * 0.115}s;
+			}
+		}
+
 		& img {
 			height: auto
 		}

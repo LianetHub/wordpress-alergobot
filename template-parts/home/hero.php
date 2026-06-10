@@ -43,12 +43,14 @@ $btn_catalog_url = alergobot_acf_link_url($btn_catalog, alergobot_catalog_url())
 				<ul class="hero__cards">
 					<?php foreach (alergobot_home_rows('cards') as $card) : ?>
 						<li class="hero__card <?php echo alergobot_anim_class('fade-up', '_anim-no-hide'); ?>">
+							<div class="hero__card-inner">
 							<span class="hero__card-icon" aria-hidden="true">
 								<svg width="42" height="42" aria-hidden="true">
 									<use href="<?php echo esc_url(alergobot_assets_uri('img/icons.svg')); ?>#<?php echo esc_attr($card['icon'] ?? ''); ?>"></use>
 								</svg>
 							</span>
 							<span class="hero__card-text"><?php echo wp_kses_post(nl2br($card['text'] ?? '')); ?></span>
+							</div>
 						</li>
 					<?php endforeach; ?>
 				</ul>

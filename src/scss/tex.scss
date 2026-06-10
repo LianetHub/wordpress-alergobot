@@ -31,6 +31,14 @@ $font-inter: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
 	@return #{$result}em;
 }
 
+@function anim($duration) {
+	@return $duration * 1.15 * 1s;
+}
+
+@function anim-delay($duration) {
+	@return $duration * 1.15 * 1s;
+}
+
 // Контейнер
 ._container {
 	margin: 0 auto;

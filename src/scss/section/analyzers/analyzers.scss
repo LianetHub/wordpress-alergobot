@@ -265,6 +265,12 @@
 		overflow: hidden;
 		aspect-ratio: 161 / 150;
 
+		@for $i from 1 through 6 {
+			&:nth-child(#{$i})._anim-items {
+				transition-delay: #{$i * 0.115}s;
+			}
+		}
+
 		@media (min-width: $md3) {
 			aspect-ratio: 315 / 293;
 		}

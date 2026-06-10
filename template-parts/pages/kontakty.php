@@ -17,10 +17,10 @@
 			</div>
 			<div class="heading__aside">
 				<div class="heading__products">
-					<div class="heading__product <?php echo alergobot_anim_class('fade-up', '_anim-no-hide'); ?>">
+					<div class="heading__product <?php echo alergobot_anim_class('zoom', '_anim-no-hide'); ?>">
 						<img src="<?php echo esc_url(alergobot_assets_uri('img/product/02.png')); ?>" class="cover-image" alt="Анализатор для аллергодиагностики" title="Анализатор для аллергодиагностики" width="800" height="600" fetchpriority="high">
 					</div>
-					<div class="heading__product <?php echo alergobot_anim_class('scale-up', '_anim-no-hide'); ?>">
+					<div class="heading__product <?php echo alergobot_anim_class('zoom', '_anim-no-hide'); ?>">
 						<img src="<?php echo esc_url(alergobot_assets_uri('img/product/01.png')); ?>" class="cover-image" alt="Диагностическое оборудование PROTIA" title="Диагностическое оборудование PROTIA" width="800" height="600" fetchpriority="high">
 					</div>
 				</div>

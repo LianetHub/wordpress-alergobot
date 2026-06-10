@@ -57,18 +57,22 @@ $has_cta       = $cta_title || $cta_text || $cta_note || $cta_image_url;
 					<h1 class="heading__title title title-lg <?php echo alergobot_anim_class('blur-up', '_anim-no-hide'); ?>"><?php echo esc_html($heading_title); ?></h1>
 				<?php endif; ?>
 				<div class="heading__actions">
-					<button class="btn btn--primary heading__btn a-hover-lift <?php echo alergobot_anim_class('fade-up', '_anim-no-hide'); ?>" type="button" data-fancybox="" data-src="#popup-order">
+					<?php echo alergobot_anim_wrap_open('fade-up', '_anim-no-hide', 'fill'); ?>
+					<button class="btn btn--primary heading__btn a-hover-lift" type="button" data-fancybox="" data-src="#popup-order">
 						<?php esc_html_e('оформить заказ', 'alergobot'); ?>
 						<svg class="btn__icon" width="28" height="28" aria-hidden="true">
 							<use href="<?php echo esc_url($icons); ?>#icon-arrow-up-right"></use>
 						</svg>
 					</button>
-					<button class="btn btn--secondary heading__btn <?php echo alergobot_anim_class('fade-up', '_anim-no-hide'); ?>" type="button" data-fancybox="" data-src="#popup-consultation">
+					<?php echo alergobot_anim_wrap_close(); ?>
+					<?php echo alergobot_anim_wrap_open('fade-up', '_anim-no-hide', 'fill'); ?>
+					<button class="btn btn--secondary heading__btn" type="button" data-fancybox="" data-src="#popup-consultation">
 						<?php esc_html_e('задать вопрос', 'alergobot'); ?>
 						<svg class="btn__icon" width="28" height="28" aria-hidden="true">
 							<use href="<?php echo esc_url($icons); ?>#icon-arrow-up-right"></use>
 						</svg>
 					</button>
+					<?php echo alergobot_anim_wrap_close(); ?>
 				</div>
 			</div>
 			<?php if ($heading_text || $logo_url) : ?>
@@ -77,7 +81,9 @@ $has_cta       = $cta_title || $cta_text || $cta_note || $cta_image_url;
 						<p class="heading__text <?php echo alergobot_anim_class('fade-up', '_anim-no-hide'); ?>"><?php echo esc_html($heading_text); ?></p>
 					<?php endif; ?>
 					<?php if ($logo_url) : ?>
-						<img class="heading__logo <?php echo alergobot_anim_class('fade-up', '_anim-no-hide'); ?>" src="<?php echo esc_url($logo_url); ?>" alt="PROTIA" title="PROTIA" width="185" height="52">
+						<div class="heading__logo-wrap <?php echo alergobot_anim_class('scale-up', '_anim-no-hide'); ?>">
+							<img class="heading__logo" src="<?php echo esc_url($logo_url); ?>" alt="PROTIA" title="PROTIA" width="185" height="52">
+						</div>
 					<?php endif; ?>
 				</div>
 			<?php endif; ?>
@@ -118,7 +124,7 @@ $has_cta       = $cta_title || $cta_text || $cta_note || $cta_image_url;
 					</div>
 				<?php endif; ?>
 				<?php if ($work_gallery) : ?>
-					<div class="devices-work__gallery <?php echo alergobot_anim_class('stagger'); ?>">
+					<div class="devices-work__gallery">
 						<?php foreach ($work_gallery as $photo) :
 							$photo_url = alergobot_acf_image_url($photo);
 							if (!$photo_url) {
@@ -134,7 +140,7 @@ $has_cta       = $cta_title || $cta_text || $cta_note || $cta_image_url;
 								$photo_h = 293;
 							}
 							?>
-							<div class="devices-work__photo">
+							<div class="devices-work__photo <?php echo alergobot_anim_class('reveal-circle'); ?>">
 								<img src="<?php echo esc_url($photo_url); ?>" alt="<?php echo esc_attr($photo_alt); ?>" title="<?php echo esc_attr($photo_alt); ?>" width="<?php echo esc_attr((string) $photo_w); ?>" height="<?php echo esc_attr((string) $photo_h); ?>" loading="lazy">
 							</div>
 						<?php endforeach; ?>
@@ -194,9 +200,9 @@ $has_cta       = $cta_title || $cta_text || $cta_note || $cta_image_url;
 					</a>
 				</div>
 				<?php if ($cta_image_url || $cta_note) : ?>
-					<div class="devices-cta__box devices-cta__box--visual <?php echo alergobot_anim_class('fade-right'); ?>">
+					<div class="devices-cta__box devices-cta__box--visual">
 						<?php if ($cta_image_url) : ?>
-							<div class="devices-cta__visual">
+							<div class="devices-cta__visual <?php echo alergobot_anim_class('reveal'); ?>">
 								<img src="<?php echo esc_url($cta_image_url); ?>" alt="<?php esc_attr_e('Лабораторное оборудование PROTIA', 'alergobot'); ?>" title="<?php esc_attr_e('Лабораторное оборудование PROTIA', 'alergobot'); ?>" width="570" height="298" loading="lazy">
 							</div>
 						<?php endif; ?>

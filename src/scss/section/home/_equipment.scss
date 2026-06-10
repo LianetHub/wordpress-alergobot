@@ -82,23 +82,24 @@
 			grid-template-columns: repeat(4, 1fr);
 
 		}
+
+		&.a-stagger > .equipment__card {
+			transition:
+				opacity anim(0.5) ease,
+				transform anim(0.5) ease,
+				box-shadow 0.25s ease;
+		}
 	}
 
 	&__card {
-
 		padding: rem(10);
 		border: rem(0.5) solid #fff;
 		border-radius: rem(10);
 		background: $color-surface-tab;
-		transition: box-shadow 0.25s ease;
-
-
 
 		@media (min-width: $md3) {
 			height: 100%;
 			padding: rem(20);
-
-
 		}
 
 		@media (any-hover: hover) {

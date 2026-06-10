@@ -13,6 +13,30 @@ if (!function_exists('alergobot_anim_class')) {
 	}
 }
 
+if (!function_exists('alergobot_anim_wrap_open')) {
+	/**
+	 * Open a wrapper for scroll/enter animations (keeps hover/transform on inner controls).
+	 *
+	 * @param string $type     Animation type without `a-` prefix.
+	 * @param string $extra    Extra classes, e.g. `_anim-no-hide`.
+	 * @param string $modifier Layout helper: `inline`, `fill`, or empty for block.
+	 */
+	function alergobot_anim_wrap_open(string $type = 'fade-up', string $extra = '', string $modifier = ''): string
+	{
+		$modifier_class = $modifier ? ' anim-wrap--' . sanitize_html_class($modifier) : '';
+		$classes        = trim('anim-wrap' . $modifier_class . " _anim-items a-{$type} {$extra}");
+
+		return '<div class="' . esc_attr($classes) . '">';
+	}
+}
+
+if (!function_exists('alergobot_anim_wrap_close')) {
+	function alergobot_anim_wrap_close(): string
+	{
+		return '</div>';
+	}
+}
+
 if (!function_exists('alergobot_blogs_archive_url')) {
 	function alergobot_blogs_archive_url()
 	{
@@ -690,6 +714,7 @@ if (!function_exists('alergobot_render_catalog_gallery_product')) {
 		}
 
 		if ($tag === 'a') {
+			echo '<div class="' . alergobot_anim_class('reveal') . '">';
 			printf(
 				'<a href="%1$s" class="%2$s"%3$s%4$s>',
 				esc_url($item['link_url']),
@@ -698,6 +723,7 @@ if (!function_exists('alergobot_render_catalog_gallery_product')) {
 				($item['link_target'] ?? '') === '_blank' ? ' rel="noopener noreferrer"' : ''
 			);
 		} else {
+			echo '<div class="' . alergobot_anim_class('reveal') . '">';
 			printf('<div class="%s">', esc_attr($class));
 		}
 		?>
@@ -708,7 +734,7 @@ if (!function_exists('alergobot_render_catalog_gallery_product')) {
 			<?php endif; ?>
 		</span>
 		<?php
-		echo $tag === 'a' ? '</a>' : '</div>';
+		echo $tag === 'a' ? '</a></div>' : '</div></div>';
 	}
 }
 
