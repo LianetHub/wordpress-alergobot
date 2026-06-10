@@ -21,7 +21,7 @@ $has_address = $adres_indeks || $adres_gorod || $adres_ulica;
 $has_legal   = $kompaniya_nazvanie || $kompaniya_inn || $kompaniya_kpp || $kompaniya_ogrn;
 ?>
 <?php if ($phones) : ?>
-	<article class="contacts-card contacts-card--phone" data-animate="bottom">
+	<div class="contacts-card contacts-card--phone" data-animate="bottom">
 		<div class="contacts-card__icon" aria-hidden="true">
 			<svg class="icon" width="22" height="22">
 				<use href="<?php echo esc_url($icons_uri); ?>#icon-phone"></use>
@@ -32,11 +32,11 @@ $has_legal   = $kompaniya_nazvanie || $kompaniya_inn || $kompaniya_kpp || $kompa
 				<a class="contacts-card__link" href="tel:+<?php echo esc_attr(alergobot_phone_clean($phone)); ?>" itemprop="telephone"><?php echo esc_html($phone); ?></a>
 			<?php endforeach; ?>
 		</div>
-	</article>
+	</div>
 <?php endif; ?>
 
 <?php if ($has_address) : ?>
-	<article class="contacts-card contacts-card--address" itemprop="address" itemscope itemtype="https://schema.org/PostalAddress" data-animate="bottom">
+	<div class="contacts-card contacts-card--address" itemprop="address" itemscope itemtype="https://schema.org/PostalAddress" data-animate="bottom">
 		<meta itemprop="addressCountry" content="RU">
 		<div class="contacts-card__icon" aria-hidden="true">
 			<svg class="icon" width="22" height="22">
@@ -54,11 +54,11 @@ $has_legal   = $kompaniya_nazvanie || $kompaniya_inn || $kompaniya_kpp || $kompa
 				<span itemprop="streetAddress"><?php echo esc_html($adres_ulica); ?></span>
 			<?php endif; ?>
 		</address>
-	</article>
+	</div>
 <?php endif; ?>
 
 <?php if ($email) : ?>
-	<article class="contacts-card contacts-card--email" data-animate="bottom">
+	<div class="contacts-card contacts-card--email" data-animate="bottom">
 		<div class="contacts-card__icon" aria-hidden="true">
 			<svg class="icon" width="22" height="22">
 				<use href="<?php echo esc_url($icons_uri); ?>#icon-email"></use>
@@ -67,11 +67,11 @@ $has_legal   = $kompaniya_nazvanie || $kompaniya_inn || $kompaniya_kpp || $kompa
 		<p class="contacts-card__body">
 			<a class="contacts-card__link" href="mailto:<?php echo esc_attr($email); ?>" itemprop="email"><?php echo esc_html($email); ?></a>
 		</p>
-	</article>
+	</div>
 <?php endif; ?>
 
 <?php if ($has_legal) : ?>
-	<article class="contacts-card contacts-card--legal" data-animate="bottom">
+	<div class="contacts-card contacts-card--legal" data-animate="bottom">
 		<div class="contacts-card__icon" aria-hidden="true">
 			<svg class="icon" width="22" height="22">
 				<use href="<?php echo esc_url($icons_uri); ?>#icon-doc"></use>
@@ -95,5 +95,5 @@ $has_legal   = $kompaniya_nazvanie || $kompaniya_inn || $kompaniya_kpp || $kompa
 				<?php esc_html_e('ОГРН:', 'alergobot'); ?> <span itemprop="identifier"><?php echo esc_html($kompaniya_ogrn); ?></span>
 			<?php endif; ?>
 		</div>
-	</article>
+	</div>
 <?php endif; ?>

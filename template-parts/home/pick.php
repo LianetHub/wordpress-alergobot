@@ -42,7 +42,7 @@
 		<?php if (alergobot_home_rows('videos')) : ?>
 			<div class="pick__videos">
 				<?php foreach (alergobot_home_rows('videos') as $video) : ?>
-					<article class="pick__video" data-animate="bottom">
+					<div class="pick__video" data-animate="bottom">
 						<button class="pick__video-media" type="button" aria-label="<?php echo esc_attr($video['aria_label'] ?? ''); ?>" data-fancybox="pick-video" data-type="iframe" data-width="960" data-height="540" data-src="<?php echo esc_url($video['video_url'] ?? ''); ?>">
 							<?php if (!empty($video['poster'])) : ?>
 								<?php echo alergobot_acf_image($video['poster'], 'full', [
@@ -64,7 +64,7 @@
 								<?php endforeach; ?>
 							</div>
 						<?php endif; ?>
-					</article>
+					</div>
 				<?php endforeach; ?>
 			</div>
 		<?php endif; ?>

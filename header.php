@@ -48,7 +48,7 @@ $main_class    = alergobot_get_main_class();
 					</nav>
 
 					<?php if ($header_phones) : ?>
-						<div class="header__phones" aria-label="<?php esc_attr_e('Телефоны', 'alergobot'); ?>">
+						<div class="header__phones" role="group" aria-label="<?php esc_attr_e('Телефоны', 'alergobot'); ?>">
 							<?php foreach ($header_phones as $index => $phone) : ?>
 								<?php if ($index > 0) : ?>
 									<span class="header__sep" aria-hidden="true"></span>
