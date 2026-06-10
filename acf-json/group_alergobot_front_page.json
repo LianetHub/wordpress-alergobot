@@ -532,23 +532,29 @@
                             "sub_fields": [
                                 {
                                     "key": "field_4ed4d8687aa4b",
-                                    "label": "Изображение (путь assets)",
-                                    "name": "image_path",
+                                    "label": "Изображение",
+                                    "name": "image",
                                     "aria-label": "",
-                                    "type": "text",
+                                    "type": "image",
                                     "instructions": "",
                                     "required": 0,
-                                    "conditional_logic": false,
+                                    "conditional_logic": 0,
                                     "wrapper": {
                                         "width": "",
                                         "class": "",
                                         "id": ""
                                     },
-                                    "default_value": "",
-                                    "maxlength": "",
-                                    "placeholder": "",
-                                    "prepend": "",
-                                    "append": "",
+                                    "return_format": "array",
+                                    "library": "all",
+                                    "min_width": "",
+                                    "min_height": "",
+                                    "min_size": "",
+                                    "max_width": "",
+                                    "max_height": "",
+                                    "max_size": "",
+                                    "mime_types": "",
+                                    "allow_in_bindings": 1,
+                                    "preview_size": "medium",
                                     "parent_repeater": "field_54bc474c03304"
                                 },
                                 {
@@ -1025,23 +1031,29 @@
                                 },
                                 {
                                     "key": "field_7ad92c7a3f0cb",
-                                    "label": "Изображение (путь assets)",
-                                    "name": "image_path",
+                                    "label": "Изображение",
+                                    "name": "image",
                                     "aria-label": "",
-                                    "type": "text",
+                                    "type": "image",
                                     "instructions": "",
                                     "required": 0,
-                                    "conditional_logic": false,
+                                    "conditional_logic": 0,
                                     "wrapper": {
                                         "width": "",
                                         "class": "",
                                         "id": ""
                                     },
-                                    "default_value": "",
-                                    "maxlength": "",
-                                    "placeholder": "",
-                                    "prepend": "",
-                                    "append": "",
+                                    "return_format": "array",
+                                    "library": "all",
+                                    "min_width": "",
+                                    "min_height": "",
+                                    "min_size": "",
+                                    "max_width": "",
+                                    "max_height": "",
+                                    "max_size": "",
+                                    "mime_types": "",
+                                    "allow_in_bindings": 1,
+                                    "preview_size": "medium",
                                     "parent_repeater": "field_7221f90a7311c"
                                 },
                                 {
@@ -1292,23 +1304,29 @@
                                 },
                                 {
                                     "key": "field_1dcea8ad75043",
-                                    "label": "Изображение (путь assets)",
-                                    "name": "image_path",
+                                    "label": "Изображение",
+                                    "name": "image",
                                     "aria-label": "",
-                                    "type": "text",
+                                    "type": "image",
                                     "instructions": "",
                                     "required": 0,
-                                    "conditional_logic": false,
+                                    "conditional_logic": 0,
                                     "wrapper": {
                                         "width": "",
                                         "class": "",
                                         "id": ""
                                     },
-                                    "default_value": "",
-                                    "maxlength": "",
-                                    "placeholder": "",
-                                    "prepend": "",
-                                    "append": "",
+                                    "return_format": "array",
+                                    "library": "all",
+                                    "min_width": "",
+                                    "min_height": "",
+                                    "min_size": "",
+                                    "max_width": "",
+                                    "max_height": "",
+                                    "max_size": "",
+                                    "mime_types": "",
+                                    "allow_in_bindings": 1,
+                                    "preview_size": "medium",
                                     "parent_repeater": "field_33b246dead77a"
                                 },
                                 {
@@ -1467,66 +1485,30 @@
                                     "parent_repeater": "field_4ca877f01cb9d"
                                 },
                                 {
-                                    "key": "field_7c58dee404e11",
-                                    "label": "CSS-модификатор названия",
-                                    "name": "name_class",
-                                    "aria-label": "",
-                                    "type": "text",
-                                    "instructions": "",
-                                    "required": 0,
-                                    "conditional_logic": false,
-                                    "wrapper": {
-                                        "width": "",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "default_value": "",
-                                    "maxlength": "",
-                                    "placeholder": "",
-                                    "prepend": "",
-                                    "append": "",
-                                    "parent_repeater": "field_4ca877f01cb9d"
-                                },
-                                {
                                     "key": "field_7a3e570f816cd",
-                                    "label": "Изображение (путь assets)",
-                                    "name": "image_path",
+                                    "label": "Изображение",
+                                    "name": "image",
                                     "aria-label": "",
-                                    "type": "text",
+                                    "type": "image",
                                     "instructions": "",
                                     "required": 0,
-                                    "conditional_logic": false,
+                                    "conditional_logic": 0,
                                     "wrapper": {
                                         "width": "",
                                         "class": "",
                                         "id": ""
                                     },
-                                    "default_value": "",
-                                    "maxlength": "",
-                                    "placeholder": "",
-                                    "prepend": "",
-                                    "append": "",
-                                    "parent_repeater": "field_4ca877f01cb9d"
-                                },
-                                {
-                                    "key": "field_21df44e883880",
-                                    "label": "Alt",
-                                    "name": "image_alt",
-                                    "aria-label": "",
-                                    "type": "text",
-                                    "instructions": "",
-                                    "required": 0,
-                                    "conditional_logic": false,
-                                    "wrapper": {
-                                        "width": "",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "default_value": "",
-                                    "maxlength": "",
-                                    "placeholder": "",
-                                    "prepend": "",
-                                    "append": "",
+                                    "return_format": "array",
+                                    "library": "all",
+                                    "min_width": "",
+                                    "min_height": "",
+                                    "min_size": "",
+                                    "max_width": "",
+                                    "max_height": "",
+                                    "max_size": "",
+                                    "mime_types": "",
+                                    "allow_in_bindings": 1,
+                                    "preview_size": "medium",
                                     "parent_repeater": "field_4ca877f01cb9d"
                                 },
                                 {
@@ -1565,27 +1547,6 @@
                                         "id": ""
                                     },
                                     "return_format": "array",
-                                    "parent_repeater": "field_4ca877f01cb9d"
-                                },
-                                {
-                                    "key": "field_9d5d846035b01",
-                                    "label": "Aria-label",
-                                    "name": "aria_label",
-                                    "aria-label": "",
-                                    "type": "text",
-                                    "instructions": "",
-                                    "required": 0,
-                                    "conditional_logic": false,
-                                    "wrapper": {
-                                        "width": "",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "default_value": "",
-                                    "maxlength": "",
-                                    "placeholder": "",
-                                    "prepend": "",
-                                    "append": "",
                                     "parent_repeater": "field_4ca877f01cb9d"
                                 }
                             ]
@@ -2943,5 +2904,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1781076075
+    "modified": 1781206800
 }

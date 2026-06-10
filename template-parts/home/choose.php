@@ -33,9 +33,16 @@
 								<h3 class="choose__card-title"><?php echo esc_html($slide['title'] ?? ''); ?></h3>
 								<p class="choose__card-desc"><?php echo esc_html($slide['desc'] ?? ''); ?></p>
 							</div>
-							<?php if (!empty($slide['image_path'])) : ?>
+							<?php if (!empty($slide['image'])) : ?>
 								<div class="choose__card-media">
-									<img class="cover-image" src="<?php echo esc_url(alergobot_acf_image_url($slide['image_path'])); ?>" alt="<?php echo esc_attr($slide['image_alt'] ?? ''); ?>" title="<?php echo esc_attr($slide['image_alt'] ?? ''); ?>" width="214" height="256" loading="lazy">
+									<?php echo alergobot_acf_image($slide['image'], 'full', [
+										'class'   => 'cover-image',
+										'alt'     => $slide['image_alt'] ?? '',
+										'title'   => $slide['image_alt'] ?? '',
+										'width'   => '214',
+										'height'  => '256',
+										'loading' => 'lazy',
+									]); ?>
 								</div>
 							<?php endif; ?>
 						</article>

@@ -26,16 +26,18 @@ $footer_btn = alergobot_home_get('footer_btn');
 			<ul class="equipment__grid">
 				<?php foreach (alergobot_home_rows('items') as $item) :
 					$link = $item['link'] ?? [];
+					$name = (string) ($item['name'] ?? '');
+					$name_class = mb_strlen($name) > 35 ? 'equipment__card-name--long' : '';
 					?>
 					<li class="equipment__card" data-animate="bottom">
-						<a class="equipment__card-link" href="<?php echo esc_url(alergobot_acf_link_url($link, '#')); ?>" aria-label="<?php echo esc_attr($item['aria_label'] ?? ''); ?>">
-							<h3 class="equipment__card-name <?php echo esc_attr($item['name_class'] ?? ''); ?>"><?php echo esc_html($item['name'] ?? ''); ?></h3>
-							<?php if (!empty($item['image_path'])) :
-								$img_w = $item['image_width'] ?? 141;
-								$img_h = $item['image_height'] ?? 106;
-								?>
+						<a class="equipment__card-link" href="<?php echo esc_url(alergobot_acf_link_url($link, '#')); ?>">
+							<h3 class="equipment__card-name<?php echo $name_class ? ' ' . esc_attr($name_class) : ''; ?>"><?php echo esc_html($name); ?></h3>
+							<?php if (!empty($item['image'])) : ?>
 								<div class="equipment__card-media">
-									<img class="cover-image" src="<?php echo esc_url(alergobot_acf_image_url($item['image_path'])); ?>" alt="<?php echo esc_attr($item['image_alt'] ?? ''); ?>" title="<?php echo esc_attr($item['image_alt'] ?? ''); ?>" width="<?php echo esc_attr((string) $img_w); ?>" height="<?php echo esc_attr((string) $img_h); ?>" loading="lazy">
+									<?php echo alergobot_acf_image($item['image'], 'full', [
+										'class'   => 'cover-image',
+										'loading' => 'lazy',
+									]); ?>
 								</div>
 							<?php endif; ?>
 							<p class="equipment__card-text"><?php echo esc_html($item['text'] ?? ''); ?></p>

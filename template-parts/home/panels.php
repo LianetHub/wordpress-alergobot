@@ -28,7 +28,7 @@ $footer_btn_mobile  = alergobot_home_get('footer_btn_mobile');
 				<?php foreach (alergobot_home_rows('items') as $item) :
 					$is_open = !empty($item['is_open']);
 					$link    = $item['link'] ?? [];
-					$image   = $item['image_path'] ?? '';
+					$image   = $item['image'] ?? '';
 					?>
 					<li class="panels__item<?php echo $is_open ? ' _active' : ''; ?>" data-animate="bottom">
 						<button class="panels__heading" type="button" aria-expanded="<?php echo $is_open ? 'true' : 'false'; ?>">
