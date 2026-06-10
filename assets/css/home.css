@@ -1180,13 +1180,6 @@ h3 {
 
 .panels__footer-btn {
   width: 100%;
-}
-
-.panels__footer-btn--desktop {
-  display: none;
-}
-
-.panels__footer-btn--mobile {
   min-height: 3.25rem;
 }
 
@@ -3281,16 +3274,12 @@ h3 {
         align-self: flex-start;
   }
 
-  .panels__footer-btn--desktop {
+  .panels__footer-btn {
     display: -webkit-inline-box;
     display: -ms-inline-flexbox;
     display: inline-flex;
     width: 26.625rem;
     min-height: 60px;
-  }
-
-  .panels__footer-btn--mobile {
-    display: none;
   }
 
   .choose {

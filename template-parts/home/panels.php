@@ -5,8 +5,6 @@
  * @package alergobot
  */
 
-$footer_btn_desktop = alergobot_home_get('footer_btn_desktop');
-$footer_btn_mobile  = alergobot_home_get('footer_btn_mobile');
 ?>
 <section class="panels">
 	<div class="panels__container _container">
@@ -28,7 +26,6 @@ $footer_btn_mobile  = alergobot_home_get('footer_btn_mobile');
 				<?php foreach (alergobot_home_rows('items') as $item) :
 					$is_open = !empty($item['is_open']);
 					$link    = $item['link'] ?? [];
-					$image   = $item['image'] ?? '';
 					?>
 					<li class="panels__item<?php echo $is_open ? ' _active' : ''; ?>" data-animate="bottom">
 						<button class="panels__heading" type="button" aria-expanded="<?php echo $is_open ? 'true' : 'false'; ?>">
@@ -43,8 +40,13 @@ $footer_btn_mobile  = alergobot_home_get('footer_btn_mobile');
 									<?php if (!empty($item['description'])) : ?>
 										<div class="panels__desc"><?php echo wp_kses_post($item['description']); ?></div>
 									<?php endif; ?>
-									<?php if ($image) : ?>
-										<img class="panels__img" src="<?php echo esc_url(alergobot_acf_image_url($image)); ?>" alt="<?php echo esc_attr($item['image_alt'] ?? ''); ?>" title="<?php echo esc_attr($item['image_alt'] ?? ''); ?>" width="267" height="144" loading="lazy">
+									<?php if (!empty($item['image'])) : ?>
+										<?php echo alergobot_acf_image($item['image'], 'full', [
+											'class'   => 'panels__img',
+											'width'   => '267',
+											'height'  => '144',
+											'loading' => 'lazy',
+										]); ?>
 									<?php endif; ?>
 									<a class="btn btn--secondary panels__more" href="<?php echo esc_url(alergobot_acf_link_url($link, alergobot_catalog_url())); ?>">
 										<?php echo esc_html(alergobot_acf_link_title($link, __('Подробнее', 'alergobot'))); ?>
@@ -60,13 +62,7 @@ $footer_btn_mobile  = alergobot_home_get('footer_btn_mobile');
 			</ul>
 		<?php endif; ?>
 		<div class="panels__footer" data-animate="bottom">
-			<a class="btn btn--primary panels__footer-btn panels__footer-btn--desktop" href="<?php echo esc_url(alergobot_acf_link_url($footer_btn_desktop, alergobot_catalog_url())); ?>"><?php echo esc_html(alergobot_acf_link_title($footer_btn_desktop, __('Перейти в каталог', 'alergobot'))); ?></a>
-			<a class="btn btn--primary panels__footer-btn panels__footer-btn--mobile" href="<?php echo esc_url(alergobot_acf_link_url($footer_btn_mobile, alergobot_get_product_category_link('analizatory'))); ?>">
-				<?php echo esc_html(alergobot_acf_link_title($footer_btn_mobile, __('Смотреть анализаторы', 'alergobot'))); ?>
-				<svg class="btn__icon icon" width="28" height="28" aria-hidden="true">
-					<use href="<?php echo esc_url(alergobot_assets_uri('img/icons.svg')); ?>#icon-arrow-up-right"></use>
-				</svg>
-			</a>
+			<a class="btn btn--primary panels__footer-btn" href="<?php echo esc_url(alergobot_catalog_url()); ?>"><?php esc_html_e('Перейти в каталог', 'alergobot'); ?></a>
 		</div>
 	</div>
 </section>

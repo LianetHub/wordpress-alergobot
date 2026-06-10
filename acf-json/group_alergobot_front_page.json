@@ -1057,27 +1057,6 @@
                                     "parent_repeater": "field_7221f90a7311c"
                                 },
                                 {
-                                    "key": "field_f7cb243848dde",
-                                    "label": "Alt",
-                                    "name": "image_alt",
-                                    "aria-label": "",
-                                    "type": "text",
-                                    "instructions": "",
-                                    "required": 0,
-                                    "conditional_logic": false,
-                                    "wrapper": {
-                                        "width": "",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "default_value": "",
-                                    "maxlength": "",
-                                    "placeholder": "",
-                                    "prepend": "",
-                                    "append": "",
-                                    "parent_repeater": "field_7221f90a7311c"
-                                },
-                                {
                                     "key": "field_59c6741e2e8ef",
                                     "label": "Ссылка",
                                     "name": "link",
@@ -1116,38 +1095,6 @@
                                     "parent_repeater": "field_7221f90a7311c"
                                 }
                             ]
-                        },
-                        {
-                            "key": "field_8cf809c9b5e6d",
-                            "label": "Кнопка (desktop)",
-                            "name": "footer_btn_desktop",
-                            "aria-label": "",
-                            "type": "link",
-                            "instructions": "",
-                            "required": false,
-                            "conditional_logic": false,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "return_format": "array"
-                        },
-                        {
-                            "key": "field_53bf08392a56d",
-                            "label": "Кнопка (mobile)",
-                            "name": "footer_btn_mobile",
-                            "aria-label": "",
-                            "type": "link",
-                            "instructions": "",
-                            "required": false,
-                            "conditional_logic": false,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "return_format": "array"
                         }
                     ],
                     "min": "",
@@ -2883,5 +2830,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1781210400
+    "modified": 1781217600
 }

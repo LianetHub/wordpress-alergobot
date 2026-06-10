@@ -223,23 +223,12 @@
 
 	&__footer-btn {
 		width: 100%;
+		min-height: rem(52);
 
-		&--desktop {
-			display: none;
-
-			@media (min-width: $md3) {
-				display: inline-flex;
-				width: rem(426);
-				min-height: $btn-height;
-			}
-		}
-
-		&--mobile {
-			min-height: rem(52);
-
-			@media (min-width: $md3) {
-				display: none;
-			}
+		@media (min-width: $md3) {
+			display: inline-flex;
+			width: rem(426);
+			min-height: $btn-height;
 		}
 	}
 }
