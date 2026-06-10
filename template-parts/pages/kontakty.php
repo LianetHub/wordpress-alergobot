@@ -32,7 +32,7 @@
 	<div class="contacts-order__container _container">
 		<div class="contacts-order__grid">
 			<div class="contacts-order__form <?php echo alergobot_anim_class('fade-up'); ?>">
-				<?php alergobot_cf7_form('cf7_zakaz'); ?>
+				<?php alergobot_cf7_form('cf7_zakaz', __('Контакты', 'alergobot')); ?>
 			</div>
 			<?php
 			$map_html = alergobot_get_map_html();

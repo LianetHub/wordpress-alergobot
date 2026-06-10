@@ -62,6 +62,7 @@
 		@media (min-width:$md3) {
 			margin-top: rem(10);
 			max-width: 26.5rem;
+			width: 100%;
 
 		}
 	}
@@ -94,7 +95,7 @@
 		gap: 0.875rem;
 		padding: 0 1rem;
 
-		> ._anim-items {
+		>._anim-items {
 			@for $i from 1 through 8 {
 				&:nth-child(#{$i}) {
 					transition-delay: #{$i * 0.115}s;
@@ -123,6 +124,15 @@
 				@include decor-parallax-motion;
 			}
 
+		}
+	}
+
+	&__product-wrapper {
+		display: flex;
+		flex-direction: column;
+
+		.catalog__product {
+			flex: 1 1 auto;
 		}
 	}
 

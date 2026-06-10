@@ -35,7 +35,7 @@ $error_title        = alergobot_get_option('popup_error_title');
 			<?php endif; ?>
 			<div class="popup-modal__content popup-modal__content--center">
 				<div class="popup-modal__form">
-					<?php alergobot_cf7_form('cf7_konsultaciya'); ?>
+					<?php alergobot_cf7_form('cf7_konsultaciya', __('Консультация (попап)', 'alergobot')); ?>
 				</div>
 			</div>
 		</div>
@@ -52,7 +52,7 @@ $error_title        = alergobot_get_option('popup_error_title');
 						<p class="popup-modal__lead"><?php echo esc_html($order_lead); ?></p>
 					<?php endif; ?>
 					<div class="popup-modal__form">
-						<?php alergobot_cf7_form('cf7_zakaz'); ?>
+						<?php alergobot_cf7_form('cf7_zakaz', __('Заказ (попап)', 'alergobot')); ?>
 					</div>
 				</div>
 				<?php if ($order_image_1 || $order_image_2) : ?>
@@ -103,7 +103,7 @@ $error_title        = alergobot_get_option('popup_error_title');
 						<p class="popup-modal__lead"><?php echo esc_html($presentation_lead); ?></p>
 					<?php endif; ?>
 					<div class="popup-modal__form">
-						<?php alergobot_cf7_form('cf7_prezentaciya'); ?>
+						<?php alergobot_cf7_form('cf7_prezentaciya', __('Презентация (попап)', 'alergobot')); ?>
 					</div>
 				</div>
 			</div>

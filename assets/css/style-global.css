@@ -3585,8 +3585,8 @@ h3 {
   }
 
   .popup-modal__layout {
-    -ms-grid-columns: 1fr 1fr;
-    grid-template-columns: 1fr 1fr;
+    -ms-grid-columns: 1.1fr 0.9fr;
+    grid-template-columns: 1.1fr 0.9fr;
     gap: 2rem;
   }
 
@@ -3918,7 +3918,6 @@ h3 {
     padding: 0 4rem;
   }
 
-  .heading__logo,
   .heading__logo-wrap {
     margin-top: 5.75rem;
   }

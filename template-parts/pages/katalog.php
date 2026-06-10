@@ -175,7 +175,7 @@ $has_request = $request_title || $request_note || $request_lead;
 							<p class="request__lead <?php echo alergobot_anim_class('fade-left'); ?>"><?php echo esc_html($request_lead); ?></p>
 						<?php endif; ?>
 						<div class="request__form form <?php echo alergobot_anim_class('form-rise'); ?>">
-							<?php alergobot_cf7_form('cf7_zakaz'); ?>
+							<?php alergobot_cf7_form('cf7_zakaz', __('Каталог', 'alergobot')); ?>
 						</div>
 					</div>
 				</div>

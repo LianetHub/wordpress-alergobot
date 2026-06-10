@@ -795,7 +795,7 @@ if (!function_exists('alergobot_render_catalog_gallery_product')) {
 		}
 
 		if ($tag === 'a') {
-			echo '<div class="' . alergobot_anim_class('reveal') . '">';
+			echo '<div class="catalog__product-wrapper ' . alergobot_anim_class('reveal') . '">';
 			printf(
 				'<a href="%1$s" class="%2$s"%3$s%4$s>',
 				esc_url($item['link_url']),
@@ -1279,11 +1279,13 @@ if (!function_exists('alergobot_render_main_menu')) {
 }
 
 if (!function_exists('alergobot_cf7_form')) {
-	function alergobot_cf7_form($option_key, $fallback_shortcode = '')
+	function alergobot_cf7_form($option_key, $source = '', $fallback_shortcode = '')
 	{
 		$shortcode = alergobot_get_option($option_key, $fallback_shortcode);
 		if ($shortcode && function_exists('wpcf7_contact_form')) {
+			alergobot_cf7_set_render_context($source);
 			echo do_shortcode($shortcode);
+			alergobot_cf7_clear_render_context();
 		}
 	}
 }

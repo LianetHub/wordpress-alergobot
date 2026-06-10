@@ -11,6 +11,8 @@ define('ALERGOBOT_DIR', get_template_directory());
 define('ALERGOBOT_URI', get_template_directory_uri());
 define('ALERGOBOT_ASSETS_URI', ALERGOBOT_URI . '/assets');
 
+require_once ALERGOBOT_DIR . '/inc/env.php';
+
 $alergobot_inc = ALERGOBOT_DIR . '/inc/';
 
 require_once $alergobot_inc . 'template-tags.php';
