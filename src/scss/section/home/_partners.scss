@@ -79,6 +79,9 @@
 
 		}
 
+		.swiper-wrapper.a-stagger > .partners__slide {
+			transition: opacity anim(0.5) ease, transform anim(0.5) ease;
+		}
 	}
 
 	&__grid {}

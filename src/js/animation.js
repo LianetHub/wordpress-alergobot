@@ -12,6 +12,7 @@ let scrollInitialized = false;
 export function initAnimation() {
 	initRipple();
 	initImmediateAnimation();
+	initArticleBodyAnimations();
 	initScrollAnimation();
 	initAudienceMolecules();
 	initDecorParallax();
@@ -49,8 +50,6 @@ function initRipple() {
 function initScrollAnimation() {
 	animItems = [...document.querySelectorAll("._anim-items")];
 
-	if (!animItems.length) return;
-
 	if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
 		animItems.forEach((item) => item.classList.add("_active"));
 		return;
@@ -61,7 +60,87 @@ function initScrollAnimation() {
 		scrollInitialized = true;
 	}
 
+	if (!animItems.length) {
+		return;
+	}
+
 	setTimeout(animOnScroll, SCROLL_ANIMATION_INIT_DELAY);
+}
+
+const ARTICLE_MEDIA_SELECTOR = [
+	"figure",
+	".wp-block-image",
+	".wp-block-gallery",
+	".gallery",
+	".article__gallery",
+].join(", ");
+
+function isArticleMediaElement(element) {
+	if (!(element instanceof Element)) {
+		return false;
+	}
+
+	if (element.matches(ARTICLE_MEDIA_SELECTOR) || element.tagName === "IMG") {
+		return true;
+	}
+
+	return Boolean(element.querySelector(`${ARTICLE_MEDIA_SELECTOR}, img`));
+}
+
+function prepareArticleBody(body) {
+	if (!(body instanceof Element) || body.dataset.articleAnimPrepared === "true") {
+		return;
+	}
+
+	body.dataset.articleAnimPrepared = "true";
+
+	Array.from(body.children).forEach((element, index) => {
+		if (!(element instanceof Element) || element.classList.contains("_anim-items")) {
+			return;
+		}
+
+		element.style.setProperty("--article-anim-order", String(index));
+
+		if (element.classList.contains("wp-block-columns")) {
+			element.classList.add("_anim-items", "a-fade-up");
+			element.querySelectorAll(ARTICLE_MEDIA_SELECTOR).forEach((mediaElement) => {
+				const target = mediaElement.closest("figure, .wp-block-image, .gallery, .article__gallery") || mediaElement;
+
+				if (target instanceof Element && !target.classList.contains("_anim-items")) {
+					target.classList.add("_anim-items", "a-reveal");
+				}
+			});
+			return;
+		}
+
+		if (isArticleMediaElement(element)) {
+			element.classList.add("_anim-items", "a-reveal");
+			return;
+		}
+
+		element.classList.add("_anim-items", "a-fade-up");
+	});
+
+	refreshScrollAnimations(body);
+}
+
+function initArticleBodyAnimations(root = document) {
+	const scope = root instanceof Element ? root : document;
+	const bodies = scope.querySelectorAll(".article__body.typography-block");
+
+	if (!bodies.length) {
+		return;
+	}
+
+	if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+		bodies.forEach((body) => {
+			prepareArticleBody(body);
+			body.querySelectorAll("._anim-items").forEach((item) => item.classList.add("_active"));
+		});
+		return;
+	}
+
+	bodies.forEach(prepareArticleBody);
 }
 
 function handleAnimScroll() {

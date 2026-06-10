@@ -6,7 +6,7 @@
 
 ._anim-items {
 	opacity: 0;
-	transform: translateY(30px);
+	transform: translateY(3rem);
 	transition: opacity anim(0.5) ease, transform anim(0.5) ease;
 }
 
@@ -84,9 +84,19 @@
 	will-change: transform;
 }
 
+.a-fade {
+	opacity: 0;
+	transform: none;
+	transition: opacity anim(0.6) ease;
+
+	&._active {
+		opacity: 1;
+	}
+}
+
 .a-fade-up {
 	opacity: 0;
-	transform: translateY(35px);
+	transform: translateY(3rem);
 	transition: transform anim(0.6) cubic-bezier(0.22, 1, 0.36, 1), opacity anim(0.5) ease;
 
 	&._active {
@@ -97,7 +107,7 @@
 
 .a-fade-down {
 	opacity: 0;
-	transform: translateY(-35px);
+	transform: translateY(-3rem);
 	transition: opacity anim(0.5) ease, transform anim(0.6) ease;
 
 	&._active {
@@ -108,7 +118,7 @@
 
 .a-fade-left {
 	opacity: 0;
-	transform: translateX(-35px);
+	transform: translateX(-3rem);
 	transition: opacity anim(0.5) ease, transform anim(0.5) ease;
 
 	&._active {
@@ -119,7 +129,7 @@
 
 .a-fade-right {
 	opacity: 0;
-	transform: translateX(35px);
+	transform: translateX(3rem);
 	transition: opacity anim(0.5) ease, transform anim(0.5) ease;
 
 	&._active {
@@ -141,7 +151,7 @@
 
 .a-blur-up {
 	opacity: 0;
-	transform: translateY(35px);
+	transform: translateY(3rem);
 	filter: blur(5px);
 	transition: opacity anim(0.5) ease, transform anim(0.6) cubic-bezier(0.22, 1, 0.36, 1), filter anim(0.6) cubic-bezier(0.22, 1, 0.36, 1);
 
@@ -217,7 +227,7 @@
 
 .a-stagger > * {
 	opacity: 0;
-	transform: translateY(20px);
+	transform: translateY(2rem);
 	transition: opacity anim(0.5) ease, transform anim(0.5) ease;
 	will-change: opacity, transform;
 }
@@ -232,7 +242,7 @@
 
 .a-stagger-x > * {
 	opacity: 0;
-	transform: translateX(-20px);
+	transform: translateX(-2rem);
 	transition: opacity anim(0.5) ease, transform anim(0.5) ease;
 }
 
@@ -293,6 +303,23 @@
 	&._active {
 		opacity: 1;
 		transform: translateY(0);
+	}
+}
+
+.a-form-rise {
+	opacity: 0;
+	transform: translateY(45px) scale(0.96);
+	filter: blur(8px);
+	transform-origin: center bottom;
+	transition:
+		opacity anim(0.5) ease,
+		transform anim(0.75) cubic-bezier(0.22, 1, 0.36, 1),
+		filter anim(0.65) cubic-bezier(0.22, 1, 0.36, 1);
+
+	&._active {
+		opacity: 1;
+		transform: translateY(0) scale(1);
+		filter: blur(0);
 	}
 }
 

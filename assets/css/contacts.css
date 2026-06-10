@@ -248,6 +248,10 @@ h3 {
   font-size: clamp(14px, 0.3703703704vw + 12.6666666667px, 18px);
 }
 
+.contacts-info__cards {
+  display: contents;
+}
+
 @media (min-width: 575.98px) {
   ._container {
     -webkit-box-sizing: content-box;

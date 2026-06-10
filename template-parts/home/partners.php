@@ -29,8 +29,8 @@
 			<?php endif; ?>
 		</div>
 		<?php if (alergobot_home_rows('logos')) : ?>
-			<div class="partners__slider swiper <?php echo alergobot_anim_class('reveal'); ?>">
-				<div class="swiper-wrapper">
+			<div class="partners__slider swiper">
+				<div class="swiper-wrapper <?php echo alergobot_anim_class('stagger'); ?>">
 					<?php foreach (alergobot_home_rows('logos') as $logo) :
 						$image = $logo['image'] ?? null;
 						if (empty($image)) {

@@ -164,6 +164,10 @@
 		@include adaptive-font(14, 18);
 	}
 
+	&__cards {
+		display: contents;
+	}
+
 	.contacts-card {
 		@media (max-width: $md3) {
 			&:nth-child(2) {

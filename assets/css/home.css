@@ -1502,18 +1502,8 @@ h3 {
   gap: 0.625rem;
 }
 
-.equipment__grid.a-stagger > .equipment__card {
-  -webkit-transition: opacity 0.575s ease, -webkit-transform 0.575s ease, -webkit-box-shadow 0.25s ease;
-  transition: opacity 0.575s ease, -webkit-transform 0.575s ease, -webkit-box-shadow 0.25s ease;
-  transition: opacity 0.575s ease, transform 0.575s ease, box-shadow 0.25s ease;
-  transition: opacity 0.575s ease, transform 0.575s ease, box-shadow 0.25s ease, -webkit-transform 0.575s ease, -webkit-box-shadow 0.25s ease;
-}
-
 .equipment__card {
-  padding: 0.625rem;
-  border: 0.03125rem solid #fff;
-  border-radius: 0.625rem;
-  background: #def3f9;
+  height: 100%;
 }
 
 .equipment__card-link {
@@ -1526,8 +1516,16 @@ h3 {
           flex-direction: column;
   height: 100%;
   min-height: 100%;
+  padding: 0.625rem;
+  border: 0.03125rem solid #fff;
+  border-radius: 0.625rem;
+  background: #def3f9;
   color: inherit;
   text-decoration: none;
+  -webkit-transition: -webkit-box-shadow 0.25s ease;
+  transition: -webkit-box-shadow 0.25s ease;
+  transition: box-shadow 0.25s ease;
+  transition: box-shadow 0.25s ease, -webkit-box-shadow 0.25s ease;
 }
 
 .equipment__card-name {
@@ -2023,6 +2021,13 @@ h3 {
   margin-top: 1.125rem;
 }
 
+.partners__slider .swiper-wrapper.a-stagger > .partners__slide {
+  -webkit-transition: opacity 0.575s ease, -webkit-transform 0.575s ease;
+  transition: opacity 0.575s ease, -webkit-transform 0.575s ease;
+  transition: opacity 0.575s ease, transform 0.575s ease;
+  transition: opacity 0.575s ease, transform 0.575s ease, -webkit-transform 0.575s ease;
+}
+
 .partners__card {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -2374,6 +2379,103 @@ h3 {
 
 .request__form {
   margin-top: 1.25rem;
+}
+
+.request__form.a-form-rise .wpcf7-form > *,
+.request__form.a-form-rise > .form__row,
+.request__form.a-form-rise > .form__field,
+.request__form.a-form-rise > .checkbox,
+.request__form.a-form-rise > .form__submit,
+.request__form.a-form-rise > label.form__field,
+.request__form.a-form-rise > button.form__submit {
+  opacity: 0;
+  -webkit-transform: translateY(18px);
+      -ms-transform: translateY(18px);
+          transform: translateY(18px);
+  -webkit-transition: opacity 0.5175s ease, -webkit-transform 0.6325s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: opacity 0.5175s ease, -webkit-transform 0.6325s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: opacity 0.5175s ease, transform 0.6325s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: opacity 0.5175s ease, transform 0.6325s cubic-bezier(0.22, 1, 0.36, 1), -webkit-transform 0.6325s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.request__form.a-form-rise._active .wpcf7-form > *:nth-child(1),
+.request__form.a-form-rise._active > *:nth-child(1) {
+  opacity: 1;
+  -webkit-transform: translateY(0);
+      -ms-transform: translateY(0);
+          transform: translateY(0);
+  -webkit-transition-delay: 0.322s;
+          transition-delay: 0.322s;
+}
+
+.request__form.a-form-rise._active .wpcf7-form > *:nth-child(2),
+.request__form.a-form-rise._active > *:nth-child(2) {
+  opacity: 1;
+  -webkit-transform: translateY(0);
+      -ms-transform: translateY(0);
+          transform: translateY(0);
+  -webkit-transition-delay: 0.414s;
+          transition-delay: 0.414s;
+}
+
+.request__form.a-form-rise._active .wpcf7-form > *:nth-child(3),
+.request__form.a-form-rise._active > *:nth-child(3) {
+  opacity: 1;
+  -webkit-transform: translateY(0);
+      -ms-transform: translateY(0);
+          transform: translateY(0);
+  -webkit-transition-delay: 0.506s;
+          transition-delay: 0.506s;
+}
+
+.request__form.a-form-rise._active .wpcf7-form > *:nth-child(4),
+.request__form.a-form-rise._active > *:nth-child(4) {
+  opacity: 1;
+  -webkit-transform: translateY(0);
+      -ms-transform: translateY(0);
+          transform: translateY(0);
+  -webkit-transition-delay: 0.598s;
+          transition-delay: 0.598s;
+}
+
+.request__form.a-form-rise._active .wpcf7-form > *:nth-child(5),
+.request__form.a-form-rise._active > *:nth-child(5) {
+  opacity: 1;
+  -webkit-transform: translateY(0);
+      -ms-transform: translateY(0);
+          transform: translateY(0);
+  -webkit-transition-delay: 0.69s;
+          transition-delay: 0.69s;
+}
+
+.request__form.a-form-rise._active .wpcf7-form > *:nth-child(6),
+.request__form.a-form-rise._active > *:nth-child(6) {
+  opacity: 1;
+  -webkit-transform: translateY(0);
+      -ms-transform: translateY(0);
+          transform: translateY(0);
+  -webkit-transition-delay: 0.782s;
+          transition-delay: 0.782s;
+}
+
+.request__form.a-form-rise._active .wpcf7-form > *:nth-child(7),
+.request__form.a-form-rise._active > *:nth-child(7) {
+  opacity: 1;
+  -webkit-transform: translateY(0);
+      -ms-transform: translateY(0);
+          transform: translateY(0);
+  -webkit-transition-delay: 0.874s;
+          transition-delay: 0.874s;
+}
+
+.request__form.a-form-rise._active .wpcf7-form > *:nth-child(8),
+.request__form.a-form-rise._active > *:nth-child(8) {
+  opacity: 1;
+  -webkit-transform: translateY(0);
+      -ms-transform: translateY(0);
+          transform: translateY(0);
+  -webkit-transition-delay: 0.966s;
+          transition-delay: 0.966s;
 }
 
 .about {
@@ -3531,8 +3633,7 @@ h3 {
     gap: 1.25rem;
   }
 
-  .equipment__card {
-    height: 100%;
+  .equipment__card-link {
     padding: 1.25rem;
   }
 
@@ -4527,7 +4628,7 @@ h3 {
     background: rgba(255, 255, 255, 0.08);
   }
 
-  .equipment__card:has(.equipment__card-link:hover) {
+  .equipment__card-link:hover {
     -webkit-box-shadow: 0 0.5rem 1.5rem rgba(38, 102, 140, 0.12);
             box-shadow: 0 0.5rem 1.5rem rgba(38, 102, 140, 0.12);
   }

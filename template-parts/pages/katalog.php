@@ -89,7 +89,7 @@ $has_request = $request_title || $request_note || $request_lead;
 ?>
 	<section class="<?php echo esc_attr($section_class); ?>" <?php echo $section_id ? ' id="' . esc_attr($section_id) . '"' : ''; ?>>
 		<div class="catalog__container _container">
-			<div class="catalog__main">
+			<div class="catalog__main <?php echo alergobot_anim_class('fade'); ?>">
 				<div class="catalog__info">
 					<?php if ($section_title) : ?>
 						<h2 class="catalog__title title title-md <?php echo alergobot_anim_class('fade-up'); ?>"><?php echo esc_html($section_title); ?></h2>
@@ -174,7 +174,7 @@ $has_request = $request_title || $request_note || $request_lead;
 						<?php if ($request_lead) : ?>
 							<p class="request__lead <?php echo alergobot_anim_class('fade-left'); ?>"><?php echo esc_html($request_lead); ?></p>
 						<?php endif; ?>
-						<div class="request__form form <?php echo alergobot_anim_class('fade-up'); ?>">
+						<div class="request__form form <?php echo alergobot_anim_class('form-rise'); ?>">
 							<?php alergobot_cf7_form('cf7_zakaz'); ?>
 						</div>
 					</div>

@@ -143,6 +143,11 @@ h3 {
   min-width: 0;
 }
 
+.article__body.typography-block > ._anim-items {
+  -webkit-transition-delay: calc(var(--article-anim-order, 0) * 0.08s);
+          transition-delay: calc(var(--article-anim-order, 0) * 0.08s);
+}
+
 .article__body.typography-block h2:not(:first-child) {
   margin-top: 2.5rem;
 }

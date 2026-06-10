@@ -88,7 +88,7 @@ $has_cta       = $cta_title || $cta_text || $cta_note || $cta_image_url;
 				</div>
 			<?php endif; ?>
 		</div>
-		<div class="heading__divider" aria-hidden="true"></div>
+		<div class="heading__divider <?php echo alergobot_anim_class('divider-slide'); ?>" aria-hidden="true"></div>
 	</div>
 </section>
 <section class="category" id="category">

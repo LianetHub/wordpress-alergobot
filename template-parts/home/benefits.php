@@ -55,12 +55,12 @@ if (function_exists('have_rows') && have_rows('cards')) {
 					<?php endforeach; ?>
 				</div>
 			<?php endif; ?>
-			<div class="benefits__brand <?php echo alergobot_anim_class('scale-up'); ?>">
+			<div class="benefits__brand">
 				<?php if ($brand_logo) : ?>
-					<img class="benefits__logo" src="<?php echo esc_url(alergobot_acf_image_url($brand_logo)); ?>" alt="PROTIA" title="PROTIA" width="185" height="52" loading="lazy">
+					<img class="benefits__logo <?php echo alergobot_anim_class('scale-up'); ?>" src="<?php echo esc_url(alergobot_acf_image_url($brand_logo)); ?>" alt="PROTIA" title="PROTIA" width="185" height="52" loading="lazy">
 				<?php endif; ?>
 				<?php if ($brand_text = alergobot_home_get('brand_text')) : ?>
-					<p class="benefits__text"><?php echo esc_html($brand_text); ?></p>
+					<p class="benefits__text <?php echo alergobot_anim_class('fade-left'); ?>"><?php echo esc_html($brand_text); ?></p>
 				<?php endif; ?>
 			</div>
 		</div>

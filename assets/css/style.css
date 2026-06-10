@@ -90,8 +90,8 @@ h3 {
 }
 
 @font-face {
-  font-family: "Inter";
-  src: url("../fonts/Inter-VariableFont_opsz,wght.woff2") format("woff2 supports variations"), url("../fonts/Inter-VariableFont_opsz,wght.woff2") format("woff2-variations"), url("../fonts/Inter-VariableFont_opsz,wght.woff") format("woff");
+  font-family: "Manrope";
+  src: url("../fonts/Manrope-VariableFont_wght.woff2") format("woff2 supports variations"), url("../fonts/Manrope-VariableFont_wght.woff2") format("woff2-variations"), url("../fonts/Manrope-VariableFont_wght.woff") format("woff");
   font-weight: 100 900;
   font-stretch: 75% 125%;
   font-style: normal;
@@ -99,8 +99,8 @@ h3 {
 }
 
 @font-face {
-  font-family: "Manrope";
-  src: url("../fonts/Manrope-VariableFont_wght.woff2") format("woff2 supports variations"), url("../fonts/Manrope-VariableFont_wght.woff2") format("woff2-variations"), url("../fonts/Manrope-VariableFont_wght.woff") format("woff");
+  font-family: "Inter";
+  src: url("../fonts/Inter-VariableFont_opsz,wght.woff2") format("woff2 supports variations"), url("../fonts/Inter-VariableFont_opsz,wght.woff2") format("woff2-variations"), url("../fonts/Inter-VariableFont_opsz,wght.woff") format("woff");
   font-weight: 100 900;
   font-stretch: 75% 125%;
   font-style: normal;
@@ -2624,6 +2624,32 @@ h3 {
   padding: 0.25rem 0;
 }
 
+.heading__divider._anim-items.a-divider-slide {
+  opacity: 1;
+  -webkit-transform: none;
+      -ms-transform: none;
+          transform: none;
+  overflow: hidden;
+}
+
+.heading__divider._anim-items.a-divider-slide::before {
+  -webkit-transform: translateX(-105%);
+      -ms-transform: translateX(-105%);
+          transform: translateX(-105%);
+  opacity: 0;
+  -webkit-transition: opacity 0.575s ease, -webkit-transform 1.035s cubic-bezier(0.25, 1, 0.5, 1);
+  transition: opacity 0.575s ease, -webkit-transform 1.035s cubic-bezier(0.25, 1, 0.5, 1);
+  transition: transform 1.035s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.575s ease;
+  transition: transform 1.035s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.575s ease, -webkit-transform 1.035s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.heading__divider._anim-items.a-divider-slide._active::before {
+  -webkit-transform: translateX(0);
+      -ms-transform: translateX(0);
+          transform: translateX(0);
+  opacity: 0.85;
+}
+
 .heading__divider::before {
   content: "";
   -webkit-box-flex: 1;
@@ -2665,9 +2691,9 @@ h3 {
 
 ._anim-items {
   opacity: 0;
-  -webkit-transform: translateY(30px);
-      -ms-transform: translateY(30px);
-          transform: translateY(30px);
+  -webkit-transform: translateY(3rem);
+      -ms-transform: translateY(3rem);
+          transform: translateY(3rem);
   -webkit-transition: opacity 0.575s ease, -webkit-transform 0.575s ease;
   transition: opacity 0.575s ease, -webkit-transform 0.575s ease;
   transition: opacity 0.575s ease, transform 0.575s ease;
@@ -2785,11 +2811,24 @@ h3 {
   will-change: transform;
 }
 
+.a-fade {
+  opacity: 0;
+  -webkit-transform: none;
+      -ms-transform: none;
+          transform: none;
+  -webkit-transition: opacity 0.69s ease;
+  transition: opacity 0.69s ease;
+}
+
+.a-fade._active {
+  opacity: 1;
+}
+
 .a-fade-up {
   opacity: 0;
-  -webkit-transform: translateY(35px);
-      -ms-transform: translateY(35px);
-          transform: translateY(35px);
+  -webkit-transform: translateY(3rem);
+      -ms-transform: translateY(3rem);
+          transform: translateY(3rem);
   -webkit-transition: opacity 0.575s ease, -webkit-transform 0.69s cubic-bezier(0.22, 1, 0.36, 1);
   transition: opacity 0.575s ease, -webkit-transform 0.69s cubic-bezier(0.22, 1, 0.36, 1);
   transition: transform 0.69s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.575s ease;
@@ -2805,9 +2844,9 @@ h3 {
 
 .a-fade-down {
   opacity: 0;
-  -webkit-transform: translateY(-35px);
-      -ms-transform: translateY(-35px);
-          transform: translateY(-35px);
+  -webkit-transform: translateY(-3rem);
+      -ms-transform: translateY(-3rem);
+          transform: translateY(-3rem);
   -webkit-transition: opacity 0.575s ease, -webkit-transform 0.69s ease;
   transition: opacity 0.575s ease, -webkit-transform 0.69s ease;
   transition: opacity 0.575s ease, transform 0.69s ease;
@@ -2823,9 +2862,9 @@ h3 {
 
 .a-fade-left {
   opacity: 0;
-  -webkit-transform: translateX(-35px);
-      -ms-transform: translateX(-35px);
-          transform: translateX(-35px);
+  -webkit-transform: translateX(-3rem);
+      -ms-transform: translateX(-3rem);
+          transform: translateX(-3rem);
   -webkit-transition: opacity 0.575s ease, -webkit-transform 0.575s ease;
   transition: opacity 0.575s ease, -webkit-transform 0.575s ease;
   transition: opacity 0.575s ease, transform 0.575s ease;
@@ -2841,9 +2880,9 @@ h3 {
 
 .a-fade-right {
   opacity: 0;
-  -webkit-transform: translateX(35px);
-      -ms-transform: translateX(35px);
-          transform: translateX(35px);
+  -webkit-transform: translateX(3rem);
+      -ms-transform: translateX(3rem);
+          transform: translateX(3rem);
   -webkit-transition: opacity 0.575s ease, -webkit-transform 0.575s ease;
   transition: opacity 0.575s ease, -webkit-transform 0.575s ease;
   transition: opacity 0.575s ease, transform 0.575s ease;
@@ -2877,9 +2916,9 @@ h3 {
 
 .a-blur-up {
   opacity: 0;
-  -webkit-transform: translateY(35px);
-      -ms-transform: translateY(35px);
-          transform: translateY(35px);
+  -webkit-transform: translateY(3rem);
+      -ms-transform: translateY(3rem);
+          transform: translateY(3rem);
   -webkit-filter: blur(5px);
           filter: blur(5px);
   -webkit-transition: opacity 0.575s ease, -webkit-transform 0.69s cubic-bezier(0.22, 1, 0.36, 1), -webkit-filter 0.69s cubic-bezier(0.22, 1, 0.36, 1);
@@ -2993,9 +3032,9 @@ h3 {
 
 .a-stagger > * {
   opacity: 0;
-  -webkit-transform: translateY(20px);
-      -ms-transform: translateY(20px);
-          transform: translateY(20px);
+  -webkit-transform: translateY(2rem);
+      -ms-transform: translateY(2rem);
+          transform: translateY(2rem);
   -webkit-transition: opacity 0.575s ease, -webkit-transform 0.575s ease;
   transition: opacity 0.575s ease, -webkit-transform 0.575s ease;
   transition: opacity 0.575s ease, transform 0.575s ease;
@@ -3113,9 +3152,9 @@ h3 {
 
 .a-stagger-x > * {
   opacity: 0;
-  -webkit-transform: translateX(-20px);
-      -ms-transform: translateX(-20px);
-          transform: translateX(-20px);
+  -webkit-transform: translateX(-2rem);
+      -ms-transform: translateX(-2rem);
+          transform: translateX(-2rem);
   -webkit-transition: opacity 0.575s ease, -webkit-transform 0.575s ease;
   transition: opacity 0.575s ease, -webkit-transform 0.575s ease;
   transition: opacity 0.575s ease, transform 0.575s ease;
@@ -3302,6 +3341,31 @@ h3 {
   -webkit-transform: translateY(0);
       -ms-transform: translateY(0);
           transform: translateY(0);
+}
+
+.a-form-rise {
+  opacity: 0;
+  -webkit-transform: translateY(45px) scale(0.96);
+      -ms-transform: translateY(45px) scale(0.96);
+          transform: translateY(45px) scale(0.96);
+  -webkit-filter: blur(8px);
+          filter: blur(8px);
+  -webkit-transform-origin: center bottom;
+      -ms-transform-origin: center bottom;
+          transform-origin: center bottom;
+  -webkit-transition: opacity 0.575s ease, -webkit-transform 0.8625s cubic-bezier(0.22, 1, 0.36, 1), -webkit-filter 0.7475s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: opacity 0.575s ease, -webkit-transform 0.8625s cubic-bezier(0.22, 1, 0.36, 1), -webkit-filter 0.7475s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: opacity 0.575s ease, transform 0.8625s cubic-bezier(0.22, 1, 0.36, 1), filter 0.7475s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: opacity 0.575s ease, transform 0.8625s cubic-bezier(0.22, 1, 0.36, 1), filter 0.7475s cubic-bezier(0.22, 1, 0.36, 1), -webkit-transform 0.8625s cubic-bezier(0.22, 1, 0.36, 1), -webkit-filter 0.7475s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.a-form-rise._active {
+  opacity: 1;
+  -webkit-transform: translateY(0) scale(1);
+      -ms-transform: translateY(0) scale(1);
+          transform: translateY(0) scale(1);
+  -webkit-filter: blur(0);
+          filter: blur(0);
 }
 
 .tag._anim-items.a-bounce-up,
@@ -5133,18 +5197,8 @@ h3 {
   gap: 0.625rem;
 }
 
-.equipment__grid.a-stagger > .equipment__card {
-  -webkit-transition: opacity 0.575s ease, -webkit-transform 0.575s ease, -webkit-box-shadow 0.25s ease;
-  transition: opacity 0.575s ease, -webkit-transform 0.575s ease, -webkit-box-shadow 0.25s ease;
-  transition: opacity 0.575s ease, transform 0.575s ease, box-shadow 0.25s ease;
-  transition: opacity 0.575s ease, transform 0.575s ease, box-shadow 0.25s ease, -webkit-transform 0.575s ease, -webkit-box-shadow 0.25s ease;
-}
-
 .equipment__card {
-  padding: 0.625rem;
-  border: 0.03125rem solid #fff;
-  border-radius: 0.625rem;
-  background: #def3f9;
+  height: 100%;
 }
 
 .equipment__card-link {
@@ -5157,8 +5211,16 @@ h3 {
           flex-direction: column;
   height: 100%;
   min-height: 100%;
+  padding: 0.625rem;
+  border: 0.03125rem solid #fff;
+  border-radius: 0.625rem;
+  background: #def3f9;
   color: inherit;
   text-decoration: none;
+  -webkit-transition: -webkit-box-shadow 0.25s ease;
+  transition: -webkit-box-shadow 0.25s ease;
+  transition: box-shadow 0.25s ease;
+  transition: box-shadow 0.25s ease, -webkit-box-shadow 0.25s ease;
 }
 
 .equipment__card-name {
@@ -5654,6 +5716,13 @@ h3 {
   margin-top: 1.125rem;
 }
 
+.partners__slider .swiper-wrapper.a-stagger > .partners__slide {
+  -webkit-transition: opacity 0.575s ease, -webkit-transform 0.575s ease;
+  transition: opacity 0.575s ease, -webkit-transform 0.575s ease;
+  transition: opacity 0.575s ease, transform 0.575s ease;
+  transition: opacity 0.575s ease, transform 0.575s ease, -webkit-transform 0.575s ease;
+}
+
 .partners__card {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -6005,6 +6074,103 @@ h3 {
 
 .request__form {
   margin-top: 1.25rem;
+}
+
+.request__form.a-form-rise .wpcf7-form > *,
+.request__form.a-form-rise > .form__row,
+.request__form.a-form-rise > .form__field,
+.request__form.a-form-rise > .checkbox,
+.request__form.a-form-rise > .form__submit,
+.request__form.a-form-rise > label.form__field,
+.request__form.a-form-rise > button.form__submit {
+  opacity: 0;
+  -webkit-transform: translateY(18px);
+      -ms-transform: translateY(18px);
+          transform: translateY(18px);
+  -webkit-transition: opacity 0.5175s ease, -webkit-transform 0.6325s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: opacity 0.5175s ease, -webkit-transform 0.6325s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: opacity 0.5175s ease, transform 0.6325s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: opacity 0.5175s ease, transform 0.6325s cubic-bezier(0.22, 1, 0.36, 1), -webkit-transform 0.6325s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.request__form.a-form-rise._active .wpcf7-form > *:nth-child(1),
+.request__form.a-form-rise._active > *:nth-child(1) {
+  opacity: 1;
+  -webkit-transform: translateY(0);
+      -ms-transform: translateY(0);
+          transform: translateY(0);
+  -webkit-transition-delay: 0.322s;
+          transition-delay: 0.322s;
+}
+
+.request__form.a-form-rise._active .wpcf7-form > *:nth-child(2),
+.request__form.a-form-rise._active > *:nth-child(2) {
+  opacity: 1;
+  -webkit-transform: translateY(0);
+      -ms-transform: translateY(0);
+          transform: translateY(0);
+  -webkit-transition-delay: 0.414s;
+          transition-delay: 0.414s;
+}
+
+.request__form.a-form-rise._active .wpcf7-form > *:nth-child(3),
+.request__form.a-form-rise._active > *:nth-child(3) {
+  opacity: 1;
+  -webkit-transform: translateY(0);
+      -ms-transform: translateY(0);
+          transform: translateY(0);
+  -webkit-transition-delay: 0.506s;
+          transition-delay: 0.506s;
+}
+
+.request__form.a-form-rise._active .wpcf7-form > *:nth-child(4),
+.request__form.a-form-rise._active > *:nth-child(4) {
+  opacity: 1;
+  -webkit-transform: translateY(0);
+      -ms-transform: translateY(0);
+          transform: translateY(0);
+  -webkit-transition-delay: 0.598s;
+          transition-delay: 0.598s;
+}
+
+.request__form.a-form-rise._active .wpcf7-form > *:nth-child(5),
+.request__form.a-form-rise._active > *:nth-child(5) {
+  opacity: 1;
+  -webkit-transform: translateY(0);
+      -ms-transform: translateY(0);
+          transform: translateY(0);
+  -webkit-transition-delay: 0.69s;
+          transition-delay: 0.69s;
+}
+
+.request__form.a-form-rise._active .wpcf7-form > *:nth-child(6),
+.request__form.a-form-rise._active > *:nth-child(6) {
+  opacity: 1;
+  -webkit-transform: translateY(0);
+      -ms-transform: translateY(0);
+          transform: translateY(0);
+  -webkit-transition-delay: 0.782s;
+          transition-delay: 0.782s;
+}
+
+.request__form.a-form-rise._active .wpcf7-form > *:nth-child(7),
+.request__form.a-form-rise._active > *:nth-child(7) {
+  opacity: 1;
+  -webkit-transform: translateY(0);
+      -ms-transform: translateY(0);
+          transform: translateY(0);
+  -webkit-transition-delay: 0.874s;
+          transition-delay: 0.874s;
+}
+
+.request__form.a-form-rise._active .wpcf7-form > *:nth-child(8),
+.request__form.a-form-rise._active > *:nth-child(8) {
+  opacity: 1;
+  -webkit-transform: translateY(0);
+      -ms-transform: translateY(0);
+          transform: translateY(0);
+  -webkit-transition-delay: 0.966s;
+          transition-delay: 0.966s;
 }
 
 .about {
@@ -6860,6 +7026,10 @@ h3 {
   font-size: clamp(14px, 0.3703703704vw + 12.6666666667px, 18px);
 }
 
+.contacts-info__cards {
+  display: contents;
+}
+
 .blog-hero {
   padding: 0 0 2.25rem;
 }
@@ -7265,6 +7435,11 @@ h3 {
 
 .article__body {
   min-width: 0;
+}
+
+.article__body.typography-block > ._anim-items {
+  -webkit-transition-delay: calc(var(--article-anim-order, 0) * 0.08s);
+          transition-delay: calc(var(--article-anim-order, 0) * 0.08s);
 }
 
 .article__body.typography-block h2:not(:first-child) {
@@ -9844,8 +10019,7 @@ h3 {
     gap: 1.25rem;
   }
 
-  .equipment__card {
-    height: 100%;
+  .equipment__card-link {
     padding: 1.25rem;
   }
 
@@ -12066,7 +12240,7 @@ h3 {
     background: rgba(255, 255, 255, 0.08);
   }
 
-  .equipment__card:has(.equipment__card-link:hover) {
+  .equipment__card-link:hover {
     -webkit-box-shadow: 0 0.5rem 1.5rem rgba(38, 102, 140, 0.12);
             box-shadow: 0 0.5rem 1.5rem rgba(38, 102, 140, 0.12);
   }

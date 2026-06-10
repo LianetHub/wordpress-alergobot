@@ -89,9 +89,9 @@ if ($heading_text === '' && !is_tax() && !is_tag()) {
 	data-archive-term-id="<?php echo esc_attr((string) $context['archive_term_id']); ?>"
 	data-tag-id="<?php echo esc_attr((string) $context['tag_id']); ?>">
 	<div class="blog-feed__container _container">
-		<div class="blog-tabs" role="tablist" aria-label="<?php esc_attr_e('Тип публикаций', 'alergobot'); ?>">
+		<div class="blog-tabs <?php echo alergobot_anim_class('stagger-x'); ?>" role="tablist" aria-label="<?php esc_attr_e('Тип публикаций', 'alergobot'); ?>">
 			<a
-				class="blog-tabs__btn<?php echo $articles_active ? ' _active' : ''; ?> <?php echo alergobot_anim_class('fade-up'); ?>"
+				class="blog-tabs__btn<?php echo $articles_active ? ' _active' : ''; ?>"
 				role="tab"
 				aria-selected="<?php echo $articles_active ? 'true' : 'false'; ?>"
 				aria-controls="blog-panel-feed"
@@ -106,7 +106,7 @@ if ($heading_text === '' && !is_tax() && !is_tag()) {
 				</span>
 			</a>
 			<a
-				class="blog-tabs__btn<?php echo $news_active ? ' _active' : ''; ?> <?php echo alergobot_anim_class('fade-up'); ?>"
+				class="blog-tabs__btn<?php echo $news_active ? ' _active' : ''; ?>"
 				role="tab"
 				aria-selected="<?php echo $news_active ? 'true' : 'false'; ?>"
 				aria-controls="blog-panel-feed"

@@ -81,6 +81,10 @@ $article-date-muted: rgba($color-text-body, 0.6);
 			grid-area: content;
 		}
 
+		&.typography-block > ._anim-items {
+			transition-delay: calc(var(--article-anim-order, 0) * 0.08s);
+		}
+
 		&.typography-block {
 			h2:not(:first-child) {
 				margin-top: rem(40);

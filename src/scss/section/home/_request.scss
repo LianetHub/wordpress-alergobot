@@ -179,5 +179,32 @@
 		@media (min-width:$md3) {
 			margin-top: 0;
 		}
+
+		&.a-form-rise {
+			.wpcf7-form > *,
+			> .form__row,
+			> .form__field,
+			> .checkbox,
+			> .form__submit,
+			> label.form__field,
+			> button.form__submit {
+				opacity: 0;
+				transform: translateY(18px);
+				transition:
+					opacity anim(0.45) ease,
+					transform anim(0.55) cubic-bezier(0.22, 1, 0.36, 1);
+			}
+
+			&._active {
+				@for $i from 1 through 8 {
+					.wpcf7-form > *:nth-child(#{$i}),
+					> *:nth-child(#{$i}) {
+						opacity: 1;
+						transform: translateY(0);
+						transition-delay: anim-delay($i * 0.08 + 0.2);
+					}
+				}
+			}
+		}
 	}
 }
