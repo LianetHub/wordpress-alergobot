@@ -7,41 +7,42 @@
 
 $post_id = get_the_ID();
 
-$specs   = alergobot_get_post_field('product_ru_specs', $post_id) ?: [];
-$ru_file = alergobot_get_post_field('product_ru_file', $post_id);
+$specs   = alergobot_get_post_field( 'product_ru_specs', $post_id ) ?: array();
+$ru_file = alergobot_get_post_field( 'product_ru_file', $post_id );
 
-if (!$specs && !$ru_file) {
+if ( ! $specs && ! $ru_file ) {
 	return;
 }
 
-$is_active = (bool) get_query_var('product_tab_active');
+$is_active = (bool) get_query_var( 'product_tab_active' );
 
 ?>
 <div class="product-panel<?php echo $is_active ? ' _active' : ''; ?>" id="product-panel-ru" role="tabpanel" aria-labelledby="product-tab-ru" data-product-panel="ru"<?php echo $is_active ? '' : ' hidden=""'; ?>>
 	<div class="product-panel__inner product-panel__inner--ru">
-		<h2 class="product-panel__heading <?php echo alergobot_anim_class('fade-up'); ?>"><?php esc_html_e('Регистрационное удостоверение', 'alergobot'); ?></h2>
-		<?php if ($specs) : ?>
-			<dl class="product-spec <?php echo alergobot_anim_class('stagger'); ?>">
-				<?php foreach ($specs as $spec) :
+		<h2 class="product-panel__heading <?php echo alergobot_anim_class( 'fade-up' ); ?>"><?php esc_html_e( 'Регистрационное удостоверение', 'alergobot' ); ?></h2>
+		<?php if ( $specs ) : ?>
+			<dl class="product-spec <?php echo alergobot_anim_class( 'stagger' ); ?>">
+				<?php
+				foreach ( $specs as $spec ) :
 					$term  = $spec['term'] ?? '';
 					$value = $spec['value'] ?? '';
-					if (!$term) {
+					if ( ! $term ) {
 						continue;
 					}
 
-					$is_download_row = is_array($ru_file) && !empty($ru_file['url'])
-						&& ($value === '' || $term === __('Скачать РУ', 'alergobot'));
-					if (!$value && !$is_download_row) {
+					$is_download_row = is_array( $ru_file ) && ! empty( $ru_file['url'] )
+						&& ( '' === $value || __( 'Скачать РУ', 'alergobot' ) === $term );
+					if ( ! $value && ! $is_download_row ) {
 						continue;
 					}
 					?>
 					<div class="product-spec__row">
-						<dt class="product-spec__term"><?php echo esc_html($term); ?></dt>
+						<dt class="product-spec__term"><?php echo esc_html( $term ); ?></dt>
 						<dd class="product-spec__value">
-							<?php if ($is_download_row) : ?>
-								<a class="product-spec__link" href="<?php echo esc_url($ru_file['url']); ?>" target="_blank" rel="noopener noreferrer"><?php echo esc_html($ru_file['filename'] ?? $ru_file['title'] ?? ''); ?></a>
+							<?php if ( $is_download_row ) : ?>
+								<a class="product-spec__link" href="<?php echo esc_url( $ru_file['url'] ); ?>" target="_blank" rel="noopener noreferrer"><?php echo esc_html( $ru_file['filename'] ?? $ru_file['title'] ?? '' ); ?></a>
 							<?php else : ?>
-								<?php echo nl2br(esc_html($value)); ?>
+								<?php echo nl2br( esc_html( $value ) ); ?>
 							<?php endif; ?>
 						</dd>
 					</div>

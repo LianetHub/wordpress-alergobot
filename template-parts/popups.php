@@ -1,25 +1,24 @@
 <?php
-
 /**
  * Popups
  *
  * @package alergobot
  */
 
-$consult_title      = alergobot_get_option('popup_consult_title');
-$consult_lead       = alergobot_get_option('popup_consult_lead');
-$order_title        = alergobot_get_option('popup_order_title');
-$order_lead         = alergobot_get_option('popup_order_lead');
-$order_image_1      = alergobot_get_option_raw('popup_order_image_1');
-$order_image_2      = alergobot_get_option_raw('popup_order_image_2');
-$presentation_title = alergobot_get_option('popup_presentation_title');
-$presentation_lead  = alergobot_get_option('popup_presentation_lead');
-$presentation_image = alergobot_get_option_raw('popup_presentation_image');
-$partners_title     = alergobot_get_option('popup_partners_title');
-$partners_lead      = alergobot_get_option('popup_partners_lead');
-$partners_action    = alergobot_get_option('popup_partners_action');
-$success_title      = alergobot_get_option('popup_success_title');
-$error_title        = alergobot_get_option('popup_error_title');
+$consult_title      = alergobot_get_option( 'popup_consult_title' );
+$consult_lead       = alergobot_get_option( 'popup_consult_lead' );
+$order_title        = alergobot_get_option( 'popup_order_title' );
+$order_lead         = alergobot_get_option( 'popup_order_lead' );
+$order_image_1      = alergobot_get_option_raw( 'popup_order_image_1' );
+$order_image_2      = alergobot_get_option_raw( 'popup_order_image_2' );
+$presentation_title = alergobot_get_option( 'popup_presentation_title' );
+$presentation_lead  = alergobot_get_option( 'popup_presentation_lead' );
+$presentation_image = alergobot_get_option_raw( 'popup_presentation_image' );
+$partners_title     = alergobot_get_option( 'popup_partners_title' );
+$partners_lead      = alergobot_get_option( 'popup_partners_lead' );
+$partners_action    = alergobot_get_option( 'popup_partners_action' );
+$success_title      = alergobot_get_option( 'popup_success_title' );
+$error_title        = alergobot_get_option( 'popup_error_title' );
 
 ?>
 
@@ -27,15 +26,15 @@ $error_title        = alergobot_get_option('popup_error_title');
 	<!-- Консультация -->
 	<div id="popup-consultation" class="popup-modal popup-modal--consult">
 		<div class="popup-modal__inner">
-			<?php if ($consult_title) : ?>
-				<h2 class="popup-modal__title title title-popup"><?php echo esc_html($consult_title); ?></h2>
+			<?php if ( $consult_title ) : ?>
+				<h2 class="popup-modal__title title title-popup"><?php echo esc_html( $consult_title ); ?></h2>
 			<?php endif; ?>
-			<?php if ($consult_lead) : ?>
-				<p class="popup-modal__lead"><?php echo esc_html($consult_lead); ?></p>
+			<?php if ( $consult_lead ) : ?>
+				<p class="popup-modal__lead"><?php echo esc_html( $consult_lead ); ?></p>
 			<?php endif; ?>
 			<div class="popup-modal__content popup-modal__content--center">
 				<div class="popup-modal__form">
-					<?php alergobot_cf7_form('cf7_konsultaciya', __('Консультация (попап)', 'alergobot')); ?>
+					<?php alergobot_cf7_form( 'cf7_konsultaciya', __( 'Консультация (попап)', 'alergobot' ) ); ?>
 				</div>
 			</div>
 		</div>
@@ -45,36 +44,48 @@ $error_title        = alergobot_get_option('popup_error_title');
 		<div class="popup-modal__inner">
 			<div class="popup-modal__layout">
 				<div class="popup-modal__content">
-					<?php if ($order_title) : ?>
-						<h2 class="popup-modal__title title title-popup"><?php echo esc_html($order_title); ?></h2>
+					<?php if ( $order_title ) : ?>
+						<h2 class="popup-modal__title title title-popup"><?php echo esc_html( $order_title ); ?></h2>
 					<?php endif; ?>
-					<?php if ($order_lead) : ?>
-						<p class="popup-modal__lead"><?php echo esc_html($order_lead); ?></p>
+					<?php if ( $order_lead ) : ?>
+						<p class="popup-modal__lead"><?php echo esc_html( $order_lead ); ?></p>
 					<?php endif; ?>
 					<div class="popup-modal__form">
-						<?php alergobot_cf7_form('cf7_zakaz', __('Заказ (попап)', 'alergobot')); ?>
+						<?php alergobot_cf7_form( 'cf7_zakaz', __( 'Заказ (попап)', 'alergobot' ) ); ?>
 					</div>
 				</div>
-				<?php if ($order_image_1 || $order_image_2) : ?>
+				<?php if ( $order_image_1 || $order_image_2 ) : ?>
 					<div class="popup-modal__visual" aria-hidden="true">
-						<?php if ($order_image_1) : ?>
+						<?php if ( $order_image_1 ) : ?>
 							<div class="popup-modal__photo">
-								<?php echo alergobot_acf_image($order_image_1, 'full', [
-									'alt'     => '',
-									'width'   => '182',
-									'height'  => '169',
-									'loading' => 'lazy',
-								]); ?>
+								<?php
+								echo alergobot_acf_image(
+									$order_image_1,
+									'full',
+									array(
+										'alt'     => '',
+										'width'   => '182',
+										'height'  => '169',
+										'loading' => 'lazy',
+									)
+								);
+								?>
 							</div>
 						<?php endif; ?>
-						<?php if ($order_image_2) : ?>
+						<?php if ( $order_image_2 ) : ?>
 							<div class="popup-modal__photo">
-								<?php echo alergobot_acf_image($order_image_2, 'full', [
-									'alt'     => '',
-									'width'   => '182',
-									'height'  => '169',
-									'loading' => 'lazy',
-								]); ?>
+								<?php
+								echo alergobot_acf_image(
+									$order_image_2,
+									'full',
+									array(
+										'alt'     => '',
+										'width'   => '182',
+										'height'  => '169',
+										'loading' => 'lazy',
+									)
+								);
+								?>
 							</div>
 						<?php endif; ?>
 					</div>
@@ -86,24 +97,30 @@ $error_title        = alergobot_get_option('popup_error_title');
 	<div id="popup-presentation" class="popup-modal popup-modal--presentation">
 		<div class="popup-modal__inner">
 			<div class="popup-modal__layout popup-modal__layout--reverse">
-				<?php if ($presentation_image) : ?>
+				<?php if ( $presentation_image ) : ?>
 					<div class="popup-modal__media">
-						<?php echo alergobot_acf_image($presentation_image, 'full', [
-							'width'   => '327',
-							'height'  => '372',
-							'loading' => 'lazy',
-						]); ?>
+						<?php
+						echo alergobot_acf_image(
+							$presentation_image,
+							'full',
+							array(
+								'width'   => '327',
+								'height'  => '372',
+								'loading' => 'lazy',
+							)
+						);
+						?>
 					</div>
 				<?php endif; ?>
 				<div class="popup-modal__content">
-					<?php if ($presentation_title) : ?>
-						<h2 class="popup-modal__title title title-popup"><?php echo wp_kses_post($presentation_title); ?></h2>
+					<?php if ( $presentation_title ) : ?>
+						<h2 class="popup-modal__title title title-popup"><?php echo wp_kses_post( $presentation_title ); ?></h2>
 					<?php endif; ?>
-					<?php if ($presentation_lead) : ?>
-						<p class="popup-modal__lead"><?php echo esc_html($presentation_lead); ?></p>
+					<?php if ( $presentation_lead ) : ?>
+						<p class="popup-modal__lead"><?php echo esc_html( $presentation_lead ); ?></p>
 					<?php endif; ?>
 					<div class="popup-modal__form">
-						<?php alergobot_cf7_form('cf7_prezentaciya', __('Презентация (попап)', 'alergobot')); ?>
+						<?php alergobot_cf7_form( 'cf7_prezentaciya', __( 'Презентация (попап)', 'alergobot' ) ); ?>
 					</div>
 				</div>
 			</div>
@@ -112,36 +129,43 @@ $error_title        = alergobot_get_option('popup_error_title');
 	<!-- Запись к партнёрам -->
 	<div id="popup-partners" class="popup-modal popup-modal--partners">
 		<div class="popup-modal__inner">
-			<?php if ($partners_title) : ?>
-				<h2 class="popup-modal__title title title-popup"><?php echo esc_html($partners_title); ?></h2>
+			<?php if ( $partners_title ) : ?>
+				<h2 class="popup-modal__title title title-popup"><?php echo esc_html( $partners_title ); ?></h2>
 			<?php endif; ?>
-			<?php if ($partners_lead) : ?>
-				<p class="popup-modal__lead"><?php echo esc_html($partners_lead); ?></p>
+			<?php if ( $partners_lead ) : ?>
+				<p class="popup-modal__lead"><?php echo esc_html( $partners_lead ); ?></p>
 			<?php endif; ?>
 			<?php
 			$partners = alergobot_get_partners();
-			if ($partners) :
+			if ( $partners ) :
 				?>
 				<div class="popup-modal__partners">
-					<?php foreach ($partners as $partner) :
-						$thumb_id = get_post_thumbnail_id($partner);
-						if (!$thumb_id) {
+					<?php
+					foreach ( $partners as $partner ) :
+						$thumb_id = get_post_thumbnail_id( $partner );
+						if ( ! $thumb_id ) {
 							continue;
 						}
-						$link = alergobot_get_partner_link($partner->ID);
+						$link = alergobot_get_partner_link( $partner->ID );
 						?>
-						<a class="popup-modal__partner" href="<?php echo esc_url($link ?: '#'); ?>" target="_blank" rel="noopener noreferrer">
-							<?php echo alergobot_acf_image($thumb_id, 'full', [
-								'class'   => 'popup-modal__partner-logo',
-								'alt'     => get_the_title($partner),
-								'title'   => get_the_title($partner),
-								'loading' => 'lazy',
-							]); ?>
-							<?php if ($partners_action) : ?>
+						<a class="popup-modal__partner" href="<?php echo esc_url( $link ?: '#' ); ?>" target="_blank" rel="noopener noreferrer">
+							<?php
+							echo alergobot_acf_image(
+								$thumb_id,
+								'full',
+								array(
+									'class'   => 'popup-modal__partner-logo',
+									'alt'     => get_the_title( $partner ),
+									'title'   => get_the_title( $partner ),
+									'loading' => 'lazy',
+								)
+							);
+							?>
+							<?php if ( $partners_action ) : ?>
 								<span class="popup-modal__partner-action">
-									<?php echo esc_html($partners_action); ?>
+									<?php echo esc_html( $partners_action ); ?>
 									<svg class="icon popup-modal__partner-icon" width="24" height="24" aria-hidden="true">
-										<use href="<?php echo esc_url(alergobot_assets_uri('img/icons.svg')); ?>#icon-arrow-up-right"></use>
+										<use href="<?php echo esc_url( alergobot_assets_uri( 'img/icons.svg' ) ); ?>#icon-arrow-up-right"></use>
 									</svg>
 								</span>
 							<?php endif; ?>
@@ -156,10 +180,10 @@ $error_title        = alergobot_get_option('popup_error_title');
 		<div class="popup-modal__inner">
 			<div class="popup-modal__status">
 				<svg class="popup-modal__status-icon icon" width="28" height="28" aria-hidden="true">
-					<use href="<?php echo esc_url(alergobot_assets_uri('img/icons.svg')); ?>#icon-check-circle"></use>
+					<use href="<?php echo esc_url( alergobot_assets_uri( 'img/icons.svg' ) ); ?>#icon-check-circle"></use>
 				</svg>
-				<?php if ($success_title) : ?>
-					<h2 class="popup-modal__status-title"><?php echo wp_kses_post($success_title); ?></h2>
+				<?php if ( $success_title ) : ?>
+					<h2 class="popup-modal__status-title"><?php echo wp_kses_post( $success_title ); ?></h2>
 				<?php endif; ?>
 			</div>
 		</div>
@@ -169,10 +193,10 @@ $error_title        = alergobot_get_option('popup_error_title');
 		<div class="popup-modal__inner">
 			<div class="popup-modal__status">
 				<svg class="popup-modal__status-icon popup-modal__status-icon--error icon" width="28" height="28" aria-hidden="true">
-					<use href="<?php echo esc_url(alergobot_assets_uri('img/icons.svg')); ?>#icon-close-circle"></use>
+					<use href="<?php echo esc_url( alergobot_assets_uri( 'img/icons.svg' ) ); ?>#icon-close-circle"></use>
 				</svg>
-				<?php if ($error_title) : ?>
-					<h2 class="popup-modal__status-title"><?php echo wp_kses_post($error_title); ?></h2>
+				<?php if ( $error_title ) : ?>
+					<h2 class="popup-modal__status-title"><?php echo wp_kses_post( $error_title ); ?></h2>
 				<?php endif; ?>
 			</div>
 		</div>

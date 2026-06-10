@@ -5,7 +5,7 @@
  * @package alergobot
  */
 
-get_template_part('template-parts/product/hero');
-get_template_part('template-parts/product/tabs');
-get_template_part('template-parts/product/benefits');
-get_template_part('template-parts/product/related');
+get_template_part( 'template-parts/product/hero' );
+get_template_part( 'template-parts/product/tabs' );
+get_template_part( 'template-parts/product/benefits' );
+get_template_part( 'template-parts/product/related' );

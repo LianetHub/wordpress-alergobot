@@ -1,15 +1,14 @@
 <?php
-
 /**
  * Alergobot theme functions
  *
  * @package alergobot
  */
 
-define('ALERGOBOT_VERSION', '1.0.0');
-define('ALERGOBOT_DIR', get_template_directory());
-define('ALERGOBOT_URI', get_template_directory_uri());
-define('ALERGOBOT_ASSETS_URI', ALERGOBOT_URI . '/assets');
+define( 'ALERGOBOT_VERSION', '1.0.0' );
+define( 'ALERGOBOT_DIR', get_template_directory() );
+define( 'ALERGOBOT_URI', get_template_directory_uri() );
+define( 'ALERGOBOT_ASSETS_URI', ALERGOBOT_URI . '/assets' );
 
 require_once ALERGOBOT_DIR . '/inc/env.php';
 

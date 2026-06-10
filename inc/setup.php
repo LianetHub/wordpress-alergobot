@@ -5,74 +5,99 @@
  * @package alergobot
  */
 
-add_action('after_setup_theme', function () {
-	load_theme_textdomain('alergobot', ALERGOBOT_DIR . '/languages');
+add_action(
+	'after_setup_theme',
+	function () {
+		load_theme_textdomain( 'alergobot', ALERGOBOT_DIR . '/languages' );
 
-	add_theme_support('title-tag');
-	add_theme_support('post-thumbnails');
-	add_theme_support('html5', ['search-form', 'comment-form', 'comment-list', 'gallery', 'caption', 'style', 'script']);
+		add_theme_support( 'title-tag' );
+		add_theme_support( 'post-thumbnails' );
+		add_theme_support( 'html5', array( 'search-form', 'comment-form', 'comment-list', 'gallery', 'caption', 'style', 'script' ) );
 
-	register_nav_menus([
-		'footer_menu' => esc_html__('Footer Menu (fallback)', 'alergobot'),
-	]);
-});
-
-add_action('init', function () {
-	add_rewrite_rule('^site\.webmanifest$', 'index.php?alergobot_webmanifest=1', 'top');
-});
-
-add_filter('query_vars', function ($vars) {
-	$vars[] = 'alergobot_webmanifest';
-
-	return $vars;
-});
-
-add_action('after_switch_theme', function () {
-	flush_rewrite_rules();
-});
-
-add_action('template_redirect', function () {
-	if (!get_query_var('alergobot_webmanifest')) {
-		return;
+		register_nav_menus(
+			array(
+				'footer_menu' => esc_html__( 'Footer Menu (fallback)', 'alergobot' ),
+			)
+		);
 	}
+);
 
-	if (!function_exists('alergobot_get_web_manifest_data')) {
-		status_header(404);
+add_action(
+	'init',
+	function () {
+		add_rewrite_rule( '^site\.webmanifest$', 'index.php?alergobot_webmanifest=1', 'top' );
+	}
+);
+
+add_filter(
+	'query_vars',
+	function ( $vars ) {
+		$vars[] = 'alergobot_webmanifest';
+
+		return $vars;
+	}
+);
+
+add_action(
+	'after_switch_theme',
+	function () {
+		flush_rewrite_rules();
+	}
+);
+
+add_action(
+	'template_redirect',
+	function () {
+		if ( ! get_query_var( 'alergobot_webmanifest' ) ) {
+			return;
+		}
+
+		if ( ! function_exists( 'alergobot_get_web_manifest_data' ) ) {
+			status_header( 404 );
+			exit;
+		}
+
+		header( 'Content-Type: application/manifest+json; charset=utf-8' );
+		echo wp_json_encode(
+			alergobot_get_web_manifest_data(),
+			JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE
+		);
 		exit;
 	}
+);
 
-	header('Content-Type: application/manifest+json; charset=utf-8');
-	echo wp_json_encode(
-		alergobot_get_web_manifest_data(),
-		JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE
-	);
-	exit;
-});
+add_filter(
+	'upload_mimes',
+	function ( $mimes ) {
+		$mimes['svg']         = 'image/svg+xml';
+		$mimes['ico']         = 'image/x-icon';
+		$mimes['webmanifest'] = 'application/manifest+json';
 
-add_filter('upload_mimes', function ($mimes) {
-	$mimes['svg']  = 'image/svg+xml';
-	$mimes['ico']  = 'image/x-icon';
-	$mimes['webmanifest'] = 'application/manifest+json';
+		return $mimes;
+	}
+);
 
-	return $mimes;
-});
+add_filter(
+	'wp_check_filetype_and_ext',
+	function ( $data, $file, $filename, $mimes ) {
+		if ( ! empty( $data['ext'] ) && ! empty( $data['type'] ) ) {
+			return $data;
+		}
 
-add_filter('wp_check_filetype_and_ext', function ($data, $file, $filename, $mimes) {
-	if (!empty($data['ext']) && !empty($data['type'])) {
+		$extension = strtolower( pathinfo( $filename, PATHINFO_EXTENSION ) );
+
+		if ( 'ico' === $extension ) {
+			$data['ext']  = 'ico';
+			$data['type'] = 'image/x-icon';
+		}
+
+		if ( 'webmanifest' === $extension ) {
+			$data['ext']  = 'webmanifest';
+			$data['type'] = 'application/manifest+json';
+		}
+
 		return $data;
-	}
-
-	$extension = strtolower(pathinfo($filename, PATHINFO_EXTENSION));
-
-	if ($extension === 'ico') {
-		$data['ext']  = 'ico';
-		$data['type'] = 'image/x-icon';
-	}
-
-	if ($extension === 'webmanifest') {
-		$data['ext']  = 'webmanifest';
-		$data['type'] = 'application/manifest+json';
-	}
-
-	return $data;
-}, 10, 4);
+	},
+	10,
+	4
+);

@@ -6,35 +6,35 @@
  */
 
 $post_id = get_the_ID();
-$icons   = alergobot_assets_uri('img/icons.svg');
+$icons   = alergobot_assets_uri( 'img/icons.svg' );
 
-$hero_text = (string) alergobot_get_post_field('product_hero_text', $post_id);
-$hero_url  = get_the_post_thumbnail_url($post_id, 'full') ?: '';
-$hero_alt  = wp_strip_all_tags(get_the_title($post_id));
+$hero_text = (string) alergobot_get_post_field( 'product_hero_text', $post_id );
+$hero_url  = get_the_post_thumbnail_url( $post_id, 'full' ) ?: '';
+$hero_alt  = wp_strip_all_tags( get_the_title( $post_id ) );
 
-$in_stock = alergobot_get_post_field('product_in_stock', $post_id);
-$rating   = (string) alergobot_get_post_field('product_rating', $post_id);
+$in_stock = alergobot_get_post_field( 'product_in_stock', $post_id );
+$rating   = (string) alergobot_get_post_field( 'product_rating', $post_id );
 
 ?>
 <section class="product-hero">
 	<div class="product-hero__container _container">
 		<div class="product-hero__card">
 			<div class="product-hero__content">
-				<h1 class="product-hero__title title title-lg title--light <?php echo alergobot_anim_class('blur-up', '_anim-no-hide'); ?>"><?php the_title(); ?></h1>
-				<?php if ($hero_text) : ?>
-					<p class="product-hero__text <?php echo alergobot_anim_class('fade-up', '_anim-no-hide'); ?>"><?php echo esc_html($hero_text); ?></p>
+				<h1 class="product-hero__title title title-lg title--light <?php echo alergobot_anim_class( 'blur-up', '_anim-no-hide' ); ?>"><?php the_title(); ?></h1>
+				<?php if ( $hero_text ) : ?>
+					<p class="product-hero__text <?php echo alergobot_anim_class( 'fade-up', '_anim-no-hide' ); ?>"><?php echo esc_html( $hero_text ); ?></p>
 				<?php endif; ?>
-				<?php echo alergobot_anim_wrap_open('fade-up', '_anim-no-hide', 'fill'); ?>
+				<?php echo alergobot_anim_wrap_open( 'fade-up', '_anim-no-hide', 'fill' ); ?>
 				<button class="product-hero__order btn btn--white a-hover-lift" type="button" data-fancybox="" data-src="#popup-order">
-					<?php esc_html_e('заказать', 'alergobot'); ?>
+					<?php esc_html_e( 'заказать', 'alergobot' ); ?>
 					<svg class="btn__icon" width="28" height="28" aria-hidden="true">
-						<use href="<?php echo esc_url($icons); ?>#icon-arrow-up-right"></use>
+						<use href="<?php echo esc_url( $icons ); ?>#icon-arrow-up-right"></use>
 					</svg>
 				</button>
 				<?php echo alergobot_anim_wrap_close(); ?>
 			</div>
-			<?php if ($hero_url) : ?>
-				<div class="product-hero__visual <?php echo alergobot_anim_class('reveal', '_anim-no-hide'); ?>">
+			<?php if ( $hero_url ) : ?>
+				<div class="product-hero__visual <?php echo alergobot_anim_class( 'reveal', '_anim-no-hide' ); ?>">
 					<div class="product-hero__media">
 						<svg class="product-hero__media-defs" aria-hidden="true" focusable="false">
 							<defs>
@@ -64,22 +64,22 @@ $rating   = (string) alergobot_get_post_field('product_rating', $post_id);
 							<path d="M200 21C200 26.5228 204.477 31 210 31H290C295.523 31 300 35.4772 300 41V202C300 207.523 295.523 212 290 212H10C4.47716 212 0 207.523 0 202V10C0 4.47715 4.47715 0 10 0H190C195.523 0 200 4.47715 200 10V21Z" fill="#EDFBFF"></path>
 							<path d="M210 31V31.4753V31.4753V31ZM290 212V212.475V212.475V212ZM10 212V212.475V212.475V212ZM0 202H-0.475329V202H0ZM10 0V-0.475329V-0.475329V0ZM200 21H199.525C199.525 26.7854 204.215 31.4753 210 31.4753V31V30.5247C204.74 30.5247 200.475 26.2603 200.475 21H200ZM210 31V31.4753H290V31V30.5247H210V31ZM300 41H299.525V202H300H300.475V41H300ZM300 202H299.525C299.525 207.26 295.26 211.525 290 211.525V212V212.475C295.785 212.475 300.475 207.785 300.475 202H300ZM290 212V211.525H10V212V212.475H290V212ZM10 212V211.525C4.73967 211.525 0.475329 207.26 0.475329 202H0H-0.475329C-0.475329 207.785 4.21464 212.475 10 212.475V212ZM0 202H0.475329V10H0H-0.475329V202H0ZM0 10H0.475329C0.475329 4.73967 4.73967 0.475329 10 0.475329V0V-0.475329C4.21464 -0.475329 -0.475329 4.21464 -0.475329 10H0ZM10 0V0.475329H190V0V-0.475329H10V0ZM200 10H199.525V21H200H200.475V10H200ZM190 0V0.475329C195.26 0.475329 199.525 4.73967 199.525 10H200H200.475C200.475 4.21464 195.785 -0.475329 190 -0.475329V0ZM290 31V31.4753C295.26 31.4753 299.525 35.7397 299.525 41H300H300.475C300.475 35.2146 295.785 30.5247 290 30.5247V31Z" fill="#55ACBF" mask="url(#product-hero-media-border-mask-mobile)"></path>
 						</svg>
-						<?php if ($in_stock === true) : ?>
-							<span class="product-hero__stock <?php echo alergobot_anim_class('bounce-up', '_anim-no-hide'); ?>"><?php esc_html_e('В наличии', 'alergobot'); ?></span>
+						<?php if ( true === $in_stock ) : ?>
+							<span class="product-hero__stock <?php echo alergobot_anim_class( 'bounce-up', '_anim-no-hide' ); ?>"><?php esc_html_e( 'В наличии', 'alergobot' ); ?></span>
 						<?php endif; ?>
-						<?php if ($rating) : ?>
-							<div class="product-hero__rating <?php echo alergobot_anim_class('scale-up', '_anim-no-hide'); ?>">
-								<span class="product-hero__rating-label"><?php esc_html_e('рейтинг', 'alergobot'); ?></span>
+						<?php if ( $rating ) : ?>
+							<div class="product-hero__rating <?php echo alergobot_anim_class( 'scale-up', '_anim-no-hide' ); ?>">
+								<span class="product-hero__rating-label"><?php esc_html_e( 'рейтинг', 'alergobot' ); ?></span>
 								<span class="product-hero__rating-value">
 									<svg class="icon product-hero__rating-star" aria-hidden="true">
-										<use href="<?php echo esc_url($icons); ?>#icon-star"></use>
+										<use href="<?php echo esc_url( $icons ); ?>#icon-star"></use>
 									</svg>
-									<?php echo esc_html($rating); ?>
+									<?php echo esc_html( $rating ); ?>
 								</span>
 							</div>
 						<?php endif; ?>
 						<div class="product-hero__media-inner">
-							<img src="<?php echo esc_url($hero_url); ?>" alt="<?php echo esc_attr($hero_alt); ?>" title="<?php echo esc_attr($hero_alt); ?>" width="451" height="308" fetchpriority="high">
+							<img src="<?php echo esc_url( $hero_url ); ?>" alt="<?php echo esc_attr( $hero_alt ); ?>" title="<?php echo esc_attr( $hero_alt ); ?>" width="451" height="308" fetchpriority="high">
 						</div>
 					</div>
 				</div>
