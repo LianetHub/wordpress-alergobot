@@ -19,9 +19,9 @@ $is_active = (bool) get_query_var('product_tab_active');
 ?>
 <div class="product-panel<?php echo $is_active ? ' _active' : ''; ?>" id="product-panel-ru" role="tabpanel" aria-labelledby="product-tab-ru" data-product-panel="ru"<?php echo $is_active ? '' : ' hidden=""'; ?>>
 	<div class="product-panel__inner product-panel__inner--ru">
-		<h2 class="product-panel__heading" data-animate="bottom"><?php esc_html_e('Регистрационное удостоверение', 'alergobot'); ?></h2>
+		<h2 class="product-panel__heading <?php echo alergobot_anim_class('fade-up'); ?>"><?php esc_html_e('Регистрационное удостоверение', 'alergobot'); ?></h2>
 		<?php if ($specs) : ?>
-			<dl class="product-spec">
+			<dl class="product-spec <?php echo alergobot_anim_class('stagger'); ?>">
 				<?php foreach ($specs as $spec) :
 					$term  = $spec['term'] ?? '';
 					$value = $spec['value'] ?? '';
@@ -35,7 +35,7 @@ $is_active = (bool) get_query_var('product_tab_active');
 						continue;
 					}
 					?>
-					<div class="product-spec__row" data-animate="bottom">
+					<div class="product-spec__row">
 						<dt class="product-spec__term"><?php echo esc_html($term); ?></dt>
 						<dd class="product-spec__value">
 							<?php if ($is_download_row) : ?>

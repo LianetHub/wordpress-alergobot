@@ -2,23 +2,23 @@
     <div class="equipment__container _container">
         <div class="equipment__head">
             <div class="equipment__intro">
-                <h2 class="equipment__title title title-md" data-animate="bottom">Вместе с&nbsp;этим смотрят</h2>
+                <h2 class="equipment__title title title-md _anim-items a-fade-up">Вместе с&nbsp;этим смотрят</h2>
             </div>
             <div class="equipment__nav">
-                <button class="equipment__arrow equipment__arrow--prev" type="button" aria-label="Назад" data-animate="scale">
+                <button class="equipment__arrow equipment__arrow--prev _anim-items a-scale-up" type="button" aria-label="Назад">
                     <svg class="equipment__arrow-icon icon" width="32" height="32" aria-hidden="true">
                         <use href="@img/icons.svg#icon-arrow-chevron"></use>
                     </svg>
                 </button>
-                <button class="equipment__arrow equipment__arrow--next" type="button" aria-label="Вперёд" data-animate="scale">
+                <button class="equipment__arrow equipment__arrow--next _anim-items a-scale-up" type="button" aria-label="Вперёд">
                     <svg class="equipment__arrow-icon icon" width="32" height="32" aria-hidden="true">
                         <use href="@img/icons.svg#icon-arrow-chevron"></use>
                     </svg>
                 </button>
             </div>
         </div>
-        <div class="equipment__slider swiper" data-animate="bottom">
-            <div class="swiper-wrapper">
+        <div class="equipment__slider swiper">
+            <div class="swiper-wrapper _anim-items a-stagger">
                 @@loop('../templates/equipment-card-slide.html', [
                 {
                 "href": "product.html",

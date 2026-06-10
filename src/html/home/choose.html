@@ -2,31 +2,31 @@
     <div class="choose__container _container">
         <div class="choose__head">
             <div class="choose__head-main">
-                <span class="tag tag--white choose__tag" data-animate="scale">@@tag</span>
-                <h2 class="choose__title title title-md title--light" data-animate="bottom">@@title</h2>
-                <p class="choose__lead text-lead text-lead--light" data-animate="bottom">@@lead</p>
+                <span class="tag tag--white choose__tag _anim-items a-scale-up">@@tag</span>
+                <h2 class="choose__title title title-md title--light _anim-items a-blur-up">@@title</h2>
+                <p class="choose__lead text-lead text-lead--light _anim-items a-fade-up">@@lead</p>
             </div>
-            <p class="choose__note" data-animate="bottom">@@note</p>
+            <p class="choose__note _anim-items a-fade-up">@@note</p>
         </div>
-        <div class="choose__slider swiper" data-animate="bottom">
+        <div class="choose__slider swiper _anim-items a-reveal">
             <div class="swiper-wrapper">
                 @@loop('../templates/choose-slide.html', '@@slides')
             </div>
         </div>
-        <div class="choose__footer" data-animate="bottom">
+        <div class="choose__footer _anim-items a-fade-up">
             <div class="choose__nav">
-                <button class="choose__arrow choose__arrow--prev" type="button" aria-label="Назад" data-animate="scale">
+                <button class="choose__arrow choose__arrow--prev _anim-items a-scale-up" type="button" aria-label="Назад">
                     <svg width="32" height="32" aria-hidden="true">
                         <use href="@img/icons.svg#icon-arrow-chevron"></use>
                     </svg>
                 </button>
-                <button class="choose__arrow choose__arrow--next" type="button" aria-label="Вперёд" data-animate="scale">
+                <button class="choose__arrow choose__arrow--next _anim-items a-scale-up" type="button" aria-label="Вперёд">
                     <svg width="32" height="32" aria-hidden="true">
                         <use href="@img/icons.svg#icon-arrow-chevron"></use>
                     </svg>
                 </button>
             </div>
-            <button class="choose__btn btn btn--white" type="button" data-fancybox data-src="#popup-consultation" data-animate="bottom">@@btnText</button>
+            <button class="choose__btn btn btn--white a-hover-lift" type="button" data-fancybox data-src="#popup-consultation">@@btnText</button>
         </div>
     </div>
 </section>

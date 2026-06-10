@@ -19,18 +19,18 @@ if (!$benefits_text && !$benefits_cards) {
 <section class="benefits">
 	<div class="benefits__container _container">
 		<header class="benefits__head">
-			<h2 class="benefits__title title title-md" data-animate="bottom"><?php esc_html_e('Преимущества решений PROTIA', 'alergobot'); ?></h2>
+			<h2 class="benefits__title title title-md <?php echo alergobot_anim_class('fade-up'); ?>"><?php esc_html_e('Преимущества решений PROTIA', 'alergobot'); ?></h2>
 		</header>
 		<div class="benefits__body">
 			<?php if ($benefits_text) : ?>
 				<div class="benefits__brand">
-					<div class="benefits__text" data-animate="bottom">
+					<div class="benefits__text <?php echo alergobot_anim_class('fade-left'); ?>">
 						<?php echo wp_kses_post($benefits_text); ?>
 					</div>
 				</div>
 			<?php endif; ?>
 			<?php if ($benefits_cards) : ?>
-				<div class="benefits__grid">
+				<div class="benefits__grid <?php echo alergobot_anim_class('stagger'); ?>">
 					<?php $card_number = 0; foreach ($benefits_cards as $card) :
 						$title   = $card['title'] ?? '';
 						$tooltip = $card['tooltip'] ?? '';
@@ -39,7 +39,7 @@ if (!$benefits_text && !$benefits_cards) {
 						}
 						$card_number++;
 						?>
-						<article class="benefits__card" data-animate="bottom">
+						<article class="benefits__card">
 							<div class="benefits__card-head">
 								<span class="benefits__num"><?php echo esc_html((string) $card_number); ?></span>
 								<?php if ($tooltip) : ?>

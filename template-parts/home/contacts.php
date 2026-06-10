@@ -18,17 +18,17 @@ $photo        = alergobot_home_get('photo');
 				<header class="contacts__hero">
 					<div class="contacts__lead">
 						<?php if ($tag = alergobot_home_get('tag')) : ?>
-							<span class="tag tag--white" data-animate="scale"><?php echo esc_html($tag); ?></span>
+							<span class="tag tag--white <?php echo alergobot_anim_class('bounce-up'); ?>"><?php echo esc_html($tag); ?></span>
 						<?php endif; ?>
 						<?php if ($title = alergobot_home_get('title')) : ?>
-							<h2 class="contacts__title title title-md title--light" data-animate="bottom"><?php echo esc_html($title); ?></h2>
+							<h2 class="contacts__title title title-md title--light <?php echo alergobot_anim_class('fade-up'); ?>"><?php echo esc_html($title); ?></h2>
 						<?php endif; ?>
 						<?php if ($text = alergobot_home_get('text')) : ?>
-							<p class="contacts__text" data-animate="bottom"><?php echo esc_html($text); ?></p>
+							<p class="contacts__text <?php echo alergobot_anim_class('fade-up'); ?>"><?php echo esc_html($text); ?></p>
 						<?php endif; ?>
 					</div>
 					<?php if ($photo) : ?>
-						<figure class="contacts__figure" data-animate="bottom">
+						<figure class="contacts__figure <?php echo alergobot_anim_class('reveal'); ?>">
 							<?php echo alergobot_acf_image($photo, 'full', [
 								'class'   => 'contacts__photo',
 								'width'   => '387',
@@ -39,7 +39,7 @@ $photo        = alergobot_home_get('photo');
 					<?php endif; ?>
 				</header>
 				<div class="contacts__main">
-					<div class="contacts__cards">
+					<div class="contacts__cards <?php echo alergobot_anim_class('stagger-x'); ?>">
 						<?php get_template_part('template-parts/company/contact', 'cards'); ?>
 					</div>
 					<?php if ($map_html) : ?>

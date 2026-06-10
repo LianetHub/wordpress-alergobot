@@ -6,6 +6,13 @@
  * @package alergobot
  */
 
+if (!function_exists('alergobot_anim_class')) {
+	function alergobot_anim_class(string $type = 'fade-up', string $extra = ''): string
+	{
+		return esc_attr(trim("_anim-items a-{$type} {$extra}"));
+	}
+}
+
 if (!function_exists('alergobot_blogs_archive_url')) {
 	function alergobot_blogs_archive_url()
 	{
@@ -300,13 +307,12 @@ if (!function_exists('alergobot_render_blog_pagination')) {
 		$pages = array_values(array_unique($pages, SORT_REGULAR));
 		?>
 		<nav
-			class="blog-pagination"
+			class="blog-pagination <?php echo alergobot_anim_class('fade-up'); ?>"
 			aria-label="<?php esc_attr_e('Навигация по страницам', 'alergobot'); ?>"
 			<?php if ($args['panel']) : ?>
 				data-blog-pagination="<?php echo esc_attr($args['panel']); ?>"
 			<?php endif; ?>
 			<?php echo $args['hidden'] ? ' hidden' : ''; ?>
-			data-animate="bottom"
 		>
 			<?php if ($current > 1) : ?>
 				<a class="blog-pagination__arrow blog-pagination__arrow--prev" href="<?php echo esc_url($page_url($current - 1)); ?>" data-blog-page="<?php echo esc_attr((string) ($current - 1)); ?>" aria-label="<?php esc_attr_e('Предыдущая страница', 'alergobot'); ?>">
@@ -685,14 +691,14 @@ if (!function_exists('alergobot_render_catalog_gallery_product')) {
 
 		if ($tag === 'a') {
 			printf(
-				'<a href="%1$s" class="%2$s" data-animate="bottom"%3$s%4$s>',
+				'<a href="%1$s" class="%2$s"%3$s%4$s>',
 				esc_url($item['link_url']),
 				esc_attr($class),
 				!empty($item['link_target']) ? ' target="' . esc_attr($item['link_target']) . '"' : '',
 				($item['link_target'] ?? '') === '_blank' ? ' rel="noopener noreferrer"' : ''
 			);
 		} else {
-			printf('<div class="%s" data-animate="bottom">', esc_attr($class));
+			printf('<div class="%s">', esc_attr($class));
 		}
 		?>
 		<span class="catalog__product-media">
@@ -973,8 +979,8 @@ if (!function_exists('alergobot_get_map_html')) {
 		}
 
 		return sprintf(
-			'<div class="%s" id="%s" data-map data-coords="%s" data-zoom="%d" data-icon="%s" role="region" aria-label="%s" aria-busy="true" data-animate="bottom"></div>',
-			esc_attr($class),
+			'<div class="%1$s" id="%2$s" data-map data-coords="%3$s" data-zoom="%4$d" data-icon="%5$s" role="region" aria-label="%6$s" aria-busy="true"></div>',
+			esc_attr(trim($class . ' _anim-items a-fade-up')),
 			esc_attr($id),
 			esc_attr($map['coords']),
 			(int) $map['zoom'],

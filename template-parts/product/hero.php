@@ -20,11 +20,11 @@ $rating   = (string) alergobot_get_post_field('product_rating', $post_id);
 	<div class="product-hero__container _container">
 		<div class="product-hero__card">
 			<div class="product-hero__content">
-				<h1 class="product-hero__title title title-lg title--light" data-animate="bottom"><?php the_title(); ?></h1>
+				<h1 class="product-hero__title title title-lg title--light <?php echo alergobot_anim_class('blur-up', '_anim-no-hide'); ?>"><?php the_title(); ?></h1>
 				<?php if ($hero_text) : ?>
-					<p class="product-hero__text" data-animate="bottom"><?php echo esc_html($hero_text); ?></p>
+					<p class="product-hero__text <?php echo alergobot_anim_class('fade-up', '_anim-no-hide'); ?>"><?php echo esc_html($hero_text); ?></p>
 				<?php endif; ?>
-				<button class="product-hero__order btn btn--white" type="button" data-fancybox="" data-src="#popup-order" data-animate="bottom">
+				<button class="product-hero__order btn btn--white a-hover-lift <?php echo alergobot_anim_class('fade-up', '_anim-no-hide'); ?>" type="button" data-fancybox="" data-src="#popup-order">
 					<?php esc_html_e('заказать', 'alergobot'); ?>
 					<svg class="btn__icon" width="28" height="28" aria-hidden="true">
 						<use href="<?php echo esc_url($icons); ?>#icon-arrow-up-right"></use>
@@ -32,7 +32,7 @@ $rating   = (string) alergobot_get_post_field('product_rating', $post_id);
 				</button>
 			</div>
 			<?php if ($hero_url) : ?>
-				<div class="product-hero__visual" data-animate="bottom">
+				<div class="product-hero__visual <?php echo alergobot_anim_class('reveal', '_anim-no-hide'); ?>">
 					<div class="product-hero__media">
 						<svg class="product-hero__media-defs" aria-hidden="true" focusable="false">
 							<defs>
@@ -63,10 +63,10 @@ $rating   = (string) alergobot_get_post_field('product_rating', $post_id);
 							<path d="M210 31V31.4753V31.4753V31ZM290 212V212.475V212.475V212ZM10 212V212.475V212.475V212ZM0 202H-0.475329V202H0ZM10 0V-0.475329V-0.475329V0ZM200 21H199.525C199.525 26.7854 204.215 31.4753 210 31.4753V31V30.5247C204.74 30.5247 200.475 26.2603 200.475 21H200ZM210 31V31.4753H290V31V30.5247H210V31ZM300 41H299.525V202H300H300.475V41H300ZM300 202H299.525C299.525 207.26 295.26 211.525 290 211.525V212V212.475C295.785 212.475 300.475 207.785 300.475 202H300ZM290 212V211.525H10V212V212.475H290V212ZM10 212V211.525C4.73967 211.525 0.475329 207.26 0.475329 202H0H-0.475329C-0.475329 207.785 4.21464 212.475 10 212.475V212ZM0 202H0.475329V10H0H-0.475329V202H0ZM0 10H0.475329C0.475329 4.73967 4.73967 0.475329 10 0.475329V0V-0.475329C4.21464 -0.475329 -0.475329 4.21464 -0.475329 10H0ZM10 0V0.475329H190V0V-0.475329H10V0ZM200 10H199.525V21H200H200.475V10H200ZM190 0V0.475329C195.26 0.475329 199.525 4.73967 199.525 10H200H200.475C200.475 4.21464 195.785 -0.475329 190 -0.475329V0ZM290 31V31.4753C295.26 31.4753 299.525 35.7397 299.525 41H300H300.475C300.475 35.2146 295.785 30.5247 290 30.5247V31Z" fill="#55ACBF" mask="url(#product-hero-media-border-mask-mobile)"></path>
 						</svg>
 						<?php if ($in_stock === true) : ?>
-							<span class="product-hero__stock" data-animate="scale"><?php esc_html_e('В наличии', 'alergobot'); ?></span>
+							<span class="product-hero__stock <?php echo alergobot_anim_class('bounce-up', '_anim-no-hide'); ?>"><?php esc_html_e('В наличии', 'alergobot'); ?></span>
 						<?php endif; ?>
 						<?php if ($rating) : ?>
-							<div class="product-hero__rating" data-animate="scale">
+							<div class="product-hero__rating <?php echo alergobot_anim_class('scale-up', '_anim-no-hide'); ?>">
 								<span class="product-hero__rating-label"><?php esc_html_e('рейтинг', 'alergobot'); ?></span>
 								<span class="product-hero__rating-value">
 									<svg class="icon product-hero__rating-star" aria-hidden="true">

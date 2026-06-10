@@ -70,7 +70,7 @@ if ($post_id) {
 <div class="article">
 	<div class="article__container _container">
 		<div class="article__layout">
-			<header class="article__header" data-animate="bottom">
+			<header class="article__header <?php echo alergobot_anim_class('fade-up'); ?>">
 				<h1 class="article__title title title-lg title--brand"><?php the_title(); ?></h1>
 				<?php if ($intro) : ?>
 					<div class="article__intro typography-block">
@@ -79,7 +79,7 @@ if ($post_id) {
 				<?php endif; ?>
 			</header>
 			<?php if (has_post_thumbnail()) : ?>
-				<figure class="article__hero" data-animate="bottom">
+				<figure class="article__hero <?php echo alergobot_anim_class('zoom'); ?>">
 					<?php
 					the_post_thumbnail('large', [
 						'class'         => 'article__hero-img',
@@ -96,8 +96,8 @@ if ($post_id) {
 			</div>
 			<?php if ($recent_query instanceof WP_Query && $recent_query->have_posts()) : ?>
 				<aside class="article__aside blog-recent" aria-labelledby="article-popular-title">
-					<h2 class="blog-recent__heading" id="article-popular-title" data-animate="bottom"><?php esc_html_e('Популярные статьи', 'alergobot'); ?></h2>
-					<ul class="blog-recent__list">
+					<h2 class="blog-recent__heading <?php echo alergobot_anim_class('fade-up'); ?>" id="article-popular-title"><?php esc_html_e('Популярные статьи', 'alergobot'); ?></h2>
+					<ul class="blog-recent__list <?php echo alergobot_anim_class('stagger'); ?>">
 						<?php
 						while ($recent_query->have_posts()) :
 							$recent_query->the_post();
@@ -113,8 +113,8 @@ if ($post_id) {
 	<?php if ($related_query instanceof WP_Query && $related_query->have_posts()) : ?>
 		<section class="article-more">
 			<div class="article-more__container _container">
-				<h2 class="article-more__title title title-md title--brand" data-animate="bottom"><?php esc_html_e('Вас может заинтересовать', 'alergobot'); ?></h2>
-				<div class="article-more__grid">
+				<h2 class="article-more__title title title-md title--brand <?php echo alergobot_anim_class('fade-up'); ?>"><?php esc_html_e('Вас может заинтересовать', 'alergobot'); ?></h2>
+				<div class="article-more__grid <?php echo alergobot_anim_class('stagger'); ?>">
 					<?php
 					while ($related_query->have_posts()) :
 						$related_query->the_post();

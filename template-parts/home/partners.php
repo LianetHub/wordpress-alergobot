@@ -10,26 +10,26 @@
 	<div class="partners__container _container">
 		<div class="partners__head">
 			<?php if ($title = alergobot_home_get('title')) : ?>
-				<h2 class="partners__title title title-md" data-animate="bottom"><?php echo esc_html($title); ?></h2>
+				<h2 class="partners__title title title-md <?php echo alergobot_anim_class('blur-up'); ?>"><?php echo esc_html($title); ?></h2>
 			<?php endif; ?>
 			<?php if ($tag = alergobot_home_get('tag')) : ?>
-				<span class="partners__tag tag" data-animate="scale"><?php echo esc_html($tag); ?></span>
+				<span class="partners__tag tag <?php echo alergobot_anim_class('bounce-up'); ?>"><?php echo esc_html($tag); ?></span>
 			<?php endif; ?>
 		</div>
 		<div class="partners__desc">
 			<?php if (alergobot_home_rows('paragraphs')) : ?>
-				<div class="partners__text text-lead" data-animate="bottom">
+				<div class="partners__text text-lead <?php echo alergobot_anim_class('fade-up'); ?>">
 					<?php foreach (alergobot_home_rows('paragraphs') as $paragraph) : ?>
 						<p><?php echo esc_html($paragraph['text'] ?? ''); ?></p>
 					<?php endforeach; ?>
 				</div>
 			<?php endif; ?>
 			<?php if ($note = alergobot_home_get('note')) : ?>
-				<p class="partners__note" data-animate="bottom"><?php echo esc_html($note); ?></p>
+				<p class="partners__note <?php echo alergobot_anim_class('fade-up'); ?>"><?php echo esc_html($note); ?></p>
 			<?php endif; ?>
 		</div>
 		<?php if (alergobot_home_rows('logos')) : ?>
-			<div class="partners__slider swiper" data-animate="bottom">
+			<div class="partners__slider swiper <?php echo alergobot_anim_class('reveal'); ?>">
 				<div class="swiper-wrapper">
 					<?php foreach (alergobot_home_rows('logos') as $logo) :
 						$image = $logo['image'] ?? null;
@@ -38,7 +38,7 @@
 						}
 						$link = $logo['link'] ?? [];
 						?>
-						<div class="swiper-slide partners__slide" data-animate="bottom">
+						<div class="swiper-slide partners__slide">
 							<a class="partners__card" href="<?php echo esc_url(alergobot_acf_link_url($link, '#')); ?>">
 								<span class="partners__logo-wrap">
 									<?php echo alergobot_acf_image($image, 'full', [

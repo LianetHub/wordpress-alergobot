@@ -1,5 +1,7 @@
 "use strict";
 
+import { refreshScrollAnimations } from "./animation.js";
+
 export function buildFeedUrl(baseUrl, tab, page, origin = "https://example.com") {
 	const resolvedBase = baseUrl || "/stati-po-allergologii/";
 
@@ -62,6 +64,7 @@ export function applyFeedResponse({ grid, paginationSlot, data }) {
 	}
 
 	grid.innerHTML = data.html || "";
+	refreshScrollAnimations(grid);
 
 	if (!paginationSlot) {
 		return;
@@ -74,9 +77,7 @@ export function applyFeedResponse({ grid, paginationSlot, data }) {
 		paginationSlot.innerHTML = data.pagination || "";
 	}
 
-	paginationSlot.querySelectorAll("[data-animate]").forEach((element) => {
-		element.classList.add("animated");
-	});
+	refreshScrollAnimations(paginationSlot);
 }
 
 export function handlePaginationClick(event, { currentPage, activeTab, loadFeed }) {

@@ -2,12 +2,12 @@
     <div class="panels__container _container">
         <div class="panels__head">
             <div class="panels__intro">
-                <h2 class="panels__title title title-md title-md--panels" data-animate="bottom">Панели PROTIA Allergy-Q для различных направлений аллергодиагностики</h2>
-                <p class="panels__lead text-lead" data-animate="bottom">PROTIA Allergy-Q – набором оборудования, выявляющий IgE-тела против разных аллергенов. Основной метод лабораторной диагностики – иммуноблоттинг, за один тест анализирует десятки аллергенов.</p>
+                <h2 class="panels__title title title-md title-md--panels _anim-items a-fade-up">Панели PROTIA Allergy-Q для различных направлений аллергодиагностики</h2>
+                <p class="panels__lead text-lead _anim-items a-fade-up">PROTIA Allergy-Q – набором оборудования, выявляющий IgE-тела против разных аллергенов. Основной метод лабораторной диагностики – иммуноблоттинг, за один тест анализирует десятки аллергенов.</p>
             </div>
-            <span class="panels__tag tag" data-animate="scale">линейка панелей</span>
+            <span class="panels__tag tag _anim-items a-bounce-up">линейка панелей</span>
         </div>
-        <ul class="panels__list" data-panels>
+        <ul class="panels__list _anim-items a-stagger-x" data-panels>
             @@include('../templates/panels-item.html', {
             "activeClass": " _active",
             "expanded": "true",
@@ -49,8 +49,8 @@
             "title": "Атопическая панель PROTIA Allergy-Q"
             })
         </ul>
-        <div class="panels__footer" data-animate="bottom">
-            <a class="btn btn--primary panels__footer-btn" href="katalog.html">Перейти в каталог</a>
+        <div class="panels__footer _anim-items a-fade-up">
+            <a class="btn btn--primary panels__footer-btn a-hover-lift" href="katalog.html">Перейти в каталог</a>
         </div>
     </div>
 </section>

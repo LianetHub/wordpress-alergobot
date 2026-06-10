@@ -39,7 +39,7 @@ if ($has_docs) {
 				$tab_id = $tab['id'];
 				$active = $index === 0;
 				?>
-				<button class="product-tabs__btn<?php echo $active ? ' _active' : ''; ?>" type="button" role="tab" id="product-tab-<?php echo esc_attr($tab_id); ?>" aria-selected="<?php echo $active ? 'true' : 'false'; ?>" aria-controls="product-panel-<?php echo esc_attr($tab_id); ?>" data-product-tab="<?php echo esc_attr($tab_id); ?>" data-animate="fade">
+				<button class="product-tabs__btn<?php echo $active ? ' _active' : ''; ?> <?php echo alergobot_anim_class('fade-up'); ?>" type="button" role="tab" id="product-tab-<?php echo esc_attr($tab_id); ?>" aria-selected="<?php echo $active ? 'true' : 'false'; ?>" aria-controls="product-panel-<?php echo esc_attr($tab_id); ?>" data-product-tab="<?php echo esc_attr($tab_id); ?>">
 					<span class="product-tabs__text"><?php echo esc_html($tab['label']); ?></span>
 					<span class="product-tabs__icon" aria-hidden="true">
 						<svg class="icon" width="16" height="16">

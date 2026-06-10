@@ -18,7 +18,7 @@ $is_active = (bool) get_query_var('product_tab_active');
 
 ?>
 <div class="product-panel<?php echo $is_active ? ' _active' : ''; ?>" id="product-panel-docs" role="tabpanel" aria-labelledby="product-tab-docs" data-product-panel="docs"<?php echo $is_active ? '' : ' hidden=""'; ?>>
-	<div class="product-panel__inner product-panel__inner--docs">
+	<div class="product-panel__inner product-panel__inner--docs <?php echo alergobot_anim_class('stagger'); ?>">
 		<?php foreach ($docs as $doc) :
 			$file    = $doc['file'] ?? null;
 			$name    = $doc['name'] ?? '';
@@ -35,7 +35,7 @@ $is_active = (bool) get_query_var('product_tab_active');
 			$download_name = $file['filename'] ?? '';
 			$tooltip       = $doc['tooltip'] ?? __('Скачать', 'alergobot');
 			?>
-			<a class="product-doc" href="<?php echo esc_url($file_url); ?>"<?php echo $download_name ? ' download="' . esc_attr($download_name) . '"' : ' download'; ?> rel="noopener noreferrer" data-animate="bottom">
+			<a class="product-doc" href="<?php echo esc_url($file_url); ?>"<?php echo $download_name ? ' download="' . esc_attr($download_name) . '"' : ' download'; ?> rel="noopener noreferrer">
 				<span class="product-doc__main">
 					<?php if ($preview_url) : ?>
 						<span class="product-doc__preview">

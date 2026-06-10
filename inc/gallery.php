@@ -95,9 +95,10 @@ function alergobot_render_post_gallery($output, $attr, $instance)
 	}
 
 	$html = sprintf(
-		'<div id="%1$s" class="%2$s" data-animate="bottom">',
+		'<div id="%1$s" class="%2$s %3$s">',
 		esc_attr($gallery_id),
-		esc_attr(implode(' ', $classes))
+		esc_attr(implode(' ', $classes)),
+		alergobot_anim_class('reveal')
 	);
 
 	foreach ($attachments as $attachment) {

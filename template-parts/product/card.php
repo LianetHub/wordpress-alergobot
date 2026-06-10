@@ -18,7 +18,7 @@ $card_text = (string) alergobot_get_post_field('product_hero_text', $post_id);
 $thumb     = get_the_post_thumbnail_url($post_id, 'medium');
 
 ?>
-<li class="category__item" data-animate="bottom">
+<li class="category__item">
 	<div class="category__card">
 		<div class="category__content">
 			<?php if ($card_title) : ?>
@@ -33,7 +33,7 @@ $thumb     = get_the_post_thumbnail_url($post_id, 'medium');
 	</div>
 	<div class="category__footer">
 		<div class="category__actions">
-			<a class="btn btn--primary category__btn" href="<?php echo esc_url($permalink); ?>">
+			<a class="btn btn--primary category__btn a-hover-lift" href="<?php echo esc_url($permalink); ?>">
 				<?php esc_html_e('подробнее', 'alergobot'); ?>
 				<svg class="btn__icon" width="28" height="28" aria-hidden="true">
 					<use href="<?php echo esc_url($icons); ?>#icon-arrow-up-right"></use>

@@ -30,11 +30,11 @@ $has_request = $request_title || $request_note || $request_lead;
 				<span class="heading__point"></span><span class="heading__point"></span><span class="heading__point"></span><span class="heading__point"></span>
 			</div>
 			<?php if ($heading_title) : ?>
-				<h1 class="heading__title title title-lg" data-animate="bottom"><?php echo esc_html($heading_title); ?></h1>
+				<h1 class="heading__title title title-lg <?php echo alergobot_anim_class('blur-up', '_anim-no-hide'); ?>"><?php echo esc_html($heading_title); ?></h1>
 			<?php endif; ?>
 			<div class="heading__grid">
 				<div class="heading__main">
-					<a class="btn btn--primary heading__cta" href="#catalog-request" data-animate="bottom">
+					<a class="btn btn--primary heading__cta a-hover-lift <?php echo alergobot_anim_class('fade-up', '_anim-no-hide'); ?>" href="#catalog-request">
 						<?php esc_html_e('Задать вопрос', 'alergobot'); ?>
 						<svg class="btn__icon" width="28" height="28" aria-hidden="true">
 							<use href="<?php echo esc_url($icons); ?>#icon-arrow-up-right"></use>
@@ -50,7 +50,7 @@ $has_request = $request_title || $request_note || $request_lead;
 								$tag_url = alergobot_get_product_category_link($term->slug);
 								?>
 								<li class="heading__tags-item">
-									<a class="heading__tag" href="<?php echo esc_url($tag_url); ?>" data-animate="scale">
+									<a class="heading__tag <?php echo alergobot_anim_class('bounce-up', '_anim-no-hide'); ?>" href="<?php echo esc_url($tag_url); ?>">
 										<?php echo esc_html($term->name); ?>
 									</a>
 								</li>
@@ -60,7 +60,7 @@ $has_request = $request_title || $request_note || $request_lead;
 				</div>
 				<?php if ($heading_text) : ?>
 					<div class="heading__aside">
-						<div class="heading__text" data-animate="bottom">
+						<div class="heading__text <?php echo alergobot_anim_class('fade-up', '_anim-no-hide'); ?>">
 							<?php echo wp_kses_post($heading_text); ?>
 						</div>
 					</div>
@@ -90,10 +90,10 @@ $has_request = $request_title || $request_note || $request_lead;
 			<div class="catalog__main">
 				<div class="catalog__info">
 					<?php if ($section_title) : ?>
-						<h2 class="catalog__title title title-md" data-animate="bottom"><?php echo esc_html($section_title); ?></h2>
+						<h2 class="catalog__title title title-md <?php echo alergobot_anim_class('fade-up'); ?>"><?php echo esc_html($section_title); ?></h2>
 					<?php endif; ?>
 					<?php if ($section_text) : ?>
-						<p class="catalog__text" data-animate="bottom"><?php echo esc_html($section_text); ?></p>
+						<p class="catalog__text <?php echo alergobot_anim_class('fade-up'); ?>"><?php echo esc_html($section_text); ?></p>
 					<?php endif; ?>
 					<?php
 					$section_buttons = [
@@ -111,7 +111,7 @@ $has_request = $request_title || $request_note || $request_lead;
 							continue;
 						}
 					?>
-						<a class="<?php echo esc_attr($button['class']); ?>" href="<?php echo esc_url($button_url); ?>" data-animate="bottom"<?php echo alergobot_acf_link_target($button_link) ? ' target="' . esc_attr(alergobot_acf_link_target($button_link)) . '"' : ''; ?>>
+						<a class="<?php echo esc_attr($button['class']); ?><?php echo str_contains($button['class'], 'btn--primary') ? ' a-hover-lift' : ''; ?> <?php echo alergobot_anim_class('fade-up'); ?>" href="<?php echo esc_url($button_url); ?>"<?php echo alergobot_acf_link_target($button_link) ? ' target="' . esc_attr(alergobot_acf_link_target($button_link)) . '"' : ''; ?>>
 							<?php echo esc_html($button_title); ?>
 							<svg class="btn__icon" width="28" height="28">
 								<use href="<?php echo esc_url($icons); ?>#icon-arrow-up-right"></use>
@@ -122,10 +122,10 @@ $has_request = $request_title || $request_note || $request_lead;
 			</div>
 			<div class="catalog__side">
 				<?php if ($section_tag) : ?>
-					<span class="tag catalog__tag" data-animate="scale"><?php echo esc_html($section_tag); ?></span>
+					<span class="tag catalog__tag <?php echo alergobot_anim_class('bounce-up'); ?>"><?php echo esc_html($section_tag); ?></span>
 				<?php endif; ?>
 				<?php if ($gallery) : ?>
-					<div class="catalog__gallery" data-decor-parallax>
+					<div class="catalog__gallery <?php echo alergobot_anim_class('stagger'); ?>" data-decor-parallax>
 						<?php foreach ($gallery as $gallery_item) :
 							$gallery_item = alergobot_resolve_catalog_gallery_item($gallery_item, $btn_url);
 							if (!$gallery_item) {
@@ -152,10 +152,10 @@ $has_request = $request_title || $request_note || $request_lead;
 					<?php if ($request_title || $request_note) : ?>
 						<div class="request__info">
 							<?php if ($request_title) : ?>
-								<h2 class="request__title title title-md title--light" data-animate="bottom"><?php echo esc_html($request_title); ?></h2>
+								<h2 class="request__title title title-md title--light <?php echo alergobot_anim_class('blur-up'); ?>"><?php echo esc_html($request_title); ?></h2>
 							<?php endif; ?>
 							<?php if ($request_note) : ?>
-								<div class="request__note" data-animate="bottom">
+								<div class="request__note <?php echo alergobot_anim_class('fade-up'); ?>">
 									<span class="request__note-icon" aria-hidden="true">
 										<svg class="request__note-icon-svg" width="50" height="50" aria-hidden="true">
 											<use href="<?php echo esc_url($icons); ?>#icon-request-chat"></use>
@@ -168,9 +168,9 @@ $has_request = $request_title || $request_note || $request_lead;
 					<?php endif; ?>
 					<div class="request__form-col">
 						<?php if ($request_lead) : ?>
-							<p class="request__lead" data-animate="bottom"><?php echo esc_html($request_lead); ?></p>
+							<p class="request__lead <?php echo alergobot_anim_class('fade-left'); ?>"><?php echo esc_html($request_lead); ?></p>
 						<?php endif; ?>
-						<div class="request__form form" data-animate="bottom">
+						<div class="request__form form <?php echo alergobot_anim_class('fade-up'); ?>">
 							<?php alergobot_cf7_form('cf7_zakaz'); ?>
 						</div>
 					</div>
@@ -183,15 +183,15 @@ $has_request = $request_title || $request_note || $request_lead;
 	<section class="faq">
 		<div class="faq__container _container">
 			<div class="faq__head">
-				<span class="faq__tag tag" data-animate="scale">FAQ</span>
-				<h2 class="faq__title title-md" data-animate="bottom"><?php esc_html_e('Информация по часто задаваемым вопросам', 'alergobot'); ?></h2>
+				<span class="faq__tag tag <?php echo alergobot_anim_class('bounce-up'); ?>">FAQ</span>
+				<h2 class="faq__title title-md <?php echo alergobot_anim_class('fade-up'); ?>"><?php esc_html_e('Информация по часто задаваемым вопросам', 'alergobot'); ?></h2>
 			</div>
 			<div class="faq__columns accordion" data-accordion="">
 				<?php foreach ([$faq_col1, $faq_col2] as $column_index => $column_items) : ?>
 					<?php if (!$column_items) {
 						continue;
 					} ?>
-					<div class="faq__col">
+					<div class="faq__col <?php echo alergobot_anim_class('stagger'); ?>">
 						<?php foreach ($column_items as $item_index => $item) :
 							$question = $item['question'] ?? '';
 							$answer   = $item['answer'] ?? '';
@@ -200,7 +200,7 @@ $has_request = $request_title || $request_note || $request_lead;
 							}
 							$is_active = $column_index === 0 && $item_index === 0;
 						?>
-							<div class="accordion__item<?php echo $is_active ? ' _active' : ''; ?>" data-animate="bottom">
+							<div class="accordion__item<?php echo $is_active ? ' _active' : ''; ?>">
 								<button class="accordion__header" type="button" aria-expanded="<?php echo $is_active ? 'true' : 'false'; ?>">
 									<span class="accordion__question"><?php echo esc_html($question); ?></span>
 									<svg class="accordion__chevron icon" width="32" height="32" aria-hidden="true">

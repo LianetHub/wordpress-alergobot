@@ -16,7 +16,7 @@ $badge     = alergobot_get_blog_badge_label();
 ?>
 <article class="news-card news-card--feed">
 	<a class="news-card__link" href="<?php echo esc_url($permalink); ?>">
-		<div class="news-card__media">
+		<div class="news-card__media a-hover-zoom">
 			<img class="news-card__img" src="<?php echo esc_url($thumb); ?>" alt="<?php echo esc_attr($title); ?>" title="<?php echo esc_attr($title); ?>" width="295" height="278" loading="lazy">
 		</div>
 		<div class="news-card__body">

@@ -8,17 +8,17 @@
                     <div class="heading__container _container">
                         <div class="heading__grid">
                             <div class="heading__main">
-                                <h1 class="heading__title title title-lg" data-animate="bottom">
+                                <h1 class="heading__title title title-lg _anim-items a-blur-up _anim-no-hide">
                                     Оборудование для диагностики аллергии на&nbsp;панелях PROTIA
                                 </h1>
                                 <div class="heading__actions">
-                                    <button class="btn btn--primary heading__btn" type="button" data-fancybox data-src="#popup-order" data-animate="bottom">
+                                    <button class="btn btn--primary heading__btn a-hover-lift _anim-items a-fade-up _anim-no-hide" type="button" data-fancybox data-src="#popup-order">
                                         оформить заказ
                                         <svg class="btn__icon" width="28" height="28" aria-hidden="true">
                                             <use href="@img/icons.svg#icon-arrow-up-right"></use>
                                         </svg>
                                     </button>
-                                    <button class="btn btn--secondary heading__btn" type="button" data-fancybox data-src="#popup-consultation" data-animate="bottom">
+                                    <button class="btn btn--secondary heading__btn _anim-items a-fade-up _anim-no-hide" type="button" data-fancybox data-src="#popup-consultation">
                                         задать вопрос
                                         <svg class="btn__icon" width="28" height="28" aria-hidden="true">
                                             <use href="@img/icons.svg#icon-arrow-up-right"></use>
@@ -27,8 +27,8 @@
                                 </div>
                             </div>
                             <div class="heading__aside">
-                                <p class="heading__text" data-animate="bottom">В данном каталоге представлены диагностические наборы с анализаторами аллергии и устройствами обработки данных.</p>
-                                <img class="heading__logo" src="@img/logo-color.png" alt="PROTIA" title="PROTIA" width="185" height="52" loading="lazy" data-animate="fade">
+                                <p class="heading__text _anim-items a-fade-up _anim-no-hide">В данном каталоге представлены диагностические наборы с анализаторами аллергии и устройствами обработки данных.</p>
+                                <img class="heading__logo _anim-items a-fade-up _anim-no-hide" src="@img/logo-color.png" alt="PROTIA" title="PROTIA" width="185" height="52" loading="lazy">
                             </div>
                         </div>
                         <div class="heading__divider" aria-hidden="true"></div>
@@ -37,7 +37,7 @@
 
                 <section class="category" id="category">
                     <div class="category__container _container">
-                        <ul class="category__grid">
+                        <ul class="category__grid _anim-items a-stagger">
                             @@loop('html/templates/category-item.html', [
                             {
 
@@ -74,22 +74,22 @@
                 <section class="devices-work">
                     <div class="devices-work__container _container">
                         <div class="devices-work__head">
-                            <h2 class="devices-work__title title title-md" data-animate="bottom">Как работают анализаторы и&nbsp;устройства</h2>
-                            <span class="tag devices-work__tag" data-animate="scale">работа с оборудованием</span>
+                            <h2 class="devices-work__title title title-md _anim-items a-fade-up">Как работают анализаторы и&nbsp;устройства</h2>
+                            <span class="tag devices-work__tag _anim-items a-bounce-up">работа с оборудованием</span>
                         </div>
                         <div class="devices-work__body">
-                            <div class="devices-work__intro" data-animate="bottom">
+                            <div class="devices-work__intro _anim-items a-fade-left">
                                 <div class="devices-work__text" data-devices-work-text>
                                     <p>Диагностическое оборудование используется для лабораторных аллергопроб с применением специализированных реагентов. Автоматизированные устройства из диагностических наборов помогают выстроить понятный и последовательный процесс исследования аллергии: от подготовки панели и прохождения этапов обработки до считывания результатов диагностики аллергии, и дальнейшей интерпретации данных специалистом.</p>
                                     <p>Решения важны лабораториям для стабилизации тестов, удобства работы персонала, минимизации ручных операций. Позволят организовать диагностику более точно и в едином алгоритме.</p>
                                 </div>
                                 <button class="devices-work__more" type="button" data-devices-work-more data-label-more="Еще" data-label-less="Свернуть" aria-expanded="false">Еще</button>
                             </div>
-                            <div class="devices-work__gallery">
-                                <div class="devices-work__photo" data-animate="bottom">
+                            <div class="devices-work__gallery _anim-items a-stagger">
+                                <div class="devices-work__photo">
                                     <img src="@img/analyzers/work-01.png" alt="Работа с диагностическим оборудованием в лаборатории" title="Работа с диагностическим оборудованием в лаборатории" width="315" height="293" loading="lazy">
                                 </div>
-                                <div class="devices-work__photo" data-animate="bottom">
+                                <div class="devices-work__photo">
                                     <img src="@img/analyzers/work-02.png" alt="Обработка панелей PROTIA" title="Обработка панелей PROTIA" width="315" height="293" loading="lazy">
                                 </div>
                             </div>
@@ -100,13 +100,13 @@
                 <section class="devices-benefits">
                     <div class="devices-benefits__container _container" data-decor-parallax>
                         <div class="devices-benefits__head">
-                            <h2 class="devices-benefits__title title title-md" data-animate="bottom">Почему это важно для лаборатории</h2>
+                            <h2 class="devices-benefits__title title title-md _anim-items a-fade-up">Почему это важно для лаборатории</h2>
                             <div class="devices-benefits__nav">
-                                <button class="devices-benefits__arrow devices-benefits__arrow--prev" data-animate="scale" type="button" aria-label="Назад"></button>
-                                <button class="devices-benefits__arrow devices-benefits__arrow--next" data-animate="scale" type="button" aria-label="Вперёд"></button>
+                                <button class="devices-benefits__arrow devices-benefits__arrow--prev _anim-items a-scale-up" type="button" aria-label="Назад"></button>
+                                <button class="devices-benefits__arrow devices-benefits__arrow--next _anim-items a-scale-up" type="button" aria-label="Вперёд"></button>
                             </div>
                         </div>
-                        <div class="devices-benefits__slider swiper" data-animate="bottom">
+                        <div class="devices-benefits__slider swiper _anim-items a-reveal">
                             <div class="swiper-wrapper">
                                 @@loop('html/templates/devices-benefits-slide.html', [
                                 {
@@ -142,17 +142,17 @@
                 <section class="devices-cta" id="devices-request">
                     <div class="devices-cta__container _container">
                         <div class="devices-cta__grid">
-                            <div class="devices-cta__box devices-cta__box--form" data-animate="bottom">
+                            <div class="devices-cta__box devices-cta__box--form _anim-items a-fade-left">
                                 <h2 class="devices-cta__title title title-md title--light">Сформируйте запрос, и&nbsp;наши сотрудники вас проконсультируют</h2>
                                 <p class="devices-cta__text">Если вам нужно подобрать диагностическое оборудование для тестирования пищевой аллергии и других её видов в клинике, оставьте заявку на сайте. Мы поможем выбрать подходящий диагностический набор, расскажем о различиях между решениями и направим презентацию, прайс и дополнительные описания продукции.</p>
-                                <a class="btn btn--white devices-cta__btn" data-fancybox href="#popup-consultation">
+                                <a class="btn btn--white devices-cta__btn a-hover-lift" data-fancybox href="#popup-consultation">
                                     задать вопрос
                                     <svg class="btn__icon" width="28" height="28" aria-hidden="true">
                                         <use href="@img/icons.svg#icon-arrow-up-right"></use>
                                     </svg>
                                 </a>
                             </div>
-                            <div class="devices-cta__box devices-cta__box--visual" data-animate="bottom">
+                            <div class="devices-cta__box devices-cta__box--visual _anim-items a-fade-right">
                                 <div class="devices-cta__visual">
                                     <img src="@img/analyzers/cta-equipment.png" alt="Лабораторное оборудование PROTIA" title="Лабораторное оборудование PROTIA" width="570" height="298" loading="lazy">
                                 </div>

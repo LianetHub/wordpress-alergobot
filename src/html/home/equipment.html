@@ -2,12 +2,12 @@
     <div class="equipment__container _container" data-decor-parallax>
         <div class="equipment__head">
             <div class="equipment__intro">
-                <h2 class="equipment__title title title-md" data-animate="bottom">Оборудование для исследований в&nbsp;единой системе</h2>
-                <p class="equipment__lead text-lead" data-animate="bottom">Набор оборудования PROTIA Allergy-Q предназначен для лабораторной диагностики со стабильными результатами тестов. С ним организуется полноценная диагностическая цепочка.</p>
+                <h2 class="equipment__title title title-md _anim-items a-fade-left">Оборудование для исследований в&nbsp;единой системе</h2>
+                <p class="equipment__lead text-lead _anim-items a-fade-up">Набор оборудования PROTIA Allergy-Q предназначен для лабораторной диагностики со стабильными результатами тестов. С ним организуется полноценная диагностическая цепочка.</p>
             </div>
-            <span class="tag equipment__tag" data-animate="scale">оборудование</span>
+            <span class="tag equipment__tag _anim-items a-bounce-up">оборудование</span>
         </div>
-        <ul class="equipment__grid">
+        <ul class="equipment__grid _anim-items a-stagger">
             @@loop('../templates/equipment-card.html', [
             {
             "href": "product.html",
@@ -59,8 +59,8 @@
             }
             ])
         </ul>
-        <div class="equipment__footer" data-animate="bottom">
-            <a class="btn btn--primary equipment__btn" href="katalog.html">Подобрать оборудование</a>
+        <div class="equipment__footer _anim-items a-fade-up">
+            <a class="btn btn--primary equipment__btn a-hover-lift" href="katalog.html">Подобрать оборудование</a>
         </div>
     </div>
 </section>

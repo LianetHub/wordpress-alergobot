@@ -1,12 +1,12 @@
 <section class="benefits">
     <div class="benefits__container _container">
         <header class="benefits__head">
-            <h2 class="benefits__title title title-md" data-animate="bottom">Преимущества продуктов PROTIA</h2>
-            <span class="benefits__tag tag" data-animate="scale">бренд PROTIA</span>
+            <h2 class="benefits__title title title-md _anim-items a-fade-up">Преимущества продуктов PROTIA</h2>
+            <span class="benefits__tag tag _anim-items a-bounce-up">бренд PROTIA</span>
         </header>
 
         <div class="benefits__body">
-            <div class="benefits__grid">
+            <div class="benefits__grid _anim-items a-stagger">
                 @@loop('../templates/benefits-card.html', [
                 {
                 "num": "1",
@@ -31,7 +31,7 @@
                 ])
             </div>
 
-            <div class="benefits__brand" data-animate="bottom">
+            <div class="benefits__brand _anim-items a-scale-up">
                 <img class="benefits__logo" src="@img/logo-color.png" alt="PROTIA" title="PROTIA" width="185" height="52" loading="lazy">
                 <p class="benefits__text">Южнокорейский бренд выпускает технологичное лабораторное оборудование для in vitro diagnostics. Линия бренда – объединить оборудование, панели и диагностическую логику в одну систему.</p>
             </div>

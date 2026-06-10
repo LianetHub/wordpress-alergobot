@@ -16,14 +16,14 @@ $cards      = is_array($cards_raw) && $cards_raw !== [] ? array_values($cards_ra
 		<div class="audience__head">
 			<div class="audience__intro">
 				<?php if ($title = alergobot_home_get('title')) : ?>
-					<h2 class="section-head__title title title-md" data-animate="bottom"><?php echo wp_kses_post($title); ?></h2>
+					<h2 class="section-head__title title title-md <?php echo alergobot_anim_class('fade-up'); ?>"><?php echo wp_kses_post($title); ?></h2>
 				<?php endif; ?>
 				<?php if ($text = alergobot_home_get('text')) : ?>
-					<p class="section-head__text text-lead" data-animate="bottom"><?php echo esc_html($text); ?></p>
+					<p class="section-head__text text-lead <?php echo alergobot_anim_class('fade-up'); ?>"><?php echo esc_html($text); ?></p>
 				<?php endif; ?>
 			</div>
 			<?php if ($head_photo) : ?>
-				<div class="audience__photo" data-animate="bottom">
+				<div class="audience__photo <?php echo alergobot_anim_class('fade-up'); ?>">
 					<?php echo alergobot_acf_image($head_photo, 'full', [
 						'class'   => 'cover-image',
 						'alt'     => $head_alt,
@@ -35,7 +35,7 @@ $cards      = is_array($cards_raw) && $cards_raw !== [] ? array_values($cards_ra
 				</div>
 			<?php endif; ?>
 			<?php if ($tag = alergobot_home_get('tag')) : ?>
-				<span class="audience__tag tag" data-animate="bottom"><?php echo esc_html($tag); ?></span>
+				<span class="audience__tag tag <?php echo alergobot_anim_class('scale-up'); ?>"><?php echo esc_html($tag); ?></span>
 			<?php endif; ?>
 		</div>
 		<div class="audience__scene" data-audience>
@@ -49,11 +49,11 @@ $cards      = is_array($cards_raw) && $cards_raw !== [] ? array_values($cards_ra
 				]); ?>
 			<?php endif; ?>
 			<?php if ($cards) : ?>
-				<div class="audience__cards">
+				<div class="audience__cards <?php echo alergobot_anim_class('stagger'); ?>">
 					<?php foreach ($cards as $card) :
 						$is_active = !empty($card['is_active']);
 						?>
-						<button class="audience__card<?php echo $is_active ? ' _active' : ''; ?>" type="button" data-audience-card aria-expanded="<?php echo $is_active ? 'true' : 'false'; ?>" data-animate="scale">
+						<button class="audience__card<?php echo $is_active ? ' _active' : ''; ?>" type="button" data-audience-card aria-expanded="<?php echo $is_active ? 'true' : 'false'; ?>">
 							<span class="audience__card-title"><?php echo esc_html($card['title'] ?? ''); ?></span>
 							<span class="audience__toggle" aria-hidden="true"></span>
 							<span class="audience__card-text"><?php echo esc_html($card['text'] ?? ''); ?></span>

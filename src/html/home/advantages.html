@@ -1,15 +1,15 @@
 <section class="faq">
     <div class="faq__container _container">
         <div class="faq__head">
-            <span class="faq__tag tag" data-animate="scale">FAQ</span>
-            <h2 class="faq__title title-md" data-animate="bottom">@@faqTitle</h2>
+            <span class="faq__tag tag _anim-items a-bounce-up">FAQ</span>
+            <h2 class="faq__title title-md _anim-items a-fade-up">@@faqTitle</h2>
         </div>
 
         <div class="faq__columns accordion" data-accordion>
-            <div class="faq__col">
+            <div class="faq__col _anim-items a-stagger">
                 @@loop('../templates/accordion-item.html', '@@faqCol1')
             </div>
-            <div class="faq__col">
+            <div class="faq__col _anim-items a-stagger">
                 @@loop('../templates/accordion-item.html', '@@faqCol2')
             </div>
         </div>

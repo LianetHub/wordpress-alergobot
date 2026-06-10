@@ -1,91 +1,166 @@
 "use strict";
 
+const IMMEDIATE_ANIMATION_ROOTS = [".hero", ".heading", ".product-hero", ".not-found"];
+
+let animItems = [];
+let animTicking = false;
+let scrollInitialized = false;
+
 export function initAnimation() {
-	const counters = document.querySelectorAll("[data-counter]");
-	const animationSections = document.querySelectorAll("[data-animate]");
-
-	if (counters.length > 0) {
-		const animationDuration = 2000;
-
-		const counterObserver = new IntersectionObserver(
-			(entries) => {
-				entries.forEach((entry) => {
-					if (entry.isIntersecting && !entry.target.classList.contains("animated")) {
-						entry.target.classList.add("animated");
-						startCounter(entry.target);
-					}
-				});
-			},
-			{ threshold: 0.1 },
-		);
-
-		counters.forEach((el) => counterObserver.observe(el));
-
-		function startCounter(el) {
-			const originalText = el.textContent.trim();
-			const targetNumber = parseInt(originalText.replace(/\D/g, ""), 10);
-			const suffix = originalText.replace(/[0-9\s\u00A0\u202F]/g, "");
-
-			const startNumber = Math.floor(targetNumber * 0.8);
-			const startTime = performance.now();
-			const animationDuration = 1500;
-
-			const formatNumber = (num) => {
-				return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, "\u00A0");
-			};
-
-			const updateCounter = (currentTime) => {
-				const elapsedTime = currentTime - startTime;
-				const progress = Math.min(elapsedTime / animationDuration, 1);
-
-				const currentCount = Math.floor(startNumber + progress * (targetNumber - startNumber));
-
-				el.textContent = formatNumber(currentCount) + (suffix ? " " + suffix : "");
-
-				if (progress < 1) {
-					requestAnimationFrame(updateCounter);
-				} else {
-					el.textContent = formatNumber(targetNumber) + (suffix ? " " + suffix : "");
-				}
-			};
-
-			requestAnimationFrame(updateCounter);
-		}
-	}
-
-	if (animationSections.length > 0) {
-		const sectionObserver = new IntersectionObserver(
-			(entries) => {
-				entries.forEach((entry) => {
-					if (entry.isIntersecting) {
-						entry.target.classList.add("animated");
-					}
-				});
-			},
-			{ threshold: 0.1 },
-		);
-
-		animationSections.forEach((section) => {
-			if (section.closest(".hero, .heading, .product-hero, .not-found")) return;
-			sectionObserver.observe(section);
-		});
-	}
-
+	initRipple();
+	initScrollAnimation();
 	initImmediateAnimation();
 	initAudienceMolecules();
 	initDecorParallax();
 }
 
-const IMMEDIATE_ANIMATION_ROOTS = [".hero", ".heading", ".product-hero", ".not-found"];
+export function refreshScrollAnimations(root = document) {
+	const scope = root instanceof Element ? root : document;
+	const newItems = scope.querySelectorAll("._anim-items");
+
+	newItems.forEach((item) => {
+		if (!animItems.includes(item)) {
+			animItems.push(item);
+		}
+	});
+
+	animOnScroll();
+}
+
+function initRipple() {
+	document.querySelectorAll(".a-ripple").forEach((el) => {
+		el.addEventListener("mouseenter", (e) => {
+			if (window.innerWidth < 1200) return;
+
+			const point = e.touches ? e.touches[0] : e;
+			const rect = el.getBoundingClientRect();
+			const diameter = Math.sqrt(rect.width ** 2 + rect.height ** 2) * 2;
+
+			el.style.cssText = "--s: 0; --o: 1;";
+			el.offsetTop;
+			el.style.cssText = `--t: 1; --o: 0; --d: ${diameter}; --x:${point.clientX - rect.left}; --y:${point.clientY - rect.top};`;
+		});
+	});
+}
+
+function initScrollAnimation() {
+	animItems = [...document.querySelectorAll("._anim-items")];
+
+	if (!animItems.length) return;
+
+	if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+		animItems.forEach((item) => item.classList.add("_active"));
+		return;
+	}
+
+	if (!scrollInitialized) {
+		window.addEventListener("scroll", handleAnimScroll, { passive: true });
+		scrollInitialized = true;
+	}
+
+	setTimeout(animOnScroll, 200);
+}
+
+function handleAnimScroll() {
+	if (!animTicking) {
+		requestAnimationFrame(() => {
+			animOnScroll();
+			animTicking = false;
+		});
+		animTicking = true;
+	}
+}
+
+function animOnScroll() {
+	animItems.forEach((item) => {
+		const rect = item.getBoundingClientRect();
+		const inView = rect.top < window.innerHeight * 0.95 && rect.bottom > 0;
+
+		if (inView) {
+			if (!item.classList.contains("_active")) {
+				item.classList.add("_active");
+				item.querySelectorAll("[data-counter], [data-num]").forEach((num) => {
+					if (num.dataset.counter !== undefined) {
+						startCounter(num);
+					} else {
+						animateNumber(num);
+					}
+				});
+			}
+		} else if (!item.classList.contains("_anim-no-hide")) {
+			item.classList.remove("_active");
+			resetItemAnimations(item);
+		}
+	});
+}
+
+function resetItemAnimations(container) {
+	container.querySelectorAll("[data-num]").forEach((num) => {
+		num.textContent = "0";
+	});
+}
+
+function animateNumber(el, duration = 700) {
+	const end = parseInt(el.dataset.num, 10);
+	if (Number.isNaN(end)) return;
+
+	let startTime = null;
+
+	const step = (timestamp) => {
+		if (!startTime) startTime = timestamp;
+
+		const progress = Math.min((timestamp - startTime) / duration, 1);
+		el.textContent = String(Math.floor(end * progress));
+
+		if (progress < 1) {
+			requestAnimationFrame(step);
+		} else {
+			el.textContent = String(end);
+		}
+	};
+
+	requestAnimationFrame(step);
+}
+
+function startCounter(el) {
+	if (el.dataset.counterStarted === "true") return;
+	el.dataset.counterStarted = "true";
+
+	const originalText = el.textContent.trim();
+	const targetNumber = parseInt(originalText.replace(/\D/g, ""), 10);
+	const suffix = originalText.replace(/[0-9\s\u00A0\u202F]/g, "");
+	const startNumber = Math.floor(targetNumber * 0.8);
+	const startTime = performance.now();
+	const animationDuration = 1500;
+
+	const formatNumber = (num) => num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, "\u00A0");
+
+	const updateCounter = (currentTime) => {
+		const elapsedTime = currentTime - startTime;
+		const progress = Math.min(elapsedTime / animationDuration, 1);
+		const currentCount = Math.floor(startNumber + progress * (targetNumber - startNumber));
+
+		el.textContent = formatNumber(currentCount) + (suffix ? ` ${suffix}` : "");
+
+		if (progress < 1) {
+			requestAnimationFrame(updateCounter);
+		} else {
+			el.textContent = formatNumber(targetNumber) + (suffix ? ` ${suffix}` : "");
+		}
+	};
+
+	requestAnimationFrame(updateCounter);
+}
 
 function initImmediateAnimation() {
-	const items = document.querySelectorAll(
-		IMMEDIATE_ANIMATION_ROOTS.map((root) => `${root} [data-animate]`).join(", "),
-	);
+	const selector = IMMEDIATE_ANIMATION_ROOTS.map((root) => `${root} ._anim-items`).join(", ");
+	const items = document.querySelectorAll(selector);
 	if (!items.length) return;
 
 	const reveal = () => {
-		items.forEach((el) => el.classList.add("animated"));
+		items.forEach((el) => {
+			el.classList.add("_active", "_anim-no-hide");
+		});
 	};
 
 	if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
@@ -197,7 +272,6 @@ function initAudienceMolecules() {
 	}
 
 	let isActive = false;
-	let rafId = null;
 	let pointerX = 0;
 	let pointerY = 0;
 	let targetPointerX = 0;
@@ -229,7 +303,7 @@ function initAudienceMolecules() {
 
 	const loop = () => {
 		if (isActive) updateMotion();
-		rafId = requestAnimationFrame(loop);
+		requestAnimationFrame(loop);
 	};
 
 	const observer = new IntersectionObserver(
@@ -274,5 +348,5 @@ function initAudienceMolecules() {
 	});
 
 	observer.observe(scene);
-	rafId = requestAnimationFrame(loop);
+	requestAnimationFrame(loop);
 }

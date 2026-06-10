@@ -54,16 +54,16 @@ $has_cta       = $cta_title || $cta_text || $cta_note || $cta_image_url;
 		<div class="heading__grid">
 			<div class="heading__main">
 				<?php if ($heading_title) : ?>
-					<h1 class="heading__title title title-lg" data-animate="bottom"><?php echo esc_html($heading_title); ?></h1>
+					<h1 class="heading__title title title-lg <?php echo alergobot_anim_class('blur-up', '_anim-no-hide'); ?>"><?php echo esc_html($heading_title); ?></h1>
 				<?php endif; ?>
 				<div class="heading__actions">
-					<button class="btn btn--primary heading__btn" type="button" data-fancybox="" data-src="#popup-order" data-animate="bottom">
+					<button class="btn btn--primary heading__btn a-hover-lift <?php echo alergobot_anim_class('fade-up', '_anim-no-hide'); ?>" type="button" data-fancybox="" data-src="#popup-order">
 						<?php esc_html_e('оформить заказ', 'alergobot'); ?>
 						<svg class="btn__icon" width="28" height="28" aria-hidden="true">
 							<use href="<?php echo esc_url($icons); ?>#icon-arrow-up-right"></use>
 						</svg>
 					</button>
-					<button class="btn btn--secondary heading__btn" type="button" data-fancybox="" data-src="#popup-consultation" data-animate="bottom">
+					<button class="btn btn--secondary heading__btn <?php echo alergobot_anim_class('fade-up', '_anim-no-hide'); ?>" type="button" data-fancybox="" data-src="#popup-consultation">
 						<?php esc_html_e('задать вопрос', 'alergobot'); ?>
 						<svg class="btn__icon" width="28" height="28" aria-hidden="true">
 							<use href="<?php echo esc_url($icons); ?>#icon-arrow-up-right"></use>
@@ -74,10 +74,10 @@ $has_cta       = $cta_title || $cta_text || $cta_note || $cta_image_url;
 			<?php if ($heading_text || $logo_url) : ?>
 				<div class="heading__aside">
 					<?php if ($heading_text) : ?>
-						<p class="heading__text" data-animate="bottom"><?php echo esc_html($heading_text); ?></p>
+						<p class="heading__text <?php echo alergobot_anim_class('fade-up', '_anim-no-hide'); ?>"><?php echo esc_html($heading_text); ?></p>
 					<?php endif; ?>
 					<?php if ($logo_url) : ?>
-						<img class="heading__logo" src="<?php echo esc_url($logo_url); ?>" alt="PROTIA" title="PROTIA" width="185" height="52" data-animate="fade">
+						<img class="heading__logo <?php echo alergobot_anim_class('fade-up', '_anim-no-hide'); ?>" src="<?php echo esc_url($logo_url); ?>" alt="PROTIA" title="PROTIA" width="185" height="52">
 					<?php endif; ?>
 				</div>
 			<?php endif; ?>
@@ -87,7 +87,7 @@ $has_cta       = $cta_title || $cta_text || $cta_note || $cta_image_url;
 </section>
 <section class="category" id="category">
 	<div class="category__container _container">
-		<ul class="category__grid">
+		<ul class="category__grid <?php echo alergobot_anim_class('stagger'); ?>">
 			<?php
 			while (have_posts()) :
 				the_post();
@@ -102,15 +102,15 @@ $has_cta       = $cta_title || $cta_text || $cta_note || $cta_image_url;
 		<div class="devices-work__container _container">
 			<div class="devices-work__head">
 				<?php if ($work_title) : ?>
-					<h2 class="devices-work__title title title-md" data-animate="bottom"><?php echo esc_html($work_title); ?></h2>
+					<h2 class="devices-work__title title title-md <?php echo alergobot_anim_class('fade-up'); ?>"><?php echo esc_html($work_title); ?></h2>
 				<?php endif; ?>
 				<?php if ($work_tag) : ?>
-					<span class="tag devices-work__tag" data-animate="scale"><?php echo esc_html($work_tag); ?></span>
+					<span class="tag devices-work__tag <?php echo alergobot_anim_class('bounce-up'); ?>"><?php echo esc_html($work_tag); ?></span>
 				<?php endif; ?>
 			</div>
 			<div class="devices-work__body">
 				<?php if ($work_text) : ?>
-					<div class="devices-work__intro" data-animate="bottom">
+					<div class="devices-work__intro <?php echo alergobot_anim_class('fade-left'); ?>">
 						<div class="devices-work__text" data-devices-work-text="">
 							<?php echo wp_kses_post($work_text); ?>
 						</div>
@@ -118,7 +118,7 @@ $has_cta       = $cta_title || $cta_text || $cta_note || $cta_image_url;
 					</div>
 				<?php endif; ?>
 				<?php if ($work_gallery) : ?>
-					<div class="devices-work__gallery">
+					<div class="devices-work__gallery <?php echo alergobot_anim_class('stagger'); ?>">
 						<?php foreach ($work_gallery as $photo) :
 							$photo_url = alergobot_acf_image_url($photo);
 							if (!$photo_url) {
@@ -134,7 +134,7 @@ $has_cta       = $cta_title || $cta_text || $cta_note || $cta_image_url;
 								$photo_h = 293;
 							}
 							?>
-							<div class="devices-work__photo" data-animate="bottom">
+							<div class="devices-work__photo">
 								<img src="<?php echo esc_url($photo_url); ?>" alt="<?php echo esc_attr($photo_alt); ?>" title="<?php echo esc_attr($photo_alt); ?>" width="<?php echo esc_attr((string) $photo_w); ?>" height="<?php echo esc_attr((string) $photo_h); ?>" loading="lazy">
 							</div>
 						<?php endforeach; ?>
@@ -148,13 +148,13 @@ $has_cta       = $cta_title || $cta_text || $cta_note || $cta_image_url;
 	<section class="devices-benefits">
 		<div class="devices-benefits__container _container" data-decor-parallax="">
 			<div class="devices-benefits__head">
-				<h2 class="devices-benefits__title title title-md" data-animate="bottom"><?php esc_html_e('Почему это важно для лаборатории', 'alergobot'); ?></h2>
+				<h2 class="devices-benefits__title title title-md <?php echo alergobot_anim_class('fade-up'); ?>"><?php esc_html_e('Почему это важно для лаборатории', 'alergobot'); ?></h2>
 				<div class="devices-benefits__nav">
-					<button class="devices-benefits__arrow devices-benefits__arrow--prev" data-animate="scale" type="button" aria-label="<?php esc_attr_e('Назад', 'alergobot'); ?>"></button>
-					<button class="devices-benefits__arrow devices-benefits__arrow--next" data-animate="scale" type="button" aria-label="<?php esc_attr_e('Вперёд', 'alergobot'); ?>"></button>
+					<button class="devices-benefits__arrow devices-benefits__arrow--prev <?php echo alergobot_anim_class('scale-up'); ?>" type="button" aria-label="<?php esc_attr_e('Назад', 'alergobot'); ?>"></button>
+					<button class="devices-benefits__arrow devices-benefits__arrow--next <?php echo alergobot_anim_class('scale-up'); ?>" type="button" aria-label="<?php esc_attr_e('Вперёд', 'alergobot'); ?>"></button>
 				</div>
 			</div>
-			<div class="devices-benefits__slider swiper" data-animate="bottom">
+			<div class="devices-benefits__slider swiper <?php echo alergobot_anim_class('reveal'); ?>">
 				<div class="swiper-wrapper">
 					<?php foreach ($benefits as $slide) :
 						$slide_title = $slide['title'] ?? '';
@@ -163,7 +163,7 @@ $has_cta       = $cta_title || $cta_text || $cta_note || $cta_image_url;
 							continue;
 						}
 						?>
-						<div class="swiper-slide devices-benefits__slide" data-animate="bottom">
+						<div class="swiper-slide devices-benefits__slide">
 							<h3 class="devices-benefits__card-title"><?php echo esc_html($slide_title); ?></h3>
 							<?php if ($slide_text) : ?>
 								<p class="devices-benefits__card-text"><?php echo esc_html($slide_text); ?></p>
@@ -179,14 +179,14 @@ $has_cta       = $cta_title || $cta_text || $cta_note || $cta_image_url;
 	<section class="devices-cta" id="devices-request">
 		<div class="devices-cta__container _container">
 			<div class="devices-cta__grid">
-				<div class="devices-cta__box devices-cta__box--form" data-animate="bottom">
+				<div class="devices-cta__box devices-cta__box--form <?php echo alergobot_anim_class('fade-left'); ?>">
 					<?php if ($cta_title) : ?>
 						<h2 class="devices-cta__title title title-md title--light"><?php echo esc_html($cta_title); ?></h2>
 					<?php endif; ?>
 					<?php if ($cta_text) : ?>
 						<p class="devices-cta__text"><?php echo esc_html($cta_text); ?></p>
 					<?php endif; ?>
-					<a class="btn btn--white devices-cta__btn" data-fancybox="" href="#popup-consultation">
+					<a class="btn btn--white devices-cta__btn a-hover-lift" data-fancybox="" href="#popup-consultation">
 						<?php esc_html_e('задать вопрос', 'alergobot'); ?>
 						<svg class="btn__icon" width="28" height="28" aria-hidden="true">
 							<use href="<?php echo esc_url($icons); ?>#icon-arrow-up-right"></use>
@@ -194,7 +194,7 @@ $has_cta       = $cta_title || $cta_text || $cta_note || $cta_image_url;
 					</a>
 				</div>
 				<?php if ($cta_image_url || $cta_note) : ?>
-					<div class="devices-cta__box devices-cta__box--visual" data-animate="bottom">
+					<div class="devices-cta__box devices-cta__box--visual <?php echo alergobot_anim_class('fade-right'); ?>">
 						<?php if ($cta_image_url) : ?>
 							<div class="devices-cta__visual">
 								<img src="<?php echo esc_url($cta_image_url); ?>" alt="<?php esc_attr_e('Лабораторное оборудование PROTIA', 'alergobot'); ?>" title="<?php esc_attr_e('Лабораторное оборудование PROTIA', 'alergobot'); ?>" width="570" height="298" loading="lazy">

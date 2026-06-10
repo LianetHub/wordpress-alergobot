@@ -21,7 +21,7 @@ $has_address = $adres_indeks || $adres_gorod || $adres_ulica;
 $has_legal   = $kompaniya_nazvanie || $kompaniya_inn || $kompaniya_kpp || $kompaniya_ogrn;
 ?>
 <?php if ($phones) : ?>
-	<div class="contacts-card contacts-card--phone" data-animate="bottom">
+	<div class="contacts-card contacts-card--phone">
 		<div class="contacts-card__icon" aria-hidden="true">
 			<svg class="icon" width="22" height="22">
 				<use href="<?php echo esc_url($icons_uri); ?>#icon-phone"></use>
@@ -36,7 +36,7 @@ $has_legal   = $kompaniya_nazvanie || $kompaniya_inn || $kompaniya_kpp || $kompa
 <?php endif; ?>
 
 <?php if ($has_address) : ?>
-	<div class="contacts-card contacts-card--address" itemprop="address" itemscope itemtype="https://schema.org/PostalAddress" data-animate="bottom">
+	<div class="contacts-card contacts-card--address" itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
 		<meta itemprop="addressCountry" content="RU">
 		<div class="contacts-card__icon" aria-hidden="true">
 			<svg class="icon" width="22" height="22">
@@ -58,7 +58,7 @@ $has_legal   = $kompaniya_nazvanie || $kompaniya_inn || $kompaniya_kpp || $kompa
 <?php endif; ?>
 
 <?php if ($email) : ?>
-	<div class="contacts-card contacts-card--email" data-animate="bottom">
+	<div class="contacts-card contacts-card--email">
 		<div class="contacts-card__icon" aria-hidden="true">
 			<svg class="icon" width="22" height="22">
 				<use href="<?php echo esc_url($icons_uri); ?>#icon-email"></use>
@@ -71,7 +71,7 @@ $has_legal   = $kompaniya_nazvanie || $kompaniya_inn || $kompaniya_kpp || $kompa
 <?php endif; ?>
 
 <?php if ($has_legal) : ?>
-	<div class="contacts-card contacts-card--legal" data-animate="bottom">
+	<div class="contacts-card contacts-card--legal">
 		<div class="contacts-card__icon" aria-hidden="true">
 			<svg class="icon" width="22" height="22">
 				<use href="<?php echo esc_url($icons_uri); ?>#icon-doc"></use>

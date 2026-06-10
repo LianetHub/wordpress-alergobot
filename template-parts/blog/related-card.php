@@ -13,9 +13,9 @@ $thumb     = $thumb ?: alergobot_assets_uri('img/article/related.jpg');
 $date_iso  = get_the_date('c');
 $date      = get_the_date('d.m.Y');
 ?>
-<article class="news-card" data-animate="bottom">
+<article class="news-card">
 	<a class="news-card__link" href="<?php echo esc_url($permalink); ?>">
-		<div class="news-card__media">
+		<div class="news-card__media a-hover-zoom">
 			<img class="news-card__img" src="<?php echo esc_url($thumb); ?>" alt="<?php echo esc_attr($title); ?>" title="<?php echo esc_attr($title); ?>" width="295" height="277" loading="lazy">
 		</div>
 		<div class="news-card__body">

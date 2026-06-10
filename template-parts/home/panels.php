@@ -11,23 +11,23 @@
 		<div class="panels__head">
 			<div class="panels__intro">
 				<?php if ($title = alergobot_home_get('title')) : ?>
-					<h2 class="panels__title title title-md title-md--panels" data-animate="bottom"><?php echo wp_kses_post($title); ?></h2>
+					<h2 class="panels__title title title-md title-md--panels <?php echo alergobot_anim_class('fade-up'); ?>"><?php echo wp_kses_post($title); ?></h2>
 				<?php endif; ?>
 				<?php if ($lead = alergobot_home_get('lead')) : ?>
-					<p class="panels__lead text-lead" data-animate="bottom"><?php echo esc_html($lead); ?></p>
+					<p class="panels__lead text-lead <?php echo alergobot_anim_class('fade-up'); ?>"><?php echo esc_html($lead); ?></p>
 				<?php endif; ?>
 			</div>
 			<?php if ($tag = alergobot_home_get('tag')) : ?>
-				<span class="panels__tag tag" data-animate="scale"><?php echo esc_html($tag); ?></span>
+				<span class="panels__tag tag <?php echo alergobot_anim_class('bounce-up'); ?>"><?php echo esc_html($tag); ?></span>
 			<?php endif; ?>
 		</div>
 		<?php if (alergobot_home_rows('items')) : ?>
-			<ul class="panels__list" data-panels="">
+			<ul class="panels__list <?php echo alergobot_anim_class('stagger-x'); ?>" data-panels="">
 				<?php foreach (alergobot_home_rows('items') as $item) :
 					$is_open = !empty($item['is_open']);
 					$link    = $item['link'] ?? [];
 					?>
-					<li class="panels__item<?php echo $is_open ? ' _active' : ''; ?>" data-animate="bottom">
+					<li class="panels__item<?php echo $is_open ? ' _active' : ''; ?>">
 						<button class="panels__heading" type="button" aria-expanded="<?php echo $is_open ? 'true' : 'false'; ?>">
 							<span class="panels__name"><?php echo esc_html($item['name'] ?? ''); ?></span>
 							<svg class="panels__chevron icon" width="32" height="32" aria-hidden="true">
@@ -61,8 +61,8 @@
 				<?php endforeach; ?>
 			</ul>
 		<?php endif; ?>
-		<div class="panels__footer" data-animate="bottom">
-			<a class="btn btn--primary panels__footer-btn" href="<?php echo esc_url(alergobot_catalog_url()); ?>"><?php esc_html_e('Перейти в каталог', 'alergobot'); ?></a>
+		<div class="panels__footer <?php echo alergobot_anim_class('fade-up'); ?>">
+			<a class="btn btn--primary panels__footer-btn a-hover-lift" href="<?php echo esc_url(alergobot_catalog_url()); ?>"><?php esc_html_e('Перейти в каталог', 'alergobot'); ?></a>
 		</div>
 	</div>
 </section>

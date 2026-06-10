@@ -12,7 +12,7 @@ $thumb     = $thumb ?: alergobot_assets_uri('img/blog/featured.png');
 $date_iso  = get_the_date('c');
 $date      = get_the_date('d.m.Y');
 ?>
-<article class="blog-featured" data-animate="bottom">
+<article class="blog-featured <?php echo alergobot_anim_class('reveal'); ?>">
 	<a class="blog-featured__link" href="<?php echo esc_url($permalink); ?>">
 		<div class="blog-featured__media">
 			<img class="blog-featured__img" src="<?php echo esc_url($thumb); ?>" alt="<?php echo esc_attr($title); ?>" title="<?php echo esc_attr($title); ?>" width="873" height="582" fetchpriority="high">

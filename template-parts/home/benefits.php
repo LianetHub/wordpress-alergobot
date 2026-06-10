@@ -23,21 +23,21 @@ if (function_exists('have_rows') && have_rows('cards')) {
 	<div class="benefits__container _container">
 		<header class="benefits__head">
 			<?php if ($title = alergobot_home_get('title')) : ?>
-				<h2 class="benefits__title title title-md" data-animate="bottom"><?php echo esc_html($title); ?></h2>
+				<h2 class="benefits__title title title-md <?php echo alergobot_anim_class('fade-up'); ?>"><?php echo esc_html($title); ?></h2>
 			<?php endif; ?>
 			<?php if ($tag = alergobot_home_get('tag')) : ?>
-				<span class="benefits__tag tag" data-animate="scale"><?php echo esc_html($tag); ?></span>
+				<span class="benefits__tag tag <?php echo alergobot_anim_class('bounce-up'); ?>"><?php echo esc_html($tag); ?></span>
 			<?php endif; ?>
 		</header>
 		<div class="benefits__body">
 			<?php if ($cards) : ?>
-				<div class="benefits__grid">
+				<div class="benefits__grid <?php echo alergobot_anim_class('stagger'); ?>">
 					<?php foreach ($cards as $card_index => $card) :
 						$card_num   = $card['num'] ?: (string) ($card_index + 1);
 						$card_title = $card['title'] ?? '';
 						$tooltip    = $card['tooltip'] ?? '';
 						?>
-						<article class="benefits__card" data-animate="bottom">
+						<article class="benefits__card">
 							<div class="benefits__card-head">
 								<span class="benefits__num"><?php echo esc_html($card_num); ?></span>
 								<?php if ($tooltip) : ?>
@@ -55,7 +55,7 @@ if (function_exists('have_rows') && have_rows('cards')) {
 					<?php endforeach; ?>
 				</div>
 			<?php endif; ?>
-			<div class="benefits__brand" data-animate="bottom">
+			<div class="benefits__brand <?php echo alergobot_anim_class('scale-up'); ?>">
 				<?php if ($brand_logo) : ?>
 					<img class="benefits__logo" src="<?php echo esc_url(alergobot_acf_image_url($brand_logo)); ?>" alt="PROTIA" title="PROTIA" width="185" height="52" loading="lazy">
 				<?php endif; ?>

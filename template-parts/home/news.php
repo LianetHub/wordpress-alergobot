@@ -17,18 +17,18 @@ $thumb_fallback    = alergobot_assets_uri('img/blog/card.png');
 		<div class="news__head">
 			<div class="news__intro">
 				<?php if ($title = alergobot_home_get('title')) : ?>
-					<h2 class="news__title title title-md" data-animate="bottom"><?php echo esc_html($title); ?></h2>
+					<h2 class="news__title title title-md <?php echo alergobot_anim_class('fade-up'); ?>"><?php echo esc_html($title); ?></h2>
 				<?php endif; ?>
 				<?php if ($text = alergobot_home_get('text')) : ?>
-					<p class="news__text text-lead" data-animate="bottom"><?php echo esc_html($text); ?></p>
+					<p class="news__text text-lead <?php echo alergobot_anim_class('fade-up'); ?>"><?php echo esc_html($text); ?></p>
 				<?php endif; ?>
 			</div>
 			<?php if ($tag = alergobot_home_get('tag')) : ?>
-				<span class="news__tag tag" data-animate="scale"><?php echo esc_html($tag); ?></span>
+				<span class="news__tag tag <?php echo alergobot_anim_class('bounce-up'); ?>"><?php echo esc_html($tag); ?></span>
 			<?php endif; ?>
 		</div>
 		<?php if ($blogs_query->have_posts()) : ?>
-			<div class="news__grid">
+			<div class="news__grid <?php echo alergobot_anim_class('stagger'); ?>">
 				<?php
 				while ($blogs_query->have_posts()) :
 					$blogs_query->the_post();
@@ -40,9 +40,9 @@ $thumb_fallback    = alergobot_assets_uri('img/blog/card.png');
 					$date_iso  = get_the_date('c');
 					$date      = get_the_date('d.m.Y');
 					?>
-					<article class="news-card" data-animate="bottom">
+					<article class="news-card">
 						<a class="news-card__link" href="<?php echo esc_url($permalink); ?>">
-							<div class="news-card__media">
+							<div class="news-card__media a-hover-zoom">
 								<img class="news-card__img" src="<?php echo esc_url($thumb); ?>" alt="<?php echo esc_attr($title); ?>" title="<?php echo esc_attr($title); ?>" width="295" height="277" loading="lazy">
 							</div>
 							<div class="news-card__body">
@@ -68,8 +68,8 @@ $thumb_fallback    = alergobot_assets_uri('img/blog/card.png');
 			</div>
 			<?php wp_reset_postdata(); ?>
 		<?php endif; ?>
-		<div class="news__footer" data-animate="bottom">
-			<a class="btn btn--primary news__btn" href="<?php echo esc_url($blogs_archive_url); ?>"><?php esc_html_e('Смотреть все материалы', 'alergobot'); ?></a>
+		<div class="news__footer <?php echo alergobot_anim_class('fade-up'); ?>">
+			<a class="btn btn--primary news__btn a-hover-lift" href="<?php echo esc_url($blogs_archive_url); ?>"><?php esc_html_e('Смотреть все материалы', 'alergobot'); ?></a>
 		</div>
 	</div>
 </section>

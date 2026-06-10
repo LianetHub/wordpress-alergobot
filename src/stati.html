@@ -8,10 +8,10 @@
                     <div class="heading__container _container">
                         <div class="heading__grid">
                             <div class="heading__main">
-                                <h1 class="heading__title title title-lg" data-animate="bottom">Статьи и новости</h1>
+                                <h1 class="heading__title title title-lg _anim-items a-blur-up _anim-no-hide">Статьи и новости</h1>
                             </div>
                             <div class="heading__aside">
-                                <p class="heading__text" data-animate="bottom">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+                                <p class="heading__text _anim-items a-fade-up _anim-no-hide">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
                             </div>
                         </div>
                     </div>
@@ -20,7 +20,7 @@
                     <div class="blog-hero__container _container">
 
                         <div class="blog-hero__layout">
-                            <article class="blog-featured" data-animate="bottom">
+                            <article class="blog-featured _anim-items a-reveal">
                                 <a class="blog-featured__link" href="statya.html">
                                     <div class="blog-featured__media">
                                         <img class="blog-featured__img" src="@img/blog/featured.png" alt="Учёные в лаборатории" title="Учёные в лаборатории" width="873" height="577">
@@ -33,8 +33,8 @@
                             </article>
 
                             <aside class="blog-recent" aria-labelledby="blog-recent-title">
-                                <h2 class="blog-recent__heading" id="blog-recent-title" data-animate="bottom">Последние публикации</h2>
-                                <ul class="blog-recent__list">
+                                <h2 class="blog-recent__heading _anim-items a-fade-up" id="blog-recent-title">Последние публикации</h2>
+                                <ul class="blog-recent__list _anim-items a-stagger">
                                     @@include('html/templates/blog-recent-item.html', {
                                     "href": "statya.html",
                                     "img": "img/blog/recent-01.png",
@@ -71,7 +71,7 @@
                 <section class="blog-feed">
                     <div class="blog-feed__container _container">
                         <div class="blog-tabs" role="tablist" aria-label="Тип публикаций">
-                            <button class="blog-tabs__btn _active" type="button" role="tab" aria-selected="true" aria-controls="blog-panel-articles" id="blog-tab-articles" data-blog-tab="articles" data-animate="fade">
+                            <button class="blog-tabs__btn _active _anim-items a-fade-up" type="button" role="tab" aria-selected="true" aria-controls="blog-panel-articles" id="blog-tab-articles" data-blog-tab="articles">
                                 <span class="blog-tabs__text">Статьи</span>
                                 <span class="blog-tabs__icon" aria-hidden="true">
                                     <svg class="icon" width="16" height="16">
@@ -79,7 +79,7 @@
                                     </svg>
                                 </span>
                             </button>
-                            <button class="blog-tabs__btn" type="button" role="tab" aria-selected="false" aria-controls="blog-panel-news" id="blog-tab-news" data-blog-tab="news" data-animate="fade">
+                            <button class="blog-tabs__btn _anim-items a-fade-up" type="button" role="tab" aria-selected="false" aria-controls="blog-panel-news" id="blog-tab-news" data-blog-tab="news">
                                 <span class="blog-tabs__text">Новости</span>
                                 <span class="blog-tabs__icon" aria-hidden="true">
                                     <svg class="icon" width="16" height="16">
@@ -90,7 +90,7 @@
                         </div>
 
                         <div class="blog-panel _active" id="blog-panel-articles" role="tabpanel" aria-labelledby="blog-tab-articles" data-blog-panel="articles">
-                            <div class="blog-grid">
+                            <div class="blog-grid _anim-items a-stagger">
                                 @@include('html/templates/news-card-feed.html', { "href": "statya.html", "badge": "Статья", "img": "@img/blog/card.png", "alt": "Lorem ipsum dolor sit amet consectetur adipiscing elit", "date": "09.04.2026", "datetime": "2026-04-09", "title": "Lorem ipsum dolor sit amet consectetur adipiscing elit", "excerpt": "Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat." })
                                 @@include('html/templates/news-card-feed.html', { "href": "#", "badge": "Статья", "img": "@img/blog/card.png", "alt": "Lorem ipsum dolor sit amet consectetur adipiscing elit", "date": "09.04.2026", "datetime": "2026-04-09", "title": "Lorem ipsum dolor sit amet consectetur adipiscing elit", "excerpt": "Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat." })
                                 @@include('html/templates/news-card-feed.html', { "href": "#", "badge": "Статья", "img": "@img/blog/card.png", "alt": "Lorem ipsum dolor sit amet consectetur adipiscing elit", "date": "09.04.2026", "datetime": "2026-04-09", "title": "Lorem ipsum dolor sit amet consectetur adipiscing elit", "excerpt": "Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat." })
@@ -105,7 +105,7 @@
                         </div>
 
                         <div class="blog-panel" id="blog-panel-news" role="tabpanel" aria-labelledby="blog-tab-news" data-blog-panel="news" hidden>
-                            <div class="blog-grid">
+                            <div class="blog-grid _anim-items a-stagger">
                                 @@include('html/templates/news-card-feed.html', { "href": "#", "badge": "Новость", "img": "@img/blog/card.png", "alt": "Lorem ipsum dolor sit amet consectetur adipiscing elit", "date": "10.04.2026", "datetime": "2026-04-10", "title": "Lorem ipsum dolor sit amet consectetur adipiscing elit", "excerpt": "Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat." })
                                 @@include('html/templates/news-card-feed.html', { "href": "#", "badge": "Новость", "img": "@img/blog/card.png", "alt": "Lorem ipsum dolor sit amet consectetur adipiscing elit", "date": "09.04.2026", "datetime": "2026-04-09", "title": "Lorem ipsum dolor sit amet consectetur adipiscing elit", "excerpt": "Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat." })
                                 @@include('html/templates/news-card-feed.html', { "href": "#", "badge": "Новость", "img": "@img/blog/card.png", "alt": "Lorem ipsum dolor sit amet consectetur adipiscing elit", "date": "08.04.2026", "datetime": "2026-04-08", "title": "Lorem ipsum dolor sit amet consectetur adipiscing elit", "excerpt": "Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat." })
@@ -115,7 +115,7 @@
                             </div>
                         </div>
 
-                        <nav class="blog-pagination" aria-label="Навигация по страницам" data-animate="bottom">
+                        <nav class="blog-pagination _anim-items a-fade-up" aria-label="Навигация по страницам">
                             <a class="blog-pagination__arrow blog-pagination__arrow--prev" href="#" aria-label="Предыдущая страница">
                                 <svg class="icon" width="21.5" height="21.5" aria-hidden="true">
                                     <use href="@img/icons.svg#icon-pagination-arrow"></use>

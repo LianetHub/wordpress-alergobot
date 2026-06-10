@@ -12,7 +12,7 @@ $thumb      = $thumb ?: alergobot_assets_uri('img/blog/recent-01.png');
 $date_iso   = get_the_date('c');
 $date_label = get_the_date('j F Y');
 ?>
-<li class="blog-recent__item" data-animate="bottom">
+<li class="blog-recent__item">
 	<a class="blog-recent__link" href="<?php echo esc_url($permalink); ?>">
 		<img class="blog-recent__thumb" src="<?php echo esc_url($thumb); ?>" alt="" title="" width="104" height="104" loading="lazy">
 		<span class="blog-recent__body">

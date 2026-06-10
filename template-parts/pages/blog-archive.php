@@ -44,11 +44,11 @@ if ($heading_text === '' && !is_tax() && !is_tag()) {
 	<div class="heading__container _container">
 		<div class="heading__grid">
 			<div class="heading__main">
-				<h1 class="heading__title title title-lg" data-animate="bottom"><?php echo esc_html($context['heading_title']); ?></h1>
+				<h1 class="heading__title title title-lg <?php echo alergobot_anim_class('blur-up', '_anim-no-hide'); ?>"><?php echo esc_html($context['heading_title']); ?></h1>
 			</div>
 			<?php if ($heading_text) : ?>
 				<div class="heading__aside">
-					<p class="heading__text" data-animate="bottom"><?php echo esc_html($heading_text); ?></p>
+					<p class="heading__text <?php echo alergobot_anim_class('fade-up', '_anim-no-hide'); ?>"><?php echo esc_html($heading_text); ?></p>
 				</div>
 			<?php endif; ?>
 		</div>
@@ -65,8 +65,8 @@ if ($heading_text === '' && !is_tax() && !is_tag()) {
 			?>
 			<?php if ($recent_query->have_posts()) : ?>
 				<aside class="blog-recent" aria-labelledby="blog-recent-title">
-					<h2 class="blog-recent__heading" id="blog-recent-title" data-animate="bottom"><?php esc_html_e('Последние публикации', 'alergobot'); ?></h2>
-					<ul class="blog-recent__list">
+					<h2 class="blog-recent__heading <?php echo alergobot_anim_class('fade-up'); ?>" id="blog-recent-title"><?php esc_html_e('Последние публикации', 'alergobot'); ?></h2>
+					<ul class="blog-recent__list <?php echo alergobot_anim_class('stagger'); ?>">
 						<?php
 						while ($recent_query->have_posts()) :
 							$recent_query->the_post();
@@ -91,14 +91,13 @@ if ($heading_text === '' && !is_tax() && !is_tag()) {
 	<div class="blog-feed__container _container">
 		<div class="blog-tabs" role="tablist" aria-label="<?php esc_attr_e('Тип публикаций', 'alergobot'); ?>">
 			<a
-				class="blog-tabs__btn<?php echo $articles_active ? ' _active' : ''; ?>"
+				class="blog-tabs__btn<?php echo $articles_active ? ' _active' : ''; ?> <?php echo alergobot_anim_class('fade-up'); ?>"
 				role="tab"
 				aria-selected="<?php echo $articles_active ? 'true' : 'false'; ?>"
 				aria-controls="blog-panel-feed"
 				id="blog-tab-articles"
 				href="<?php echo esc_url($context['base_url']); ?>"
-				data-blog-tab="articles"
-				data-animate="fade">
+				data-blog-tab="articles">
 				<span class="blog-tabs__text"><?php esc_html_e('Статьи', 'alergobot'); ?></span>
 				<span class="blog-tabs__icon" aria-hidden="true">
 					<svg class="icon" width="16" height="16">
@@ -107,14 +106,13 @@ if ($heading_text === '' && !is_tax() && !is_tag()) {
 				</span>
 			</a>
 			<a
-				class="blog-tabs__btn<?php echo $news_active ? ' _active' : ''; ?>"
+				class="blog-tabs__btn<?php echo $news_active ? ' _active' : ''; ?> <?php echo alergobot_anim_class('fade-up'); ?>"
 				role="tab"
 				aria-selected="<?php echo $news_active ? 'true' : 'false'; ?>"
 				aria-controls="blog-panel-feed"
 				id="blog-tab-news"
 				href="<?php echo esc_url($news_base_url); ?>"
-				data-blog-tab="news"
-				data-animate="fade">
+				data-blog-tab="news">
 				<span class="blog-tabs__text"><?php esc_html_e('Новости', 'alergobot'); ?></span>
 				<span class="blog-tabs__icon" aria-hidden="true">
 					<svg class="icon" width="16" height="16">
@@ -129,7 +127,7 @@ if ($heading_text === '' && !is_tax() && !is_tag()) {
 			role="tabpanel"
 			aria-labelledby="blog-tab-<?php echo esc_attr($active_tab); ?>"
 			data-blog-panel>
-			<div class="blog-grid" data-blog-grid>
+			<div class="blog-grid <?php echo alergobot_anim_class('stagger'); ?>" data-blog-grid>
 				<?php
 				if ($active_query->have_posts()) :
 					while ($active_query->have_posts()) :

@@ -22,7 +22,7 @@ $is_active     = (bool) get_query_var('product_tab_active');
 <div class="product-panel<?php echo $is_active ? ' _active' : ''; ?>" id="product-panel-description" role="tabpanel" aria-labelledby="product-tab-description" data-product-panel="description"<?php echo $is_active ? '' : ' hidden=""'; ?>>
 	<div class="product-panel__inner product-panel__inner--description">
 		<?php if ($panel_lead) : ?>
-			<p class="product-panel__lead" data-animate="bottom"><?php echo esc_html($panel_lead); ?></p>
+			<p class="product-panel__lead <?php echo alergobot_anim_class('fade-up'); ?>"><?php echo esc_html($panel_lead); ?></p>
 		<?php endif; ?>
 		<?php foreach ($blocks as $block) :
 			$block_title = $block['title'] ?? '';
@@ -33,17 +33,17 @@ $is_active     = (bool) get_query_var('product_tab_active');
 			?>
 			<div class="product-block">
 				<?php if ($block_title) : ?>
-					<h2 class="product-block__title title title-md-sm" data-animate="bottom"><?php echo esc_html($block_title); ?></h2>
+					<h2 class="product-block__title title title-md-sm <?php echo alergobot_anim_class('fade-up'); ?>"><?php echo esc_html($block_title); ?></h2>
 				<?php endif; ?>
 				<?php if ($block_items) : ?>
-					<ul class="product-list">
+					<ul class="product-list <?php echo alergobot_anim_class('stagger'); ?>">
 						<?php foreach ($block_items as $item) :
 							$item_text = $item['text'] ?? '';
 							if (!$item_text) {
 								continue;
 							}
 							?>
-							<li class="product-list__item" data-animate="bottom"><?php echo esc_html($item_text); ?></li>
+							<li class="product-list__item"><?php echo esc_html($item_text); ?></li>
 						<?php endforeach; ?>
 					</ul>
 				<?php endif; ?>
@@ -52,13 +52,13 @@ $is_active     = (bool) get_query_var('product_tab_active');
 		<?php if ($allergens && ($allergens['title'] ?? '') || ($allergens['text'] ?? '') || $allergen_rows) : ?>
 			<div class="product-block product-block--allergens">
 				<?php if (!empty($allergens['title'])) : ?>
-					<h2 class="product-block__title title title-md-sm" data-animate="bottom"><?php echo esc_html($allergens['title']); ?></h2>
+					<h2 class="product-block__title title title-md-sm <?php echo alergobot_anim_class('fade-up'); ?>"><?php echo esc_html($allergens['title']); ?></h2>
 				<?php endif; ?>
 				<?php if (!empty($allergens['text'])) : ?>
-					<p class="product-block__text" data-animate="bottom"><?php echo esc_html($allergens['text']); ?></p>
+					<p class="product-block__text <?php echo alergobot_anim_class('fade-up'); ?>"><?php echo esc_html($allergens['text']); ?></p>
 				<?php endif; ?>
 				<?php if ($allergen_rows) : ?>
-					<div class="product-table-wrap" data-product-table="" data-animate="bottom">
+					<div class="product-table-wrap <?php echo alergobot_anim_class('reveal'); ?>" data-product-table="">
 						<table class="product-table">
 							<colgroup>
 								<col class="product-table__col-num">

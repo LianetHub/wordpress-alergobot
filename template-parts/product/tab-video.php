@@ -33,7 +33,7 @@ $video_label = sprintf(
 <div class="product-panel<?php echo $is_active ? ' _active' : ''; ?>" id="product-panel-video" role="tabpanel" aria-labelledby="product-tab-video" data-product-panel="video"<?php echo $is_active ? '' : ' hidden=""'; ?>>
 	<div class="product-panel__inner product-panel__inner--video">
 		<?php if ($video) : ?>
-			<a class="product-video" href="<?php echo esc_url($video); ?>" data-fancybox="" data-type="iframe" aria-label="<?php echo esc_attr($video_label); ?>" data-animate="bottom">
+			<a class="product-video <?php echo alergobot_anim_class('zoom'); ?>" href="<?php echo esc_url($video); ?>" data-fancybox="" data-type="iframe" aria-label="<?php echo esc_attr($video_label); ?>">
 				<img class="product-video__poster" src="<?php echo esc_url($poster_url); ?>" alt="<?php echo esc_attr($poster_alt); ?>" title="<?php echo esc_attr($poster_alt); ?>" width="874" height="492" loading="lazy">
 				<span class="product-video__play" aria-hidden="true">
 					<svg class="icon" width="88" height="88" viewBox="0 0 88 88" xmlns="http://www.w3.org/2000/svg">
@@ -42,7 +42,7 @@ $video_label = sprintf(
 				</span>
 			</a>
 		<?php else : ?>
-			<button class="product-video" type="button" aria-label="<?php echo esc_attr($video_label); ?>" data-animate="bottom">
+			<button class="product-video <?php echo alergobot_anim_class('zoom'); ?>" type="button" aria-label="<?php echo esc_attr($video_label); ?>">
 				<img class="product-video__poster" src="<?php echo esc_url($poster_url); ?>" alt="<?php echo esc_attr($poster_alt); ?>" title="<?php echo esc_attr($poster_alt); ?>" width="874" height="492" loading="lazy">
 				<span class="product-video__play" aria-hidden="true">
 					<svg class="icon" width="88" height="88" viewBox="0 0 88 88" xmlns="http://www.w3.org/2000/svg">

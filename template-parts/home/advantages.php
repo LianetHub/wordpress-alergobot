@@ -36,7 +36,7 @@ $render_faq_item = static function ($item) {
 
 	$is_open = !empty($item['is_open']);
 	?>
-	<div class="accordion__item<?php echo $is_open ? ' _active' : ''; ?>" data-animate="bottom">
+	<div class="accordion__item<?php echo $is_open ? ' _active' : ''; ?>">
 		<button class="accordion__header" type="button" aria-expanded="<?php echo $is_open ? 'true' : 'false'; ?>">
 			<span class="accordion__question"><?php echo esc_html($item['question'] ?? ''); ?></span>
 			<svg class="accordion__chevron icon" width="32" height="32" aria-hidden="true">
@@ -56,22 +56,22 @@ $render_faq_item = static function ($item) {
 	<div class="faq__container _container">
 		<div class="faq__head">
 			<?php if ($tag = alergobot_home_get('tag')) : ?>
-				<span class="faq__tag tag" data-animate="scale"><?php echo esc_html($tag); ?></span>
+				<span class="faq__tag tag <?php echo alergobot_anim_class('bounce-up'); ?>"><?php echo esc_html($tag); ?></span>
 			<?php endif; ?>
 			<?php if ($title = alergobot_home_get('title')) : ?>
-				<h2 class="faq__title title-md" data-animate="bottom"><?php echo nl2br(esc_html($title)); ?></h2>
+				<h2 class="faq__title title-md <?php echo alergobot_anim_class('fade-up'); ?>"><?php echo nl2br(esc_html($title)); ?></h2>
 			<?php endif; ?>
 		</div>
 		<div class="faq__columns accordion" data-accordion="">
 			<?php if ($faq_col1) : ?>
-				<div class="faq__col">
+				<div class="faq__col <?php echo alergobot_anim_class('stagger'); ?>">
 					<?php foreach ($faq_col1 as $item) {
 						$render_faq_item($item);
 					} ?>
 				</div>
 			<?php endif; ?>
 			<?php if ($faq_col2) : ?>
-				<div class="faq__col">
+				<div class="faq__col <?php echo alergobot_anim_class('stagger'); ?>">
 					<?php foreach ($faq_col2 as $item) {
 						$render_faq_item($item);
 					} ?>
