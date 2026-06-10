@@ -1,0 +1,45 @@
+{
+    "key": "group_alergobot_page_seo",
+    "title": "SEO — страница",
+    "fields": [
+        {
+            "key": "field_page_keywords",
+            "label": "Keywords",
+            "name": "keywords",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Ключевые слова для meta name=\"keywords\". Через запятую.",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "аллергия, анализатор, протия",
+            "prepend": "",
+            "append": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "page"
+            }
+        ]
+    ],
+    "menu_order": 100,
+    "position": "side",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1781251200
+}

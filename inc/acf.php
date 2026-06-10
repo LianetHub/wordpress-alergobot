@@ -40,11 +40,6 @@ add_action('wp_head', function () {
 	if (function_exists('alergobot_render_favicons')) {
 		alergobot_render_favicons();
 	}
-
-	$keywords = alergobot_get_option('keywords');
-	if ($keywords) {
-		printf('<meta name="keywords" content="%s">', esc_attr($keywords));
-	}
 }, 1);
 
 add_action('acf/input/admin_head', function () {
