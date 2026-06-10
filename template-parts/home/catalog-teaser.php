@@ -45,21 +45,23 @@ $btn_panels    = alergobot_home_get('btn_panels');
 			<?php if (alergobot_home_rows('gallery')) : ?>
 				<ul class="catalog-teaser__gallery">
 					<?php foreach (alergobot_home_rows('gallery') as $item) :
-						if (empty($item['image'])) {
+						$gallery_item = alergobot_resolve_catalog_teaser_gallery_item($item);
+						if (!$gallery_item) {
 							continue;
 						}
-						$img_w = $item['image_width'] ?? 800;
-						$img_h = $item['image_height'] ?? 600;
 						?>
-						<li class="catalog-teaser__card <?php echo alergobot_anim_class('reveal-circle'); ?>">
-							<?php echo alergobot_acf_image($item['image'], 'full', [
-								'class'   => 'cover-image',
-								'alt'     => $item['image_alt'] ?? '',
-								'title'   => $item['image_title'] ?? '',
-								'width'   => (string) $img_w,
-								'height'  => (string) $img_h,
-								'loading' => 'lazy',
-							]); ?>
+						<li class="catalog-teaser__gallery-item <?php echo alergobot_anim_class('reveal-circle'); ?>">
+							<a class="catalog-teaser__card a-hover-lift a-hover-zoom" href="<?php echo esc_url($gallery_item['link_url']); ?>">
+								<img
+									class="cover-image"
+									src="<?php echo esc_url($gallery_item['img_url']); ?>"
+									alt="<?php echo esc_attr($gallery_item['img_alt']); ?>"
+									title="<?php echo esc_attr($gallery_item['img_alt']); ?>"
+									<?php if ($gallery_item['img_w']) : ?>width="<?php echo esc_attr((string) $gallery_item['img_w']); ?>"<?php endif; ?>
+									<?php if ($gallery_item['img_h']) : ?>height="<?php echo esc_attr((string) $gallery_item['img_h']); ?>"<?php endif; ?>
+									loading="lazy"
+								>
+							</a>
 						</li>
 					<?php endforeach; ?>
 				</ul>

@@ -531,12 +531,12 @@
                             "collapsed": "",
                             "sub_fields": [
                                 {
-                                    "key": "field_4ed4d8687aa4b",
-                                    "label": "Изображение",
-                                    "name": "image",
+                                    "key": "field_catalog_teaser_gallery_category",
+                                    "label": "Категория товара",
+                                    "name": "product_category",
                                     "aria-label": "",
-                                    "type": "image",
-                                    "instructions": "",
+                                    "type": "taxonomy",
+                                    "instructions": "Ссылка ведёт на страницу категории. Изображение — из первого товара категории с миниатюрой.",
                                     "required": 0,
                                     "conditional_logic": 0,
                                     "wrapper": {
@@ -544,59 +544,17 @@
                                         "class": "",
                                         "id": ""
                                     },
-                                    "return_format": "array",
-                                    "library": "all",
-                                    "min_width": "",
-                                    "min_height": "",
-                                    "min_size": "",
-                                    "max_width": "",
-                                    "max_height": "",
-                                    "max_size": "",
-                                    "mime_types": "",
+                                    "taxonomy": "product_category",
+                                    "add_term": 0,
+                                    "save_terms": 0,
+                                    "load_terms": 0,
+                                    "return_format": "object",
+                                    "field_type": "select",
+                                    "allow_null": 0,
                                     "allow_in_bindings": 1,
-                                    "preview_size": "medium",
-                                    "parent_repeater": "field_54bc474c03304"
-                                },
-                                {
-                                    "key": "field_154d2970189e7",
-                                    "label": "Alt",
-                                    "name": "image_alt",
-                                    "aria-label": "",
-                                    "type": "text",
-                                    "instructions": "",
-                                    "required": 0,
-                                    "conditional_logic": false,
-                                    "wrapper": {
-                                        "width": "",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "default_value": "",
-                                    "maxlength": "",
-                                    "placeholder": "",
-                                    "prepend": "",
-                                    "append": "",
-                                    "parent_repeater": "field_54bc474c03304"
-                                },
-                                {
-                                    "key": "field_64f9ef485f9ff",
-                                    "label": "Title",
-                                    "name": "image_title",
-                                    "aria-label": "",
-                                    "type": "text",
-                                    "instructions": "",
-                                    "required": 0,
-                                    "conditional_logic": false,
-                                    "wrapper": {
-                                        "width": "",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "default_value": "",
-                                    "maxlength": "",
-                                    "placeholder": "",
-                                    "prepend": "",
-                                    "append": "",
+                                    "bidirectional": 0,
+                                    "multiple": 0,
+                                    "bidirectional_target": [],
                                     "parent_repeater": "field_54bc474c03304"
                                 }
                             ]
@@ -2830,5 +2788,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1781084841
+    "modified": 1781099996
 }

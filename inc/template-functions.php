@@ -688,6 +688,87 @@ if (!function_exists('alergobot_resolve_catalog_gallery_item')) {
 	}
 }
 
+if (!function_exists('alergobot_resolve_catalog_teaser_gallery_item')) {
+	/**
+	 * Normalize catalog-teaser gallery row: category link + representative image.
+	 *
+	 * @param array $item ACF gallery repeater row.
+	 * @return array{link_url: string, img_url: string, img_alt: string, img_w: int|string, img_h: int|string}|null
+	 */
+	function alergobot_resolve_catalog_teaser_gallery_item($item)
+	{
+		if (!is_array($item)) {
+			return null;
+		}
+
+		$term = $item['product_category'] ?? null;
+
+		if (is_numeric($term)) {
+			$term = get_term((int) $term, 'product_category');
+		}
+
+		if (!($term instanceof WP_Term) || is_wp_error($term)) {
+			return null;
+		}
+
+		$thumb_id = 0;
+		$products = get_posts([
+			'post_type'      => 'product',
+			'posts_per_page' => 1,
+			'post_status'    => 'publish',
+			'orderby'        => 'menu_order title',
+			'order'          => 'ASC',
+			'tax_query'      => [
+				[
+					'taxonomy' => 'product_category',
+					'field'    => 'term_id',
+					'terms'    => $term->term_id,
+				],
+			],
+			'meta_query'     => [
+				[
+					'key'     => '_thumbnail_id',
+					'compare' => 'EXISTS',
+				],
+			],
+		]);
+
+		if ($products) {
+			$thumb_id = (int) get_post_thumbnail_id($products[0]->ID);
+		}
+
+		if (!$thumb_id) {
+			$term_fields = alergobot_get_term_fields($term);
+			$cta_image   = $term_fields['cat_cta_image'] ?? null;
+
+			if (is_array($cta_image) && !empty($cta_image['ID'])) {
+				$thumb_id = (int) $cta_image['ID'];
+			} elseif (is_numeric($cta_image)) {
+				$thumb_id = (int) $cta_image;
+			}
+		}
+
+		if (!$thumb_id) {
+			return null;
+		}
+
+		$img_url = wp_get_attachment_image_url($thumb_id, 'full');
+		if (!$img_url) {
+			return null;
+		}
+
+		$meta = wp_get_attachment_metadata($thumb_id);
+
+		return [
+			'link_url' => alergobot_get_product_category_link($term->slug),
+			'img_url'  => $img_url,
+			'img_alt'  => $term->name,
+			'img_w'    => $meta['width'] ?? '',
+			'img_h'    => $meta['height'] ?? '',
+		];
+	}
+}
+
 if (!function_exists('alergobot_render_catalog_gallery_product')) {
 	/**
 	 * Render catalog section gallery card with optional hover image.

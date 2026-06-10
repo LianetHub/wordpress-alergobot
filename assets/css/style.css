@@ -90,8 +90,8 @@ h3 {
 }
 
 @font-face {
-  font-family: "Manrope";
-  src: url("../fonts/Manrope-VariableFont_wght.woff2") format("woff2 supports variations"), url("../fonts/Manrope-VariableFont_wght.woff2") format("woff2-variations"), url("../fonts/Manrope-VariableFont_wght.woff") format("woff");
+  font-family: "Inter";
+  src: url("../fonts/Inter-VariableFont_opsz,wght.woff2") format("woff2 supports variations"), url("../fonts/Inter-VariableFont_opsz,wght.woff2") format("woff2-variations"), url("../fonts/Inter-VariableFont_opsz,wght.woff") format("woff");
   font-weight: 100 900;
   font-stretch: 75% 125%;
   font-style: normal;
@@ -99,8 +99,8 @@ h3 {
 }
 
 @font-face {
-  font-family: "Inter";
-  src: url("../fonts/Inter-VariableFont_opsz,wght.woff2") format("woff2 supports variations"), url("../fonts/Inter-VariableFont_opsz,wght.woff2") format("woff2-variations"), url("../fonts/Inter-VariableFont_opsz,wght.woff") format("woff");
+  font-family: "Manrope";
+  src: url("../fonts/Manrope-VariableFont_wght.woff2") format("woff2 supports variations"), url("../fonts/Manrope-VariableFont_wght.woff2") format("woff2-variations"), url("../fonts/Manrope-VariableFont_wght.woff") format("woff");
   font-weight: 100 900;
   font-stretch: 75% 125%;
   font-style: normal;
@@ -4476,10 +4476,32 @@ h3 {
   gap: 0.625rem;
 }
 
-.catalog-teaser__card {
+.catalog-teaser__gallery-item {
   -webkit-box-flex: 0;
       -ms-flex: 0 0 6.5rem;
           flex: 0 0 6.5rem;
+  list-style: none;
+}
+
+.catalog-teaser__gallery-item:nth-child(1)._anim-items {
+  -webkit-transition-delay: 0.115s;
+          transition-delay: 0.115s;
+}
+
+.catalog-teaser__gallery-item:nth-child(2)._anim-items {
+  -webkit-transition-delay: 0.23s;
+          transition-delay: 0.23s;
+}
+
+.catalog-teaser__gallery-item:nth-child(3)._anim-items {
+  -webkit-transition-delay: 0.345s;
+          transition-delay: 0.345s;
+}
+
+.catalog-teaser__card {
+  width: 100%;
+  height: 100%;
+  min-height: 6.5rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -4489,25 +4511,12 @@ h3 {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  text-decoration: none;
+  color: inherit;
   border: 0.03125rem solid #55acbf;
   border-radius: 0.625rem;
   background: #edfbff;
   overflow: hidden;
-}
-
-.catalog-teaser__card:nth-child(1)._anim-items {
-  -webkit-transition-delay: 0.115s;
-          transition-delay: 0.115s;
-}
-
-.catalog-teaser__card:nth-child(2)._anim-items {
-  -webkit-transition-delay: 0.23s;
-          transition-delay: 0.23s;
-}
-
-.catalog-teaser__card:nth-child(3)._anim-items {
-  -webkit-transition-delay: 0.345s;
-          transition-delay: 0.345s;
 }
 
 .catalog-teaser__card img {
@@ -11460,12 +11469,16 @@ h3 {
     gap: 1.3125rem;
   }
 
-  .catalog-teaser__card {
+  .catalog-teaser__gallery-item {
     -webkit-box-flex: 0;
         -ms-flex: 0 0 12.6875rem;
             flex: 0 0 12.6875rem;
     width: 12.6875rem;
     height: 12.6875rem;
+  }
+
+  .catalog-teaser__card {
+    min-height: 12.6875rem;
     border-width: 1px;
   }
 
