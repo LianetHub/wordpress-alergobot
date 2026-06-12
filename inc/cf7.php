@@ -167,7 +167,7 @@ function alergobot_cf7_get_submission_page_meta() {
 	);
 }
 
-function alergobot_cf7_telegram_field_value( $value ) {
+function alergobot_cf7_field_value( $value ) {
 	if ( is_array( $value ) ) {
 		$value = array_filter( $value, static fn( $item ) => '' !== $item && null !== $item );
 
@@ -181,7 +181,7 @@ function alergobot_cf7_telegram_field_value( $value ) {
  * Человекочитаемое значение чекбокса согласия (acceptance agree).
  */
 function alergobot_cf7_format_agree_value( $value ) {
-	$value = alergobot_cf7_telegram_field_value( $value );
+	$value = alergobot_cf7_field_value( $value );
 
 	if ( '' === $value || '0' === $value ) {
 		return __( 'Не дано', 'alergobot' );
@@ -193,184 +193,6 @@ function alergobot_cf7_format_agree_value( $value ) {
 
 	return $value;
 }
-
-function alergobot_cf7_telegram_skip_field( $name ) {
-	$skip = array(
-		'form-source',
-		'form-page',
-		'form-time',
-		'g-recaptcha-response',
-		'_wpcf7',
-		'_wpcf7_version',
-		'_wpcf7_locale',
-		'_wpcf7_container_post',
-		'_wpcf7_posted_data_hash',
-		'_wpcf7cf_hidden_group_fields',
-		'_wpcf7cf_hidden_groups',
-		'_wpcf7cf_options',
-	);
-
-	return in_array( $name, $skip, true ) || str_starts_with( $name, '_' );
-}
-
-function alergobot_cf7_telegram_bold_labels( $message ) {
-	$lines  = explode( "\n", $message );
-	$result = array();
-
-	foreach ( $lines as $line ) {
-		$line = trim( $line );
-
-		if ( '' === $line ) {
-			$result[] = '';
-			continue;
-		}
-
-		if ( preg_match( '/^(.+?):\s*(.*)$/u', $line, $matches ) ) {
-			$label = trim( $matches[1] );
-			$value = $matches[2];
-
-			if ( ! preg_match( '/^https?$/i', $label ) ) {
-				$result[] = '<b>' . htmlspecialchars( $label, ENT_NOQUOTES, 'UTF-8' ) . ':</b> ' . htmlspecialchars( $value, ENT_NOQUOTES, 'UTF-8' );
-				continue;
-			}
-		}
-
-		if ( ! str_contains( $line, ':' ) ) {
-			$result[] = '<b>' . htmlspecialchars( $line, ENT_NOQUOTES, 'UTF-8' ) . '</b>';
-			continue;
-		}
-
-		$result[] = htmlspecialchars( $line, ENT_NOQUOTES, 'UTF-8' );
-	}
-
-	return implode( "\n", $result );
-}
-
-function alergobot_cf7_build_telegram_message() {
-	$submission = WPCF7_Submission::get_instance();
-
-	if ( ! $submission ) {
-		return '';
-	}
-
-	$posted      = (array) $submission->get_posted_data();
-	$tz          = new DateTimeZone( 'Europe/Moscow' );
-	$date_msk    = ( new DateTime( 'now', $tz ) )->format( 'd.m.Y H:i:s' );
-	$form_source = alergobot_cf7_telegram_field_value( $posted['form-source'] ?? __( 'Форма с сайта', 'alergobot' ) );
-	$form_page   = alergobot_cf7_telegram_field_value( $posted['form-page'] ?? '' );
-
-	if ( '' === $form_page ) {
-		$page_meta = alergobot_cf7_get_submission_page_meta();
-		$form_page = $page_meta['title'] . ' | ' . $page_meta['url'];
-	}
-
-	$known_fields = array(
-		'your-name'    => '👤 Имя',
-		'company'      => '🏢 Компания',
-		'your-phone'   => '📞 Телефон',
-		'your-email'   => '✉️ Email',
-		'your-message' => '💬 Комментарий',
-		'agree'        => 'ℹ️ Согласие',
-	);
-
-	$lines = array(
-		'📨 НОВАЯ ЗАЯВКА С САЙТА 📨',
-		'',
-		'📝 Форма: ' . $form_source,
-		'📅 Дата и время: ' . $date_msk,
-		'',
-		'📋 ДАННЫЕ ЗАЯВКИ:',
-	);
-
-	foreach ( $known_fields as $key => $label ) {
-		if ( ! isset( $posted[ $key ] ) ) {
-			continue;
-		}
-
-		$value = alergobot_cf7_telegram_field_value( $posted[ $key ] );
-
-		if ( '' === $value ) {
-			continue;
-		}
-
-		if ( 'agree' === $key ) {
-			$value = alergobot_cf7_format_agree_value( $value );
-		}
-
-		if ( 'your-message' === $key ) {
-			$value = preg_replace( '/\s+/', ' ', $value );
-		}
-
-		$lines[] = $label . ': ' . $value;
-	}
-
-	foreach ( $posted as $key => $raw_value ) {
-		if ( isset( $known_fields[ $key ] ) || alergobot_cf7_telegram_skip_field( $key ) ) {
-			continue;
-		}
-
-		$value = alergobot_cf7_telegram_field_value( $raw_value );
-
-		if ( '' === $value ) {
-			continue;
-		}
-
-		$label   = 'ℹ️ ' . ucwords( str_replace( array( '-', '_' ), ' ', $key ) );
-		$lines[] = $label . ': ' . $value;
-	}
-
-	$lines[] = '';
-	$lines[] = 'ℹ️ Страница: ' . $form_page;
-
-	return alergobot_cf7_telegram_bold_labels( implode( "\n", $lines ) );
-}
-
-/**
- * Telegram-уведомления при успешной отправке CF7.
- * Токен и chat_id задаются в .env (см. .env.example).
- */
-add_action(
-	'wpcf7_mail_sent',
-	function ( $contact_form ) {
-		$submission = WPCF7_Submission::get_instance();
-
-		if ( ! $submission ) {
-			return;
-		}
-
-		$token   = alergobot_env( 'ALERGOBOT_TG_BOT_TOKEN' );
-		$chat_id = alergobot_env( 'ALERGOBOT_TG_CHAT_ID' );
-
-		if ( ! $token || ! $chat_id ) {
-			return;
-		}
-
-		$message = alergobot_cf7_build_telegram_message();
-
-		if ( '' === $message ) {
-			return;
-		}
-
-		$url = "https://api.telegram.org/bot{$token}/sendMessage";
-
-		$response = wp_remote_post(
-			$url,
-			array(
-				'body' => array(
-					'chat_id'    => $chat_id,
-					'text'       => $message,
-					'parse_mode' => 'HTML',
-				),
-			)
-		);
-
-		if ( is_wp_error( $response ) && defined( 'WP_DEBUG' ) && WP_DEBUG ) {
-			error_log( 'CF7 Telegram: ' . $response->get_error_message() );
-		}
-	},
-	10,
-	1
-);
 
 add_action(
 	'wpcf7_mail_failed',
@@ -470,7 +292,7 @@ add_filter(
 		}
 
 		if ( 'your-message' === $field ) {
-			$message = alergobot_cf7_telegram_field_value( $submitted );
+			$message = alergobot_cf7_field_value( $submitted );
 
 			if ( '' === $message ) {
 				return $html ? '&mdash;' : '—';

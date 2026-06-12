@@ -72,7 +72,6 @@
 	<rule ref="WordPress.Security.ValidatedSanitizedInput">
 		<properties>
 			<property name="customSanitizingFunctions" type="array">
-				<element value="alergobot_env"/>
 				<element value="absint"/>
 				<element value="sanitize_key"/>
 				<element value="sanitize_text_field"/>
