@@ -29,6 +29,12 @@ $accordion-duration: 0.5s;
 				min-height: 0;
 			}
 		}
+
+		@media (any-hover: hover) {
+			&:hover {
+				background-color: darken($color: $color-surface-mint, $amount: 5);
+			}
+		}
 	}
 
 	&__header {

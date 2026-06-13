@@ -123,10 +123,17 @@
 		border-radius: rem(10);
 		background: $color-surface-tab;
 		backdrop-filter: blur(8.159px);
+		transition: background-color 0.25s ease;
 
 		@media (min-width: $md3) {
 			padding: rem(20);
 			backdrop-filter: blur(10px);
+		}
+		@media (any-hover: hover) {
+			&:hover {
+				background-color: darken($color: $color-surface-tab, $amount: 10);
+				box-shadow: rgba(38, 102, 140, 0.12) 0px 0.5rem 1.5rem;
+			}
 		}
 	}
 

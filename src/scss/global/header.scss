@@ -72,12 +72,36 @@
 		font-weight: 450;
 		text-transform: uppercase;
 		line-height: 1.2;
-		transition: opacity 0.3s ease;
+		
 		@include adaptive-font(16, 18);
+		
+		
+		
+		position: relative;
+		&::after {
+			content: "";
+			position: absolute;
+			right: 0;
+			bottom: -2px;
+			left: 0;
+			height: 2px;
+			border-radius: 999px;
+			opacity: 0;
+			background: linear-gradient(90deg, transparent 0%, $color-accent 33%, $color-accent 66%, transparent 100%);
+			transform: scaleX(0.35);
+			transform-origin: center;
+			transition: opacity $nav-link-hover-motion, transform $nav-link-hover-motion;
+			pointer-events: none;
+		}
 
 		@media (any-hover: hover) {
 			&:hover {
-				opacity: 0.85;
+				transform: translate3d(0, -1px, 0);
+
+				&::after {
+					opacity: 1;
+					transform: scaleX(1);
+				}
 			}
 		}
 	}
@@ -114,12 +138,33 @@
 		line-height: 1.2;
 		text-transform: uppercase;
 		@include adaptive-font(16, 18);
-		transition: opacity 0.2s ease;
+		position: relative;
+		transition: all 0.3s ease;
+		
+		&::after {
+			content: "";
+			position: absolute;
+			right: 0;
+			bottom: -2px;
+			left: 0;
+			height: 2px;
+			border-radius: 999px;
+			opacity: 0;
+			background: linear-gradient(90deg, $color-primary 0%, $color-accent 33%, $color-accent 66%, $color-primary 100%);
+			transform: scaleX(0.35);
+			transform-origin: center;
+			transition: opacity $nav-link-hover-motion, transform $nav-link-hover-motion;
+			pointer-events: none;
+		}
 
 		@media (any-hover: hover) {
 			&:hover {
+				transform: translate3d(0, -1px, 0);
 
-				opacity: 0.85;
+				&::after {
+					opacity: 1;
+					transform: scaleX(1);
+				}
 			}
 		}
 

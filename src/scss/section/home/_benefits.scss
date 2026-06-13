@@ -93,19 +93,34 @@
 	}
 
 	&__card {
+		min-height: rem(118);
+
+		@media (min-width: $md3) {
+			min-height: rem(173);
+		}
+	}
+
+	&__card-wrapper {
 		display: flex;
 		flex-direction: column;
 		gap: rem(10);
-		min-height: rem(118);
 		padding: rem(16);
 		border: rem(0.5) solid rgba(#fff, 0.8);
 		border-radius: rem(10);
 		background: rgba($color-surface-tab, 0.95);
 		backdrop-filter: blur(10px);
+		transition: background-color 0.3s ease, box-shadow 0.3s ease;
+		height: 100%;
 
 		@media (min-width: $md3) {
-			min-height: rem(173);
 			padding: rem(20);
+		}
+
+		@media (any-hover: hover) {
+			&:hover {
+				background-color: darken($color: $color-surface-tab, $amount: 10);
+				box-shadow: rgba(38, 102, 140, 0.12) 0px 0.5rem 1.5rem;
+			}
 		}
 	}
 

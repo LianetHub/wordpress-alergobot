@@ -30,7 +30,7 @@ if ( ! $benefits_text && ! $benefits_cards ) {
 				</div>
 			<?php endif; ?>
 			<?php if ( $benefits_cards ) : ?>
-				<div class="benefits__grid <?php echo alergobot_anim_class( 'stagger' ); ?>">
+				<ul class="benefits__grid <?php echo alergobot_anim_class( 'stagger' ); ?>">
 					<?php
 					$card_number = 0; foreach ( $benefits_cards as $card ) :
 						$title   = $card['title'] ?? '';
@@ -40,26 +40,28 @@ if ( ! $benefits_text && ! $benefits_cards ) {
 						}
 						++$card_number;
 						?>
-						<article class="benefits__card">
-							<div class="benefits__card-head">
-								<span class="benefits__num"><?php echo esc_html( (string) $card_number ); ?></span>
-								<?php if ( $tooltip ) : ?>
-									<button class="benefits__info tooltip-trigger" type="button" data-tooltip="<?php echo esc_attr( $tooltip ); ?>" aria-label="
-									<?php
-									/* translators: %s: benefit card title */
-									echo esc_attr( sprintf( __( 'Подробнее: %s', 'alergobot' ), $title ) );
-									?>
-									" aria-expanded="false">
-										<svg class="icon benefits__info-icon" aria-hidden="true">
-											<use href="<?php echo esc_url( $icons ); ?>#icon-eye-info"></use>
-										</svg>
-									</button>
-								<?php endif; ?>
+						<li class="benefits__card">
+							<div class="benefits__card-wrapper">
+								<div class="benefits__card-head">
+									<span class="benefits__num"><?php echo esc_html( (string) $card_number ); ?></span>
+									<?php if ( $tooltip ) : ?>
+										<button class="benefits__info tooltip-trigger" type="button" data-tooltip="<?php echo esc_attr( $tooltip ); ?>" aria-label="
+										<?php
+										/* translators: %s: benefit card title */
+										echo esc_attr( sprintf( __( 'Подробнее: %s', 'alergobot' ), $title ) );
+										?>
+										" aria-expanded="false">
+											<svg class="icon benefits__info-icon" aria-hidden="true">
+												<use href="<?php echo esc_url( $icons ); ?>#icon-eye-info"></use>
+											</svg>
+										</button>
+									<?php endif; ?>
+								</div>
+								<h3 class="benefits__card-title"><?php echo esc_html( $title ); ?></h3>
 							</div>
-							<h3 class="benefits__card-title"><?php echo esc_html( $title ); ?></h3>
-						</article>
+						</li>
 					<?php endforeach; ?>
-				</div>
+				</ul>
 			<?php endif; ?>
 		</div>
 	</div>

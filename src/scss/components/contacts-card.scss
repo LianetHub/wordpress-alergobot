@@ -1,12 +1,5 @@
 .contacts-card {
-	display: flex;
-	flex-direction: column;
-	gap: rem(10);
 	min-height: rem(119);
-	padding: rem(10);
-	border-radius: rem(10);
-	background: rgba($color-surface-tab, 0.9);
-	color: $color-text-body;
 
 	&.contacts-card--legal {
 		.contacts-card__body {
@@ -17,10 +10,31 @@
 		}
 	}
 
-	@media (min-width: $md3) {
-		gap: rem(20);
-		min-height: rem(192);
-		padding: rem(20);
+
+	&__wrapper {
+		display: flex;
+		flex-direction: column;
+		gap: rem(10);
+		height: 100%;
+		padding: rem(10);
+		border-radius: rem(10);
+		background: rgba($color-surface-tab, 0.9);
+		color: $color-text-body;
+		transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+		
+		@media (min-width: $md3) {
+			gap: rem(20);
+			min-height: rem(192);
+			padding: rem(20);
+		}
+	
+		@media (any-hover: hover) {
+			&:hover {
+				background-color: darken($color: rgba($color-surface-tab, 0.9), $amount: 10);
+				transform: scale(1.02);
+				box-shadow: rgba(38, 102, 140, 0.12) 0px 0.5rem 1.5rem;
+			}
+		}
 	}
 
 	&__icon {

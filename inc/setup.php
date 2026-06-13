@@ -22,10 +22,44 @@ add_action(
 	}
 );
 
+if ( ! function_exists( 'alergobot_is_web_manifest_request' ) ) {
+	function alergobot_is_web_manifest_request() {
+		if ( empty( $_SERVER['REQUEST_URI'] ) ) {
+			return false;
+		}
+
+		$request_path  = (string) wp_parse_url( wp_unslash( $_SERVER['REQUEST_URI'] ), PHP_URL_PATH );
+		$manifest_path = (string) wp_parse_url( home_url( '/site.webmanifest' ), PHP_URL_PATH );
+
+		return untrailingslashit( $request_path ) === untrailingslashit( $manifest_path );
+	}
+}
+
+if ( ! function_exists( 'alergobot_serve_web_manifest' ) ) {
+	function alergobot_serve_web_manifest() {
+		if ( ! function_exists( 'alergobot_get_web_manifest_data' ) ) {
+			status_header( 404 );
+			exit;
+		}
+
+		header( 'Content-Type: application/manifest+json; charset=utf-8' );
+		echo wp_json_encode(
+			alergobot_get_web_manifest_data(),
+			JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE
+		);
+		exit;
+	}
+}
+
 add_action(
 	'init',
 	function () {
 		add_rewrite_rule( '^site\.webmanifest$', 'index.php?alergobot_webmanifest=1', 'top' );
+
+		// Fallback when rewrite rules were not flushed yet.
+		if ( alergobot_is_web_manifest_request() ) {
+			alergobot_serve_web_manifest();
+		}
 	}
 );
 
@@ -52,17 +86,7 @@ add_action(
 			return;
 		}
 
-		if ( ! function_exists( 'alergobot_get_web_manifest_data' ) ) {
-			status_header( 404 );
-			exit;
-		}
-
-		header( 'Content-Type: application/manifest+json; charset=utf-8' );
-		echo wp_json_encode(
-			alergobot_get_web_manifest_data(),
-			JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE
-		);
-		exit;
+		alergobot_serve_web_manifest();
 	}
 );
 
