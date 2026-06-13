@@ -3,37 +3,6 @@
   padding: 0 1rem;
   max-width: 100%;
 }
-@media (min-width: 1399.98px) {
-  ._container._container--small {
-    max-width: 78.75rem;
-  }
-}
-@media (min-width: 575.98px) {
-  ._container {
-    box-sizing: content-box;
-    max-width: 33.75rem;
-  }
-}
-@media (min-width: 767.98px) {
-  ._container {
-    max-width: 39rem;
-  }
-}
-@media (min-width: 991.98px) {
-  ._container {
-    max-width: 60rem;
-  }
-}
-@media (min-width: 1199.98px) {
-  ._container {
-    max-width: 71.25rem;
-  }
-}
-@media (min-width: 1399.98px) {
-  ._container {
-    max-width: 82.5rem;
-  }
-}
 
 body {
   font-family: "Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;
@@ -70,43 +39,37 @@ h3 {
 }
 
 .wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   min-height: 100%;
   overflow-x: clip;
 }
 
 .main {
-  flex: 1 1 auto;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
   background: #edfbff;
 }
+
 .main:not(.main--home) {
   padding-top: 3.5rem;
-}
-@media (min-width: 991.98px) {
-  .main:not(.main--home) {
-    padding-top: 5rem;
-  }
 }
 
 .admin-bar .main:not(.main--home) {
   padding-top: calc(3.5rem + 46px);
 }
-@media screen and (min-width: 783px) {
-  .admin-bar .main:not(.main--home) {
-    padding-top: calc(3.5rem + 32px);
-  }
-}
-@media (min-width: 991.98px) {
-  .admin-bar .main:not(.main--home) {
-    padding-top: calc(5rem + 32px);
-  }
-}
 
 .cover-image {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .text-nowrap {
@@ -125,10 +88,27 @@ h3 {
   background: #26668c;
   border-radius: 0.5rem;
 }
-@media (any-hover: hover) {
-  ::-webkit-scrollbar-thumb:hover {
-    background: #1b4964;
-  }
+
+.swiper-pagination {
+  position: static;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 0.625rem;
+  margin-top: 1.25rem;
+}
+
+.swiper-pagination-bullet {
+  width: 0.625rem;
+  height: 0.625rem;
+  border-radius: 50%;
+  background: #26668c;
 }
 
 [data-decor-parallax] {
@@ -141,6 +121,7 @@ h3 {
   padding: 2.5rem 0 5rem;
   overflow: hidden;
 }
+
 .policy::before {
   content: "";
   position: absolute;
@@ -149,29 +130,91 @@ h3 {
   background: url("../img/policy-decor.svg") 0 0/100% auto repeat-y;
   pointer-events: none;
   will-change: transform;
-  transform: translate3d(0, var(--decor-y), 0) scale(var(--decor-scale));
+  -webkit-transform: translate3d(0, var(--decor-y), 0) scale(var(--decor-scale));
+          transform: translate3d(0, var(--decor-y), 0) scale(var(--decor-scale));
 }
-@media (prefers-reduced-motion: reduce) {
-  .policy::before {
-    will-change: auto;
-    transform: none;
+
+.policy__container {
+  position: relative;
+  z-index: 1;
+}
+
+.policy__inner {
+  max-width: 54.75rem;
+  margin: 0 auto;
+}
+
+@media (min-width: 575.98px) {
+  ._container {
+    -webkit-box-sizing: content-box;
+            box-sizing: content-box;
+    max-width: 33.75rem;
   }
 }
+
+@media (min-width: 767.98px) {
+  ._container {
+    max-width: 39rem;
+  }
+}
+
+@media screen and (min-width: 783px) {
+  .admin-bar .main:not(.main--home) {
+    padding-top: calc(3.5rem + 32px);
+  }
+}
+
+@media (min-width: 991.98px) {
+  ._container {
+    max-width: 60rem;
+  }
+
+  .main:not(.main--home) {
+    padding-top: 5rem;
+  }
+
+  .admin-bar .main:not(.main--home) {
+    padding-top: calc(5rem + 32px);
+  }
+}
+
+@media (min-width: 1199.98px) {
+  ._container {
+    max-width: 71.25rem;
+  }
+
+  .policy {
+    padding: 1.25rem 0 6.25rem;
+  }
+}
+
+@media (min-width: 1399.98px) {
+  ._container._container--small {
+    max-width: 78.75rem;
+  }
+
+  ._container {
+    max-width: 82.5rem;
+  }
+}
+
 @media (max-width: 767.98px) {
   .policy {
     padding: 1rem 0 3rem;
   }
 }
-@media (min-width: 1199.98px) {
-  .policy {
-    padding: 1.25rem 0 6.25rem;
+
+@media (any-hover: hover) {
+  ::-webkit-scrollbar-thumb:hover {
+    background: #1b4964;
   }
 }
-.policy__container {
-  position: relative;
-  z-index: 1;
-}
-.policy__inner {
-  max-width: 54.75rem;
-  margin: 0 auto;
+
+@media (prefers-reduced-motion: reduce) {
+  .policy::before {
+    will-change: auto;
+    -webkit-transform: none;
+        -ms-transform: none;
+            transform: none;
+  }
 }

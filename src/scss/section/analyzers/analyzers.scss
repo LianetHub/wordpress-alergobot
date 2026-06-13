@@ -59,6 +59,12 @@
 		a {
 			color: inherit;
 			text-decoration: none;
+			transition: color 0.3s ease;
+			@media (any-hover: hover) {
+				&:hover {
+					color: $color-accent;
+				}
+			}
 		}
 	}
 
@@ -115,6 +121,7 @@
 		background: $color-surface-mint;
 		overflow: hidden;
 		flex-shrink: 0;
+		transition: transform .3s ease, box-shadow .3s ease;
 
 		& img {
 			width: auto;
@@ -124,6 +131,13 @@
 		@media (min-width: $md3) {
 			width: rem(295);
 			height: rem(261);
+		}
+
+		@media (any-hover: hover) {
+			&:hover {
+				transform: translateY(-6px);
+				box-shadow: 0 10px 25px rgba(0, 0, 0, .1);
+			}
 		}
 
 

@@ -149,6 +149,11 @@ $popup-gradient: linear-gradient(61deg, $color-primary 0%, $color-accent 99.68%)
 			color: inherit;
 			text-decoration: underline;
 			text-underline-offset: rem(2);
+			@media (any-hover: hover) {
+				&:hover {
+					text-decoration: none;
+				}
+			}
 		}
 	}
 

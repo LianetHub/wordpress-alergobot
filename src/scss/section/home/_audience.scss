@@ -172,7 +172,7 @@
 
 			@media (min-width:$md3) {
 				left: auto;
-				top: rem(179);
+				top: 13.1875rem;
 				max-width: rem(392);
 			}
 		}
@@ -184,7 +184,7 @@
 			@media (min-width:$md3) {
 				left: 8.34%;
 				right: auto;
-				top: rem(246);
+				top: rem(280);
 			}
 		}
 
@@ -193,7 +193,7 @@
 			top: rem(461);
 
 			@media (min-width:$md3) {
-				left: 53.4%;
+				left: 43.4%;
 				top: rem(328);
 				right: auto;
 			}
@@ -217,7 +217,15 @@
 		cursor: pointer;
 		transition:
 			border-radius 0.25s cubic-bezier(0.22, 1, 0.36, 1),
-			background-color 0.2s ease;
+			background-color 0.2s ease,
+			box-shadow 0.2s ease;
+
+		@media (any-hover: hover) {
+			&:hover {
+				background-color: darken($color: $color-surface-tab, $amount: 10);
+				box-shadow: rgba(38, 102, 140, 0.12) 0px 0.5rem 1.5rem;
+			}
+		}
 
 		@media (min-width: $md3) {
 			gap: rem(20);

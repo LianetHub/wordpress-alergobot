@@ -286,6 +286,12 @@ function initHomeSwipers() {
 		new Swiper(docsEl, {
 			slidesPerView: "auto",
 			spaceBetween: 10,
+			loop: true,
+			autoplay: {
+				delay: 5000,
+				disableOnInteraction: false,
+				stopOnLastSlide: false,
+			},
 			breakpoints: {
 				767.98: {
 					slidesPerView: 2,
@@ -299,6 +305,10 @@ function initHomeSwipers() {
 					slidesPerView: 4,
 					spaceBetween: 20,
 				},
+			},
+			pagination: {
+				el: ".docs__slider-pagination",
+				clickable: true,
 			},
 			navigation: {
 				nextEl: ".docs__arrow--next",

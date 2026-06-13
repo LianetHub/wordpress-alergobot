@@ -554,6 +554,159 @@ if ( ! function_exists( 'alergobot_esc_link' ) ) {
 	}
 }
 
+if ( ! function_exists( 'alergobot_menu_link_to_path' ) ) {
+	/**
+	 * Normalize menu link to comparable path or absolute URL.
+	 *
+	 * @param mixed $link ACF link value.
+	 * @return string Empty string for non-navigational links.
+	 */
+	function alergobot_menu_link_to_path( $link ) {
+		$normalized = alergobot_normalize_link( $link );
+		if ( '' === $normalized || '#' === $normalized ) {
+			return '';
+		}
+		if ( str_starts_with( $normalized, '#' ) || str_starts_with( $normalized, 'mailto:' ) || str_starts_with( $normalized, 'tel:' ) ) {
+			return '';
+		}
+
+		$resolved  = alergobot_resolve_link( $normalized );
+		$home_host = wp_parse_url( home_url(), PHP_URL_HOST );
+		$link_host = wp_parse_url( $resolved, PHP_URL_HOST );
+
+		if ( $link_host && $home_host && strtolower( (string) $link_host ) !== strtolower( (string) $home_host ) ) {
+			return untrailingslashit( $resolved );
+		}
+
+		$path = wp_parse_url( $resolved, PHP_URL_PATH );
+		if ( ! $path || '/' === $path ) {
+			return '/';
+		}
+
+		return user_trailingslashit( $path );
+	}
+}
+
+if ( ! function_exists( 'alergobot_get_current_request_path' ) ) {
+	/**
+	 * Current front-end request path (leading slash, trailing slash).
+	 *
+	 * @return string
+	 */
+	function alergobot_get_current_request_path() {
+		if ( is_front_page() ) {
+			return '/';
+		}
+
+		global $wp;
+		$request = isset( $wp->request ) ? trim( (string) $wp->request, '/' ) : '';
+		if ( '' === $request ) {
+			return '/';
+		}
+
+		return user_trailingslashit( '/' . $request );
+	}
+}
+
+if ( ! function_exists( 'alergobot_menu_section_is_active' ) ) {
+	/**
+	 * Whether current view belongs to a themed site section.
+	 *
+	 * @param string $menu_path Normalized menu path.
+	 * @return bool
+	 */
+	function alergobot_menu_section_is_active( $menu_path ) {
+		$slug = trim( (string) $menu_path, '/' );
+		$root = '' === $slug ? '' : strtok( $slug, '/' );
+
+		switch ( $root ) {
+			case '':
+				return is_front_page();
+			case 'katalog':
+			case 'oborudovanie':
+				return is_page_template( 'page-katalog.php' )
+					|| is_page( array( 'oborudovanie', 'katalog' ) )
+					|| is_singular( 'product' )
+					|| is_tax( 'product_category' );
+			case 'stati-po-allergologii':
+			case 'stati':
+				return is_post_type_archive( 'blogs' )
+					|| is_singular( 'blogs' )
+					|| is_tax( array( 'blog_category', 'post_tag' ) );
+			case 'kontakty':
+				return is_page_template( 'page-kontakty.php' ) || is_page( 'kontakty' );
+			case 'analizatory':
+				return is_page_template( 'page-analizatory.php' ) || is_page( 'analizatory' );
+			case 'privacy-policy':
+				return is_page_template( 'page-policy.php' ) || is_page( 'privacy-policy' );
+		}
+
+		return false;
+	}
+}
+
+if ( ! function_exists( 'alergobot_menu_page_is_active' ) ) {
+	/**
+	 * Whether current page matches menu path or is its descendant.
+	 *
+	 * @param string $menu_path Normalized menu path.
+	 * @return bool
+	 */
+	function alergobot_menu_page_is_active( $menu_path ) {
+		if ( ! is_page() ) {
+			return false;
+		}
+
+		$slug = trim( (string) $menu_path, '/' );
+		if ( '' === $slug ) {
+			return is_front_page();
+		}
+
+		$page = get_page_by_path( $slug );
+		if ( ! $page ) {
+			return false;
+		}
+
+		$current_id = (int) get_queried_object_id();
+
+		return $current_id === (int) $page->ID
+			|| in_array( (int) $page->ID, get_post_ancestors( $current_id ), true );
+	}
+}
+
+if ( ! function_exists( 'alergobot_is_menu_link_active' ) ) {
+	/**
+	 * Whether a custom menu link points to the current page/section.
+	 *
+	 * @param mixed $link ACF link value.
+	 * @return bool
+	 */
+	function alergobot_is_menu_link_active( $link ) {
+		$menu_path = alergobot_menu_link_to_path( $link );
+		if ( '' === $menu_path ) {
+			return false;
+		}
+
+		if ( preg_match( '#^https?://#i', $menu_path ) ) {
+			$current = ( is_ssl() ? 'https://' : 'http://' ) . ( $_SERVER['HTTP_HOST'] ?? '' ) . ( $_SERVER['REQUEST_URI'] ?? '' );
+			$current = untrailingslashit( strtok( $current, '?' ) );
+
+			return $current === $menu_path;
+		}
+
+		$current_path = alergobot_get_current_request_path();
+		if ( untrailingslashit( $current_path ) === untrailingslashit( $menu_path ) ) {
+			return true;
+		}
+
+		if ( alergobot_menu_section_is_active( $menu_path ) ) {
+			return true;
+		}
+
+		return alergobot_menu_page_is_active( $menu_path );
+	}
+}
+
 if ( ! function_exists( 'alergobot_catalog_url' ) ) {
 	function alergobot_catalog_url() {
 		$page = get_page_by_path( 'oborudovanie' );

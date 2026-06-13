@@ -26,7 +26,33 @@ if ( ! function_exists( 'have_rows' ) || ! have_rows( 'glavnoe_menyu', 'option' 
 		if ( ! $name || '' === $link ) {
 			continue;
 		}
-		$has_submenu = (bool) get_sub_field( 'est_podmenyu' );
+		$has_submenu   = (bool) get_sub_field( 'est_podmenyu' );
+		$submenu_items = array();
+
+		if ( $has_submenu && have_rows( 'podmenyu' ) ) {
+			while ( have_rows( 'podmenyu' ) ) {
+				the_row();
+				$sub_name = get_sub_field( 'nazvanie' );
+				$sub_link = alergobot_normalize_link( get_sub_field( 'ssylka' ) );
+				if ( $sub_name && '' !== $sub_link ) {
+					$submenu_items[] = array(
+						'name' => $sub_name,
+						'link' => $sub_link,
+					);
+				}
+			}
+		}
+
+		$is_active = alergobot_is_menu_link_active( $link );
+		foreach ( $submenu_items as $submenu_item ) {
+			if ( alergobot_is_menu_link_active( $submenu_item['link'] ) ) {
+				$is_active = true;
+				break;
+			}
+		}
+
+		$item_classes = trim( $item_class . ( $has_submenu ? ' has-dropdown' : '' ) . ( $is_active ? ' _active' : '' ) );
+		$link_classes = trim( $link_class . ( $is_active ? ' _active' : '' ) );
 		?>
 		<?php
 		$popup_attrs = '';
@@ -34,22 +60,18 @@ if ( ! function_exists( 'have_rows' ) || ! have_rows( 'glavnoe_menyu', 'option' 
 			$popup_attrs = ' data-fancybox data-src="' . esc_attr( $link ) . '"';
 		}
 		?>
-		<li class="<?php echo esc_attr( $item_class . ( $has_submenu ? ' has-dropdown' : '' ) ); ?>">
-			<a class="<?php echo esc_attr( $link_class ); ?>" href="<?php echo alergobot_esc_link( $link ); ?>" <?php echo $popup_attrs; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Built from esc_attr() fragments. ?>><?php echo esc_html( $name ); ?></a>
-			<?php if ( $has_submenu && have_rows( 'podmenyu' ) ) : ?>
+		<li class="<?php echo esc_attr( $item_classes ); ?>">
+			<a class="<?php echo esc_attr( $link_classes ); ?>" href="<?php echo alergobot_esc_link( $link ); ?>"<?php echo $is_active ? ' aria-current="page"' : ''; ?><?php echo $popup_attrs; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Built from esc_attr() fragments. ?>><?php echo esc_html( $name ); ?></a>
+			<?php if ( $submenu_items ) : ?>
 				<ul class="header__submenu">
-					<?php
-					while ( have_rows( 'podmenyu' ) ) :
-						the_row();
-						$sub_name = get_sub_field( 'nazvanie' );
-						$sub_link = alergobot_normalize_link( get_sub_field( 'ssylka' ) );
-						if ( $sub_name && '' !== $sub_link ) :
-							?>
-							<li><a href="<?php echo alergobot_esc_link( $sub_link ); ?>"><?php echo esc_html( $sub_name ); ?></a></li>
-							<?php
-						endif;
-					endwhile;
-					?>
+					<?php foreach ( $submenu_items as $submenu_item ) : ?>
+						<?php
+						$sub_is_active = alergobot_is_menu_link_active( $submenu_item['link'] );
+						?>
+						<li<?php echo $sub_is_active ? ' class="_active"' : ''; ?>>
+							<a href="<?php echo alergobot_esc_link( $submenu_item['link'] ); ?>"<?php echo $sub_is_active ? ' class="_active" aria-current="page"' : ''; ?>><?php echo esc_html( $submenu_item['name'] ); ?></a>
+						</li>
+					<?php endforeach; ?>
 				</ul>
 			<?php endif; ?>
 		</li>

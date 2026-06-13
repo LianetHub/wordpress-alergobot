@@ -68,6 +68,7 @@
 						</div>
 					<?php endforeach; ?>
 				</div>
+				<div class="docs__slider-pagination swiper-pagination"></div>
 			</div>
 		<?php endif; ?>
 	</div>

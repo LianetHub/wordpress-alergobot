@@ -172,3 +172,19 @@ $scrollbarColor: $color-primary;
 		}
 	}
 }
+
+.swiper-pagination {
+	position: static;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: rem(10);
+	margin-top: rem(20);
+	
+	&-bullet {
+		width: rem(10);
+		height: rem(10);
+		border-radius: 50%;
+		background: $color-primary;
+	}
+}

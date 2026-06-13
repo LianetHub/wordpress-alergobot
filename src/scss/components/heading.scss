@@ -54,7 +54,7 @@
 
 	&.heading--blog {
 		padding-bottom: rem(18);
-		
+
 		@media (min-width:$md3) {
 			padding-bottom: rem(54);
 
@@ -360,12 +360,15 @@
 		}
 	}
 
-	&__product {
+	&__product {}
+
+	&__product-wrapper {
 		padding: rem(12);
 		border: 1px solid $color-accent;
 		border-radius: rem(10);
 		background: $color-surface-mint;
-
+		height: 100%;
+		transition: transform .3s ease, box-shadow .3s ease;
 		& img,
 		& .cover-image {
 			display: block;
@@ -379,8 +382,14 @@
 			width: rem(140);
 			padding: rem(16);
 		}
-	}
 
+		@media (any-hover: hover) {
+			&:hover {
+				transform: translateY(-6px);
+				box-shadow: 0 10px 25px rgba(0, 0, 0, .1);
+			}
+		}
+	}
 
 	&__divider {
 		display: flex;

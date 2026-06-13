@@ -47,9 +47,9 @@ $thumb     = get_the_post_thumbnail_url( $post_id, 'medium' );
 			</button>
 		</div>
 		<?php if ( $thumb ) : ?>
-			<div class="category__media">
+			<a href="<?php echo esc_url( $permalink ); ?>" class="category__media">
 				<img src="<?php echo esc_url( $thumb ); ?>" alt="<?php echo esc_attr( wp_strip_all_tags( $card_title ) ); ?>" title="<?php echo esc_attr( wp_strip_all_tags( $card_title ) ); ?>" width="239" height="164" loading="lazy">
-			</div>
+			</a>
 		<?php endif; ?>
 	</div>
 </li>
