@@ -20,9 +20,7 @@ $text  = alergobot_get_option( 'kontakty_tekst', '' );
 				<?php endif; ?>
 			</div>
 
-			<div class="contacts-info__cards <?php echo alergobot_anim_class( 'stagger-x' ); ?>">
-				<?php get_template_part( 'template-parts/company/contact', 'cards' ); ?>
-			</div>
+			<?php get_template_part( 'template-parts/company/contact', 'cards' ); ?>
 
 		</div>
 	</div>
