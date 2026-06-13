@@ -5,6 +5,9 @@
  * @package alergobot
  */
 
+$page_id          = get_the_ID();
+$heading_products = function_exists( 'get_field' ) ? (array) get_field( 'contacts_heading_products', $page_id ) : array();
+
 ?>
 
 <section class="heading heading--contacts">
@@ -14,16 +17,35 @@
 				<h1 class="heading__title title title-lg <?php echo alergobot_anim_class( 'blur-up', '_anim-no-hide' ); ?>">Закажите&nbsp;оборудование для диагностики аллергии</h1>
 				<p class="heading__text heading__text--main <?php echo alergobot_anim_class( 'fade-up', '_anim-no-hide' ); ?>">Закажите современное оборудование для аллергодиагностики быстро и без лишних хлопот. Заполните форму, и наш менеджер подберет оптимальное решение под ваши задачи и пришлет полный прайс‑лист.</p>
 			</div>
-			<div class="heading__aside">
-				<div class="heading__products">
-					<div class="heading__product <?php echo alergobot_anim_class( 'zoom', '_anim-no-hide' ); ?>">
-						<img src="<?php echo esc_url( alergobot_assets_uri( 'img/product/02.png' ) ); ?>" class="cover-image" alt="Анализатор для аллергодиагностики" title="Анализатор для аллергодиагностики" width="800" height="600" fetchpriority="high">
-					</div>
-					<div class="heading__product <?php echo alergobot_anim_class( 'zoom', '_anim-no-hide' ); ?>">
-						<img src="<?php echo esc_url( alergobot_assets_uri( 'img/product/01.png' ) ); ?>" class="cover-image" alt="Диагностическое оборудование PROTIA" title="Диагностическое оборудование PROTIA" width="800" height="600" fetchpriority="high">
+			<?php if ( $heading_products ) : ?>
+				<div class="heading__aside">
+					<div class="heading__products">
+						<?php foreach ( $heading_products as $product ) : ?>
+							<?php
+							$image = $product['image'] ?? null;
+							if ( ! $image ) {
+								continue;
+							}
+							?>
+							<div class="heading__product <?php echo alergobot_anim_class( 'zoom', '_anim-no-hide' ); ?>">
+								<?php
+								echo alergobot_acf_image(
+									$image,
+									'full',
+									array(
+										'class'         => 'cover-image',
+										'width'         => '800',
+										'height'        => '600',
+										'fetchpriority' => 'high',
+										'loading'       => 'eager',
+									)
+								);
+								?>
+							</div>
+						<?php endforeach; ?>
 					</div>
 				</div>
-			</div>
+			<?php endif; ?>
 		</div>
 	</div>
 </section>
