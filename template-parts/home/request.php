@@ -7,7 +7,7 @@
 
 ?>
 <section class="request" id="request">
-	<div class="request__box" data-decor-parallax>
+	<div class="request__box" data-motion="request">
 		<div class="request__container _container">
 			<div class="request__grid">
 				<div class="request__info">

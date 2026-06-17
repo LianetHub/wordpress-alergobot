@@ -153,7 +153,7 @@ $has_cta       = $cta_title || $cta_text || $cta_note || $cta_image_url;
 <?php endif; ?>
 <?php if ( $benefits ) : ?>
 	<section class="devices-benefits">
-		<div class="devices-benefits__container _container" data-decor-parallax="">
+		<div class="devices-benefits__container _container" data-motion="devices-benefits">
 			<div class="devices-benefits__head">
 				<h2 class="devices-benefits__title title title-md <?php echo alergobot_anim_class( 'fade-up' ); ?>"><?php esc_html_e( 'Почему это важно для лаборатории', 'alergobot' ); ?></h2>
 				<div class="devices-benefits__nav">

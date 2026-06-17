@@ -146,9 +146,10 @@ h3 {
   background: #26668c;
 }
 
-[data-decor-parallax] {
-  --decor-y: 0px;
-  --decor-scale: 1;
+[data-motion] {
+  --mx: 0px;
+  --my: 0px;
+  --mrotate: 0deg;
 }
 
 .category {
@@ -464,7 +465,7 @@ h3 {
   z-index: -1;
   width: 100%;
   will-change: transform;
-  transform: translate3d(-50%, var(--decor-y), 0) scale(var(--decor-scale));
+  transform: translateX(calc(-50% + var(--mx))) translateY(var(--my)) rotate(var(--mrotate));
 }
 @media (prefers-reduced-motion: reduce) {
   .devices-benefits__container::before {

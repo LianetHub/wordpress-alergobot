@@ -23,7 +23,7 @@
 			z-index: 0;
 			background: url("@img/request-decor-mobile.webp") 0 0 / cover no-repeat;
 			pointer-events: none;
-			@include decor-parallax-motion;
+			@include motion-animation;
 
 			@media (min-width: $md4) {
 				background: url("@img/request-decor.webp") 0 0 / cover no-repeat;

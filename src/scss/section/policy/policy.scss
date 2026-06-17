@@ -10,7 +10,7 @@
 		z-index: 0;
 		background: url("@img/policy-decor.svg") 0 0 / 100% auto repeat-y;
 		pointer-events: none;
-		@include decor-parallax-motion;
+		@include motion-animation;
 	}
 
 	@media (max-width: $md4) {

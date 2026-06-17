@@ -12,7 +12,7 @@ $photo        = alergobot_home_get( 'photo' );
 <section class="contacts" id="contacts">
 	<div class="contacts__wrap">
 		<div class="contacts__container _container">
-			<div class="contacts__box" data-contacts="" data-decor-parallax="" itemscope itemtype="https://schema.org/Organization">
+			<div class="contacts__box" data-contacts="" data-motion="contacts" itemscope itemtype="https://schema.org/Organization">
 				<meta itemprop="name" content="<?php echo esc_attr( $company_name ); ?>">
 				<link itemprop="url" href="<?php echo esc_url( home_url( '/' ) ); ?>">
 				<header class="contacts__hero">

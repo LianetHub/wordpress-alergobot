@@ -284,7 +284,7 @@ h3 {
   left: 50%;
   pointer-events: none;
   will-change: transform;
-  transform: translate3d(-50%, var(--decor-y), 0) scale(var(--decor-scale, 1));
+  transform: translateX(calc(-50% + var(--mx))) translateY(var(--my)) rotate(var(--mrotate));
 }
 @media (min-width: 767.98px) {
   .contacts-info__body::before {
@@ -295,7 +295,7 @@ h3 {
   .contacts-info__body::before {
     right: 0;
     left: auto;
-    transform: translate3d(0, var(--decor-y), 0) scale(var(--decor-scale, 1));
+    transform: translate3d(var(--mx), var(--my), 0) rotate(var(--mrotate));
   }
 }
 @media (prefers-reduced-motion: reduce) {

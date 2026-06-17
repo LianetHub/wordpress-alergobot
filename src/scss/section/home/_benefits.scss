@@ -94,13 +94,15 @@
 
 	&__card {
 		min-height: rem(118);
-
+		display: flex;
+		flex-direction: column;
 		@media (min-width: $md3) {
 			min-height: rem(173);
 		}
 	}
 
 	&__card-wrapper {
+		flex: 1 1 auto;
 		display: flex;
 		flex-direction: column;
 		gap: rem(10);

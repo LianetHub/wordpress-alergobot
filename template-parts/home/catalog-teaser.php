@@ -9,7 +9,7 @@ $btn_analyzers = alergobot_home_get( 'btn_analyzers' );
 $btn_panels    = alergobot_home_get( 'btn_panels' );
 ?>
 <section class="catalog-teaser">
-	<div class="catalog-teaser__container _container" data-decor-parallax="">
+	<div class="catalog-teaser__container _container" data-motion="catalog-teaser">
 		<div class="catalog-teaser__head">
 			<?php if ( $title = alergobot_home_get( 'title' ) ) : ?>
 				<h2 class="catalog-teaser__title title title-md <?php echo alergobot_anim_class( 'fade-up' ); ?>"><?php echo wp_kses_post( $title ); ?></h2>

@@ -5,6 +5,143 @@ const IMMEDIATE_ANIMATION_DELAY = 450;
 const SCROLL_ANIMATION_INIT_DELAY = 350;
 const ANIM_DURATION_SCALE = 1.15;
 
+const MOTION_GLOBAL = {
+	pointerEase: 0.08,
+};
+
+const MOTION_DEFAULTS = {
+	scroll: 0.07,
+	pointerX: 16,
+	pointerY: 10,
+	floatSpeed: 0.85,
+	floatAmp: 7,
+	rotateSpeed: 0.55,
+	rotateAmp: 1.1,
+	phase: 0,
+	reverse: false,
+};
+
+const MOTION_PRESETS = {
+	"catalog-teaser": {
+		scroll: 0.05,
+		pointerX: 12,
+		pointerY: 7,
+		floatSpeed: 0.7,
+		floatAmp: 5,
+		rotateSpeed: 0.45,
+		rotateAmp: 0.8,
+		phase: 0.2,
+		reverse: true,
+	},
+	news: {
+		scroll: 0.08,
+		pointerX: 18,
+		pointerY: 11,
+		floatSpeed: 0.9,
+		floatAmp: 8,
+		rotateSpeed: 0.6,
+		rotateAmp: 1.3,
+		phase: 1.1,
+	},
+	request: {
+		scroll: 0.06,
+		pointerX: 10,
+		pointerY: 12,
+		floatSpeed: 0.75,
+		floatAmp: 6.5,
+		rotateSpeed: 0.5,
+		rotateAmp: 1,
+		phase: 2.4,
+		reverse: true,
+	},
+	equipment: {
+		scroll: 0.09,
+		pointerX: 15,
+		pointerY: 9,
+		floatSpeed: 0.82,
+		floatAmp: 7.5,
+		rotateSpeed: 0.58,
+		rotateAmp: 1.2,
+		phase: 0.8,
+	},
+	contacts: {
+		scroll: 0.07,
+		pointerX: 13,
+		pointerY: 10,
+		floatSpeed: 0.88,
+		floatAmp: 6,
+		rotateSpeed: 0.52,
+		rotateAmp: 0.95,
+		phase: 3,
+		reverse: true,
+	},
+	"contacts-info": {
+		scroll: 0.065,
+		pointerX: 11,
+		pointerY: 8,
+		floatSpeed: 0.68,
+		floatAmp: 5.5,
+		rotateSpeed: 0.42,
+		rotateAmp: 0.85,
+		phase: 1.7,
+		reverse: true,
+	},
+	policy: {
+		scroll: 0.04,
+		pointerX: 9,
+		pointerY: 6,
+		floatSpeed: 0.62,
+		floatAmp: 4.5,
+		rotateSpeed: 0.38,
+		rotateAmp: 0.7,
+		phase: 4.2,
+		reverse: true,
+	},
+	"catalog-gallery": {
+		scroll: 0.075,
+		pointerX: 17,
+		pointerY: 10,
+		floatSpeed: 0.78,
+		floatAmp: 7,
+		rotateSpeed: 0.53,
+		rotateAmp: 1.05,
+		phase: 2,
+	},
+	"devices-benefits": {
+		scroll: 0.085,
+		pointerX: 14,
+		pointerY: 11,
+		floatSpeed: 0.92,
+		floatAmp: 8.5,
+		rotateSpeed: 0.62,
+		rotateAmp: 1.25,
+		phase: 0.5,
+		reverse: true,
+	},
+	audience: {
+		scroll: 0.07,
+		pointerX: 16,
+		pointerY: 10,
+		floatSpeed: 0.85,
+		floatAmp: 7,
+		rotateSpeed: 0.55,
+		rotateAmp: 1.1,
+		phase: 1.5,
+	},
+};
+
+function resolveMotionConfig(scene) {
+	const presetKey = scene.dataset.motion;
+	const preset = presetKey ? MOTION_PRESETS[presetKey] : null;
+	const config = { ...MOTION_DEFAULTS, ...preset };
+
+	if (scene.dataset.motionReverse !== undefined) {
+		config.reverse = scene.dataset.motionReverse !== "false";
+	}
+
+	return config;
+}
+
 let animItems = [];
 let animTicking = false;
 let scrollInitialized = false;
@@ -14,8 +151,7 @@ export function initAnimation() {
 	initImmediateAnimation();
 	initArticleBodyAnimations();
 	initScrollAnimation();
-	initAudienceMolecules();
-	initDecorParallax();
+	initMotionAnimation();
 }
 
 export function refreshScrollAnimations(root = document) {
@@ -262,45 +398,81 @@ function initImmediateAnimation() {
 	}, IMMEDIATE_ANIMATION_DELAY);
 }
 
-function initDecorParallax() {
-	const scenes = document.querySelectorAll("[data-decor-parallax]");
-	if (!scenes.length) return;
+function initMotionAnimation() {
+	const sceneElements = document.querySelectorAll("[data-motion]");
+	if (!sceneElements.length) return;
 
 	const motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+	const sceneConfigs = [];
+	const sceneConfigMap = new Map();
 	const activeScenes = new Set();
 
-	const resetScene = (el) => {
-		el.style.removeProperty("--decor-y");
-		el.style.removeProperty("--decor-scale");
+	let pointerNormX = 0;
+	let pointerNormY = 0;
+	let targetPointerNormX = 0;
+	let targetPointerNormY = 0;
+
+	sceneElements.forEach((scene) => {
+		const targetSelector = scene.dataset.motionTarget;
+		const target = targetSelector ? scene.querySelector(targetSelector) : scene;
+		if (!target) return;
+
+		const config = {
+			scene,
+			target,
+			showOnVisible: Boolean(targetSelector),
+			...resolveMotionConfig(scene),
+		};
+
+		sceneConfigs.push(config);
+		sceneConfigMap.set(scene, config);
+	});
+
+	const resetTarget = (target) => {
+		target.style.removeProperty("--mx");
+		target.style.removeProperty("--my");
+		target.style.removeProperty("--mrotate");
 	};
 
-	const resetAll = () => {
-		scenes.forEach(resetScene);
+	const showStatic = () => {
+		sceneConfigs.forEach(({ target, showOnVisible }) => {
+			if (showOnVisible) target.classList.add("is-visible");
+			resetTarget(target);
+		});
 	};
 
 	if (motionQuery.matches) {
-		resetAll();
+		showStatic();
 		return;
 	}
 
-	const getScrollOffset = (el, factor) => {
-		const rect = el.getBoundingClientRect();
+	const getScrollOffset = (scene, scroll) => {
+		const rect = scene.getBoundingClientRect();
 		const viewportHeight = window.innerHeight;
 
 		if (rect.bottom < 0 || rect.top > viewportHeight) return 0;
 
 		const sectionCenter = rect.top + rect.height / 2;
-		return (sectionCenter - viewportHeight / 2) * factor;
+		return (sectionCenter - viewportHeight / 2) * scroll;
 	};
 
 	const updateMotion = () => {
-		activeScenes.forEach((el) => {
-			const factor = Number(el.dataset.decorParallax) || 0.24;
-			const decorOffset = getScrollOffset(el, factor);
-			const scale = 1 + Math.abs(decorOffset) * 0.0006;
+		pointerNormX += (targetPointerNormX - pointerNormX) * MOTION_GLOBAL.pointerEase;
+		pointerNormY += (targetPointerNormY - pointerNormY) * MOTION_GLOBAL.pointerEase;
 
-			el.style.setProperty("--decor-y", `${decorOffset.toFixed(2)}px`);
-			el.style.setProperty("--decor-scale", scale.toFixed(4));
+		const time = performance.now() * 0.001;
+
+		activeScenes.forEach(({ scene, target, scroll, pointerX, pointerY, floatSpeed, floatAmp, rotateSpeed, rotateAmp, phase, reverse }) => {
+			const direction = reverse ? -1 : 1;
+			const floatY = Math.sin(time * floatSpeed + phase) * floatAmp;
+			const floatRotate = Math.sin(time * rotateSpeed + phase * 0.7) * rotateAmp;
+			const scrollOffset = getScrollOffset(scene, scroll);
+			const mx = pointerNormX * pointerX * direction;
+			const my = (scrollOffset + pointerNormY * pointerY + floatY) * direction;
+
+			target.style.setProperty("--mx", `${mx.toFixed(2)}px`);
+			target.style.setProperty("--my", `${my.toFixed(2)}px`);
+			target.style.setProperty("--mrotate", `${(floatRotate * direction).toFixed(2)}deg`);
 		});
 	};
 
@@ -312,132 +484,52 @@ function initDecorParallax() {
 	const observer = new IntersectionObserver(
 		(entries) => {
 			entries.forEach((entry) => {
+				const config = sceneConfigMap.get(entry.target);
+				if (!config) return;
+
 				if (entry.isIntersecting) {
-					activeScenes.add(entry.target);
+					activeScenes.add(config);
+					if (config.showOnVisible) config.target.classList.add("is-visible");
 				} else {
-					activeScenes.delete(entry.target);
-					resetScene(entry.target);
+					activeScenes.delete(config);
+					resetTarget(config.target);
 				}
 			});
 		},
 		{ threshold: 0.08 },
 	);
 
-	scenes.forEach((el) => observer.observe(el));
+	sceneConfigs.forEach(({ scene }) => observer.observe(scene));
 
-	motionQuery.addEventListener("change", (event) => {
-		if (event.matches) {
-			activeScenes.clear();
-			resetAll();
-		} else {
-			scenes.forEach((el) => {
-				const rect = el.getBoundingClientRect();
-
-				if (rect.bottom > 0 && rect.top < window.innerHeight) {
-					activeScenes.add(el);
-				}
-			});
-		}
-	});
-
-	requestAnimationFrame(loop);
-}
-
-function initAudienceMolecules() {
-	const scene = document.querySelector("[data-audience]");
-	const molecules = scene?.querySelector(".audience__molecules");
-	if (!scene || !molecules) return;
-
-	const motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
-
-	const showStatic = () => {
-		molecules.classList.add("is-visible");
-		molecules.style.removeProperty("--mx");
-		molecules.style.removeProperty("--my");
-		molecules.style.removeProperty("--mrotate");
-	};
-
-	if (motionQuery.matches) {
-		showStatic();
-		return;
-	}
-
-	let isActive = false;
-	let pointerX = 0;
-	let pointerY = 0;
-	let targetPointerX = 0;
-	let targetPointerY = 0;
-
-	const getScrollOffset = () => {
-		const rect = scene.getBoundingClientRect();
-		const viewportHeight = window.innerHeight;
-
-		if (rect.bottom < 0 || rect.top > viewportHeight) return 0;
-
-		const sectionCenter = rect.top + rect.height / 2;
-		return (sectionCenter - viewportHeight / 2) * 0.07;
-	};
-
-	const updateMotion = () => {
-		pointerX += (targetPointerX - pointerX) * 0.08;
-		pointerY += (targetPointerY - pointerY) * 0.08;
-
-		const time = performance.now() * 0.001;
-		const floatY = Math.sin(time * 0.85) * 7;
-		const floatRotate = Math.sin(time * 0.55) * 1.1;
-		const scrollOffset = getScrollOffset();
-
-		molecules.style.setProperty("--mx", `${pointerX.toFixed(2)}px`);
-		molecules.style.setProperty("--my", `${(scrollOffset + pointerY + floatY).toFixed(2)}px`);
-		molecules.style.setProperty("--mrotate", `${floatRotate.toFixed(2)}deg`);
-	};
-
-	const loop = () => {
-		if (isActive) updateMotion();
-		requestAnimationFrame(loop);
-	};
-
-	const observer = new IntersectionObserver(
-		(entries) => {
-			entries.forEach((entry) => {
-				isActive = entry.isIntersecting;
-
-				if (entry.isIntersecting) {
-					molecules.classList.add("is-visible");
-				}
-			});
-		},
-		{ threshold: 0.08 },
-	);
-
-	scene.addEventListener(
+	document.addEventListener(
 		"mousemove",
 		(event) => {
-			const rect = scene.getBoundingClientRect();
-			const x = (event.clientX - rect.left) / rect.width - 0.5;
-			const y = (event.clientY - rect.top) / rect.height - 0.5;
-
-			targetPointerX = x * 16;
-			targetPointerY = y * 10;
+			targetPointerNormX = event.clientX / window.innerWidth - 0.5;
+			targetPointerNormY = event.clientY / window.innerHeight - 0.5;
 		},
 		{ passive: true },
 	);
 
-	scene.addEventListener("mouseleave", () => {
-		targetPointerX = 0;
-		targetPointerY = 0;
+	document.documentElement.addEventListener("mouseleave", () => {
+		targetPointerNormX = 0;
+		targetPointerNormY = 0;
 	});
 
 	motionQuery.addEventListener("change", (event) => {
 		if (event.matches) {
-			isActive = false;
+			activeScenes.clear();
 			showStatic();
 		} else {
-			molecules.classList.add("is-visible");
-			isActive = scene.getBoundingClientRect().bottom > 0 && scene.getBoundingClientRect().top < window.innerHeight;
+			sceneConfigs.forEach((config) => {
+				const rect = config.scene.getBoundingClientRect();
+
+				if (rect.bottom > 0 && rect.top < window.innerHeight) {
+					activeScenes.add(config);
+					if (config.showOnVisible) config.target.classList.add("is-visible");
+				}
+			});
 		}
 	});
 
-	observer.observe(scene);
 	requestAnimationFrame(loop);
 }

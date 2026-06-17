@@ -121,7 +121,7 @@
 				background: url("@img/catalog-decor.svg") center / contain no-repeat;
 				z-index: -1;
 				pointer-events: none;
-				@include decor-parallax-motion;
+				@include motion-animation;
 			}
 
 		}

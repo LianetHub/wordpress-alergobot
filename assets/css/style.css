@@ -3158,9 +3158,10 @@ h3 {
   }
 }
 
-[data-decor-parallax] {
-  --decor-y: 0px;
-  --decor-scale: 1;
+[data-motion] {
+  --mx: 0px;
+  --my: 0px;
+  --mrotate: 0deg;
 }
 
 .header {
@@ -4185,9 +4186,6 @@ h3 {
   }
 }
 .audience__molecules {
-  --mx: 0px;
-  --my: 0px;
-  --mrotate: 0deg;
   display: block;
   width: min(100%, 31.25rem);
   height: auto;
@@ -4201,7 +4199,7 @@ h3 {
   z-index: 0;
   opacity: 0;
   will-change: transform, opacity;
-  transform: translateX(calc(-50% + var(--mx))) translateY(var(--my)) rotate(var(--mrotate));
+  transform: translateX(calc(-50% + var(--mx, 0px))) translateY(var(--my, 0px)) rotate(var(--mrotate, 0deg));
   transition: opacity 0.85s ease;
 }
 .audience__molecules.is-visible {
@@ -4214,7 +4212,7 @@ h3 {
     top: 0;
     width: min(56%, 33.0625rem);
     max-width: 33.0625rem;
-    transform: translate3d(var(--mx), var(--my), 0) rotate(var(--mrotate));
+    transform: translate3d(var(--mx, 0px), var(--my, 0px), 0) rotate(var(--mrotate, 0deg));
   }
 }
 @media (prefers-reduced-motion: reduce) {
@@ -4422,7 +4420,7 @@ h3 {
   pointer-events: none;
   background: url("../img/decor-bg.svg") center 86%/90% auto no-repeat;
   will-change: transform;
-  transform: translate3d(0, var(--decor-y), 0) scale(var(--decor-scale));
+  transform: translate3d(var(--mx), var(--my), 0) rotate(var(--mrotate));
 }
 @media (prefers-reduced-motion: reduce) {
   .catalog-teaser__container::before {
@@ -5335,7 +5333,7 @@ h3 {
   background: url("../img/analyzers/equipment-decor.svg") 68% 0%/auto no-repeat;
   pointer-events: none;
   will-change: transform;
-  transform: translate3d(0, var(--decor-y), 0) scale(var(--decor-scale));
+  transform: translate3d(var(--mx), var(--my), 0) rotate(var(--mrotate));
 }
 @media (prefers-reduced-motion: reduce) {
   .equipment__container::before {
@@ -6297,7 +6295,7 @@ h3 {
   background: url("../img/request-decor-mobile.webp") 0 0/cover no-repeat;
   pointer-events: none;
   will-change: transform;
-  transform: translate3d(0, var(--decor-y), 0) scale(var(--decor-scale));
+  transform: translate3d(var(--mx), var(--my), 0) rotate(var(--mrotate));
 }
 @media (prefers-reduced-motion: reduce) {
   .request__box::before {
@@ -6821,6 +6819,8 @@ h3 {
 }
 .benefits__card {
   min-height: 7.375rem;
+  display: flex;
+  flex-direction: column;
 }
 @media (min-width: 991.98px) {
   .benefits__card {
@@ -6828,6 +6828,7 @@ h3 {
   }
 }
 .benefits__card-wrapper {
+  flex: 1 1 auto;
   display: flex;
   flex-direction: column;
   gap: 0.625rem;
@@ -6999,7 +7000,7 @@ h3 {
   background: url("../img/contacts-decor.svg") 0 0/cover no-repeat;
   pointer-events: none;
   will-change: transform;
-  transform: translate3d(0, var(--decor-y), 0) scale(var(--decor-scale));
+  transform: translate3d(var(--mx), var(--my), 0) rotate(var(--mrotate));
 }
 @media (prefers-reduced-motion: reduce) {
   .contacts__box::before {
@@ -7156,7 +7157,7 @@ h3 {
   pointer-events: none;
   background: url("../img/decor-bg.svg") center 86%/90% auto no-repeat;
   will-change: transform;
-  transform: translate3d(0, var(--decor-y), 0) scale(var(--decor-scale));
+  transform: translate3d(var(--mx), var(--my), 0) rotate(var(--mrotate));
 }
 @media (prefers-reduced-motion: reduce) {
   .news__container::before {
@@ -7339,7 +7340,7 @@ h3 {
   background: url("../img/policy-decor.svg") 0 0/100% auto repeat-y;
   pointer-events: none;
   will-change: transform;
-  transform: translate3d(0, var(--decor-y), 0) scale(var(--decor-scale));
+  transform: translate3d(var(--mx), var(--my), 0) rotate(var(--mrotate));
 }
 @media (prefers-reduced-motion: reduce) {
   .policy::before {
@@ -7496,7 +7497,7 @@ h3 {
   left: 50%;
   pointer-events: none;
   will-change: transform;
-  transform: translate3d(-50%, var(--decor-y), 0) scale(var(--decor-scale, 1));
+  transform: translateX(calc(-50% + var(--mx))) translateY(var(--my)) rotate(var(--mrotate));
 }
 @media (min-width: 767.98px) {
   .contacts-info__body::before {
@@ -7507,7 +7508,7 @@ h3 {
   .contacts-info__body::before {
     right: 0;
     left: auto;
-    transform: translate3d(0, var(--decor-y), 0) scale(var(--decor-scale, 1));
+    transform: translate3d(var(--mx), var(--my), 0) rotate(var(--mrotate));
   }
 }
 @media (prefers-reduced-motion: reduce) {
@@ -8311,7 +8312,7 @@ h3 {
     z-index: -1;
     pointer-events: none;
     will-change: transform;
-    transform: translate3d(0, var(--decor-y), 0) scale(var(--decor-scale));
+    transform: translate3d(var(--mx), var(--my), 0) rotate(var(--mrotate));
   }
 }
 @media (min-width: 991.98px) and (prefers-reduced-motion: reduce) {
@@ -8723,7 +8724,7 @@ h3 {
   z-index: -1;
   width: 100%;
   will-change: transform;
-  transform: translate3d(-50%, var(--decor-y), 0) scale(var(--decor-scale));
+  transform: translateX(calc(-50% + var(--mx))) translateY(var(--my)) rotate(var(--mrotate));
 }
 @media (prefers-reduced-motion: reduce) {
   .devices-benefits__container::before {

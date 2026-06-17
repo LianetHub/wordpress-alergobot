@@ -146,9 +146,10 @@ h3 {
   background: #26668c;
 }
 
-[data-decor-parallax] {
-  --decor-y: 0px;
-  --decor-scale: 1;
+[data-motion] {
+  --mx: 0px;
+  --my: 0px;
+  --mrotate: 0deg;
 }
 
 .catalog {
@@ -272,7 +273,7 @@ h3 {
     z-index: -1;
     pointer-events: none;
     will-change: transform;
-    transform: translate3d(0, var(--decor-y), 0) scale(var(--decor-scale));
+    transform: translate3d(var(--mx), var(--my), 0) rotate(var(--mrotate));
   }
 }
 @media (min-width: 991.98px) and (prefers-reduced-motion: reduce) {

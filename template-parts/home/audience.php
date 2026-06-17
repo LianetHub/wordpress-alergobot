@@ -44,7 +44,7 @@ $cards      = is_array( $cards_raw ) && array() !== $cards_raw ? array_values( $
 				<span class="audience__tag tag <?php echo alergobot_anim_class( 'scale-up' ); ?>"><?php echo esc_html( $tag ); ?></span>
 			<?php endif; ?>
 		</div>
-		<div class="audience__scene" data-audience>
+		<div class="audience__scene" data-audience data-motion="audience" data-motion-target=".audience__molecules">
 			<?php if ( $molecules ) : ?>
 				<?php
 				echo alergobot_acf_image(

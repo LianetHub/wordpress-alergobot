@@ -3158,7 +3158,8 @@ h3 {
   }
 }
 
-[data-decor-parallax] {
-  --decor-y: 0px;
-  --decor-scale: 1;
+[data-motion] {
+  --mx: 0px;
+  --my: 0px;
+  --mrotate: 0deg;
 }

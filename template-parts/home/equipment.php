@@ -8,7 +8,7 @@
 $footer_btn = alergobot_home_get( 'footer_btn' );
 ?>
 <section class="equipment">
-	<div class="equipment__container _container" data-decor-parallax="">
+	<div class="equipment__container _container" data-motion="equipment">
 		<div class="equipment__head">
 			<div class="equipment__intro">
 				<?php if ( $title = alergobot_home_get( 'title' ) ) : ?>

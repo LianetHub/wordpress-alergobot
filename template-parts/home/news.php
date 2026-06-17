@@ -15,7 +15,7 @@ $icons_svg         = alergobot_assets_uri( 'img/icons.svg' );
 $thumb_fallback    = alergobot_assets_uri( 'img/blog/card.png' );
 ?>
 <section class="news">
-	<div class="news__container _container" data-decor-parallax="">
+	<div class="news__container _container" data-motion="news">
 		<div class="news__head">
 			<div class="news__intro">
 				<?php if ( $title = alergobot_home_get( 'title' ) ) : ?>

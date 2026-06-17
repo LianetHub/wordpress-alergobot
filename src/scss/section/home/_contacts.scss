@@ -20,7 +20,7 @@
 			z-index: 0;
 			background: url("@img/contacts-decor.svg") 0 0 / cover no-repeat;
 			pointer-events: none;
-			@include decor-parallax-motion;
+			@include motion-animation;
 		}
 
 		@media (min-width: $md3) {

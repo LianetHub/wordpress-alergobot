@@ -136,7 +136,7 @@ foreach ( $sections as $section ) :
 					<span class="tag catalog__tag <?php echo alergobot_anim_class( 'bounce-up' ); ?>"><?php echo esc_html( $section_tag ); ?></span>
 				<?php endif; ?>
 				<?php if ( $gallery ) : ?>
-					<div class="catalog__gallery" data-decor-parallax>
+					<div class="catalog__gallery" data-motion="catalog-gallery">
 						<?php
 						foreach ( $gallery as $gallery_item ) :
 							$gallery_item = alergobot_resolve_catalog_gallery_item( $gallery_item, $btn_url );
