@@ -147,16 +147,16 @@ h3 {
 }
 
 @font-face {
-  font-family: "Inter";
-  src: url("../fonts/Inter-VariableFont_opsz,wght.woff2") format("woff2 supports variations"), url("../fonts/Inter-VariableFont_opsz,wght.woff2") format("woff2-variations"), url("../fonts/Inter-VariableFont_opsz,wght.woff") format("woff");
+  font-family: "Manrope";
+  src: url("../fonts/Manrope-VariableFont_wght.woff2") format("woff2 supports variations"), url("../fonts/Manrope-VariableFont_wght.woff2") format("woff2-variations"), url("../fonts/Manrope-VariableFont_wght.woff") format("woff");
   font-weight: 100 900;
   font-stretch: 75% 125%;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
-  font-family: "Manrope";
-  src: url("../fonts/Manrope-VariableFont_wght.woff2") format("woff2 supports variations"), url("../fonts/Manrope-VariableFont_wght.woff2") format("woff2-variations"), url("../fonts/Manrope-VariableFont_wght.woff") format("woff");
+  font-family: "Inter";
+  src: url("../fonts/Inter-VariableFont_opsz,wght.woff2") format("woff2 supports variations"), url("../fonts/Inter-VariableFont_opsz,wght.woff2") format("woff2-variations"), url("../fonts/Inter-VariableFont_opsz,wght.woff") format("woff");
   font-weight: 100 900;
   font-stretch: 75% 125%;
   font-style: normal;
@@ -2182,6 +2182,10 @@ h3 {
     padding: 1.25rem;
     font-size: 1.125rem;
   }
+}
+.tooltip-float--mobile-left {
+  width: 13.375rem;
+  max-width: 13.375rem;
 }
 
 .tooltip-trigger:focus-visible {
@@ -6997,7 +7001,7 @@ h3 {
   position: absolute;
   inset: -12%;
   z-index: 0;
-  background: url("../img/contacts-decor.svg") 0 0/cover no-repeat;
+  background: url("../img/contacts-decor.svg") center 0/cover no-repeat;
   pointer-events: none;
   will-change: transform;
   transform: translate3d(var(--mx), var(--my), 0) rotate(var(--mrotate));
@@ -7234,10 +7238,14 @@ h3 {
 }
 .news__btn {
   width: 100%;
-  max-width: 20.75rem;
   min-height: 3.25rem;
   font-size: 1rem;
   letter-spacing: -0.02em;
+}
+@media (min-width: 575.98px) {
+  .news__btn {
+    max-width: 20.75rem;
+  }
 }
 @media (min-width: 991.98px) {
   .news__btn {

@@ -147,16 +147,16 @@ h3 {
 }
 
 @font-face {
-  font-family: "Inter";
-  src: url("../fonts/Inter-VariableFont_opsz,wght.woff2") format("woff2 supports variations"), url("../fonts/Inter-VariableFont_opsz,wght.woff2") format("woff2-variations"), url("../fonts/Inter-VariableFont_opsz,wght.woff") format("woff");
+  font-family: "Manrope";
+  src: url("../fonts/Manrope-VariableFont_wght.woff2") format("woff2 supports variations"), url("../fonts/Manrope-VariableFont_wght.woff2") format("woff2-variations"), url("../fonts/Manrope-VariableFont_wght.woff") format("woff");
   font-weight: 100 900;
   font-stretch: 75% 125%;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
-  font-family: "Manrope";
-  src: url("../fonts/Manrope-VariableFont_wght.woff2") format("woff2 supports variations"), url("../fonts/Manrope-VariableFont_wght.woff2") format("woff2-variations"), url("../fonts/Manrope-VariableFont_wght.woff") format("woff");
+  font-family: "Inter";
+  src: url("../fonts/Inter-VariableFont_opsz,wght.woff2") format("woff2 supports variations"), url("../fonts/Inter-VariableFont_opsz,wght.woff2") format("woff2-variations"), url("../fonts/Inter-VariableFont_opsz,wght.woff") format("woff");
   font-weight: 100 900;
   font-stretch: 75% 125%;
   font-style: normal;
@@ -2182,6 +2182,10 @@ h3 {
     padding: 1.25rem;
     font-size: 1.125rem;
   }
+}
+.tooltip-float--mobile-left {
+  width: 13.375rem;
+  max-width: 13.375rem;
 }
 
 .tooltip-trigger:focus-visible {

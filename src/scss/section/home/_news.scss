@@ -84,11 +84,12 @@
 
 	&__btn {
 		width: 100%;
-		max-width: rem(332);
 		min-height: rem(52);
 		font-size: rem(16);
 		letter-spacing: -0.02em;
-
+		@media (min-width:$md5) {
+			max-width: rem(332);
+		}
 		@media (min-width: $md3) {
 			width: auto;
 			min-width: rem(426);

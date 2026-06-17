@@ -18,7 +18,7 @@
 			position: absolute;
 			inset: -12%;
 			z-index: 0;
-			background: url("@img/contacts-decor.svg") 0 0 / cover no-repeat;
+			background: url("@img/contacts-decor.svg") center 0 / cover no-repeat;
 			pointer-events: none;
 			@include motion-animation;
 		}
