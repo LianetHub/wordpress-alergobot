@@ -10,7 +10,12 @@ $icons   = alergobot_assets_uri( 'img/icons.svg' );
 
 $heading_title = function_exists( 'get_field' ) ? (string) get_field( 'catalog_heading_title', $page_id ) : '';
 $heading_text  = function_exists( 'get_field' ) ? (string) get_field( 'catalog_heading_text', $page_id ) : '';
-$heading_tags  = alergobot_get_product_category_terms();
+$heading_tags  = array(
+	__( 'Устройства', 'alergobot' ),
+	__( 'Анализаторы', 'alergobot' ),
+	__( 'Реагенты', 'alergobot' ),
+	__( 'Панели', 'alergobot' ),
+);
 $sections      = function_exists( 'get_field' ) ? (array) get_field( 'catalog_sections', $page_id ) : array();
 $faq_items     = function_exists( 'get_field' ) ? (array) get_field( 'catalog_faq', $page_id ) : array();
 
@@ -41,24 +46,13 @@ $has_request = $request_title || $request_note || $request_lead;
 						</svg>
 					</a>
 					<?php echo alergobot_anim_wrap_close(); ?>
-					<?php if ( $heading_tags ) : ?>
-						<ul class="heading__tags">
-							<?php
-							foreach ( $heading_tags as $term ) :
-								if ( ! ( $term instanceof WP_Term ) ) {
-									continue;
-								}
-
-								$tag_url = alergobot_get_product_category_link( $term->slug );
-								?>
-								<li class="heading__tags-item">
-									<a class="heading__tag <?php echo alergobot_anim_class( 'bounce-up', '_anim-no-hide' ); ?>" href="<?php echo esc_url( $tag_url ); ?>">
-										<?php echo esc_html( $term->name ); ?>
-									</a>
-								</li>
-							<?php endforeach; ?>
-						</ul>
-					<?php endif; ?>
+					<ul class="heading__tags">
+						<?php foreach ( $heading_tags as $heading_tag ) : ?>
+							<li class="heading__tags-item">
+								<span class="heading__tag <?php echo alergobot_anim_class( 'bounce-up', '_anim-no-hide' ); ?>"><?php echo esc_html( $heading_tag ); ?></span>
+							</li>
+						<?php endforeach; ?>
+					</ul>
 				</div>
 				<?php if ( $heading_text ) : ?>
 					<div class="heading__aside">
@@ -77,14 +71,12 @@ foreach ( $sections as $section ) :
 	$section_class = 'catalog' . ( ! empty( $section['is_reverse'] ) ? ' catalog--reverse' : '' );
 	$section_title = $section['title'] ?? '';
 	$section_text  = $section['text'] ?? '';
-	$section_btn   = $section['btn'] ?? null;
-	$section_btn_2 = $section['btn_2'] ?? null;
-	$section_tag   = $section['tag'] ?? '';
-	$gallery       = $section['gallery'] ?? array();
-	$btn_url       = is_array( $section_btn ) ? alergobot_acf_link_url( $section_btn, '' ) : '';
-	$btn_2_url     = is_array( $section_btn_2 ) ? alergobot_acf_link_url( $section_btn_2, '' ) : '';
+	$section_btn = $section['btn'] ?? null;
+	$section_tag = $section['tag'] ?? '';
+	$gallery     = $section['gallery'] ?? array();
+	$btn_url     = is_array( $section_btn ) ? alergobot_acf_link_url( $section_btn, '' ) : '';
 
-	if ( ! $section_title && ! $section_text && ! $btn_url && ! $btn_2_url && ! $section_tag && ! $gallery ) {
+	if ( ! $section_title && ! $section_text && ! $btn_url && ! $section_tag && ! $gallery ) {
 		continue;
 	}
 	?>
@@ -99,36 +91,23 @@ foreach ( $sections as $section ) :
 						<p class="catalog__text <?php echo alergobot_anim_class( 'fade-up' ); ?>"><?php echo esc_html( $section_text ); ?></p>
 					<?php endif; ?>
 					<?php
-					$section_buttons = array(
-						array(
-							'link'  => $section_btn,
-							'class' => 'btn btn--primary catalog__btn',
-						),
-						array(
-							'link'  => $section_btn_2,
-							'class' => 'btn btn--secondary catalog__btn',
-						),
-					);
-					foreach ( $section_buttons as $button ) :
-						$button_link = $button['link'] ?? null;
-						if ( ! is_array( $button_link ) ) {
-							continue;
-						}
-						$button_url   = alergobot_acf_link_url( $button_link, '' );
-						$button_title = alergobot_acf_link_title( $button_link, '' );
-						if ( ! $button_url || ! $button_title ) {
-							continue;
-						}
-						?>
-						<?php echo alergobot_anim_wrap_open( 'fade-up', '', str_contains( $button['class'], 'btn--primary' ) ? 'fill' : 'inline' ); ?>
-						<a class="<?php echo esc_attr( $button['class'] ); ?><?php echo str_contains( $button['class'], 'btn--primary' ) ? ' a-hover-lift' : ''; ?>" href="<?php echo esc_url( $button_url ); ?>"<?php echo alergobot_acf_link_target( $button_link ) ? ' target="' . esc_attr( alergobot_acf_link_target( $button_link ) ) . '"' : ''; ?>>
-							<?php echo esc_html( $button_title ); ?>
-							<svg class="btn__icon" width="28" height="28">
-								<use href="<?php echo esc_url( $icons ); ?>#icon-arrow-up-right"></use>
-							</svg>
-						</a>
-						<?php echo alergobot_anim_wrap_close(); ?>
-					<?php endforeach; ?>
+					if ( is_array( $section_btn ) ) :
+						$button_url   = alergobot_acf_link_url( $section_btn, '' );
+						$button_title = alergobot_acf_link_title( $section_btn, '' );
+						if ( $button_url && $button_title ) :
+							?>
+							<?php echo alergobot_anim_wrap_open( 'fade-up', '', 'fill' ); ?>
+							<a class="btn btn--primary catalog__btn a-hover-lift" href="<?php echo esc_url( $button_url ); ?>"<?php echo alergobot_acf_link_target( $section_btn ) ? ' target="' . esc_attr( alergobot_acf_link_target( $section_btn ) ) . '"' : ''; ?>>
+								<?php echo esc_html( $button_title ); ?>
+								<svg class="btn__icon" width="28" height="28">
+									<use href="<?php echo esc_url( $icons ); ?>#icon-arrow-up-right"></use>
+								</svg>
+							</a>
+							<?php echo alergobot_anim_wrap_close(); ?>
+							<?php
+						endif;
+					endif;
+					?>
 				</div>
 			</div>
 			<div class="catalog__side">

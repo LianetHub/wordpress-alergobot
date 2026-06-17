@@ -165,24 +165,6 @@
                     "return_format": "array"
                 },
                 {
-                    "key": "field_6a259264914de",
-                    "label": "Кнопка2",
-                    "name": "btn_2",
-                    "aria-label": "",
-                    "type": "link",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "return_format": "array",
-                    "allow_in_bindings": 1,
-                    "parent_repeater": "field_catalog_sections"
-                },
-                {
                     "key": "field_catalog_section_tag",
                     "label": "Тег",
                     "name": "tag",
@@ -418,5 +400,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1781076100
+    "modified": 1781080000
 }
