@@ -220,6 +220,14 @@ h3 {
     grid-area: content;
   }
 }
+.article__body.typography-block:not([data-article-anim-prepared]) > * {
+  opacity: 0;
+}
+@media (scripting: none) {
+  .article__body.typography-block > * {
+    opacity: 1;
+  }
+}
 .article__body.typography-block > ._anim-items, .article__body.typography-block img._anim-items {
   transition-delay: 0s;
 }

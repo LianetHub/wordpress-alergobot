@@ -147,16 +147,16 @@ h3 {
 }
 
 @font-face {
-  font-family: "Manrope";
-  src: url("../fonts/Manrope-VariableFont_wght.woff2") format("woff2 supports variations"), url("../fonts/Manrope-VariableFont_wght.woff2") format("woff2-variations"), url("../fonts/Manrope-VariableFont_wght.woff") format("woff");
+  font-family: "Inter";
+  src: url("../fonts/Inter-VariableFont_opsz,wght.woff2") format("woff2 supports variations"), url("../fonts/Inter-VariableFont_opsz,wght.woff2") format("woff2-variations"), url("../fonts/Inter-VariableFont_opsz,wght.woff") format("woff");
   font-weight: 100 900;
   font-stretch: 75% 125%;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
-  font-family: "Inter";
-  src: url("../fonts/Inter-VariableFont_opsz,wght.woff2") format("woff2 supports variations"), url("../fonts/Inter-VariableFont_opsz,wght.woff2") format("woff2-variations"), url("../fonts/Inter-VariableFont_opsz,wght.woff") format("woff");
+  font-family: "Manrope";
+  src: url("../fonts/Manrope-VariableFont_wght.woff2") format("woff2 supports variations"), url("../fonts/Manrope-VariableFont_wght.woff2") format("woff2-variations"), url("../fonts/Manrope-VariableFont_wght.woff") format("woff");
   font-weight: 100 900;
   font-stretch: 75% 125%;
   font-style: normal;
@@ -2611,7 +2611,7 @@ h3 {
   }
 }
 .heading__product-wrapper {
-  padding: 0.75rem;
+  padding: 1.25rem;
   border: 1px solid #55acbf;
   border-radius: 0.625rem;
   background: #edfbff;
@@ -2625,10 +2625,14 @@ h3 {
   max-width: 100%;
   object-fit: contain;
 }
+@media (max-width: 575.98px) {
+  .heading__product-wrapper {
+    aspect-ratio: 1;
+  }
+}
 @media (min-width: 991.98px) {
   .heading__product-wrapper {
     width: 8.75rem;
-    padding: 1.25rem;
   }
 }
 @media (any-hover: hover) {

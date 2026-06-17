@@ -362,21 +362,25 @@ function prepareArticleBody(body) {
 
 		element.classList.remove("_active");
 		element.removeAttribute("data-article-activating");
-		element.classList.add("_anim-items", "a-fade");
+		element.classList.add("_anim-items", "a-fade-up");
 	});
 
 	refreshScrollAnimations(body, { runScroll: false });
 }
 
 function activateVisibleArticleItems(body) {
-	Array.from(body.children).forEach((block) => {
-		const item = block.classList.contains("_anim-items")
-			? block
-			: block.querySelector("._anim-items");
+	const visibleItems = Array.from(body.children)
+		.map((block) =>
+			block.classList.contains("_anim-items") ? block : block.querySelector("._anim-items"),
+		)
+		.filter((item) => item instanceof Element && isArticleItemInView(item));
 
-		if (item instanceof Element && isArticleItemInView(item)) {
-			activateArticleItem(item);
-		}
+	const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+	visibleItems.forEach((item, index) => {
+		const delay = reducedMotion ? 0 : index * 80;
+
+		setTimeout(() => activateArticleItem(item, { chainNext: false }), delay);
 	});
 }
 

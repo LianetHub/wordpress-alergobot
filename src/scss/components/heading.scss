@@ -301,9 +301,11 @@
 		display: grid;
 		grid-template-columns: repeat(4, 1fr);
 		gap: rem(10);
+
 		@media (min-width:$md4) {
 			margin-top: 1rem;
 		}
+
 		@media (min-width: $md3) {
 			display: flex;
 			flex-wrap: wrap;
@@ -359,12 +361,13 @@
 	&__product {}
 
 	&__product-wrapper {
-		padding: rem(12);
+		padding: rem(20);
 		border: 1px solid $color-accent;
 		border-radius: rem(10);
 		background: $color-surface-mint;
 		height: 100%;
 		transition: transform .3s ease, box-shadow .3s ease;
+
 		& img,
 		& .cover-image {
 			display: block;
@@ -374,9 +377,13 @@
 			object-fit: contain;
 		}
 
+		@media (max-width:$md5) {
+			aspect-ratio: 1;
+		}
+
 		@media (min-width: $md3) {
 			width: rem(140);
-			padding: rem(20);
+
 		}
 
 		@media (any-hover: hover) {

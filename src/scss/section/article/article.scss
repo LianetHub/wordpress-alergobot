@@ -81,6 +81,16 @@ $article-date-muted: rgba($color-text-body, 0.6);
 			grid-area: content;
 		}
 
+		&.typography-block:not([data-article-anim-prepared]) > * {
+			opacity: 0;
+		}
+
+		@media (scripting: none) {
+			&.typography-block > * {
+				opacity: 1;
+			}
+		}
+
 		&.typography-block > ._anim-items,
 		&.typography-block img._anim-items {
 			transition-delay: 0s;
