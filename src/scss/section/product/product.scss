@@ -58,6 +58,12 @@
 		flex: 1 1 auto;
 	}
 
+	.anim-wrap {
+		&:has(.product-hero__order) {
+			order: 1;
+		}
+	}
+
 	&__order {
 		margin-top: auto;
 		width: 100%;
@@ -710,7 +716,11 @@
 		transition: color 0.2s ease;
 		font-weight: 600;
 		color: #26668C;
-		font-size: rem(18);
+		font-size: rem(14);
+
+		@media (min-width:$md4) {
+			font-size: rem(18);
+		}
 
 		@media (any-hover: hover) {
 			&:hover {

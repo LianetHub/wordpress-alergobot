@@ -9133,6 +9133,9 @@ h3 {
   line-height: 1.3;
   flex: 1 1 auto;
 }
+.product-hero .anim-wrap:has(.product-hero__order) {
+  order: 1;
+}
 .product-hero__order {
   margin-top: auto;
   width: 100%;
@@ -9713,7 +9716,12 @@ h3 {
   transition: color 0.2s ease;
   font-weight: 600;
   color: #26668C;
-  font-size: 1.125rem;
+  font-size: 0.875rem;
+}
+@media (min-width: 767.98px) {
+  .product-spec__link {
+    font-size: 1.125rem;
+  }
 }
 @media (any-hover: hover) {
   .product-spec__link:hover {
