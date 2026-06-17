@@ -323,10 +323,11 @@ $popup-gradient: linear-gradient(61deg, $color-primary 0%, $color-accent 99.68%)
 		width: auto;
 		height: auto;
 		object-fit: contain;
+		margin: auto;
 	}
 
 	&__partner-action {
-		margin-top: auto;
+	
 		display: inline-flex;
 		align-items: center;
 		gap: rem(10);

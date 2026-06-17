@@ -232,7 +232,7 @@
 	will-change: opacity, transform;
 }
 
-@for $i from 1 through 12 {
+@for $i from 1 through 20 {
 	.a-stagger._active > *:nth-child(#{$i}) {
 		opacity: 1;
 		transform: translateY(0);
@@ -246,7 +246,7 @@
 	transition: opacity anim(0.5) ease, transform anim(0.5) ease;
 }
 
-@for $i from 1 through 12 {
+@for $i from 1 through 20 {
 	.a-stagger-x._active > *:nth-child(#{$i}) {
 		opacity: 1;
 		transform: translateX(0);

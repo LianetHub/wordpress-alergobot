@@ -52,7 +52,7 @@ $btn_panels    = alergobot_home_get( 'btn_panels' );
 						}
 						?>
 						<li class="catalog-teaser__gallery-item <?php echo alergobot_anim_class( 'reveal-circle' ); ?>">
-							<a class="catalog-teaser__card a-hover-lift a-hover-zoom" href="<?php echo esc_url( $gallery_item['link_url'] ); ?>">
+							<div class="catalog-teaser__card a-hover-lift a-hover-zoom">
 								<img
 									class="cover-image"
 									src="<?php echo esc_url( $gallery_item['img_url'] ); ?>"
@@ -68,7 +68,7 @@ $btn_panels    = alergobot_home_get( 'btn_panels' );
 										height="<?php echo esc_attr( (string) $gallery_item['img_h'] ); ?>"<?php endif; ?>
 									loading="lazy"
 								>
-							</a>
+							</div>
 						</li>
 					<?php endforeach; ?>
 				</ul>

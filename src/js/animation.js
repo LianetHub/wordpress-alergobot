@@ -4,6 +4,10 @@ const IMMEDIATE_ANIMATION_ROOTS = [".hero", ".heading", ".product-hero", ".not-f
 const IMMEDIATE_ANIMATION_DELAY = 450;
 const SCROLL_ANIMATION_INIT_DELAY = 350;
 const ANIM_DURATION_SCALE = 1.15;
+const STAGGER_MAX_CHILDREN = 20;
+const STAGGER_STEP_S = 0.1;
+const STAGGER_TRANSITION_S = 0.5;
+const DEFAULT_REVEAL_MS = Math.round(500 * ANIM_DURATION_SCALE);
 
 const MOTION_GLOBAL = {
 	pointerEase: 0.08,
@@ -145,6 +149,7 @@ function resolveMotionConfig(scene) {
 let animItems = [];
 let animTicking = false;
 let scrollInitialized = false;
+let animChainTimer = null;
 const pendingArticleItems = new WeakSet();
 
 export function initAnimation() {
@@ -266,6 +271,107 @@ function isArticleItemInView(item) {
 	const threshold = isArticleBody ? window.innerHeight + 80 : window.innerHeight * 0.95;
 
 	return rect.top < threshold && rect.bottom > 0;
+}
+
+function isScrollAnimItem(item) {
+	return item instanceof Element && !item.closest(".article__body.typography-block");
+}
+
+function isAnimItemInSequence(item) {
+	return isScrollAnimItem(item) && !item.closest("[hidden]");
+}
+
+function sortAnimItemsByDocumentOrder(items) {
+	return [...items].sort((a, b) => {
+		if (a === b) {
+			return 0;
+		}
+
+		const position = a.compareDocumentPosition(b);
+
+		if (position & Node.DOCUMENT_POSITION_FOLLOWING) {
+			return -1;
+		}
+
+		if (position & Node.DOCUMENT_POSITION_PRECEDING) {
+			return 1;
+		}
+
+		return 0;
+	});
+}
+
+function getRevealDurationMs(item) {
+	if (item.classList.contains("a-stagger") || item.classList.contains("a-stagger-x")) {
+		const count = Math.min(item.children.length, STAGGER_MAX_CHILDREN);
+		return Math.round((count * STAGGER_STEP_S + STAGGER_TRANSITION_S) * 1000 * ANIM_DURATION_SCALE);
+	}
+
+	if (
+		item.classList.contains("a-reveal") ||
+		item.classList.contains("a-slide-left") ||
+		item.classList.contains("a-slide-right") ||
+		item.classList.contains("a-flip")
+	) {
+		return Math.round(1200 * ANIM_DURATION_SCALE);
+	}
+
+	if (item.classList.contains("a-blur-up") || item.classList.contains("a-form-rise")) {
+		return Math.round(750 * ANIM_DURATION_SCALE);
+	}
+
+	return DEFAULT_REVEAL_MS;
+}
+
+function canActivateAfterPrevious(prevItem) {
+	if (!(prevItem instanceof Element) || !prevItem.classList.contains("_active")) {
+		return false;
+	}
+
+	const activatedAt = Number(prevItem.dataset.animActivatedAt || 0);
+
+	if (!activatedAt) {
+		return true;
+	}
+
+	return Date.now() - activatedAt >= getRevealDurationMs(prevItem);
+}
+
+function runItemCounters(item) {
+	item.querySelectorAll("[data-counter], [data-num]").forEach((num) => {
+		if (num.dataset.counter !== undefined) {
+			startCounter(num);
+		} else {
+			animateNumber(num);
+		}
+	});
+}
+
+function activateScrollAnimItem(item) {
+	if (!(item instanceof Element) || item.classList.contains("_active")) {
+		return 0;
+	}
+
+	item.classList.add("_active", "_anim-no-hide");
+	item.dataset.animActivatedAt = String(Date.now());
+	runItemCounters(item);
+
+	return getRevealDurationMs(item);
+}
+
+function scheduleAnimChainContinue(delayMs = 0) {
+	if (delayMs <= 0) {
+		return;
+	}
+
+	if (animChainTimer) {
+		clearTimeout(animChainTimer);
+	}
+
+	animChainTimer = setTimeout(() => {
+		animChainTimer = null;
+		animOnScroll();
+	}, delayMs);
 }
 
 function runArticleItemTransition(item) {
@@ -431,36 +537,76 @@ function handleAnimScroll() {
 }
 
 function animOnScroll() {
+	const articleItems = [];
+	const sequenceItems = [];
+
 	animItems.forEach((item) => {
-		const inView = isArticleItemInView(item);
+		if (item.closest(".article__body.typography-block")) {
+			articleItems.push(item);
+			return;
+		}
 
-		if (inView) {
-			if (!item.classList.contains("_active")) {
-				if (item.closest(".article__body.typography-block")) {
-					activateArticleItem(item);
-				} else {
-					item.classList.add("_active");
-				}
-
-				item.querySelectorAll("[data-counter], [data-num]").forEach((num) => {
-					if (num.dataset.counter !== undefined) {
-						startCounter(num);
-					} else {
-						animateNumber(num);
-					}
-				});
-			}
-		} else if (!item.classList.contains("_anim-no-hide")) {
-			item.classList.remove("_active");
-			resetItemAnimations(item);
+		if (isAnimItemInSequence(item)) {
+			sequenceItems.push(item);
 		}
 	});
-}
 
-function resetItemAnimations(container) {
-	container.querySelectorAll("[data-num]").forEach((num) => {
-		num.textContent = "0";
+	articleItems.forEach((item) => {
+		if (!isArticleItemInView(item) || item.classList.contains("_active")) {
+			return;
+		}
+
+		activateArticleItem(item);
 	});
+
+	const orderedItems = sortAnimItemsByDocumentOrder(sequenceItems);
+	let chainDelayMs = 0;
+	let activatedInView = false;
+
+	orderedItems.forEach((item, index) => {
+		if (item.classList.contains("_active")) {
+			return;
+		}
+
+		const rect = item.getBoundingClientRect();
+		const passed = rect.bottom < 0;
+		const inView = isArticleItemInView(item);
+
+		if (!passed && !inView) {
+			return;
+		}
+
+		if (passed) {
+			chainDelayMs = Math.max(chainDelayMs, activateScrollAnimItem(item));
+			return;
+		}
+
+		if (activatedInView) {
+			return;
+		}
+
+		const previousItems = orderedItems.slice(0, index).filter(isAnimItemInSequence);
+		const allPreviousActive = previousItems.every((prev) => prev.classList.contains("_active"));
+
+		if (!allPreviousActive) {
+			return;
+		}
+
+		const previousItem = previousItems.at(-1);
+
+		if (previousItem && !canActivateAfterPrevious(previousItem)) {
+			chainDelayMs = Math.max(
+				chainDelayMs,
+				getRevealDurationMs(previousItem) - (Date.now() - Number(previousItem.dataset.animActivatedAt || 0)),
+			);
+			return;
+		}
+
+		chainDelayMs = Math.max(chainDelayMs, activateScrollAnimItem(item));
+		activatedInView = true;
+	});
+
+	scheduleAnimChainContinue(chainDelayMs);
 }
 
 function animateNumber(el, duration = Math.round(700 * ANIM_DURATION_SCALE)) {

@@ -524,19 +524,19 @@
                                 "id": ""
                             },
                             "layout": "block",
-                            "button_label": "Добавить",
+                            "button_label": "Добавить изображение",
                             "min": 0,
                             "max": 0,
                             "rows_per_page": 20,
                             "collapsed": "",
                             "sub_fields": [
                                 {
-                                    "key": "field_catalog_teaser_gallery_category",
-                                    "label": "Категория товара",
-                                    "name": "product_category",
+                                    "key": "field_catalog_teaser_gallery_image",
+                                    "label": "Изображение",
+                                    "name": "image",
                                     "aria-label": "",
-                                    "type": "taxonomy",
-                                    "instructions": "Ссылка ведёт на страницу категории. Изображение — из первого товара категории с миниатюрой.",
+                                    "type": "image",
+                                    "instructions": "",
                                     "required": 0,
                                     "conditional_logic": 0,
                                     "wrapper": {
@@ -544,17 +544,16 @@
                                         "class": "",
                                         "id": ""
                                     },
-                                    "taxonomy": "product_category",
-                                    "add_term": 0,
-                                    "save_terms": 0,
-                                    "load_terms": 0,
-                                    "return_format": "object",
-                                    "field_type": "select",
-                                    "allow_null": 0,
-                                    "allow_in_bindings": 1,
-                                    "bidirectional": 0,
-                                    "multiple": 0,
-                                    "bidirectional_target": [],
+                                    "return_format": "array",
+                                    "preview_size": "medium",
+                                    "library": "all",
+                                    "min_width": 0,
+                                    "min_height": 0,
+                                    "min_size": 0,
+                                    "max_width": 0,
+                                    "max_height": 0,
+                                    "max_size": 0,
+                                    "mime_types": "",
                                     "parent_repeater": "field_54bc474c03304"
                                 }
                             ]
@@ -2721,5 +2720,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1781099996
+    "modified": 1781716414
 }
