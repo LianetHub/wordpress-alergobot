@@ -372,3 +372,30 @@ add_filter(
 		return $query_vars;
 	}
 );
+
+add_action(
+	'template_redirect',
+	function () {
+		if ( is_admin() || wp_doing_ajax() ) {
+			return;
+		}
+
+		global $wp;
+
+		$request = trim( (string) $wp->request, '/' );
+
+		if ( 'stati' !== $request && ! preg_match( '#^stati/page/(\d+)$#', $request, $matches ) ) {
+			return;
+		}
+
+		$url = alergobot_blogs_archive_url();
+
+		if ( ! empty( $matches[1] ) ) {
+			$url = user_trailingslashit( trailingslashit( $url ) . 'page/' . (int) $matches[1] );
+		}
+
+		wp_safe_redirect( $url, 301 );
+		exit;
+	},
+	1
+);

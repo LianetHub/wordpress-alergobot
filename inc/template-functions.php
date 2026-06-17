@@ -1197,14 +1197,94 @@ if ( ! function_exists( 'alergobot_product_has_description_tab' ) ) {
 	}
 }
 
+if ( ! function_exists( 'alergobot_acf_file_data' ) ) {
+	/**
+	 * Normalize ACF file field (array, attachment ID, or URL) to a common shape.
+	 *
+	 * @param mixed $file ACF file field value.
+	 * @return array{url:string,filename:string,title:string,filesize:int}|null
+	 */
+	function alergobot_acf_file_data( $file ) {
+		if ( empty( $file ) ) {
+			return null;
+		}
+
+		if ( is_array( $file ) ) {
+			$url = (string) ( $file['url'] ?? '' );
+			if ( '' === $url ) {
+				return null;
+			}
+
+			return array(
+				'url'      => $url,
+				'filename' => (string) ( $file['filename'] ?? '' ),
+				'title'    => (string) ( $file['title'] ?? '' ),
+				'filesize' => (int) ( $file['filesize'] ?? 0 ),
+			);
+		}
+
+		if ( is_numeric( $file ) ) {
+			$attachment_id = (int) $file;
+			$url           = wp_get_attachment_url( $attachment_id );
+			if ( ! $url ) {
+				return null;
+			}
+
+			$path = get_attached_file( $attachment_id );
+			$meta = wp_get_attachment_metadata( $attachment_id ) ?: array();
+
+			return array(
+				'url'      => $url,
+				'filename' => $path ? wp_basename( $path ) : '',
+				'title'    => (string) get_the_title( $attachment_id ),
+				'filesize' => (int) ( $meta['filesize'] ?? 0 ),
+			);
+		}
+
+		if ( is_string( $file ) ) {
+			$url = trim( $file );
+			if ( '' === $url ) {
+				return null;
+			}
+
+			return array(
+				'url'      => $url,
+				'filename' => wp_basename( (string) parse_url( $url, PHP_URL_PATH ) ),
+				'title'    => '',
+				'filesize' => 0,
+			);
+		}
+
+		return null;
+	}
+}
+
+if ( ! function_exists( 'alergobot_get_post_file_field' ) ) {
+	/**
+	 * ACF file field with correct return_format (bypasses get_fields cache).
+	 *
+	 * @param string   $key     Field name.
+	 * @param int|null $post_id Post ID.
+	 * @return array{url:string,filename:string,title:string,filesize:int}|null
+	 */
+	function alergobot_get_post_file_field( $key, $post_id = 0 ) {
+		$post_id = $post_id ? (int) $post_id : (int) get_the_ID();
+		if ( ! $post_id || ! function_exists( 'get_field' ) ) {
+			return null;
+		}
+
+		return alergobot_acf_file_data( get_field( $key, $post_id ) );
+	}
+}
+
 if ( ! function_exists( 'alergobot_product_has_ru_tab' ) ) {
 	function alergobot_product_has_ru_tab( $post_id ) {
 		if ( ! function_exists( 'get_field' ) ) {
 			return false;
 		}
 
-		$ru_file = alergobot_get_post_field( 'product_ru_file', $post_id );
-		if ( is_array( $ru_file ) && ! empty( $ru_file['url'] ) ) {
+		$ru_file = alergobot_get_post_file_field( 'product_ru_file', $post_id );
+		if ( $ru_file ) {
 			return true;
 		}
 
@@ -1220,7 +1300,7 @@ if ( ! function_exists( 'alergobot_product_has_ru_tab' ) ) {
 				continue;
 			}
 
-			if ( '' !== $value || ( is_array( $ru_file ) && ! empty( $ru_file['url'] ) ) ) {
+			if ( '' !== trim( (string) $value ) ) {
 				return true;
 			}
 		}

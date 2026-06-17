@@ -36,6 +36,26 @@
 		}
 	}
 
+	&__footer {
+		display: flex;
+		justify-content: center;
+		margin-top: rem(20);
+
+		@media (min-width: $md3) {
+			margin-top: rem(36);
+		}
+	}
+
+	&__btn {
+		width: 100%;
+		min-height: rem(52);
+
+		@media (min-width: $md3) {
+			width: rem(426);
+			min-height: $btn-height;
+		}
+	}
+	
 	&__tag {
 		margin-top: 1rem;
 	}

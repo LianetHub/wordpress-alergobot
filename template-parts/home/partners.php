@@ -67,5 +67,13 @@ $partners = alergobot_get_partners();
 				</div>
 			</div>
 		<?php endif; ?>
+		<div class="partners__footer <?php echo alergobot_anim_class( 'fade-up' ); ?>">
+			<a class="btn btn--primary partners__btn" href="#popup-partners" data-fancybox data-src="#popup-partners">
+				<?php esc_html_e( 'Посмотреть всех партнеров', 'alergobot' ); ?>
+				<svg class="btn__icon" width="28" height="28" aria-hidden="true">
+					<use href="<?php echo esc_url( alergobot_assets_uri( 'img/icons.svg' ) ); ?>#icon-arrow-up-right"></use>
+				</svg>
+			</a>
+		</div>
 	</div>
 </section>

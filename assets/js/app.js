@@ -1,12 +1,13 @@
 "use strict";
 
-import { initAnimation } from "./animation.js";
+import { initAnimation, refreshScrollAnimations } from "./animation.js";
 import { initBlogFeed } from "./blog-feed.js";
 import { initYandexMaps } from "./map.js";
 import { initTooltips } from "./tooltip.js";
 document.addEventListener("DOMContentLoaded", () => {
 	initBurger();
 	initFancybox();
+	initPartnersAutoPopup();
 	initBlogTabs();
 	initProductTabs();
 	initProductTableMore();
@@ -79,6 +80,55 @@ function initFancybox() {
 
 }
 
+function initPartnersAutoPopup() {
+	const COOKIE_NAME = "alergobot_partners_popup_seen";
+	const DELAY_MS = 30_000;
+	const COOKIE_DAYS = 30;
+
+	const getCookie = (name) => {
+		const escaped = name.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+		const match = document.cookie.match(new RegExp(`(?:^|; )${escaped}=([^;]*)`));
+		return match ? decodeURIComponent(match[1]) : null;
+	};
+
+	const setCookie = (name, value) => {
+		const expires = new Date(Date.now() + COOKIE_DAYS * 864e5).toUTCString();
+		document.cookie = `${name}=${encodeURIComponent(value)}; expires=${expires}; path=/; SameSite=Lax`;
+	};
+
+	const hasSeenPopup = () => getCookie(COOKIE_NAME) === "1";
+
+	const markPopupSeen = () => setCookie(COOKIE_NAME, "1");
+
+	const popup = document.getElementById("popup-partners");
+	if (!popup || !popup.querySelector(".popup-modal__partners")) return;
+
+	document.addEventListener("click", (e) => {
+		const trigger = e.target.closest('[data-fancybox][data-src="#popup-partners"]');
+		if (trigger) markPopupSeen();
+	});
+
+	if (hasSeenPopup()) return;
+
+	setTimeout(() => {
+		if (hasSeenPopup()) return;
+		if (typeof Fancybox === "undefined") return;
+		if (Fancybox.getInstance()) return;
+
+		markPopupSeen();
+		Fancybox.show(
+			[{ src: "#popup-partners", type: "inline" }],
+			{
+				mainClass: "fancybox-popup",
+				dragToClose: false,
+				placeFocusBack: true,
+				autoFocus: true,
+				trapFocus: true,
+			}
+		);
+	}, DELAY_MS);
+}
+
 function initCf7() {
 	const showStatusPopup = (isError) => {
 		if (typeof Fancybox === "undefined") return;
@@ -120,6 +170,12 @@ function initProductTabs() {
 				const isActive = panel.dataset.productPanel === target;
 				panel.classList.toggle("_active", isActive);
 				panel.hidden = !isActive;
+
+				if (isActive) {
+					requestAnimationFrame(() => {
+						refreshScrollAnimations(panel);
+					});
+				}
 			});
 		});
 	});

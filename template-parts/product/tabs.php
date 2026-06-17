@@ -46,13 +46,13 @@ if ( $has_docs ) {
 ?>
 <section class="product-detail">
 	<div class="product-detail__container _container">
-		<div class="product-tabs" role="tablist" aria-label="<?php esc_attr_e( 'Разделы товара', 'alergobot' ); ?>">
+		<div class="product-tabs <?php echo alergobot_anim_class( 'fade-up' ); ?>" role="tablist" aria-label="<?php esc_attr_e( 'Разделы товара', 'alergobot' ); ?>">
 			<?php
 			foreach ( $tabs as $index => $tab ) :
 				$tab_id = $tab['id'];
 				$active = 0 === $index;
 				?>
-				<button class="product-tabs__btn<?php echo $active ? ' _active' : ''; ?> <?php echo alergobot_anim_class( 'fade-up' ); ?>" type="button" role="tab" id="product-tab-<?php echo esc_attr( $tab_id ); ?>" aria-selected="<?php echo $active ? 'true' : 'false'; ?>" aria-controls="product-panel-<?php echo esc_attr( $tab_id ); ?>" data-product-tab="<?php echo esc_attr( $tab_id ); ?>">
+				<button class="product-tabs__btn<?php echo $active ? ' _active' : ''; ?>" type="button" role="tab" id="product-tab-<?php echo esc_attr( $tab_id ); ?>" aria-selected="<?php echo $active ? 'true' : 'false'; ?>" aria-controls="product-panel-<?php echo esc_attr( $tab_id ); ?>" data-product-tab="<?php echo esc_attr( $tab_id ); ?>">
 					<span class="product-tabs__text"><?php echo esc_html( $tab['label'] ); ?></span>
 					<span class="product-tabs__icon" aria-hidden="true">
 						<svg class="icon" width="16" height="16">

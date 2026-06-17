@@ -2396,6 +2396,26 @@ h3 {
     align-items: flex-start;
   }
 }
+.partners__footer {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.25rem;
+}
+@media (min-width: 991.98px) {
+  .partners__footer {
+    margin-top: 2.25rem;
+  }
+}
+.partners__btn {
+  width: 100%;
+  min-height: 3.25rem;
+}
+@media (min-width: 991.98px) {
+  .partners__btn {
+    width: 26.625rem;
+    min-height: 60px;
+  }
+}
 .partners__tag {
   margin-top: 1rem;
 }

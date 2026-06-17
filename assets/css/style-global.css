@@ -1513,6 +1513,7 @@ h3 {
   object-fit: contain;
 }
 .popup-modal__partner-action {
+  margin-top: auto;
   display: inline-flex;
   align-items: center;
   gap: 0.625rem;

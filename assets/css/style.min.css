@@ -1513,6 +1513,7 @@ h3 {
   object-fit: contain;
 }
 .popup-modal__partner-action {
+  margin-top: auto;
   display: inline-flex;
   align-items: center;
   gap: 0.625rem;
@@ -5974,6 +5975,26 @@ h3 {
     align-items: flex-start;
   }
 }
+.partners__footer {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.25rem;
+}
+@media (min-width: 991.98px) {
+  .partners__footer {
+    margin-top: 2.25rem;
+  }
+}
+.partners__btn {
+  width: 100%;
+  min-height: 3.25rem;
+}
+@media (min-width: 991.98px) {
+  .partners__btn {
+    width: 26.625rem;
+    min-height: 60px;
+  }
+}
 .partners__tag {
   margin-top: 1rem;
 }
@@ -9076,7 +9097,6 @@ h3 {
 @media (min-width: 991.98px) {
   .product-hero__card {
     flex-direction: row;
-    align-items: flex-start;
     gap: 2.5rem;
     min-height: 32.875rem;
     padding: 2.5rem;
@@ -9093,6 +9113,7 @@ h3 {
     gap: 0.625rem;
     flex: 0 1 22.5rem;
     justify-content: flex-start;
+    align-items: stretch;
   }
 }
 @media (min-width: 1199.98px) {
@@ -9110,6 +9131,7 @@ h3 {
 .product-hero__text {
   font-size: 1.125rem;
   line-height: 1.3;
+  flex: 1 1 auto;
 }
 .product-hero__order {
   margin-top: auto;
@@ -9128,6 +9150,7 @@ h3 {
     display: flex;
     justify-content: flex-end;
     align-items: center;
+    align-self: flex-start;
   }
 }
 .product-hero__media {
@@ -9200,6 +9223,12 @@ h3 {
   max-width: 74.18%;
   max-height: 100%;
   object-fit: contain;
+  transition: transform 0.25s ease;
+}
+@media (any-hover: hover) {
+  .product-hero__media-inner:hover img {
+    transform: scale(1.05);
+  }
 }
 .product-hero__stock {
   position: absolute;
@@ -9240,7 +9269,7 @@ h3 {
   right: 0;
   width: calc(171 / var(--hero-ref-w) * 100%);
   gap: calc(10 / var(--hero-ref-w) * 100cqw);
-  padding-block: calc(10 / var(--hero-ref-h) * 100cqh);
+  padding-block: calc(8 / var(--hero-ref-h) * 100cqh);
   padding-inline: calc(16 / var(--hero-ref-w) * 100cqw);
   border-radius: calc(10 / var(--hero-ref-w) * 100cqw);
   background: #EDFBFF;
@@ -9291,14 +9320,14 @@ h3 {
 }
 .product-hero__rating-star {
   flex-shrink: 0;
-  width: calc(26 / var(--hero-ref-w) * 100cqw);
-  height: calc(26 / var(--hero-ref-w) * 100cqw);
+  width: calc(32 / var(--hero-ref-w) * 100cqw);
+  height: calc(32 / var(--hero-ref-w) * 100cqw);
   color: inherit;
 }
 @media (max-width: 991.98px) {
   .product-hero__rating-star {
-    width: 4.3333333333cqw;
-    height: 4.3333333333cqw;
+    width: 5.3333333333cqw;
+    height: 5.3333333333cqw;
   }
 }
 .product-hero__img {

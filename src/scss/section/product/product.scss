@@ -18,7 +18,6 @@
 
 		@media (min-width: $md3) {
 			flex-direction: row;
-			align-items: flex-start;
 			gap: rem(40);
 			min-height: rem(526);
 			padding: rem(40);
@@ -35,6 +34,7 @@
 			gap: rem(10);
 			flex: 0 1 rem(360);
 			justify-content: flex-start;
+			align-items: stretch;
 		}
 
 		@media (min-width:$md2) {
@@ -55,6 +55,7 @@
 	&__text {
 		font-size: rem(18);
 		line-height: 1.3;
+		flex: 1 1 auto;
 	}
 
 	&__order {
@@ -75,6 +76,7 @@
 			display: flex;
 			justify-content: flex-end;
 			align-items: center;
+			align-self: flex-start;
 		}
 
 
@@ -152,6 +154,14 @@
 			max-width: 74.18%;
 			max-height: 100%;
 			object-fit: contain;
+			transition: transform 0.25s ease;
+		}
+		@media (any-hover: hover) {
+			&:hover {
+				& img {
+					transform: scale(1.05);
+				}
+			}
 		}
 	}
 
@@ -198,7 +208,7 @@
 		right: 0;
 		width: calc(171 / var(--hero-ref-w) * 100%);
 		gap: calc(10 / var(--hero-ref-w) * 100cqw);
-		padding-block: calc(10 / var(--hero-ref-h) * 100cqh);
+		padding-block: calc(8 / var(--hero-ref-h) * 100cqh);
 		padding-inline: calc(16 / var(--hero-ref-w) * 100cqw);
 		border-radius: calc(10 / var(--hero-ref-w) * 100cqw);
 		background: #EDFBFF;
@@ -249,13 +259,13 @@
 
 	&__rating-star {
 		flex-shrink: 0;
-		width: calc(26 / var(--hero-ref-w) * 100cqw);
-		height: calc(26 / var(--hero-ref-w) * 100cqw);
+		width: calc(32 / var(--hero-ref-w) * 100cqw);
+		height: calc(32 / var(--hero-ref-w) * 100cqw);
 		color: inherit;
 
 		@media (max-width: $md3) {
-			width: calc(13 / 300 * 100cqw);
-			height: calc(13 / 300 * 100cqw);
+			width: calc(16 / 300 * 100cqw);
+			height: calc(16 / 300 * 100cqw);
 		}
 	}
 

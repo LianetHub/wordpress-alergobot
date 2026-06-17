@@ -78,9 +78,9 @@ $rating   = (string) alergobot_get_post_field( 'product_rating', $post_id );
 								</span>
 							</div>
 						<?php endif; ?>
-						<div class="product-hero__media-inner">
+						<a href="<?php echo esc_url( $hero_url ); ?>" data-fancybox class="product-hero__media-inner">
 							<img src="<?php echo esc_url( $hero_url ); ?>" alt="<?php echo esc_attr( $hero_alt ); ?>" title="<?php echo esc_attr( $hero_alt ); ?>" width="451" height="308" fetchpriority="high">
-						</div>
+						</a>
 					</div>
 				</div>
 			<?php endif; ?>
