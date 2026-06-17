@@ -1011,6 +1011,120 @@ if ( ! function_exists( 'alergobot_get_post_field' ) ) {
 	}
 }
 
+if ( ! function_exists( 'alergobot_typography' ) ) {
+	/**
+	 * Russian typography: non-breaking spaces after short prepositions and conjunctions.
+	 *
+	 * @param string $text Plain text.
+	 * @return string Text with U+00A0 after hanging words.
+	 */
+	function alergobot_typography( $text ) {
+		$text = (string) $text;
+		if ( '' === $text ) {
+			return '';
+		}
+
+		static $pattern = null;
+		if ( null === $pattern ) {
+			$words = array(
+				'из-за',
+				'из-под',
+				'перед',
+				'через',
+				'между',
+				'около',
+				'без',
+				'вне',
+				'для',
+				'изо',
+				'над',
+				'обо',
+				'ото',
+				'под',
+				'про',
+				'при',
+				'что',
+				'или',
+				'как',
+				'их',
+				'из',
+				'на',
+				'не',
+				'ни',
+				'об',
+				'от',
+				'за',
+				'во',
+				'ко',
+				'со',
+				'до',
+				'по',
+				'ли',
+				'же',
+				'бы',
+				'то',
+				'но',
+				'а',
+				'и',
+				'в',
+				'к',
+				'о',
+				'с',
+				'у',
+			);
+
+			usort(
+				$words,
+				static function ( $a, $b ) {
+					return strlen( $b ) - strlen( $a );
+				}
+			);
+
+			$escaped = array_map(
+				static function ( $word ) {
+					return preg_quote( $word, '/' );
+				},
+				$words
+			);
+
+			$pattern = '/(^|[\s,.:;(\[«"—–-])(' . implode( '|', $escaped ) . ')\s+/iu';
+		}
+
+		$nbsp = "\xC2\xA0";
+
+		return (string) preg_replace( $pattern, '$1$2' . $nbsp, $text );
+	}
+}
+
+if ( ! function_exists( 'alergobot_product_title_html' ) ) {
+	/**
+	 * Product title HTML with Q- model names kept on one line.
+	 *
+	 * @param string $title Plain or partial HTML title.
+	 * @return string Safe HTML.
+	 */
+	function alergobot_product_title_html( $title ) {
+		$title = (string) $title;
+		if ( '' === $title ) {
+			return '';
+		}
+
+		if ( false !== stripos( $title, 'text-nowrap' ) ) {
+			return wp_kses_post( $title );
+		}
+
+		$title = (string) preg_replace_callback(
+			'/[«"]Q-[^»"]+[»"]/iu',
+			static function ( array $matches ): string {
+				return '<span class="text-nowrap">' . $matches[0] . '</span>';
+			},
+			$title
+		);
+
+		return wp_kses_post( $title );
+	}
+}
+
 if ( ! function_exists( 'alergobot_get_term_fields' ) ) {
 	/**
 	 * Cached ACF fields for a taxonomy term.

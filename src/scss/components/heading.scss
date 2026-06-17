@@ -226,7 +226,7 @@
 
 		@media (min-width:$md4) {
 			margin-top: 0;
-			max-width: rem(426);
+			width: rem(426);
 
 		}
 
@@ -306,12 +306,13 @@
 		display: grid;
 		grid-template-columns: repeat(4, 1fr);
 		gap: rem(10);
-
+		@media (min-width:$md4) {
+			margin-top: 1rem;
+		}
 		@media (min-width: $md3) {
 			display: flex;
 			flex-wrap: wrap;
 			margin-top: rem(54);
-
 			gap: rem(20);
 		}
 	}

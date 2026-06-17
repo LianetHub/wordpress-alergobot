@@ -110,20 +110,23 @@
 			position: relative;
 			z-index: 1;
 			gap: 1.25rem;
+		}
+	}
 
-			&::before {
-				content: '';
-				position: absolute;
-				top: -6rem;
-				left: 0;
-				width: 100%;
-				height: 100%;
-				background: url("@img/catalog-decor.svg") center / contain no-repeat;
-				z-index: -1;
-				pointer-events: none;
-				@include motion-animation;
-			}
+	&__gallery-decor {
+		display: none;
 
+		@media (min-width:$md3) {
+			display: block;
+			position: absolute;
+			top: -6rem;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background: url("@img/catalog-decor.svg") center / contain no-repeat;
+			z-index: -1;
+			pointer-events: none;
+			@include motion-animation;
 		}
 	}
 
@@ -223,10 +226,14 @@
 			.catalog__gallery {
 				margin-left: 0;
 				margin-right: -13rem;
+			}
 
-				&::before {
-					left: auto;
-					right: 0;
+			.catalog__gallery-decor {
+				left: auto;
+				right: 0;
+				transform: scaleX(-1) translate3d(var(--mx, 0px), var(--my, 0px), 0) rotate(var(--mrotate, 0deg));
+
+				@media (prefers-reduced-motion: reduce) {
 					transform: scaleX(-1);
 				}
 			}

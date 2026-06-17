@@ -23,7 +23,7 @@ $thumb     = get_the_post_thumbnail_url( $post_id, 'medium' );
 		<div class="category__content">
 			<?php if ( $card_title ) : ?>
 				<h2 class="category__title title title-md">
-					<a href="<?php echo esc_url( $permalink ); ?>"><?php echo wp_kses_post( $card_title ); ?></a>
+					<a href="<?php echo esc_url( $permalink ); ?>"><?php echo alergobot_product_title_html( $card_title ); ?></a>
 				</h2>
 			<?php endif; ?>
 			<?php if ( $card_text ) : ?>

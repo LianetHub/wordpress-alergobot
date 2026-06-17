@@ -108,7 +108,7 @@ $has_cta       = $cta_title || $cta_text || $cta_note || $cta_image_url;
 		<div class="devices-work__container _container">
 			<div class="devices-work__head">
 				<?php if ( $work_title ) : ?>
-					<h2 class="devices-work__title title title-md <?php echo alergobot_anim_class( 'fade-up' ); ?>"><?php echo esc_html( $work_title ); ?></h2>
+					<h2 class="devices-work__title title title-md <?php echo alergobot_anim_class( 'fade-up' ); ?>"><?php echo esc_html( alergobot_typography( $work_title ) ); ?></h2>
 				<?php endif; ?>
 				<?php if ( $work_tag ) : ?>
 					<span class="tag devices-work__tag <?php echo alergobot_anim_class( 'bounce-up' ); ?>"><?php echo esc_html( $work_tag ); ?></span>
@@ -161,7 +161,7 @@ $has_cta       = $cta_title || $cta_text || $cta_note || $cta_image_url;
 					<button class="devices-benefits__arrow devices-benefits__arrow--next <?php echo alergobot_anim_class( 'scale-up' ); ?>" type="button" aria-label="<?php esc_attr_e( 'Вперёд', 'alergobot' ); ?>"></button>
 				</div>
 			</div>
-			<div class="devices-benefits__slider swiper <?php echo alergobot_anim_class( 'reveal' ); ?>">
+			<div class="devices-benefits__slider swiper">
 				<div class="swiper-wrapper">
 					<?php
 					foreach ( $benefits as $slide ) :
@@ -171,7 +171,7 @@ $has_cta       = $cta_title || $cta_text || $cta_note || $cta_image_url;
 							continue;
 						}
 						?>
-						<div class="swiper-slide devices-benefits__slide">
+						<div class="swiper-slide devices-benefits__slide <?php echo alergobot_anim_class( 'reveal' ); ?>">
 							<h3 class="devices-benefits__card-title"><?php echo esc_html( $slide_title ); ?></h3>
 							<?php if ( $slide_text ) : ?>
 								<p class="devices-benefits__card-text"><?php echo esc_html( $slide_text ); ?></p>
