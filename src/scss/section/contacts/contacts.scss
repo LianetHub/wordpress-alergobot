@@ -56,11 +56,12 @@
 		@include map-container-loading;
 		border: 1px solid $color-accent;
 		border-radius: rem(10);
-		height: 100%;
+		align-self: stretch;
 		min-height: rem(300);
 
 		@media (min-width: $md3) {
 			min-height: rem(431);
+			height: auto;
 		}
 
 		iframe {

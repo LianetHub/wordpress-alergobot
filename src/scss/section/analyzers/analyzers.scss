@@ -441,7 +441,7 @@
 			pointer-events: none;
 		}
 
-		@media (max-width: #{$md3 - 1px}) {
+		@media (max-width: $md3) {
 			width: rem(247);
 		}
 
@@ -452,7 +452,6 @@
 
 		@media (any-hover: hover) {
 			&:hover {
-				transform: translateY(rem(-4));
 				border-color: $color-accent;
 				background-color: #fff;
 				box-shadow: 0 rem(12) rem(32) rgba($color-brand, 0.14);

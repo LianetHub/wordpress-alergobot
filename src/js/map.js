@@ -57,6 +57,38 @@ const loadYandexMapsScript = () =>
 		document.head.appendChild(script);
 	});
 
+const bindMapResize = (mapContainer, map) => {
+	const grid = mapContainer.closest(".contacts-order__grid");
+	const form = grid?.querySelector(".contacts-order__form");
+	const desktopMedia = window.matchMedia("(min-width: 992px)");
+
+	const resize = () => {
+		if (grid && form && desktopMedia.matches) {
+			mapContainer.style.height = `${form.offsetHeight}px`;
+		} else {
+			mapContainer.style.removeProperty("height");
+		}
+
+		map.container.fitToViewport();
+	};
+
+	const observer = new ResizeObserver(() => {
+		requestAnimationFrame(resize);
+	});
+
+	if (grid) {
+		observer.observe(grid);
+
+		if (form) {
+			observer.observe(form);
+		}
+	} else {
+		observer.observe(mapContainer);
+	}
+
+	requestAnimationFrame(resize);
+};
+
 const initMap = (mapContainer) => {
 	const coords = parseCoords(mapContainer.dataset.coords);
 	const zoom = parseInt(mapContainer.dataset.zoom, 10);
@@ -91,6 +123,7 @@ const initMap = (mapContainer) => {
 
 	map.geoObjects.add(placemark);
 	mapContainer.classList.add("_is-loaded");
+	bindMapResize(mapContainer, map);
 };
 
 const observeMap = (mapContainer) => {

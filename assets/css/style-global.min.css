@@ -147,16 +147,16 @@ h3 {
 }
 
 @font-face {
-  font-family: "Inter";
-  src: url("../fonts/Inter-VariableFont_opsz,wght.woff2") format("woff2 supports variations"), url("../fonts/Inter-VariableFont_opsz,wght.woff2") format("woff2-variations"), url("../fonts/Inter-VariableFont_opsz,wght.woff") format("woff");
+  font-family: "Manrope";
+  src: url("../fonts/Manrope-VariableFont_wght.woff2") format("woff2 supports variations"), url("../fonts/Manrope-VariableFont_wght.woff2") format("woff2-variations"), url("../fonts/Manrope-VariableFont_wght.woff") format("woff");
   font-weight: 100 900;
   font-stretch: 75% 125%;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
-  font-family: "Manrope";
-  src: url("../fonts/Manrope-VariableFont_wght.woff2") format("woff2 supports variations"), url("../fonts/Manrope-VariableFont_wght.woff2") format("woff2-variations"), url("../fonts/Manrope-VariableFont_wght.woff") format("woff");
+  font-family: "Inter";
+  src: url("../fonts/Inter-VariableFont_opsz,wght.woff2") format("woff2 supports variations"), url("../fonts/Inter-VariableFont_opsz,wght.woff2") format("woff2-variations"), url("../fonts/Inter-VariableFont_opsz,wght.woff") format("woff");
   font-weight: 100 900;
   font-stretch: 75% 125%;
   font-style: normal;
@@ -432,6 +432,7 @@ h3 {
   letter-spacing: -0.02em;
   border-radius: 0.25rem;
   text-align: center;
+  align-self: flex-start;
 }
 .typography-block dfn {
   font-weight: 600;
@@ -2330,7 +2331,6 @@ h3 {
     grid-template-columns: 1.875fr 1fr;
   }
   .heading.heading--devices .heading__main {
-    padding-top: 0;
     max-width: 54.5625rem;
   }
   .heading.heading--devices .heading__text {
@@ -2348,9 +2348,6 @@ h3 {
   .heading.heading--blog {
     padding-bottom: 3.375rem;
   }
-}
-.heading.heading--blog .heading__main {
-  padding-top: 0;
 }
 @media (min-width: 991.98px) {
   .heading.heading--blog .heading__aside {
@@ -2480,7 +2477,6 @@ h3 {
 }
 @media (min-width: 767.98px) {
   .heading__main {
-    padding-top: 1.25rem;
     display: block;
   }
 }
@@ -2632,7 +2628,7 @@ h3 {
 @media (min-width: 991.98px) {
   .heading__product-wrapper {
     width: 8.75rem;
-    padding: 1rem;
+    padding: 1.25rem;
   }
 }
 @media (any-hover: hover) {

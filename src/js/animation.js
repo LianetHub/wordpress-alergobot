@@ -145,6 +145,7 @@ function resolveMotionConfig(scene) {
 let animItems = [];
 let animTicking = false;
 let scrollInitialized = false;
+const pendingArticleItems = new WeakSet();
 
 export function initAnimation() {
 	initRipple();
@@ -154,7 +155,7 @@ export function initAnimation() {
 	initMotionAnimation();
 }
 
-export function refreshScrollAnimations(root = document) {
+export function refreshScrollAnimations(root = document, { runScroll = true } = {}) {
 	const scope = root instanceof Element ? root : document;
 	const newItems = scope.querySelectorAll("._anim-items");
 
@@ -164,7 +165,9 @@ export function refreshScrollAnimations(root = document) {
 		}
 	});
 
-	animOnScroll();
+	if (runScroll) {
+		animOnScroll();
+	}
 }
 
 function initRipple() {
@@ -211,8 +214,26 @@ const ARTICLE_MEDIA_SELECTOR = [
 	".article__gallery",
 ].join(", ");
 
+function isImageOnlyParagraph(element) {
+	if (!(element instanceof Element) || element.tagName !== "P") {
+		return false;
+	}
+
+	const img = element.querySelector(":scope > img");
+
+	if (!img || element.children.length !== 1) {
+		return false;
+	}
+
+	return element.textContent.trim() === "";
+}
+
 function isArticleMediaElement(element) {
 	if (!(element instanceof Element)) {
+		return false;
+	}
+
+	if (isImageOnlyParagraph(element)) {
 		return false;
 	}
 
@@ -223,6 +244,90 @@ function isArticleMediaElement(element) {
 	return Boolean(element.querySelector(`${ARTICLE_MEDIA_SELECTOR}, img`));
 }
 
+function getArticleAnimBlock(item) {
+	const body = item.closest(".article__body.typography-block");
+
+	if (!body) {
+		return item;
+	}
+
+	let block = item;
+
+	while (block.parentElement && block.parentElement !== body) {
+		block = block.parentElement;
+	}
+
+	return block;
+}
+
+function isArticleItemInView(item) {
+	const rect = item.getBoundingClientRect();
+	const isArticleBody = Boolean(item.closest(".article__body.typography-block"));
+	const threshold = isArticleBody ? window.innerHeight + 80 : window.innerHeight * 0.95;
+
+	return rect.top < threshold && rect.bottom > 0;
+}
+
+function runArticleItemTransition(item) {
+	if (!(item instanceof Element) || item.classList.contains("_active")) {
+		return;
+	}
+
+	item.removeAttribute("data-article-activating");
+	item.classList.add("_anim-no-hide");
+
+	if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+		item.classList.add("_active");
+		return;
+	}
+
+	if (pendingArticleItems.has(item)) {
+		return;
+	}
+
+	pendingArticleItems.add(item);
+
+	requestAnimationFrame(() => {
+		item.classList.remove("_active");
+		void item.offsetHeight;
+
+		requestAnimationFrame(() => {
+			item.classList.add("_active");
+		});
+	});
+}
+
+function activateArticleItem(item, { chainNext = true } = {}) {
+	if (!(item instanceof Element) || item.classList.contains("_active") || pendingArticleItems.has(item)) {
+		return;
+	}
+
+	const body = item.closest(".article__body.typography-block");
+
+	runArticleItemTransition(item);
+
+	if (!body || !chainNext) {
+		return;
+	}
+
+	const block = getArticleAnimBlock(item);
+	const next = block.nextElementSibling;
+
+	if (!(next instanceof Element)) {
+		return;
+	}
+
+	const nextItem = next.classList.contains("_anim-items")
+		? next
+		: next.querySelector("._anim-items");
+
+	if (nextItem instanceof Element && !nextItem.classList.contains("_active")) {
+		const delay = window.matchMedia("(prefers-reduced-motion: reduce)").matches ? 0 : 80;
+
+		setTimeout(() => activateArticleItem(nextItem, { chainNext: false }), delay);
+	}
+}
+
 function prepareArticleBody(body) {
 	if (!(body instanceof Element) || body.dataset.articleAnimPrepared === "true") {
 		return;
@@ -230,34 +335,59 @@ function prepareArticleBody(body) {
 
 	body.dataset.articleAnimPrepared = "true";
 
-	Array.from(body.children).forEach((element, index) => {
+	Array.from(body.children).forEach((element) => {
 		if (!(element instanceof Element) || element.classList.contains("_anim-items")) {
 			return;
 		}
 
-		element.style.setProperty("--article-anim-order", String(index));
+		if (isImageOnlyParagraph(element)) {
+			element.classList.add("article__image-paragraph");
+			const img = element.querySelector(":scope > img");
 
-		if (element.classList.contains("wp-block-columns")) {
-			element.classList.add("_anim-items", "a-fade-up");
-			element.querySelectorAll(ARTICLE_MEDIA_SELECTOR).forEach((mediaElement) => {
-				const target = mediaElement.closest("figure, .wp-block-image, .gallery, .article__gallery") || mediaElement;
+			if (img instanceof Element) {
+				img.classList.remove("_active");
+				img.removeAttribute("data-article-activating");
+				img.classList.add("_anim-items", "a-fade-up");
+			}
 
-				if (target instanceof Element && !target.classList.contains("_anim-items")) {
-					target.classList.add("_anim-items", "a-reveal");
-				}
-			});
 			return;
 		}
 
 		if (isArticleMediaElement(element)) {
-			element.classList.add("_anim-items", "a-reveal");
+			element.classList.remove("_active");
+			element.removeAttribute("data-article-activating");
+			element.classList.add("_anim-items", "a-fade-up");
 			return;
 		}
 
-		element.classList.add("_anim-items", "a-fade-up");
+		element.classList.remove("_active");
+		element.removeAttribute("data-article-activating");
+		element.classList.add("_anim-items", "a-fade");
 	});
 
-	refreshScrollAnimations(body);
+	refreshScrollAnimations(body, { runScroll: false });
+}
+
+function activateVisibleArticleItems(body) {
+	Array.from(body.children).forEach((block) => {
+		const item = block.classList.contains("_anim-items")
+			? block
+			: block.querySelector("._anim-items");
+
+		if (item instanceof Element && isArticleItemInView(item)) {
+			activateArticleItem(item);
+		}
+	});
+}
+
+function watchArticleImages(body) {
+	body.querySelectorAll("img").forEach((img) => {
+		if (img.complete) {
+			return;
+		}
+
+		img.addEventListener("load", () => activateVisibleArticleItems(body), { once: true });
+	});
 }
 
 function initArticleBodyAnimations(root = document) {
@@ -276,7 +406,14 @@ function initArticleBodyAnimations(root = document) {
 		return;
 	}
 
-	bodies.forEach(prepareArticleBody);
+	bodies.forEach((body) => {
+		prepareArticleBody(body);
+		watchArticleImages(body);
+
+		requestAnimationFrame(() => {
+			requestAnimationFrame(() => activateVisibleArticleItems(body));
+		});
+	});
 }
 
 function handleAnimScroll() {
@@ -291,12 +428,16 @@ function handleAnimScroll() {
 
 function animOnScroll() {
 	animItems.forEach((item) => {
-		const rect = item.getBoundingClientRect();
-		const inView = rect.top < window.innerHeight * 0.95 && rect.bottom > 0;
+		const inView = isArticleItemInView(item);
 
 		if (inView) {
 			if (!item.classList.contains("_active")) {
-				item.classList.add("_active");
+				if (item.closest(".article__body.typography-block")) {
+					activateArticleItem(item);
+				} else {
+					item.classList.add("_active");
+				}
+
 				item.querySelectorAll("[data-counter], [data-num]").forEach((num) => {
 					if (num.dataset.counter !== undefined) {
 						startCounter(num);

@@ -211,7 +211,7 @@ h3 {
   background: #edfbff;
   border: 1px solid #55acbf;
   border-radius: 0.625rem;
-  height: 100%;
+  align-self: stretch;
   min-height: 18.75rem;
 }
 .contacts-order__map::before {
@@ -237,6 +237,7 @@ h3 {
 @media (min-width: 991.98px) {
   .contacts-order__map {
     min-height: 26.9375rem;
+    height: auto;
   }
 }
 .contacts-order__map iframe {

@@ -570,7 +570,7 @@ h3 {
   transition: transform 0.65s ease;
   pointer-events: none;
 }
-@media (max-width: 990.98px) {
+@media (max-width: 991.98px) {
   .devices-benefits__slide {
     width: 15.4375rem;
   }
@@ -583,7 +583,6 @@ h3 {
 }
 @media (any-hover: hover) {
   .devices-benefits__slide:hover {
-    transform: translateY(-0.25rem);
     border-color: #55acbf;
     background-color: #fff;
     box-shadow: 0 0.75rem 2rem rgba(38, 102, 140, 0.14);
