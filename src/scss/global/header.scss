@@ -32,15 +32,21 @@
 	&__logo {
 		display: inline-flex;
 		flex-shrink: 0;
-		min-height: rem(36);
+
+		@media (max-width:$md3) {
+			min-height: rem(36);
+		}
 	}
 
 	&__logo-img {
 		display: block;
 		width: rem(111);
 		height: auto;
-		object-fit: contain;
-		object-position: left bottom;
+
+		@media (max-width:$md3) {
+			object-fit: contain;
+			object-position: left bottom;
+		}
 	}
 
 	&__nav {
@@ -72,12 +78,13 @@
 		font-weight: 450;
 		text-transform: uppercase;
 		line-height: 1.2;
-		
+
 		@include adaptive-font(16, 18);
-		
-		
-		
+
+
+
 		position: relative;
+
 		&::after {
 			content: "";
 			position: absolute;
@@ -147,7 +154,7 @@
 		@include adaptive-font(16, 18);
 		position: relative;
 		transition: all 0.3s ease;
-		
+
 		&::after {
 			content: "";
 			position: absolute;

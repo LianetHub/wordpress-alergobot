@@ -1,4 +1,4 @@
-$checkbox-check-mark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%2355acbf' d='M9 16.17L4.83 12l-1.42 1.41L9 19L21 7l-1.41-1.41z'/%3E%3C/svg%3E");
+$checkbox-check-mark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 16' fill='none'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M19.8567 2.35667L7.01167 15.2017L0 8.19L2.35667 5.83333L7.01167 10.4883L17.5 0L19.8567 2.35667Z' fill='%2326668C'/%3E%3C/svg%3E");
 
 @mixin checkbox-box-before {
 	content: "";
@@ -10,7 +10,7 @@ $checkbox-check-mark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/20
 	background-color: #f6f6f6;
 	background-position: center;
 	background-repeat: no-repeat;
-	background-size: rem(20) rem(20);
+	background-size: rem(20) rem(16);
 	transition: background-color 0.2s ease, border-color 0.2s ease;
 }
 
