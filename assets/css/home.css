@@ -1916,8 +1916,12 @@ h3 {
     aspect-ratio: 295/208;
   }
 }
-.equipment__card-media .cover-image {
+.equipment__card-media img {
   transition: transform 0.25s ease;
+  max-width: 90%;
+  height: auto;
+  width: auto;
+  max-height: 90%;
 }
 .equipment__card-text {
   margin: 0.625rem 0 0;

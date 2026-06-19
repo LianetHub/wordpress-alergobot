@@ -40,7 +40,6 @@ $footer_btn = alergobot_home_get( 'footer_btn' );
 										$item['image'],
 										'full',
 										array(
-											'class'   => 'cover-image',
 											'loading' => 'lazy',
 										)
 									);
