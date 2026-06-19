@@ -56,23 +56,19 @@ $has_cta       = $cta_title || $cta_text || $cta_note || $cta_image_url;
 				<?php if ( $heading_title ) : ?>
 					<h1 class="heading__title title title-lg <?php echo alergobot_anim_class( 'blur-up', '_anim-no-hide' ); ?>"><?php echo esc_html( $heading_title ); ?></h1>
 				<?php endif; ?>
-				<div class="heading__actions">
-					<?php echo alergobot_anim_wrap_open( 'fade-up', '_anim-no-hide', 'fill' ); ?>
+				<div class="heading__actions <?php echo alergobot_anim_class( 'stagger', '_anim-no-hide' ); ?>">
 					<button class="btn btn--primary heading__btn a-hover-lift" type="button" data-fancybox="" data-src="#popup-order">
 						<?php esc_html_e( 'оформить заказ', 'alergobot' ); ?>
 						<svg class="btn__icon" width="28" height="28" aria-hidden="true">
 							<use href="<?php echo esc_url( $icons ); ?>#icon-arrow-up-right"></use>
 						</svg>
 					</button>
-					<?php echo alergobot_anim_wrap_close(); ?>
-					<?php echo alergobot_anim_wrap_open( 'fade-up', '_anim-no-hide', 'fill' ); ?>
 					<button class="btn btn--secondary heading__btn" type="button" data-fancybox="" data-src="#popup-consultation">
 						<?php esc_html_e( 'задать вопрос', 'alergobot' ); ?>
 						<svg class="btn__icon" width="28" height="28" aria-hidden="true">
 							<use href="<?php echo esc_url( $icons ); ?>#icon-arrow-up-right"></use>
 						</svg>
 					</button>
-					<?php echo alergobot_anim_wrap_close(); ?>
 				</div>
 			</div>
 			<?php if ( $heading_text || $logo_url ) : ?>

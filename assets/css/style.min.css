@@ -9387,13 +9387,14 @@ h3 {
   }
 }
 .product-hero__rating-label {
-  font-size: calc(12 / var(--hero-ref-w) * 100cqw);
+  font-size: calc(12.5 / var(--hero-ref-w) * 100cqw);
   font-weight: 500;
   line-height: 1.2;
   letter-spacing: -0.02em;
   text-transform: uppercase;
   color: #26668C;
   flex-shrink: 0;
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
 }
 @media (max-width: 991.98px) {
   .product-hero__rating-label {
@@ -9413,6 +9414,7 @@ h3 {
   text-transform: uppercase;
   color: #26668c;
   flex-shrink: 0;
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
 }
 @media (max-width: 991.98px) {
   .product-hero__rating-value {

@@ -162,6 +162,7 @@
 			object-fit: contain;
 			transition: transform 0.25s ease;
 		}
+
 		@media (any-hover: hover) {
 			&:hover {
 				& img {
@@ -230,13 +231,14 @@
 	}
 
 	&__rating-label {
-		font-size: calc(12 / var(--hero-ref-w) * 100cqw);
+		font-size: calc(12.5 / var(--hero-ref-w) * 100cqw);
 		font-weight: 500;
 		line-height: 1.2;
 		letter-spacing: -0.02em;
 		text-transform: uppercase;
 		color: #26668C;
 		flex-shrink: 0;
+		font-family: $font-inter;
 
 		@media (max-width: $md3) {
 			font-size: calc(8 / 300 * 100cqw);
@@ -256,6 +258,7 @@
 		text-transform: uppercase;
 		color: $color-primary;
 		flex-shrink: 0;
+		font-family: $font-inter;
 
 		@media (max-width: $md3) {
 			gap: calc(2 / 300 * 100cqw);
