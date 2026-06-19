@@ -231,7 +231,7 @@
 			.catalog__gallery-decor {
 				left: auto;
 				right: 0;
-				transform: scaleX(-1) translate3d(var(--mx, 0px), var(--my, 0px), 0) rotate(var(--mrotate, 0deg));
+				transform: scaleX(-1) translate3d(calc(var(--mx, 0px) + var(--scroll-x, 0px)), calc(var(--my, 0px) + var(--scroll-y, 0px)), 0) rotate(var(--mrotate, 0deg));
 
 				@media (prefers-reduced-motion: reduce) {
 					transform: scaleX(-1);

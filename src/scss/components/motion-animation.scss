@@ -2,15 +2,17 @@
 	--mx: 0px;
 	--my: 0px;
 	--mrotate: 0deg;
+	--scroll-x: 0px;
+	--scroll-y: 0px;
 }
 
 @mixin motion-animation($x: null) {
 	will-change: transform;
 
 	@if $x {
-		transform: translateX(calc(#{$x} + var(--mx))) translateY(var(--my)) rotate(var(--mrotate));
+		transform: translateX(calc(#{$x} + var(--mx) + var(--scroll-x))) translateY(calc(var(--my) + var(--scroll-y))) rotate(var(--mrotate));
 	} @else {
-		transform: translate3d(var(--mx), var(--my), 0) rotate(var(--mrotate));
+		transform: translate3d(calc(var(--mx) + var(--scroll-x)), calc(var(--my) + var(--scroll-y)), 0) rotate(var(--mrotate));
 	}
 
 	@media (prefers-reduced-motion: reduce) {

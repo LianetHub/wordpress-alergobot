@@ -93,7 +93,7 @@
 		z-index: 0;
 		opacity: 0;
 		will-change: transform, opacity;
-		transform: translateX(calc(-50% + var(--mx, 0px))) translateY(var(--my, 0px)) rotate(var(--mrotate, 0deg));
+		transform: translateX(calc(-50% + var(--mx, 0px) + var(--scroll-x, 0px))) translateY(calc(var(--my, 0px) + var(--scroll-y, 0px))) rotate(var(--mrotate, 0deg));
 		transition: opacity 0.85s ease;
 
 		&.is-visible {
@@ -106,7 +106,7 @@
 			top: 0;
 			width: min(56%, rem(529));
 			max-width: rem(529);
-			transform: translate3d(var(--mx, 0px), var(--my, 0px), 0) rotate(var(--mrotate, 0deg));
+			transform: translate3d(calc(var(--mx, 0px) + var(--scroll-x, 0px)), calc(var(--my, 0px) + var(--scroll-y, 0px)), 0) rotate(var(--mrotate, 0deg));
 		}
 
 		@media (prefers-reduced-motion: reduce) {

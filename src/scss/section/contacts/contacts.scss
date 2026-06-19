@@ -112,7 +112,7 @@
 			left: 50%;
 			pointer-events: none;
 			will-change: transform;
-			transform: translateX(calc(-50% + var(--mx))) translateY(var(--my)) rotate(var(--mrotate));
+			transform: translateX(calc(-50% + var(--mx) + var(--scroll-x))) translateY(calc(var(--my) + var(--scroll-y))) rotate(var(--mrotate));
 
 			@media (min-width:$md4) {
 				width: rem(796);
@@ -121,7 +121,7 @@
 			@media (min-width:$md3) {
 				right: 0;
 				left: auto;
-				transform: translate3d(var(--mx), var(--my), 0) rotate(var(--mrotate));
+				transform: translate3d(calc(var(--mx) + var(--scroll-x)), calc(var(--my) + var(--scroll-y)), 0) rotate(var(--mrotate));
 			}
 
 			@media (prefers-reduced-motion: reduce) {
