@@ -188,3 +188,7 @@ $scrollbarColor: $color-primary;
 		background: $color-primary;
 	}
 }
+
+.screen-reader-text {
+	display: none !important;
+}

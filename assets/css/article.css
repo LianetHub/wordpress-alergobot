@@ -146,6 +146,10 @@ h3 {
   background: #26668c;
 }
 
+.screen-reader-text {
+  display: none !important;
+}
+
 .article {
   position: relative;
   padding: 1rem 0 2rem;

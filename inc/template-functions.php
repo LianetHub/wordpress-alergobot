@@ -1071,6 +1071,44 @@ if ( ! function_exists( 'alergobot_product_title_html' ) ) {
 	}
 }
 
+if ( ! function_exists( 'alergobot_get_term_acf_key' ) ) {
+	/**
+	 * ACF context key for a taxonomy term.
+	 *
+	 * @param string|int|WP_Term $term Term object, ID, or ACF term key.
+	 * @return string
+	 */
+	function alergobot_get_term_acf_key( $term ) {
+		if ( $term instanceof WP_Term ) {
+			return $term->taxonomy . '_' . $term->term_id;
+		}
+
+		if ( is_numeric( $term ) ) {
+			return 'product_category_' . (int) $term;
+		}
+
+		return (string) $term;
+	}
+}
+
+if ( ! function_exists( 'alergobot_get_term_acf_context' ) ) {
+	/**
+	 * ACF context for get_field/get_fields on taxonomy terms.
+	 *
+	 * @param string|int|WP_Term $term Term object, ID, or ACF term key.
+	 * @return string|WP_Term|null
+	 */
+	function alergobot_get_term_acf_context( $term ) {
+		if ( $term instanceof WP_Term ) {
+			return $term;
+		}
+
+		$term_key = alergobot_get_term_acf_key( $term );
+
+		return '' !== $term_key ? $term_key : null;
+	}
+}
+
 if ( ! function_exists( 'alergobot_get_term_fields' ) ) {
 	/**
 	 * Cached ACF fields for a taxonomy term.
@@ -1085,23 +1123,17 @@ if ( ! function_exists( 'alergobot_get_term_fields' ) ) {
 			return array();
 		}
 
-		if ( $term instanceof WP_Term ) {
-			$term_key = $term;
-		} elseif ( is_numeric( $term ) ) {
-			$term_key = 'product_category_' . (int) $term;
-		} else {
-			$term_key = (string) $term;
-		}
-
-		if ( '' === $term_key ) {
+		$cache_key = alergobot_get_term_acf_key( $term );
+		if ( '' === $cache_key ) {
 			return array();
 		}
 
-		if ( ! isset( $cache[ $term_key ] ) ) {
-			$cache[ $term_key ] = get_fields( $term_key ) ?: array();
+		if ( ! isset( $cache[ $cache_key ] ) ) {
+			$context = alergobot_get_term_acf_context( $term );
+			$cache[ $cache_key ] = $context ? ( get_fields( $context ) ?: array() ) : array();
 		}
 
-		return $cache[ $term_key ];
+		return $cache[ $cache_key ];
 	}
 }
 
@@ -1295,7 +1327,16 @@ if ( ! function_exists( 'alergobot_get_term_field' ) ) {
 
 		$fields = alergobot_get_term_fields( $term );
 
-		return array_key_exists( $field, $fields ) ? $fields[ $field ] : null;
+		if ( array_key_exists( $field, $fields ) ) {
+			return $fields[ $field ];
+		}
+
+		$context = alergobot_get_term_acf_context( $term );
+		if ( ! $context ) {
+			return null;
+		}
+
+		return get_field( $field, $context );
 	}
 }
 

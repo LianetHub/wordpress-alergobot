@@ -305,6 +305,132 @@
             "new_lines": "",
             "maxlength": "",
             "placeholder": ""
+        },
+        {
+            "key": "field_cat_faq_tag",
+            "label": "FAQ — тег",
+            "name": "cat_faq_tag",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Если пусто — «FAQ».",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "FAQ",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_cat_faq_title",
+            "label": "FAQ — заголовок",
+            "name": "cat_faq_title",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "Если пусто — «Ответы на популярные вопросы».",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "rows": 3,
+            "default_value": "",
+            "new_lines": "",
+            "maxlength": "",
+            "placeholder": ""
+        },
+        {
+            "key": "field_cat_faq",
+            "label": "FAQ — вопросы",
+            "name": "cat_faq",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "button_label": "Добавить вопрос",
+            "min": 0,
+            "max": 0,
+            "rows_per_page": 20,
+            "collapsed": "",
+            "sub_fields": [
+                {
+                    "key": "field_cat_faq_question",
+                    "label": "Вопрос",
+                    "name": "question",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": false,
+                    "conditional_logic": false,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "parent_repeater": "field_cat_faq",
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": ""
+                },
+                {
+                    "key": "field_cat_faq_answer",
+                    "label": "Ответ",
+                    "name": "answer",
+                    "aria-label": "",
+                    "type": "textarea",
+                    "instructions": "",
+                    "required": false,
+                    "conditional_logic": false,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "rows": 3,
+                    "parent_repeater": "field_cat_faq",
+                    "default_value": "",
+                    "new_lines": "",
+                    "maxlength": "",
+                    "placeholder": ""
+                },
+                {
+                    "key": "field_cat_faq_is_open",
+                    "label": "Открыт по умолчанию",
+                    "name": "is_open",
+                    "aria-label": "",
+                    "type": "true_false",
+                    "instructions": "",
+                    "required": false,
+                    "conditional_logic": false,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "ui": 1,
+                    "default_value": 0,
+                    "message": "",
+                    "ui_on_text": "",
+                    "ui_off_text": "",
+                    "parent_repeater": "field_cat_faq"
+                }
+            ]
         }
     ],
     "location": [
@@ -328,5 +454,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1781076091
+    "modified": 1781904000
 }

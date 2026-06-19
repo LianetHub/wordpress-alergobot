@@ -146,6 +146,10 @@ h3 {
   background: #26668c;
 }
 
+.screen-reader-text {
+  display: none !important;
+}
+
 .footer {
   padding-top: 1rem;
   padding-bottom: 1.5rem;

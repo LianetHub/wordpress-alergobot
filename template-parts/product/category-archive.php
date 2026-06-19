@@ -9,7 +9,13 @@ $term = get_queried_object();
 if ( ! ( $term instanceof WP_Term ) ) {
 	$term = get_query_var( 'alergobot_product_category_term' );
 }
-$term_id  = ( $term instanceof WP_Term ) ? (int) $term->term_id : 0;
+$term_id = ( $term instanceof WP_Term ) ? (int) $term->term_id : 0;
+if ( ! ( $term instanceof WP_Term ) && $term_id ) {
+	$term = get_term( $term_id, 'product_category' );
+}
+if ( $term instanceof WP_Term && is_wp_error( $term ) ) {
+	$term = null;
+}
 $term_key = $term_id ? 'product_category_' . $term_id : '';
 $icons    = alergobot_assets_uri( 'img/icons.svg' );
 
@@ -25,6 +31,9 @@ $cta_title     = '';
 $cta_text      = '';
 $cta_image     = null;
 $cta_note      = '';
+$faq_tag       = '';
+$faq_title     = '';
+$faq_items     = array();
 
 if ( $term_key ) {
 	$term_fields = alergobot_get_term_fields( $term_key );
@@ -41,6 +50,16 @@ if ( $term_key ) {
 	$cta_text      = (string) ( $term_fields['cat_cta_text'] ?? '' );
 	$cta_image     = $term_fields['cat_cta_image'] ?? null;
 	$cta_note      = (string) ( $term_fields['cat_cta_note'] ?? '' );
+}
+
+if ( $term instanceof WP_Term ) {
+	$faq_tag_raw   = alergobot_get_term_field( 'cat_faq_tag', $term );
+	$faq_title_raw = alergobot_get_term_field( 'cat_faq_title', $term );
+	$faq_items_raw = alergobot_get_term_field( 'cat_faq', $term );
+
+	$faq_tag   = is_string( $faq_tag_raw ) ? $faq_tag_raw : (string) ( $faq_tag_raw ?? '' );
+	$faq_title = is_string( $faq_title_raw ) ? $faq_title_raw : (string) ( $faq_title_raw ?? '' );
+	$faq_items = is_array( $faq_items_raw ) ? $faq_items_raw : array();
 }
 
 $logo_url      = alergobot_acf_image_url( $heading_logo );
@@ -213,3 +232,14 @@ $has_cta       = $cta_title || $cta_text || $cta_note || $cta_image_url;
 		</div>
 	</section>
 <?php endif; ?>
+<?php
+get_template_part(
+	'template-parts/section/faq',
+	null,
+	array(
+		'tag'   => $faq_tag ? $faq_tag : __( 'FAQ', 'alergobot' ),
+		'title' => $faq_title ? $faq_title : __( 'Ответы на популярные вопросы', 'alergobot' ),
+		'items' => $faq_items,
+	)
+);
+?>

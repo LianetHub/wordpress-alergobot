@@ -146,6 +146,10 @@ h3 {
   background: #26668c;
 }
 
+.screen-reader-text {
+  display: none !important;
+}
+
 .not-found {
   padding: 1rem 0 3.75rem;
 }
