@@ -1143,35 +1143,13 @@ if ( ! function_exists( 'alergobot_product_has_description_tab' ) ) {
 			return false;
 		}
 
-		if ( (string) alergobot_get_post_field( 'product_panel_lead', $post_id ) !== '' ) {
+		if ( (string) alergobot_get_post_field( 'product_panel_description', $post_id ) !== '' ) {
 			return true;
 		}
 
-		$blocks = alergobot_get_post_field( 'product_blocks', $post_id );
-		if ( is_array( $blocks ) ) {
-			foreach ( $blocks as $block ) {
-				if ( ! empty( $block['title'] ) ) {
-					return true;
-				}
+		$table_rows = alergobot_get_post_field( 'product_panel_table', $post_id );
 
-				foreach ( $block['items'] ?? array() as $item ) {
-					if ( ! empty( $item['text'] ) ) {
-						return true;
-					}
-				}
-			}
-		}
-
-		$allergens = alergobot_get_post_field( 'product_allergens', $post_id );
-		if ( ! is_array( $allergens ) ) {
-			return false;
-		}
-
-		if ( ! empty( $allergens['title'] ) || ! empty( $allergens['text'] ) ) {
-			return true;
-		}
-
-		return ! empty( $allergens['rows'] );
+		return is_array( $table_rows ) && ! empty( $table_rows );
 	}
 }
 

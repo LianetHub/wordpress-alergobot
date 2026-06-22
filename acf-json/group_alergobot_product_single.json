@@ -84,12 +84,12 @@
             "append": ""
         },
         {
-            "key": "field_product_panel_lead",
-            "label": "Описание — лид",
-            "name": "product_panel_lead",
+            "key": "field_product_panel_description",
+            "label": "Описание (вкладка)",
+            "name": "product_panel_description",
             "aria-label": "",
-            "type": "textarea",
-            "instructions": "",
+            "type": "wysiwyg",
+            "instructions": "Контент вкладки «Описание» на странице товара.",
             "required": false,
             "conditional_logic": false,
             "wrapper": {
@@ -97,19 +97,19 @@
                 "class": "",
                 "id": ""
             },
-            "rows": 4,
+            "tabs": "all",
+            "toolbar": "basic",
+            "media_upload": 0,
             "default_value": "",
-            "new_lines": "",
-            "maxlength": "",
-            "placeholder": ""
+            "delay": 0
         },
         {
-            "key": "field_product_blocks",
-            "label": "Описание — блоки",
-            "name": "product_blocks",
+            "key": "field_product_panel_table",
+            "label": "Таблица характеристик",
+            "name": "product_panel_table",
             "aria-label": "",
             "type": "repeater",
-            "instructions": "",
+            "instructions": "Отображается под текстом описания на вкладке «Описание».",
             "required": false,
             "conditional_logic": false,
             "wrapper": {
@@ -117,17 +117,17 @@
                 "class": "",
                 "id": ""
             },
-            "layout": "block",
-            "button_label": "Добавить блок",
+            "layout": "table",
+            "button_label": "Добавить строку",
             "min": 0,
             "max": 0,
             "rows_per_page": 20,
             "collapsed": "",
             "sub_fields": [
                 {
-                    "key": "field_product_block_title",
-                    "label": "Заголовок блока",
-                    "name": "title",
+                    "key": "field_product_panel_table_name_ru",
+                    "label": "Аллерген",
+                    "name": "name_ru",
                     "aria-label": "",
                     "type": "text",
                     "instructions": "",
@@ -138,7 +138,7 @@
                         "class": "",
                         "id": ""
                     },
-                    "parent_repeater": "field_product_blocks",
+                    "parent_repeater": "field_product_panel_table",
                     "default_value": "",
                     "maxlength": "",
                     "placeholder": "",
@@ -146,72 +146,9 @@
                     "append": ""
                 },
                 {
-                    "key": "field_product_block_items",
-                    "label": "Пункты списка",
-                    "name": "items",
-                    "aria-label": "",
-                    "type": "repeater",
-                    "instructions": "",
-                    "required": false,
-                    "conditional_logic": false,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "layout": "table",
-                    "button_label": "Добавить пункт",
-                    "parent_repeater": "field_product_blocks",
-                    "min": 0,
-                    "max": 0,
-                    "rows_per_page": 20,
-                    "collapsed": "",
-                    "sub_fields": [
-                        {
-                            "key": "field_product_block_item_text",
-                            "label": "Текст",
-                            "name": "text",
-                            "aria-label": "",
-                            "type": "text",
-                            "instructions": "",
-                            "required": false,
-                            "conditional_logic": false,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "parent_repeater": "field_product_block_items",
-                            "default_value": "",
-                            "maxlength": "",
-                            "placeholder": "",
-                            "prepend": "",
-                            "append": ""
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "key": "field_product_allergens",
-            "label": "Аллергены",
-            "name": "product_allergens",
-            "aria-label": "",
-            "type": "group",
-            "instructions": "",
-            "required": false,
-            "conditional_logic": false,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "layout": "block",
-            "sub_fields": [
-                {
-                    "key": "field_product_allergens_title",
-                    "label": "Заголовок",
-                    "name": "title",
+                    "key": "field_product_panel_table_name_en",
+                    "label": "Allergen",
+                    "name": "name_en",
                     "aria-label": "",
                     "type": "text",
                     "instructions": "",
@@ -222,6 +159,7 @@
                         "class": "",
                         "id": ""
                     },
+                    "parent_repeater": "field_product_panel_table",
                     "default_value": "",
                     "maxlength": "",
                     "placeholder": "",
@@ -229,11 +167,11 @@
                     "append": ""
                 },
                 {
-                    "key": "field_product_allergens_text",
-                    "label": "Текст",
-                    "name": "text",
+                    "key": "field_product_panel_table_code",
+                    "label": "Код",
+                    "name": "code",
                     "aria-label": "",
-                    "type": "textarea",
+                    "type": "text",
                     "instructions": "",
                     "required": false,
                     "conditional_logic": false,
@@ -242,97 +180,12 @@
                         "class": "",
                         "id": ""
                     },
-                    "rows": 3,
+                    "parent_repeater": "field_product_panel_table",
                     "default_value": "",
-                    "new_lines": "",
                     "maxlength": "",
-                    "placeholder": ""
-                },
-                {
-                    "key": "field_product_allergens_rows",
-                    "label": "Таблица",
-                    "name": "rows",
-                    "aria-label": "",
-                    "type": "repeater",
-                    "instructions": "",
-                    "required": false,
-                    "conditional_logic": false,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "layout": "table",
-                    "button_label": "Добавить строку",
-                    "min": 0,
-                    "max": 0,
-                    "rows_per_page": 20,
-                    "collapsed": "",
-                    "sub_fields": [
-                        {
-                            "key": "field_product_allergens_name_ru",
-                            "label": "Аллерген",
-                            "name": "name_ru",
-                            "aria-label": "",
-                            "type": "text",
-                            "instructions": "",
-                            "required": false,
-                            "conditional_logic": false,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "parent_repeater": "field_product_allergens_rows",
-                            "default_value": "",
-                            "maxlength": "",
-                            "placeholder": "",
-                            "prepend": "",
-                            "append": ""
-                        },
-                        {
-                            "key": "field_product_allergens_name_en",
-                            "label": "Allergen",
-                            "name": "name_en",
-                            "aria-label": "",
-                            "type": "text",
-                            "instructions": "",
-                            "required": false,
-                            "conditional_logic": false,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "parent_repeater": "field_product_allergens_rows",
-                            "default_value": "",
-                            "maxlength": "",
-                            "placeholder": "",
-                            "prepend": "",
-                            "append": ""
-                        },
-                        {
-                            "key": "field_product_allergens_code",
-                            "label": "Код",
-                            "name": "code",
-                            "aria-label": "",
-                            "type": "text",
-                            "instructions": "",
-                            "required": false,
-                            "conditional_logic": false,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "parent_repeater": "field_product_allergens_rows",
-                            "default_value": "",
-                            "maxlength": "",
-                            "placeholder": "",
-                            "prepend": "",
-                            "append": ""
-                        }
-                    ]
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": ""
                 }
             ]
         },
@@ -714,5 +567,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1781076132
+    "modified": 1750615200
 }
