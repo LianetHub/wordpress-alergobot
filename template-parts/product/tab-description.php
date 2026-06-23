@@ -48,7 +48,7 @@ $is_active = (bool) get_query_var( 'product_tab_active' );
 									<td><?php echo esc_html( (string) ( $row_index + 1 ) ); ?></td>
 									<td><?php echo esc_html( $row['name_ru'] ?? '' ); ?></td>
 									<td><?php echo esc_html( $row['name_en'] ?? '' ); ?></td>
-									<td><?php echo esc_html( $row['code'] ?? '' ); ?></td>
+									<td><?php echo alergobot_breakable_code( $row['code'] ?? '' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></td>
 								</tr>
 							<?php endforeach; ?>
 						</tbody>

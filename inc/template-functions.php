@@ -554,6 +554,30 @@ if ( ! function_exists( 'alergobot_esc_link' ) ) {
 	}
 }
 
+if ( ! function_exists( 'alergobot_breakable_code' ) ) {
+	/**
+	 * Render product allergen code with soft breaks after slashes.
+	 *
+	 * @param string $code Raw code value.
+	 * @return string Safe HTML.
+	 */
+	function alergobot_breakable_code( $code ) {
+		$code = (string) $code;
+
+		if ( '' === $code ) {
+			return '';
+		}
+
+		$parts = explode( '/', $code );
+
+		if ( count( $parts ) < 2 ) {
+			return esc_html( $code );
+		}
+
+		return implode( '/<wbr>', array_map( 'esc_html', $parts ) );
+	}
+}
+
 if ( ! function_exists( 'alergobot_menu_link_to_path' ) ) {
 	/**
 	 * Normalize menu link to comparable path or absolute URL.
