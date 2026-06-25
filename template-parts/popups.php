@@ -27,7 +27,7 @@ $error_title        = alergobot_get_option( 'popup_error_title' );
 	<div id="popup-consultation" class="popup-modal popup-modal--consult">
 		<div class="popup-modal__inner">
 			<?php if ( $consult_title ) : ?>
-				<h2 class="popup-modal__title title title-popup"><?php echo esc_html( $consult_title ); ?></h2>
+				<div class="popup-modal__title title title-popup"><?php echo esc_html( $consult_title ); ?></div>
 			<?php endif; ?>
 			<?php if ( $consult_lead ) : ?>
 				<p class="popup-modal__lead"><?php echo esc_html( $consult_lead ); ?></p>
@@ -45,7 +45,7 @@ $error_title        = alergobot_get_option( 'popup_error_title' );
 			<div class="popup-modal__layout">
 				<div class="popup-modal__content">
 					<?php if ( $order_title ) : ?>
-						<h2 class="popup-modal__title title title-popup"><?php echo esc_html( $order_title ); ?></h2>
+						<div class="popup-modal__title title title-popup"><?php echo esc_html( $order_title ); ?></div>
 					<?php endif; ?>
 					<?php if ( $order_lead ) : ?>
 						<p class="popup-modal__lead"><?php echo esc_html( $order_lead ); ?></p>
@@ -114,7 +114,7 @@ $error_title        = alergobot_get_option( 'popup_error_title' );
 				<?php endif; ?>
 				<div class="popup-modal__content">
 					<?php if ( $presentation_title ) : ?>
-						<h2 class="popup-modal__title title title-popup"><?php echo wp_kses_post( $presentation_title ); ?></h2>
+						<div class="popup-modal__title title title-popup"><?php echo wp_kses_post( $presentation_title ); ?></div>
 					<?php endif; ?>
 					<?php if ( $presentation_lead ) : ?>
 						<p class="popup-modal__lead"><?php echo esc_html( $presentation_lead ); ?></p>
@@ -130,7 +130,7 @@ $error_title        = alergobot_get_option( 'popup_error_title' );
 	<div id="popup-partners" class="popup-modal popup-modal--partners">
 		<div class="popup-modal__inner">
 			<?php if ( $partners_title ) : ?>
-				<h2 class="popup-modal__title title title-popup"><?php echo esc_html( $partners_title ); ?></h2>
+				<div class="popup-modal__title title title-popup"><?php echo esc_html( $partners_title ); ?></div>
 			<?php endif; ?>
 			<?php if ( $partners_lead ) : ?>
 				<p class="popup-modal__lead"><?php echo esc_html( $partners_lead ); ?></p>
@@ -183,7 +183,7 @@ $error_title        = alergobot_get_option( 'popup_error_title' );
 					<use href="<?php echo esc_url( alergobot_assets_uri( 'img/icons.svg' ) ); ?>#icon-check-circle"></use>
 				</svg>
 				<?php if ( $success_title ) : ?>
-					<h2 class="popup-modal__status-title"><?php echo wp_kses_post( $success_title ); ?></h2>
+					<div class="popup-modal__status-title"><?php echo wp_kses_post( $success_title ); ?></div>
 				<?php endif; ?>
 			</div>
 		</div>
@@ -196,7 +196,7 @@ $error_title        = alergobot_get_option( 'popup_error_title' );
 					<use href="<?php echo esc_url( alergobot_assets_uri( 'img/icons.svg' ) ); ?>#icon-close-circle"></use>
 				</svg>
 				<?php if ( $error_title ) : ?>
-					<h2 class="popup-modal__status-title"><?php echo wp_kses_post( $error_title ); ?></h2>
+					<div class="popup-modal__status-title"><?php echo wp_kses_post( $error_title ); ?></div>
 				<?php endif; ?>
 			</div>
 		</div>

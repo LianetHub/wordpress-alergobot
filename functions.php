@@ -14,6 +14,7 @@ $alergobot_inc = ALERGOBOT_DIR . '/inc/';
 
 require_once $alergobot_inc . 'template-tags.php';
 require_once $alergobot_inc . 'template-functions.php';
+require_once $alergobot_inc . 'seo.php';
 require_once $alergobot_inc . 'setup.php';
 require_once $alergobot_inc . 'cleanup.php';
 require_once $alergobot_inc . 'enqueue.php';
