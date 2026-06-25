@@ -1265,6 +1265,27 @@
             "append": ""
         },
         {
+            "key": "field_alg_ts_popup_partners_widget_label",
+            "label": "Текст плавающей кнопки",
+            "name": "popup_partners_widget_label",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Подпись на фиксированной кнопке справа, открывающей попап партнёров",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Партнёры",
+            "maxlength": "",
+            "allow_in_bindings": 1,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
             "key": "field_alg_ts_popup_tab_status",
             "label": "Статус отправки",
             "name": "",
@@ -1484,5 +1505,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1781093047
+    "modified": 1782403200
 }

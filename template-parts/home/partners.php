@@ -39,9 +39,14 @@ $partners = alergobot_get_partners();
 						if ( ! $thumb_id ) {
 							continue;
 						}
+						$link = alergobot_get_partner_link( $partner->ID );
 						?>
 						<div class="swiper-slide partners__slide">
-							<a class="partners__card" href="#popup-partners" data-fancybox data-src="#popup-partners" aria-label="<?php echo esc_attr( get_the_title( $partner ) ); ?>">
+							<?php if ( $link ) : ?>
+								<a class="partners__card" href="<?php echo esc_url( $link ); ?>" target="_blank" rel="noopener noreferrer" aria-label="<?php echo esc_attr( get_the_title( $partner ) ); ?>">
+							<?php else : ?>
+								<div class="partners__card partners__card--static" aria-label="<?php echo esc_attr( get_the_title( $partner ) ); ?>">
+							<?php endif; ?>
 								<span class="partners__logo-wrap">
 									<?php
 									echo alergobot_acf_image(
@@ -61,7 +66,11 @@ $partners = alergobot_get_partners();
 										<use href="<?php echo esc_url( alergobot_assets_uri( 'img/icons.svg' ) ); ?>#icon-arrow-up-right"></use>
 									</svg>
 								</span>
-							</a>
+							<?php if ( $link ) : ?>
+								</a>
+							<?php else : ?>
+								</div>
+							<?php endif; ?>
 						</div>
 					<?php endforeach; ?>
 				</div>

@@ -104,7 +104,7 @@ function initPartnersAutoPopup() {
 	if (!popup || !popup.querySelector(".popup-modal__partners")) return;
 
 	document.addEventListener("click", (e) => {
-		const trigger = e.target.closest('[data-fancybox][data-src="#popup-partners"]');
+		const trigger = e.target.closest('[data-fancybox][data-src="#popup-partners"], .partners-widget');
 		if (trigger) markPopupSeen();
 	});
 
@@ -289,6 +289,7 @@ function initHomeSwipers() {
 		new Swiper(chooseEl, {
 			slidesPerView: 1,
 			spaceBetween: 10,
+			loop: true,
 			breakpoints: {
 				991: {
 					slidesPerView: 2,

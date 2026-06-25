@@ -73,6 +73,7 @@ $link_cookies = alergobot_get_option('ssylka_cookies');
 	</div>
 </footer>
 </div>
+<?php get_template_part( 'template-parts/partners-widget' ); ?>
 <?php get_template_part('template-parts/popups'); ?>
 <?php wp_footer(); ?>
 </body>
