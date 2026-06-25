@@ -65,8 +65,8 @@ $link_cookies = alergobot_get_option('ssylka_cookies');
 			<?php if ($copyright) : ?>
 				<p class="footer__copy"><?php echo esc_html($copyright); ?></p>
 			<?php endif; ?>
-			<a href="https://ds-art.ru/" target="_blank" rel="noopener noreferrer" aria-label="Сайт разработан компанией DS-ART" class="footer__dev">
-				<img class="footer__dev-logo" src="<?php echo esc_url(alergobot_assets_uri('img/ds-art-logo.svg')); ?>" alt="" width="26" height="22" loading="lazy" aria-hidden="true">
+			<a href="https://ds-art.ru/razrabotka-sajtov/" target="_blank" rel="nofollow noopener noreferrer" title="<?php echo esc_attr__('Перейдите на сайт DS ART и посмотрите проекты по разработке сайтов', 'alergobot'); ?>" aria-label="<?php echo esc_attr__('Сайт разработан компанией DS-ART', 'alergobot'); ?>" class="footer__dev">
+				<img class="footer__dev-logo" src="<?php echo esc_url(alergobot_assets_uri('img/ds-art-logo.svg')); ?>" alt="<?php echo esc_attr__('DS ART разработка сайтов для медицинских и лабораторных компаний', 'alergobot'); ?>" width="26" height="22" loading="lazy">
 				<span class="footer__dev-text"><?php esc_html_e('Сайт разработан компанией DS-ART', 'alergobot'); ?></span>
 			</a>
 		</div>
