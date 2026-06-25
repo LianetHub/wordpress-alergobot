@@ -52,14 +52,139 @@ function alergobot_cf7_page_title_for_url( $url ) {
 	return get_bloginfo( 'name' );
 }
 
-function alergobot_cf7_build_form_page_meta( $url = null ) {
-	if ( null === $url ) {
-		$url = alergobot_cf7_current_page_url();
-	} else {
-		$url = esc_url( $url );
+function alergobot_cf7_decode_text( $text ) {
+	return html_entity_decode( wp_strip_all_tags( (string) $text ), ENT_QUOTES, 'UTF-8' );
+}
+
+function alergobot_cf7_current_page_title() {
+	if ( did_action( 'wp' ) && function_exists( 'wp_get_document_title' ) ) {
+		return alergobot_cf7_decode_text( wp_get_document_title() );
 	}
 
-	return alergobot_cf7_page_title_for_url( $url ) . ' | ' . $url;
+	return get_bloginfo( 'name', 'display' );
+}
+
+function alergobot_cf7_current_page_link_name() {
+	if ( ! did_action( 'wp' ) ) {
+		return get_bloginfo( 'name', 'display' );
+	}
+
+	if ( is_singular() ) {
+		return get_the_title();
+	}
+
+	if ( is_tax() || is_category() || is_tag() ) {
+		$term = get_queried_object();
+		if ( $term instanceof WP_Term ) {
+			if ( 'product_category' === $term->taxonomy && function_exists( 'alergobot_get_term_field' ) ) {
+				$heading = trim( (string) alergobot_get_term_field( 'cat_heading_title', $term ) );
+				if ( '' !== $heading ) {
+					return $heading;
+				}
+			}
+
+			return $term->name;
+		}
+	}
+
+	if ( is_post_type_archive() ) {
+		$post_type = get_query_var( 'post_type' );
+		if ( is_array( $post_type ) ) {
+			$post_type = (string) reset( $post_type );
+		}
+		$object = $post_type ? get_post_type_object( $post_type ) : null;
+		if ( $object && ! empty( $object->labels->name ) ) {
+			return $object->labels->name;
+		}
+	}
+
+	if ( is_front_page() ) {
+		$front_id = (int) get_option( 'page_on_front' );
+		if ( $front_id ) {
+			return get_the_title( $front_id );
+		}
+
+		return get_bloginfo( 'name', 'display' );
+	}
+
+	if ( is_home() ) {
+		$posts_page_id = (int) get_option( 'page_for_posts' );
+		if ( $posts_page_id ) {
+			return get_the_title( $posts_page_id );
+		}
+	}
+
+	if ( is_page() ) {
+		return get_the_title();
+	}
+
+	return alergobot_cf7_current_page_title();
+}
+
+function alergobot_cf7_format_form_page_meta( $title, $link_name ) {
+	$title     = trim( (string) $title );
+	$link_name = trim( (string) $link_name );
+
+	if ( '' === $title && '' === $link_name ) {
+		return get_bloginfo( 'name', 'display' );
+	}
+
+	if ( '' === $title ) {
+		return $link_name;
+	}
+
+	if ( '' === $link_name || $title === $link_name ) {
+		return $title;
+	}
+
+	return $title . ' | ' . $link_name;
+}
+
+function alergobot_cf7_page_document_title_for_url( $url ) {
+	$post_id = url_to_postid( $url );
+
+	if ( $post_id ) {
+		$yoast_title = get_post_meta( $post_id, '_yoast_wpseo_title', true );
+		if ( is_string( $yoast_title ) && '' !== trim( $yoast_title ) ) {
+			return alergobot_cf7_decode_text( $yoast_title );
+		}
+
+		return get_the_title( $post_id );
+	}
+
+	return alergobot_cf7_page_title_for_url( $url );
+}
+
+function alergobot_cf7_build_form_page_meta( $url = null ) {
+	if ( null === $url ) {
+		return alergobot_cf7_format_form_page_meta(
+			alergobot_cf7_current_page_title(),
+			alergobot_cf7_current_page_link_name()
+		);
+	}
+
+	$url = esc_url( $url );
+
+	return alergobot_cf7_format_form_page_meta(
+		alergobot_cf7_page_document_title_for_url( $url ),
+		alergobot_cf7_page_title_for_url( $url )
+	);
+}
+
+function alergobot_cf7_get_submission_referer_url() {
+	$referer = wp_get_referer();
+
+	if ( ! $referer && ! empty( $_SERVER['HTTP_REFERER'] ) ) {
+		$referer = esc_url_raw( wp_unslash( $_SERVER['HTTP_REFERER'] ) );
+	}
+
+	return $referer ? esc_url( $referer ) : esc_url( home_url( '/' ) );
+}
+
+function alergobot_cf7_is_url_like( $value ) {
+	$value = trim( (string) $value );
+
+	return '' !== $value && ( str_contains( $value, '://' ) || str_starts_with( $value, '//' ) );
 }
 
 function alergobot_cf7_set_hidden_field( $content, $name, $value ) {
@@ -135,31 +260,39 @@ add_filter(
 function alergobot_cf7_get_submission_page_meta() {
 	$submission = WPCF7_Submission::get_instance();
 	$posted     = $submission ? (array) $submission->get_posted_data() : array();
+	$url        = alergobot_cf7_get_submission_referer_url();
 
 	if ( ! empty( $posted['form-page'] ) ) {
 		$page_meta = (string) $posted['form-page'];
 
 		if ( str_contains( $page_meta, ' | ' ) ) {
-			[$title, $url] = array_pad( explode( ' | ', $page_meta, 2 ), 2, '' );
-			$title         = trim( $title );
-			$url           = trim( $url );
+			[$title, $second] = array_pad( explode( ' | ', $page_meta, 2 ), 2, '' );
+			$title            = trim( $title );
+			$second           = trim( $second );
 
-			if ( '' !== $title || '' !== $url ) {
+			if ( alergobot_cf7_is_url_like( $second ) ) {
 				return array(
-					'title' => '' !== $title ? $title : alergobot_cf7_page_title_for_url( $url ),
-					'url'   => '' !== $url ? esc_url( $url ) : '',
+					'title' => '' !== $title ? $title : alergobot_cf7_page_title_for_url( $second ),
+					'url'   => esc_url( $second ),
+				);
+			}
+
+			if ( '' !== $title || '' !== $second ) {
+				return array(
+					'title' => '' !== $title ? $title : $second,
+					'url'   => $url,
 				);
 			}
 		}
+
+		$single = trim( $page_meta );
+		if ( '' !== $single ) {
+			return array(
+				'title' => $single,
+				'url'   => $url,
+			);
+		}
 	}
-
-	$referer = wp_get_referer();
-
-	if ( ! $referer && ! empty( $_SERVER['HTTP_REFERER'] ) ) {
-		$referer = esc_url_raw( wp_unslash( $_SERVER['HTTP_REFERER'] ) );
-	}
-
-	$url = $referer ? esc_url( $referer ) : esc_url( home_url( '/' ) );
 
 	return array(
 		'title' => alergobot_cf7_page_title_for_url( $url ),
@@ -249,13 +382,7 @@ add_filter(
 add_filter(
 	'wpcf7_posted_data',
 	function ( $posted ) {
-		$referer = wp_get_referer();
-
-		if ( ! $referer && ! empty( $_SERVER['HTTP_REFERER'] ) ) {
-			$referer = esc_url_raw( wp_unslash( $_SERVER['HTTP_REFERER'] ) );
-		}
-
-		$page_url = $referer ? esc_url( $referer ) : esc_url( home_url( '/' ) );
+		$page_url = alergobot_cf7_get_submission_referer_url();
 
 		if ( empty( $posted['form-time'] ) ) {
 			$posted['form-time'] = (string) time();

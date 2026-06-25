@@ -17,6 +17,19 @@ if ( ! $card_title ) {
 $card_text = (string) alergobot_get_post_field( 'product_hero_text', $post_id );
 $thumb     = get_the_post_thumbnail_url( $post_id, 'medium' );
 
+$order_source = sprintf(
+	__( 'Каталог — %s — заказать', 'alergobot' ),
+	wp_strip_all_tags( $card_title )
+);
+$queried_term = get_queried_object();
+if ( $queried_term instanceof WP_Term ) {
+	$order_source = sprintf(
+		__( 'Каталог «%1$s» — %2$s — заказать', 'alergobot' ),
+		$queried_term->name,
+		wp_strip_all_tags( $card_title )
+	);
+}
+
 ?>
 <li class="category__item">
 	<div class="category__card">
@@ -39,7 +52,7 @@ $thumb     = get_the_post_thumbnail_url( $post_id, 'medium' );
 					<use href="<?php echo esc_url( $icons ); ?>#icon-arrow-up-right"></use>
 				</svg>
 			</a>
-			<button class="btn btn--secondary category__btn" type="button" data-fancybox="" data-src="#popup-order">
+			<button class="btn btn--secondary category__btn" type="button" data-fancybox="" data-src="#popup-order" data-order-source="<?php echo esc_attr( $order_source ); ?>">
 				<?php esc_html_e( 'заказать', 'alergobot' ); ?>
 				<svg class="btn__icon" width="28" height="28" aria-hidden="true">
 					<use href="<?php echo esc_url( $icons ); ?>#icon-arrow-up-right"></use>

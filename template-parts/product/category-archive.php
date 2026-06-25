@@ -67,6 +67,14 @@ $cta_image_url = alergobot_acf_image_url( $cta_image );
 $has_work      = $work_title || $work_tag || $work_text || $work_gallery;
 $has_cta       = $cta_title || $cta_text || $cta_note || $cta_image_url;
 
+if ( $heading_title ) {
+	$order_source = sprintf( __( 'Категория «%s» — оформить заказ', 'alergobot' ), $heading_title );
+} elseif ( $term instanceof WP_Term ) {
+	$order_source = sprintf( __( 'Категория «%s» — оформить заказ', 'alergobot' ), $term->name );
+} else {
+	$order_source = __( 'Каталог — оформить заказ', 'alergobot' );
+}
+
 ?>
 <section class="heading heading--devices">
 	<div class="heading__container _container">
@@ -76,7 +84,7 @@ $has_cta       = $cta_title || $cta_text || $cta_note || $cta_image_url;
 					<h1 class="heading__title title title-lg <?php echo alergobot_anim_class( 'blur-up', '_anim-no-hide' ); ?>"><?php echo esc_html( $heading_title ); ?></h1>
 				<?php endif; ?>
 				<div class="heading__actions <?php echo alergobot_anim_class( 'stagger', '_anim-no-hide' ); ?>">
-					<button class="btn btn--primary heading__btn a-hover-lift" type="button" data-fancybox="" data-src="#popup-order">
+					<button class="btn btn--primary heading__btn a-hover-lift" type="button" data-fancybox="" data-src="#popup-order" data-order-source="<?php echo esc_attr( $order_source ); ?>">
 						<?php esc_html_e( 'оформить заказ', 'alergobot' ); ?>
 						<svg class="btn__icon" width="28" height="28" aria-hidden="true">
 							<use href="<?php echo esc_url( $icons ); ?>#icon-arrow-up-right"></use>

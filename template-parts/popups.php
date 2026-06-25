@@ -54,7 +54,7 @@ $error_title        = alergobot_get_option( 'popup_error_title' );
 						<?php alergobot_cf7_form( 'cf7_zakaz', __( 'Заказ (попап)', 'alergobot' ) ); ?>
 					</div>
 				</div>
-				<?php if ( $order_image_1 || $order_image_2 ) : ?>
+				<!-- <?php if ( $order_image_1 || $order_image_2 ) : ?>
 					<div class="popup-modal__visual" aria-hidden="true">
 						<?php if ( $order_image_1 ) : ?>
 							<div class="popup-modal__photo">
@@ -89,7 +89,7 @@ $error_title        = alergobot_get_option( 'popup_error_title' );
 							</div>
 						<?php endif; ?>
 					</div>
-				<?php endif; ?>
+				<?php endif; ?> -->
 			</div>
 		</div>
 	</div>

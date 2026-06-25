@@ -25,7 +25,7 @@ $rating   = (string) alergobot_get_post_field( 'product_rating', $post_id );
 					<p class="product-hero__text <?php echo alergobot_anim_class( 'fade-up', '_anim-no-hide' ); ?>"><?php echo esc_html( $hero_text ); ?></p>
 				<?php endif; ?>
 				<?php echo alergobot_anim_wrap_open( 'fade-up', '_anim-no-hide', 'fill' ); ?>
-				<button class="product-hero__order btn btn--white a-hover-lift" type="button" data-fancybox="" data-src="#popup-order">
+				<button class="product-hero__order btn btn--white a-hover-lift" type="button" data-fancybox="" data-src="#popup-order" data-order-source="<?php echo esc_attr( sprintf( __( 'Страница товара «%s» — заказать', 'alergobot' ), $hero_alt ) ); ?>">
 					<?php esc_html_e( 'заказать', 'alergobot' ); ?>
 					<svg class="btn__icon" width="28" height="28" aria-hidden="true">
 						<use href="<?php echo esc_url( $icons ); ?>#icon-arrow-up-right"></use>

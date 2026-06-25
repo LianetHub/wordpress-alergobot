@@ -7,6 +7,7 @@ import { initTooltips } from "./tooltip.js";
 document.addEventListener("DOMContentLoaded", () => {
 	initBurger();
 	initFancybox();
+	initOrderPopupSource();
 	initPartnersAutoPopup();
 	initBlogTabs();
 	initProductTabs();
@@ -78,6 +79,25 @@ function initFancybox() {
 		},
 	});
 
+}
+
+function initOrderPopupSource() {
+	const popup = document.getElementById("popup-order");
+	if (!popup) return;
+
+	const fieldName = "form-button";
+
+	const setOrderSource = (source) => {
+		const input = popup.querySelector(`input[name="${fieldName}"]`);
+		if (input) input.value = source || "";
+	};
+
+	document.addEventListener("click", (e) => {
+		const trigger = e.target.closest('[data-fancybox][data-src="#popup-order"], [data-fancybox][href="#popup-order"]');
+		if (!trigger) return;
+
+		setOrderSource(trigger.dataset.orderSource || "");
+	});
 }
 
 function initPartnersAutoPopup() {
@@ -421,7 +441,7 @@ function initPhoneMask() {
 				formattedInputValue += "-" + inputNumbersValue.substring(9, 11);
 			}
 		} else {
-			formattedInputValue = "+" + inputNumbersValue.substring(0, 16);
+			formattedInputValue = "+" + inputNumbersValue.substring(0, 15);
 		}
 
 		input.value = formattedInputValue;
