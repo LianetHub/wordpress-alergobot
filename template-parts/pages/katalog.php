@@ -39,7 +39,7 @@ $has_request = $request_title || $request_note || $request_lead;
 			<div class="heading__grid">
 				<div class="heading__main">
 					<?php echo alergobot_anim_wrap_open( 'fade-up', '_anim-no-hide', 'inline' ); ?>
-					<a class="btn btn--primary heading__cta a-hover-lift" href="#catalog-request">
+					<a class="btn btn--primary heading__cta a-hover-lift" data-fancybox href="#popup-consultation">
 						<?php esc_html_e( 'Задать вопрос', 'alergobot' ); ?>
 						<svg class="btn__icon" width="28" height="28" aria-hidden="true">
 							<use href="<?php echo esc_url( $icons ); ?>#icon-arrow-up-right"></use>
